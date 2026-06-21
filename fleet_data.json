@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-21 13:54:47 IST",
-  "generated_epoch": 1782030287,
+  "generated_ist": "2026-06-21 13:59:51 IST",
+  "generated_epoch": 1782030591,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.53 / 9.47 / 9.56",
+    "load": "9.17 / 9.54 / 9.58",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 58300,
-      "rss_gb": 0.77,
-      "cpu": 0.3,
+      "rss_gb": 0.75,
+      "cpu": 0.1,
       "crons_total": 76,
       "crons_enabled": 53,
       "skills_count": 59,
@@ -42,7 +42,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 13.9,
         "rolling_28day": 13.9,
         "rolling_180day": 13.9
@@ -646,7 +646,25 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782030236656,
+          "last_ts": 1782030539144,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782030513984,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782030444145,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -683,24 +701,6 @@
           "enabled": true,
           "sched": "*/10 6-23 * * *",
           "last_ts": 1782030035730,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782029914042,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782029545014,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1469,7 +1469,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.42,
-      "cpu": 0.4,
+      "cpu": 0.8,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1478,10 +1478,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 13.7,
-        "rolling_28day": 13.7,
-        "rolling_180day": 85.8
+        "transcript": 0.1,
+        "rolling_7day": 13.8,
+        "rolling_28day": 13.8,
+        "rolling_180day": 85.9
       },
       "skills": [
         "moltguard"
@@ -1499,20 +1499,20 @@
       ],
       "crons": [
         {
-          "name": "giskard-watchdog-13",
+          "name": "giskard-consolidation-13",
           "enabled": true,
-          "sched": "40 13 * * *",
-          "last_ts": 1782029985932,
+          "sched": "20 13 * * *",
+          "last_ts": 1782030304146,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
         },
         {
-          "name": "giskard-consolidation-13",
+          "name": "giskard-watchdog-13",
           "enabled": true,
-          "sched": "20 13 * * *",
-          "last_ts": 1782029653495,
-          "last_status": "error",
+          "sched": "40 13 * * *",
+          "last_ts": 1782029985932,
+          "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
         },
@@ -1626,48 +1626,7 @@
         }
       ],
       "transcripts": {
-        "recent": [
-          "| Fix | Before | After |",
-          "|-----|--------|-------|",
-          "| **Swap alert** | \ud83d\udd34 at >4 GB used (flat) | Gated on `memory_pressure` free%: only \ud83d\udd34 if <20% free, \u26a0\ufe0f if <30% free; suppress",
-          "[07:30 IST] Giskard (ASSISTANT): All four patches are working correctly:",
-          "- **`ncpu: 14`** \u2014 picked up from `sysctl hw.ncpu`",
-          "- **`mem_free: 90%`** \u2014 read from `memory_pressure`",
-          "- **`swap_gb: 10.47`** \u2014 same 10.5 GB that was triggering false alarms",
-          "- **`sys_flags: []`** \u2014 empty, because 90% free is healthy. No more spurious alert.",
-          "Summary of what changed:",
-          "| Fix | Before | After |",
-          "|-----|--------|-------|",
-          "| **Swap alert** | \ud83d\udd34 at >4 GB used (flat) | Gated on `memory_pressure` free%: only \ud83d\udd34 if <20% free, \u26a0\ufe0f if <30% free; suppress",
-          "[07:24 IST] Giskard (USER): Done?",
-          "[07:30 IST] Giskard (ASSISTANT): Done. Both fixes are in and verified.",
-          "Smoke test output just now:",
-          "```",
-          "ncpu       : 14",
-          "mem_free   : 90 %",
-          "swap_gb    : 10.47",
-          "sys_flags  : []",
-          "```",
-          "Same 10.5 GB swap, no flag \u2014 because 90% memory is free. The false positive is gone.",
-          "**What changed:**",
-          "- **Swap** \u2014 now gated on `memory_pressure` free%: alerts only if <20% free (\ud83d\udd34) or <30% (\u26a0\ufe0f). If memory is healthy, swap noise is suppressed entirely. Fallback raw thresholds raised to 12/8 GB if `memory_pressure` ever fails.",
-          "- **Load** \u2014 normalised",
-          "[07:30 IST] Giskard (ASSISTANT): Done. Both fixes are in and verified.",
-          "Smoke test output just now:",
-          "```",
-          "ncpu       : 14",
-          "mem_free   : 90 %",
-          "swap_gb    : 10.47",
-          "sys_flags  : []",
-          "```",
-          "Same 10.5 GB swap, no flag \u2014 because 90% memory is free. The false positive is gone.",
-          "**What changed:**",
-          "- **Swap** \u2014 now gated on `memory_pressure` free%: alerts only if <20% free (\ud83d\udd34) or <30% (\u26a0\ufe0f). If memory is healthy, swap noise is suppressed entirely. Fallback raw thresholds raised to 12/8 GB if `memory_pressure` ever fails.",
-          "- **Load** \u2014 normalised",
-          "[07:31 IST] Giskard (USER): Is it not a hourly report?",
-          "[07:31 IST] Giskard (ASSISTANT): You're right \u2014 it's hourly, not just 13:00/23:00. The fix is live now, so the next hourly run (08:00 IST) should already be clean.",
-          "[07:31 IST] Giskard (ASSISTANT): You're right \u2014 it's hourly, not just 13:00/23:00. The fix is live now, so the next hourly run (08:00 IST) should already be clean."
-        ],
+        "recent": [],
         "yesterday": [],
         "rolling_7day": [
           "- Legal-SMEDA midnight rolling summary cron created (`2080d6fd`) in dedicated cron directory; fleet monitor tracking updated",
@@ -1764,7 +1723,7 @@
       "up": true,
       "pid": 98635,
       "rss_gb": 0.46,
-      "cpu": 0.2,
+      "cpu": 0.5,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1772,10 +1731,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 13.8,
-        "rolling_28day": 13.8,
-        "rolling_180day": 13.8
+        "transcript": 0.2,
+        "rolling_7day": 13.9,
+        "rolling_28day": 13.9,
+        "rolling_180day": 13.9
       },
       "skills": [
         "twitacc"
@@ -2171,7 +2130,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.4,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2179,7 +2138,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
+        "transcript": 0.5,
         "rolling_7day": 13.8,
         "rolling_28day": 13.8,
         "rolling_180day": 13.8
@@ -2556,7 +2515,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.36,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2564,7 +2523,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.9,
+        "transcript": 1.0,
         "rolling_7day": 13.7,
         "rolling_28day": 13.7,
         "rolling_180day": 13.7
@@ -2846,16 +2805,16 @@
       "up": true,
       "pid": 915,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 13.9,
-        "rolling_28day": 13.9,
-        "rolling_180day": 14.9
+        "transcript": 0.2,
+        "rolling_7day": 14.0,
+        "rolling_28day": 14.0,
+        "rolling_180day": 15.0
       },
       "skills": [
         "moltguard"
@@ -3019,10 +2978,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 1.9,
-        "rolling_7day": 13.8,
-        "rolling_28day": 13.8,
-        "rolling_180day": 13.8
+        "transcript": 2.0,
+        "rolling_7day": 13.9,
+        "rolling_28day": 13.9,
+        "rolling_180day": 13.9
       },
       "skills": [
         "moltguard"
@@ -3160,7 +3119,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.31,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3168,10 +3127,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.7,
-        "rolling_7day": 13.6,
-        "rolling_28day": 13.6,
-        "rolling_180day": 250.7
+        "transcript": 1.8,
+        "rolling_7day": 13.7,
+        "rolling_28day": 13.7,
+        "rolling_180day": 250.8
       },
       "skills": [],
       "skills_detail": [],
@@ -3350,17 +3309,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.29,
+      "rss_gb": 0.26,
       "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
-        "rolling_180day": 14.8
+        "transcript": 0.2,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
+        "rolling_180day": 14.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3586,8 +3545,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.42,
-      "cpu": 0.7,
+      "rss_gb": 0.32,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3595,7 +3554,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
+        "transcript": 0.5,
         "rolling_7day": 13.8,
         "rolling_28day": 13.8,
         "rolling_180day": 13.8
@@ -3959,7 +3918,7 @@
       "up": true,
       "pid": 925,
       "rss_gb": 0.37,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -3967,9 +3926,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
+        "transcript": 0.0,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
         "rolling_180day": null
       },
       "skills": [
