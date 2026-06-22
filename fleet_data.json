@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-22 23:40:09 IST",
-  "generated_epoch": 1782151809,
+  "generated_ist": "2026-06-22 23:45:16 IST",
+  "generated_epoch": 1782152116,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.57 / 10.66 / 10.69",
+    "load": "12.74 / 11.49 / 11.03",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 49005,
-      "rss_gb": 0.86,
-      "cpu": 0.1,
+      "rss_gb": 0.95,
+      "cpu": 122.1,
       "crons_total": 76,
       "crons_enabled": 53,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 0.3,
-        "rolling_28day": 23.6,
-        "rolling_180day": 23.6
+        "transcript": 0.0,
+        "rolling_7day": 0.4,
+        "rolling_28day": 23.7,
+        "rolling_180day": 23.7
       },
       "skills": [
         "academic-deep-research",
@@ -643,6 +643,15 @@
       ],
       "crons": [
         {
+          "name": "Sam \u2014 Nightly Consolidation (23:00 IST)",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1782152039739,
+          "last_status": "error",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
@@ -657,15 +666,6 @@
           "sched": "every 10m",
           "last_ts": 1782151726909,
           "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam \u2014 Nightly Consolidation (23:00 IST)",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782151678694,
-          "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
@@ -1329,17 +1329,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Giskard's `fleet_monitor.py` (lines 99\u2013131) has a hardcoded map** that registers **two** consolidation crons for Legal SMEDA against its sqlite:",
-          "- `\"Legal midnight\"` \u2192 `2080d6fd\u2026` (the real, live midnight job \u2014 the one I just fixed)",
-          "- `\"Legal 23:00\"` \u2192 `6a3d14e0-3d6e-4edb-8921-1eb33fd59e38` \u2190 **this ID does not exist** in Legal SMEDA's current cron store (its store has onl...",
-          "[22:28 IST] HADERACH: This changes the picture materially \u2014 and it's good I checked before drafting. **My earlier conclusion was partly wrong.** The real facts:",
-          "Legal SMEDA's **sqlite `cron_jobs` table has THREE jobs**, not two. The `jobs.json.migrated` file I edited only had two \u2014 but the **live sqlite** (which the gateway actually runs from, and which Giskard reads) also contains:",
-          "- `6a3d14e0\u2026` \u2014 **\"Legal-SMEDA \u2014 Nightly Memory Consolidation (23:00 IST)\"** \u2014 **consecutive_errors = 1**, `last_error = \u26a0\ufe0f \ud83d\udcdd Edit:...",
-          "[22:28 IST] HADERACH: The previous query returned blank for that row's schedule/payload \u2014 let me query the specific columns plus store_key (there may be multiple store_keys, e.g. a stale duplicate).",
-          "[22:28 IST] HADERACH: Now I have the complete, correct picture. Let me read the full prompt of the real failing job so my report to you is precise.",
-          "[22:29 IST] HADERACH: I now have everything verified. Here's the **corrected diagnosis** before I draft anything for Giskard \u2014 and I owe you a frank correction.",
-          "## \u26a0\ufe0f Correction to my earlier report",
-          "My \"fix\" earlier went into the **wrong job and the wrong store.** The verified facts:",
           "**Legal SMEDA actually has THREE crons (in the live sqlite, which is what the gateway runs):**",
           "| Job ID | Name | Schedule | Errors | Banner? |",
           "|---|---|---|---|---|",
@@ -1368,7 +1357,18 @@
           "- **Steps 2-3** \u2014 No new `[FACT:]` tags to promote; the one FACT (RBI regulation library) already in tech.md + MEMORY.md.",
           "- **Steps 4-6** \u2014 rolling-7day (22 Jun section), rolling-28day (21 Jun), and rolling-180day (21 Jun) all already current from the watchdog run.",
           "- **Step 7** \u2014 Tag index rebuilt: 36 days, 2 updated.",
-          "- **Step 8** \u2014 M..."
+          "- **Step 8** \u2014 M...",
+          "[23:44 IST] RAM: [OpenClaw heartbeat poll]",
+          "[23:44 IST] HADERACH: Good evening, Ram.",
+          "**Status \u2014 23:44 IST (Mon 22 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 74+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
         "yesterday": [
           "# Transcript \u2014 2026-06-21",
@@ -1468,8 +1468,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.49,
-      "cpu": 0.6,
+      "rss_gb": 0.47,
+      "cpu": 1.6,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1478,7 +1478,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
+        "transcript": 0.3,
         "rolling_7day": 23.4,
         "rolling_28day": 23.4,
         "rolling_180day": 119.6
@@ -1798,8 +1798,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.44,
-      "cpu": 0.6,
+      "rss_gb": 0.42,
+      "cpu": 1.6,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1807,10 +1807,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.6,
-        "rolling_7day": 23.6,
-        "rolling_28day": 23.6,
-        "rolling_180day": 23.6
+        "transcript": 0.7,
+        "rolling_7day": 23.7,
+        "rolling_28day": 23.7,
+        "rolling_180day": 23.7
       },
       "skills": [
         "twitacc"
@@ -2205,8 +2205,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.41,
-      "cpu": 0.1,
+      "rss_gb": 0.4,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2214,8 +2214,8 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.5,
+        "transcript": 0.3,
+        "rolling_7day": 23.6,
         "rolling_28day": 1.7,
         "rolling_180day": 1.7
       },
@@ -2591,7 +2591,7 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
+      "rss_gb": 0.36,
       "cpu": 0.4,
       "crons_total": 9,
       "crons_enabled": 9,
@@ -2601,9 +2601,9 @@
       ],
       "memory": {
         "transcript": 0.7,
-        "rolling_7day": 23.4,
-        "rolling_28day": 23.4,
-        "rolling_180day": 23.4
+        "rolling_7day": 23.5,
+        "rolling_28day": 23.5,
+        "rolling_180day": 23.5
       },
       "skills": [
         "moltguard"
@@ -2880,18 +2880,18 @@
       "role": "AIBE Exam Prep Bot",
       "avatar": "legalsmeda",
       "up": true,
-      "pid": 81810,
-      "rss_gb": 0.3,
-      "cpu": 0.1,
+      "pid": 85363,
+      "rss_gb": 0.24,
+      "cpu": 0.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 0.6,
-        "rolling_28day": 0.6,
-        "rolling_180day": 0.6
+        "transcript": 0.1,
+        "rolling_7day": 0.7,
+        "rolling_28day": 0.7,
+        "rolling_180day": 0.7
       },
       "skills": [
         "moltguard"
@@ -3056,17 +3056,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 1302,
-      "rss_gb": 0.31,
-      "cpu": 0.3,
+      "rss_gb": 0.28,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.5,
-        "rolling_7day": 23.5,
-        "rolling_28day": 23.5,
-        "rolling_180day": 23.5
+        "transcript": 2.6,
+        "rolling_7day": 23.6,
+        "rolling_28day": 23.6,
+        "rolling_180day": 23.6
       },
       "skills": [
         "moltguard"
@@ -3248,8 +3248,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.33,
-      "cpu": 0.2,
+      "rss_gb": 0.32,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3257,10 +3257,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 23.3,
-        "rolling_28day": 23.3,
-        "rolling_180day": 23.3
+        "transcript": 2.5,
+        "rolling_7day": 23.4,
+        "rolling_28day": 23.4,
+        "rolling_180day": 23.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3448,17 +3448,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.26,
-      "cpu": 0.3,
+      "rss_gb": 0.25,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 0.5,
-        "rolling_28day": 0.5,
-        "rolling_180day": 24.6
+        "transcript": 0.0,
+        "rolling_7day": 0.6,
+        "rolling_28day": 0.6,
+        "rolling_180day": 24.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3625,7 +3625,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.12,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3657,7 +3657,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.11,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3686,8 +3686,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.28,
-      "cpu": 0.3,
+      "rss_gb": 0.26,
+      "cpu": 3.9,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3695,10 +3695,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.5,
-        "rolling_28day": 23.5,
-        "rolling_180day": 23.5
+        "transcript": 0.3,
+        "rolling_7day": 23.6,
+        "rolling_28day": 23.6,
+        "rolling_180day": 23.6
       },
       "skills": [
         "apple-calendar-macos",
@@ -4059,8 +4059,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 925,
-      "rss_gb": 0.39,
-      "cpu": 0.4,
+      "rss_gb": 0.33,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4068,9 +4068,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 24.6,
-        "rolling_28day": 24.6,
+        "transcript": 0.1,
+        "rolling_7day": 24.7,
+        "rolling_28day": 24.7,
         "rolling_180day": null
       },
       "skills": [
