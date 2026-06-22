@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-22 10:34:36 IST",
-  "generated_epoch": 1782104676,
+  "generated_ist": "2026-06-22 10:39:41 IST",
+  "generated_epoch": 1782104981,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.53 / 9.93 / 10.03",
+    "load": "10.28 / 9.96 / 9.99",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 49005,
-      "rss_gb": 0.8,
-      "cpu": 0.6,
+      "rss_gb": 0.78,
+      "cpu": 75.2,
       "crons_total": 76,
       "crons_enabled": 53,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 0.0,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,7 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782104669214,
+          "last_ts": 1782104969432,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1329,8 +1329,46 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-06-22",
-          "# Self-healing rotation from transcript-2026-06-21.md at 00:04 IST"
+          "|---|---|",
+          "| 20 Jun **15:31** | \u274c no |",
+          "| 20 Jun **19:26** | \u2705 **YES** |",
+          "The session-key change happened at **20 Jun 15:50** \u2014 squarely between those two backups. The unification config went live in that window. **This is the cause.**",
+          "---",
+          "**The full, correct causal chain:**",
+          "1. You unified Telegram + WhatsApp + Discord un...",
+          "[10:36 IST] RAM: Continue the OpenClaw runtime event.",
+          "[10:36 IST] HADERACH: I'll capture this session's corrected findings to today's memory log before compaction \u2014 the diagnosis evolved significantly and the final causal chain must survive.",
+          "[10:36 IST] HADERACH: The existing log is comprehensive. Let me append the corrected, final causal chain \u2014 this session's diagnosis evolved through three wrong turns to the right answer, and that progression must be recorded so future-me doesn't repeat the errors.",
+          "[10:37 IST] HADERACH: Durable memory captured. The corrected diagnosis is now safe on disk in `memory/2026-06-22.md` \u2014 including the full causal chain, my three wrong turns, the recovery status for both days, and the lessons.",
+          "Key items preserved before compaction:",
+          "1. **Root cause (confirmed):** Session unification via `session.identityLinks` (added 20 Jun 15:31\u201319:26) changed the direct-chat key from `agent:main:telegram:direct:8489979671` to `agent:main:direct:ram`.",
+          "2. **Two bugs:** (#1) transcript cron watches...",
+          "[10:34 IST] RAM: Tomorrow Call - IRAR response To RBI at 10.30am",
+          "https://teams.microsoft.com/meet/45040215232147?p=731avFmtO2AAJCE9Q6",
+          "Meeting ID: 450 402 152 321 47",
+          "Passcode: HT9jY7wY",
+          "[10:37 IST] HADERACH: Noted \u2014 a meeting request. Per the standing rule, I won't add it to your calendar without your explicit approval, so here are the details for confirmation:",
+          "- **Event:** IRAR response to RBI",
+          "- **When:** Tomorrow, 23 Jun 2026, 10:30 AM IST",
+          "- **Platform:** Microsoft Teams",
+          "- **Link:** https://teams.microsoft.com/meet/45040215232147?p=731avFmtO2AAJCE9Q6",
+          "- **Meeting ID:** 450 402 152 321 47",
+          "- **Passcode:** HT9jY7wY",
+          "Shall I add it to your Apple Calendar (\"Ramnath R A Shenoy\")? If so, any preferred...",
+          "[10:38 IST] RAM: \u2022 Do 1 and 2",
+          "\u2022 Do this for all M4 agents - but if the key is wrong, how/what will it check traffic on to compare? Discuss first",
+          "[10:38 IST] HADERACH: Good \u2014 I'll do (1) and (2), then discuss the cross-check design before touching anything for the fleet. Let me start by reading the actual cron script to see exactly what to change.",
+          "[10:38 IST] HADERACH: Now I understand the script fully. The fix for (1) needs care \u2014 I shouldn't just hardcode the new key, because it could change again. Let me make it resolve the live key dynamically. Two issues to handle:",
+          "1. **The session key** \u2014 instead of hardcoding, resolve from `session.identityLinks` (or fall back to scanning for the most-recently-active main direct session).",
+          "2. **The zombie-lock detection** also keys off the old session \u2014 needs to follow the resolved key.",
+          "Let me write the fix using Py...",
+          "[10:38 IST] HADERACH: Now this is very revealing. There are two important findings:",
+          "1. **`agent:main:direct:ram`** \u2192 `ea698610` \u2192 updated 10:38 (this is the unified key, live now) \u2713",
+          "2. **`agent:main:main`** \u2192 `9b57944f` \u2192 updated 10:09 \u2014 this is the *other* file with all our 16\u201322 Jun history",
+          "So the conversation is actually split across **two** session objects depending on routing. The robust fix is to resolve dynamically: prefer the unified identity key, but pick whichever main/direct key is **most recently upd...",
+          "[10:38 IST] HADERACH: Backup made. Now let me apply the dynamic-key-resolution fix using Python `open()` (whole-file read/modify/write, per the cron file-edit rule):",
+          "[10:39 IST] HADERACH: All 3 changes applied. Now let me validate the script compiles, then do a dry-run to confirm it resolves the live key and captures today's messages:",
+          "[10:39 IST] HADERACH: **Bug #1 is fixed and proven live.** The cron just resolved the unified key `agent:main:direct:ram` and captured **424 messages** into today's transcript \u2014 the file that was hollow minutes ago. Let me verify the content is real and check (2) \u2014 that persistence is healthy:"
         ],
         "yesterday": [
           "# Transcript \u2014 2026-06-21",
@@ -1431,7 +1469,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.46,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1441,9 +1479,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 10.3,
-        "rolling_28day": 10.3,
-        "rolling_180day": 106.5
+        "rolling_7day": 10.4,
+        "rolling_28day": 10.4,
+        "rolling_180day": 106.6
       },
       "skills": [
         "moltguard"
@@ -1760,7 +1798,7 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.46,
+      "rss_gb": 0.45,
       "cpu": 0.4,
       "crons_total": 22,
       "crons_enabled": 22,
@@ -1769,10 +1807,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 0.2,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [
         "twitacc"
@@ -2168,7 +2206,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.4,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2176,10 +2214,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
-        "rolling_180day": 10.4
+        "transcript": 0.2,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
+        "rolling_180day": 10.5
       },
       "skills": [
         "academic-deep-research",
@@ -2554,7 +2592,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.36,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2562,10 +2600,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.4,
-        "rolling_7day": 10.3,
-        "rolling_28day": 10.3,
-        "rolling_180day": 10.3
+        "transcript": 1.5,
+        "rolling_7day": 10.4,
+        "rolling_28day": 10.4,
+        "rolling_180day": 10.4
       },
       "skills": [
         "moltguard"
@@ -2844,15 +2882,15 @@
       "up": true,
       "pid": 915,
       "rss_gb": 0.27,
-      "cpu": 0.4,
+      "cpu": 0.0,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
+        "transcript": 0.2,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
         "rolling_180day": 11.6
       },
       "skills": [
@@ -3015,13 +3053,13 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 1.5,
+        "transcript": 1.6,
         "rolling_7day": 10.5,
         "rolling_28day": 10.5,
         "rolling_180day": 10.5
@@ -3185,7 +3223,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.31,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3193,7 +3231,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.3,
+        "transcript": 1.4,
         "rolling_7day": 10.3,
         "rolling_28day": 10.3,
         "rolling_180day": 10.3
@@ -3384,17 +3422,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.29,
-      "cpu": 0.1,
+      "rss_gb": 0.3,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 11.5,
-        "rolling_28day": 11.5,
-        "rolling_180day": 11.5
+        "transcript": 0.2,
+        "rolling_7day": 11.6,
+        "rolling_28day": 11.6,
+        "rolling_180day": 11.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3561,7 +3599,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3593,7 +3631,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.12,
-      "cpu": 0.0,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3623,7 +3661,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.32,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3631,10 +3669,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
-        "rolling_180day": 10.4
+        "transcript": 0.2,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
+        "rolling_180day": 10.5
       },
       "skills": [
         "apple-calendar-macos",
@@ -3995,8 +4033,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 925,
-      "rss_gb": 0.44,
-      "cpu": 0.3,
+      "rss_gb": 0.36,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4004,9 +4042,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 11.5,
-        "rolling_28day": 11.5,
+        "transcript": 0.1,
+        "rolling_7day": 11.6,
+        "rolling_28day": 11.6,
         "rolling_180day": null
       },
       "skills": [
