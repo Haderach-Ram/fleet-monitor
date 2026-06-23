@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-23 19:09:32 IST",
-  "generated_epoch": 1782221972,
+  "generated_ist": "2026-06-23 19:14:36 IST",
+  "generated_epoch": 1782222276,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "11.91 / 10.94 / 10.68",
+    "load": "9.64 / 10.21 / 10.42",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 22675,
-      "rss_gb": 0.75,
-      "cpu": 0.7,
+      "rss_gb": 0.78,
+      "cpu": 0.1,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,7 +42,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
+        "transcript": 0.1,
         "rolling_7day": 19.1,
         "rolling_28day": 19.1,
         "rolling_180day": 19.1
@@ -643,10 +643,55 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1782222254466,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782221796735,
+          "last_ts": 1782222203853,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782222187889,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782222041443,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782222041442,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782222041442,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -665,51 +710,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1782221625570,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782221456580,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782221456579,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782221456579,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782221240698,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782220434380,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,46 +1347,46 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:51 IST] HADERACH: Understood \u2014 I'll hold. Everything is staged and ready on my side:",
-          "- himalaya account `haderach-scl` configured (`outlook.office365.com:993` / `smtp.office365.com:587`)",
-          "- BWS-backed password fetch wired in",
-          "- I just need to run the connection at the right moment",
-          "Tell me when you're at the point where the **OTP / verification code** is needed, and I'll ask you for it **immediately** so we use it within the 10-second window.",
-          "One quick thing so I time it perfectly: **what exactly are you setti...",
-          "[18:52 IST] RAM: It is a on-time password code in the MS Authenticator app",
-          "[18:52 IST] HADERACH: Got it \u2014 it's a **TOTP code from the MS Authenticator app** (the rotating 6-digit one that refreshes every ~30 seconds). That changes the picture importantly, so let me be precise about how to use it, because himalaya can't consume a TOTP directly.",
-          "**The key thing:** a TOTP/MS Authenticator code is part of an **interactive sign-in** \u2014 it's entered into a Microsoft login web page, not into himalaya. himalaya (basic auth) has nowhere to put a 6-digit MFA code; it only sends a username+password...",
-          "[18:52 IST] HADERACH: Got it \u2014 it's a **TOTP code from the MS Authenticator app** (the rotating 6-digit one that refreshes every ~30 seconds). That changes the picture importantly, so let me be precise about how to use it, because himalaya can't consume a TOTP directly.",
-          "**The key thing:** a TOTP/MS Authenticator code is part of an **interactive sign-in** \u2014 it's entered into a Microsoft login web page, not into himalaya. himalaya (basic auth) has nowhere to put a 6-digit MFA code; it only sends a username+password...",
-          "[18:54 IST] RAM: So path 2 is as godd as you being able to read and reply to mails permanently?",
-          "[18:54 IST] HADERACH: Yes \u2014 for the SCL-010 use case (monitoring and reading the thread), **Path 2 is permanent and reliable for reading.** But let me be precise about reading vs. replying, because they're not equal:",
-          "**Reading \u2014 Path 2 is excellent and durable. \u2705**",
-          "- Apple Mail handles the OAuth2 + MFA sign-in once. It then keeps a **refresh token** in the macOS Keychain and silently renews itself \u2014 you won't re-enter the Authenticator code again under normal conditions (only if the password changes, the token is...",
-          "[18:54 IST] HADERACH: Yes \u2014 for the SCL-010 use case (monitoring and reading the thread), **Path 2 is permanent and reliable for reading.** But let me be precise about reading vs. replying, because they're not equal:",
-          "**Reading \u2014 Path 2 is excellent and durable. \u2705**",
-          "- Apple Mail handles the OAuth2 + MFA sign-in once. It then keeps a **refresh token** in the macOS Keychain and silently renews itself \u2014 you won't re-enter the Authenticator code again under normal conditions (only if the password changes, the token is...",
-          "[18:54 IST] RAM: So I set up the account and tell you it's done?",
-          "[18:54 IST] HADERACH: Yes \u2014 exactly. Go ahead and set it up, then tell me \"synced\". Here's the precise sequence:",
-          "**1.** Open **System Settings \u2192 Internet Accounts \u2192 Add Account \u2192 Microsoft Exchange**",
-          "**2.** Enter `haderach@sammaancapital.com` (and your name)",
-          "**3.** Choose **\"Sign In\"** (use Microsoft's web sign-in, not manual config)",
-          "**4.** Enter the password, then approve with the **MS Authenticator code** on Microsoft's own screen",
-          "**5.** When prompted \"which apps to use\" \u2014 make sure **Mail** is ticked",
-          "**6.** Le...",
-          "[18:54 IST] HADERACH: Yes \u2014 exactly. Go ahead and set it up, then tell me \"synced\". Here's the precise sequence:",
-          "**1.** Open **System Settings \u2192 Internet Accounts \u2192 Add Account \u2192 Microsoft Exchange**",
-          "**2.** Enter `haderach@sammaancapital.com` (and your name)",
-          "**3.** Choose **\"Sign In\"** (use Microsoft's web sign-in, not manual config)",
-          "**4.** Enter the password, then approve with the **MS Authenticator code** on Microsoft's own screen",
-          "**5.** When prompted \"which apps to use\" \u2014 make sure **Mail** is ticked",
-          "**6.** Le...",
-          "[18:56 IST] RAM: Done. Pls check",
-          "[18:56 IST] HADERACH: Let me check whether the account synced and how many messages landed.",
-          "[18:56 IST] HADERACH: Good progress \u2014 a **new account `78219D72-\u2026` appeared at 18:55** with the full Exchange folder set (Inbox, Sent Items, Archive, Deleted Items, etc.). That's the real `haderach@sammaancapital.com` Exchange account; the sign-in succeeded and Mail created the mailbox structure.",
-          "**But: 0 messages synced yet.** The folders exist but are empty \u2014 Mail.app is likely still in the initial download, or hasn't pulled message bodies. Let me look closer at that account's Inbox and whether sync is in progr...",
-          "[18:57 IST] HADERACH: The account is genuinely connected \u2014 the Inbox has a real **ExchangeFolderId** and **ExchangeSyncState** (Mail has talked to the server and registered the folder), and Mail.app is running. But message bodies haven't downloaded to disk yet \u2014 there's no `Data/` subfolder with `.emlx` files. This is normal in the first few minutes; Exchange accounts sometimes only fetch headers/bodies on demand or lazily.",
-          "Two likely reasons for 0 messages on disk:",
-          "1. **Still syncing** \u2014 give it a few minutes; E..."
+          "- App...",
+          "[19:06 IST] HADERACH: Good question. The honest answer: **yes, it matters, and here's exactly how \u2014**",
+          "**For receiving/reading mail:**",
+          "- **Apple Mail must be running** to *fetch* new mail from the server. When Mail is quit, nothing syncs \u2014 new mail won't download to `~/Library/Mail/` until you reopen it.",
+          "- Once Mail *has* synced, I can read the on-disk copy whether Mail is open or not. But to get *fresh* mail, Mail needs to be running (or be opened periodically).",
+          "**For sending (like the test I just sent):**",
+          "- App...",
+          "[19:07 IST] RAM: Why does your name appear as 'haderach .'? It should simply be haderach",
+          "[19:07 IST] HADERACH: That's the **display name** on the Exchange account in Apple Mail \u2014 it's currently set to \"Haderach .\" (with a trailing dot/space, probably from how the name field was filled during setup). The recipient sees \"Haderach .\" as the From name. Let me fix it to just **\"Haderach\"**.",
+          "[19:07 IST] HADERACH: Fixed. The account-level display name was **\"Haderach Ram\"** \u2014 now changed to just **\"Haderach\"**.",
+          "But two things to note:",
+          "1. The \"Haderach .\" you saw may also be coming from a per-message **sender string** or how Exchange renders it \u2014 the account name is now clean (\"Haderach\"), so new mail should show correctly.",
+          "2. The **test mail I already sent** went out under the old name, so that one will still show the previous display name \u2014 that's expected; only future sends use \"Haderach\".",
+          "Let me v...",
+          "[19:08 IST] HADERACH: Done. The display name is now **\"Haderach\"** (was \"Haderach Ram\"), and I've sent a second test to `rshenoy@sammaancapital.com` with the sender explicitly set as `Haderach <haderach@sammaancapital.com>`.",
+          "Check your inbox \u2014 the new mail (\"Test 2 \u2014 sender name check\") should now show the From name as simply **Haderach**. Confirm it reads correctly and we're set.",
+          "Once you're happy with both the send capability and the name, the only outstanding decisions are:",
+          "1. **Keep Mail.app running** (don't...",
+          "[19:08 IST] HADERACH: Done. The display name is now **\"Haderach\"** (was \"Haderach Ram\"), and I've sent a second test to `rshenoy@sammaancapital.com` with the sender explicitly set as `Haderach <haderach@sammaancapital.com>`.",
+          "Check your inbox \u2014 the new mail (\"Test 2 \u2014 sender name check\") should now show the From name as simply **Haderach**. Confirm it reads correctly and we're set.",
+          "Once you're happy with both the send capability and the name, the only outstanding decisions are:",
+          "1. **Keep Mail.app running** (don't...",
+          "[19:08 IST] RAM: Still same",
+          "[19:08 IST] HADERACH: I see it \u2014 still shows \"haderach .\" with a trailing dot. That tells me the display name isn't coming from Apple Mail's account setting (I changed that to \"Haderach\"); it's coming from the **server-side mailbox display name on the Exchange/M365 side** \u2014 the name your IT set when provisioning the account. The dot suggests it was created as something like \"haderach .\" in the directory.",
+          "Two things:",
+          "1. The mail did send and arrive correctly (sender capability \u2705), and it's lowercase \"haderach .\" \u2014...",
+          "[19:09 IST] HADERACH: Apple Mail's account name is firmly \"Haderach\", and I've sent Test 3. But I suspect it'll *still* show \"haderach .\" \u2014 because the From display name on M365 mail is governed by the **mailbox's directory display name on the server**, which the client can't override.",
+          "Let me be straight about the root cause and the real fix, rather than send endless tests:",
+          "**Why it shows \"haderach .\":**",
+          "When the mailbox was provisioned in Microsoft 365, its **display name** in the directory was set to literally...",
+          "[19:09 IST] HADERACH: Apple Mail's account name is firmly \"Haderach\", and I've sent Test 3. But I suspect it'll *still* show \"haderach .\" \u2014 because the From display name on M365 mail is governed by the **mailbox's directory display name on the server**, which the client can't override.",
+          "Let me be straight about the root cause and the real fix, rather than send endless tests:",
+          "**Why it shows \"haderach .\":**",
+          "When the mailbox was provisioned in Microsoft 365, its **display name** in the directory was set to literally...",
+          "[19:09 IST] RAM: Ok. Let me try",
+          "[19:09 IST] HADERACH: Good \u2014 go ahead and try changing it server-side. The display name lives in the M365 account profile; here's where to look:",
+          "**If you have admin access (Microsoft 365 admin center):**",
+          "- admin.microsoft.com \u2192 **Users \u2192 Active users \u2192 haderach@sammaancapital.com \u2192 Manage contact information \u2192 Display name** \u2192 set to **Haderach**, clear any trailing dot in the last-name field \u2192 Save.",
+          "**If you only have the account's own access (Outlook on the web):**",
+          "- Sign in as haderach@ \u2192 top-right profile pi..."
         ],
         "yesterday": [
           "- **Step 8** \u2014 M...",
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.38,
-      "cpu": 0.8,
+      "rss_gb": 0.4,
+      "cpu": 0.7,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,9 +1534,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
+        "transcript": 0.4,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
         "rolling_180day": 139.1
       },
       "skills": [
@@ -1555,19 +1555,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1782220916781,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1782222034295,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1782218456155,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1782220916781,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
@@ -1854,8 +1854,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.33,
-      "cpu": 1.0,
+      "rss_gb": 0.42,
+      "cpu": 0.7,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1863,10 +1863,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 19.1,
         "rolling_28day": 19.1,
-        "rolling_180day": 19.1
+        "rolling_180day": 19.2
       },
       "skills": [
         "twitacc"
@@ -2261,8 +2261,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.33,
-      "cpu": 0.4,
+      "rss_gb": 0.36,
+      "cpu": 0.7,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2271,9 +2271,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 19.0,
-        "rolling_28day": 19.0,
-        "rolling_180day": 19.0
+        "rolling_7day": 19.1,
+        "rolling_28day": 19.1,
+        "rolling_180day": 19.1
       },
       "skills": [
         "academic-deep-research",
@@ -2648,8 +2648,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.31,
-      "cpu": 1.2,
+      "rss_gb": 0.39,
+      "cpu": 0.4,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2657,10 +2657,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 18.9,
-        "rolling_28day": 18.9,
-        "rolling_180day": 18.9
+        "transcript": 1.1,
+        "rolling_7day": 19.0,
+        "rolling_28day": 19.0,
+        "rolling_180day": 19.0
       },
       "skills": [
         "moltguard"
@@ -2939,16 +2939,16 @@
       "up": true,
       "pid": 85363,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 19.1,
-        "rolling_28day": 19.1,
-        "rolling_180day": 20.1
+        "transcript": 0.1,
+        "rolling_7day": 19.2,
+        "rolling_28day": 19.2,
+        "rolling_180day": 20.2
       },
       "skills": [
         "moltguard"
@@ -2969,7 +2969,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782221412472,
+          "last_ts": 1782222015094,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3112,17 +3112,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 1302,
-      "rss_gb": 0.21,
+      "rss_gb": 0.22,
       "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 1.1,
-        "rolling_7day": 19.0,
-        "rolling_28day": 19.0,
-        "rolling_180day": 19.0
+        "transcript": 1.2,
+        "rolling_7day": 19.1,
+        "rolling_28day": 19.1,
+        "rolling_180day": 19.1
       },
       "skills": [
         "moltguard"
@@ -3293,7 +3293,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.29,
-      "cpu": 9.6,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3301,10 +3301,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
-        "rolling_180day": 18.8
+        "transcript": 1.0,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
+        "rolling_180day": 18.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3496,10 +3496,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 20.0,
-        "rolling_28day": 20.0,
-        "rolling_180day": 44.1
+        "transcript": 0.2,
+        "rolling_7day": 20.1,
+        "rolling_28day": 20.1,
+        "rolling_180day": 44.2
       },
       "skills": [],
       "skills_detail": [],
@@ -3659,8 +3659,8 @@
       "avatar": "martin",
       "up": true,
       "pid": 903,
-      "rss_gb": 0.2,
-      "cpu": 0.1,
+      "rss_gb": 0.14,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3692,7 +3692,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.11,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3722,7 +3722,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.22,
-      "cpu": 0.8,
+      "cpu": 0.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3731,9 +3731,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 19.0,
-        "rolling_28day": 19.0,
-        "rolling_180day": 19.0
+        "rolling_7day": 19.1,
+        "rolling_28day": 19.1,
+        "rolling_180day": 19.1
       },
       "skills": [
         "apple-calendar-macos",
@@ -4096,7 +4096,7 @@
       "up": true,
       "pid": 925,
       "rss_gb": 0.32,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
