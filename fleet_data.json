@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-23 21:37:54 IST",
-  "generated_epoch": 1782230874,
+  "generated_ist": "2026-06-23 21:42:58 IST",
+  "generated_epoch": 1782231178,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.25 / 9.86 / 9.91",
+    "load": "9.99 / 10.11 / 10.01",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 52849,
-      "rss_gb": 0.85,
-      "cpu": 54.3,
+      "rss_gb": 0.8,
+      "cpu": 0.1,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.5,
-        "rolling_28day": 21.5,
-        "rolling_180day": 21.5
+        "transcript": 0.0,
+        "rolling_7day": 21.6,
+        "rolling_28day": 21.6,
+        "rolling_180day": 21.6
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,16 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782230872935,
+          "last_ts": 1782231159552,
+          "last_status": "error",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782231096289,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -655,16 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782230487326,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782230487326,
+          "last_ts": 1782231096288,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782230487326,
+          "last_ts": 1782231096288,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782230407134,
+          "last_ts": 1782230998030,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -691,7 +691,7 @@
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "every 15m",
-          "last_ts": 1782230030436,
+          "last_ts": 1782230955003,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:13 IST] HADERACH: Good \u2014 Sam has daily logs and transcripts through 23 Jun, but rolling files froze at 21 Jun 23:05. So I need to fold in **22 Jun and 23 Jun** activity. Let me read the current rolling files (to match format exactly) plus the missing daily logs and transcript summaries.",
-          "[21:13 IST] HADERACH: Now I have the format. I need to read the 22 Jun and 23 Jun daily logs + transcript summaries to write factual entries. Let me read those.",
-          "[21:16 IST] HADERACH: No daily logs for 22/23 Jun (consolidation never ran), and the grep found no substantive lines with that pattern. Let me check the actual transcript format and pull any real activity for 22 and 23 Jun.",
-          "[21:18 IST] HADERACH: Clear \u2014 **22 Jun was a pure heartbeat-only day** (no real conversation, just HEARTBEAT_OK every 30 min). Let me confirm 23 Jun is the same, then I have everything to write accurate entries.",
-          "[21:18 IST] HADERACH: Confirmed \u2014 both 22 and 23 Jun were **heartbeat-only days** (48 and 43 HEARTBEAT_OK, zero human conversation). So the backfill entries are factual and simple. Now let me write the updated rolling files. I'll write them as complete files via Python (line-list to avoid `\\n` artifacts), rolling the 7-day window forward (drop 06-15, since 7-day window from 23 Jun = 17\u201323) and appending 22/23 to 28-day.",
-          "Let me write the rolling-7day.md first (window 17\u201323 Jun):",
-          "[21:18 IST] HADERACH: Now the 28-day file \u2014 append 22 and 23 Jun (the existing file already has up to 21 Jun, missing 20 Jun too \u2014 let me append cleanly without disturbing existing entries).",
-          "[21:20 IST] HADERACH: I notice the 28-day file now has 20 Jun out of chronological order (it landed after 21 Jun because the original was already slightly unordered). Let me also create the missing daily logs for 22 and 23 Jun so Sam's memory architecture is complete, and verify the rolling files are fresh.",
-          "[21:21 IST] HADERACH: Backfill complete. \u2705",
-          "**What I did (factual \u2014 Sam's 22 & 23 Jun were both pure heartbeat-only days, zero human conversation):**",
-          "- **`rolling-7day.md`** \u2014 rolled the window forward to 17\u201323 Jun (32 lines, fresh). Now includes 22 & 23 Jun entries noting the cron failure + root cause.",
           "- **`rolling-28day.md`** \u2014 appended 20, 22 & 23 Jun (45 lines, fresh).",
           "- **`2026-06-22.md` & `2026-06-23.md`** \u2014 created the two missing daily logs.",
           "- **Backups** saved (`*.bak-20260623`) before touching anything....",
@@ -1386,7 +1375,18 @@
           "[21:28 IST] HADERACH: Understood \u2014 I'll do the verification myself rather than wait for tonight's cron. The cleanest proof is to **trigger Sam's consolidation cron manually now** and confirm it completes without the `model-call-started` timeout. Let me find Sam's consolidation cron and run it directly via Sam's own gateway.",
           "First, locate the cron job ID on Sam's gateway:",
           "[21:28 IST] HADERACH: Fix is live in config: fallback is now `amazon-bedrock/nova-pro` (corrected), Sam healthy. Now the real test \u2014 does that fallback slug actually *resolve and run*? Let me list Sam's crons via its CLI to find the consolidation job, then trigger it.",
-          "[21:28 IST] HADERACH: Sam's gateway needs auth. The token is in SatyAnk BWS as `Sam_Gateway_Auth_Token` (per my tech.md notes). But rather than wrestle with cross-gateway auth, the most *direct* proof that the fallback slug works is to test the slug resolution itself \u2014 confirm `amazon-bedrock/nova-pro` is a real, invokable Bedrock model from Sam's environment. Let me verify the fallback actually resolves by doing a minimal model invocation test using Sam's AWS credentials."
+          "[21:28 IST] HADERACH: Sam's gateway needs auth. The token is in SatyAnk BWS as `Sam_Gateway_Auth_Token` (per my tech.md notes). But rather than wrestle with cross-gateway auth, the most *direct* proof that the fallback slug works is to test the slug resolution itself \u2014 confirm `amazon-bedrock/nova-pro` is a real, invokable Bedrock model from Sam's environment. Let me verify the fallback actually resolves by doing a minimal model invocation test using Sam's AWS credentials.",
+          "[21:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[21:40 IST] HADERACH: Good evening, Ram.",
+          "**Status \u2014 21:39 IST (Tue 23 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 82+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
         "yesterday": [
           "- **Step 8** \u2014 M...",
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.45,
-      "cpu": 0.5,
+      "rss_gb": 0.53,
+      "cpu": 0.2,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1535,9 +1535,9 @@
       ],
       "memory": {
         "transcript": 0.6,
-        "rolling_7day": 21.3,
-        "rolling_28day": 21.3,
-        "rolling_180day": 141.5
+        "rolling_7day": 21.4,
+        "rolling_28day": 21.4,
+        "rolling_180day": 141.6
       },
       "skills": [
         "moltguard"
@@ -1854,8 +1854,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.44,
-      "cpu": 0.3,
+      "rss_gb": 0.45,
+      "cpu": 0.4,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1864,9 +1864,9 @@
       ],
       "memory": {
         "transcript": 0.6,
-        "rolling_7day": 21.5,
-        "rolling_28day": 21.5,
-        "rolling_180day": 21.5
+        "rolling_7day": 21.6,
+        "rolling_28day": 21.6,
+        "rolling_180day": 21.6
       },
       "skills": [
         "twitacc"
@@ -2261,8 +2261,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.45,
-      "cpu": 0.1,
+      "rss_gb": 0.44,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2270,10 +2270,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.5,
-        "rolling_28day": 21.5,
-        "rolling_180day": 21.5
+        "transcript": 0.2,
+        "rolling_7day": 21.6,
+        "rolling_28day": 21.6,
+        "rolling_180day": 21.6
       },
       "skills": [
         "academic-deep-research",
@@ -2648,8 +2648,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
-      "cpu": 0.6,
+      "rss_gb": 0.4,
+      "cpu": 0.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2658,9 +2658,9 @@
       ],
       "memory": {
         "transcript": 0.5,
-        "rolling_7day": 21.4,
-        "rolling_28day": 21.4,
-        "rolling_180day": 21.4
+        "rolling_7day": 21.5,
+        "rolling_28day": 21.5,
+        "rolling_180day": 21.5
       },
       "skills": [
         "moltguard"
@@ -2938,17 +2938,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.32,
-      "cpu": 0.0,
+      "rss_gb": 0.33,
+      "cpu": 0.7,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.0,
         "rolling_7day": 21.6,
         "rolling_28day": 21.6,
-        "rolling_180day": 22.6
+        "rolling_180day": 22.7
       },
       "skills": [
         "moltguard"
@@ -2969,7 +2969,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782230421659,
+          "last_ts": 1782231009054,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3113,16 +3113,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.31,
-      "cpu": 0.3,
+      "cpu": 0.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 21.5,
-        "rolling_28day": 21.5,
-        "rolling_180day": 21.5
+        "transcript": 0.6,
+        "rolling_7day": 21.6,
+        "rolling_28day": 21.6,
+        "rolling_180day": 21.6
       },
       "skills": [
         "moltguard"
@@ -3320,8 +3320,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.33,
-      "cpu": 0.2,
+      "rss_gb": 0.32,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3329,10 +3329,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 21.3,
-        "rolling_28day": 21.3,
-        "rolling_180day": 21.3
+        "transcript": 0.5,
+        "rolling_7day": 21.4,
+        "rolling_28day": 21.4,
+        "rolling_180day": 21.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3517,17 +3517,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.28,
-      "cpu": 0.3,
+      "rss_gb": 0.26,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 22.5,
-        "rolling_28day": 22.5,
-        "rolling_180day": 46.6
+        "transcript": 0.0,
+        "rolling_7day": 22.6,
+        "rolling_28day": 22.6,
+        "rolling_180day": 46.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3688,7 +3688,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.0,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3720,7 +3720,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.19,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3749,7 +3749,7 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.32,
+      "rss_gb": 0.33,
       "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3758,10 +3758,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.5,
-        "rolling_28day": 21.5,
-        "rolling_180day": 21.5
+        "transcript": 0.2,
+        "rolling_7day": 21.6,
+        "rolling_28day": 21.6,
+        "rolling_180day": 21.6
       },
       "skills": [
         "apple-calendar-macos",
@@ -4122,8 +4122,8 @@
       "role": "Gagan's DA",
       "avatar": "sam",
       "up": true,
-      "pid": 53686,
-      "rss_gb": 0.43,
+      "pid": 55089,
+      "rss_gb": 0.64,
       "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4133,8 +4133,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 0.3,
-        "rolling_28day": 0.3,
+        "rolling_7day": 0.4,
+        "rolling_28day": 0.4,
         "rolling_180day": null
       },
       "skills": [
@@ -4434,8 +4434,6 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "[11:34 IST] RAM: [OpenClaw heartbeat poll]",
-          "[11:34 IST] SAM: HEARTBEAT_OK",
           "[12:04 IST] RAM: [OpenClaw heartbeat poll]",
           "[12:04 IST] SAM: HEARTBEAT_OK",
           "[12:34 IST] RAM: [OpenClaw heartbeat poll]",
@@ -4473,7 +4471,9 @@
           "[20:34 IST] RAM: [OpenClaw heartbeat poll]",
           "[20:34 IST] SAM: HEARTBEAT_OK",
           "[21:04 IST] RAM: [OpenClaw heartbeat poll]",
-          "[21:04 IST] SAM: HEARTBEAT_OK"
+          "[21:04 IST] SAM: HEARTBEAT_OK",
+          "[21:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[21:34 IST] SAM: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[14:04 IST] RAM: [OpenClaw heartbeat poll]",
