@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 00:02:22 IST",
-  "generated_epoch": 1782239542,
+  "generated_ist": "2026-06-24 00:07:27 IST",
+  "generated_epoch": 1782239847,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.29 / 9.81 / 9.72",
+    "load": "9.22 / 9.68 / 9.70",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 52849,
-      "rss_gb": 0.74,
-      "cpu": 0.6,
+      "rss_gb": 0.65,
+      "cpu": 0.3,
       "crons_total": 79,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.9,
-        "rolling_28day": 23.9,
-        "rolling_180day": 23.9
+        "transcript": 0.3,
+        "rolling_7day": 24.0,
+        "rolling_28day": 24.0,
+        "rolling_180day": 24.0
       },
       "skills": [
         "academic-deep-research",
@@ -1533,8 +1533,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.48,
-      "cpu": 0.5,
+      "rss_gb": 0.49,
+      "cpu": 0.2,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1543,10 +1543,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.6,
-        "rolling_7day": 23.7,
-        "rolling_28day": 23.7,
-        "rolling_180day": 143.9
+        "transcript": 0.0,
+        "rolling_7day": 23.8,
+        "rolling_28day": 23.8,
+        "rolling_180day": 144.0
       },
       "skills": [
         "moltguard"
@@ -1563,6 +1563,24 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1782239787616,
+          "last_status": "ok",
+          "model": "ollama/gemma4:31b-mlx",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1782239787615,
+          "last_status": "error",
+          "model": "ollama/gemma4:31b-mlx",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-watchdog-23",
           "enabled": true,
@@ -1586,15 +1604,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1782236115395,
-          "last_status": "ok",
-          "model": "ollama/gemma4:31b-mlx",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1782228867288,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
@@ -1631,15 +1640,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1782168308599,
-          "last_status": "error",
-          "model": "ollama/gemma4:31b-mlx",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1782164220496,
           "last_status": "error",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
@@ -1692,6 +1692,48 @@
       ],
       "transcripts": {
         "recent": [
+          "[21:15 IST] Giskard (ASSISTANT): The `openclaw --profile legal-smeda` command is routing back to Giskard. The crons for Legal are stored in **Haderach's** gateway (that's where the fleet monitor is reading them from). Let me check Haderach's crons for the Legal midnight job:",
+          "[21:15 IST] Giskard (ASSISTANT): The cron API on Haderach isn't at `/cron/jobs`. The fleet monitor is reading Legal's consecutive errors from somewhere. Let me check how the fleet monitor script finds these:",
+          "[21:16 IST] Giskard (ASSISTANT): Now I have the SQLite path for Legal's crons: `~/.openclaw-legal-smeda/state/openclaw.sqlite`, job ID `2080d6fd-a366-47ed-890e-8976a519b1e4` (\"Legal midnight\"). Let me read that job directly:",
+          "[21:16 IST] Giskard (ASSISTANT): The prompt already says \"USE exec WITH python3 open(file, 'a') FOR ALL FILE WRITES \u2014 never use the edit tool.\" The error is `\u26a0\ufe0f \ud83e\ude79 Apply Patch failed` with `consecutiveErrors: 1` \u2014 this is likely a one-off where the model still tried `apply_patch` despite the instruction. The banner in my fix instruction needs to be prepended as a hard constraint at the very top. Let me update it:",
+          "[21:16 IST] Giskard (ASSISTANT): No model set \u2014 will use agent defaults. Let me also check the other failing job (`6a3d14e0`):",
+          "[21:16 IST] Giskard (ASSISTANT): Only the midnight job has the error. Now I'll update its prompt via the SQLite cron tool \u2014 but SQLite direct writes to the cron DB aren't safe (OpenClaw owns that state). The right approach is to use the gateway API. Let me find the correct endpoint:",
+          "[21:16 IST] Giskard (ASSISTANT): The `--profile legal-smeda` is resolving to Giskard's gateway. Legal's crons live in Legal's own gateway. I need to send the update via sessions_send to Legal, or use the gateway tool pointed at port 18797. Let me try the gateway tool with Legal's URL:",
+          "[21:16 IST] Giskard (ASSISTANT): I have the full job spec. I'll update the prompt via Legal's gateway REST API using the PATCH/PUT endpoint:",
+          "[21:17 IST] Giskard (ASSISTANT): The `--profile legal-smeda` is routing to Giskard's gateway regardless. The OpenClaw CLI doesn't support targeting another gateway by port. I need to use `sessions_send` to ask Legal-SMEDA to update its own cron. But wait \u2014 Legal-SMEDA runs as an isolated agent; it doesn't have tool access to modify its own crons from a chat session by default.",
+          "The cleanest approach: directly update Legal's SQLite cron DB since I have the full job spec and know exactly what to change. The `job_json` and `payloa",
+          "[21:17 IST] Giskard (ASSISTANT): Banner is in. Now restart Legal-SMEDA so it reloads the cron from DB:",
+          "[21:18 IST] Giskard (ASSISTANT): Legal-SMEDA is back up. Let me verify the live cron now has the banner:",
+          "[21:18 IST] Giskard (ASSISTANT): Banner confirmed. `consecutiveErrors` is still 1 from last night \u2014 that will reset to 0 on the next successful run (tonight's midnight cron). The fleet monitor will stop showing the red alert after it runs clean.",
+          "---",
+          "**Summary:**",
+          "**Fix 1 \u2014 Sam (port 18812):** Fallback model `amazon-bedrock/us.amazon.nova-pro-v1:0` (invalid slug) \u2192 `[\"amazon-bedrock/nova-pro\", \"anthropic/claude-sonnet-4-6\"]`. Sam restarted and healthy.",
+          "**Fix 2 \u2014 Legal-SMEDA midnight cron (`2080d6fd`):** Prepended the hard con",
+          "[21:18 IST] Giskard (ASSISTANT): Banner confirmed. `consecutiveErrors` is still 1 from last night \u2014 that will reset to 0 on the next successful run (tonight's midnight cron). The fleet monitor will stop showing the red alert after it runs clean.",
+          "---",
+          "**Summary:**",
+          "**Fix 1 \u2014 Sam (port 18812):** Fallback model `amazon-bedrock/us.amazon.nova-pro-v1:0` (invalid slug) \u2192 `[\"amazon-bedrock/nova-pro\", \"anthropic/claude-sonnet-4-6\"]`. Sam restarted and healthy.",
+          "**Fix 2 \u2014 Legal-SMEDA midnight cron (`2080d6fd`):** Prepended the hard con",
+          "[21:39 IST] Giskard (USER): G \u2014 verified Sam's Nova fallback against live Bedrock in Sam's region (ap-south-1). Finding: `nova-pro` in Mumbai requires the `apac.` inference profile \u2014 `apac.amazon.nova-pro-v1:0` invokes fine; `us.` fails. If OpenClaw's `amazon-bedrock/nova-pro` slug resolves region-aware (\u2192 apac in ap-south-1), we're good. If it hardcodes `us.`, it'll still fail tonight. Safest: please confirm the slug's resolved modelId in Sam's region, or pin the fallback explicitly to the APAC profile. Quickest definitiv",
+          "[21:39 IST] Giskard (ASSISTANT): Good catch. Let me check how OpenClaw resolves the `nova-pro` slug and what region Sam's Bedrock client actually targets.",
+          "[21:39 IST] Giskard (ASSISTANT): I edited the wrong file. The plist sets `OPENCLAW_STATE_DIR=~/.openclaw-gagan`, so it loads `~/.openclaw-gagan/openclaw.json` \u2014 not the `.openclaw` subdirectory one. And separately, the `nova-pro` slug question needs answering.",
+          "[21:40 IST] Giskard (ASSISTANT): No `nova` entry in OpenClaw's dist bundle registry. The slug `nova-pro` is a user-defined model in Sam's config. Let me check what model ID Sam's `nova-pro` entry actually maps to and what region Bedrock is hitting:",
+          "[21:40 IST] Giskard (ASSISTANT): There it is. Sam's region is `ap-south-1` (Mumbai). Now let me check what `nova-pro` resolves to in the Bedrock converse API for that region:",
+          "[21:40 IST] Giskard (ASSISTANT): Confirmed. In `ap-south-1`, the valid inference profile for Nova Pro is `apac.amazon.nova-pro-v1:0`. There is no `us.amazon.nova-pro-v1:0` available there, and `amazon.nova-pro-v1:0` (base model) may or may not be callable directly via Converse API. The OpenClaw slug `nova-pro` doesn't have a models section defined in Sam's config, so it's unclear what model ID it passes to Bedrock.",
+          "Let me check how the Haderach config defines `nova-pro` (since Haderach's fallback works):",
+          "[21:42 IST] Giskard (ASSISTANT): Key finding: OpenClaw passes model IDs **directly to Bedrock as-is** \u2014 no slug translation. So `nova-pro` as a model ID would be sent literally to the Bedrock Converse API, which won't recognise it. The model works in Haderach only because Haderach has `nova-pro` explicitly defined in its models array \u2014 but OpenClaw still passes `nova-pro` as the Bedrock model ID, and Bedrock in us-east-1 will likely reject it too (the valid IDs are `amazon.nova-pro-v1:0` or `us.amazon.nova-pro-v1:0`).",
+          "The corr",
+          "[21:43 IST] Giskard (ASSISTANT): Sam is back up. Let me also fix the inner `.openclaw/openclaw.json` to match (in case anything reads it):",
+          "[21:43 IST] Giskard (ASSISTANT): Done. Here's what actually happened and what I fixed:",
+          "**Root cause (two layers):**",
+          "1. **Wrong file** \u2014 My previous fix edited `~/.openclaw-gagan/.openclaw/openclaw.json`, but the plist sets `OPENCLAW_STATE_DIR=~/.openclaw-gagan`, so the gateway loads `~/.openclaw-gagan/openclaw.json` (the outer one). The outer file still had the broken `us.amazon.nova-pro-v1:0` slug.",
+          "2. **Wrong region prefix** \u2014 Sam runs in `ap-south-1` (Mumbai). The only Nova Pro inference profile available there is `apac.am",
+          "[21:43 IST] Giskard (ASSISTANT): Done. Here's what actually happened and what I fixed:",
+          "**Root cause (two layers):**",
+          "1. **Wrong file** \u2014 My previous fix edited `~/.openclaw-gagan/.openclaw/openclaw.json`, but the plist sets `OPENCLAW_STATE_DIR=~/.openclaw-gagan`, so the gateway loads `~/.openclaw-gagan/openclaw.json` (the outer one). The outer file still had the broken `us.amazon.nova-pro-v1:0` slug.",
+          "2. **Wrong region prefix** \u2014 Sam runs in `ap-south-1` (Mumbai). The only Nova Pro inference profile available there is `apac.am"
+        ],
+        "yesterday": [
           "2. Make the one-line change",
           "3. openclaw config validate",
           "4. launchctl kickstart -k gui/$UID/ai.openclaw.gateway",
@@ -1732,42 +1774,6 @@
           "[20:59 IST] Giskard (ASSISTANT): On it.",
           "[20:59 IST] Giskard (ASSISTANT): Done. `Discord/` removed \u2014 zero Discord mentions remain in the heartbeat prompt. Haderach is back up. Snapshot updated.",
           "[20:59 IST] Giskard (ASSISTANT): Done. `Discord/` removed \u2014 zero Discord mentions remain in the heartbeat prompt. Haderach is back up. Snapshot updated."
-        ],
-        "yesterday": [
-          "# Transcript \u2014 2026-06-22",
-          "# Self-healing rotation from transcript-2026-06-21.md at 00:06 IST",
-          "[10:10 IST] Giskard (USER): Giskard \u2014 please update Haderach's model config:",
-          "agents.defaults.model.primary = amazon-bedrock/global.anthropic.claude-opus-4-8",
-          "agents.defaults.model.fallbacks = [\"amazon-bedrock/global.anthropic.claude-sonnet-4-6\", \"anthropic/claude-sonnet-4-6\"]Standard procedure:",
-          "1. cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak-$(date +%Y%m%d-%H%M%S)",
-          "2. Make the change",
-          "3. openclaw config validate",
-          "4. launchctl kickstart -k gui/$UID/ai.openclaw.gateway",
-          "5. cp ~/.openclaw/openclaw.json ~/.openclaw-",
-          "[10:10 IST] Giskard (ASSISTANT): I'll execute this now. Starting with the backup.",
-          "[10:10 IST] Giskard (ASSISTANT): The file has `\\n` literals instead of real newlines. Let me write it properly:",
-          "[10:10 IST] Giskard (ASSISTANT): Something is mangling my `\\n` in here-docs. Let me use the `gateway` tool directly:",
-          "[10:11 IST] Giskard (ASSISTANT): Wait \u2014 `config.get` is reading **my own** config (`~/.openclaw-giskard/openclaw.json`), not Haderach's. Haderach's config is at `~/.openclaw/openclaw.json`. I need to use the `edit` tool directly on that file \u2014 but I can't let it read through the gateway (would redact secrets). I'll use the `edit` tool with exact targeted replacement:",
-          "[10:11 IST] Giskard (ASSISTANT): Good. Line 163-169 is `agents.defaults.model`. Let me see that block:",
-          "[10:11 IST] Giskard (ASSISTANT): Now I have the exact text. Making the targeted edit:",
-          "[10:11 IST] Giskard (ASSISTANT): Change verified. Now validate and restart:",
-          "[10:11 IST] Giskard (ASSISTANT): The validate command keeps picking up my config. Let me validate Haderach's config directly:",
-          "[10:11 IST] Giskard (ASSISTANT): JSON is clean. Now restart Haderach:",
-          "[10:12 IST] Giskard (ASSISTANT): Haderach is up (200). Now update the snapshot:",
-          "[10:12 IST] Giskard (ASSISTANT): Done.",
-          "**Summary:**",
-          "- `agents.defaults.model.primary` \u2192 `amazon-bedrock/global.anthropic.claude-opus-4-8`",
-          "- `agents.defaults.model.fallbacks` \u2192 `[\"amazon-bedrock/global.anthropic.claude-sonnet-4-6\", \"anthropic/claude-sonnet-4-6\"]`",
-          "- JSON validated clean \u2713",
-          "- Haderach restarted \u2192 HTTP 200 \u2713",
-          "- Snapshot updated \u2713",
-          "[10:12 IST] Giskard (ASSISTANT): Done.",
-          "**Summary:**",
-          "- `agents.defaults.model.primary` \u2192 `amazon-bedrock/global.anthropic.claude-opus-4-8`",
-          "- `agents.defaults.model.fallbacks` \u2192 `[\"amazon-bedrock/global.anthropic.claude-sonnet-4-6\", \"anthropic/claude-sonnet-4-6\"]`",
-          "- JSON validated clean \u2713",
-          "- Haderach restarted \u2192 HTTP 200 \u2713",
-          "- Snapshot updated \u2713"
         ],
         "rolling_7day": [
           "- Full fleet model refresh: Giskard \u2192 Bedrock Sonnet 4.6; Haderach \u2192 Bedrock Sonnet 4.6; CISO-SMEDA \u2192 Nova Pro v1; Monk \u2192 Nova Pro v1; Chet \u2192 DeepSeek V4 Pro",
@@ -1863,8 +1869,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.44,
-      "cpu": 0.1,
+      "rss_gb": 0.45,
+      "cpu": 0.7,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1872,10 +1878,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 23.9,
-        "rolling_28day": 23.9,
-        "rolling_180day": 23.9
+        "transcript": 0.1,
+        "rolling_7day": 0.0,
+        "rolling_28day": 0.0,
+        "rolling_180day": 0.0
       },
       "skills": [
         "twitacc"
@@ -1893,6 +1899,33 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1782239712544,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "3 18,21,0,3 * * *",
+          "last_ts": 1782239633845,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Twitter Watcher (Off Hours)",
+          "enabled": true,
+          "sched": "3 0,3,6,17,18,19,20,21 * * 1-5",
+          "last_ts": 1782239633844,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 Nightly Memory Consolidation (23:00 IST)",
           "enabled": true,
           "sched": "30 23 * * *",
@@ -1906,24 +1939,6 @@
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1782235844639,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "3 18,21,0,3 * * *",
-          "last_ts": 1782228860261,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Twitter Watcher (Off Hours)",
-          "enabled": true,
-          "sched": "3 0,3,6,17,18,19,20,21 * * 1-5",
-          "last_ts": 1782228860261,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2064,15 +2079,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1782153345162,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Kubera \u2014 Monday Bulk Deal Pull (Mon 09:30)",
           "enabled": true,
           "sched": "30 9 * * 1",
@@ -2093,6 +2099,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-06-24",
+          "# Self-healing rotation from transcript-2026-06-23.md at 00:03 IST"
+        ],
+        "yesterday": [
           "| ICICIBANK | 16 | \u20b91,268.93 | \u20b91,338.30 | \u25b2+\u20b91,110 (+5.5%) | \u20b921,413 |",
           "| ITC | 27 | \u20b9295.05 | \u20b9290.00 | \u25bc-\u20b9136 (-1.7%) | \u20b97,830 |",
           "| BEL | 18 | \u20b9412.42 | \u20b942",
@@ -2134,53 +2144,7 @@
           "- Nifty move: -1.16% (threshold >1.5%) \u2014 PASS",
           "- Geopolitical: Solid, no escalat"
         ],
-        "yesterday": [
-          "- Nightly consolidation due 23:00 IST (2h 34m away)",
-          "- No alerts",
-          "HEARTBEAT_OK",
-          "[20:56 IST] RAM: [OpenClaw heartbeat poll]",
-          "[20:56 IST] KUBERA: Reading heartbeat state at 20:56 IST Monday...",
-          "[20:56 IST] KUBERA: 20:56 IST Monday evening \u2014 2 hours 4 minutes until nightly consolidation (23:00 IST). All status unchanged.",
-          "**Status at 20:56 IST:**",
-          "- Market \u2705 closed, EOD consolidation \u2705 complete",
-          "- Portfolio: \u20b93,45,113 (+6.5% YTD deployed)",
-          "- All alert gates passed (5/5)",
-          "- Nightly consolidation due 23:00 IST (2h 4m away)",
-          "- No alerts",
-          "HEARTBEAT_OK",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: I'll process the Twitter Watcher cron now. Let me start by checking market status and then running the analysis.",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Now let me read the current portfolio and research state to establish baselines:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good \u2014 portfolio is solid (+6.5%), and the research inbox shows recent market context. Now let me search for current off-hours news and Twitter sentiment on key macro indicators:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Now I have the data I need. Let me analyse the findings against the alert thresholds and update memory:",
-          "**Threshold Check:**",
-          "- **Crude oil:** Brent **-1.07%** (down 86c to $79.71), WTI **-0.41%** (down 30c to $73.63) \u2014 both well under 3% threshold \u2705",
-          "- **Index movement:** Nifty 50 up +0.47% intraday (to 24,125.55), Sensex up +0.53% \u2014 both under 1.5% threshold \u2705",
-          "- **Geopolitical:** Iran-Israel ceasefire holding, de-escalation trending, NO escalation \u2705",
-          "**Verdict:** No urgent macro thresh",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me just append the update cleanly:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good. Let me write a clean update at the top of the file:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Now let me log this to the daily memory as well:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good, the daily log already has the morning analysis. Let me append the end-of-day evening summary:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me append the off-hours evening update:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Now let me update the heartbeat state to record the last check:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me update the heartbeat with the latest evening cron state:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: JSON string escaping issue. Let me rewrite the entire file cleanly:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Cron execution complete. Let me verify the update:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Excellent. **Cron execution complete \u2014 21:03 IST, 22 Jun 2026.**",
-          "---",
-          "## Summary",
-          "**Off-Hours Twitter Watcher + News Analysis \u2014 EXECUTED**",
-          "### Findings",
-          "\u2705 **All 5 Alert Thresholds PASSED:**",
-          "- **Crude oil:** Brent $79.71 (\u22121.07%), WTI $75.91\u201377.20 (\u22120.41%) \u2192 **Threshold: >3%** \u2705 Clear",
-          "- **Index:** Nifty 24,150 (+0.47% intraday), Sensex 77,206 (+0.53%) \u2192 **Threshold: >1.5%** \u2705 Clear  ",
-          "- **Geopolitical:** Iran-Israel ceasefire holding; US-Iran talks conclusive in Switzerland; Hormuz reopening in w"
-        ],
         "rolling_7day": [
-          "- AURO FDA OAI repricing risk (conditional, not urgent with +buyback support; watch 16 Jun session)",
-          "**Status:** \u2705 **SILENT MODE CONFIRMED \u2014 NO MESSAGE TO RAM**",
-          "---",
-          "--- Midnight run OK 2026-06-17 ---",
           "## 2026-06-17 \u2014 Crude Repricing + FOMC Hawkish + Pot 1 +5.2%",
           "- (06:03 IST) Pre-market gates cleared; WTI -9.8% repriced as positive (Iran-US deal, Hormuz Jun 20 reopening)",
           "- (08:42 IST) Martin relay: FIIs net buyers (+\u20b9200 Cr), FOMC tonight, IPO pipeline (14 IPOs, \u20b92.5\u20133.5L Cr)",
@@ -2216,13 +2180,13 @@
           "- (16:15 IST) EOD: Pot 3 daily signal skipped (macro filter), no new Pot 2 positions, market structure constructive",
           "- (21:00 IST) Off-hours: Crude de-risking clean, FII flows \u20b94,859 Cr Friday (FTSE rebalance), next event Tuesday 09:00 IST",
           "---",
-          "--- Midnight run OK 2026-06-23 ---"
+          "--- Midnight run OK 2026-06-23 ---",
+          "## 2026-06-23",
+          "- (no summary extracted)",
+          "---",
+          "--- Midnight run OK 2026-06-24 ---"
         ],
         "rolling_28day": [
-          "## 2026-06-17 \u2014 Iran Deal + FOMC Hawkish Hold + Portfolio +5.2%",
-          "- (06:03 IST) Pre-market sweep: all urgent-macro gates cleared; crude -9.8% WTI repriced as positive (Hormuz reopening Jun 20 confirmed)",
-          "- (08:42 IST) Martin relay processed (13 items); FOMC tonight flagged, FIIs net buyers first time in 13 sessions, IPO mega-pipeline thesis added (5/10)",
-          "- (10:00 IST) APOLLOHOSP AGM composite scheme vote passed; position +14.7%, structural clarity locked",
           "- (12:00 PM IST) Crude macro alert sent: WTI -5.74% gate triggered, classified de-escalation repricing (positive), portfolio +0.9%",
           "- (23:56 IST) FOMC decision: HOLD at 3.50\u20133.75%, hawkish (one cut projected for rest of 2026); S&P +0.65% relief rally; Iran crude thesis raised to 8.0/10; ICICIBANK thesis intact",
           "---",
@@ -2258,7 +2222,11 @@
           "- (21:00 IST) Off-hours watcher: Brent $79.71, Nifty consolidating 24,000-24,200, war premium unwound",
           "- (23:00 IST) Evening consolidation: Portfolio sound, VIX 12.97 (Pot 2 gate open), weekly expiry 25 Jun (3 days)",
           "---",
-          "--- Midnight run OK 2026-06-23 ---"
+          "--- Midnight run OK 2026-06-23 ---",
+          "## 2026-06-23",
+          "- (no summary extracted)",
+          "---",
+          "--- Midnight run OK 2026-06-24 ---"
         ]
       }
     },
@@ -2270,7 +2238,7 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.43,
+      "rss_gb": 0.44,
       "cpu": 0.1,
       "crons_total": 8,
       "crons_enabled": 7,
@@ -2279,10 +2247,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 23.9,
-        "rolling_28day": 2.0,
-        "rolling_180day": 2.0
+        "transcript": 0.1,
+        "rolling_7day": 24.0,
+        "rolling_28day": 2.1,
+        "rolling_180day": 2.1
       },
       "skills": [
         "academic-deep-research",
@@ -2430,6 +2398,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1782239656762,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1782239656761,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2443,24 +2429,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1782232213921,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1782228855424,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1782228855423,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2504,6 +2472,17 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-06-24",
+          "# Self-healing rotation from transcript-2026-06-23.md at 00:04 IST",
+          "[21:55 IST] PURL: Checking today's memory and running heartbeat tasks.",
+          "[21:55 IST] PURL: Checking session status and updating heartbeat state:",
+          "[21:55 IST] PURL: Context at 29% \u2014 healthy. Let me update heartbeat state:",
+          "[22:55 IST] PURL: Checking heartbeat for 22:55 IST (approaching quiet hours).",
+          "[22:55 IST] PURL: Context at 30% \u2014 healthy. Quiet hours starting in ~5 minutes, so per HEARTBEAT.md, skipping email scans. Updating state:",
+          "[23:55 IST] PURL: Checking heartbeat for late evening (approaching quiet hours).",
+          "[23:55 IST] PURL: Context at 30% (healthy). Per HEARTBEAT.md, quiet hours start at 23:00 \u2014 it's now 23:55, so email scan is skipped. Updating timestamp:"
+        ],
+        "yesterday": [
           "[20:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[20:55 IST] PURL: Checking heartbeat tasks for Tuesday evening.",
           "[20:55 IST] PURL: Context at 24% \u2014 healthy. Updating heartbeat state:",
@@ -2544,48 +2523,6 @@
           "[22:55 IST] PURL: Checking heartbeat for 22:55 IST (approaching quiet hours).",
           "[22:55 IST] PURL: Context at 30% \u2014 healthy. Quiet hours starting in ~5 minutes, so per HEARTBEAT.md, skipping email scans. Updating state:",
           "[22:55 IST] PURL: HEARTBEAT_OK"
-        ],
-        "yesterday": [
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 Transcript logger complete.",
-          "**Summary:**",
-          "- Klub K sender map: 11 entries loaded",
-          "- Main session: 5 new messages",
-          "- Direct (Gari): 0 new messages",
-          "- Group chat: 0 new messages",
-          "- **Output:** `transcript-2026-06-22.md` updated with 3 total messages",
-          "- Bookmark synced",
-          "All caught up! \ud83e\uddf6",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Task complete.** Script executed successfully. 1 message appended to transcript; 0 to gari-transcript and group-transcript. All sessions processed.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Transcript logger complete. ",
-          "**Summary:**",
-          "- **Klub K sender map:** 11 entries loaded",
-          "- **Transcripts fetched:** 0 new messages from agent:main:main, direct (Gari), and group (-5102532606)",
-          "- **File updated:** `transcript-2026-06-22.md`",
-          "- **Total messages processed:** 3",
-          "Nothing new to capture at this point. All systems clean.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Klub K transcript logger completed successfully.",
-          "- No new messages across sessions",
-          "- No bookmark updates required",
-          "- All sessions processed cleanly",
-          "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[21:55 IST] PURL: Checking heartbeat. Let me save progress and verify system status.",
-          "[21:55 IST] PURL: Context 24%, all checks green, backups current.",
-          "HEARTBEAT_OK",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation. Let me start by checking today's daily log and then proceed with the consolidation steps.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now I'll execute the consolidation steps using Python for all file operations.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now the final step \u2014 append the bookmark to today's transcript:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[22:55 IST] PURL: Checking heartbeat tasks for 22:55 IST (evening, approaching quiet hours at 23:00).",
-          "[22:55 IST] PURL: Context at 24% \u2014 healthy. Per HEARTBEAT.md, at 22:55 IST:",
-          "- **Email checks:** Quiet hours start at 23:00 \u2014 skip email scan (it's 5 minutes away)",
-          "- **Config backup:** Done today \u2713",
-          "- **Cost:** Well below threshold \u2713",
-          "- **Daily/weekly tasks:** Nothing due tonight",
-          "Updating heartbeat state and memory:",
-          "[22:56 IST] PURL: HEARTBEAT_OK"
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
@@ -2658,7 +2595,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.36,
-      "cpu": 1.0,
+      "cpu": 1.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2666,10 +2603,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 23.8,
-        "rolling_28day": 23.8,
-        "rolling_180day": 23.8
+        "transcript": 1.1,
+        "rolling_7day": 23.9,
+        "rolling_28day": 23.9,
+        "rolling_180day": 23.9
       },
       "skills": [
         "moltguard"
@@ -2947,17 +2884,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.3,
-      "cpu": 0.4,
+      "rss_gb": 0.27,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 0.0,
-        "rolling_28day": 0.0,
-        "rolling_180day": 1.0
+        "transcript": 0.3,
+        "rolling_7day": 0.1,
+        "rolling_28day": 0.1,
+        "rolling_180day": 1.1
       },
       "skills": [
         "moltguard"
@@ -3133,10 +3070,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 23.9,
-        "rolling_28day": 23.9,
-        "rolling_180day": 23.9
+        "transcript": 0.1,
+        "rolling_7day": 24.0,
+        "rolling_28day": 24.0,
+        "rolling_180day": 24.0
       },
       "skills": [
         "moltguard"
@@ -3300,7 +3237,7 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.33,
+      "rss_gb": 0.22,
       "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3309,10 +3246,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.8,
-        "rolling_7day": 23.7,
-        "rolling_28day": 23.7,
-        "rolling_180day": 23.7
+        "transcript": 2.9,
+        "rolling_7day": 23.8,
+        "rolling_28day": 23.8,
+        "rolling_180day": 23.8
       },
       "skills": [],
       "skills_detail": [],
@@ -3497,17 +3434,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.27,
-      "cpu": 51.0,
+      "rss_gb": 0.3,
+      "cpu": 2.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 0.5,
-        "rolling_28day": 0.0,
-        "rolling_180day": 0.0
+        "transcript": 0.4,
+        "rolling_7day": 0.6,
+        "rolling_28day": 0.1,
+        "rolling_180day": 0.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3668,7 +3605,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3699,8 +3636,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 898,
-      "rss_gb": 0.19,
-      "cpu": 0.1,
+      "rss_gb": 0.13,
+      "cpu": 0.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3730,7 +3667,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.35,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3738,10 +3675,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 23.9,
-        "rolling_28day": 23.9,
-        "rolling_180day": 23.9
+        "transcript": 0.1,
+        "rolling_7day": 24.0,
+        "rolling_28day": 24.0,
+        "rolling_180day": 24.0
       },
       "skills": [
         "apple-calendar-macos",
@@ -3889,6 +3826,15 @@
       ],
       "crons": [
         {
+          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1782239643085,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -3907,15 +3853,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1782228844505,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Herbie \u2014 Midnight Rolling Summary",
           "enabled": true,
           "sched": "9 0 * * *",
@@ -3927,6 +3864,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-06-24",
+          "# Self-healing rotation from transcript-2026-06-23.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. The transcript logger processed 2 new messages and updated the bookmark for today's transcript file.",
           "[12:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
@@ -3964,48 +3905,6 @@
           "[21:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[21:52 IST] HERBIE: HEARTBEAT_OK",
           "[22:00 IST] HERBIE [Cron: Herbie \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation job silently.",
-          "[22:00 IST] HERBIE [Cron: Herbie \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[22:52 IST] HERBIE: HEARTBEAT_OK"
-        ],
-        "yesterday": [
-          "[12:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Logged 2 messages to transcript-2026-06-22.md. No new messages since last run.",
-          "[12:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[12:52 IST] HERBIE: HEARTBEAT_OK",
-          "[13:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[13:52 IST] HERBIE: HEARTBEAT_OK",
-          "[14:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[14:52 IST] HERBIE: HEARTBEAT_OK",
-          "[15:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
-          "[15:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. Logged 2 new messages to today's transcript file.",
-          "[15:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[15:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. The transcript logger ran successfully. No new messages found, 2 messages total on the transcript for today. Bookmark status is False, output written to `transcript-2026-06-22.md`.",
-          "[15:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[15:52 IST] HERBIE: HEARTBEAT_OK",
-          "[16:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[16:52 IST] HERBIE: HEARTBEAT_OK",
-          "[17:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[17:52 IST] HERBIE: HEARTBEAT_OK",
-          "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger for you.",
-          "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. Logged 2 new messages to `transcript-2026-06-22.md`. Bookmark set. \u2713",
-          "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Transcript logger completed. Status:",
-          "- **New messages:** 0",
-          "- **Total in transcript:** 2",
-          "- **Bookmark updated:** No",
-          "- **Output file:** `transcript-2026-06-22.md`",
-          "[18:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[18:52 IST] HERBIE: HEARTBEAT_OK",
-          "[19:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[19:52 IST] HERBIE: HEARTBEAT_OK",
-          "[20:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[20:52 IST] HERBIE: HEARTBEAT_OK",
-          "[21:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
-          "[21:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2705 Transcript logged. 2 new messages captured in `transcript-2026-06-22.md`. Next run: 9:30 PM.",
-          "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Logged. 2 messages, bookmark falsy\u2014no pending follow-ups flagged.",
-          "[21:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[21:52 IST] HERBIE: HEARTBEAT_OK",
-          "[22:00 IST] HERBIE [Cron: Herbie \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll perform the nightly memory consolidation silently.",
           "[22:00 IST] HERBIE [Cron: Herbie \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
           "[22:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[22:52 IST] HERBIE: HEARTBEAT_OK"
@@ -4103,8 +4002,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.34,
-      "cpu": 0.9,
+      "rss_gb": 0.37,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4112,9 +4011,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 2.7,
-        "rolling_28day": 2.7,
+        "transcript": 0.4,
+        "rolling_7day": 2.8,
+        "rolling_28day": 2.8,
         "rolling_180day": null
       },
       "skills": [
