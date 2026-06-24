@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 09:17:32 IST",
-  "generated_epoch": 1782272852,
+  "generated_ist": "2026-06-24 09:22:36 IST",
+  "generated_epoch": 1782273156,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.58 / 9.73 / 9.73",
+    "load": "10.08 / 10.23 / 9.97",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 52849,
-      "rss_gb": 0.92,
-      "cpu": 9.4,
+      "rss_gb": 0.86,
+      "cpu": 0.3,
       "crons_total": 80,
       "crons_enabled": 57,
       "skills_count": 59,
@@ -45,7 +45,7 @@
         "transcript": 0.0,
         "rolling_7day": 8.4,
         "rolling_28day": 8.4,
-        "rolling_180day": 8.8
+        "rolling_180day": 8.9
       },
       "skills": [
         "academic-deep-research",
@@ -643,10 +643,10 @@
       ],
       "crons": [
         {
-          "name": "Sam transcript update",
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782272798545,
+          "sched": "every 15m",
+          "last_ts": 1782273133473,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -655,16 +655,16 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782272773542,
-          "last_status": "ok",
+          "last_ts": 1782273113865,
+          "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782272773542,
+          "last_ts": 1782273050697,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -673,25 +673,25 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782272722881,
+          "last_ts": 1782273050695,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782272722881,
+          "last_ts": 1782273050695,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "name": "Sam transcript update",
           "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782272722880,
+          "sched": "every 10m",
+          "last_ts": 1782272798545,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1365,11 +1365,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2705 **All core systems:** Operational",
-          "\u274c **Discord:** Offline 86+ hours (since Wed 13:xx IST)",
-          "**Discord Status Update:**",
-          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
-          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
           "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
           "[08:09 IST] RAM: [OpenClaw heartbeat poll]",
@@ -1404,7 +1399,12 @@
           "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
           "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[09:16 IST] RAM: AWS Cost report?",
+          "[09:16 IST] HADERACH: The forced AWS Cost Report run just failed \u2014 but notice the **new error signature**: `isolated agent setup timed out before runner start`. That's not the Opus-stall; it's the isolated session failing to *boot* \u2014 likely contention from the four heavy runs I stacked this morning plus the live load (10+). Let me check its run history to confirm, then re-fire it solo.",
+          "[09:16 IST] HADERACH: The new failure is a different beast: `isolated agent setup timed out before runner start` \u2014 the session couldn't even boot within 60s. That's resource contention, not model latency. Yesterday's report (23 Jun) succeeded in 495s, so the job itself is fine; this morning's machine load (10+) plus the stacked heavy runs starved the new isolated session at startup.",
+          "Rather than re-fire blind into the same contention, let me just generate the report directly here, in this live session \u2014 I have all...",
+          "[09:16 IST] HADERACH: Credentials present, boto3 available. Let me pull the data from both regions and Cost Explorer, then build the PDF. This is a heavier call \u2014 running it in background with a generous yield."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1542,8 +1542,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.5,
-      "cpu": 0.4,
+      "rss_gb": 0.52,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1552,10 +1552,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.4,
+        "transcript": 0.5,
         "rolling_7day": 9.1,
         "rolling_28day": 9.1,
-        "rolling_180day": 153.2
+        "rolling_180day": 153.3
       },
       "skills": [
         "moltguard"
@@ -1878,8 +1878,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.54,
-      "cpu": 0.5,
+      "rss_gb": 0.48,
+      "cpu": 0.4,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1887,10 +1887,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 9.2,
-        "rolling_28day": 9.2,
-        "rolling_180day": 9.2
+        "transcript": 0.0,
+        "rolling_7day": 9.3,
+        "rolling_28day": 9.3,
+        "rolling_180day": 9.3
       },
       "skills": [
         "twitacc"
@@ -1907,6 +1907,24 @@
         }
       ],
       "crons": [
+        {
+          "name": "Kubera \u2014 Market Open Analysis (09:20 IST Mon-Fri)",
+          "enabled": true,
+          "sched": "20 9 * * 1-5",
+          "last_ts": 1782273003976,
+          "last_status": "error",
+          "model": "anthropic/claude-sonnet-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782273003973,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
@@ -1930,15 +1948,6 @@
           "enabled": true,
           "sched": "*/15 8-15 * * 1-5",
           "last_ts": 1782272766136,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782272403340,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2079,15 +2088,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Market Open Analysis (09:20 IST Mon-Fri)",
-          "enabled": true,
-          "sched": "20 9 * * 1-5",
-          "last_ts": 1782186605655,
-          "last_status": "error",
-          "model": "anthropic/claude-sonnet-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Kubera \u2014 Monday Bulk Deal Pull (Mon 09:30)",
           "enabled": true,
           "sched": "30 9 * * 1",
@@ -2108,46 +2108,46 @@
       ],
       "transcripts": {
         "recent": [
-          "**Step 2 output:**",
-          "```",
-          "\ud83d\udcca 09:00 IST | Nifty 23,884.10 | VIX 13.94 \u2705",
-          "Pot1: \u20b962,463 / \u20b958,927 (+6.0%)",
-          "Pot2: No open NFO positions.",
-          "Cash: \u20b9282,617",
-          "TOTAL: \u20b9345,080 / \u20b9360,002 (-4.1%)",
-          "```",
-          "Pot 1 is up 6.0%, Pot 2 flat. VIX healthy at 13.94. Overall portfolio -4.1% vs initial capital (likely due to unrealised draw",
-          "[09:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-minute portfolio update for trading hours.",
-          "First, let me check if today is an NSE holiday:",
-          "- Today: Wednesday, June 24th, 2026",
-          "- NSE holidays list: 1-Jan, 26-Jan, 19-Feb, 31-Mar, 10-Apr, 14-Apr, 1-May, 15-Aug, 27-Aug, 2-Oct, 24-Oct, 5-Nov, 25-Dec",
-          "- June 24 is NOT on the holiday list \u2705",
-          "Now executing the update sequence:",
-          "[09:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now composing the formatted message:",
-          "[09:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram** at 09:00 IST.",
-          "**Key points:**",
-          "- Nifty: 23,824 | VIX: 13.94 \u2705 (Pot 2 gate open)",
-          "- Pot 1 up +6.0% \u2014 all holdings in green except COALINDIA and ITC",
-          "- No active Pot 2 positions",
-          "- Portfolio: \u20b9345,080 (-35.5% vs initial \u20b9535,002)",
-          "- Regime: SIDEWAYS | 1\u03c3 move range: 22,872\u201324,776",
-          "Next scheduled update: +15 minutes (09:15 IST).",
-          "[09:01 IST] RAM: What is the plan for Pot3?",
-          "[09:01 IST] KUBERA: Reading plan files for Pot 3...",
-          "[09:01 IST] KUBERA: Based on QUANT_FRAMEWORK.md and MEMORY.md, here's the **Pot 3 plan:**",
-          "## Pot 3 \u2014 Systematic Derivatives (\u20b91,00,000 ring-fenced)",
-          "**Status:** Phase 1 capital **received Jun 15** (\u20b91,75,000 total with Nifty futures buffer).",
-          "### Core Strategy",
-          "Iron condor selling **when Delphi says SIDEWAYS** (which is ~90% of the time). Bull put spreads on BULL signals, bear call spreads on BEAR.",
-          "### How It Works",
-          "1. **Delphi nowcasting engine** detects regime (BULL/BEAR/SIDEWAYS) \u2014 stable \u22652 consecutive reading",
-          "[09:01 IST] KUBERA: Based on QUANT_FRAMEWORK.md and MEMORY.md, here's the **Pot 3 plan:**",
-          "## Pot 3 \u2014 Systematic Derivatives (\u20b91,00,000 ring-fenced)",
-          "**Status:** Phase 1 capital **received Jun 15** (\u20b91,75,000 total with Nifty futures buffer).",
-          "### Core Strategy",
-          "Iron condor selling **when Delphi says SIDEWAYS** (which is ~90% of the time). Bull put spreads on BULL signals, bear call spreads on BEAR.",
-          "### How It Works",
-          "1. **Delphi nowcasting engine** detects regime (BULL/BEAR/SIDEWAYS) \u2014 stable \u22652 consecutive reading"
+          "- **Crude Oil:** WTI -1.12% (\u20b972.39/bbl), Brent -1.10% (\u20b976.23/bbl) \u2014 **BOTH BELOW 3% threshold \u2705**",
+          "- **Geopolitical:** Ceasefire HOLDING. No new",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me fix the array format:",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: \u2705 **TWITTER WATCHER TASK COMPLETE \u2014 09:15 IST TRADING HOURS SCAN**",
+          "**Summary:**",
+          "- **Market Status:** Nifty +1.19%, Sensex +1.16% \u2014 bullish open",
+          "- **Crude:** WTI -1.12%, Brent -1.10% \u2014 both below 3% alert gate",
+          "- **Geopolitical:** Iran-US ceasefire HOLDING, no escalations",
+          "- **Portfolio:** All 6 holdings SAFE to STRONG; +6.0% YTD; 8\u201310% buffer to red-line",
+          "- **All Alert Gates:** \u2705 PASS (crude, geopolitical, drawdown, index, VIX)",
+          "**Action Taken:**",
+          "\u2705 Research-inbox updated with 09:15 IST scan",
+          "\u2705 SILE",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)]: I'll execute the Pot 3 daily signal check now.",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)]: Signal output: **\u274c SKIP** \u2014 macro filter active (Iran escalation, elevated VIX 19.5, FOMC window, mixed geopolitical signals).",
+          "No green signal today. Per the cron instructions: **NO_REPLY** (silent).",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll run the 15-minute portfolio update cron for trading hours.",
+          "**Step 1: Check NSE holiday status**",
+          "Today is Wednesday, June 24th, 2026. This is NOT an NSE holiday. Proceeding.",
+          "**Step 2: Run portfolio update script**",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 3: Read portfolio and market state**",
+          "[09:15 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 4: Compose update message**",
+          "Based on the portfolio and market data:",
+          "- **Time:** 09:15 IST",
+          "- **Nifty spot:** 23824.1",
+          "- **VIX:** 13.94 (\u2705 <18, Pot2 gate OPEN)",
+          "- **Pot1 invested:** \u20b958,927 | **Current:** \u20b962,506 | **P&L:** +6.1%",
+          "- **Pot2:** No open positions",
+          "- **Pot3:** No deployed capital",
+          "- **Cash:** \u20b9282,617",
+          "- **Total portfolio:** \u20b9345,123",
+          "- **Overall %:** (345123 - 535002) / 535002 \u00d7 100 = **-35.5%** (vs \u20b95,35,002 deposits)",
+          "**Step 5: Send to Ram**",
+          "[09:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram.**",
+          "**Key observations:**",
+          "- Pot 1 performing well: +6.1% on deployed capital",
+          "- AUROPHARMA up 17.2%, APOLLOHOSP up 15.8% \u2014 both strong performers",
+          "- VIX 13.9 remains in green zone (Pot 2 gate open if needed)",
+          "- Market regime: SIDEWAYS, low volatility",
+          "- Next expiry: 30-JUN-2026 (6 days)"
         ],
         "yesterday": [
           "| ICICIBANK | 16 | \u20b91,268.93 | \u20b91,338.30 | \u25b2+\u20b91,110 (+5.5%) | \u20b921,413 |",
@@ -2286,7 +2286,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.45,
-      "cpu": 0.6,
+      "cpu": 1.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2294,10 +2294,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 9.1,
-        "rolling_28day": 9.1,
-        "rolling_180day": 9.1
+        "transcript": 0.3,
+        "rolling_7day": 9.2,
+        "rolling_28day": 9.2,
+        "rolling_180day": 9.2
       },
       "skills": [
         "academic-deep-research",
@@ -2682,10 +2682,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 9.0,
-        "rolling_28day": 9.0,
-        "rolling_180day": 9.0
+        "transcript": 0.2,
+        "rolling_7day": 9.1,
+        "rolling_28day": 9.1,
+        "rolling_180day": 9.1
       },
       "skills": [
         "moltguard"
@@ -2964,16 +2964,16 @@
       "up": true,
       "pid": 53990,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 9.3,
         "rolling_28day": 9.3,
-        "rolling_180day": 10.3
+        "rolling_180day": 10.4
       },
       "skills": [
         "moltguard"
@@ -2994,7 +2994,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782272406384,
+          "last_ts": 1782273006979,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3145,16 +3145,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.29,
-      "cpu": 0.0,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
         "transcript": 0.3,
-        "rolling_7day": 9.2,
-        "rolling_28day": 9.2,
-        "rolling_180day": 9.2
+        "rolling_7day": 9.3,
+        "rolling_28day": 9.3,
+        "rolling_180day": 9.3
       },
       "skills": [
         "moltguard"
@@ -3350,9 +3350,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 9.0,
-        "rolling_28day": 9.0,
-        "rolling_180day": 33.0
+        "rolling_7day": 9.1,
+        "rolling_28day": 9.1,
+        "rolling_180day": 33.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3528,15 +3528,15 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.3,
-      "cpu": 0.4,
+      "rss_gb": 0.28,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 9.7,
+        "transcript": 0.1,
+        "rolling_7day": 9.8,
         "rolling_28day": 9.3,
         "rolling_180day": 9.3
       },
@@ -3699,7 +3699,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.0,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3731,7 +3731,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.19,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3761,7 +3761,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.36,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3769,10 +3769,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 9.1,
-        "rolling_28day": 9.1,
-        "rolling_180day": 9.1
+        "transcript": 0.3,
+        "rolling_7day": 9.2,
+        "rolling_28day": 9.2,
+        "rolling_180day": 9.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4131,8 +4131,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.34,
-      "cpu": 0.5,
+      "rss_gb": 0.35,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4140,9 +4140,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 0.1,
-        "rolling_28day": 0.1,
+        "transcript": 0.1,
+        "rolling_7day": 0.2,
+        "rolling_28day": 0.2,
         "rolling_180day": null
       },
       "skills": [
