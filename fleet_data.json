@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 20:39:33 IST",
-  "generated_epoch": 1782313773,
+  "generated_ist": "2026-06-24 20:44:38 IST",
+  "generated_epoch": 1782314078,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.40 / 9.65 / 9.60",
+    "load": "9.90 / 9.81 / 9.69",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.63,
-      "cpu": 0.3,
+      "rss_gb": 0.83,
+      "cpu": 0.5,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,9 +42,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 19.7,
-        "rolling_28day": 19.7,
+        "transcript": 0.1,
+        "rolling_7day": 19.8,
+        "rolling_28day": 19.8,
         "rolling_180day": 20.2
       },
       "skills": [
@@ -643,10 +643,46 @@
       ],
       "crons": [
         {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782313987006,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782313624436,
+          "last_ts": 1782313925670,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782313833988,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782313833987,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782313833987,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -661,46 +697,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782313283908,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782313283906,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782313283906,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782313141611,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782313080910,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:10 IST] HADERACH: There it is \u2014 a literal backslash-n (`\\ n`) is in the file. My text emission is inserting `\\n` as two characters. I'll avoid the loop-on-same-line pattern entirely and use distinct lines. Let me write a properly formatted file.",
-          "[20:11 IST] HADERACH: I keep emitting the same broken token. Let me fix the file in place with sed to convert the literal `\\n` into a real newline + indentation.",
-          "[20:11 IST] HADERACH: Good \u2014 every model carries a `model_name` field already, so the report can render names directly from the data without depending on the stale DISPLAY_NAMES map. Gemma 4 12B (None) is now filtered out by my edit. Let me check the report code uses `model_name` (not a DISPLAY_NAMES lookup that might miss new aliases), then run it.",
-          "[20:11 IST] HADERACH: It uses `DISPLAY_NAMES.get(alias, alias)` \u2014 so unmapped aliases (glm-5.2, grok-4.3, qwen variants, stepfun) would fall back to the raw alias string, which is ugly but not broken. Better to make it prefer the richer `model_name` field. One small edit to each of the three render points.",
-          "[20:11 IST] HADERACH: Now there may be hardcoded narrative text (the \"what changed\" commentary) referencing old numbers. Let me check for hardcoded prose/numbers before running, then generate.",
-          "[20:11 IST] HADERACH: As I feared \u2014 the report has **extensive hardcoded narrative** baked to the old v1 numbers (Sonnet \"89.5%\", \"12 Models \u00b7 10 June\", old domain commentary). Repointing the data alone would produce a report where the **table is correct (v2) but the prose contradicts it** \u2014 worse than no report.",
-          "This is a real piece of work, not a one-liner: the executive summary, tier bands, and all six domain insight paragraphs need rewriting to the canonical v2 figures. Rather than do a rushed hand-patch that...",
-          "[20:12 IST] HADERACH: I have the full picture. The narrative is comprehensively v1-keyed (wrong leader scores, wrong tier members, \"Gemma 4 31B at #3\", a 12-model framing, and even claims contradicted by v2 \u2014 e.g. v2 notes Qwen 3.6's Fleet weakness differently). A correct rebuild means rewriting the banner, exec summary, tier legend, all six domain insights, and the observations.",
-          "This is a proper deliverable rebuild \u2014 about 15-20 min of careful work to get every number right against the canonical dataset. Rather ...",
-          "[20:12 IST] HADERACH: Now I have every prose block. Let me derive the exact v2 domain leaders and the actual tier membership programmatically so my rewrite is grounded, not guessed.",
-          "[20:12 IST] HADERACH: Now I have the exact v2 facts. Let me rewrite all the narrative blocks \u2014 banner, exec summary, tier legend, domain insights, observations, and footer \u2014 grounded in these figures.",
           "[20:13 IST] HADERACH: Now the six domain insight paragraphs and the observations block, grounded in the v2 facts.",
           "[20:14 IST] HADERACH: Now the Key Observations block and footer.",
           "[20:16 IST] HADERACH: Now let me run it and confirm the PDF builds.",
@@ -1386,7 +1375,18 @@
           "| Claude Sonnet 4.6 | $3.00 | $15.00 | 91.7% (#1) |",
           "| Claude Opus 4.7 | $5.00 | $25.00 | (not benchmarked) |",
           "**How GLM 5.2 stacks up:**",
-          "- **vs S..."
+          "- **vs S...",
+          "[20:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[20:39 IST] HADERACH: Good evening, Ram.",
+          "**Status \u2014 20:39 IST (Wed 24 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 90+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
         "yesterday": [
           "[21:40 IST] HADERACH: Good evening, Ram.",
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.48,
-      "cpu": 0.5,
+      "rss_gb": 0.49,
+      "cpu": 0.4,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,9 +1534,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 1.8,
-        "rolling_7day": 20.4,
-        "rolling_28day": 20.4,
+        "transcript": 1.9,
+        "rolling_7day": 20.5,
+        "rolling_28day": 20.5,
         "rolling_180day": 164.6
       },
       "skills": [
@@ -1861,7 +1861,7 @@
       "up": true,
       "pid": 98635,
       "rss_gb": 0.48,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1869,10 +1869,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.8,
-        "rolling_7day": 20.6,
-        "rolling_28day": 20.6,
-        "rolling_180day": 20.6
+        "transcript": 1.9,
+        "rolling_7day": 20.7,
+        "rolling_28day": 20.7,
+        "rolling_180day": 20.7
       },
       "skills": [
         "twitacc"
@@ -2268,7 +2268,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.43,
-      "cpu": 0.2,
+      "cpu": 52.7,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2277,9 +2277,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 20.5,
-        "rolling_28day": 20.5,
-        "rolling_180day": 20.5
+        "rolling_7day": 20.6,
+        "rolling_28day": 20.6,
+        "rolling_180day": 20.6
       },
       "skills": [
         "academic-deep-research",
@@ -2655,8 +2655,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.36,
-      "cpu": 0.1,
+      "rss_gb": 0.38,
+      "cpu": 0.4,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2664,10 +2664,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.5,
-        "rolling_7day": 20.4,
-        "rolling_28day": 20.4,
-        "rolling_180day": 20.4
+        "transcript": 2.6,
+        "rolling_7day": 20.5,
+        "rolling_28day": 20.5,
+        "rolling_180day": 20.5
       },
       "skills": [
         "moltguard"
@@ -2952,10 +2952,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 20.6,
-        "rolling_28day": 20.6,
-        "rolling_180day": 21.6
+        "transcript": 0.1,
+        "rolling_7day": 20.7,
+        "rolling_28day": 20.7,
+        "rolling_180day": 21.7
       },
       "skills": [
         "moltguard"
@@ -2976,7 +2976,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782313219648,
+          "last_ts": 1782313840611,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3134,16 +3134,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.6,
-        "rolling_7day": 20.5,
-        "rolling_28day": 20.5,
-        "rolling_180day": 20.5
+        "transcript": 2.7,
+        "rolling_7day": 20.6,
+        "rolling_28day": 20.6,
+        "rolling_180day": 20.6
       },
       "skills": [
         "moltguard"
@@ -3333,7 +3333,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.32,
-      "cpu": 6.3,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3341,10 +3341,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 20.3,
-        "rolling_28day": 20.3,
-        "rolling_180day": 44.3
+        "transcript": 2.5,
+        "rolling_7day": 20.4,
+        "rolling_28day": 20.4,
+        "rolling_180day": 44.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3520,17 +3520,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.28,
-      "cpu": 0.4,
+      "rss_gb": 0.27,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.1,
-        "rolling_28day": 20.6,
-        "rolling_180day": 20.6
+        "transcript": 0.2,
+        "rolling_7day": 21.2,
+        "rolling_28day": 20.7,
+        "rolling_180day": 20.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3691,7 +3691,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.17,
-      "cpu": 0.0,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3723,7 +3723,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.19,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3753,7 +3753,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.32,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3762,9 +3762,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 20.5,
-        "rolling_28day": 20.5,
-        "rolling_180day": 20.5
+        "rolling_7day": 20.6,
+        "rolling_28day": 20.6,
+        "rolling_180day": 20.6
       },
       "skills": [
         "apple-calendar-macos",
@@ -4128,7 +4128,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.35,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4136,7 +4136,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 11.5,
         "rolling_28day": 11.5,
         "rolling_180day": null
