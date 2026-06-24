@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 17:16:42 IST",
-  "generated_epoch": 1782301602,
+  "generated_ist": "2026-06-24 17:21:47 IST",
+  "generated_epoch": 1782301907,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.11 / 9.37 / 9.60",
+    "load": "9.88 / 9.62 / 9.63",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.75,
-      "cpu": 0.2,
+      "rss_gb": 0.91,
+      "cpu": 0.4,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.3,
-        "rolling_28day": 16.3,
-        "rolling_180day": 16.8
+        "transcript": 0.0,
+        "rolling_7day": 16.4,
+        "rolling_28day": 16.4,
+        "rolling_180day": 16.9
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,43 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782301564724,
+          "last_ts": 1782301875901,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782301862294,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782301862292,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782301862292,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782301610895,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -656,42 +692,6 @@
           "enabled": true,
           "sched": "every 15m",
           "last_ts": 1782301349567,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782301235570,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782301235568,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782301235567,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782300982258,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,15 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:55 IST] HADERACH: The literal `\\n` keeps corrupting heredocs through my tool input. Let me write the script with the `write` tool instead, which handles real newlines, and take a simpler, robust block-based approach.",
-          "[16:55 IST] HADERACH: The `write` tool also literalized the `\\n`. The issue is my own output contains literal backslash-n sequences. Let me verify and repair the file by replacing literal `\\n` with real newlines.",
-          "[16:55 IST] HADERACH: The blanket replace also broke real string literals. This approach is too fragile. Let me abandon the file-script route and do the purge with a clean inline `python3 -c` using `chr(10)` and avoiding any `\\n` literals entirely.",
-          "[16:55 IST] HADERACH: The `while i < n:` line again got literal `\\n`s injected into it \u2014 this happens specifically on lines where I put multiple statements. The corruption is coming from my own tokenization whenever a line gets long. Let me build the script with `printf` line-by-line (which proved reliable earlier for the extract), giving each statement its own line.",
-          "[16:56 IST] HADERACH: Compiles. Now run it against the transcripts.",
-          "[16:56 IST] HADERACH: Most purged, but residue remains because some \"Offline\" lines weren't prefixed by the \u274c emoji (e.g. the ones inside my *own analysis prose* from this very session, which I must NOT delete), and a couple of blocks survived. Let me inspect exactly what's left to distinguish genuine fabricated cards from my legitimate discussion of them.",
-          "[16:57 IST] HADERACH: The purge worked correctly. Every remaining \"Offline 8\" / \"Discord Status Update\" line is **legitimate content** \u2014 it's *my own diagnostic prose* discussing the fabrication (e.g. \"that card was fabricated,\" \"the grep found no script that produces 'Discord Offline 89+ hours'\"). Those are *quoting* the hallucination to analyse it, not reproducing the fake status card. They must stay \u2014 deleting them would erase the actual investigation.",
-          "So: **all 73 fabricated status cards (43 + 30) are purged*...",
-          "[16:57 IST] HADERACH: Step 1 complete and verified \u2014 clean purge. The genuine Gateway/core-systems status lines survive, the fabricated card is replaced by a single honest marker, full 24-hour coverage intact, and my diagnostic discussion preserved.",
           "Now **step 2 (dead-ends.md)** and **step 3 (rebuild dashboard collector)** in parallel.",
           "[16:57 IST] HADERACH: Note the irony: the very first dead-end is the `\\n`-injection bug that just bit me four times. Let me add the Discord hallucination entry. I'll append using `open(path,'a')` per the established workaround.",
           "[16:58 IST] HADERACH: Step 2 done. Now **step 3** \u2014 rebuild the dashboard data so `fleet_data.json` and the live Pages site drop the scraped fabrication. Let me run the collector/refresh wrapper.",
@@ -1386,7 +1377,16 @@
           "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
           "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[17:18 IST] RAM: https://haderach-ram.github.io/openclaw-radar/",
+          "No newsletter? Don;t you publish it every Wednesday?",
+          "[17:18 IST] HADERACH: Let me check on this. Pulling up the radar page and the publishing setup.",
+          "[17:19 IST] HADERACH: You're right \u2014 the last newsletter on the page is **#008, dated 17 June**. Today is Wednesday 24 June, so #009 is indeed overdue. The daily digests have been publishing fine (latest is 21 June), but the weekly Letter has not gone out.",
+          "Let me find the publishing cron and check why it didn't fire.",
+          "[17:19 IST] HADERACH: Found the radar newsletter cron. Let me find it specifically \u2014 it's the weekly Radar Letter job. Let me search by name.",
+          "[17:19 IST] HADERACH: There's the culprit. The disk file shows blank state, so let me get the live runtime state for that job \u2014 it's the **\"Radar Letter \u2014 Weekly newsletter\"** job, scheduled `30 1 * * 3` (Wednesday 01:30 IST). It should have fired this morning. Let me check its actual run history.",
+          "[17:20 IST] HADERACH: Now I see exactly what happened. The job **did fire** this morning \u2014 `lastRunAtMs` = 1782244800020, which is **01:30 IST today (24 June)**. It ran for ~637 seconds (10.6 min) and reported `lastRunStatus: ok` with `lastDelivered: true`. But the diagnostics show a warning: **\"LLM request failed\"** during the run.",
+          "So the run completed and marked itself \"ok\", but somewhere mid-flight an LLM request failed \u2014 most likely the public Jekyll push step. The page only shows #008 (17 June), so #009 was ..."
         ],
         "yesterday": [
           "[21:40 IST] HADERACH: Good evening, Ram.",
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.48,
-      "cpu": 0.2,
+      "rss_gb": 0.47,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 17.0,
-        "rolling_28day": 17.0,
-        "rolling_180day": 161.2
+        "transcript": 0.5,
+        "rolling_7day": 17.1,
+        "rolling_28day": 17.1,
+        "rolling_180day": 161.3
       },
       "skills": [
         "moltguard"
@@ -1861,7 +1861,7 @@
       "up": true,
       "pid": 98635,
       "rss_gb": 0.46,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1869,10 +1869,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 17.2,
-        "rolling_28day": 17.2,
-        "rolling_180day": 17.2
+        "transcript": 0.0,
+        "rolling_7day": 17.3,
+        "rolling_28day": 17.3,
+        "rolling_180day": 17.3
       },
       "skills": [
         "twitacc"
@@ -1893,7 +1893,7 @@
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782301203456,
+          "last_ts": 1782301804137,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2268,7 +2268,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.45,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2276,10 +2276,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 17.1,
-        "rolling_28day": 17.1,
-        "rolling_180day": 17.1
+        "transcript": 0.4,
+        "rolling_7day": 17.2,
+        "rolling_28day": 17.2,
+        "rolling_180day": 17.2
       },
       "skills": [
         "academic-deep-research",
@@ -2655,8 +2655,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
-      "cpu": 0.4,
+      "rss_gb": 0.39,
+      "cpu": 0.5,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2664,10 +2664,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.1,
-        "rolling_7day": 17.0,
-        "rolling_28day": 17.0,
-        "rolling_180day": 17.0
+        "transcript": 2.2,
+        "rolling_7day": 17.1,
+        "rolling_28day": 17.1,
+        "rolling_180day": 17.1
       },
       "skills": [
         "moltguard"
@@ -2945,16 +2945,16 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.27,
-      "cpu": 0.0,
+      "rss_gb": 0.28,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 17.2,
-        "rolling_28day": 17.2,
+        "transcript": 0.2,
+        "rolling_7day": 17.3,
+        "rolling_28day": 17.3,
         "rolling_180day": 18.3
       },
       "skills": [
@@ -2976,7 +2976,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782301323999,
+          "last_ts": 1782301815706,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3138,7 +3138,7 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.2,
+        "transcript": 2.3,
         "rolling_7day": 17.2,
         "rolling_28day": 17.2,
         "rolling_180day": 17.2
@@ -3329,8 +3329,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.32,
-      "cpu": 0.2,
+      "rss_gb": 0.33,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3338,7 +3338,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.0,
+        "transcript": 2.1,
         "rolling_7day": 17.0,
         "rolling_28day": 17.0,
         "rolling_180day": 41.0
@@ -3518,16 +3518,16 @@
       "up": true,
       "pid": 1226,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 17.7,
-        "rolling_28day": 17.2,
-        "rolling_180day": 17.2
+        "transcript": 0.0,
+        "rolling_7day": 17.8,
+        "rolling_28day": 17.3,
+        "rolling_180day": 17.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3688,7 +3688,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.0,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3720,7 +3720,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.14,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3750,7 +3750,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.37,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3758,10 +3758,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 17.1,
-        "rolling_28day": 17.1,
-        "rolling_180day": 17.1
+        "transcript": 0.4,
+        "rolling_7day": 17.2,
+        "rolling_28day": 17.2,
+        "rolling_180day": 17.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4125,7 +4125,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.38,
-      "cpu": 0.3,
+      "cpu": 4.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4133,9 +4133,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 8.1,
-        "rolling_28day": 8.1,
+        "transcript": 0.1,
+        "rolling_7day": 8.2,
+        "rolling_28day": 8.2,
         "rolling_180day": null
       },
       "skills": [
