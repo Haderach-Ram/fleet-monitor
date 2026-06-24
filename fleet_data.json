@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 19:48:50 IST",
-  "generated_epoch": 1782310730,
+  "generated_ist": "2026-06-24 19:53:53 IST",
+  "generated_epoch": 1782311033,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.77 / 9.79 / 9.68",
+    "load": "9.98 / 9.61 / 9.60",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.83,
-      "cpu": 0.7,
+      "rss_gb": 0.8,
+      "cpu": 0.5,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -43,9 +43,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 18.9,
-        "rolling_28day": 18.9,
-        "rolling_180day": 19.3
+        "rolling_7day": 19.0,
+        "rolling_28day": 19.0,
+        "rolling_180day": 19.4
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,43 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782310625376,
+          "last_ts": 1782310942007,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782310841072,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782310841072,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782310841071,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782310764338,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -656,42 +692,6 @@
           "enabled": true,
           "sched": "every 15m",
           "last_ts": 1782310367165,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782310271182,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782310271182,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782310271182,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782310161865,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,16 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[19:26 IST] RAM: Don't we have trendlyne subscription? I though we were regularly pulling data from Trendlyne",
-          "[19:28 IST] HADERACH: Good memory \u2014 let me check what we've actually got on file for Trendlyne before I assume.",
-          "[19:29 IST] HADERACH: Quite right, Ram \u2014 we do. StratQ annual subscription, with a working bulk-download pipeline and an SCL_Peers watchlist already configured. Let me pull the exact access details.",
-          "[19:29 IST] HADERACH: Excellent \u2014 this is exactly what we want. We have a far better path than fifteen scattered web searches. Two routes, both already built:",
-          "1. **Martin API** \u2014 `GET /data/trendlyne/snapshot?nse=X` gives the latest snapshot per company, and the `trendlyne.db` warehouse already holds annual/quarterly financials for the 35 SCL peers (which include the NBFC-UL names). Total Assets is in there.",
-          "2. **Trendlyne Data Downloader** \u2014 the bulk XLSX route (param group 59991 = Financials), no browser needed...",
-          "[19:29 IST] HADERACH: DB is fresh (22 Jun) and Martin is live. Let me inspect the actual schema.",
-          "[19:29 IST] HADERACH: Data is fresh to **Mar 2026** for most names. Now let me find the Total Assets field and check coverage for our 15 NBFC-UL names.",
-          "[19:29 IST] HADERACH: Good and bad news. **14 of 15** UL names are in the warehouse (only **Tata Sons** \u2014 unlisted CIC \u2014 is absent, which is expected). But the annual table doesn't carry a clean \"Total Assets\" field \u2014 it has shareholders' funds and ratio fields, not the balance-sheet total.",
-          "Two notes on the names:",
           "- **ABCAPITAL** is in the DB, but the UL entity is *Aditya Birla Finance* (the NBFC subsidiary), not Aditya Birla Capital (the holding co). Another standalone trap.",
           "- The DB lacks the raw Total Assets l...",
           "[19:29 IST] HADERACH: There it is \u2014 **`TA_A`** (Total Assets, Annual) and `TL_A` (Total Liabilities). Let me pull TA_A for Mar 2026 and Mar 2025 across all 14 names.",
@@ -1386,7 +1376,17 @@
           "Both fixes done:",
           "1. **Mangled headings fixed** \u2014 \"Total Assets (Rs crore)\" and \"\u22651L cr?\" now have their own columns and don't overrun.",
           "2. **Aditya Birla Finance checked from the net** \u2014 and it tu...",
-          "[19:36 IST] RAM: And 74,243 is SCL's consollidated balancesheet size. So this report is worng"
+          "[19:36 IST] RAM: And 74,243 is SCL's consollidated balancesheet size. So this report is worng",
+          "[19:39 IST] HADERACH: You're right to flag it, Ram. The \u20b974,243 cr is whatever Trendlyne tagged as `TA_A` for SAMMAANCAP \u2014 and Trendlyne's default `TA_A` is consolidated for most names. Let me verify SCL's actual **standalone** figure from the source (the audited results) rather than trust the warehouse tag.",
+          "[19:41 IST] HADERACH: The web search didn't surface SCL's standalone figure cleanly (mostly noise). But you know SCL's numbers better than any data vendor \u2014 and you've told me \u20b974,243 cr is the *consolidated* figure. That settles it: the warehouse `TA_A` tag is cons",
+          "[19:41 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
+          "[19:41 IST] RAM: No point, there will be errors in other values too",
+          "[19:41 IST] HADERACH: You're right, Ram. I'll stop defending the numbers.",
+          "The honest diagnosis: the warehouse `TA_A` field is **not reliably standalone** \u2014 for SCL it pulled the consolidated figure (\u20b974,243 cr), and once one is wrong the others are suspect too (Bajaj, M&M, L&T, Tata Capital, Chola all flagged \"consolidated basis\" for exactly this reason). A table that mixes consolidated and standalone is worse than useless for a regulatory threshold test \u2014 it's misleading. You caught it correctly.",
+          "So the warehou...",
+          "[19:42 IST] HADERACH: You're right, Ram. I'll stop defending the numbers.",
+          "The honest diagnosis: the warehouse `TA_A` field is **not reliably standalone** \u2014 for SCL it pulled the consolidated figure (\u20b974,243 cr), and once one is wrong the others are suspect too (Bajaj, M&M, L&T, Tata Capital, Chola all flagged \"consolidated basis\" for exactly this reason). A table that mixes consolidated and standalone is worse than useless for a regulatory threshold test \u2014 it's misleading. You caught it correctly.",
+          "So the warehou..."
         ],
         "yesterday": [
           "[21:40 IST] HADERACH: Good evening, Ram.",
@@ -1525,7 +1525,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.5,
-      "cpu": 1.1,
+      "cpu": 0.4,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 19.6,
-        "rolling_28day": 19.6,
-        "rolling_180day": 163.7
+        "transcript": 1.0,
+        "rolling_7day": 19.7,
+        "rolling_28day": 19.7,
+        "rolling_180day": 163.8
       },
       "skills": [
         "moltguard"
@@ -1861,7 +1861,7 @@
       "up": true,
       "pid": 98635,
       "rss_gb": 0.47,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1869,10 +1869,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 19.7,
-        "rolling_28day": 19.7,
-        "rolling_180day": 19.7
+        "transcript": 1.1,
+        "rolling_7day": 19.8,
+        "rolling_28day": 19.8,
+        "rolling_180day": 19.8
       },
       "skills": [
         "twitacc"
@@ -2276,7 +2276,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 19.7,
         "rolling_28day": 19.7,
         "rolling_180day": 19.7
@@ -2655,8 +2655,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
-      "cpu": 0.7,
+      "rss_gb": 0.39,
+      "cpu": 0.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2664,7 +2664,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.6,
+        "transcript": 1.7,
         "rolling_7day": 19.6,
         "rolling_28day": 19.6,
         "rolling_180day": 19.6
@@ -2945,17 +2945,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.27,
-      "cpu": 0.1,
+      "rss_gb": 0.25,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 19.8,
-        "rolling_28day": 19.8,
-        "rolling_180day": 20.8
+        "transcript": 0.2,
+        "rolling_7day": 19.9,
+        "rolling_28day": 19.9,
+        "rolling_180day": 20.9
       },
       "skills": [
         "moltguard"
@@ -2976,7 +2976,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782310248762,
+          "last_ts": 1782310820343,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3133,16 +3133,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 1.8,
-        "rolling_7day": 19.7,
-        "rolling_28day": 19.7,
-        "rolling_180day": 19.7
+        "transcript": 1.9,
+        "rolling_7day": 19.8,
+        "rolling_28day": 19.8,
+        "rolling_180day": 19.8
       },
       "skills": [
         "moltguard"
@@ -3332,7 +3332,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.32,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3340,10 +3340,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.6,
-        "rolling_7day": 19.5,
-        "rolling_28day": 19.5,
-        "rolling_180day": 43.5
+        "transcript": 1.7,
+        "rolling_7day": 19.6,
+        "rolling_28day": 19.6,
+        "rolling_180day": 43.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3519,17 +3519,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.28,
-      "cpu": 0.3,
+      "rss_gb": 0.27,
+      "cpu": 0.0,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 20.2,
-        "rolling_28day": 19.8,
-        "rolling_180day": 19.8
+        "transcript": 0.2,
+        "rolling_7day": 20.3,
+        "rolling_28day": 19.9,
+        "rolling_180day": 19.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3722,7 +3722,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.19,
-      "cpu": 0.0,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3751,8 +3751,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.34,
-      "cpu": 0.7,
+      "rss_gb": 0.45,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3760,7 +3760,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 19.7,
         "rolling_28day": 19.7,
         "rolling_180day": 19.7
@@ -4127,7 +4127,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.39,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4135,9 +4135,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 10.6,
-        "rolling_28day": 10.6,
+        "transcript": 0.1,
+        "rolling_7day": 10.7,
+        "rolling_28day": 10.7,
         "rolling_180day": null
       },
       "skills": [
