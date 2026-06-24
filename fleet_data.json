@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 09:47:56 IST",
-  "generated_epoch": 1782274676,
+  "generated_ist": "2026-06-24 09:53:00 IST",
+  "generated_epoch": 1782274980,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.87 / 9.77 / 9.80",
+    "load": "9.82 / 9.76 / 9.76",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 52849,
-      "rss_gb": 0.97,
-      "cpu": 7.5,
+      "rss_gb": 1.01,
+      "cpu": 0.4,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 8.9,
         "rolling_28day": 8.9,
-        "rolling_180day": 9.3
+        "rolling_180day": 9.4
       },
       "skills": [
         "academic-deep-research",
@@ -643,10 +643,46 @@
       ],
       "crons": [
         {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782274941813,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782274593606,
+          "last_ts": 1782274905681,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782274838755,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782274838753,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782274838753,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -656,42 +692,6 @@
           "enabled": true,
           "sched": "every 10m",
           "last_ts": 1782274516115,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782274255178,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782274255178,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782274255177,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782274056229,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,31 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
-          "[09:15 IST] RAM: [OpenClaw heartbeat poll]",
-          "[09:15 IST] HADERACH: Good morning, Ram.",
-          "**Status \u2014 09:15 IST (Wed 24 Jun):**",
-          "\u2705 **Gateway:** Healthy",
-          "\u2705 **All core systems:** Operational",
-          "\u274c **Discord:** Offline 86+ hours (since Wed 13:xx IST)",
-          "**Discord Status Update:**",
-          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
-          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
-          "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
-          "[09:16 IST] RAM: AWS Cost report?",
-          "[09:16 IST] HADERACH: The forced AWS Cost Report run just failed \u2014 but notice the **new error signature**: `isolated agent setup timed out before runner start`. That's not the Opus-stall; it's the isolated session failing to *boot* \u2014 likely contention from the four heavy runs I stacked this morning plus the live load (10+). Let me check its run history to confirm, then re-fire it solo.",
-          "[09:16 IST] HADERACH: The new failure is a different beast: `isolated agent setup timed out before runner start` \u2014 the session couldn't even boot within 60s. That's resource contention, not model latency. Yesterday's report (23 Jun) succeeded in 495s, so the job itself is fine; this morning's machine load (10+) plus the stacked heavy runs starved the new isolated session at startup.",
-          "Rather than re-fire blind into the same contention, let me just generate the report directly here, in this live session \u2014 I have all...",
-          "[09:16 IST] HADERACH: Credentials present, boto3 available. Let me pull the data from both regions and Cost Explorer, then build the PDF. This is a heavier call \u2014 running it in background with a generous yield.",
-          "[09:19 IST] HADERACH: Heredoc mangled the `\\n` escapes. Let me write the script cleanly with the `write` tool into /tmp \u2014 actually, `write` is restricted to workspace. I'll write it into the workspace scripts area where it belongs anyway, then run it.",
-          "[09:20 IST] HADERACH: The `write` tool again interpreted my literal `\\n` sequences. Let me check what actually landed and fix the mangled lines directly with a Python rewrite.",
-          "[09:20 IST] HADERACH: Four mangled lines. I'll rewrite the file properly using a Python script that writes real newlines, avoiding the `\\n`-in-string trap entirely by building lines from a list.",
-          "[09:21 IST] HADERACH: Compiles clean. Now run the data pull (background, generous yield \u2014 CloudWatch Insights queries take time).",
-          "[09:21 IST] HADERACH: Data pulled clean \u2014 28 agents across both regions, 24 CE days. Now build the PDF to the mandated Desktop path. Let me write the report builder.",
-          "[09:22 IST] HADERACH: No `\\n` traps this time. Run the builder.",
-          "[09:22 IST] HADERACH: PDF built \u2014 figures are coherent and continuous with yesterday's $7,222 (today $7,527, run-rate $313.62/day, in line). Now deliver it. The Desktop path is rejected by the message tool (known trap), so I copy to workspace media, send, then clean up.",
-          "[09:23 IST] HADERACH: Delivered. Cleaning up the temp copy and the now-redundant kill-switch cron.",
           "[09:23 IST] HADERACH: Done, Ram. Today's AWS Cost Report is in your Telegram (above).",
           "**On the report itself** \u2014 the cron's forced run failed with a *new* signature: `isolated agent setup timed out before runner start`. That's not the Opus problem; it's the isolated session failing to boot within 60s because the machine was under heavy load (10+) with several of my forced runs stacked on top. So I bypassed the cron entirely and **built the report directly in this live session** \u2014 pulled CloudWatch (both regions) ...",
           "[09:24 IST] HADERACH: Done, Ram. Today's AWS Cost Report is in your Telegram (above).",
@@ -1386,7 +1361,32 @@
           "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
           "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[09:45 IST] RAM: [Telegram Ram Shenoy id:8489979671 +14m Wed 2026-06-24 09:45:19 GMT+5:30] Ram Shenoy: Open the pdf and check. It\u2019s all blank",
+          "[Reply chain - nearest first]",
+          "[1. Haderach id:66856 2026-06-24T03:53:28.000Z]",
+          "\ud83d\udcca AWS Bedrock Cost Report \u2014 24 Jun 2026 (generated manually after the cron stalled on machine load)",
+          "\u2022 CW June total (both regions): $7,526.80",
+          "\u2022 Run-rate: $313.62/day \u2192 month projection ~$9,408.50",
+          "\u2022 CE LTD (May+Jun): $922.18 (CE lags 1\u20132 days; 24 Jun pending)",
+          "\u2022 Top agents: Haderach+Clark $2,9...",
+          "[09:45 IST] HADERACH: You're right \u2014 and the extracted text shows exactly what's wrong: it's not *fully* blank, but the **entire day-by-day grid (columns 1\u201324) is empty** and the **CW TOTAL row reads all zeros**, while the TOTAL column and footer are correct. So the per-day numbers didn't render.",
+          "The cause is a bug in my own PDF builder: the day-column key mismatch. The data pull stored daily costs keyed by **integer** day, but after the JSON round-trip the per-agent daily dict keys came back as **strings** (\"1\",...",
+          "[09:45 IST] HADERACH: Let me verify the grid actually populated this time before sending \u2014 extract the text layer and check a known row.",
+          "[09:46 IST] HADERACH: pdfminer flattens the table cells onto separate lines, so that check is inconclusive. Let me render the PDF to an image and look at it directly.",
+          "[09:47 IST] HADERACH: The render confirms the grid is **still blank** \u2014 my int-key fix wasn't the whole story. Let me inspect the actual data structure to see why per-day values aren't reaching the cells.",
+          "[09:47 IST] HADERACH: There's the real culprit \u2014 the day values are individually small (e.g. $21.88, $111.79, $153.57). My cell formatter only printed a value when `>= 0.5`, formatted with `:.0f` (no decimals) \u2014 but the deeper issue is the column width. With 24 columns crammed into ~220mm at 5.2pt font, `reportlab` is silently truncating/clipping. But the image shows *completely* empty cells, which means the int-key fix didn't apply to the per-cell lookup as expected. Let me check the actual rendered row content a...",
+          "[09:47 IST] HADERACH: The fix at line 8 normalised `daily` to int keys, but lines 25 and 64 still build `cw_day` and the cells. Since `daily` is now int-keyed and `day_cols` is int range, the lookup *should* work. Let me directly test the row-building in isolation to see what strings are produced.",
+          "[09:47 IST] HADERACH: So the data **is** correct now and the cells **do** populate (77, 149, 167\u2026). The script that ran earlier \u2014 before my edit was saved \u2014 must have produced the blank version, OR the rendered PDF I checked is the freshly-built one but the font is rendering invisibly. The cells contain real numbers now. The most likely remaining issue: at 5.2pt with 24 narrow columns, text is being clipped to invisibility, or `pdftoppm` at 90 DPI is too low to show 5pt text.",
+          "Let me rebuild fresh (confirming my e...",
+          "[09:47 IST] HADERACH: Still blank at the cell level despite the row-builder producing correct strings in isolation. That means the running script's `daily` is *not* what my isolated test used \u2014 the most plausible explanation: line 25 (`cw_day`) and line 64 use the module-level `daily`, but something else is off. Let me add a debug print inside the actual script to see what the rows list contains right before `Table()` is built.",
+          "[09:48 IST] HADERACH: The `rows` list passed to `Table()` **does** contain the numbers (77, 149, 167\u2026). So the data is correct and reaches the table object \u2014 yet they render invisible. This is a **reportlab rendering problem**, not data. At 5.2pt with 24 columns of ~10mm each, the text should fit. The invisibility points to either text colour or the cells being too narrow causing reportlab to drop content.",
+          "Let me check the column math: 267mm \u2212 30 \u2212 18 = 219mm \u00f7 24 = **9.1mm per column**. At 5.2pt, a 3-digit numbe...",
+          "[09:48 IST] HADERACH: Still blank even with explicit black text and centering. The data reaches the table but reportlab refuses to draw it. This is the classic reportlab symptom: **column too narrow \u2192 text doesn't fit \u2192 cell renders empty** (it doesn't wrap plain strings, it clips). 24 day-columns simply won't fit legibly in landscape A4. ",
+          "The right fix is to **stop forcing all 24 days into one row**. I'll restructure: keep the per-agent TOTAL column (which works), and present the daily breakdown as a separate co...",
+          "[09:49 IST] HADERACH: Even a minimal 2-row test renders blank \u2014 so this is **not** a data or column-width issue. The reportlab text isn't drawing at all. The likely cause: a broken/missing font registration in this reportlab install, or the PNG conversion losing the text layer. Let me check whether the text is actually *in* the PDF (pdftotext) versus a rendering/rasterisation failure.",
+          "[09:49 IST] HADERACH: There it is. The text **is in the PDF** (`pdftotext` reads it perfectly), and the font is the standard Helvetica Type-1 \u2014 **not embedded** (`emb: no`). That's the problem: `pdftoppm` on this machine can't rasterise the non-embedded base-14 Helvetica, so it renders blank in the PNG. But your PDF viewer (Preview/Telegram) substitutes the font fine.",
+          "So the question is: **does it look blank to *you*, or only to my rasteriser?** The mini-test proves my image checks are unreliable for this PDF. Bu..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.46,
-      "cpu": 0.1,
+      "rss_gb": 0.47,
+      "cpu": 1.2,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.4,
+        "transcript": 0.0,
         "rolling_7day": 9.6,
         "rolling_28day": 9.6,
-        "rolling_180day": 153.7
+        "rolling_180day": 153.8
       },
       "skills": [
         "moltguard"
@@ -1558,7 +1558,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1782273334133,
+          "last_ts": 1782274919229,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
@@ -1860,8 +1860,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.54,
-      "cpu": 0.3,
+      "rss_gb": 0.45,
+      "cpu": 0.1,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1869,10 +1869,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 9.7,
-        "rolling_28day": 9.7,
-        "rolling_180day": 9.7
+        "transcript": 0.0,
+        "rolling_7day": 9.8,
+        "rolling_28day": 9.8,
+        "rolling_180day": 9.8
       },
       "skills": [
         "twitacc"
@@ -1890,6 +1890,15 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782274802961,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
           "sched": "*/15 9-15 * * 1-5",
@@ -1903,15 +1912,6 @@
           "enabled": true,
           "sched": "*/15 8-15 * * 1-5",
           "last_ts": 1782274612163,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782274203345,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2090,46 +2090,46 @@
       ],
       "transcripts": {
         "recent": [
-          "| Gate | Result | Status |",
-          "|------|--------|--------|",
-          "| Crude (>3% threshold) | -1.10% Brent, -1.12% WTI | \u2705 PASS |",
-          "| Geopolitical escalation | Iran-US ceasefire holding, Hormuz reopening on track | \u2705 PASS |",
-          "| Portfolio drawdown (>-15% red-line) | +6.1% YTD, buffer 8\u201310% | \u2705 PASS |",
-          "| Index move (>-1.5% downside) | Nifty +1.19% open | \u2705 PASS |",
-          "| VIX (>18 threshold) | 16.67 (sub-18, deployment gate OPEN) | \u2705 PASS |",
-          "**Por",
-          "[09:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll execute the portfolio refresh cron sequence.",
-          "[09:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \u26a0\ufe0f Step 1 (update_portfolio.py) failed \u2014 JSONDecodeError on API response. Likely SmartAPI connectivity issue. Proceeding with Step 2 output:",
-          "---",
-          "\ud83d\udcca **09:30 IST | Nifty 23,884.90 | VIX 13.83 \u2705**",
-          "- **Pot1:** \u20b962,973 / \u20b958,927 (+6.9%)",
-          "- **Pot2:** No open NFO positions.",
-          "- **Cash:** \u20b9282,617",
-          "- **TOTAL:** \u20b9345,590 / \u20b9360,002 (-4.0%)",
-          "[09:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll run the 15-minute portfolio update for trading hours.",
-          "**Step 1: Check if today is an NSE holiday**",
-          "Today is Wednesday, 24 June 2026. This is NOT an NSE holiday, so I proceed.",
-          "**Step 2-3: Run update and read portfolio state**",
-          "[09:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Perfect. Now composing the message in the exact format required:",
-          "**Step 4: Format message**",
-          "```",
-          "\ud83d\udcca 09:30 IST | Nifty 23,824 | VIX 13.94 \u2705",
-          "Pot1: \u20b962,506 / \u20b958,927 (+6.1%)",
-          "\u25b2 ICICIBANK: qty=16 avg=\u20b91,269 ltp=\u20b91,338 | +\u20b91,110",
-          "\u25b2 AUROPHARMA: qty=6 avg=\u20b91,309 ltp=\u20b91,534 | +\u20b91,349",
-          "\u25b2 APOLLOHOSP: qty=1 avg=\u20b97,343 ltp=\u20b98,500 | +\u20b91,157",
-          "\u25bc COALINDIA: qty=18 avg=\u20b9446 ltp=\u20b9444 | -\u20b937",
-          "\u25bc ITC: qty=27 avg=\u20b9295 ltp=\u20b9290 | -\u20b9136",
-          "\u25b2 BEL: qty=18 avg=\u20b9412 ltp=\u20b9420 | +\u20b9136",
-          "Pot2: No open positions",
-          "Pot3: No deployed capita",
-          "[09:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram.**",
-          "**Context:**",
           "- **Pot 1** up +6.1% \u2014 AUROPHARMA and APOLLOHOSP leading; ITC and COALINDIA flat-to-negative",
           "- **VIX 13.94** \u2705 \u2014 Pot 2 gate OPEN (below 18)",
           "- **Market regime:** SIDEWAYS (per nowcast), 20d return -0.86%, high probability of sideways continuation (89.7% next day, 65.3% next week)",
           "- **Overall portfolio** at -35.5% vs original deposit \u2014 reflects high cash position (\u20b9282k / \u20b9345k). This is by design pending clarity on Pot 2 deployment.",
-          "No alerts tri"
+          "No alerts tri",
+          "[09:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll execute the Twitter Watcher cron task. Let me start by reading the portfolio context and market status, then scrape Twitter/news for trading-hours updates.",
+          "[09:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I have portfolio context. Market status script is not available, but heartbeat-state.json gives me recent market context. Now let me scrape Twitter/news for trading-hours updates (09:45 IST morning session).",
+          "[09:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Based on the trading-hours market scan, I'll now consolidate findings and update memory.",
+          "**ANALYSIS SUMMARY:**",
+          "\u2705 **All alert gates PASS:**",
+          "- Crude Brent: $77.54 (+1.23% o/n) \u2014 **no breach** of 3% threshold",
+          "- Nifty: Gift Nifty +0.64% overnight \u2014 **no breach** of 1.5% downside",
+          "- Geopolitical: Iran-US peace framework digitally signed Jun 15, 60-day ceasefire active, Hormuz reopening in progress \u2014 **stable, no escalation**",
+          "- VIX: 16.78 (Jun 22), overnight est. 13.2 \u2014 **well below 18, gate wide ope",
+          "[09:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll append the trading-hours (morning) scan to memory:",
+          "[09:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Now let me update the daily log with this morning session data:",
+          "[09:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll append the 09:45 IST trading-hours update to the daily log:",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me fix the array syntax:",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Now I'll log this to memory and confirm completion:",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: ## Summary",
+          "**Twitter Watcher Cron \u2014 24 Jun 2026, 09:45 IST \u2014 COMPLETE \u2705**",
+          "**All alert gates PASS (5/5).** Silent run \u2014 no urgent messaging to Ram.",
+          "### Key Findings:",
+          "**Portfolio Status:** \u2705 All holdings green",
+          "- AUROPHARMA +18.1% (FTC Lannett approval 22 Jun)",
+          "- APOLLOHOSP +16.3% (Q4 rev +18% YoY, Hormuz supply-relief tailwind confirmed)",
+          "- ICICIBANK +6.9% (DII support \u20b9680 cr, Jun 22)",
+          "- Pot 1 total +6.9%, YTD +6.0%",
+          "**Market Conditions:** \u2705 Bullish bias",
+          "- Nifty +0.64% overnight (bullish opening",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-minute portfolio update cron.",
+          "First, let me verify today is not an NSE holiday. June 24th, 2026 is not in the NSE holiday list, so I'll proceed.",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now let me read the current portfolio and market state.",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now I'll compose the message in the exact format required and send it.",
+          "[09:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 Portfolio update sent to Ram. ",
+          "**Summary:**",
+          "- Pot1: \u20b963,036 (+7.0%) \u2014 6 holdings, 4 in profit",
+          "- Nifty 23,824 | VIX 13.94 \u2705 (Pot2 gate open)",
+          "- Overall portfolio: \u20b9345,653 (-35.4% vs \u20b9535,002 deposits)",
+          "- High cash position: \u20b9282,617 ready for deployment"
         ],
         "yesterday": [
           "| ICICIBANK | 16 | \u20b91,268.93 | \u20b91,338.30 | \u25b2+\u20b91,110 (+5.5%) | \u20b921,413 |",
@@ -2267,8 +2267,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.45,
-      "cpu": 0.3,
+      "rss_gb": 0.43,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2276,10 +2276,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 9.6,
-        "rolling_28day": 9.6,
-        "rolling_180day": 9.6
+        "transcript": 0.4,
+        "rolling_7day": 9.7,
+        "rolling_28day": 9.7,
+        "rolling_180day": 9.7
       },
       "skills": [
         "academic-deep-research",
@@ -2655,8 +2655,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
-      "cpu": 0.7,
+      "rss_gb": 0.37,
+      "cpu": 0.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2664,10 +2664,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.6,
-        "rolling_7day": 9.5,
-        "rolling_28day": 9.5,
-        "rolling_180day": 9.5
+        "transcript": 0.7,
+        "rolling_7day": 9.6,
+        "rolling_28day": 9.6,
+        "rolling_180day": 9.6
       },
       "skills": [
         "moltguard"
@@ -2946,16 +2946,16 @@
       "up": true,
       "pid": 53990,
       "rss_gb": 0.26,
-      "cpu": 0.0,
+      "cpu": 0.7,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 9.8,
         "rolling_28day": 9.8,
-        "rolling_180day": 10.8
+        "rolling_180day": 10.9
       },
       "skills": [
         "moltguard"
@@ -2976,7 +2976,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782274206180,
+          "last_ts": 1782274805635,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3127,17 +3127,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 1302,
-      "rss_gb": 0.29,
-      "cpu": 0.3,
+      "rss_gb": 0.28,
+      "cpu": 0.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.8,
-        "rolling_7day": 9.7,
-        "rolling_28day": 9.7,
-        "rolling_180day": 9.7
+        "transcript": 0.9,
+        "rolling_7day": 9.8,
+        "rolling_28day": 9.8,
+        "rolling_180day": 9.8
       },
       "skills": [
         "moltguard"
@@ -3323,8 +3323,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.32,
-      "cpu": 0.1,
+      "rss_gb": 0.31,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3333,9 +3333,9 @@
       ],
       "memory": {
         "transcript": 0.6,
-        "rolling_7day": 9.5,
-        "rolling_28day": 9.5,
-        "rolling_180day": 33.5
+        "rolling_7day": 9.6,
+        "rolling_28day": 9.6,
+        "rolling_180day": 33.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3511,17 +3511,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.29,
-      "cpu": 0.6,
+      "rss_gb": 0.28,
+      "cpu": 0.0,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 10.2,
-        "rolling_28day": 9.8,
-        "rolling_180day": 9.8
+        "transcript": 0.0,
+        "rolling_7day": 10.3,
+        "rolling_28day": 9.9,
+        "rolling_180day": 9.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3682,7 +3682,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.0,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3714,7 +3714,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.19,
-      "cpu": 0.1,
+      "cpu": 0.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3743,8 +3743,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.36,
-      "cpu": 0.4,
+      "rss_gb": 0.38,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3752,10 +3752,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 9.6,
-        "rolling_28day": 9.6,
-        "rolling_180day": 9.6
+        "transcript": 0.4,
+        "rolling_7day": 9.7,
+        "rolling_28day": 9.7,
+        "rolling_180day": 9.7
       },
       "skills": [
         "apple-calendar-macos",
@@ -4116,8 +4116,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.38,
-      "cpu": 0.1,
+      "rss_gb": 0.35,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4125,9 +4125,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 0.6,
-        "rolling_28day": 0.6,
+        "transcript": 0.1,
+        "rolling_7day": 0.7,
+        "rolling_28day": 0.7,
         "rolling_180day": null
       },
       "skills": [
