@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 14:28:08 IST",
-  "generated_epoch": 1782291488,
+  "generated_ist": "2026-06-24 14:33:12 IST",
+  "generated_epoch": 1782291792,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.69 / 9.74 / 9.91",
+    "load": "10.26 / 10.11 / 10.03",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.68,
-      "cpu": 0.7,
+      "rss_gb": 0.75,
+      "cpu": 0.5,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 13.5,
-        "rolling_28day": 13.5,
-        "rolling_180day": 14.0
+        "transcript": 0.0,
+        "rolling_7day": 13.6,
+        "rolling_28day": 13.6,
+        "rolling_180day": 14.1
       },
       "skills": [
         "academic-deep-research",
@@ -646,16 +646,7 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782291411429,
-          "last_status": "error",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782291329030,
+          "last_ts": 1782291748811,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -664,7 +655,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782291120891,
+          "last_ts": 1782291687321,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -673,7 +664,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782291120891,
+          "last_ts": 1782291687321,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -682,7 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782291120890,
+          "last_ts": 1782291687321,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -691,7 +682,25 @@
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782290945783,
+          "last_ts": 1782291632388,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1782291529001,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782291329030,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -710,15 +719,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1782290037578,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782289699383,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,13 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:47 IST] HADERACH: Fair challenge \u2014 let me give Option 3 (hard delivery suppression) an honest hearing rather than wave it away.",
-          "**What Option 3 actually does:** block the heartbeat session from ever delivering a message to Telegram, at the channel/delivery layer. The heartbeat keeps running, keeps doing all the HEARTBEAT.md checks, but its *output* can never reach you.",
-          "**Why I ranked it third \u2014 the real objections:**",
-          "1. **It silences the good with the bad.** The whole point of the heartbeat messaging you is...",
-          "[13:55 IST] RAM: This is too much to read. I want a simple solution, you are making me waste so much time on this and it is still not getting fixed!!",
-          "[13:55 IST] HADERACH: You're right. I've over-talked this for days. Let me just fix it now.",
-          "Simplest solution that actually works: **turn off the 30-minute heartbeat.** That's the only thing emitting these cards. No more spam, period. The few useful background checks (email scan, backups) keep working \u2014 they're driven by crons, not this.",
           "I can't edit the config myself (safety rule), so let me confirm the exact one-line change for Giskard and check whether the heartbeat can be disabled cleanly.",
           "[13:55 IST] HADERACH: The schema just handed me the real simple fix \u2014 and it's better than disabling anything.",
           "There are **two flags** that kill this cleanly, both hot-reload (no restart):",
@@ -1386,7 +1379,14 @@
           "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
           "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. O..."
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. O...",
+          "[14:24 IST] RAM: ?",
+          "[14:24 IST] HADERACH: That \"\ud83d\udce8 Project Taurus thread\" message you're replying to (#67004) was another heartbeat email-scan card \u2014 it landed in your DM, which is exactly the leak we're stopping. The `?` is fair: it's a flagged email, not something I actioned.",
+          "Quick read on it: it's a heartbeat flag for an inbound email \u2014 **\"FW: BRS statement for Mar-26\"**, real sender **Keshav Jagetia** (keshav.jagetia@sammaancapital.com), tagged to Project Taurus. The heartbeat surfaced it because \"Taurus\" is on the email-scan key...",
+          "[14:25 IST] HADERACH: That \"\ud83d\udce8 Project Taurus thread\" message you're replying to (#67004) was another heartbeat email-scan card \u2014 it landed in your DM, which is exactly the leak we're stopping. The `?` is fair: it's a flagged email, not something I actioned.",
+          "Quick read on it: it's a heartbeat flag for an inbound email \u2014 **\"FW: BRS statement for Mar-26\"**, real sender **Keshav Jagetia** (keshav.jagetia@sammaancapital.com), tagged to Project Taurus. The heartbeat surfaced it because \"Taurus\" is on the email-scan key...",
+          "[14:26 IST] RAM: Are you transcripts now getting recorded properly. We missed the transcripts of 21 June. Check yesterday's and that of day before",
+          "[14:26 IST] HADERACH: Let me check the transcript files directly on disk \u2014 that's the only honest way to answer whether recording is working and what happened to 21 June."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1534,9 +1534,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
+        "transcript": 0.1,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
         "rolling_180day": 158.4
       },
       "skills": [
@@ -1852,8 +1852,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.55,
-      "cpu": 0.5,
+      "rss_gb": 0.45,
+      "cpu": 0.6,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1862,9 +1862,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 14.4,
-        "rolling_28day": 14.4,
-        "rolling_180day": 14.4
+        "rolling_7day": 14.5,
+        "rolling_28day": 14.5,
+        "rolling_180day": 14.5
       },
       "skills": [
         "twitacc"
@@ -1882,19 +1882,28 @@
       ],
       "crons": [
         {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782291003445,
+          "sched": "*/15 9-15 * * 1-5",
+          "last_ts": 1782291677622,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
+          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
           "enabled": true,
-          "sched": "*/15 9-15 * * 1-5",
-          "last_ts": 1782290821858,
+          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
+          "last_ts": 1782291677622,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782291677621,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -1903,16 +1912,7 @@
           "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
           "enabled": true,
           "sched": "*/15 8-15 * * 1-5",
-          "last_ts": 1782290821857,
-          "last_status": "error",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
-          "enabled": true,
-          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
-          "last_ts": 1782289918323,
+          "last_ts": 1782291677621,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2082,15 +2082,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me fix the JSON edit:",
-          "[14:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me check the file format and edit properly:",
-          "[14:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Let me write a proper update with the correct format:",
-          "[14:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: The edit tool is interpreting the JSON parameter as a string rather than a proper array. Let me write a quick update to memory file instead:",
-          "[14:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me check what daily logs exist:",
-          "[14:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Let me append to today's log:",
-          "[14:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Let me append the 14:15 IST scan:",
-          "[14:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me just append to the file:",
-          "[14:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Now let me confirm the scan completion status:",
           "---",
           "## \u2705 TWITTER WATCHER SCAN COMPLETE \u2014 14:15 IST (24 JUN 2026)",
           "**All alert gates PASS (5/5):**",
@@ -2121,7 +2112,16 @@
           "- VIX at 13.9 \u2705 \u2014 low volatility, Pot2 gate is open",
           "- Regime: SIDEWAYS with neutral sentiment (PCR 0.997)",
           "- No Pot2 positions active; substantial dry powder (\u20b9282k cash) available",
-          "- 6 days to June 30 expiry"
+          "- 6 days to June 30 expiry",
+          "[14:26 IST] RAM: [OpenClaw heartbeat poll]",
+          "[14:26 IST] KUBERA: HEARTBEAT_OK",
+          "[14:27 IST] RAM: Do you pull live portfolio from AngelOne for this report?",
+          "[14:27 IST] KUBERA: Yes. Each snapshot runs `python3 ~/.openclaw-kubera/workspace/scripts/daily_data_refresh.py` which fetches holdings + live quotes from SmartAPI, then calculates P&L against cost basis in PORTFOLIO.md.",
+          "The holdings (qty, avg cost) are static; the LTP (last traded price) refreshes live every 15 minutes during market hours.",
+          "So the \u20b962,996 figure you're seeing is real-time current value, pulled from Angel One just now.",
+          "[14:27 IST] KUBERA: Yes. Each snapshot runs `python3 ~/.openclaw-kubera/workspace/scripts/daily_data_refresh.py` which fetches holdings + live quotes from SmartAPI, then calculates P&L against cost basis in PORTFOLIO.md.",
+          "The holdings (qty, avg cost) are static; the LTP (last traded price) refreshes live every 15 minutes during market hours.",
+          "So the \u20b962,996 figure you're seeing is real-time current value, pulled from Angel One just now."
         ],
         "yesterday": [
           "| ICICIBANK | 16 | \u20b91,268.93 | \u20b91,338.30 | \u25b2+\u20b91,110 (+5.5%) | \u20b921,413 |",
@@ -2260,7 +2260,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.45,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2268,10 +2268,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
-        "rolling_180day": 14.3
+        "transcript": 0.1,
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
+        "rolling_180day": 14.4
       },
       "skills": [
         "academic-deep-research",
@@ -2419,21 +2419,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782291605186,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1782289816348,
           "last_status": "error",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782289816346,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2493,11 +2493,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger run complete.**",
-          "- **4 new messages** captured from main session",
-          "- **0 new messages** from direct chat (8610135184)",
-          "- **0 new messages** from Klub K group (-5102532606)",
-          "- **Bookmark updated** for next run",
           "- **File saved:** `transcript-2026-06-24.md`",
           "The cron job is working as expected. See you in 30 minutes. \ud83e\uddf6",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Cron job completed successfully.** Script ran without errors. 2 messages appended to transcript logs.",
@@ -2532,7 +2527,12 @@
           "All systems nominal.",
           "HEARTBEAT_OK",
           "[13:55 IST] PURL: Checking today's memory and running heartbeat tasks.",
-          "[13:55 IST] PURL: Updating heartbeat timestamp:"
+          "[13:55 IST] PURL: Updating heartbeat timestamp:",
+          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Klub K Transcript Logger completed successfully.**",
+          "- 2 new messages appended to transcript",
+          "- All bookmarks updated",
+          "- No errors",
+          "Task finished."
         ],
         "yesterday": [
           "[20:55 IST] DM_USER: [OpenClaw heartbeat poll]",
@@ -2648,7 +2648,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.38,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2657,9 +2657,9 @@
       ],
       "memory": {
         "transcript": 1.5,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 14.2
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 14.3
       },
       "skills": [
         "moltguard"
@@ -2938,16 +2938,16 @@
       "up": true,
       "pid": 53990,
       "rss_gb": 0.27,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.4,
-        "rolling_28day": 14.4,
-        "rolling_180day": 15.4
+        "transcript": 0.0,
+        "rolling_7day": 14.5,
+        "rolling_28day": 14.5,
+        "rolling_180day": 15.5
       },
       "skills": [
         "moltguard"
@@ -2968,7 +2968,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782291010753,
+          "last_ts": 1782291623936,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3124,16 +3124,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.29,
-      "cpu": 0.0,
+      "cpu": 0.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
-        "rolling_180day": 14.3
+        "transcript": 2.5,
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
+        "rolling_180day": 14.4
       },
       "skills": [
         "moltguard"
@@ -3320,7 +3320,7 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.33,
+      "rss_gb": 0.32,
       "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3329,7 +3329,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.2,
+        "transcript": 2.3,
         "rolling_7day": 14.2,
         "rolling_28day": 14.2,
         "rolling_180day": 38.2
@@ -3515,10 +3515,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.9,
-        "rolling_28day": 14.4,
-        "rolling_180day": 14.4
+        "transcript": 0.0,
+        "rolling_7day": 15.0,
+        "rolling_28day": 14.5,
+        "rolling_180day": 14.5
       },
       "skills": [],
       "skills_detail": [],
@@ -3678,8 +3678,8 @@
       "avatar": "martin",
       "up": true,
       "pid": 903,
-      "rss_gb": 0.2,
-      "cpu": 0.2,
+      "rss_gb": 0.21,
+      "cpu": 0.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3711,7 +3711,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.2,
-      "cpu": 0.0,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3741,7 +3741,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.37,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3749,10 +3749,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
-        "rolling_180day": 14.3
+        "transcript": 0.1,
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
+        "rolling_180day": 14.4
       },
       "skills": [
         "apple-calendar-macos",
@@ -3903,7 +3903,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782289804268,
+          "last_ts": 1782291603097,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4116,7 +4116,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.36,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4124,9 +4124,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 5.3,
-        "rolling_28day": 5.3,
+        "transcript": 0.1,
+        "rolling_7day": 5.4,
+        "rolling_28day": 5.4,
         "rolling_180day": null
       },
       "skills": [
