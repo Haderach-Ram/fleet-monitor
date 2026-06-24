@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 12:09:57 IST",
-  "generated_epoch": 1782283197,
+  "generated_ist": "2026-06-24 12:15:02 IST",
+  "generated_epoch": 1782283502,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.73 / 9.78 / 9.73",
+    "load": "9.18 / 9.60 / 9.67",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 84573,
-      "rss_gb": 0.7,
-      "cpu": 0.4,
+      "rss_gb": 0.66,
+      "cpu": 0.3,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
-        "rolling_180day": 11.7
+        "transcript": 0.1,
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
+        "rolling_180day": 11.8
       },
       "skills": [
         "academic-deep-research",
@@ -643,19 +643,46 @@
       ],
       "crons": [
         {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782283184091,
+          "sched": "every 5m",
+          "last_ts": 1782283389150,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 5m",
-          "last_ts": 1782283077740,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782283373021,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782283373021,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782283373020,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782283184091,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -701,33 +728,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1782282800541,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782282707915,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782282707915,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782282707913,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "|-------|--------|",
-          "| **agastya-caio** | loaded (last exit -9) |",
-          "| **agastya-heda** | running (PID 86569) \u2014 plus a separate `agastya-heda-browser` helper |",
-          "| **agastya-keshav** | running (PID 868) |",
-          "| **agastya-ravindra** | loaded (last exit 1) |",
-          "| **agastya-sandip** (Avalora / Sofia_SCL) | loaded (last exit -9) |",
-          "| **ca-smeda** | running (PID 36571) |",
-          "| **l...",
-          "[11:53 IST] RAM: Check in person, do not rely on your notes",
-          "[11:53 IST] HADERACH: The directory and launchctl check I just ran *is* the in-person verification \u2014 live `ls` of the config dirs and `launchctl list` over SSH, not memory. But you're right to insist on the running-truth, so let me go one level deeper: actually query each loaded agent's gateway health and confirm its identity from its own config, rather than inferring from PIDs.",
-          "[11:54 IST] HADERACH: Now let me hit each agent's gateway health on its own port to see which are actually answering, live right now.",
           "[11:54 IST] HADERACH: Verified in person \u2014 `ls` of config dirs, `launchctl list`, port extraction from each `openclaw.json`, and a live `/health` poll on every port. Here is the ground truth.",
           "**Agents on the M2 (100.119.4.19) \u2014 live now:**",
           "| Agent | Port | Health | Notes |",
@@ -1386,7 +1375,18 @@
           "[11:59 IST] HADERACH: Now I have the full picture. **A gentle cough before we proceed** \u2014 there are two things worth your attention.",
           "**The picture:**",
           "1. **`~/.openclaw-giskard`** \u2014 empty shell. Just `workspace/memory/` (no config, no agent). Dead weight. Safe to delete.",
-          "2. **`~/.openclaw-martin`** + **`ai.martin.relay`** \u2014 this is a **broken, orphaned service**. The launchctl job `ai.martin.relay` tries to run `martin_bot.py`, but **that file doesn't exist** \u2014 it's been failing on every load (err log shows repe..."
+          "2. **`~/.openclaw-martin`** + **`ai.martin.relay`** \u2014 this is a **broken, orphaned service**. The launchctl job `ai.martin.relay` tries to run `martin_bot.py`, but **that file doesn't exist** \u2014 it's been failing on every load (err log shows repe...",
+          "[12:09 IST] RAM: [OpenClaw heartbeat poll]",
+          "[12:09 IST] HADERACH: Good afternoon, Ram.",
+          "**Status \u2014 12:09 IST (Wed 24 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 87+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. O..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1525,7 +1525,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.47,
-      "cpu": 0.1,
+      "cpu": 1.2,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,9 +1534,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 11.9,
-        "rolling_28day": 11.9,
+        "transcript": 0.4,
+        "rolling_7day": 12.0,
+        "rolling_28day": 12.0,
         "rolling_180day": 156.1
       },
       "skills": [
@@ -1555,19 +1555,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1782282117233,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1782283241445,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1782279640819,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1782282117233,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
@@ -1860,8 +1860,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.48,
-      "cpu": 0.7,
+      "rss_gb": 0.5,
+      "cpu": 1.1,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1869,10 +1869,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 12.1,
-        "rolling_28day": 12.1,
-        "rolling_180day": 12.1
+        "transcript": 0.1,
+        "rolling_7day": 12.2,
+        "rolling_28day": 12.2,
+        "rolling_180day": 12.2
       },
       "skills": [
         "twitacc"
@@ -1890,6 +1890,15 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782283210002,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
           "sched": "*/15 9-15 * * 1-5",
@@ -1903,15 +1912,6 @@
           "enabled": true,
           "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
           "last_ts": 1782282631397,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782282631396,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2090,46 +2090,46 @@
       ],
       "transcripts": {
         "recent": [
-          "[11:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good \u2014 inbox already updated from the 11:15 scan. Let me add the 11:45 trading-hours follow-up scan.",
-          "[11:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Now let me verify and close out the cron.",
-          "**TWITTER WATCHER CRON EXECUTION SUMMARY** ",
-          "\ud83d\udcca **11:45 IST, Wednesday 24 Jun 2026 (Trading Hours Mid-Session)**",
-          "---",
-          "### **Portfolio State**",
-          "- **Pot 1:** \u20b963,049 (inv. \u20b958,927) | **+7.0% YTD**",
-          "- **Pot 2:** \u20b90 (no open positions; gate open, VIX 16.78)",
-          "- **Cash:** \u20b9282,617 | **Total:** \u20b9345,666",
-          "---",
-          "### **5-Gate Alert Assessment** \u2705",
-          "All gates pass \u2014 no urgent messaging to Ram.",
-          "| Gate | Threshold | Current | Status |",
-          "|------|-----------|--------",
-          "[11:45 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-min portfolio update for trading hours.",
-          "**Step 1: Check NSE holiday list**",
-          "Today is Wednesday, June 24th, 2026. This is NOT on the NSE holiday list (1-Jan, 26-Jan, 19-Feb, 31-Mar, 10-Apr, 14-Apr, 1-May, 15-Aug, 27-Aug, 2-Oct, 24-Oct, 5-Nov, 25-Dec). Proceeding.",
-          "**Step 2: Run portfolio update script**",
-          "[11:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 3: Read portfolio and market state**",
-          "[11:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 4: Compose message**",
-          "Now I'll format the update according to the exact template:",
-          "```",
-          "\ud83d\udcca 11:46 IST | Nifty 23824 | VIX 13.94 \u2705",
-          "Pot1: \u20b963,180 / \u20b958,927 (+7.2%)",
-          "\u25b2 ICICIBANK: qty=16 avg=\u20b91,268.93 ltp=\u20b91,375.00 | +\u20b91,697",
-          "\u25b2 AUROPHARMA: qty=6 avg=\u20b91,309.35 ltp=\u20b91,541.60 | +\u20b91,393",
-          "\u25b2 APOLLOHOSP: qty=1 avg=\u20b97,342.61 ltp=\u20b98,566.00 | +\u20b91,223",
-          "\u25bc COALINDIA: qty=18 avg=\u20b9446.43 ltp=\u20b9443.40 | -\u20b955",
-          "\u25bc ITC: qty=27 avg=\u20b9295.05 ltp=\u20b9291.25 | -\u20b9103",
-          "\u25b2 BEL: qty=18 avg=\u20b9412.42 ltp=\u20b9417.75 | +\u20b996",
-          "Pot2: No open posi",
-          "[11:46 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent** \u2014 11:46 IST",
-          "**Summary:**",
-          "- **Pot 1:** +\u20b94,253 (+7.2%) \u2014 ICICIBANK, AUROPHARMA, APOLLOHOSP leading gains",
-          "- **Pot 2:** No open positions",
           "- **VIX:** 13.94 \u2705 (normal, Pot 2 gate open)",
           "- **Regime:** SIDEWAYS, 89.7% probability of sideways continuation tomorrow",
           "- **Total portfolio:** \u20b9345,797 (-35.4% vs \u20b9535,002 deposits) \u2014 cash heavy as designed",
           "[11:56 IST] RAM: [OpenClaw heartbeat poll]",
-          "[11:56 IST] KUBERA: HEARTBEAT_OK"
+          "[11:56 IST] KUBERA: HEARTBEAT_OK",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by reading the portfolio context and then check current market conditions.",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I've reviewed the portfolio and current market data. All alert gates **PASS** \u2014 no urgent message needed for Ram.",
+          "**Quick snapshot (12:00 PM IST, 24 Jun):**",
+          "| Metric | Status |",
+          "|--------|--------|",
+          "| **Nifty** | +1.19% (bullish) \u2705 |",
+          "| **Crude** | Brent -1.15%, WTI -0.73% (stable) \u2705 |",
+          "| **Geopolitical** | Iran-US ceasefire holding, Hormuz reopening on track \u2705 |",
+          "| **VIX** | 16.67 (<18 gate open) \u2705 |",
+          "| **Portfolio** | +7.2% YTD (\u20b963,157), 8% buffer to red-line \u2705 |",
+          "**Holdings status:**",
+          "- **AUROPHA",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll run the portfolio refresh routine.",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \u26a0\ufe0f Snapshot failed \u2014 Login failed: Expecting value: line 1 column 1 (char 0)",
+          "Angel One API appears unresponsive or credentials issue. Portfolio.md updated successfully, but Pot 2 snapshot unable to pull live data.",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-minute portfolio update for trading hours.",
+          "**Step 1: Check NSE holiday**",
+          "June 24, 2026 is not on the NSE holiday list. Proceeding.",
+          "**Step 2: Update portfolio**",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 3: Read portfolio state**",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 4: Compose message**",
+          "Current time: 12:00 IST",
+          "Nifty spot: 23,824.1",
+          "VIX: 13.94 (\u2705 <18, Pot2 gate OPEN)",
+          "Total portfolio value: \u20b9345,785",
+          "Total vs \u20b9535,002 base: (345,785 - 535,002) / 535,002 = -35.4%",
+          "**Step 5: Send to Ram**",
+          "[12:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram** \u2014 12:00 IST",
+          "**Snapshot summary:**",
+          "- **Pot 1:** \u20b963,168 (+7.2% vs cost)",
+          "- **Nifty:** 23,824.1 | **VIX:** 13.94 \u2705 (Pot2 gate open)",
+          "- **Regime:** SIDEWAYS (89.7% probability next day)",
+          "- **Cash buffer:** \u20b9282,617",
+          "- **Overall portfolio:** -35.4% vs base (down from deposits, but P&L positive within Pot1)",
+          "No alerts. Market sideways, VIX calm. Pot2 structurally open if opportunity arises."
         ],
         "yesterday": [
           "| ICICIBANK | 16 | \u20b91,268.93 | \u20b91,338.30 | \u25b2+\u20b91,110 (+5.5%) | \u20b921,413 |",
@@ -2268,7 +2268,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.46,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2276,10 +2276,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.0,
-        "rolling_28day": 12.0,
-        "rolling_180day": 12.0
+        "transcript": 0.2,
+        "rolling_7day": 12.1,
+        "rolling_28day": 12.1,
+        "rolling_180day": 12.1
       },
       "skills": [
         "academic-deep-research",
@@ -2656,7 +2656,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.38,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2664,10 +2664,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 3.0,
-        "rolling_7day": 11.9,
-        "rolling_28day": 11.9,
-        "rolling_180day": 11.9
+        "transcript": 0.1,
+        "rolling_7day": 12.0,
+        "rolling_28day": 12.0,
+        "rolling_180day": 12.0
       },
       "skills": [
         "moltguard"
@@ -2685,19 +2685,19 @@
       ],
       "crons": [
         {
-          "name": "Inter Study Midday",
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
-          "sched": "0 12 * * *",
-          "last_ts": 1782282630071,
+          "sched": "10 */3 * * *",
+          "last_ts": 1782283203705,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "name": "Inter Study Midday",
           "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1782272403121,
+          "sched": "0 12 * * *",
+          "last_ts": 1782282630071,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2768,26 +2768,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Perfect. Now I'll execute the consolidation steps. Let me append to strengths.md, gaps.md, exam-strategy.md, study-trajectory.md, and add the completion bookmark to the daily log. Then commit to git.",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Now committing to git.",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Perfect. Consolidation complete. All memory files updated and committed.",
-          "**Nightly Memory Consolidation \u2014 23 June 2026, 22:30 IST**",
-          "\u2705 **PHASE 0**: Context check passed (0% usage \u2014 well within limit)",
-          "\u2705 **PHASE 1\u20137**: Session data extracted and consolidated",
-          "- Strengths: 6 new mastery entries (Ind AS 34 AETR, TP Documentation, Inter-Paper interactions)",
-          "- Gaps: 3 resolved (highest-risk traps now locked)",
-          "- Exam Strategy: 4 technique observations appended",
-          "- Study Trajectory: Daily entry + [STANDING_",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: I'll find and process today's transcript tail, consolidate the session, and update memory files.",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: Now I'll read today's transcript:",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: I can see today's transcript. Let me find the last [MEMORY_WRITE] bookmark:",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: Perfect. I can see there's already a [MEMORY_WRITE] bookmark at 22:30 IST on June 23. Now I need to identify the tail after that last bookmark in the transcript and process it according to the 23:00 consolidation protocol.",
-          "Looking at the transcript from my earlier read, the unprocessed tail after the 22:30 MEMORY_WRITE is the final evening session around 20:02 IST and the 21:10 IST checkpoint. Let me extract the unprocessed portion and write the 23:00 consolidation entry:",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: Let me fix the array syntax:",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: Now append the consolidation bookmark to the transcript file:",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: Let me append the bookmark to the transcript:",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: Consolidation complete. Silent operation finished.",
-          "NO_REPLY",
           "[00:15 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary maintenance task for CA SMEDA-II.",
           "Let me start by determining the dates and checking for yesterday's content.",
           "[00:15 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Midnight Rolling Summary]: Both files exist. Now I'll read yesterday's content and process the rolling summaries.",
@@ -2807,7 +2787,27 @@
           "## **\ud83d\udcca MIDDAY SESSION SUMMARY (24 June 2026, 12:00\u201317:30 IST)**",
           "### **Session Focus: Rank #1\u2013#3 Trap Verification Across 3 Advanced Scenarios**",
           "#### **Scenario 1: Ind AS 34 AETR \u00d7 Bonus Obligation Timing** \u2705 LOCKED",
-          "- **Trap**: Full-year AETR applies to each interim period, but Q4 bonus obligation (first-time) causes misclassifi"
+          "- **Trap**: Full-year AETR applies to each interim period, but Q4 bonus obligation (first-time) causes misclassifi",
+          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: I'll start this midday study session by reading the study plan and today's log to understand what I've covered and what's next.",
+          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: I can see from the logs that I've been studying intensively and completed all 8 CA Intermediate papers with readings up to **9.95-9.97/10**. Today is **Wednesday, June 24th, 2026 at 12:00 PM** \u2014 a midday session. The last entry shows **June 23rd (Forty-Fifth Integration Pass)** where I scored **9.97/10 EXAM-READY** with Rank #5\u2013#10 trap synthesis verified.",
+          "Let me read today's specific log entries and understand what topics need focus during this midday slot.",
+          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Good. I can see I'm in the **Forty-Sixth Integration Pass** (midday session on June 24th). The session is focused on **locking Rank #1\u2013#3 traps** across 3 advanced exam-simulation scenarios. Let me continue reading the full scenario to understand the complete context:",
+          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Perfect. I can see I'm in **Forty-Sixth Integration Pass** (today's midday) and have **completed 3 advanced trap-locking scenarios**. All scenarios are verified with **MCQ Wave 46: 20/20** and **Readiness: 9.95/10**.",
+          "Now I understand the situation:",
+          "- **Status**: All 8 CA Intermediate papers are exam-ready at 9.95/10",
+          "- **Current session objective**: Lock Rank #1\u2013#3 traps (completed \u2713)",
+          "- **Synthesis statement**: Already written in the log as required",
+          "Since I've already completed the midday sessi",
+          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Perfect. Now let me provide you with a concise summary of this midday study session:",
+          "---",
+          "## \ud83d\udcca **CA Intermediate Midday Study Session \u2014 June 24, 2026 (12:00 IST)**",
+          "### **Session Objective: Complete (\u2705)**",
+          "Lock Rank #1\u2013#3 highest-risk traps through 3 advanced exam-simulation scenarios + MCQ verification.",
+          "---",
+          "### **Three Scenarios Completed**",
+          "| **Rank** | **Topic** | **Scenario** | **Key Finding** | **Marks Risk** |",
+          "|----------|----------|-------------|-----------------|---------------|",
+          "| **#1"
         ],
         "yesterday": [
           "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Let me check the end of the file more carefully:",
@@ -2952,10 +2952,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 12.1,
-        "rolling_28day": 12.1,
-        "rolling_180day": 13.1
+        "transcript": 0.1,
+        "rolling_7day": 12.2,
+        "rolling_28day": 12.2,
+        "rolling_180day": 13.2
       },
       "skills": [
         "moltguard"
@@ -2976,7 +2976,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782282606429,
+          "last_ts": 1782283206751,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3136,10 +3136,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.0,
-        "rolling_28day": 12.0,
-        "rolling_180day": 12.0
+        "transcript": 0.2,
+        "rolling_7day": 12.1,
+        "rolling_28day": 12.1,
+        "rolling_180day": 12.1
       },
       "skills": [
         "moltguard"
@@ -3326,8 +3326,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.32,
-      "cpu": 0.1,
+      "rss_gb": 0.33,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3335,10 +3335,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 11.8,
-        "rolling_28day": 11.8,
-        "rolling_180day": 35.8
+        "transcript": 0.0,
+        "rolling_7day": 11.9,
+        "rolling_28day": 11.9,
+        "rolling_180day": 35.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3347,7 +3347,7 @@
           "name": "Medical SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "14 */3 * * *",
-          "last_ts": 1782272643061,
+          "last_ts": 1782283443782,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3521,10 +3521,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 12.6,
-        "rolling_28day": 12.1,
-        "rolling_180day": 12.1
+        "transcript": 0.0,
+        "rolling_7day": 12.7,
+        "rolling_28day": 12.2,
+        "rolling_180day": 12.2
       },
       "skills": [],
       "skills_detail": [],
@@ -3717,7 +3717,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.2,
-      "cpu": 0.1,
+      "cpu": 0.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3747,7 +3747,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.36,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3755,10 +3755,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.0,
-        "rolling_28day": 12.0,
-        "rolling_180day": 12.0
+        "transcript": 0.2,
+        "rolling_7day": 12.1,
+        "rolling_28day": 12.1,
+        "rolling_180day": 12.1
       },
       "skills": [
         "apple-calendar-macos",
@@ -4122,7 +4122,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.37,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4130,9 +4130,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 3.0,
-        "rolling_28day": 3.0,
+        "transcript": 0.2,
+        "rolling_7day": 3.1,
+        "rolling_28day": 3.1,
         "rolling_180day": null
       },
       "skills": [
