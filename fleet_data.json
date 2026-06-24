@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 10:38:40 IST",
-  "generated_epoch": 1782277720,
+  "generated_ist": "2026-06-24 10:43:44 IST",
+  "generated_epoch": 1782278024,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.76 / 10.15 / 9.86",
+    "load": "9.03 / 9.75 / 9.77",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 84573,
-      "rss_gb": 0.7,
-      "cpu": 0.5,
+      "rss_gb": 0.6,
+      "cpu": 0.1,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -43,9 +43,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 9.7,
-        "rolling_28day": 9.7,
-        "rolling_180day": 10.1
+        "rolling_7day": 9.8,
+        "rolling_28day": 9.8,
+        "rolling_180day": 10.2
       },
       "skills": [
         "academic-deep-research",
@@ -643,6 +643,42 @@
       ],
       "crons": [
         {
+          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
+          "enabled": true,
+          "sched": "every 5m",
+          "last_ts": 1782277905272,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782277831386,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782277831385,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782277831385,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "every 15m",
@@ -652,46 +688,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
-          "enabled": true,
-          "sched": "every 5m",
-          "last_ts": 1782277606336,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
           "last_ts": 1782277533026,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782277234471,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782277234470,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782277234470,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "The cause is a bug in my own PDF builder: the day-column key mismatch. The data pull stored daily costs keyed by **integer** day, but after the JSON round-trip the per-agent daily dict keys came back as **strings** (\"1\",...",
-          "[09:45 IST] HADERACH: Let me verify the grid actually populated this time before sending \u2014 extract the text layer and check a known row.",
-          "[09:46 IST] HADERACH: pdfminer flattens the table cells onto separate lines, so that check is inconclusive. Let me render the PDF to an image and look at it directly.",
-          "[09:47 IST] HADERACH: The render confirms the grid is **still blank** \u2014 my int-key fix wasn't the whole story. Let me inspect the actual data structure to see why per-day values aren't reaching the cells.",
-          "[09:47 IST] HADERACH: There's the real culprit \u2014 the day values are individually small (e.g. $21.88, $111.79, $153.57). My cell formatter only printed a value when `>= 0.5`, formatted with `:.0f` (no decimals) \u2014 but the deeper issue is the column width. With 24 columns crammed into ~220mm at 5.2pt font, `reportlab` is silently truncating/clipping. But the image shows *completely* empty cells, which means the int-key fix didn't apply to the per-cell lookup as expected. Let me check the actual rendered row content a...",
-          "[09:47 IST] HADERACH: The fix at line 8 normalised `daily` to int keys, but lines 25 and 64 still build `cw_day` and the cells. Since `daily` is now int-keyed and `day_cols` is int range, the lookup *should* work. Let me directly test the row-building in isolation to see what strings are produced.",
-          "[09:47 IST] HADERACH: So the data **is** correct now and the cells **do** populate (77, 149, 167\u2026). The script that ran earlier \u2014 before my edit was saved \u2014 must have produced the blank version, OR the rendered PDF I checked is the freshly-built one but the font is rendering invisibly. The cells contain real numbers now. The most likely remaining issue: at 5.2pt with 24 narrow columns, text is being clipped to invisibility, or `pdftoppm` at 90 DPI is too low to show 5pt text.",
-          "Let me rebuild fresh (confirming my e...",
-          "[09:47 IST] HADERACH: Still blank at the cell level despite the row-builder producing correct strings in isolation. That means the running script's `daily` is *not* what my isolated test used \u2014 the most plausible explanation: line 25 (`cw_day`) and line 64 use the module-level `daily`, but something else is off. Let me add a debug print inside the actual script to see what the rows list contains right before `Table()` is built.",
-          "[09:48 IST] HADERACH: The `rows` list passed to `Table()` **does** contain the numbers (77, 149, 167\u2026). So the data is correct and reaches the table object \u2014 yet they render invisible. This is a **reportlab rendering problem**, not data. At 5.2pt with 24 columns of ~10mm each, the text should fit. The invisibility points to either text colour or the cells being too narrow causing reportlab to drop content.",
-          "Let me check the column math: 267mm \u2212 30 \u2212 18 = 219mm \u00f7 24 = **9.1mm per column**. At 5.2pt, a 3-digit numbe...",
           "[09:48 IST] HADERACH: Still blank even with explicit black text and centering. The data reaches the table but reportlab refuses to draw it. This is the classic reportlab symptom: **column too narrow \u2192 text doesn't fit \u2192 cell renders empty** (it doesn't wrap plain strings, it clips). 24 day-columns simply won't fit legibly in landscape A4. ",
           "The right fix is to **stop forcing all 24 days into one row**. I'll restructure: keep the per-agent TOTAL column (which works), and present the daily breakdown as a separate co...",
           "[09:49 IST] HADERACH: Even a minimal 2-row test renders blank \u2014 so this is **not** a data or column-width issue. The reportlab text isn't drawing at all. The likely cause: a broken/missing font registration in this reportlab install, or the PNG conversion losing the text layer. Let me check whether the text is actually *in* the PDF (pdftotext) versus a rendering/rasterisation failure.",
@@ -1386,7 +1375,18 @@
           "- Will remain offline indefinitely without fresh token + gateway restart",
           "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
           "[10:29 IST] RAM: This alert is still not solved",
-          "[10:29 IST] HADERACH: You're replying to the **Discord** status alert \u2014 that's the one still unsolved. You're right; I've been describing it correctly but haven't *resolved* it because I genuinely cannot generate a Discord bot token \u2014 that has to come from the Developer Portal, which requires your login. But before I keep saying that, let me actually verify the current state rather than trust the auto-retry log, and check whether the token in config is truly the problem or something I can fix."
+          "[10:29 IST] HADERACH: You're replying to the **Discord** status alert \u2014 that's the one still unsolved. You're right; I've been describing it correctly but haven't *resolved* it because I genuinely cannot generate a Discord bot token \u2014 that has to come from the Developer Portal, which requires your login. But before I keep saying that, let me actually verify the current state rather than trust the auto-retry log, and check whether the token in config is truly the problem or something I can fix.",
+          "[10:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[10:39 IST] HADERACH: Good morning, Ram.",
+          "**Status \u2014 10:39 IST (Wed 24 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 87+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
-        "rolling_180day": 154.5
+        "transcript": 0.3,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
+        "rolling_180day": 154.6
       },
       "skills": [
         "moltguard"
@@ -1861,7 +1861,7 @@
       "up": true,
       "pid": 98635,
       "rss_gb": 0.46,
-      "cpu": 0.9,
+      "cpu": 0.5,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1890,6 +1890,15 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782277803516,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
           "sched": "*/15 9-15 * * 1-5",
@@ -1913,15 +1922,6 @@
           "sched": "*/15 8-15 * * 1-5",
           "last_ts": 1782277304399,
           "last_status": "error",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782277304397,
-          "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
@@ -2090,46 +2090,46 @@
       ],
       "transcripts": {
         "recent": [
-          "| **Nifty/Ind",
-          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll execute the Twitter Watcher routine. Let me start by reading the portfolio context and market status.",
-          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me check the correct market status and proceed with Twitter scanning:",
-          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me read the research inbox to see what's already been logged:",
-          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. I can see from the research inbox that the Twitter Watcher cron has been running throughout the trading day and all gates are passing. Let me now append a final update to consolidate the latest web search findings into memory, given that I have more recent data (including CNBC and trading sources showing today's action).",
-          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me fix the format:",
-          "[10:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. The Twitter Watcher cron routine is complete. Let me summarize the action taken:",
-          "## \u2705 Twitter Watcher Routine Complete (24 Jun 2026 @ 10:15 IST)",
-          "### Analysis Executed:",
-          "1. \u2705 **Portfolio checked** against PORTFOLIO.md (Angel One holdings)",
-          "2. \u2705 **Market status scanned** \u2014 Nifty +1.19%, Sensex +1.16% (bullish open after Jun 23 selloff)",
-          "3. \u2705 **Crude oil monitored** \u2014 Brent -1.15%, WTI -0.73% (stable, no >3% alert threshold)",
-          "4. \u2705 **Geopolitical verified** \u2014 Iran-US ceasefire framework holdi",
-          "[10:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-min portfolio update cron.",
-          "**Step 1: Check NSE holiday**",
-          "Today is Wednesday, June 24th, 2026 \u2014 not an NSE holiday. Proceeding.",
-          "**Step 2: Update portfolio**",
-          "[10:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 3: Read PORTFOLIO.md and nowcast_state.json**",
-          "[10:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 4: Compose message**",
-          "Now I'll calculate the overall portfolio % and send the update:",
-          "Overall % calculation:",
-          "- Total portfolio: \u20b9345,738",
-          "- Deposits: \u20b95,35,002",
-          "- Overall % = (345,738 - 535,002) / 535,002 \u00d7 100 = **-35.4%**",
-          "Portfolio summary:",
-          "- **Pot 1:** \u20b963,121 deployed / \u20b958,927 invested (+7.1%)",
-          "- **Pot 2:** No open positions",
-          "- **Pot 3:** No deployed capital",
-          "- **Cash:** \u20b9282,617",
-          "- **Total:** \u20b9345,738 / \u20b9535,002 (-35.4%)",
-          "- **VIX:** 13.94 (\u2705 Normal, Pot 2 gate OPEN)",
-          "- **Nifty spot:** 23,",
-          "[10:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent** \u2014 10:16 IST.",
-          "**Status:**",
-          "- Pot 1 up +7.1% (led by AUROPHARMA +17.6% and APOLLOHOSP +16.5%)",
-          "- No Pot 2 activity (VIX healthy at 13.94, gate open)",
-          "- Overall portfolio -35.4% vs deposits (expected given large cash position waiting for deployment)",
-          "- Nifty in SIDEWAYS regime with low volatility \u2014 momentum likely to stay flat next 6 days",
-          "[10:26 IST] RAM: [OpenClaw heartbeat poll]",
-          "[10:26 IST] KUBERA: HEARTBEAT_OK"
+          "[10:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me simplify - do a single edit:",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I need to pass this as an array, not a string. Let me write a fresh update:",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Task complete. Let me document a summary for the session log:",
+          "**CRON TASK COMPLETE: Twitter Watcher Trading Hours (10:30 IST) \u2014 24 JUN 2026**",
+          "---",
+          "**EXECUTION SUMMARY:**",
+          "1. **Started:** 10:30 IST (Wednesday, Jun 24, 2026)",
+          "2. **Portfolio State:** Read PORTFOLIO.md (updated 10:16 IST); Pot 1 \u20b963,121 (+7.1% from cost); all 6 holdings in green",
+          "3. **Memory Context:** Read MEMORY.md, heartbeat-state.json, daily log (2026-06-24.md), research-inbox.md",
+          "4. **Web Intelligence:** 3 targeted searche",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll run the portfolio refresh routine. First, let me verify we're not on an NSE holiday, then execute the scripts.",
+          "June 24th is not on the NSE holiday list, so proceeding.",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \u26a0\ufe0f **Step 1 note:** update_portfolio.py failed (Angel One API login returned empty response \u2014 likely temporary API issue or network blip).",
+          "**Step 2 \u2014 Pot 2 Snapshot:**",
+          "```",
+          "\ud83d\udcca 10:31 IST | Nifty 23,954.20 | VIX 13.75 \u2705",
+          "Pot1: \u20b963,125 / \u20b958,927 (+7.1%)",
+          "Pot2: No open NFO positions.",
+          "Cash: \u20b9282,617",
+          "TOTAL: \u20b9345,742 / \u20b9360,002 (-4.0%)",
+          "```",
+          "**Observation:** Pot 1 up 7.1%, no Pot 2 positions open, VIX calm at 13.75. Portfolio -4% overall (likely reflects Pot 3 drawdown or cash drag). API error on Step 1 i",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Let me start by checking if today is an NSE holiday.",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now let me check the nowcast state for Nifty and VIX:",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Today is **Wednesday, 24-June-2026**. Checking the NSE holiday list \u2014 24-Jun is NOT a listed holiday. Proceeding.",
+          "Now I'll run the portfolio update script:",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Perfect. Now composing and sending the message. Current time is 10:31 IST, Nifty spot is 23824.1, VIX is 13.94.",
+          "**Overall portfolio calculation:**",
+          "- Total portfolio: \u20b9345,774",
+          "- Deposits: \u20b9535,002",
+          "- Overall % = (345,774 - 535,002) / 535,002 \u00d7 100 = **-35.4%**",
+          "[10:31 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram.**",
+          "**Summary:**",
+          "- **Pot 1:** \u20b963,157 (+7.2% on invested base)",
+          "- **All holdings green except COALINDIA (-\u20b925) and ITC (-\u20b9115)**",
+          "- **VIX at 13.94** \u2014 well below 18, Pot 2 gate is open",
+          "- **Nifty spot:** 23,824 (sideways regime, 1\u03c3 band 22,872\u201324,776)",
+          "- **Cash position strong:** \u20b9282,617 available",
+          "- **Overall portfolio:** Down 35.4% from deposits (expected \u2014 substantial cash deployment pending)",
+          "No alerts. Market conditions normal."
         ],
         "yesterday": [
           "| ICICIBANK | 16 | \u20b91,268.93 | \u20b91,338.30 | \u25b2+\u20b91,110 (+5.5%) | \u20b921,413 |",
@@ -2267,8 +2267,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.44,
-      "cpu": 0.4,
+      "rss_gb": 0.45,
+      "cpu": 0.2,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2276,10 +2276,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 0.2,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [
         "academic-deep-research",
@@ -2656,7 +2656,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.38,
-      "cpu": 0.2,
+      "cpu": 0.5,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2664,10 +2664,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.5,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
-        "rolling_180day": 10.4
+        "transcript": 1.6,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
+        "rolling_180day": 10.5
       },
       "skills": [
         "moltguard"
@@ -2946,16 +2946,16 @@
       "up": true,
       "pid": 53990,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.0,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 10.6,
-        "rolling_28day": 10.6,
-        "rolling_180day": 11.6
+        "rolling_7day": 10.7,
+        "rolling_28day": 10.7,
+        "rolling_180day": 11.7
       },
       "skills": [
         "moltguard"
@@ -2976,7 +2976,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782277205749,
+          "last_ts": 1782277806060,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3128,16 +3128,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 1.6,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 1.7,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [
         "moltguard"
@@ -3324,7 +3324,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.32,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3332,10 +3332,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.4,
-        "rolling_7day": 10.3,
-        "rolling_28day": 10.3,
-        "rolling_180day": 34.3
+        "transcript": 1.5,
+        "rolling_7day": 10.4,
+        "rolling_28day": 10.4,
+        "rolling_180day": 34.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3511,17 +3511,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.28,
-      "cpu": 0.0,
+      "rss_gb": 0.29,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 11.1,
-        "rolling_28day": 10.6,
-        "rolling_180day": 10.6
+        "rolling_7day": 11.2,
+        "rolling_28day": 10.7,
+        "rolling_180day": 10.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3682,7 +3682,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.0,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3713,8 +3713,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 898,
-      "rss_gb": 0.19,
-      "cpu": 0.3,
+      "rss_gb": 0.2,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3752,10 +3752,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 0.2,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [
         "apple-calendar-macos",
@@ -4118,7 +4118,7 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.38,
+      "rss_gb": 0.39,
       "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4128,8 +4128,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 1.4,
-        "rolling_28day": 1.4,
+        "rolling_7day": 1.5,
+        "rolling_28day": 1.5,
         "rolling_180day": null
       },
       "skills": [
