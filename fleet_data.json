@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-24 14:23:04 IST",
-  "generated_epoch": 1782291184,
+  "generated_ist": "2026-06-24 14:28:08 IST",
+  "generated_epoch": 1782291488,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.16 / 10.13 / 10.11",
+    "load": "9.69 / 9.74 / 9.91",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.67,
-      "cpu": 1.1,
+      "rss_gb": 0.68,
+      "cpu": 0.7,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 13.4,
-        "rolling_28day": 13.4,
-        "rolling_180day": 13.9
+        "transcript": 0.3,
+        "rolling_7day": 13.5,
+        "rolling_28day": 13.5,
+        "rolling_180day": 14.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,16 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782291159155,
+          "last_ts": 1782291411429,
+          "last_status": "error",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "every 15m",
+          "last_ts": 1782291329030,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -683,15 +692,6 @@
           "enabled": true,
           "sched": "every 10m",
           "last_ts": 1782290945783,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "every 15m",
-          "last_ts": 1782290428191,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.49,
-      "cpu": 0.9,
+      "rss_gb": 0.5,
+      "cpu": 0.2,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 158.3
+        "transcript": 0.0,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 158.4
       },
       "skills": [
         "moltguard"
@@ -1555,19 +1555,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1782290446079,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1782291335459,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1782289314436,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1782290446079,
           "last_status": "ok",
           "model": "ollama/gemma4:31b-mlx",
           "kind": "agentTurn"
@@ -1682,7 +1682,40 @@
         }
       ],
       "transcripts": {
-        "recent": [],
+        "recent": [
+          "[14:05 IST] Giskard (USER): Giskard \u2014 apply this config change to Haderach (M4, port 18789). It stops the heartbeat's false \"Discord Offline\" alerts from reaching my Telegram DM, without disabling the heartbeat. All its checks keep running \u2014 it just can't message the DM.",
+          "Add one field to the **existing** agents.defaults.heartbeat block (merge \u2014 do not replace; it currently has every, model, prompt):",
+          "\"directPolicy\": \"block\"",
+          "Procedure:",
+          "1. cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak-$(date +%Y%m%d-%H%M%S)",
+          "2.",
+          "[14:05 IST] Giskard (ASSISTANT): Reading Haderach's current config first.",
+          "[14:05 IST] Giskard (ASSISTANT): Good. Confirmed: existing block has `every`, `model`, `prompt`. Now applying.",
+          "[14:05 IST] Giskard (ASSISTANT): Let me write the file properly:",
+          "[14:05 IST] Giskard (ASSISTANT): The write tool is embedding `\\n` literally. Let me use exec directly with a proper approach:",
+          "[14:05 IST] Giskard (ASSISTANT): Something's injecting literal `\\n` strings. Let me use the gateway tool directly instead:",
+          "[14:05 IST] Giskard (ASSISTANT): Schema confirmed \u2014 `hot` reload, valid values `allow`/`block`. Using `config.patch`:",
+          "[14:05 IST] Giskard (ASSISTANT): Protected path \u2014 needs direct file edit. Let me use exec with a script file written via process:",
+          "[14:06 IST] Giskard (ASSISTANT): The heredoc is including everything literally. There's a shell `\\n` injection issue. Let me use `printf` to write the script:",
+          "[14:06 IST] Giskard (ASSISTANT): `directPolicy: block` written. Now validate and update snapshot:",
+          "[14:06 IST] Giskard (ASSISTANT): That validated my own config \u2014 need to validate Haderach's:",
+          "[14:06 IST] Giskard (ASSISTANT): JSON is valid and field is confirmed. Now trigger hot-reload via SIGUSR1 and update snapshot:",
+          "[14:06 IST] Giskard (ASSISTANT): Haderach healthy. Update snapshot:",
+          "[14:06 IST] Giskard (ASSISTANT): Done.",
+          "**`directPolicy: \"block\"` applied to Haderach's `agents.defaults.heartbeat`.**",
+          "- Backup: `openclaw.json.bak-<timestamp>` \u2713",
+          "- Field written, JSON valid \u2713",
+          "- SIGUSR1 sent \u2192 hot-reloaded, health 200 \u2713",
+          "- Snapshot updated \u2713",
+          "Heartbeat runs unchanged \u2014 all checks active, all crons intact. It just can't deliver to your DM anymore. No more false Discord Offline pings.",
+          "[14:07 IST] Giskard (ASSISTANT): Done.",
+          "**`directPolicy: \"block\"` applied to Haderach's `agents.defaults.heartbeat`.**",
+          "- Backup: `openclaw.json.bak-<timestamp>` \u2713",
+          "- Field written, JSON valid \u2713",
+          "- SIGUSR1 sent \u2192 hot-reloaded, health 200 \u2713",
+          "- Snapshot updated \u2713",
+          "Heartbeat runs unchanged \u2014 all checks active, all crons intact. It just can't deliver to your DM anymore. No more false Discord Offline pings."
+        ],
         "yesterday": [
           "2. Make the one-line change",
           "3. openclaw config validate",
@@ -1819,8 +1852,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.48,
-      "cpu": 0.4,
+      "rss_gb": 0.55,
+      "cpu": 0.5,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1829,9 +1862,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
-        "rolling_180day": 14.3
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
+        "rolling_180day": 14.4
       },
       "skills": [
         "twitacc"
@@ -2226,8 +2259,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.46,
-      "cpu": 0.6,
+      "rss_gb": 0.45,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2235,10 +2268,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 14.2
+        "transcript": 0.5,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 14.3
       },
       "skills": [
         "academic-deep-research",
@@ -2615,7 +2648,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.38,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2623,10 +2656,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.4,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 14.1
+        "transcript": 1.5,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 14.2
       },
       "skills": [
         "moltguard"
@@ -2904,16 +2937,16 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.26,
-      "cpu": 0.4,
+      "rss_gb": 0.27,
+      "cpu": 0.3,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
+        "transcript": 0.1,
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
         "rolling_180day": 15.4
       },
       "skills": [
@@ -3091,7 +3124,7 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3287,8 +3320,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.32,
-      "cpu": 0.2,
+      "rss_gb": 0.33,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3297,9 +3330,9 @@
       ],
       "memory": {
         "transcript": 2.2,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 38.1
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 38.2
       },
       "skills": [],
       "skills_detail": [],
@@ -3475,15 +3508,15 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.29,
-      "cpu": 0.4,
+      "rss_gb": 0.28,
+      "cpu": 0.0,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 14.8,
+        "transcript": 0.1,
+        "rolling_7day": 14.9,
         "rolling_28day": 14.4,
         "rolling_180day": 14.4
       },
@@ -3646,7 +3679,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3678,7 +3711,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.2,
-      "cpu": 0.3,
+      "cpu": 0.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3708,7 +3741,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.37,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3716,10 +3749,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 14.2
+        "transcript": 0.5,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 14.3
       },
       "skills": [
         "apple-calendar-macos",
@@ -4083,7 +4116,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.36,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4091,9 +4124,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 5.2,
-        "rolling_28day": 5.2,
+        "transcript": 0.2,
+        "rolling_7day": 5.3,
+        "rolling_28day": 5.3,
         "rolling_180day": null
       },
       "skills": [
