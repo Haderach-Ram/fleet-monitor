@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-25 08:36:59 IST",
-  "generated_epoch": 1782356819,
+  "generated_ist": "2026-06-25 08:42:03 IST",
+  "generated_epoch": 1782357123,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.56 / 9.54 / 9.56",
+    "load": "9.34 / 9.40 / 9.48",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.77,
-      "cpu": 1.0,
+      "rss_gb": 0.76,
+      "cpu": 1.1,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 8.6,
         "rolling_28day": 8.6,
-        "rolling_180day": 8.6
+        "rolling_180day": 8.7
       },
       "skills": [
         "academic-deep-research",
@@ -643,10 +643,46 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782357026401,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782357026400,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782357026399,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782356685399,
+          "last_ts": 1782356978134,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782356896930,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -679,46 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782356616937,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782356616935,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782356616935,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782356339331,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782356290036,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:23 IST] HADERACH: `lastConsolidation` is 17:41 UTC (23:11 IST) Jun 24 \u2014 which matches the rolling-7day mtime exactly. So consolidation last ran at 23:11 IST yesterday, **not overnight**. There's no HEARTBEAT.md consolidation entry and no cron/launchd job \u2014 so what triggered the 23:11 run, and what was supposed to run overnight?",
-          "Let me check how the consolidate scripts get invoked and look at the consolidate_read script + recent gateway log.",
-          "[07:23 IST] HADERACH: Now I understand the design \u2014 it's a \"Nightly consolidation\" run via an agentTurn that executes `.consolidate_run.py`. But there's **no cron job in Sam's DB** to trigger it. So either:",
-          "1. The cron was deleted/lost, or",
-          "2. It's dispatched externally (by a Haderach cron that pokes Sam), or",
-          "3. It runs via Sam's own heartbeat.",
-          "The flag said \"root-cause fix on Sam may need another look\" \u2014 implying a prior fix attempt. Let me check Haderach's own crons for anything that dispatches Sam consolidation...",
-          "[07:24 IST] HADERACH: Found it. **`686b72af` \u2014 \"Sam \u2014 Nightly Consolidation (23:00 IST)\"** runs `0 23 * * *` IST and last status is `ok`. And `05bcde64` is the \"Sam + Legal consolidation verify (post-o...)\" at 07:15 IST \u2014 which is exactly what produced the flag I'm now investigating.",
-          "So the chain is: Sam consolidation cron fires at 23:00 IST \u2192 last run produced rolling-7day mtime 23:11 IST Jun 24. But the verify job expects an *overnight/post-midnight* run. Let me look at the actual job details and recent run log...",
-          "[07:24 IST] HADERACH: Now the picture is complete. The job ran at **2026-06-24 17:39 UTC = 23:09 IST**, status `ok`, took ~167s, finished writing files at 23:11 IST. **It ran clean.** The rolling-7day mtime of 23:11 IST Jun 24 is *exactly* the successful run output.",
-          "So my overnight-verify flag was a **false alarm in its framing**. Let me reconcile:",
           "- The verify cron (`05bcde64`, 07:15 IST) compared Sam vs Legal.",
           "- **Legal** consolidates at **00:02 IST** (post-midnight) \u2192 mtime Jun 25 00:02.",
           "- **Sam** consolidate...",
@@ -1379,6 +1368,17 @@
           "[08:09 IST] RAM: [OpenClaw heartbeat poll]",
           "[08:09 IST] HADERACH: Good morning, Ram.",
           "**Status \u2014 08:09 IST (Thu 25 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 93+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[08:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[08:39 IST] HADERACH: Good morning, Ram.",
+          "**Status \u2014 08:39 IST (Thu 25 Jun):**",
           "\u2705 **Gateway:** Healthy",
           "\u2705 **All core systems:** Operational",
           "\u274c **Discord:** Offline 93+ hours (since Wed 13:xx IST)",
@@ -1525,7 +1525,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.49,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 8.4,
-        "rolling_28day": 8.4,
-        "rolling_180day": 176.5
+        "transcript": 0.3,
+        "rolling_7day": 8.5,
+        "rolling_28day": 8.5,
+        "rolling_180day": 176.6
       },
       "skills": [
         "moltguard"
@@ -1822,7 +1822,7 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.5,
+      "rss_gb": 0.49,
       "cpu": 0.3,
       "crons_total": 22,
       "crons_enabled": 22,
@@ -1831,10 +1831,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 8.5,
-        "rolling_28day": 8.5,
-        "rolling_180day": 32.5
+        "transcript": 0.0,
+        "rolling_7day": 8.6,
+        "rolling_28day": 8.6,
+        "rolling_180day": 32.6
       },
       "skills": [
         "twitacc"
@@ -1855,7 +1855,7 @@
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782356435112,
+          "last_ts": 1782357004359,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2052,21 +2052,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: **Analysis Summary:**",
-          "**Macro Context (No Urgent Thresholds Breached):**",
-          "1. **Crude Oil:** $69.37/bbl (Jun 25) \u2014 DOWN 1.38% from previous day, DOWN 26% month-to-date",
-          "   - **Key driver:** US-Iran peace deal progress. Strait of Hormuz shipping normalizing. Supply outlook improved.",
-          "   - **Status:** Well below 3% move threshold \u2705",
-          "   - **Impact on portfolio:** COALINDIA slightly beneficiary of lower oil, but not material at -1% move",
-          "2. **Currencies/Forex:** Dollar steady; rupee in normal trading r",
-          "[08:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good \u2014 the inbox already has context from the 03:03 IST scan. Let me update with Jun 25, 08:00 IST findings and log to memory.",
-          "[08:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: **[CRON EXECUTION COMPLETE]**",
-          "**Kubera \u2014 Twitter Watcher (Trading Hours)**  ",
-          "**Execution Time:** Jun 25, 2026 \u2014 08:00 IST",
-          "---",
-          "### FINDINGS",
-          "**Macro Scan Result:** \u2705 **ALL GREEN \u2014 NO ALERTS**",
-          "| Metric | Value | vs Threshold | Status |",
           "|--------|-------|---|---|",
           "| **Crude Oil (WTI)** | $69.37/bbl | -1.38% | \u2705 Below 3% threshold |",
           "| **Brent Crude** | $72.58/bbl | -1.58% | \u2705 Below 3% threshold |",
@@ -2091,7 +2076,22 @@
           "- APOLLOHOSP earnings on track (Q4 strong), others routine",
           "Memory updated. Monitoring continues.",
           "[08:26 IST] RAM: [OpenClaw heartbeat poll]",
-          "[08:26 IST] KUBERA: HEARTBEAT_OK"
+          "[08:26 IST] KUBERA: HEARTBEAT_OK",
+          "[08:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by reading the portfolio and then check for market movements and news.",
+          "[08:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Research inbox is fresh as of 08:15 IST this morning. Portfolio is solid with \u20b9345.6k total (\u20b962.97k in Pot 1, +6.9% P&L, \u20b9282.6k cash).",
+          "Let me run a fresh Twitter/news scan to check for any overnight developments since the 08:15 update:",
+          "[08:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: ## Analysis Summary",
+          "\u2705 **No alert triggered. All thresholds clear.**",
+          "Fresh scan confirms research-inbox findings:",
+          "| Metric | Status | Threshold | Current |",
+          "|--------|--------|-----------|---------|",
+          "| **Crude WTI** | PASS | >3% move | \u22121.38% |",
+          "| **Brent** | PASS | >3% move | \u22121.58% |",
+          "| **Sensex (Jun 24)** | PASS | >1.5% down | +1.04% up |",
+          "| **Nifty (Jun 24)** | PASS | >1.5% down | +0.83% up |",
+          "| **Geopolitical** | PASS | Escalation | Stable (Iran deal proceeding) |",
+          "### Key Updates from Web Scan",
+          "[08:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: **Done.** All thresholds clear. Portfolio safe. Monitoring continues for US PCE release at 18:00 IST (08:30 ET) today\u2014the next critical data point for inflation and rate expectations. If PCE surprises hot, will flag immediately."
         ],
         "yesterday": [
           "[18:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good, the script exists. Let me run it from the correct path:",
@@ -2230,7 +2230,7 @@
       "up": true,
       "pid": 95363,
       "rss_gb": 0.43,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2238,10 +2238,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 8.5,
         "rolling_28day": 8.5,
-        "rolling_180day": 10.6
+        "rolling_180day": 10.7
       },
       "skills": [
         "academic-deep-research",
@@ -2618,8 +2618,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
-      "cpu": 0.4,
+      "rss_gb": 0.53,
+      "cpu": 0.7,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2627,7 +2627,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
+        "transcript": 2.5,
         "rolling_7day": 8.4,
         "rolling_28day": 8.4,
         "rolling_180day": 8.4
@@ -2908,17 +2908,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.27,
-      "cpu": 0.3,
+      "rss_gb": 0.26,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 8.6,
-        "rolling_28day": 8.6,
-        "rolling_180day": 9.6
+        "transcript": 0.0,
+        "rolling_7day": 8.7,
+        "rolling_28day": 8.7,
+        "rolling_180day": 9.7
       },
       "skills": [
         "moltguard"
@@ -2939,7 +2939,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782356405773,
+          "last_ts": 1782357005805,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3094,17 +3094,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 1302,
-      "rss_gb": 0.28,
-      "cpu": 0.1,
+      "rss_gb": 0.27,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 5.6,
-        "rolling_7day": 8.5,
-        "rolling_28day": 8.5,
-        "rolling_180day": 8.5
+        "transcript": 5.7,
+        "rolling_7day": 8.6,
+        "rolling_28day": 8.6,
+        "rolling_180day": 8.6
       },
       "skills": [
         "moltguard"
@@ -3309,7 +3309,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.32,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3317,10 +3317,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 8.3,
-        "rolling_28day": 8.3,
-        "rolling_180day": 8.3
+        "transcript": 2.5,
+        "rolling_7day": 8.4,
+        "rolling_28day": 8.4,
+        "rolling_180day": 8.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3490,16 +3490,16 @@
       "up": true,
       "pid": 1226,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.0,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 9.5,
-        "rolling_28day": 9.5,
-        "rolling_180day": 9.5
+        "transcript": 0.0,
+        "rolling_7day": 9.6,
+        "rolling_28day": 9.6,
+        "rolling_180day": 9.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3519,7 +3519,30 @@
           "# Chet Transcript \u2014 2026-06-25",
           "[08:32 IST]",
           "HADERACH\u2192CHET: Daily Brief 2026-06-25 request \u2014 pre-fetched Exa research data for SCL, RBI, AI feeds",
-          "CHET: Daily Brief written to /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-06-25.md (20 lines, 5210 bytes)"
+          "CHET: Daily Brief written to /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-06-25.md (20 lines, 5210 bytes)",
+          "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-06-25.",
+          "MANDATORY STARTUP:",
+          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
+          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
+          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
+          "{",
+          "  \"scl\": [",
+          "    {",
+          "      \"title\": \"Sammaan Capital Limited\",",
+          "      \"url\": \"https://sammaancapital.com/\",",
+          "      \"snippet\": \"\"",
+          "    },",
+          "    {",
+          "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
+          "     ...",
+          "[08:30 IST] CHET: Now let me analyze the data against yesterday's brief and write the output.",
+          "**Changes detected:**",
+          "- SCL: Groww returns to slot 3, LinkedIn exits after single-day return (24 June)",
+          "- RBI: No change \u2014 first stable configuration since the 23 June hybrid pivot",
+          "- AI: IBM/HuggingFace CUGA enters slot 2, displacing Cloudflare Flue; Google slides to slot",
+          "[08:32 IST] CHET: Now let me append to today's transcript.",
+          "[08:32 IST] CHET: **File:** `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-06-25.md` \u2014 20 lines, 5,210 bytes",
+          "**Changed since yesterday:** SCL third-slot oscillation shifts to phase four (Groww returns, LinkedIn exits a day later); RBI achieves first compositional freeze since the 23 June hybrid regime emerged; AI reshuffles with IBM/HuggingFace CUGA debuting in slot two, pushing Flue out and Google down to slot three."
         ],
         "yesterday": [
           "# Chet Transcript \u2014 2026-06-24",
@@ -3703,7 +3726,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.38,
-      "cpu": 0.1,
+      "cpu": 1.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3711,7 +3734,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 8.5,
         "rolling_28day": 8.5,
         "rolling_180day": 8.5
@@ -4071,8 +4094,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.39,
-      "cpu": 0.9,
+      "rss_gb": 0.36,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4081,8 +4104,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 9.4,
-        "rolling_28day": 9.4,
+        "rolling_7day": 9.5,
+        "rolling_28day": 9.5,
         "rolling_180day": null
       },
       "skills": [
@@ -4384,10 +4407,6 @@
         "recent": [
           "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
           "HEARTBEAT_OK",
-          "[04:04 IST] RAM: [OpenClaw heartbeat poll]",
-          "[04:04 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
-          "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
-          "HEARTBEAT_OK",
           "[04:34 IST] RAM: [OpenClaw heartbeat poll]",
           "[04:34 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
           "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
@@ -4420,6 +4439,10 @@
           "HEARTBEAT_OK",
           "[08:04 IST] RAM: [OpenClaw heartbeat poll]",
           "[08:04 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
+          "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
+          "HEARTBEAT_OK",
+          "[08:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[08:34 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
           "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
           "HEARTBEAT_OK"
         ],
