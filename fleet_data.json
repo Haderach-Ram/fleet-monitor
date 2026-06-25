@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-25 11:39:53 IST",
-  "generated_epoch": 1782367793,
+  "generated_ist": "2026-06-25 11:44:57 IST",
+  "generated_epoch": 1782368097,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.36 / 9.40 / 9.37",
+    "load": "8.72 / 9.14 / 9.26",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,7 +31,7 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 1.03,
+      "rss_gb": 0.96,
       "cpu": 0.4,
       "crons_total": 78,
       "crons_enabled": 55,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 11.6,
-        "rolling_28day": 11.6,
-        "rolling_180day": 11.6
+        "transcript": 0.1,
+        "rolling_7day": 11.7,
+        "rolling_28day": 11.7,
+        "rolling_180day": 11.7
       },
       "skills": [
         "academic-deep-research",
@@ -643,10 +643,46 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782367986166,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782367600319,
+          "last_ts": 1782367970768,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782367970768,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782367929199,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782367929198,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -656,42 +692,6 @@
           "enabled": true,
           "sched": "every 15m",
           "last_ts": 1782367466485,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782367330660,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782367282256,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782367282256,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782367282255,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
-          "[11:15 IST] RAM: Give me a draft for CAIO: whatever you want to say in reply and suggestions on chnages that need to be made to Jonas. I will paste to CAIo and he will implement",
-          "[11:15 IST] HADERACH: Here's a draft you can paste to CAIO.",
-          "---",
-          "**Re: Martin reachability \u2014 confirmed from M4 side**",
-          "Your hypothesis #1 is correct. Martin didn't move and isn't down \u2014 **M4's Tailscale IP changed**, and Jonas is still pointed at the old one.",
-          "**Confirmed on M4:**",
-          "- Martin (FastAPI, PID 908) is listening on `*:8802` \u2014 all interfaces, so Tailscale-reachable. `/data/status` returns HTTP 200.",
-          "- The 404s on `/` and `/health` are expected \u2014 those routes don't exist. Valid routes all live under `/data/...",
-          "[11:15 IST] HADERACH: Here's a draft you can paste to CAIO.",
-          "---",
           "**Re: Martin reachability \u2014 confirmed from M4 side**",
           "Your hypothesis #1 is correct. Martin didn't move and isn't down \u2014 **M4's Tailscale IP changed**, and Jonas is still pointed at the old one.",
           "**Confirmed on M4:**",
@@ -1386,7 +1375,18 @@
           "**Integrity check:** all 16 index rows present, **0 broken hyperlinks** \u2014 the links are name-based so they tracked the moved sh...",
           "[11:21 IST] HADERACH: Done. Noted your change and adopted your version as master.",
           "**What you changed:** in the KPI block you reordered the sheets \u2014 Rajiv / Ramnath / Sachin now sit right after the three Himanshu blocks (positions 8\u201310), with Salesh / Somil / Narayan / Naveen / Niharika / Nikhil / Niraj / Vinay following. The Risk Gov and Dependencies blocks retain the original sequence.",
-          "**Integrity check:** all 16 index rows present, **0 broken hyperlinks** \u2014 the links are name-based so they tracked the moved sh..."
+          "**Integrity check:** all 16 index rows present, **0 broken hyperlinks** \u2014 the links are name-based so they tracked the moved sh...",
+          "[11:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[11:39 IST] HADERACH: Good morning, Ram.",
+          "**Status \u2014 11:39 IST (Thu 25 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 93+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1525,7 +1525,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.45,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,9 +1534,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 11.4,
-        "rolling_28day": 11.4,
+        "transcript": 0.3,
+        "rolling_7day": 11.5,
+        "rolling_28day": 11.5,
         "rolling_180day": 179.6
       },
       "skills": [
@@ -1822,8 +1822,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.46,
-      "cpu": 0.2,
+      "rss_gb": 0.47,
+      "cpu": 0.3,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1831,10 +1831,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 11.6,
-        "rolling_28day": 11.6,
-        "rolling_180day": 35.6
+        "transcript": 0.1,
+        "rolling_7day": 11.7,
+        "rolling_28day": 11.7,
+        "rolling_180day": 35.7
       },
       "skills": [
         "twitacc"
@@ -1852,6 +1852,15 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782367803008,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
           "sched": "*/15 9-15 * * 1-5",
@@ -1865,15 +1874,6 @@
           "enabled": true,
           "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
           "last_ts": 1782367266284,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782367266283,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2052,46 +2052,46 @@
       ],
       "transcripts": {
         "recent": [
+          "**Market Status:**",
+          "- Nifty above 24,000 (mixed week \u2014 IT drag from Accenture guidance)",
+          "- Crude: <$80 (fell sharply post US-Iran peace framework)",
+          "- Gold: ~$4,187\u2013$4,500 (consolidation, far from ATH $5,589)",
+          "- Rupee: ~\u20b994.94/$ (stronger)",
+          "- VIX: ~12.97 (low \u2014 relief in volatility)",
+          "**Analysis vs Holdin",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Research inbox already has comprehensive scan from earlier today. I'll append today's findings and close cleanly.",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me fix the edit call:",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: ---",
+          "## \u2705 **Watcher Scan Complete \u2014 11:30 IST**",
+          "**Portfolio Status:** All green.  ",
+          "**Market conditions:** Benign.  ",
+          "**Alert gates:** All pass (crude -2%, index +0.6%, VIX 13.4, portfolio +7.4%).  ",
+          "**Holdings:** ICICIBANK +9.3%, AUROPHARMA +18.5%, APOLLOHOSP +18%, COALINDIA -2.4% (sector normal), ITC -1.3%, BEL -0.1%.  ",
+          "**Action:** Silent. No message to Ram required. Memory updated.",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll execute the portfolio refresh workflow.",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: Now running Pot 2 snapshot:",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: ```",
+          "\ud83d\udcca 11:30 IST | Nifty 24,186.25 | VIX 12.86 \u2705",
+          "Pot1: \u20b963,335 / \u20b958,927 (+7.5%)",
+          "Pot2: No open NFO positions.",
+          "Cash: \u20b9282,617",
+          "TOTAL: \u20b9345,952 / \u20b9360,002 (-3.9%)",
           "```",
-          "**Portfolio status:** -3.9% YTD, no active options. Pot 1 is up 7.3%. VIX healthy at 12.77. Note: Step 1 connection error \u2014 will retry on next 30-min cycle.",
-          "[11:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the portfolio update cron. Let me start by checking the trading calendar and then running the update sequence.",
-          "[11:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now reading the portfolio and nowcast state:",
-          "[11:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Perfect. Composing the message per exact format. Current time is 11:00 IST, so I need to format as [11:00 IST]:",
-          "Overall portfolio % calculation:",
-          "- Total: \u20b9345,845",
-          "- Deposits: \u20b9535,002",
-          "- Overall % = (345,845 - 535,002) / 535,002 \u00d7 100 = -35.4%",
-          "Now sending the update:",
-          "[11:00 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram at 11:00 IST.**",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-min portfolio update cron for Kubera.",
+          "First, let me verify the trading day and then run the portfolio update script.",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now reading the portfolio and market state files:",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Perfect. Now composing the update message and sending it to Ram:",
+          "[11:30 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **15-min portfolio update sent to Ram @ 11:30 IST.**",
           "**Summary:**",
-          "- **Nifty:** 24,021.65 | **VIX:** 13.39 \u2705 (Pot 2 gate open)",
-          "- **Pot 1:** \u20b963,228 (+7.3%) \u2014 all 3 pharma/bank positions in green; ITC/Coal/BEL dragging slightly",
+          "- **Nifty:** 24,022 | **VIX:** 13.4 \u2705 (Pot 2 gate open)",
+          "- **Pot 1 P&L:** +7.5% (+\u20b94,408)",
+          "  - Top gainers: AUROPHARMA (+18.6%), APOLLOHOSP (+18.2%), ICICIBANK (+9.4%)",
+          "  - Minor losses in ITC, COALINDIA, BEL",
           "- **Pot 2:** No open positions",
-          "- **Cash:** \u20b9282,617 available",
-          "- **Overall portfolio:** -35.4% vs deposits (down from \u20b9535,002 baseline due to capital deployment lag and market conditions)",
-          "Regime: **BULL** (20d ret +0.45%, VIX low). GBM bands: 1\u03c3 23,007\u201325,037 (\u00b14.23%).",
-          "[11:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll analyze the Twitter Watcher feed and market impact. Let me start by reading your current portfolio and then checking market/social feeds.",
-          "[11:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Now let me check market conditions and search for relevant Twitter/news context around your holdings:",
-          "[11:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me update the research inbox with findings:",
-          "[11:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me read the file first to see the current state:",
-          "[11:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good \u2014 the file has already been populated with today's research. Let me add a supplementary update with the latest web findings to the top:",
-          "[11:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me use the correct format:",
-          "[11:16 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: ---",
-          "## Summary",
-          "**Twitter Watcher analysis complete. 25 Jun 2026, 11:15 IST**",
-          "\u2705 **All alert thresholds PASS:**",
-          "- Crude: **-2.0%** (Brent $76/bbl) \u2014 under 3% threshold",
-          "- Nifty: **+0.83%** (24,021.65 close, reclaimed 24k support) \u2014 no 1.5% downside trigger",
-          "- Geopolitical: **STABLE** (Hormuz flows normalized, US-Iran talks holding)",
-          "- Portfolio: **+7.1% YTD** Pot 1 \u2014 well above -15% drawdown gate",
-          "- VIX: **13.4** \u2014 contained, below 18 threshold",
-          "**Portfolio holdings analysis:**",
-          "- **AUROPHARMA** (+1",
-          "[11:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the 15-minute portfolio update for trading hours.",
-          "[11:16 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now composing the message in the required format:",
-          "[11:17 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent.** Pot1 at +7.3%, all holdings flat to green. VIX 13.39 \u2014 Pot2 gate remains open. Cash: \u20b9282.6k ready. Overall portfolio -35.4% vs deployed base (expected given current deployment strategy).",
-          "[11:26 IST] RAM: [OpenClaw heartbeat poll]",
-          "[11:26 IST] KUBERA: HEARTBEAT_OK"
+          "- **Pot 3:** No deployed capital",
+          "- **Total portfolio:** \u20b9345,952 (-35.3% vs deposits of \u20b9535,002)",
+          "- **Cash available:** \u20b9282,617 (~84% of total portfolio \u2014 substantial dry powder)",
+          "Market regime"
         ],
         "yesterday": [
           "[18:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good, the script exists. Let me run it from the correct path:",
@@ -2229,8 +2229,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.43,
-      "cpu": 0.2,
+      "rss_gb": 0.42,
+      "cpu": 0.6,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2239,8 +2239,8 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 11.5,
-        "rolling_28day": 11.5,
+        "rolling_7day": 11.6,
+        "rolling_28day": 11.6,
         "rolling_180day": 13.7
       },
       "skills": [
@@ -2618,8 +2618,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.37,
-      "cpu": 0.4,
+      "rss_gb": 0.4,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2627,10 +2627,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.5,
-        "rolling_7day": 11.4,
-        "rolling_28day": 11.4,
-        "rolling_180day": 11.4
+        "transcript": 2.6,
+        "rolling_7day": 11.5,
+        "rolling_28day": 11.5,
+        "rolling_180day": 11.5
       },
       "skills": [
         "moltguard"
@@ -2909,16 +2909,16 @@
       "up": true,
       "pid": 53990,
       "rss_gb": 0.26,
-      "cpu": 0.0,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 11.6,
-        "rolling_28day": 11.6,
-        "rolling_180day": 12.6
+        "transcript": 0.1,
+        "rolling_7day": 11.7,
+        "rolling_28day": 11.7,
+        "rolling_180day": 12.7
       },
       "skills": [
         "moltguard"
@@ -2939,7 +2939,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782367205845,
+          "last_ts": 1782367805701,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3095,16 +3095,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.6,
-        "rolling_7day": 11.5,
-        "rolling_28day": 11.5,
-        "rolling_180day": 11.5
+        "transcript": 2.7,
+        "rolling_7day": 11.6,
+        "rolling_28day": 11.6,
+        "rolling_180day": 11.6
       },
       "skills": [
         "moltguard"
@@ -3310,7 +3310,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.31,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3318,10 +3318,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 11.3,
-        "rolling_28day": 11.3,
-        "rolling_180day": 11.3
+        "transcript": 2.5,
+        "rolling_7day": 11.4,
+        "rolling_28day": 11.4,
+        "rolling_180day": 11.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3490,17 +3490,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.26,
-      "cpu": 0.1,
+      "rss_gb": 0.27,
+      "cpu": 0.0,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 12.6,
-        "rolling_28day": 12.5,
-        "rolling_180day": 12.5
+        "transcript": 0.1,
+        "rolling_7day": 12.7,
+        "rolling_28day": 12.6,
+        "rolling_180day": 12.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3665,7 +3665,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.3,
+      "cpu": 0.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3696,8 +3696,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 898,
-      "rss_gb": 0.2,
-      "cpu": 0.0,
+      "rss_gb": 0.19,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3727,7 +3727,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.34,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3736,9 +3736,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 11.5,
-        "rolling_28day": 11.5,
-        "rolling_180day": 11.5
+        "rolling_7day": 11.6,
+        "rolling_28day": 11.6,
+        "rolling_180day": 11.6
       },
       "skills": [
         "apple-calendar-macos",
@@ -4102,7 +4102,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.39,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4110,9 +4110,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.5,
-        "rolling_28day": 12.5,
+        "transcript": 0.0,
+        "rolling_7day": 12.6,
+        "rolling_28day": 12.6,
         "rolling_180day": null
       },
       "skills": [
@@ -4412,10 +4412,6 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "[06:34 IST] RAM: [OpenClaw heartbeat poll]",
-          "[06:34 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
-          "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
-          "HEARTBEAT_OK",
           "[07:04 IST] RAM: [OpenClaw heartbeat poll]",
           "[07:04 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
           "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
@@ -4450,6 +4446,10 @@
           "HEARTBEAT_OK",
           "[11:04 IST] RAM: [OpenClaw heartbeat poll]",
           "[11:04 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
+          "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
+          "HEARTBEAT_OK",
+          "[11:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[11:34 IST] SAM: Based on the heartbeat poll and the configuration provided, everything appears to be in order. There are no immediate issues to report.",
           "If you need any specific checks or further assistance, please let me know. Otherwise, I will continue to monitor and maintain the system as per the configured heartbeat checks.",
           "HEARTBEAT_OK"
         ],
