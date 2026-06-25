@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-25 12:56:09 IST",
-  "generated_epoch": 1782372369,
+  "generated_ist": "2026-06-25 13:01:13 IST",
+  "generated_epoch": 1782372673,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.00 / 3.02 / 3.66",
+    "load": "2.83 / 2.92 / 3.42",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 1.14,
-      "cpu": 0.4,
+      "rss_gb": 1.02,
+      "cpu": 1.1,
       "crons_total": 78,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.9,
-        "rolling_28day": 12.9,
-        "rolling_180day": 12.9
+        "transcript": 0.0,
+        "rolling_7day": 13.0,
+        "rolling_28day": 13.0,
+        "rolling_180day": 13.0
       },
       "skills": [
         "academic-deep-research",
@@ -643,10 +643,19 @@
       ],
       "crons": [
         {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782372556380,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782372347359,
+          "last_ts": 1782372471467,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -674,15 +683,6 @@
           "enabled": true,
           "sched": "*/10 6-23 * * *",
           "last_ts": 1782372134260,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782371938121,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1347,17 +1347,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:22 IST] HADERACH: Density varies enormously: from 802 chars (Nikhil) to 10,447 (Rajiv). The right metric for fitting one landscape page is total character volume, not row count. I'll scale font by `chars`: light sheets get a comfortable ~8pt, dense ones step down to ~5.5pt. Let me rework `kpi_sheet_html` to compute a per-sheet font size and inject it as an inline style on that section.",
-          "[12:23 IST] HADERACH: Also need the section-level CSS var on `.page` and the meta font to scale a touch. Let me regenerate and check page count.",
-          "[12:25 IST] HADERACH: 50 pages \u2014 worse, meaning my font *increased* for many sheets and they now overflow more. The density thresholds were too generous. The dense sheets (Rajiv 10.4k, Narayan 9.7k, Niraj 7.8k chars) need to stay small. Let me identify which sheets are spilling by checking page boundaries \u2014 easier to just tighten the scale downward across the board and iterate. Let me lower all font tiers.",
-          "[12:31 IST] HADERACH: Still iterating on the fit \u2014 38 pages, still spilling. Let me take a more surgical approach: render each sheet individually, check its page count, and tighten per-sheet until every one fits exactly one page.",
-          "[12:31 IST] HADERACH: Good data. The real issue is both row count AND max cell size (paragraph-length cells). The densest sheets: Rajiv (10.4k chars, maxcell 399), Narayan (9.7k, 545), Niraj (7.8k, 491), Vinay (6.1k, 517), Naveen (5.8k, 516). These have single cells approaching 500 chars \u2014 at any sensible font they'll make a tall row.",
-          "The correct fix: compute font size from **both** char total **and** max single cell length, and remove `page-break-inside: avoid` on rows (allow mid-row breaks only as last resort)....",
-          "[12:32 IST] HADERACH: 45 pages \u2014 scoring still too generous. The font sizes assigned (7\u20139pt) are too large for what actually fits. The scores are going into the 180\u2013270 range but I'm assigning 6.2\u20139pt. I need to empirically calibrate: Ambar at score 195 spilled at 5.7pt earlier but fit tight at 5.7pt with narrower margins. The scoring formula is off. Let me take a completely different, more reliable approach: **binary-search the font size per sheet** by rendering each one individually to PDF and checking page count.",
-          "[12:33 IST] HADERACH: The perl substitution is too complex to get right inline. Let me just write the file cleanly end-to-end using printf line-by-line \u2014 the only approach that reliably avoids the `\\n` problem.",
-          "[12:34 IST] HADERACH: Calibration is running \u2014 it's doing a binary search per sheet, rendering each to PDF to find the exact largest font that fits on one page. This will take a couple of minutes. Let me monitor progress.",
-          "[12:35 IST] HADERACH: 4pt is too small to be readable. Several sheets (Ashwin, Himanshu\u00d73, Narayan) hit the 4pt floor \u2014 they're still >1 page at 4pt, which means the content volume genuinely can't fit one landscape page. The fundamental problem: those sheets have 16 rows \u00d7 9 columns of paragraph text. There are only two honest solutions:",
-          "1. **Accept ~2 pages for the very dense sheets** \u2014 use the largest readable font (say 5.5pt floor), keep 1 page where possible, 2 pages for the heavy ones.",
           "2. **Restructure the d...",
           "[12:35 IST] HADERACH: Ram \u2014 I need to be straight with you before we go further.",
           "**The honest assessment:** 9 of the 18 KPI sheets physically cannot fit on one landscape A4 page at any readable font size. The worst (Ashwin, Himanshu\u00d73, Rajiv, Sachin, Narayan, Vinay) would need ~4pt \u2014 smaller than fine print on a medicine bottle. That's not a formatting problem I can engineer around; it's a content problem.",
@@ -1386,7 +1375,18 @@
           "[12:49 IST] HADERACH: So the picture is: ~4\u20135 sheets have some genuine cell overflow on the **No. column** (too narrow for \"10\") and scattered cells in Target/Threshold/Stretch. The root cause is that `page-break-inside: avoid` on rows forces the table to fit but weasyprint clips overflowing cell content within the row rather than wrapping further. Two fixes needed:",
           "1. **No. column** \u2014 widen from 3% to 4%",
           "2. **Cell overflow** \u2014 stop clipping; instead let cell content wrap further by removing fixed row heights",
-          "Th..."
+          "Th...",
+          "[12:54 IST] RAM: [OpenClaw heartbeat poll]",
+          "[12:54 IST] HADERACH: Good afternoon, Ram.",
+          "**Status \u2014 12:54 IST (Thu 25 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 94+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. O..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1524,8 +1524,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.46,
-      "cpu": 1.0,
+      "rss_gb": 0.47,
+      "cpu": 0.6,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1534,10 +1534,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.7,
-        "rolling_28day": 12.7,
-        "rolling_180day": 180.8
+        "transcript": 0.2,
+        "rolling_7day": 12.8,
+        "rolling_28day": 12.8,
+        "rolling_180day": 180.9
       },
       "skills": [
         "moltguard"
@@ -1841,8 +1841,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.49,
-      "cpu": 0.4,
+      "rss_gb": 0.55,
+      "cpu": 16.1,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1850,10 +1850,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.8,
-        "rolling_28day": 12.8,
-        "rolling_180day": 36.8
+        "transcript": 0.0,
+        "rolling_7day": 12.9,
+        "rolling_28day": 12.9,
+        "rolling_180day": 36.9
       },
       "skills": [
         "twitacc"
@@ -2071,38 +2071,6 @@
       ],
       "transcripts": {
         "recent": [
-          "The correct format going forward, every single time, is:",
-          "**\ud83d\udcca 12:30 IST | Nifty 24,022 (-0.13%) | VIX 13.4 \u2705**",
-          "And all numbers with thousands place get commas: **\u20b963,406** not **\u20b963406**, **\u20b91,398** not **\u20b91398**, etc.",
-          "I will enforce both rules on every update from this moment on. No more",
-          "[12:31 IST] KUBERA: Understood. I see it now in #4781 \u2014 I still wrote:",
-          "**\ud83d\udcca 12:30 IST | Nifty 24022 | VIX 13.4 \u2705**",
-          "Missing the **(-0.13%)** daily change, and also missing comma formatting (should be **24,022** not **24022**).",
-          "The correct format going forward, every single time, is:",
-          "**\ud83d\udcca 12:30 IST | Nifty 24,022 (-0.13%) | VIX 13.4 \u2705**",
-          "And all numbers with thousands place get commas: **\u20b963,406** not **\u20b963406**, **\u20b91,398** not **\u20b91398**, etc.",
-          "I will enforce both rules on every update from this moment on. No more",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by reading the current portfolio and then fetch Twitter/news updates.",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good\u2014I have the live portfolio. Now let me search for market updates from Twitter and news sources.",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me consolidate findings and write to memory:",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Now let me update memory with today's final consolidated scan:",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: ---",
-          "## SCAN COMPLETE \u2014 25 JUN 2026, 12:45 PM IST",
-          "**Status:** \u2705 **SILENT** \u2014 All alert gates PASS",
-          "| Gate | Threshold | Current | Status |",
-          "|------|-----------|---------|--------|",
-          "| **Crude move** | >3% single-session | -1.77% Brent | \u2705 PASS |",
-          "| **Index loss** | >1.5% | +0.83% Nifty | \u2705 PASS |",
-          "| **Geopolitical** | Escalation signal | Ceasefire stable | \u2705 PASS |",
-          "| **Portfolio drawdown** | >-15% | +7.6% YTD | \u2705 PASS |",
-          "| **VIX** | >18 | 12.78 | \u2705 PASS |",
-          "**Portfolio:** All 6 holdings stable/green.",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Let me start by checking if today is an NSE holiday.",
-          "Today is **June 25, 2026** \u2014 not in the NSE holiday list. Proceeding.",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now composing the message in the exact required format:",
-          "\ud83d\udcca **12:45 IST | Nifty 24,022 | VIX 13.4 \u2705**",
-          "Pot1: \u20b963,406 / \u20b958,927 (+7.6%)",
-          "\u25b2 ICICIBANK: qty=16 avg=\u20b91,268.93 ltp=\u20b91,398.40 | +\u20b92,072",
           "\u25b2 AUROPHARMA: qty=6 avg=\u20b91,309.35 ltp=\u20b91,558.40 | +\u20b91,494",
           "\u25b2 APOLLOHOSP: qty=1 avg=\u20b97,342.61 ltp=\u20b98,636.50 | +\u20b91,294",
           "\u25bc ITC: qty=27 avg=\u20b9295.05 ltp=\u20b9291.15 | -\u20b9105",
@@ -2110,7 +2078,39 @@
           "\u25bc BEL: qty=18 avg=\u20b9412.42 ltp=\u20b9410.55 | -\u20b934",
           "Pot2: No open positions",
           "Pot3: No deployed capital",
-          "[12:45 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 Update sent. Pot1 holding steady at +7.6%. VIX at 13.4 \u2014 Pot 2 gate open. No immediate action needed."
+          "[12:45 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 Update sent. Pot1 holding steady at +7.6%. VIX at 13.4 \u2014 Pot 2 gate open. No immediate action needed.",
+          "[12:53 IST] RAM: Nifty % change?? Why are you unable to fix this. Diagnose and report",
+          "[12:53 IST] KUBERA: You're absolutely right to be frustrated. Let me diagnose this precisely.",
+          "**The Problem:**",
+          "In #4784 (12:45 IST), I wrote:",
+          "```",
+          "\ud83d\udcca 12:45 IST | Nifty 24,022 | VIX 13.4 \u2705",
+          "```",
+          "This is **still missing the daily % change** \u2014 it should be:",
+          "```",
+          "\ud83d\udcca 12:45 IST | Nifty 24,022 (-0.13%) | VIX 13.4 \u2705",
+          "```",
+          "**Why This Keeps Happening:**",
+          "1. **I acknowledged the rule** but didn't implement it in the *template* or *logic* I'm using for updates",
+          "2. **I said \"from now on\"** multiple times, but then I generated update",
+          "[12:53 IST] KUBERA: You're absolutely right to be frustrated. Let me diagnose this precisely.",
+          "**The Problem:**",
+          "In #4784 (12:45 IST), I wrote:",
+          "```",
+          "\ud83d\udcca 12:45 IST | Nifty 24,022 | VIX 13.4 \u2705",
+          "```",
+          "This is **still missing the daily % change** \u2014 it should be:",
+          "```",
+          "\ud83d\udcca 12:45 IST | Nifty 24,022 (-0.13%) | VIX 13.4 \u2705",
+          "```",
+          "**Why This Keeps Happening:**",
+          "1. **I acknowledged the rule** but didn't implement it in the *template* or *logic* I'm using for updates",
+          "2. **I said \"from now on\"** multiple times, but then I generated update",
+          "[12:56 IST] RAM: [OpenClaw heartbeat poll]",
+          "[12:56 IST] KUBERA: Let me check portfolio and market status first.",
+          "[12:56 IST] KUBERA: **\ud83d\udcca 12:56 IST | Nifty 24,031 (-0.09%) | VIX 13.4 | Portfolio \u20b9345,995 (+1.3%) \u2705**",
+          "All positions green. ICICIBANK +10.2%, AUROPHARMA +19.1%, APOLLOHOSP +17.3%. Pot 1 at +7.6% P&L. No alerts. Market stable, final weekly expiry settlement underway.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "[18:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good, the script exists. Let me run it from the correct path:",
@@ -2248,8 +2248,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.55,
-      "cpu": 0.9,
+      "rss_gb": 0.49,
+      "cpu": 1.0,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2257,10 +2257,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 12.8,
-        "rolling_28day": 12.8,
-        "rolling_180day": 14.9
+        "transcript": 0.0,
+        "rolling_7day": 12.9,
+        "rolling_28day": 12.9,
+        "rolling_180day": 15.0
       },
       "skills": [
         "academic-deep-research",
@@ -2408,10 +2408,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1782372613674,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782370804592,
+          "last_ts": 1782372613674,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2432,15 +2441,6 @@
           "last_ts": 1782369256401,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1782369011268,
-          "last_status": "ok",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -2482,10 +2482,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[09:55 IST] PURL: \u2705 **Session context:** 38% (75k/200k) \u2014 healthy",
-          "\u2705 **Quiet hours:** Clear \u2014 outside 23:00\u201307:00 IST window",
-          "\u2705 **All checks normal:** No email flags, no cost review (Thu), no bulletin (next Mon)",
           "HEARTBEAT_OK",
           "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Task complete.** Script ran successfully. 0 msgs appended. All sessions processed.",
           "[10:55 IST] DM_USER: [OpenClaw heartbeat poll]",
@@ -2521,7 +2517,11 @@
           "- **Total processed:** 3 messages",
           "- **Output file:** `transcript-2026-06-25.md`",
           "No new activity across channels. Bookmark cleared.",
-          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: **Completed silently.** Script ran successfully \u2014 no new messages across transcripts; all sessions processed. No action needed."
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: **Completed silently.** Script ran successfully \u2014 no new messages across transcripts; all sessions processed. No action needed.",
+          "[12:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[12:55 IST] PURL: \u2705 **Session context:** 38% (76k/200k) \u2014 solid, well under 50% threshold",
+          "\u2705 **All systems normal** \u2014 no alerts needed",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "HEARTBEAT_OK",
@@ -2637,8 +2637,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.37,
-      "cpu": 0.4,
+      "rss_gb": 0.38,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2646,10 +2646,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.8,
-        "rolling_7day": 12.7,
-        "rolling_28day": 12.7,
-        "rolling_180day": 12.7
+        "transcript": 0.0,
+        "rolling_7day": 12.8,
+        "rolling_28day": 12.8,
+        "rolling_180day": 12.8
       },
       "skills": [
         "moltguard"
@@ -2666,6 +2666,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "ca_smeda_ii-consolidation-13",
+          "enabled": true,
+          "sched": "0 13 * * *",
+          "last_ts": 1782372622379,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
@@ -2734,15 +2743,6 @@
           "enabled": true,
           "sched": "2 20 * * *",
           "last_ts": 1782311534788,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ca_smeda_ii-consolidation-13",
-          "enabled": true,
-          "sched": "0 13 * * *",
-          "last_ts": 1782286254373,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2928,16 +2928,16 @@
       "up": true,
       "pid": 53990,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.9,
-        "rolling_28day": 12.9,
-        "rolling_180day": 13.9
+        "transcript": 0.2,
+        "rolling_7day": 13.0,
+        "rolling_28day": 13.0,
+        "rolling_180day": 14.0
       },
       "skills": [
         "moltguard"
@@ -2958,7 +2958,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782372009426,
+          "last_ts": 1782372602964,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3121,10 +3121,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 12.8,
-        "rolling_28day": 12.8,
-        "rolling_180day": 12.8
+        "transcript": 1.0,
+        "rolling_7day": 12.9,
+        "rolling_28day": 12.9,
+        "rolling_180day": 12.9
       },
       "skills": [
         "moltguard"
@@ -3331,7 +3331,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.32,
-      "cpu": 0.9,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3339,10 +3339,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.7,
-        "rolling_7day": 12.6,
-        "rolling_28day": 12.6,
-        "rolling_180day": 12.6
+        "transcript": 0.8,
+        "rolling_7day": 12.7,
+        "rolling_28day": 12.7,
+        "rolling_180day": 12.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3512,16 +3512,16 @@
       "up": true,
       "pid": 1226,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 13.8,
-        "rolling_28day": 13.8,
-        "rolling_180day": 13.8
+        "transcript": 0.2,
+        "rolling_7day": 13.9,
+        "rolling_28day": 13.9,
+        "rolling_180day": 13.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3718,7 +3718,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.19,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3748,7 +3748,7 @@
       "up": true,
       "pid": 40513,
       "rss_gb": 0.37,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3756,10 +3756,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 12.8,
-        "rolling_28day": 12.8,
-        "rolling_180day": 12.8
+        "transcript": 0.0,
+        "rolling_7day": 12.9,
+        "rolling_28day": 12.9,
+        "rolling_180day": 12.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -3910,7 +3910,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782370803350,
+          "last_ts": 1782372604511,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3945,8 +3945,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[00:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[00:52 IST] HERBIE: HEARTBEAT_OK",
           "[01:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[01:52 IST] HERBIE: HEARTBEAT_OK",
           "[02:52 IST] RAM: [OpenClaw heartbeat poll]",
@@ -3984,7 +3982,9 @@
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger script.",
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2713 Transcript logger ran successfully. 2 new messages logged to `transcript-2026-06-25.md`. Bookmark preserved.",
           "[12:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[12:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Logged. No new messages since last run."
+          "[12:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Logged. No new messages since last run.",
+          "[12:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[12:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Running the transcript logger now.",
@@ -4131,9 +4131,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 13.7,
-        "rolling_28day": 13.7,
+        "transcript": 0.0,
+        "rolling_7day": 13.8,
+        "rolling_28day": 13.8,
         "rolling_180day": null
       },
       "skills": [
