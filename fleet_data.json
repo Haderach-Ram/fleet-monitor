@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-26 10:17:17 IST",
-  "generated_epoch": 1782449237,
+  "generated_ist": "2026-06-26 10:22:26 IST",
+  "generated_epoch": 1782449546,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.19 / 4.35 / 3.86",
+    "load": "3.15 / 3.47 / 3.58",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 92909,
-      "rss_gb": 0.82,
-      "cpu": 1.4,
+      "rss_gb": 0.78,
+      "cpu": 0.7,
       "crons_total": 80,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.2,
-        "rolling_28day": 10.2,
-        "rolling_180day": 10.2
+        "transcript": 0.0,
+        "rolling_7day": 10.3,
+        "rolling_28day": 10.3,
+        "rolling_180day": 10.3
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,43 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782449171838,
+          "last_ts": 1782449473202,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782449429361,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782449429361,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782449429360,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782449277497,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -665,42 +701,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782448902047,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782448827246,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782448827245,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782448827245,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782448677844,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1365,33 +1365,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**The honest read:** I still don't have a total-chunk denominator (it was never logged at launch), so no clean percentage. But incident discov...",
-          "[09:39 IST] RAM: [OpenClaw heartbeat poll]",
-          "[09:39 IST] HADERACH: Good morning, Ram.",
-          "**Status \u2014 09:39 IST (Fri 26 Jun):**",
-          "\u2705 **Gateway:** Healthy",
-          "\u2705 **All core systems:** Operational",
-          "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
-          "**Discord Status Update:**",
-          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
-          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
-          "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
-          "[09:45 IST] RAM: Can we not check progress of HAD-050?",
-          "[09:45 IST] HADERACH: We can indeed \u2014 the limitation isn't a hard one, just that the *batch's own log* never recorded the total. But I can compute the denominator myself by counting the chunks across all 663 transcript files the same way the extractor does. Let me do that now.",
-          "[09:45 IST] HADERACH: Now I have the exact chunking logic \u2014 `CHUNK_CHARS = 6000`, and chunk count per file is `ceil(len(text)/6000)`. I can replicate `list_transcripts` and count total chunks precisely. Let me run it.",
-          "[09:45 IST] HADERACH: There's your denominator. The byte-size method is a near-exact proxy for the script's `range(0, len(text), 6000)` chunking \u2014 close enough to be reliable to within a handful of chunks.",
-          "**HAD-050 \u2014 98.6% complete**",
-          "- **Total chunks:** ~5,656 (across 666 transcript files, since 2026-04-01)",
-          "- **Done:** 5,574",
-          "- **Remaining:** ~82 chunks",
-          "- **At ~5 chunks/min:** roughly **15\u201320 minutes to finish.**",
-          "A small caveat for honesty: the size-based count can drift by a few chunks against the exact charac...",
-          "[09:46 IST] HADERACH: There's your denominator. The byte-size method is a near-exact proxy for the script's `range(0, len(text), 6000)` chunking \u2014 close enough to be reliable to within a handful of chunks.",
-          "**HAD-050 \u2014 98.6% complete**",
-          "- **Total chunks:** ~5,656 (across 666 transcript files, since 2026-04-01)",
-          "- **Done:** 5,574",
-          "- **Remaining:** ~82 chunks",
           "- **At ~5 chunks/min:** roughly **15\u201320 minutes to finish.**",
           "A small caveat for honesty: the size-based count can drift by a few chunks against the exact charac...",
           "[10:09 IST] RAM: [OpenClaw heartbeat poll]",
@@ -1404,7 +1377,34 @@
           "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
           "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[10:16 IST] RAM: Done?",
+          "[10:17 IST] HADERACH: Let me check whether the process has exited and what the final tally is.",
+          "[10:17 IST] HADERACH: Yes \u2014 **done, clean finish.** The log shows the `DONE.` summary line, so it landed naturally, no kill needed.",
+          "**HAD-050 Phase 1 (baseline extraction) \u2014 complete**",
+          "- **Chunks processed:** 5,574 (the full corpus \u2014 my 5,656 estimate was within ~1.5%, the small overcount being empty-tail chunks the script skips)",
+          "- **Incidents tagged:** 1,274",
+          "- **Runtime:** 33,605s \u2248 **9h 20m** wall-clock",
+          "- **Output:** `extract-20260626-001201.jsonl` \u2014 1,274 rows, all written and flushed",
+          "- **Process:** exited cl...",
+          "[10:17 IST] HADERACH: Yes \u2014 **done, clean finish.** The log shows the `DONE.` summary line, so it landed naturally, no kill needed.",
+          "**HAD-050 Phase 1 (baseline extraction) \u2014 complete**",
+          "- **Chunks processed:** 5,574 (the full corpus \u2014 my 5,656 estimate was within ~1.5%, the small overcount being empty-tail chunks the script skips)",
+          "- **Incidents tagged:** 1,274",
+          "- **Runtime:** 33,605s \u2248 **9h 20m** wall-clock",
+          "- **Output:** `extract-20260626-001201.jsonl` \u2014 1,274 rows, all written and flushed",
+          "- **Process:** exited cl...",
+          "[10:18 IST] RAM: You wanted spotify access resored for GEB, and hen you said you would re-read relevant portions. How to restore spotify access?",
+          "[10:18 IST] HADERACH: Quite right \u2014 that thread's still open. Here's how to restore Spotify access for spogo.",
+          "**The problem:** spogo authenticates using your Spotify Web cookie (`sp_dc`), and it's currently reporting a missing/expired cookie. The fix is to grab a fresh cookie from your browser and paste it in. Two minutes.",
+          "**Steps:**",
+          "1. **Open Spotify in your browser** (the desktop web player) and make sure you're logged in: https://open.spotify.com \u2014 use the browser where you're already signed into Spotify.",
+          "2...",
+          "[10:18 IST] HADERACH: Quite right \u2014 that thread's still open. Here's how to restore Spotify access for spogo.",
+          "**The problem:** spogo authenticates using your Spotify Web cookie (`sp_dc`), and it's currently reporting a missing/expired cookie. The fix is to grab a fresh cookie from your browser and paste it in. Two minutes.",
+          "**Steps:**",
+          "1. **Open Spotify in your browser** (the desktop web player) and make sure you're logged in: https://open.spotify.com \u2014 use the browser where you're already signed into Spotify.",
+          "2..."
         ],
         "yesterday": [
           "[23:27 IST] HADERACH: Building it now \u2014 `had050_extract.py` (chunk + qwen-tag + checkpoint + resume) plus its kill-switch cron. Per my own dead-ends rule, I'll author the script via base64 round-trip to avoid the literal-`\\n` trap, then compile-check before anything runs.",
@@ -1542,8 +1542,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 75950,
-      "rss_gb": 0.4,
-      "cpu": 0.7,
+      "rss_gb": 0.3,
+      "cpu": 0.6,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1553,9 +1553,9 @@
       ],
       "memory": {
         "transcript": 0.5,
-        "rolling_7day": 10.1,
-        "rolling_28day": 9.9,
-        "rolling_180day": 9.9
+        "rolling_7day": 10.2,
+        "rolling_28day": 10.0,
+        "rolling_180day": 10.0
       },
       "skills": [
         "moltguard"
@@ -1821,8 +1821,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.48,
-      "cpu": 0.3,
+      "rss_gb": 0.42,
+      "cpu": 0.7,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1830,10 +1830,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.2,
-        "rolling_28day": 10.2,
-        "rolling_180day": 10.2
+        "transcript": 0.0,
+        "rolling_7day": 10.3,
+        "rolling_28day": 10.3,
+        "rolling_180day": 10.3
       },
       "skills": [
         "twitacc"
@@ -1851,6 +1851,15 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1782449403211,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
           "enabled": true,
           "sched": "*/15 9-15 * * 1-5",
@@ -1864,15 +1873,6 @@
           "enabled": true,
           "sched": "*/15 8-15 * * 1-5",
           "last_ts": 1782449160759,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1782448803271,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2051,29 +2051,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Now I'll compose and send the portfolio message:",
-          "[09:45 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **15-min portfolio update sent to Ram.**",
-          "**State:**",
-          "- Nifty spot: **24,056** | VIX: **13.05** (\u2705 NORMAL \u2014 Pot 2 gate OPEN)",
-          "- Pot 1 unrealised P&L: **+\u20b94,193 (+7.1%)**",
-          "- 3 positions in green (ICICI, Auro, Apollo); 3 in red (Coal, ITC, BEL)",
-          "- **Cash buffer:** \u20b9282,617 (71.8% of portfolio liquid)",
-          "- **Overall portfolio vs deposits:** -35.4% (expected; large undeployed cash + early stage)",
-          "**Status:** \ud83d\udfe2 Healthy. VIX low, Nifty resilient, Pot 1 positive. Ready for action if thesis develops.",
-          "[09:56 IST] RAM: [OpenClaw heartbeat poll]",
-          "[09:56 IST] KUBERA: HEARTBEAT_OK",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by reading the portfolio context and market status, then run the Twitter watcher analysis.",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Portfolio is live with 6 holdings (ICICIBANK, AUROPHARMA, APOLLOHOSP, COALINDIA, ITC, BEL) and \u20b9282k+ cash. Market is open. Now I'll run Twitter + news scan for trading-hours impact on these specific holdings.",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now I'll write the findings to memory.",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Now I'll append today's findings to research-inbox.md:",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now I'll append today's fresh findings:",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll append new findings at the end of the file:",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me fix the edit format:",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: The issue is with the array syntax. Let me use write instead to append:",
-          "[10:00 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Scan complete. All alert gates have passed:",
-          "\u2705 **Crude oil** \u2014 WTI/Brent showing minor overnight moves (-0.12% / -0.47%), structural downtrend -22% month but no single-session >3% loss trigger",
-          "\u2705 **Nifty 50** \u2014 Stable, +0.14% Jun 25 close, no >1.5% downside, DII accumulation sustained",
-          "\u2705 **Geopolitical** \u2014 Iran-US MoU operative, Hormuz demining on track, zero escalation signals",
           "\u2705 **Portfolio** \u2014 +7.1% YTD Pot 1, safe 8-10% buffer above -15% red-line",
           "\u2705 **VIX** \u2014 Cool at 12.93, Pot 2 ga",
           "[10:01 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \ud83d\udcca 10:01 IST | Nifty 24,056.00 | VIX 13.05 \u2705",
@@ -2090,7 +2067,30 @@
           "- **Pot 3:** Undeployed",
           "- **Portfolio:** \u20b9345,737 total (-35.4% vs deposits) \u2014 cash-heavy, ready for opportunities",
           "- **Market:** Nifty 24,056 | VIX 13.1 \u2705 (Pot 2 gate open, low implied vol, BULL regime 80% probability next day)",
-          "Cron executed cleanly. No alerts."
+          "Cron executed cleanly. No alerts.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by checking the current time and reading the portfolio, then run the Twitter watcher analysis.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me run the market status check and Twitter watcher scrape to identify any trading-hours news affecting these holdings.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me check what scripts are available and run Twitter + news search for the trading hours.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me search for macro/geopolitical news and market indices for today.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me update the research inbox with findings.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good\u2014the research inbox already reflects the full day's activity. Now I'll document the final 10:15 IST scan findings by appending to it.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: **\u2705 Kubera Twitter Watcher \u2014 26 Jun 2026, 10:15 IST**",
+          "**All 5 alert gates PASS.** Scan complete, findings logged to memory.",
+          "**Summary:**",
+          "- **Crude:** Structural downtrend holding (-22% MoM); Hormuz reopening operationalized (85%+ capacity, demining active, Iran 30M+bbl/week, Saudi exports restarting). Supply surplus consensus durable.",
+          "- **Index:** Consolidation post-expiry; Nifty +1.04%, Sensex +1.04% Jun 25; no downside break signals.",
+          "- **Geopolitical:** De-escalation embedded; Iran-US Jun 19",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll execute the portfolio update for 10:15 AM IST.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: Now I'll compose and send the portfolio update message:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent** \u2014 10:15 AM IST",
+          "**Summary:**",
+          "- **Nifty:** 24,056 | **VIX:** 13.05 \u2705 (Pot 2 gate OPEN)",
+          "- **Pot 1:** \u20b963,120 (+7.1%) \u2014 all holdings up except COALINDIA, ITC, BEL (mild red)",
+          "- **Pot 2:** No open positions",
+          "- **Pot 3:** No deployed capital",
+          "- **Total portfolio:** \u20b9345,737 (-35.4% vs \u20b9535,002 deposits) \u2014 cash position strong at \u20b9282,617",
+          "- **Regime:** Bull, VIX < 18 \u2014 normal conditions",
+          "Telegram notification delivered."
         ],
         "yesterday": [
           "[18:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me use a different approach and append to the file:",
@@ -2228,8 +2228,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.4,
-      "cpu": 0.7,
+      "rss_gb": 0.35,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2237,10 +2237,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 10.1,
-        "rolling_28day": 10.1,
-        "rolling_180day": 10.1
+        "transcript": 0.4,
+        "rolling_7day": 10.2,
+        "rolling_28day": 10.2,
+        "rolling_180day": 10.2
       },
       "skills": [
         "academic-deep-research",
@@ -2595,8 +2595,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.34,
-      "cpu": 0.3,
+      "rss_gb": 0.33,
+      "cpu": 0.6,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2604,10 +2604,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.1,
-        "rolling_7day": 10.0,
-        "rolling_28day": 10.0,
-        "rolling_180day": 10.0
+        "transcript": 1.2,
+        "rolling_7day": 10.1,
+        "rolling_28day": 10.1,
+        "rolling_180day": 10.1
       },
       "skills": [
         "moltguard"
@@ -2885,17 +2885,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.24,
-      "cpu": 0.3,
+      "rss_gb": 0.25,
+      "cpu": 0.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 10.3,
         "rolling_28day": 10.3,
-        "rolling_180day": 11.3
+        "rolling_180day": 11.4
       },
       "skills": [
         "moltguard"
@@ -2916,7 +2916,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782448805329,
+          "last_ts": 1782449405760,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3070,7 +3070,7 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.14,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3280,8 +3280,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.28,
-      "cpu": 0.6,
+      "rss_gb": 0.16,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3290,9 +3290,9 @@
       ],
       "memory": {
         "transcript": 1.1,
-        "rolling_7day": 10.0,
-        "rolling_28day": 10.0,
-        "rolling_180day": 34.0
+        "rolling_7day": 10.1,
+        "rolling_28day": 10.1,
+        "rolling_180day": 34.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3464,16 +3464,16 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.25,
-      "cpu": 0.1,
+      "rss_gb": 0.24,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
+        "transcript": 0.0,
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
         "rolling_180day": 35.2
       },
       "skills": [],
@@ -3642,8 +3642,8 @@
       "avatar": "martin",
       "up": true,
       "pid": 903,
-      "rss_gb": 0.19,
-      "cpu": 0.1,
+      "rss_gb": 0.11,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3674,8 +3674,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 898,
-      "rss_gb": 0.11,
-      "cpu": 0.1,
+      "rss_gb": 0.1,
+      "cpu": 2.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3704,7 +3704,7 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.31,
+      "rss_gb": 0.28,
       "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3713,10 +3713,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 10.1,
-        "rolling_28day": 10.1,
-        "rolling_180day": 10.1
+        "transcript": 0.4,
+        "rolling_7day": 10.2,
+        "rolling_28day": 10.2,
+        "rolling_180day": 10.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4078,8 +4078,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.2,
-      "cpu": 0.4,
+      "rss_gb": 0.18,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4087,7 +4087,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
+        "transcript": 0.1,
         "rolling_7day": 11.2,
         "rolling_28day": 11.2,
         "rolling_180day": null
