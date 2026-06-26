@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-26 17:58:19 IST",
-  "generated_epoch": 1782476899,
+  "generated_ist": "2026-06-26 18:03:25 IST",
+  "generated_epoch": 1782477205,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.02 / 2.99 / 3.30",
+    "load": "3.12 / 3.15 / 3.27",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 14946,
-      "rss_gb": 0.87,
-      "cpu": 2.2,
+      "rss_gb": 0.93,
+      "cpu": 0.5,
       "crons_total": 80,
       "crons_enabled": 57,
       "skills_count": 59,
@@ -43,9 +43,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 17.9,
-        "rolling_28day": 17.9,
-        "rolling_180day": 17.9
+        "rolling_7day": 18.0,
+        "rolling_28day": 18.0,
+        "rolling_180day": 18.0
       },
       "skills": [
         "academic-deep-research",
@@ -1365,46 +1365,46 @@
       ],
       "transcripts": {
         "recent": [
-          "- The \"Unknown model\" errors came only from *my* SSH CLI process, which didn't inherit the launchd AWS environment.",
-          "- Jonas's **live gateway** has `AWS_REGION` + `BWS_ACCESS_TOKEN` in its plist (identical to Seneca's), resolves a...",
-          "[17:47 IST] HADERACH: Corrected. Both items are now properly closed:",
-          "## Bottom line on the \"two things\"",
-          "**Neither needs action.** I was over-cautious flagging them \u2014 on verification, both are non-issues:",
-          "**1. Jonas's \"broken model fallback\" \u2014 FALSE ALARM (now retracted in his inbox).**",
-          "- The \"Unknown model\" errors came only from *my* SSH CLI process, which didn't inherit the launchd AWS environment.",
-          "- Jonas's **live gateway** has `AWS_REGION` + `BWS_ACCESS_TOKEN` in its plist (identical to Seneca's), resolves a...",
-          "[17:48 IST] RAM: This is Jonas on the group 'Agastya Treasury # Jonas'. Why are the rich messages not working here and why does he keep saying update Telegram? But on DM with Jonas rich messages are working:",
-          "[17:48 IST] HADERACH: That's a genuinely useful distinction you've spotted \u2014 **rich messages work in your DM with Jonas, but break in the \"Agastya Treasury # Jonas\" group.** That rules out my earlier theories entirely (it's not the tags, since the same bot's DMs render fine). The variable is **DM vs group** \u2014 and that points to a real, known Telegram cause.",
-          "Let me verify before asserting. The most likely cause: **the group is a forum/topic group (or a supergroup), and rich messages / certain Bot API features rend...",
-          "[17:48 IST] HADERACH: This is revealing \u2014 and it inverts my whole picture. The logs show the opposite of what I'd assumed:",
-          "- **`sendRichMessage` is being used in BOTH** the group (`-1003992806636`, msgs 2105/2109/2115/2117) **and** your DM (`8489979671`, msg 4005/4008). All report `ok`.",
-          "- So Jonas *is* sending rich messages to both. You say DM renders fine, group renders \"not supported.\"",
-          "**Same bot, same `sendRichMessage` operation, same parse mode \u2014 DM renders, group doesn't.** That narrows it to one of two rea...",
-          "[17:48 IST] HADERACH: I've gathered the key facts. Let me give you the honest, evidence-based answer rather than another theory \u2014 because the logs have now narrowed this to a clear conclusion.",
-          "## What the logs prove",
-          "| | Group \"Agastya Treasury # Jonas\" | Your DM with Jonas |",
-          "|---|---|---|",
-          "| Operation | `sendRichMessage` (msgs 2105/2109/2115/2117) | `sendRichMessage` (msg 4005/4008) |",
-          "| Gateway result | `ok` | `ok` |",
-          "| **Your client renders** | \u274c \"not supported, update\" | \u2705 fine |",
-          "Same bot, same `sendRichMessage...",
-          "[17:49 IST] HADERACH: I've gathered the key facts. Let me give you the honest, evidence-based answer rather than another theory \u2014 because the logs have now narrowed this to a clear conclusion.",
-          "## What the logs prove",
-          "| | Group \"Agastya Treasury # Jonas\" | Your DM with Jonas |",
-          "|---|---|---|",
-          "| Operation | `sendRichMessage` (msgs 2105/2109/2115/2117) | `sendRichMessage` (msg 4005/4008) |",
-          "| Gateway result | `ok` | `ok` |",
-          "| **Your client renders** | \u274c \"not supported, update\" | \u2705 fine |",
-          "Same bot, same `sendRichMessage...",
-          "[17:48 IST] RAM: [User sent media without caption]",
-          "[17:49 IST] HADERACH: Now I can see the actual screenshot, and it settles it definitively. Look at the **bottom message** \u2014 it's Jonas's `/status` card, which renders as:",
-          "> **\"This message is not supported in your version of Telegram. Please update to the latest version.\"** + a dead **UPDATE** button",
-          "\u2014 but the body below it (OpenClaw 2026.6.10, model info, etc.) shows fine. Critically, the status card itself says: **\"Telegram rich messages: on \u00b7 Bot API 10.1 sendRichMessage enabled\"**.",
-          "## The real cause \u2014 now c...",
-          "[17:49 IST] HADERACH: Now I can see the actual screenshot, and it settles it definitively. Look at the **bottom message** \u2014 it's Jonas's `/status` card, which renders as:",
-          "> **\"This message is not supported in your version of Telegram. Please update to the latest version.\"** + a dead **UPDATE** button",
-          "\u2014 but the body below it (OpenClaw 2026.6.10, model info, etc.) shows fine. Critically, the status card itself says: **\"Telegram rich messages: on \u00b7 Bot API 10.1 sendRichMessage enabled\"**.",
-          "## The real cause \u2014 now c..."
+          "3. \u2705 `openclaw config validate` \u2192 **Config valid** (only the pre-existing harmless gmail-watcher warning)",
+          "4. \u2705 Restarted Jonas's gateway (`launchctl kickstart -k`)",
+          "5. \u2705 Verified: **HTTP 200**, process running (PID 76428, exit 0),...",
+          "[17:56 IST] HADERACH: Done, Ram. Rich messages are off for **CA SMEDA-I / Jonas**.",
+          "**What was done (safe procedure):**",
+          "1. \u2705 Backed up `~/.openclaw-ca-smeda/openclaw.json` (timestamped `.bak`)",
+          "2. \u2705 Flipped `channels.telegram.richMessages` \u2192 `false` (whole-file rewrite, botToken untouched)",
+          "3. \u2705 `openclaw config validate` \u2192 **Config valid** (only the pre-existing harmless gmail-watcher warning)",
+          "4. \u2705 Restarted Jonas's gateway (`launchctl kickstart -k`)",
+          "5. \u2705 Verified: **HTTP 200**, process running (PID 76428, exit 0),...",
+          "[17:57 IST] RAM: CAn you switch on rich messages on Keshav and Ravindra pls",
+          "[17:57 IST] HADERACH: Of course. Both are M2-fleet agents (Keshav on 18808, Ravindra/Agastya-Ravindra on 18801), so same SSH-to-M2 procedure. Let me first inspect both configs to see the current `richMessages` state and exact key location before changing anything.",
+          "[17:58 IST] HADERACH: Both configs found (dirs are `.openclaw-agastya-keshav` and `.openclaw-agastya-ravindra`). Neither has a `richMessages` key \u2014 so it's currently default (off). I'll **add** `richMessages: true` to the telegram block of each, with backups first, then validate and restart both.",
+          "Let me generate the base64-encoded edit script (avoids the SSH/heredoc newline mangling) that backs up and edits both configs.",
+          "[17:58 IST] HADERACH: Both edited and backed up. Now validate both configs, then restart both gateways.",
+          "[17:58 IST] HADERACH: Both valid. Now restart both gateways and verify health.",
+          "[17:58 IST] HADERACH: Done, Ram. Rich messages are now **ON** for both Keshav and Ravindra.",
+          "**What was done (same safe procedure as Jonas):**",
+          "| Agent | Config | richMessages | Validate | Restart | Health |",
+          "|---|---|---|---|---|---|",
+          "| **Keshav** | `.openclaw-agastya-keshav` | absent \u2192 **true** | \u2705 valid | \u2705 PID 76713 | \u2705 18808 / 200 |",
+          "| **Ravindra** | `.openclaw-agastya-ravindra` | absent \u2192 **true** | \u2705 valid | \u2705 PID 76720 | \u2705 18801 / 200 |",
+          "Both timestamped backups written (`.bak-20260626-175825`), botTokens unt...",
+          "[17:59 IST] HADERACH: Done, Ram. Rich messages are now **ON** for both Keshav and Ravindra.",
+          "**What was done (same safe procedure as Jonas):**",
+          "| Agent | Config | richMessages | Validate | Restart | Health |",
+          "|---|---|---|---|---|---|",
+          "| **Keshav** | `.openclaw-agastya-keshav` | absent \u2192 **true** | \u2705 valid | \u2705 PID 76713 | \u2705 18808 / 200 |",
+          "| **Ravindra** | `.openclaw-agastya-ravindra` | absent \u2192 **true** | \u2705 valid | \u2705 PID 76720 | \u2705 18801 / 200 |",
+          "Both timestamped backups written (`.bak-20260626-175825`), botTokens unt...",
+          "[17:59 IST] RAM: Switch on for Seneca pls",
+          "[17:59 IST] HADERACH: Seneca lives on M2 (Tailscale 100.119.4.19, port 18814). But earlier notes flagged a **port clash on 18814** (Seneca on M2 vs `.openclaw-tester` on M4), so let me locate Seneca's actual config dir on M2 carefully before touching anything. I'll also check current state \u2014 earlier you said Seneca renders fine, which suggests rich may already be on.",
+          "[17:59 IST] HADERACH: Seneca already has **`richMessages: true`** \u2014 it's on. (That matches your earlier observation that \"Seneca renders fine\" \u2014 it was the reference case that proved rich works on your client.)",
+          "So there's nothing to change for Seneca. Three quick options for how you'd like me to proceed:",
+          "1. **Nothing needed** \u2014 it's already enabled and working. \u2705 (my recommendation)",
+          "2. If you suspect it's *not* actually taking effect, I can **restart Seneca's gateway** to be certain the live process matches the ...",
+          "[17:59 IST] HADERACH: Seneca already has **`richMessages: true`** \u2014 it's on. (That matches your earlier observation that \"Seneca renders fine\" \u2014 it was the reference case that proved rich works on your client.)",
+          "So there's nothing to change for Seneca. Three quick options for how you'd like me to proceed:",
+          "1. **Nothing needed** \u2014 it's already enabled and working. \u2705 (my recommendation)",
+          "2. If you suspect it's *not* actually taking effect, I can **restart Seneca's gateway** to be certain the live process matches the ..."
         ],
         "yesterday": [
           "[23:27 IST] HADERACH: Building it now \u2014 `had050_extract.py` (chunk + qwen-tag + checkpoint + resume) plus its kill-switch cron. Per my own dead-ends rule, I'll author the script via base64 round-trip to avoid the literal-`\\n` trap, then compile-check before anything runs.",
@@ -1543,7 +1543,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.48,
-      "cpu": 1.4,
+      "cpu": 1.2,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1552,10 +1552,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.6,
-        "rolling_180day": 17.6
+        "transcript": 0.2,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.7,
+        "rolling_180day": 17.7
       },
       "skills": [
         "moltguard"
@@ -1869,7 +1869,7 @@
       "up": true,
       "pid": 98635,
       "rss_gb": 0.55,
-      "cpu": 0.8,
+      "cpu": 1.5,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1878,9 +1878,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 17.9,
-        "rolling_28day": 17.9,
-        "rolling_180day": 17.9
+        "rolling_7day": 18.0,
+        "rolling_28day": 18.0,
+        "rolling_180day": 18.0
       },
       "skills": [
         "twitacc"
@@ -1901,7 +1901,7 @@
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782476403795,
+          "last_ts": 1782477003189,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2098,8 +2098,6 @@
       ],
       "transcripts": {
         "recent": [
-          "No alerts triggered. Market regime: BULL, 80% probability continuation tomorrow.",
-          "[15:56 IST] RAM: [OpenClaw heartbeat poll]",
           "[15:56 IST] KUBERA: HEARTBEAT_OK",
           "[16:00 IST] KUBERA [Cron: Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)]: Let me check for completion:",
           "[16:00 IST] KUBERA [Cron: Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)]: NO_REPLY",
@@ -2137,7 +2135,9 @@
           "- **Nifty:** Market closed (Muharram). Jun 25 close +0.14%. Week +0.83%. Implied weak Monday, but no >1.5% breach.",
           "- **Geopolitical:** Ce",
           "[17:26 IST] RAM: [OpenClaw heartbeat poll]",
-          "[17:26 IST] KUBERA: HEARTBEAT_OK"
+          "[17:26 IST] KUBERA: HEARTBEAT_OK",
+          "[17:56 IST] RAM: [OpenClaw heartbeat poll]",
+          "[17:56 IST] KUBERA: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[18:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me use a different approach and append to the file:",
@@ -2275,8 +2275,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.45,
-      "cpu": 0.4,
+      "rss_gb": 0.47,
+      "cpu": 1.2,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2284,10 +2284,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.8,
-        "rolling_180day": 17.8
+        "transcript": 0.1,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.9,
+        "rolling_180day": 17.9
       },
       "skills": [
         "academic-deep-research",
@@ -2435,21 +2435,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782475203869,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1782473443849,
+          "last_ts": 1782477011767,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782477011767,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2534,7 +2534,8 @@
           "[13:55 IST] PURL: Checking heartbeat...",
           "[14:55 IST] PURL: Checking heartbeat...",
           "[15:55 IST] PURL: Checking heartbeat...",
-          "[16:55 IST] PURL: Checking heartbeat..."
+          "[16:55 IST] PURL: Checking heartbeat...",
+          "[17:55 IST] PURL: Checking heartbeat..."
         ],
         "yesterday": [
           "> \"What % of our current headcount do we believe is net-negative to the organisation \u2014 where their presence costs more in salary, management bandwidth, and culture drag than their contribution delivers?\"",
@@ -2652,7 +2653,7 @@
       "up": true,
       "pid": 926,
       "rss_gb": 0.38,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2660,10 +2661,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.8,
-        "rolling_7day": 17.7,
-        "rolling_28day": 17.7,
-        "rolling_180day": 17.7
+        "transcript": 2.9,
+        "rolling_7day": 17.8,
+        "rolling_28day": 17.8,
+        "rolling_180day": 17.8
       },
       "skills": [
         "moltguard"
@@ -2941,16 +2942,16 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.24,
-      "cpu": 0.6,
+      "rss_gb": 0.27,
+      "cpu": 0.9,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 17.9,
-        "rolling_28day": 17.9,
+        "rolling_7day": 18.0,
+        "rolling_28day": 18.0,
         "rolling_180day": 19.0
       },
       "skills": [
@@ -2972,7 +2973,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782476406983,
+          "last_ts": 1782477007679,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3128,17 +3129,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 1302,
-      "rss_gb": 0.28,
-      "cpu": 0.1,
+      "rss_gb": 0.29,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.8,
-        "rolling_180day": 17.8
+        "transcript": 0.0,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.9,
+        "rolling_180day": 17.9
       },
       "skills": [
         "moltguard"
@@ -3159,7 +3160,7 @@
           "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "0 */3 * * *",
-          "last_ts": 1782466322482,
+          "last_ts": 1782477121826,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3204,7 +3205,8 @@
           "[00:07 IST] CISO-SMEDA: The heredoc is also embedding `\\n` literally. Let me use printf to build the file:",
           "[06:01 IST] CISO-SMEDA: NO_REPLY",
           "[09:01 IST] CISO-SMEDA: NO_REPLY",
-          "[12:01 IST] CISO-SMEDA: NO_REPLY"
+          "[12:01 IST] CISO-SMEDA: NO_REPLY",
+          "[15:01 IST] CISO-SMEDA: NO_REPLY"
         ],
         "yesterday": [
           "# Self-healing rotation from transcript-2026-06-24.md at 00:02 IST",
@@ -3343,7 +3345,7 @@
       "up": true,
       "pid": 894,
       "rss_gb": 0.32,
-      "cpu": 0.5,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3351,10 +3353,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.7,
+        "transcript": 2.8,
         "rolling_7day": 17.7,
         "rolling_28day": 17.7,
-        "rolling_180day": 41.6
+        "rolling_180day": 41.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3526,17 +3528,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.27,
-      "cpu": 1.0,
+      "rss_gb": 0.26,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.9,
-        "rolling_28day": 18.9,
-        "rolling_180day": 42.8
+        "transcript": 0.2,
+        "rolling_7day": 19.0,
+        "rolling_28day": 19.0,
+        "rolling_180day": 42.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3705,7 +3707,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3737,7 +3739,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.2,
-      "cpu": 0.5,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3766,8 +3768,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.37,
-      "cpu": 1.3,
+      "rss_gb": 0.38,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3775,10 +3777,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.8,
-        "rolling_180day": 17.8
+        "transcript": 0.1,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.9,
+        "rolling_180day": 17.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -3929,7 +3931,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782475203506,
+          "last_ts": 1782477004097,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3964,8 +3966,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[05:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[05:52 IST] HERBIE: HEARTBEAT_OK",
           "[06:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
           "[06:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. Logged 6 new messages to today's transcript (8 total). Bookmark set, ready for next run.",
           "[06:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
@@ -4003,7 +4003,9 @@
           "[15:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[15:52 IST] HERBIE: HEARTBEAT_OK",
           "[16:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[16:52 IST] HERBIE: HEARTBEAT_OK"
+          "[16:52 IST] HERBIE: HEARTBEAT_OK",
+          "[17:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[17:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger script.",
@@ -4142,7 +4144,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.35,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4150,9 +4152,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
+        "transcript": 0.1,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
         "rolling_180day": null
       },
       "skills": [
