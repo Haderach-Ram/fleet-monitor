@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-26 16:46:38 IST",
-  "generated_epoch": 1782472598,
+  "generated_ist": "2026-06-26 16:51:46 IST",
+  "generated_epoch": 1782472906,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.29 / 3.79 / 3.77",
+    "load": "2.24 / 3.04 / 3.45",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 14946,
-      "rss_gb": 0.77,
-      "cpu": 4.8,
+      "rss_gb": 0.86,
+      "cpu": 1.6,
       "crons_total": 81,
       "crons_enabled": 58,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.7,
-        "rolling_28day": 16.7,
-        "rolling_180day": 16.7
+        "transcript": 0.0,
+        "rolling_7day": 16.8,
+        "rolling_28day": 16.8,
+        "rolling_180day": 16.8
       },
       "skills": [
         "academic-deep-research",
@@ -646,16 +646,7 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782472299097,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782472228873,
+          "last_ts": 1782472900199,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -664,7 +655,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782472228872,
+          "last_ts": 1782472831194,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782472831194,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782472228872,
+          "last_ts": 1782472831194,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782472090868,
+          "last_ts": 1782472691185,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -691,7 +691,7 @@
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "every 15m",
-          "last_ts": 1782471776414,
+          "last_ts": 1782472676051,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -700,7 +700,7 @@
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
-          "last_ts": 1782470842543,
+          "last_ts": 1782472630781,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1374,46 +1374,46 @@
       ],
       "transcripts": {
         "recent": [
-          "2. **First start** migrates `jobs.json` \u2192 SQLite. But our M4 evidence (failure mode 1) is that the first start often loads **0 jobs** because the WAL isn't co...",
-          "[16:34 IST] HADERACH: Good question \u2014 and the honest answer is that for the **one-at-a-time** approach I'm proposing, \"stagger\" isn't a fixed timer. It's **event-gated, not time-gated**: I don't move to the next agent after N seconds \u2014 I move only after the current agent has *verified clean*.",
-          "The per-agent sequence is:",
-          "1. `bootout` \u2192 wait ~5s \u2192 `bootstrap`",
-          "2. **First start** migrates `jobs.json` \u2192 SQLite. But our M4 evidence (failure mode 1) is that the first start often loads **0 jobs** because the WAL isn't co...",
-          "[16:35 IST] RAM: Go ahead",
-          "[16:35 IST] HADERACH: Setting the kill-switch first, then beginning G-3 with seneca as the canary.",
-          "[16:35 IST] HADERACH: Kill-switch armed for 18:30 IST. Now the **seneca canary** \u2014 single agent, double-restart, full verify.",
-          "[16:36 IST] HADERACH: Interesting \u2014 and important. The migration **did** run (jobs.json \u2192 jobs.json.migrated, service healthy), but there's **no SQLite DB at the path I expected**. The 6.10 cron store may live somewhere else than `state/openclaw.sqlite`. Let me find where 6.10 actually put the crons before declaring anything.",
-          "[16:36 IST] HADERACH: Now I understand the real picture \u2014 and it's **two distinct findings**, one benign and one that needs a fix.",
-          "**Finding 1 \u2014 path correction (benign):** The cron SQLite isn't at `~/.openclaw-seneca/state/openclaw.sqlite`. It's at `~/.openclaw-seneca/.openclaw/state/openclaw.sqlite` \u2014 there's a **nested `.openclaw` subdirectory**. My verify script looked one level too shallow. The migration *did* work and the DB exists.",
-          "**Finding 2 \u2014 the bugs are REAL and present (needs fix):** The CLI `cron l...",
-          "[16:36 IST] HADERACH: Now it's crystal clear. Here's the seneca canary verdict:",
-          "## Seneca canary \u2014 migration analysis",
-          "**The SQLite store has 7 jobs, but they're two distinct sets:**",
-          "| Set | agent_id | Status | What they are |",
-          "|---|---|---|---|",
-          "| 4 \"Seneca - ...\" jobs | **(blank)** | enabled but **never run** | The migrated `jobs.json` entries \u2014 **bug #93031** |",
-          "| 3 lowercase jobs (transcript-logger, nightly-consolidation, midnight-heartbeat) | `main` | **firing fine** | Pre-existing API-native jobs |",
-          "**What th...",
-          "[16:37 IST] HADERACH: Now it's crystal clear. Here's the seneca canary verdict:",
-          "## Seneca canary \u2014 migration analysis",
-          "**The SQLite store has 7 jobs, but they're two distinct sets:**",
-          "| Set | agent_id | Status | What they are |",
-          "|---|---|---|---|",
-          "| 4 \"Seneca - ...\" jobs | **(blank)** | enabled but **never run** | The migrated `jobs.json` entries \u2014 **bug #93031** |",
-          "| 3 lowercase jobs (transcript-logger, nightly-consolidation, midnight-heartbeat) | `main` | **firing fine** | Pre-existing API-native jobs |",
-          "**What th...",
-          "[16:39 IST] RAM: Go ahead. Ensure you clean up the correct ones",
-          "[16:39 IST] HADERACH: I'll be careful \u2014 let me first dump the *exact* job_ids and store_keys so I delete precisely the right rows, not by name guesswork. Names can collide; ids cannot.",
-          "[16:39 IST] HADERACH: Now I have exact `job_id`s. The four blank-`agent_id` rows are unambiguous. Plan, by id:",
-          "- **Revive** `9d0f8afd` (Seneca - CA Study Session) \u2192 set `agent_id='main'` \u2014 it's the orphan with no live equivalent.",
-          "- **Delete** `f80687a6` (Midnight Rolling), `49f5b84f` (Nightly Consolidation), `c9039396` (Transcript Logger) \u2014 redundant blanks, already covered by the live `main` jobs `cdfbf48f`/`54febd99`/`d9be1ac2`.",
-          "But one critical pre-check before deleting: I must confirm the 3 live `main` jobs ...",
-          "[16:39 IST] HADERACH: Schedules confirm the mapping precisely:",
-          "| Blank (dead) | Schedule | Live equivalent (main, firing) | Schedule | Verdict |",
+          "- The 5 **live \"Keshav \u2014\"** jobs revived (transcript loggers, consolidations, midnight rolling) \u2014 all now `main`",
+          "- The 5 **ET/Shloka/Mental-Math** content jobs preserved (firing)",
+          "- The 5 **stale \"Agastya-Keshav \u2014\"** duplicates (last run 05 Jun) deleted",
+          "**This was the important catch of the whole operation:** keshav's correct fix was the *exact opposite* of seneca's \u2014 here the BLANK set was the live one and th...",
+          "[16:45 IST] HADERACH: Keshav up and healthy: 2026.6.10, PID 70534, HTTP 200.",
+          "**Progress: 2 of 7 done** (seneca \u2705, keshav \u2705).",
+          "Let me record the critical lesson in HAD-049 now (before it's lost), then continue. This is the kind of thing that must not stay only in the transcript.",
+          "[16:46 IST] HADERACH: Lesson banked in `M2/EXECUTION-LOG-20260626.md`.",
+          "**2 of 7 done.** The keshav case taught us the operation's most important rule \u2014 duplicate resolution must go by `last_run` recency, not `agent_id`. Each agent now needs individual judgement.",
+          "Next per plan: **agastya-heda** (baseline 5) \u2014 and it warrants extra care because it was the one agent that **already had SQLite before the upgrade**, so its duplicate picture may be the messiest. As before, I'll run the double-restart, show you the full...",
+          "[16:46 IST] HADERACH: Lesson banked in `M2/EXECUTION-LOG-20260626.md`.",
+          "**2 of 7 done.** The keshav case taught us the operation's most important rule \u2014 duplicate resolution must go by `last_run` recency, not `agent_id`. Each agent now needs individual judgement.",
+          "Next per plan: **agastya-heda** (baseline 5) \u2014 and it warrants extra care because it was the one agent that **already had SQLite before the upgrade**, so its duplicate picture may be the messiest. As before, I'll run the double-restart, show you the full...",
+          "[16:46 IST] RAM: Go ahead",
+          "[16:46 IST] HADERACH: Proceeding with **agastya-heda** (baseline 5) \u2014 the one that already had SQLite pre-upgrade, so extra scrutiny. Double-restart, then full diagnosis with run-timestamps before any mutation.",
+          "[16:47 IST] HADERACH: **Important flag on heda:** `jobs.json` is **STILL PRESENT** (not renamed to `.migrated`) \u2014 unlike seneca and keshav. This is failure mode #3 territory: if jobs.json persists, the gateway can **re-migrate it on every restart, creating fresh duplicates each time.** This is because heda already had SQLite pre-upgrade, so the migration logic behaved differently. Let me diagnose the full cron state with run-timestamps before deciding.",
+          "[16:47 IST] HADERACH: Heda is the **identical pattern to keshav** \u2014 confirming the lesson:",
+          "| Set | agent_id | Created | Last ran | Verdict |",
           "|---|---|---|---|---|",
-          "| Seneca - Transcript Logger `c9039396` | `6 */3 * * *` (every 3h) | transcript-logger `d9be1ac2` | every 10800000ms = 3h | \u2705 duplicate \u2192 delete blank |",
-          "| Seneca - Nightly Consolidation `49f5b84f` | `0 23 * * *` | nightly-consolidation `54febd99` | `0 23 * * *` | \u2705 exact dup \u2192 delete blank |",
-          "| Seneca - Midnight Rolling `f80687a6` | `11 0 * * *` | mi..."
+          "| \"Agastya-Heda \u2014 ...\" (5) | main | 14 Apr | **05\u201306 Jun** (stale) | superseded \u2192 delete |",
+          "| \"Heda \u2014 ...\" (5) | BLANK | 09 Jun | **26 Jun today** | LIVE \u2192 revive |",
+          "Same story: the old \"Agastya-Heda \u2014\" set (agent_id=main) is dead since early June; the \"Heda \u2014\" set created 09 Jun is the live one (ran today 11:00) but has blank agent_id. So: **revive the ...",
+          "[16:48 IST] HADERACH: The nested-quoting is fighting me. Let me ship a tiny script file instead.",
+          "[16:48 IST] HADERACH: Confirmed: the lingering `jobs.json` contains exactly the **5 stale \"Agastya-Heda \u2014\"** jobs (the dead set). So renaming it to `.migrated` loses nothing live \u2014 and prevents re-migration of the stale set. ",
+          "Full heda cleanup, applying all three actions in one pass:",
+          "1. Revive 5 BLANK \"Heda \u2014\" (live set) \u2192 agent_id=main",
+          "2. Delete 5 stale \"Agastya-Heda \u2014\" ",
+          "3. Rename `jobs.json` \u2192 `.migrated` (failure mode #3 fix)",
+          "4. Restart to reload",
+          "[16:48 IST] HADERACH: **agastya-heda \u2014 clean. \u2705** ",
+          "- **Count = 5**, **0 blanks**, all 5 live \"Heda \u2014\" jobs revived to `main`",
+          "- 5 stale \"Agastya-Heda \u2014\" deleted",
+          "- **`jobs.json` renamed to `.migrated-manual`** \u2014 closes the failure-mode-3 re-migration hole that heda uniquely had (it was the one agent that still had a live jobs.json post-migration)",
+          "Let me confirm heda is up, and importantly **re-verify it survives a restart without re-spawning duplicates** (the whole point of the jobs.json rename) \u2014 I'll check the c...",
+          "[16:49 IST] HADERACH: **agastya-heda fully verified. \u2705** 2026.6.10, PID 70947, HTTP 200, count holds at 5 after restart, jobs.json confirmed gone (no re-migration risk).",
+          "**3 of 7 done** (seneca \u2705, keshav \u2705, heda \u2705).",
+          "A pattern is now firmly established across the Agastya line: each has a dead \"Agastya-X \u2014\" set (agent_id=main, last run early June) and a live \"X \u2014\" set (blank agent_id, created 09 Jun, running today). The fix is uniform for them: revive the blank live set, delete the stale main set, rename any linge...",
+          "[16:49 IST] HADERACH: **agastya-heda fully verified. \u2705** 2026.6.10, PID 70947, HTTP 200, count holds at 5 after restart, jobs.json confirmed gone (no re-migration risk).",
+          "**3 of 7 done** (seneca \u2705, keshav \u2705, heda \u2705).",
+          "A pattern is now firmly established across the Agastya line: each has a dead \"Agastya-X \u2014\" set (agent_id=main, last run early June) and a live \"X \u2014\" set (blank agent_id, created 09 Jun, running today). The fix is uniform for them: revive the blank live set, delete the stale main set, rename any linge..."
         ],
         "yesterday": [
           "[23:27 IST] HADERACH: Building it now \u2014 `had050_extract.py` (chunk + qwen-tag + checkpoint + resume) plus its kill-switch cron. Per my own dead-ends rule, I'll author the script via base64 round-trip to avoid the literal-`\\n` trap, then compile-check before anything runs.",
@@ -1552,7 +1552,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.48,
-      "cpu": 1.0,
+      "cpu": 11.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1561,10 +1561,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 16.6,
-        "rolling_28day": 16.4,
-        "rolling_180day": 16.4
+        "transcript": 0.0,
+        "rolling_7day": 16.7,
+        "rolling_28day": 16.5,
+        "rolling_180day": 16.5
       },
       "skills": [
         "moltguard"
@@ -1877,8 +1877,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.49,
-      "cpu": 0.9,
+      "rss_gb": 0.47,
+      "cpu": 1.7,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1886,10 +1886,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.7,
-        "rolling_28day": 16.7,
-        "rolling_180day": 16.7
+        "transcript": 0.0,
+        "rolling_7day": 16.8,
+        "rolling_28day": 16.8,
+        "rolling_180day": 16.8
       },
       "skills": [
         "twitacc"
@@ -1910,7 +1910,7 @@
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782472203486,
+          "last_ts": 1782472803096,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2284,8 +2284,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.47,
-      "cpu": 0.7,
+      "rss_gb": 0.45,
+      "cpu": 0.4,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2293,10 +2293,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.8,
-        "rolling_7day": 16.6,
-        "rolling_28day": 16.6,
-        "rolling_180day": 16.6
+        "transcript": 0.9,
+        "rolling_7day": 16.7,
+        "rolling_28day": 16.7,
+        "rolling_180day": 16.7
       },
       "skills": [
         "academic-deep-research",
@@ -2668,10 +2668,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.6,
-        "rolling_7day": 16.5,
-        "rolling_28day": 16.5,
-        "rolling_180day": 16.5
+        "transcript": 1.7,
+        "rolling_7day": 16.6,
+        "rolling_28day": 16.6,
+        "rolling_180day": 16.6
       },
       "skills": [
         "moltguard"
@@ -2949,16 +2949,16 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.27,
-      "cpu": 0.4,
+      "rss_gb": 0.28,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.7,
-        "rolling_28day": 16.7,
+        "transcript": 0.0,
+        "rolling_7day": 16.8,
+        "rolling_28day": 16.8,
         "rolling_180day": 17.8
       },
       "skills": [
@@ -2980,7 +2980,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782472206606,
+          "last_ts": 1782472807354,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3137,13 +3137,13 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 1.7,
+        "transcript": 1.8,
         "rolling_7day": 16.7,
         "rolling_28day": 16.7,
         "rolling_180day": 16.7
@@ -3350,8 +3350,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 894,
-      "rss_gb": 0.33,
-      "cpu": 1.0,
+      "rss_gb": 0.32,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3359,7 +3359,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.5,
+        "transcript": 1.6,
         "rolling_7day": 16.5,
         "rolling_28day": 16.5,
         "rolling_180day": 40.5
@@ -3534,17 +3534,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 1226,
-      "rss_gb": 0.26,
-      "cpu": 0.4,
+      "rss_gb": 0.27,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 17.7,
-        "rolling_28day": 17.7,
-        "rolling_180day": 41.6
+        "transcript": 0.0,
+        "rolling_7day": 17.8,
+        "rolling_28day": 17.8,
+        "rolling_180day": 41.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3713,7 +3713,7 @@
       "up": true,
       "pid": 903,
       "rss_gb": 0.2,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3774,8 +3774,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.38,
-      "cpu": 0.3,
+      "rss_gb": 0.37,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3783,10 +3783,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 16.6,
-        "rolling_28day": 16.6,
-        "rolling_180day": 16.6
+        "transcript": 0.4,
+        "rolling_7day": 16.7,
+        "rolling_28day": 16.7,
+        "rolling_180day": 16.7
       },
       "skills": [
         "apple-calendar-macos",
@@ -4149,8 +4149,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 55089,
-      "rss_gb": 0.37,
-      "cpu": 0.3,
+      "rss_gb": 0.35,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4159,8 +4159,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 17.6,
-        "rolling_28day": 17.6,
+        "rolling_7day": 17.7,
+        "rolling_28day": 17.7,
         "rolling_180day": null
       },
       "skills": [
