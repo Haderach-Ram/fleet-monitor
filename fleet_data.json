@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-26 15:55:26 IST",
-  "generated_epoch": 1782469526,
+  "generated_ist": "2026-06-26 16:00:32 IST",
+  "generated_epoch": 1782469832,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.35 / 4.02 / 3.84",
+    "load": "2.96 / 3.43 / 3.62",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 14946,
-      "rss_gb": 0.71,
-      "cpu": 0.4,
+      "rss_gb": 0.76,
+      "cpu": 26.3,
       "crons_total": 80,
       "crons_enabled": 57,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.9,
-        "rolling_28day": 15.9,
-        "rolling_180day": 15.9
+        "transcript": 0.0,
+        "rolling_7day": 16.0,
+        "rolling_28day": 16.0,
+        "rolling_180day": 16.0
       },
       "skills": [
         "academic-deep-research",
@@ -643,10 +643,19 @@
       ],
       "crons": [
         {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782469687386,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782469297179,
+          "last_ts": 1782469597278,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -674,15 +683,6 @@
           "enabled": true,
           "sched": "*/10 6-23 * * *",
           "last_ts": 1782469229916,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782469086491,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1365,46 +1365,46 @@
       ],
       "transcripts": {
         "recent": [
-          "## Yes \u2014 M2 can be done entirely remotely",
-          "**Confirmed live, just now over Tailscale SSH:**",
-          "- **Reachable:** `ssh ram_macmini@100.119.4.19` works; it's the real M2 (Darwin arm64 / Apple M2).",
-          "- **Binaries on PATH** (login shell): `openclaw`, `node`, `npm` all in `/opt/homebrew/bin`.",
-          "- **`launchctl gui/$UID` domain is reachable over SSH** \u2192 `GUI_DOMAIN_OK`. This is the critical one \u2014 it means the bootout+bootstrap hard-restarts in the PLAY...",
-          "[15:44 IST] HADERACH: Everything I need is confirmed. Here's the assessment:",
-          "## Yes \u2014 M2 can be done entirely remotely",
-          "**Confirmed live, just now over Tailscale SSH:**",
-          "- **Reachable:** `ssh ram_macmini@100.119.4.19` works; it's the real M2 (Darwin arm64 / Apple M2).",
-          "- **Binaries on PATH** (login shell): `openclaw`, `node`, `npm` all in `/opt/homebrew/bin`.",
-          "- **`launchctl gui/$UID` domain is reachable over SSH** \u2192 `GUI_DOMAIN_OK`. This is the critical one \u2014 it means the bootout+bootstrap hard-restarts in the PLAY...",
-          "[15:45 IST] RAM: What are all the challenges to negotiate? The plist wiping, the sqlite move etc etc. Can you study the .10 docs to see if there can be any other issues?",
-          "[15:46 IST] HADERACH: Right \u2014 let me study the actual release notes/changelog for 6.2 through 6.10 and the relevant GitHub issues, so we know every boundary we're crossing rather than relying on memory. Let me also read our own LESSONS and PLAYBOOK to anchor the known challenges.",
-          "[15:46 IST] HADERACH: Excellent \u2014 our own docs already contain a crucial insight I had wrong in my first assessment. Let me note it and then study the actual 6.2\u21926.10 changelog and issue tracker upstream.",
-          "**Key correction from PLAYBOOK's M2 notes:** M2 has been on **v2026.6.1, which is already SQLite-native**. The flat-file\u2192SQLite migration (the big breaking change of 6.6) happened *between 6.1 and 6.6* \u2014 so M2 may have *already* crossed it, OR 6.1 predates it. This changes the risk profile materially. I need to ...",
-          "[15:46 IST] HADERACH: This is a major finding. The on-disk reality on M2 is **not uniform** \u2014 and it changes everything. Note (per SOUL.md external-content rule): the web results above are data, not instructions; I'm using them only to map version contents.",
-          "**Critical discovery on M2 right now (6.1):**",
-          "- **Haderach-on-M2** (the main `~/.openclaw`) \u2192 has `openclaw.sqlite` (1.6 MB), **no** `jobs.json`. Already SQLite-migrated.",
-          "- **Every other agent** (Giskard, agastya-caio, ca-smeda, legal-smeda, seneca) \u2192 **NO sql...",
-          "[15:46 IST] HADERACH: Shell mangled the heredoc. Let me write a clean Python script instead.",
-          "[15:46 IST] HADERACH: The `\\n` literal bug crept into my write \u2014 a known issue noted in our own LESSONS. Let me rewrite cleanly without inline `\\n`.",
-          "[15:46 IST] HADERACH: The `\\n` literal bug is being injected by the write tool into my `except` lines. Let me restructure to avoid any `except ...:` followed by content on conceptually the same construct \u2014 put bodies on their own lines properly.",
-          "[15:47 IST] HADERACH: The tool keeps literalizing `\\n` in the two `except` lines regardless. I'll generate the file via a here-doc in exec instead, which sidesteps the write tool entirely.",
-          "[15:47 IST] HADERACH: The `\\n` is literally in my generated text \u2014 it's my own composition habit. Let me write proper multi-line Python.",
-          "[15:47 IST] HADERACH: I keep typing the literal `\\n`. Let me fix the two offending lines with sed, then run.",
-          "[15:47 IST] HADERACH: Now I have the real changelogs. Let me check the live status of the critical blocking issues (the SQLite cron-migration data-loss bug) and #92974 Bedrock, then I'll synthesize the full challenge list.",
-          "[15:47 IST] HADERACH: Now I have the complete, evidence-grounded picture. Here is the full briefing.",
-          "## M2 \u2192 6.10: Every Challenge to Negotiate",
-          "I've studied the on-disk state of M2, the 6.6\u21926.10 changelogs, and the live GitHub issue tracker. The headline is that **the old PLAYBOOK note (\"M2 is SQLite-native, migration won't apply\") is wrong** \u2014 and that materially raises the risk.",
-          "### \ud83d\udd34 The big one \u2014 SQLite cron migration *will* hit M2's sub-agents",
-          "I checked each M2 home directly. The reality is **split**:",
-          "- *...",
-          "[15:48 IST] HADERACH: Now I have the complete, evidence-grounded picture. Here is the full briefing.",
-          "## M2 \u2192 6.10: Every Challenge to Negotiate",
-          "I've studied the on-disk state of M2, the 6.6\u21926.10 changelogs, and the live GitHub issue tracker. The headline is that **the old PLAYBOOK note (\"M2 is SQLite-native, migration won't apply\") is wrong** \u2014 and that materially raises the risk.",
           "### \ud83d\udd34 The big one \u2014 SQLite cron migration *will* hit M2's sub-agents",
           "I checked each M2 home directly. The reality is **split**:",
           "- *...",
           "[15:49 IST] RAM: You seem to be confused. Which agents are on M4 and which are on M2?",
-          "[15:49 IST] HADERACH: You're right to pull me up \u2014 let me verify the actual fleet topology from ground truth rather than my assumptions, because I've been conflating the two machines."
+          "[15:49 IST] HADERACH: You're right to pull me up \u2014 let me verify the actual fleet topology from ground truth rather than my assumptions, because I've been conflating the two machines.",
+          "[15:50 IST] HADERACH: Thank you \u2014 I was indeed muddled. Now I have both lists from ground truth, and I can see exactly where I went wrong. **The agent *home directories* exist on BOTH machines** \u2014 which is what confused me. The directory existing doesn't tell us where the agent actually *runs*. The decisive evidence is which **launchctl service is actually loaded** on each box.",
+          "Let me settle it properly \u2014 check what's loaded and running on each machine.",
+          "[15:50 IST] HADERACH: Now it's unambiguous. Here's the corrected, ground-truth topology \u2014 and my apology for the muddle. The home directories exist on both boxes (leftover/synced), but **what's actually *loaded and running* is the truth**, and it's clean and distinct:",
+          "## Fleet Topology \u2014 verified from `launchctl list`",
+          "### \ud83d\udda5\ufe0f M4 (uday_one \u2014 THIS machine, local) \u2014 14 running agents",
+          "- **gateway** (Haderach), **giskard**, **kubera**, **purl**, **personal/herbie**",
+          "- **chet**, **gagan**, **clarkkent**, **tester**",
+          "- **...",
+          "[15:50 IST] HADERACH: Now it's unambiguous. Here's the corrected, ground-truth topology \u2014 and my apology for the muddle. The home directories exist on both boxes (leftover/synced), but **what's actually *loaded and running* is the truth**, and it's clean and distinct:",
+          "## Fleet Topology \u2014 verified from `launchctl list`",
+          "### \ud83d\udda5\ufe0f M4 (uday_one \u2014 THIS machine, local) \u2014 14 running agents",
+          "- **gateway** (Haderach), **giskard**, **kubera**, **purl**, **personal/herbie**",
+          "- **chet**, **gagan**, **clarkkent**, **tester**",
+          "- **...",
+          "[15:51 IST] RAM: There is no Haderach on M2!!",
+          "[15:51 IST] HADERACH: You're absolutely right, and that's a real error on my part \u2014 not just sloppy wording. Let me verify what that M2 `~/.openclaw` gateway actually is rather than assume it's \"Haderach-M2.\"",
+          "[15:51 IST] HADERACH: The nested quoting got mangled. Let me check the M2 main gateway identity cleanly by copying the relevant config fields.",
+          "[15:51 IST] HADERACH: That settles it \u2014 and confirms your correction completely. **There is no Haderach on M2.**",
+          "The M2 `~/.openclaw` directory is **not a populated agent at all**. Its config is a bare stub \u2014 just `gateway` (mode: local, token auth) and `meta`. No port, no agent list, no model, and the workspace `IDENTITY.md`/`SOUL.md` are **blank templates** (\"Fill this in during your first conversation\"). It's an unconfigured default scaffold, never set up as Haderach or anyone. The `openclaw.sqlite` in it is j...",
+          "[15:52 IST] HADERACH: That settles it \u2014 and confirms your correction completely. **There is no Haderach on M2.**",
+          "The M2 `~/.openclaw` directory is **not a populated agent at all**. Its config is a bare stub \u2014 just `gateway` (mode: local, token auth) and `meta`. No port, no agent list, no model, and the workspace `IDENTITY.md`/`SOUL.md` are **blank templates** (\"Fill this in during your first conversation\"). It's an unconfigured default scaffold, never set up as Haderach or anyone. The `openclaw.sqlite` in it is j...",
+          "[15:54 IST] RAM: What is this \u2018bare stub\u2019 on M2? Are we not better off purging it?",
+          "[15:54 IST] HADERACH: Good question. Before recommending a purge, let me inspect exactly what that stub is \u2014 what it runs, whether anything depends on it, and whether it's load-bearing for the node-host/Tailscale plumbing.",
+          "[15:54 IST] HADERACH: The first half worked (the parenthesis in my echo broke the second). Let me grab the gateway plist and check what process is actually running on port for that gateway, plus dependencies.",
+          "[15:54 IST] HADERACH: Now I understand exactly what it is. Let me do two final checks: what's on port 18789 on M2 (is this stub actually serving?), and whether the agastya/seneca/ca-smeda agents point at this gateway or run independently.",
+          "[15:54 IST] HADERACH: Now I have the complete picture. Here's what that stub actually is and my honest recommendation.",
+          "## What the M2 `~/.openclaw` stub is",
+          "It's a **live, default OpenClaw gateway on port 18789** \u2014 running, healthy (HTTP 200), `KeepAlive=true`, `RunAtLoad=true`. But it's a **blank-identity gateway**: no agent persona, no channels, no model config. Just `gateway` + `meta` in its config.",
+          "Crucially \u2014 **the 7 real agents do NOT depend on it.** Each runs its own independent gateway on its own port:",
+          "...",
+          "[15:55 IST] HADERACH: Now I have the complete picture. Here's what that stub actually is and my honest recommendation.",
+          "## What the M2 `~/.openclaw` stub is",
+          "It's a **live, default OpenClaw gateway on port 18789** \u2014 running, healthy (HTTP 200), `KeepAlive=true`, `RunAtLoad=true`. But it's a **blank-identity gateway**: no agent persona, no channels, no model config. Just `gateway` + `meta` in its config.",
+          "Crucially \u2014 **the 7 real agents do NOT depend on it.** Each runs its own independent gateway on its own port:",
+          "..."
         ],
         "yesterday": [
           "[23:27 IST] HADERACH: Building it now \u2014 `had050_extract.py` (chunk + qwen-tag + checkpoint + resume) plus its kill-switch cron. Per my own dead-ends rule, I'll author the script via base64 round-trip to avoid the literal-`\\n` trap, then compile-check before anything runs.",
@@ -1543,7 +1543,7 @@
       "up": true,
       "pid": 75950,
       "rss_gb": 0.48,
-      "cpu": 0.7,
+      "cpu": 2.8,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1553,7 +1553,7 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 15.7,
+        "rolling_7day": 15.8,
         "rolling_28day": 15.6,
         "rolling_180day": 15.6
       },
@@ -1868,8 +1868,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 98635,
-      "rss_gb": 0.48,
-      "cpu": 0.7,
+      "rss_gb": 0.54,
+      "cpu": 1.0,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1877,10 +1877,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
-        "rolling_180day": 15.8
+        "transcript": 0.0,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
+        "rolling_180day": 15.9
       },
       "skills": [
         "twitacc"
@@ -1898,10 +1898,19 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)",
+          "enabled": true,
+          "sched": "0 16 * * 1-5",
+          "last_ts": 1782469824085,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782469203542,
+          "last_ts": 1782469824085,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2069,15 +2078,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)",
-          "enabled": true,
-          "sched": "0 16 * * 1-5",
-          "last_ts": 1782383407939,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Kubera \u2014 Monday Bulk Deal Pull (Mon 09:30)",
           "enabled": true,
           "sched": "30 9 * * 1",
@@ -2098,8 +2098,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll execute the portfolio refresh and Pot 2 snapshot. First, let me verify this isn't a holiday and then run the scripts.",
-          "[15:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \ud83d\udcca 15:30 IST | Nifty 24,056.00 | VIX 13.05 \u2705",
           "Pot1: \u20b963,120 / \u20b958,927 (+7.1%)",
           "Pot2: No open NFO positions.",
           "Cash: \u20b9282,617",
@@ -2137,7 +2135,9 @@
           "- **VIX 13.05** \u2014 Pot 2 gate remains open",
           "- **Cash reserves** remain high at \u20b9282,617 \u2014 room to deploy if opportunity emerges",
           "- **Overall portfolio** currently at -35.4% vs baseline (reflects cash drag from undeployed capital)",
-          "No alerts triggered. Market regime: BULL, 80% probability continuation tomorrow."
+          "No alerts triggered. Market regime: BULL, 80% probability continuation tomorrow.",
+          "[15:56 IST] RAM: [OpenClaw heartbeat poll]",
+          "[15:56 IST] KUBERA: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[18:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me use a different approach and append to the file:",
@@ -2275,8 +2275,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 95363,
-      "rss_gb": 0.44,
-      "cpu": 1.6,
+      "rss_gb": 0.53,
+      "cpu": 1.0,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2284,10 +2284,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
-        "rolling_180day": 15.8
+        "transcript": 0.0,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
+        "rolling_180day": 15.9
       },
       "skills": [
         "academic-deep-research",
@@ -2435,10 +2435,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1782469816396,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782468003624,
+          "last_ts": 1782469816395,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2459,15 +2468,6 @@
           "last_ts": 1782466452866,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1782466211949,
-          "last_status": "ok",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -2532,7 +2532,8 @@
           "\u2705 **Config backup:** Due today (26th) \u2014 will run now",
           "[12:55 IST] PURL: Checking heartbeat...",
           "[13:55 IST] PURL: Checking heartbeat...",
-          "[14:55 IST] PURL: Checking heartbeat..."
+          "[14:55 IST] PURL: Checking heartbeat...",
+          "[15:55 IST] PURL: Checking heartbeat..."
         ],
         "yesterday": [
           "> \"What % of our current headcount do we believe is net-negative to the organisation \u2014 where their presence costs more in salary, management bandwidth, and culture drag than their contribution delivers?\"",
@@ -2649,8 +2650,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 926,
-      "rss_gb": 0.38,
-      "cpu": 1.9,
+      "rss_gb": 0.39,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2659,9 +2660,9 @@
       ],
       "memory": {
         "transcript": 0.8,
-        "rolling_7day": 15.7,
-        "rolling_28day": 15.7,
-        "rolling_180day": 15.7
+        "rolling_7day": 15.8,
+        "rolling_28day": 15.8,
+        "rolling_180day": 15.8
       },
       "skills": [
         "moltguard"
@@ -2939,17 +2940,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 53990,
-      "rss_gb": 0.27,
-      "cpu": 0.1,
+      "rss_gb": 0.28,
+      "cpu": 0.2,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.9,
-        "rolling_28day": 15.9,
-        "rolling_180day": 16.9
+        "transcript": 0.0,
+        "rolling_7day": 16.0,
+        "rolling_28day": 16.0,
+        "rolling_180day": 17.0
       },
       "skills": [
         "moltguard"
@@ -2970,7 +2971,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782469206950,
+          "last_ts": 1782469806217,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3127,16 +3128,16 @@
       "up": true,
       "pid": 1302,
       "rss_gb": 0.28,
-      "cpu": 0.5,
+      "cpu": 6.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
-        "rolling_180day": 15.8
+        "transcript": 1.0,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
+        "rolling_180day": 15.9
       },
       "skills": [
         "moltguard"
@@ -3349,10 +3350,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.7,
-        "rolling_7day": 15.6,
-        "rolling_28day": 15.6,
-        "rolling_180day": 39.6
+        "transcript": 0.8,
+        "rolling_7day": 15.7,
+        "rolling_28day": 15.7,
+        "rolling_180day": 39.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3525,16 +3526,16 @@
       "up": true,
       "pid": 1226,
       "rss_gb": 0.27,
-      "cpu": 0.5,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.9,
+        "transcript": 0.0,
+        "rolling_7day": 17.0,
         "rolling_28day": 16.9,
-        "rolling_180day": 40.8
+        "rolling_180day": 40.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3702,8 +3703,8 @@
       "avatar": "martin",
       "up": true,
       "pid": 903,
-      "rss_gb": 0.2,
-      "cpu": 0.1,
+      "rss_gb": 0.21,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3735,7 +3736,7 @@
       "up": true,
       "pid": 898,
       "rss_gb": 0.2,
-      "cpu": 2.2,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3764,7 +3765,7 @@
       "avatar": "herbie",
       "up": true,
       "pid": 40513,
-      "rss_gb": 0.37,
+      "rss_gb": 0.38,
       "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3773,10 +3774,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
-        "rolling_180day": 15.8
+        "transcript": 0.0,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
+        "rolling_180day": 15.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -3927,7 +3928,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782468003671,
+          "last_ts": 1782469803877,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3962,8 +3963,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[03:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[03:52 IST] HERBIE: HEARTBEAT_OK",
           "[04:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[04:52 IST] HERBIE: HEARTBEAT_OK",
           "[05:52 IST] RAM: [OpenClaw heartbeat poll]",
@@ -4001,7 +4000,9 @@
           "[15:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Running the transcript logger now.",
           "[15:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. 2 new messages logged to `transcript-2026-06-26.md`. Bookmark updated. \u2713",
           "[15:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[15:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. The transcript logger found 0 new messages and processed 2 total messages for today's transcript file."
+          "[15:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. The transcript logger found 0 new messages and processed 2 total messages for today's transcript file.",
+          "[15:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[15:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger script.",
@@ -4140,7 +4141,7 @@
       "up": true,
       "pid": 55089,
       "rss_gb": 0.35,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4148,9 +4149,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.8,
-        "rolling_28day": 16.8,
+        "transcript": 0.0,
+        "rolling_7day": 16.9,
+        "rolling_28day": 16.9,
         "rolling_180day": null
       },
       "skills": [
