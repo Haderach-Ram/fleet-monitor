@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-26 21:58:11 IST",
-  "generated_epoch": 1782491291,
+  "generated_ist": "2026-06-26 22:03:15 IST",
+  "generated_epoch": 1782491595,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.58 / 2.90 / 3.02",
+    "load": "2.76 / 2.78 / 2.91",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -30,9 +30,9 @@
       "role": "CODA \u2014 Chief Operating DA",
       "avatar": "haderach",
       "up": true,
-      "pid": 34982,
-      "rss_gb": 0.78,
-      "cpu": 0.4,
+      "pid": 38958,
+      "rss_gb": 0.5,
+      "cpu": 0.6,
       "crons_total": 80,
       "crons_enabled": 57,
       "skills_count": 59,
@@ -43,9 +43,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 21.9,
-        "rolling_28day": 21.9,
-        "rolling_180day": 21.9
+        "rolling_7day": 22.0,
+        "rolling_28day": 22.0,
+        "rolling_180day": 22.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,34 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782491184703,
+          "last_ts": 1782491479523,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782491433208,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782491433208,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782491433207,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -665,33 +692,6 @@
           "enabled": true,
           "sched": "every 15m",
           "last_ts": 1782490930819,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782490837314,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782490837313,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782490837313,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -1365,30 +1365,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:42 IST] HADERACH: Let me pull the full #87318 thread \u2014 the issue body plus all 7 comments \u2014 to give you an accurate picture rather than working from the title alone.",
-          "[21:42 IST] HADERACH: The inline python `\\n` inside the `-c` string is the culprit again. Let me write the parser to a file properly and run it \u2014 clean, no inline newlines.",
-          "[21:42 IST] HADERACH: The `write` tool is **reproducibly inserting literal `\\n`** at the `for x in c:` line \u2014 this is exactly issue #93139 biting in real time. Let me check and fix with sed.",
-          "[21:43 IST] HADERACH: The perl substitution didn't take. Let me just rewrite that line directly with a Python one-liner replace (no heredoc, no inline `\\n` in the shell).",
-          "[21:43 IST] HADERACH: Fixed (replaced the literal `\\n` with real newlines). Now run it.",
-          "[21:43 IST] HADERACH: The earlier curl never ran (the parse error killed that whole command). Let me fetch the JSON files cleanly now, then run the parser.",
-          "[21:43 IST] HADERACH: The token line itself is the parse problem \u2014 `print(json.load(sys.stdin)['value'])` with the `)` is choking the shell (likely the zsh `eval` wrapper reacting to the parens). Let me use a different extraction with `jq` or awk, avoiding parens in the inline python.",
-          "[21:43 IST] HADERACH: Got the full picture. Here's #87318 in plain terms.",
-          "---",
-          "## #87318 \u2014 Bedrock Haiku 4.5 inference profile ARN not supported",
-          "**State:** OPEN \u00b7 P2 \u00b7 created 27 May \u00b7 last activity 22 Jun \u00b7 7 comments",
-          "**What the issue is:**",
-          "When you point a cron job or agent at a Bedrock model that *requires an inference-profile ARN* \u2014 specifically **Haiku 4.5** \u2014 OpenClaw ignores your `params.modelId` ARN override and silently falls back to **direct Anthropic** instead of routing through AWS Bedrock. So the j...",
-          "[21:44 IST] HADERACH: Got the full picture. Here's #87318 in plain terms.",
-          "---",
-          "## #87318 \u2014 Bedrock Haiku 4.5 inference profile ARN not supported",
-          "**State:** OPEN \u00b7 P2 \u00b7 created 27 May \u00b7 last activity 22 Jun \u00b7 7 comments",
-          "**What the issue is:**",
-          "When you point a cron job or agent at a Bedrock model that *requires an inference-profile ARN* \u2014 specifically **Haiku 4.5** \u2014 OpenClaw ignores your `params.modelId` ARN override and silently falls back to **direct Anthropic** instead of routing through AWS Bedrock. So the j...",
-          "[21:45 IST] RAM: This means we cannot even use Haiku as the main model on AWS BedRock, right?",
-          "[21:45 IST] HADERACH: Correct \u2014 with one precise nuance.",
-          "**The blocked thing:** Haiku 4.5 on Bedrock requires the **inference-profile ARN**, and that ARN override is the exact thing OpenClaw ignores. So you can't run Haiku 4.5 via Bedrock as a primary, fallback, or cron model \u2014 it either errors (`on-demand throughput isn't supported`) or silently routes to direct Anthropic instead.",
-          "**What still works on Bedrock** (so it's \"Haiku specifically,\" not \"Bedrock broadly\"):",
-          "- **Sonnet 4.6** \u2014 works as-is, no ARN needed...",
           "[21:45 IST] HADERACH: Correct \u2014 with one precise nuance.",
           "**The blocked thing:** Haiku 4.5 on Bedrock requires the **inference-profile ARN**, and that ARN override is the exact thing OpenClaw ignores. So you can't run Haiku 4.5 via Bedrock as a primary, fallback, or cron model \u2014 it either errors (`on-demand throughput isn't supported`) or silently routes to direct Anthropic instead.",
           "**What still works on Bedrock** (so it's \"Haiku specifically,\" not \"Bedrock broadly\"):",
@@ -1404,7 +1380,31 @@
           "[21:47 IST] HADERACH: Telling result: **none of our crons currently carry a per-cron model override** \u2014 they all inherit the agent default (Sonnet on Bedrock). That's not because the feature doesn't exist; it's because **we stopped trying to use it on Bedrock after #87318 bit us.**",
           "Here's the full answer to your question:",
           "**Can you run a different model for crons vs the agent's main model? \u2014 Yes, the mechanism exists.**",
-          "- `payload.model` on a cron overrides the agent default. Feature request #94780 (closed) conf..."
+          "- `payload.model` on a cron overrides the agent default. Feature request #94780 (closed) conf...",
+          "[21:50 IST] RAM: Do an analysis of your crons and suggest what AWS BedRock models they should be on. Most are now on Opus andit's a waste. We had a ProjHad for this, I though, for now store a snapshot there os what models your crons presently on. Make a pdf of your analysis and send here pls",
+          "[21:50 IST] HADERACH: Let me do this properly \u2014 first find the model-optimization ProjHad, then audit what models my crons are *actually* on right now (live, from SQLite + config resolution), since that's the ground truth.",
+          "[21:52 IST] HADERACH: The grep is scanning a large tree. Let me poll once more.",
+          "[21:52 IST] HADERACH: **HAD-028-bedrock-routing** is the ProjHad for this \u2014 model routing on Bedrock. That's where the snapshot belongs. Let me audit my live cron\u2192model assignments now (the ground truth), and check HAD-028's status.",
+          "[21:53 IST] HADERACH: There it is \u2014 the root of the waste. My **agent default is Opus 4.8** (set via the `ChangeModelSetTo Max` command), and since **none of my crons have a per-cron model override**, *every cron inherits Opus.* That's a heavy model running routine jobs like transcript capture, email scans, and backups.",
+          "Let me pull the full list of my enabled crons with their cadence so I can analyze each one's actual workload and recommend the right model.",
+          "[21:53 IST] HADERACH: SQLite choked on the `$.` escaping in zsh. Let me write the query to a file and run it.",
+          "[21:53 IST] HADERACH: Column name differs. Let me check the actual schema.",
+          "[21:53 IST] HADERACH: They're flat columns, not JSON. Much easier. Let me query directly.",
+          "[21:53 IST] HADERACH: I have the full picture \u2014 57 enabled crons, **51 inheriting Opus**, only 6 explicitly on Sonnet. This is the waste you spotted. Now let me build the analysis. I'll classify each cron by workload type and assign the right Bedrock model, then store the snapshot in HAD-028 and produce the PDF.",
+          "Given the volume, let me think through the model tiers available on Bedrock (from HAD-028's confirmed survey) and the assignment logic, then build it all in one structured pass. Let me read the PDF skill ...",
+          "[21:53 IST] HADERACH: Now I have the house standard (weasyprint, styled HTML, navy cover per AGENTS.md). Let me build the analysis. First, the model-assignment logic, then store the snapshot in HAD-028, then generate the PDF.",
+          "The Bedrock model tiers (from HAD-028 confirmed survey):",
+          "- **Nova Micro** \u2014 cheapest, trivial mechanical tasks",
+          "- **Nova Lite / Nova Pro** \u2014 cheap, light structured work",
+          "- **Sonnet 4.6** \u2014 mid, reasoning/synthesis (works on Bedrock as-is)",
+          "- **Opus 4.8** \u2014 premium, heavy reasoning (current was...",
+          "[21:55 IST] HADERACH: The analysis classifies all 57 crons. Summary: **51 currently on Opus** \u2192 recommended split is **24 Nova Lite, 18 Nova Pro, 13 Sonnet, 2 Nova Micro** \u2014 i.e. *zero* should be on Opus. Now let me store the snapshot in HAD-028 and build the styled PDF.",
+          "[21:55 IST] HADERACH: weasyprint ready. Now let me write the snapshot markdown to HAD-028 and build the PDF in one pass. I'll write the PDF builder with the navy-cover house style.",
+          "[21:56 IST] HADERACH: Let me retry the write with explicit content (the tool dropped my payload).",
+          "[21:57 IST] HADERACH: The PDF builder is large; the `write` tool keeps dropping it. Let me build it via a base64-encoded heredoc to avoid any escaping/size issues, writing the Python file deterministically.",
+          "[21:59 IST] HADERACH: PDF built (124 KB, non-zero). Let me verify it renders correctly (page count + visual check), then store the snapshot in HAD-028.",
+          "[21:59 IST] HADERACH: 9 pages, 124 KB. Let me render the cover + a content page to confirm it looks right before sending.",
+          "[21:59 IST] HADERACH: The image tool's allowed dir is the workspace. Let me copy it there and check."
         ],
         "yesterday": [
           "[23:27 IST] HADERACH: Building it now \u2014 `had050_extract.py` (chunk + qwen-tag + checkpoint + resume) plus its kill-switch cron. Per my own dead-ends rule, I'll author the script via base64 round-trip to avoid the literal-`\\n` trap, then compile-check before anything runs.",
@@ -1542,8 +1542,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.55,
-      "cpu": 1.0,
+      "rss_gb": 0.57,
+      "cpu": 2.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1552,10 +1552,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.8,
-        "rolling_28day": 21.6,
-        "rolling_180day": 21.6
+        "transcript": 0.2,
+        "rolling_7day": 21.9,
+        "rolling_28day": 21.7,
+        "rolling_180day": 21.7
       },
       "skills": [
         "moltguard"
@@ -1868,8 +1868,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 34303,
-      "rss_gb": 0.63,
-      "cpu": 0.2,
+      "rss_gb": 0.48,
+      "cpu": 0.4,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1877,10 +1877,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 21.9,
-        "rolling_28day": 21.9,
-        "rolling_180day": 21.9
+        "transcript": 1.0,
+        "rolling_7day": 22.0,
+        "rolling_28day": 22.0,
+        "rolling_180day": 22.0
       },
       "skills": [
         "twitacc"
@@ -2275,8 +2275,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.45,
-      "cpu": 0.4,
+      "rss_gb": 0.47,
+      "cpu": 1.6,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2284,10 +2284,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 21.8,
-        "rolling_28day": 21.8,
-        "rolling_180day": 21.8
+        "transcript": 0.0,
+        "rolling_7day": 21.9,
+        "rolling_28day": 0.0,
+        "rolling_180day": 0.0
       },
       "skills": [
         "academic-deep-research",
@@ -2435,10 +2435,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1782491416814,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782489604305,
+          "last_ts": 1782491416814,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2484,15 +2493,6 @@
           "enabled": true,
           "sched": "9 0 * * *",
           "last_ts": 1782412762642,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1782405013089,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2601,18 +2601,6 @@
           "--- [Midnight run OK \u2014 2026-06-26 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "## 2026-06-21 \u2014 Gari Returns Home from Vana",
-          "- Gari & Ram heading back home after retreat (weekend travel)",
-          "- Heartbeat checks evening: context 15%, all systems nominal",
-          "- Weekly bulletin due tomorrow (Sunday, 22 June)",
-          "---",
-          "--- [Midnight run OK \u2014 2026-06-21 \u2014 no new content] ---",
-          "## 2026-06-21",
-          "- (no key items logged)",
-          "## 2026-06-22 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
-          "--- [Midnight run OK \u2014 2026-06-22 \u2014 no new content] ---",
           "## 2026-06-22",
           "- Message reframe for Poornima Pachchi: wedding apology, warm tone approved",
           "- Routine heartbeat checks nominal (context 19-20%, no alerts)",
@@ -2640,7 +2628,19 @@
           "## 2026-06-26 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
-          "--- [Midnight run OK \u2014 2026-06-26 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-06-26 \u2014 no new content] ---",
+          "## 2026-06-26",
+          "- # 2026-06-26 \u2014 Session Log",
+          "## Overnight Heartbeat (01:55 IST)",
+          "- **Context:** 25% (49k/200k) \u2014 healthy",
+          "- **Quiet hours active** (23:00\u201307:00 IST) \u2014 email scans skipped per HEARTBEAT.md",
+          "- **No alerts, ...",
+          "## 2026-06-26",
+          "- # 2026-06-26 \u2014 Session Log",
+          "## Overnight Heartbeat (01:55 IST)",
+          "- **Context:** 25% (49k/200k) \u2014 healthy",
+          "- **Quiet hours active** (23:00\u201307:00 IST) \u2014 email scans skipped per HEARTBEAT.md",
+          "- **No alerts, ..."
         ]
       }
     },
@@ -2652,7 +2652,7 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 34233,
-      "rss_gb": 0.46,
+      "rss_gb": 0.54,
       "cpu": 0.4,
       "crons_total": 9,
       "crons_enabled": 9,
@@ -2661,10 +2661,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.8,
-        "rolling_7day": 21.7,
-        "rolling_28day": 21.7,
-        "rolling_180day": 21.7
+        "transcript": 0.9,
+        "rolling_7day": 21.8,
+        "rolling_28day": 21.8,
+        "rolling_180day": 21.8
       },
       "skills": [
         "moltguard"
@@ -2681,6 +2681,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Inter Study Evening (22:00)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1782491589917,
+          "last_status": "error",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
@@ -2749,15 +2758,6 @@
           "enabled": true,
           "sched": "30 22 * * *",
           "last_ts": 1782406836709,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Inter Study Evening (22:00)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1782405072326,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2943,15 +2943,15 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.35,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 21.9,
-        "rolling_28day": 21.9,
+        "rolling_7day": 22.0,
+        "rolling_28day": 22.0,
         "rolling_180day": 23.0
       },
       "skills": [
@@ -2973,7 +2973,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782490807528,
+          "last_ts": 1782491406166,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3130,16 +3130,16 @@
       "up": true,
       "pid": 34197,
       "rss_gb": 0.43,
-      "cpu": 1.1,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.8,
-        "rolling_7day": 21.8,
-        "rolling_28day": 21.8,
-        "rolling_180day": 21.8
+        "transcript": 0.9,
+        "rolling_7day": 21.9,
+        "rolling_28day": 21.9,
+        "rolling_180day": 21.9
       },
       "skills": [
         "moltguard"
@@ -3372,8 +3372,8 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 34150,
-      "rss_gb": 0.44,
-      "cpu": 1.0,
+      "rss_gb": 0.48,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3381,10 +3381,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.7,
+        "transcript": 0.8,
         "rolling_7day": 21.7,
         "rolling_28day": 21.7,
-        "rolling_180day": 45.6
+        "rolling_180day": 45.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3556,17 +3556,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 33801,
-      "rss_gb": 0.34,
-      "cpu": 0.1,
+      "rss_gb": 0.31,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 22.9,
-        "rolling_28day": 22.9,
-        "rolling_180day": 46.8
+        "transcript": 0.0,
+        "rolling_7day": 23.0,
+        "rolling_28day": 23.0,
+        "rolling_180day": 46.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3767,7 +3767,7 @@
       "up": true,
       "pid": 33899,
       "rss_gb": 0.25,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3796,8 +3796,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 33989,
-      "rss_gb": 0.43,
-      "cpu": 6.4,
+      "rss_gb": 0.41,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3805,10 +3805,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 21.8,
-        "rolling_28day": 21.8,
-        "rolling_180day": 21.8
+        "transcript": 0.1,
+        "rolling_7day": 21.9,
+        "rolling_28day": 21.9,
+        "rolling_180day": 21.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -3956,10 +3956,19 @@
       ],
       "crons": [
         {
+          "name": "Herbie \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1782491408947,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782489603764,
+          "last_ts": 1782491408946,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3981,21 +3990,10 @@
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
-        },
-        {
-          "name": "Herbie \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1782405008471,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
         }
       ],
       "transcripts": {
         "recent": [
-          "[09:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[09:52 IST] HERBIE: HEARTBEAT_OK",
           "[10:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[10:52 IST] HERBIE: HEARTBEAT_OK",
           "[11:52 IST] RAM: [OpenClaw heartbeat poll]",
@@ -4033,7 +4031,9 @@
           "[21:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger for you.",
           "[21:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. 2 new messages logged to `transcript-2026-06-26.md` with bookmark set.",
           "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. No new messages since last run\u2014transcript for today (2026-06-26) is current with 2 total messages logged."
+          "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. No new messages since last run\u2014transcript for today (2026-06-26) is current with 2 total messages logged.",
+          "[21:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[21:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger script.",
@@ -4172,7 +4172,7 @@
       "up": true,
       "pid": 34329,
       "rss_gb": 0.44,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4180,9 +4180,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 22.8,
-        "rolling_28day": 22.8,
+        "transcript": 0.1,
+        "rolling_7day": 22.9,
+        "rolling_28day": 22.9,
         "rolling_180day": null
       },
       "skills": [
