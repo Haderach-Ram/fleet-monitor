@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-26 23:14:43 IST",
-  "generated_epoch": 1782495883,
+  "generated_ist": "2026-06-26 23:19:49 IST",
+  "generated_epoch": 1782496189,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.03 / 3.65 / 3.33",
+    "load": "3.23 / 4.24 / 3.75",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 38958,
-      "rss_gb": 0.97,
-      "cpu": 1.4,
+      "rss_gb": 0.8,
+      "cpu": 1.2,
       "crons_total": 80,
       "crons_enabled": 57,
       "skills_count": 59,
@@ -43,9 +43,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 23.2,
-        "rolling_28day": 23.2,
-        "rolling_180day": 23.2
+        "rolling_7day": 23.3,
+        "rolling_28day": 23.3,
+        "rolling_180day": 23.3
       },
       "skills": [
         "academic-deep-research",
@@ -643,19 +643,73 @@
       ],
       "crons": [
         {
-          "name": "Sam \u2014 Nightly Consolidation (23:00 IST)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782495658305,
+          "sched": "every 30m",
+          "last_ts": 1782496045954,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "digest-update-ciso",
+          "enabled": true,
+          "sched": "15 23 * * *",
+          "last_ts": 1782495948000,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "digest-update-legal",
+          "enabled": true,
+          "sched": "15 23 * * *",
+          "last_ts": 1782495948000,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "digest-update-ca",
+          "enabled": true,
+          "sched": "15 23 * * *",
+          "last_ts": 1782495947999,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Consolidation \u2014 23:05 IST (v2)",
+          "enabled": true,
+          "sched": "5 23 * * *",
+          "last_ts": 1782495912429,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
+          "enabled": true,
+          "sched": "every 5m",
+          "last_ts": 1782495912429,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782495912429,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782495658304,
+          "last_ts": 1782495912428,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
@@ -664,9 +718,54 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782495658304,
+          "last_ts": 1782495912428,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1782495912428,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
+          "last_ts": 1782495912427,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Monk \u2014 Memory Consolidation (via Haderach)",
+          "enabled": true,
+          "sched": "3 23 * * *",
+          "last_ts": 1782495912427,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782495912426,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam \u2014 Nightly Consolidation (23:00 IST)",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1782495658305,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -688,42 +787,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782495658300,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
-          "enabled": true,
-          "sched": "every 5m",
-          "last_ts": 1782494811394,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782494750147,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782494240291,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -739,15 +802,6 @@
           "last_ts": 1782491723352,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1782491609082,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -998,60 +1052,6 @@
           "enabled": true,
           "sched": "45 23 * * *",
           "last_ts": 1782411314652,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "digest-update-ca",
-          "enabled": true,
-          "sched": "15 23 * * *",
-          "last_ts": 1782409647938,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "digest-update-ciso",
-          "enabled": true,
-          "sched": "15 23 * * *",
-          "last_ts": 1782409647938,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "digest-update-legal",
-          "enabled": true,
-          "sched": "15 23 * * *",
-          "last_ts": 1782409647938,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
-          "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1782409387306,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Consolidation \u2014 23:05 IST (v2)",
-          "enabled": true,
-          "sched": "5 23 * * *",
-          "last_ts": 1782409321041,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Monk \u2014 Memory Consolidation (via Haderach)",
-          "enabled": true,
-          "sched": "3 23 * * *",
-          "last_ts": 1782409321041,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1543,7 +1543,7 @@
       "up": true,
       "pid": 34374,
       "rss_gb": 0.45,
-      "cpu": 0.4,
+      "cpu": 1.1,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1552,10 +1552,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 1.3,
-        "rolling_7day": 23.0,
-        "rolling_28day": 22.9,
-        "rolling_180day": 22.9
+        "transcript": 1.4,
+        "rolling_7day": 23.1,
+        "rolling_28day": 23.0,
+        "rolling_180day": 23.0
       },
       "skills": [
         "moltguard"
@@ -1869,7 +1869,7 @@
       "up": true,
       "pid": 34303,
       "rss_gb": 0.42,
-      "cpu": 0.6,
+      "cpu": 2.6,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1877,10 +1877,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.1,
-        "rolling_28day": 23.1,
-        "rolling_180day": 23.1
+        "transcript": 0.3,
+        "rolling_7day": 23.2,
+        "rolling_28day": 23.2,
+        "rolling_180day": 23.2
       },
       "skills": [
         "twitacc"
@@ -2276,7 +2276,7 @@
       "up": true,
       "pid": 34049,
       "rss_gb": 0.37,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 8,
       "crons_enabled": 7,
       "skills_count": 14,
@@ -2284,10 +2284,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.2,
-        "rolling_7day": 23.1,
-        "rolling_28day": 1.2,
-        "rolling_180day": 1.2
+        "transcript": 1.3,
+        "rolling_7day": 23.2,
+        "rolling_28day": 1.3,
+        "rolling_180day": 1.3
       },
       "skills": [
         "academic-deep-research",
@@ -2652,7 +2652,7 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 34233,
-      "rss_gb": 0.43,
+      "rss_gb": 0.44,
       "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
@@ -2661,10 +2661,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.0,
-        "rolling_28day": 23.0,
-        "rolling_180day": 23.0
+        "transcript": 0.3,
+        "rolling_7day": 23.1,
+        "rolling_28day": 23.1,
+        "rolling_180day": 23.1
       },
       "skills": [
         "moltguard"
@@ -2943,16 +2943,16 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 0.2,
-        "rolling_28day": 0.2,
-        "rolling_180day": 0.2
+        "transcript": 0.2,
+        "rolling_7day": 0.3,
+        "rolling_28day": 0.3,
+        "rolling_180day": 0.3
       },
       "skills": [
         "moltguard"
@@ -3146,10 +3146,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.1,
-        "rolling_7day": 23.1,
-        "rolling_28day": 23.1,
-        "rolling_180day": 23.1
+        "transcript": 2.2,
+        "rolling_7day": 23.2,
+        "rolling_28day": 23.2,
+        "rolling_180day": 23.2
       },
       "skills": [
         "moltguard"
@@ -3382,7 +3382,7 @@
       "avatar": "medsmeda",
       "up": true,
       "pid": 34150,
-      "rss_gb": 0.38,
+      "rss_gb": 0.37,
       "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3391,14 +3391,23 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.0,
-        "rolling_7day": 22.9,
-        "rolling_28day": 22.9,
-        "rolling_180day": 46.9
+        "transcript": 2.1,
+        "rolling_7day": 23.0,
+        "rolling_28day": 23.0,
+        "rolling_180day": 47.0
       },
       "skills": [],
       "skills_detail": [],
       "crons": [
+        {
+          "name": "Medical SMEDA \u2014 Nightly Memory Consolidation",
+          "enabled": true,
+          "sched": "15 23 * * *",
+          "last_ts": 1782495920300,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "Medical SMEDA \u2014 Daily Study Session",
           "enabled": true,
@@ -3422,15 +3431,6 @@
           "enabled": true,
           "sched": "19 0 * * *",
           "last_ts": 1782413347370,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Medical SMEDA \u2014 Nightly Memory Consolidation",
-          "enabled": true,
-          "sched": "15 23 * * *",
-          "last_ts": 1782409505459,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3566,17 +3566,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 33801,
-      "rss_gb": 0.28,
-      "cpu": 0.6,
+      "rss_gb": 0.29,
+      "cpu": 1.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 0.1,
-        "rolling_28day": 0.1,
-        "rolling_180day": 0.1
+        "transcript": 0.2,
+        "rolling_7day": 0.2,
+        "rolling_28day": 0.2,
+        "rolling_180day": 0.2
       },
       "skills": [],
       "skills_detail": [],
@@ -3744,8 +3744,8 @@
       "avatar": "martin",
       "up": true,
       "pid": 33872,
-      "rss_gb": 0.23,
-      "cpu": 0.7,
+      "rss_gb": 0.22,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3777,7 +3777,7 @@
       "up": true,
       "pid": 33899,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3807,7 +3807,7 @@
       "up": true,
       "pid": 33989,
       "rss_gb": 0.38,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3815,10 +3815,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.1,
-        "rolling_28day": 23.1,
-        "rolling_180day": 23.1
+        "transcript": 0.3,
+        "rolling_7day": 23.2,
+        "rolling_28day": 23.2,
+        "rolling_180day": 23.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4190,7 +4190,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
+        "transcript": 0.1,
         "rolling_7day": 0.1,
         "rolling_28day": 0.1,
         "rolling_180day": null
