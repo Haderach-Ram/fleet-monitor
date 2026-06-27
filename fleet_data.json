@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-27 23:58:35 IST",
-  "generated_epoch": 1782584915,
+  "generated_ist": "2026-06-28 00:03:40 IST",
+  "generated_epoch": 1782585220,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.17 / 2.93 / 2.95",
+    "load": "3.65 / 3.18 / 3.02",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,7 +31,7 @@
       "avatar": "haderach",
       "up": true,
       "pid": 38958,
-      "rss_gb": 0.97,
+      "rss_gb": 0.94,
       "cpu": 1.3,
       "crons_total": 82,
       "crons_enabled": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 23.9,
-        "rolling_28day": 23.9,
-        "rolling_180day": 23.9
+        "transcript": 0.0,
+        "rolling_7day": 0.0,
+        "rolling_28day": 0.0,
+        "rolling_180day": 0.0
       },
       "skills": [
         "academic-deep-research",
@@ -643,6 +643,24 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1782585165728,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1782585008383,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
@@ -1012,15 +1030,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1782509409208,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-003 Reading \u2014 02:00 IST",
           "enabled": true,
           "sched": "0 2 * * *",
@@ -1034,15 +1043,6 @@
           "enabled": true,
           "sched": "0 1 * * 3,6",
           "last_ts": 1782502435847,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1782498936977,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1383,6 +1383,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-06-28",
+          "# Self-healing rotation from transcript-2026-06-27.md at 00:02 IST"
+        ],
+        "yesterday": [
           "\u2705 **All core systems:** Operational",
           "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
           "**Discord Status Update:**",
@@ -1424,56 +1428,7 @@
           "- Will remain offline indefinitely without fresh token + gateway restart",
           "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
-        "yesterday": [
-          "TwitAcc this. Sometime back I had posted this to you and you had analysed and said there was one memory-related thing we could pick from this. Do you remember, did we make a ProjHad?",
-          "[23:40 IST] HADERACH: I'll check both the tweet and my memory on this. Let me start.",
-          "[23:41 IST] HADERACH: Memory search is down (embedding provider timing out). I'll fall back to a direct grep across memory files, and read the tweet via TwitAcc in parallel.",
-          "[23:41 IST] HADERACH: Found the key thread: on **2026-06-22** (line 3676) and again referenced in the June transcript, you sent `https://x.com/undefinedki/status/2068306794116501544`. Let me read that section to recall what I said, and fetch the tweet fresh in parallel.",
-          "[23:41 IST] HADERACH: This jogs the full picture. On **22 Jun** you sent this exact tweet \u2014 @undefinedKi's long-form Article \"How to Build an AI Second Brain With Claude and Obsidian That Gets Smarter Every Day.\" I analysed it, you asked for a PDF report contrasting it with our memory architecture and picking out anything novel and useful, guarding against prompt injection. Let me find out what I picked and whether a ProjHad came of it. Fetching the tweet result in parallel.",
-          "[23:41 IST] HADERACH: No ProjHad with those names, and nothing in PROJECTS.md, the category files, or deliverables.md. The transcript section past line 3760 returned empty \u2014 let me check where it actually ends and look for the PDF deliverable + any decision/idea I flagged.",
-          "[23:42 IST] HADERACH: Found the deliverable: **`~/Desktop/Haderach/Output/Second_Brain_vs_Haderach_Memory_22Jun2026.pdf`**. The transcript on disk ends at line 3715 (the writing cron rotated/truncated the live tail before the full reply was captured), so the \"novel item we could pick\" is in that PDF, not the transcript. Let me read it and confirm whether a ProjHad was ever spun up.",
-          "[23:42 IST] HADERACH: The rolling log confirms the report was built but mentions no ProjHad and no follow-up. The PDF tool sandbox won't read the Desktop path \u2014 let me copy it into the workspace and read it, and also check the TwitAcc fetch that's still running.",
-          "[23:42 IST] HADERACH: The fresh fetch returned `no_content` again \u2014 same render-timing issue as on 22 Jun (X serves a spinner first via the `/i/status/` redirect form). That's fine; I already have the full article captured from the 22 Jun session and the report on disk. Let me read the report.",
-          "[23:42 IST] HADERACH: PDF model misconfigured. Let me extract the text directly instead.",
-          "[23:42 IST] HADERACH: I have the full answer. Let me clean up the temp copy.",
-          "[23:42 IST] HADERACH: Yes, Ram \u2014 I remember it now, and I've reconstructed the whole episode from the transcript and the report on disk.",
-          "**What it was.** On **Mon 22 Jun (23:44 IST)** you sent me this same link \u2014 @undefinedKi (\"Yarchi\")'s viral X Article, *\"How to Build an AI Second Brain With Claude and Obsidian That Gets Smarter Every Day\"* (~5.3M views). I fetched it via TwitAcc, you asked for a PDF contrasting it with our memory architecture and picking out anything novel, with a prompt-injection guard. I pro...",
-          "[23:43 IST] HADERACH: Yes, Ram \u2014 I remember it now, and I've reconstructed the whole episode from the transcript and the report on disk.",
-          "**What it was.** On **Mon 22 Jun (23:44 IST)** you sent me this same link \u2014 @undefinedKi (\"Yarchi\")'s viral X Article, *\"How to Build an AI Second Brain With Claude and Obsidian That Gets Smarter Every Day\"* (~5.3M views). I fetched it via TwitAcc, you asked for a PDF contrasting it with our memory architecture and picking out anything novel, with a prompt-injection guard. I pro...",
-          "[23:44 IST] RAM: Are you using Deckyin TwitAcc? Were you able to retrieve your recommendation?",
-          "[23:44 IST] HADERACH: Two questions, two straight answers:",
-          "**1. Is TwitAcc using Deckard?** Yes. The skill's `twitacc.py` drives the Deckard stealth browser with the saved @HaderachRam session (`twitter_session.json` / cookies). Tonight's run loaded the saved cookies and re-saved 24 cookies fine \u2014 so the session is live and authenticated. What it returned was `no_content`, the same loading-spinner render timeout as on 22 Jun for the `/i/status/` redirect form, **not** an auth failure. So: Deckard yes, session hea...",
-          "[23:44 IST] HADERACH: Two questions, two straight answers:",
-          "**1. Is TwitAcc using Deckard?** Yes. The skill's `twitacc.py` drives the Deckard stealth browser with the saved @HaderachRam session (`twitter_session.json` / cookies). Tonight's run loaded the saved cookies and re-saved 24 cookies fine \u2014 so the session is live and authenticated. What it returned was `no_content`, the same loading-spinner render timeout as on 22 Jun for the `/i/status/` redirect form, **not** an auth failure. So: Deckard yes, session hea...",
-          "[23:46 IST] RAM: Explain your recommendation? Will you go over the past transcripts and build this web/node etc? And at a later date can we discard this but still have all the transcripts including from this day on, be fully restored in old format?",
-          "[23:46 IST] HADERACH: Three questions. Let me answer each properly, because they get at the real design decision.",
-          "**1. Explain the recommendation.**",
-          "The idea is a **memory link-graph** \u2014 turning our memory from a stack of linear files into a navigable network of nodes and edges.",
-          "Today, every fact lives in exactly one home (`decisions.md`, `people.md`, `tech.md`, `projects.md`, `dead-ends.md`, transcripts). Recall works by **search** \u2014 I ask \"what's related to X\" and the embedding search guesses. That's good but...",
-          "[23:46 IST] HADERACH: Three questions. Let me answer each properly, because they get at the real design decision.",
-          "**1. Explain the recommendation.**",
-          "The idea is a **memory link-graph** \u2014 turning our memory from a stack of linear files into a navigable network of nodes and edges.",
-          "Today, every fact lives in exactly one home (`decisions.md`, `people.md`, `tech.md`, `projects.md`, `dead-ends.md`, transcripts). Recall works by **search** \u2014 I ask \"what's related to X\" and the embedding search guesses. That's good but...",
-          "[23:48 IST] RAM: So both the old transcripts and the transcripts from here on will stay exactly (format wise) as they have been, you are building something over this which can be discarded without any damage to the transcripts, right?",
-          "[23:48 IST] HADERACH: Correct. Precisely that.",
-          "**The guarantee, stated plainly:**",
-          "- **Old transcripts and every transcript from here on stay byte-for-byte as they are now.** Same daily-rotation format, same `[BOOKMARK]`/`[MEMORY_WRITE]`/`[DELIVERABLE]` markers, same plain Markdown. The graph build **reads** them; it never rewrites, restructures, or moves them.",
-          "- **What gets built lives entirely outside the transcripts** \u2014 separate new files (`graph.json`, a rendered diagram, a parser script). They're derived ar...",
-          "[23:48 IST] HADERACH: Correct. Precisely that.",
-          "**The guarantee, stated plainly:**",
-          "- **Old transcripts and every transcript from here on stay byte-for-byte as they are now.** Same daily-rotation format, same `[BOOKMARK]`/`[MEMORY_WRITE]`/`[DELIVERABLE]` markers, same plain Markdown. The graph build **reads** them; it never rewrites, restructures, or moves them.",
-          "- **What gets built lives entirely outside the transcripts** \u2014 separate new files (`graph.json`, a rendered diagram, a parser script). They're derived ar...",
-          "[23:50 IST] RAM: Yeah set up a ProjHad. And describe what we are doing. How we can rollback if we need etc etc",
-          "[23:50 IST] HADERACH: Setting it up now. Let me read the GEN category file first (per the ProjHad reading sequence), find the next free GEN id, then create the three files and sync TODO."
-        ],
         "rolling_7day": [
-          "- [18:30 IST] 2-hr ED call transcribed via local Whisper large-v3-turbo (13 chunks); Item-6 SLS + covering-letter (1:37:55-1:39:43) windows extracted",
-          "- [19:23 IST] CITATION CORRECTION: Obs-6 SLS reply - Mar 2025 observation governed by extant LRMF (4 Nov 2019 circular, in SBR MD 2023), NOT the 28 Nov 2025 ALM Directions which repealed it. Applied as tracked change",
-          "- [19:42 IST] Obs-6 reply softened (oblique, no reg quote) - SCL did ALCO/Board but did not notify DoS; closing gist cross-refs reply to point 5",
-          "- [20:25 IST] Covering-letter transcript docx + draft humble covering mail; iterated to tracked-changes vs Ram's AFI/period-specific upgrade",
-          "- [21:44 IST] Complaints/query voice notes transcribed: query-vs-complaint principle, Internal Ombudsman final say, dual MIS, DPD breakdown of 29,000; framed into docx",
-          "- [22:18 IST] Legal SMEDA consolidation-cron alert self-healed (same as 19 Jun); live sqlite has THREE crons incl. failing 6a3d14e0 '23:00' job absent from jobs.json - corrected diagnosis before Giskard note",
-          "- [23:10 IST] Watchdog re-fire: 23:00 consolidation missed; tagged entries promoted; git pushed",
           "---",
           "## 2026-06-23 \u2014 Azzouny auditor note, Haderach SCL mailbox, Discord-card root fix, Sam cron",
           "- [06:49 IST] HAD-048 Memory Link-Graph Layer PDF delivered (verified page-by-page).",
@@ -1506,22 +1461,16 @@
           "- [23:11 IST] RBI DG succession PDF built (Jan 2023 to Jun 2026 window)",
           "- [23:50 IST] GEN memory link-graph ProjHad initiated (read-only on transcripts, reversible)",
           "---",
-          "--- [Midnight run OK --- 2026-06-27 --- no new content] ---"
+          "--- [Midnight run OK --- 2026-06-27 --- no new content] ---",
+          "## 2026-06-27 \u2014 ICAAP tracked-changes doc + WashTower research",
+          "- [10:25 IST] GEB complete; Spotify re-auth confirmed live",
+          "- [11:43 IST] LG WashTower heat-pump integrated unit recommended for Mumbai",
+          "- [13:32 IST] SCL ICAAP FY26 tracked-changes: 7 edits, TOC placement bug fixed, final doc delivered (Ram Shenoy reviewer, standalone figures)",
+          "- [19:xx IST] HAD-052 Compiled Wiki scaffolded; linked to HAD-048",
+          "---",
+          "--- [Midnight run OK \u2014 2026-06-28 \u2014 entry added for 2026-06-27] ---"
         ],
         "rolling_28day": [
-          "- [18:31 IST] CREDENTIAL EXPOSURE: a string resembling the SCL mailbox password surfaced in chat during BWS parse - hard-rule violation; flagged for rotation, local traces cleaned.",
-          "- [21:12-21:46 IST] Backfilled Sam's rolling files (22/23 Jun heartbeat-only days); Giskard fixed Sam's real root cause - outer openclaw.json (OPENCLAW_STATE_DIR trap) + ap-south-1 Nova Pro region prefix.",
-          "--- [Midnight run OK \u2014 2026-06-24 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-06-24 \u2014 no new content] ---",
-          "## 2026-06-24 \u2014 Bedrock cost rebuild, heartbeat-fabrication purge, RBI SBR amendment, ICAAP review",
-          "*Day opened: ~00:12 IST. Major events in sequence:*",
-          "- [13:00 IST] AWS Bedrock Cost Report rebuilt by hand after 07:00 cron stalled (boot timeout, machine load 10+): June total $7,526.80, run-rate $313.62/day, projection ~$9,408.50.",
-          "- [13:00 IST] PDF blank-grid bug root-caused: reportlab default Helvetica doesn't embed; fixed by embedding Arial. Scheduled 07:00 cron's inline builder carries same trap.",
-          "- [13:00 IST] SSH to M2 verified live (Tailscale, key-based, uptime 8d); full M2 fleet audited \u2014 all UP except Legal-SMEDA 18797 (FROZEN, clean SIGTERM 20 Jun, stays frozen).",
-          "- [13:00 IST] Giskard/Martin cleanup flagged: empty ~/.openclaw-giskard shell + orphaned ai.martin.relay LaunchAgent (missing martin_bot.py).",
-          "- [13:00 IST] CAIO fleet-monitor caught repeating macOS `unused`-RAM false-alarm bug; debunked unverified \"SSD-rename\" heads-up \u2014 external content treated as data-to-verify.",
-          "- [23:00 IST] Heartbeat fabrication investigation closed: 73 fabricated \"Discord offline / code 1006\" cards purged (23+24 Jun); dashboard fleet_data.json rebuilt+pushed; dead-ends.md updated.",
-          "- [23:00 IST] Fleet-monitor passphrase security gap flagged (plaintext in STATUS.md, git-committed); passphrase mailed to ramnath.shenoy@gmail.com; STATUS.md scrub deferred.",
           "- [23:00 IST] RBI SBR Second Amendment Directions 2026 annotated (PyMuPDF, 11 clause-changes); NBFC-UL list produced (TA_A consolidated caveat for SCL); SCL ICAAP draft reviewed (66 tables, FY26, multiple errors flagged). New Rs.1L cr UL threshold likely costs SCL its UL status.",
           "- [23:00 IST] HAD-047 benchmark report rebuilt v2 (Sonnet 4.6 #1 91.7%, GLM 5.2 #12 84.6%); GLM 5.2 ~55% cheaper than Sonnet for 7pp lower performance. Radar Newsletter #009 missed Wed publish; recovery initiated.",
           "--- [Midnight run OK \u2014 2026-06-25 \u2014 no new content] ---",
@@ -1548,7 +1497,20 @@
           "- [17:17 IST] RM-Reminder pairs (ca-smeda, 5 pairs) retained; 14-Jun delivers to Telegram group, 15-Jun silent.",
           "- [23:11 IST] RBI DG succession PDF built (Jan 2023 to Jun 2026 window); filed to Desktop.",
           "- [23:50 IST] Memory link-graph ProjHad initiated (GEN category), read-only overlay on transcripts, reversible.",
-          "--- [Midnight run OK --- 2026-06-27 --- no new content] ---"
+          "--- [Midnight run OK --- 2026-06-27 --- no new content] ---",
+          "## 2026-06-27 \u2014 SCL ICAAP tracked-changes doc, WashTower research, GEB complete",
+          "*Day opened: ~00:09 IST. Major events in sequence:*",
+          "- [00:09 IST] Overnight heartbeats: Gateway healthy, Discord offline (100+ hrs, token invalid)",
+          "- [05:47 IST] MusApp cron cadence question: two jobs explained (daily Reddit reading + self-directed)",
+          "- [10:25 IST] Spotify re-auth confirmed live; GEB formally completed in HAD-003 2 AM run (26 Jun)",
+          "- [10:41 IST] Discussion: re-reading GEB with music ~17 nights; BlackHole device-index fix parked",
+          "- [11:43 IST] Appliance research: LG WashTower (FWT1310BG/PB) heat-pump integrated unit recommended for Mumbai",
+          "- [13:32 IST] SCL ICAAP FY26: 7 tracked-changes edits (FY26 item, RBI provenance, reverse stress testing, macro scenario, management triggers, future-bullet)",
+          "- [13:54 IST] Bug fix: inserted sections were in TOC; re-anchored to body via _Toc232420030 bookmark",
+          "- [14:18 IST] v3 rebuild: standalone figures (Rs 7597 Cr loss, CRAR 20.32%), justified, no em dashes, reviewer=Ram Shenoy; final file delivered",
+          "- [19:xx IST] HAD-052 Compiled Wiki project scaffolded; linked to HAD-048 Memory Link-Graph Layer",
+          "- [21:xx IST] Evening heartbeats; no substantive new work",
+          "--- [Midnight run OK \u2014 2026-06-28 \u2014 entry added for 2026-06-27] ---"
         ]
       }
     },
@@ -1560,8 +1522,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.44,
-      "cpu": 1.9,
+      "rss_gb": 0.45,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1571,9 +1533,9 @@
       ],
       "memory": {
         "transcript": 0.6,
-        "rolling_7day": 23.8,
-        "rolling_28day": 23.8,
-        "rolling_180day": 47.6
+        "rolling_7day": 23.9,
+        "rolling_28day": 23.9,
+        "rolling_180day": 47.7
       },
       "skills": [
         "moltguard"
@@ -1905,8 +1867,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 46450,
-      "rss_gb": 0.43,
-      "cpu": 1.3,
+      "rss_gb": 0.45,
+      "cpu": 1.2,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1914,10 +1876,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 23.9,
-        "rolling_28day": 23.9,
-        "rolling_180day": 23.9
+        "transcript": 0.0,
+        "rolling_7day": 24.0,
+        "rolling_28day": 24.0,
+        "rolling_180day": 24.0
       },
       "skills": [
         "twitacc"
@@ -1935,6 +1897,15 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "3 18,21,0,3 * * *",
+          "last_ts": 1782585183325,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 Nightly Memory Consolidation (23:00 IST)",
           "enabled": true,
           "sched": "30 23 * * *",
@@ -1948,15 +1919,6 @@
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1782581425580,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "3 18,21,0,3 * * *",
-          "last_ts": 1782574382932,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2135,6 +2097,48 @@
       ],
       "transcripts": {
         "recent": [
+          "- VIX: 12.93 (< 18)",
+          "- Portfolio: +7.1% YTD (safe)",
+          "\u2705 **Status:**",
+          "- Pot 1: \u20b963,120 (+7.1% YTD)",
+          "- Pot 2: \u20b90 (no open positions)",
+          "- Total: \u20b9345,737",
+          "---",
+          "HEARTBEAT_OK",
+          "[23:30 IST] KUBERA [Cron: Kubera \u2014 Nightly Memory Consolidation (23:00 IST)]: I'll execute the nightly memory consolidation for Kubera. Let me start by checking the current date and reading today's daily log.",
+          "[23:30 IST] KUBERA [Cron: Kubera \u2014 Nightly Memory Consolidation (23:00 IST)]: Good \u2014 today's log exists. Now I'll execute Phase 1\u20136 of the nightly consolidation: append to transcript, update monthly archive, update heartbeat state, and git commit.",
+          "[23:30 IST] KUBERA [Cron: Kubera \u2014 Nightly Memory Consolidation (23:00 IST)]: Now executing Phase 7: Standing Fact Aggregation. I'll extract current portfolio state and VIX from today's log, then update [STANDING_FACT] entries.",
+          "[23:30 IST] KUBERA [Cron: Kubera \u2014 Nightly Memory Consolidation (23:00 IST)]: Perfect. Now updating the daily log with [STANDING_FACT] entries:",
+          "[23:30 IST] KUBERA [Cron: Kubera \u2014 Nightly Memory Consolidation (23:00 IST)]: Excellent. Final commit with standing facts:",
+          "[23:30 IST] KUBERA [Cron: Kubera \u2014 Nightly Memory Consolidation (23:00 IST)]: ---",
+          "**\u2713 KUBERA NIGHTLY CONSOLIDATION COMPLETE \u2014 23:30 IST (27 Jun 2026)**",
+          "**Summary:**",
+          "- **Transcript:** 3 items logged to `transcript-2026-04.md`",
+          "- **Archive:** Monthly summary appended to `2026-06-summary.md`",
+          "- **Heartbeat:** Last consolidation timestamp updated",
+          "- **Standing Facts:** 4 facts added to daily log (portfolio total, Pot 1 value, VIX, YTD return)",
+          "- **Git:** Committed and pushed",
+          "**State at consolidation:**",
+          "- Portfolio: \u20b9345,737 (+7.1% YTD)",
+          "- All alert gates: PASS (5/5)",
+          "- Weekend h",
+          "[23:56 IST] RAM: [OpenClaw heartbeat poll]",
+          "[23:56 IST] KUBERA: Running heartbeat checks:",
+          "[23:56 IST] KUBERA: **Market is closed (Saturday 23:56 IST \u2014 nightly consolidation window).**",
+          "\u2705 **All alert gates PASS (5/5)**",
+          "- Crude: -0.90% (well below 3%)",
+          "- Index: flat (well below 1.5% downside)",
+          "- Geo: stable",
+          "- VIX: 12.93 (< 18)",
+          "- Portfolio: +7.1% YTD (safe)",
+          "\u2705 **Status:**",
+          "- Pot 1: \u20b963,120 (+7.1% YTD)",
+          "- Pot 2: \u20b90 (no open positions)",
+          "- Total: \u20b9345,737",
+          "---",
+          "HEARTBEAT_OK"
+        ],
+        "yesterday": [
           "- Index: flat (well below 1.5% downside)",
           "- Geo: stable",
           "- VIX: 12.93 (< 18)",
@@ -2175,48 +2179,6 @@
           "- Total: \u20b9345,737",
           "---",
           "HEARTBEAT_OK"
-        ],
-        "yesterday": [
-          "[20:56 IST] KUBERA: Running heartbeat checks:",
-          "[20:56 IST] KUBERA: **Market is closed (Friday 20:56 IST).**",
-          "Reviewing heartbeat state:",
-          "\u2705 **All alert gates PASS (5/5)**",
-          "- Crude: -0.90% (threshold >3%)",
-          "- Index: flat (threshold >1.5% down)",
-          "- Geo: ceasefire operationalized, Hormuz 85%+ ops",
-          "- VIX: 12.93 (gate OPEN)",
-          "- Portfolio: +7.1% YTD (buffer 8-10% to -15% red-line)",
-          "\u2705 **Portfolio Status (last update 18:03 IST Jun 25):**",
-          "- Pot 1: \u20b963,120 (+7.1% YTD)",
-          "- Holdings: AUROPHARMA +18.8%, APOLLOHOSP +17.0%, ICICIBANK +9.3% (all green)",
-          "- Pot 2: \u20b90 (no open positions; gat",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: I'll start by checking market status and current portfolio context, then execute the Twitter/news scrape for off-hours analysis.",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me check what's available and read core memory:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Now let me run the Twitter/news scrape for off-hours analysis:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Web search is unavailable. Let me check the research inbox and recent transcript to build context:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Now let me read the thesis ledger to understand active market beliefs:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Now let me check if there have been any meaningful off-hours developments since the last scan and update the research inbox with tonight's status:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Excellent context. Now let me consolidate the off-hours findings (21:03 IST status) and update the research inbox. Since web search is disabled, I'll synthesize from the available data and market dynamics:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Now update the heartbeat state to reflect the latest cron run:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me read the exact format and then edit properly:",
-          "[21:03 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me simplify and just update the top-level fields:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me just rewrite the key sections needed:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: The special character encoding is causing issues. Let me use a different approach and just log the status to today's daily log:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good, there's already an 18:03 entry. Let me append the 21:03 final status:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Now let me append the 21:03 final cron update:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Excellent. Now let me create a final transcript bookmark to record this cron run:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me check the end of the transcript file:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good. Now let me append the final cron run entry:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Now let me verify the cron completion by reading the research inbox header one more time to confirm the updates:",
-          "[21:04 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. The cron is complete. Let me create a final summary:",
-          "---",
-          "## \u2705 **TWITTER WATCHER OFF-HOURS CRON COMPLETE** \u2014 Jun 26, 21:03 IST",
-          "**Status:** SILENT RUN \u2014 No urgent messaging to Ram",
-          "**Alert Gate Assessment:**",
-          "- \u2705 Crude oil: -5.66% Brent, -5.19% WTI (single-session <3% per alert design; structural -21% MTD thesis-driven, OPERATIONALIZED)",
-          "- \u2705 Nifty index: +0.83% 1D (no >1.5% downside)",
-          "- \u2705 Geopolitical: Iran-US MoU (Jun 19) operationally consolidated; Hormuz 85%+ operational; no escalation",
-          "[23:00 IST] KUBERA [Cron: kubera-consolidation-23]: \u2705 **Nightly consolidation complete.**"
         ],
         "rolling_7day": [
           "## 2026-06-21 \u2014 Weekend Consolidation",
@@ -2312,8 +2274,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.45,
-      "cpu": 1.0,
+      "rss_gb": 0.44,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2321,10 +2283,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 23.8,
-        "rolling_28day": 23.8,
-        "rolling_180day": 23.8
+        "transcript": 0.6,
+        "rolling_7day": 23.9,
+        "rolling_28day": 23.9,
+        "rolling_180day": 23.9
       },
       "skills": [
         "academic-deep-research",
@@ -2682,7 +2644,7 @@
       "up": true,
       "pid": 34233,
       "rss_gb": 0.43,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2690,10 +2652,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 11.9,
-        "rolling_28day": 23.7,
-        "rolling_180day": 23.7
+        "transcript": 1.1,
+        "rolling_7day": 12.0,
+        "rolling_28day": 23.8,
+        "rolling_180day": 23.8
       },
       "skills": [
         "moltguard"
@@ -2972,15 +2934,15 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.28,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 1.0,
-        "rolling_28day": 1.0,
+        "transcript": 0.2,
+        "rolling_7day": 0.0,
+        "rolling_28day": 0.0,
         "rolling_180day": 1.0
       },
       "skills": [
@@ -2999,6 +2961,15 @@
       ],
       "crons": [
         {
+          "name": "Legal-SMEDA \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1782585103837,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -3012,15 +2983,6 @@
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1782581473245,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Legal-SMEDA \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1782498725591,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3067,7 +3029,6 @@
           "6. **Transcript sentinel** \u2014 `[MEMORY_WRITE: 23:00 IST 2026-06-26 \u2014 23:00 consolidatio"
         ],
         "rolling_7day": [
-          "## 2026-06-20 \u2014 No activity (Post-AIBE Quiet Period, Day 13)",
           "- No study activity. Post-AIBE XXI quiet period continues (exam taken 7 Jun 2026).",
           "- All-day auto-checkpoint bookmarks only; zero user interactions; all cron jobs ran cleanly.",
           "- System awaiting CS Executive and AIBE XXI results. Next focus: NISM Series IX (Aug 2026).",
@@ -3106,10 +3067,10 @@
           "--- [Midnight run OK -- 2026-06-26 -- no new content] ---",
           "## 2026-06-27 -- Post-AIBE Quiet Period (Day 20)",
           "No study sessions. System idle all day; only automated cron heartbeats logged. Awaiting CS Executive and AIBE XXI results. Next credential: NISM Series IX (Aug 2026). Running avg: 8.70/10 (47 sessions, frozen).",
-          "--- [23:00 Consolidation OK -- 2026-06-27 -- quiet period summary appended] ---"
+          "--- [23:00 Consolidation OK -- 2026-06-27 -- quiet period summary appended] ---",
+          "--- [Midnight run OK -- 2026-06-27 -- no new content] ---"
         ],
         "rolling_28day": [
-          "--- [23:00 Consolidation OK \u2014 2026-06-18 \u2014 no study activity, idle day logged] ---",
           "--- [Midnight run OK \u2014 2026-06-18 \u2014 no new content] ---",
           "## 2026-06-19 \u2014 No activity (Post-AIBE Quiet Period, Day 12)",
           "- No study sessions. System idle all day; only automated cron heartbeats logged.",
@@ -3148,7 +3109,8 @@
           "--- [Midnight run OK -- 2026-06-26 -- no new content] ---",
           "## 2026-06-27 -- Post-AIBE Quiet Period (Day 20)",
           "No study sessions. System idle all day; only automated cron heartbeats logged. Awaiting CS Executive and AIBE XXI results. Next credential: NISM Series IX (Aug 2026). Running avg: 8.70/10 (47 sessions, frozen).",
-          "--- [23:00 Consolidation OK -- 2026-06-27 -- quiet period summary appended] ---"
+          "--- [23:00 Consolidation OK -- 2026-06-27 -- quiet period summary appended] ---",
+          "--- [Midnight run OK -- 2026-06-27 -- no new content] ---"
         ]
       }
     },
@@ -3160,17 +3122,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 34197,
-      "rss_gb": 0.33,
-      "cpu": 1.0,
+      "rss_gb": 0.36,
+      "cpu": 1.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 2.8,
-        "rolling_7day": 23.8,
-        "rolling_28day": 23.8,
-        "rolling_180day": 23.8
+        "transcript": 0.0,
+        "rolling_7day": 23.9,
+        "rolling_28day": 23.9,
+        "rolling_180day": 23.9
       },
       "skills": [
         "moltguard"
@@ -3188,19 +3150,19 @@
       ],
       "crons": [
         {
-          "name": "CISO SMEDA \u2014 Nightly Memory Consolidation",
+          "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782581481984,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782585125232,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
+          "name": "CISO SMEDA \u2014 Nightly Memory Consolidation",
           "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782574721739,
+          "sched": "0 23 * * *",
+          "last_ts": 1782581481984,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3226,6 +3188,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-06-28",
+          "# Self-healing rotation from transcript-2026-06-27.md at 00:02 IST"
+        ],
+        "yesterday": [
           "[23:00 IST] CISO-SMEDA: Context at 58% \u2014 below 80% threshold. Proceeding with consolidation.",
           "[23:02 IST] CISO-SMEDA: NO_REPLY",
           "[00:07 IST] CISO-SMEDA: The `\\n` in the write tool is being stored as literal backslash-n. Let me use exec with a here-doc script file instead:",
@@ -3266,48 +3232,6 @@
           "| Cumulative MCQs | **695/695 (100%)** |",
           "| Knowledge decay | **Zero \u2014 1-day gap confirmed** |",
           "| Exam pass probability | **94%+** |"
-        ],
-        "yesterday": [
-          "[23:00 IST] CISO-SMEDA: Context at 37% \u2014 proceed with consolidation.",
-          "[23:01 IST] CISO-SMEDA: NO_REPLY",
-          "[00:02 IST] CISO-SMEDA: NO_REPLY",
-          "[00:06 IST] CISO-SMEDA: The write tool is embedding literal `\\n` sequences. Let me write the file properly with exec:",
-          "[00:07 IST] CISO-SMEDA: The heredoc is also embedding `\\n` literally. Let me use printf to build the file:",
-          "[06:01 IST] CISO-SMEDA: NO_REPLY",
-          "[09:01 IST] CISO-SMEDA: NO_REPLY",
-          "[12:01 IST] CISO-SMEDA: NO_REPLY",
-          "[15:01 IST] CISO-SMEDA: NO_REPLY",
-          "[18:01 IST] CISO-SMEDA: NO_REPLY",
-          "[20:22 IST] CISO-SMEDA: NO_REPLY",
-          "[21:00 IST] CISO-SMEDA: I have a full picture of the study context. Today is **26 June 2026** \u2014 Session 28 of Phase 5, a 1-day gap test from yesterday's Session 27 (20/20, 9.0/10). Let me now run a full-depth retention drill with 20 fresh questions across all 4 CISM domains, mapped to the Indian regulatory stack.",
-          "[21:01 IST] CISO-SMEDA: ---",
-          "# CISO SMEDA \u2014 Phase 5 Session 28",
-          "**Date:** Friday, 26 June 2026 | **Time:** 21:00 IST  ",
-          "**Type:** Retention Drill \u2014 1-day gap test (25 \u2192 26 June)  ",
-          "**Format:** 20 MCQs, exam-weighted (D1: 3Q, D2: 4Q, D3: 7Q, D4: 6Q)",
-          "---",
-          "## 20-Question Retention Drill",
-          "### Domain 1: Information Security Governance (Q1\u2013Q3)",
-          "---",
-          "**Q1.** A large NBFC has recently appointed a new Board of Directors after a merger. The incoming Board Chair asks the CISO to present an IS governance update. The CISO presents in",
-          "[21:05 IST] CISO-SMEDA: Now update MEMORY.md and study-trajectory.md with today's session entry:",
-          "[21:06 IST] CISO-SMEDA: Now update the self-assessment table in MEMORY.md:",
-          "[21:07 IST] CISO-SMEDA: Now commit all changes to git:",
-          "[21:07 IST] CISO-SMEDA: ---",
-          "## CISO SMEDA \u2014 Phase 5 Session 28 Complete \u2705",
-          "**Friday, 26 June 2026 | 21:00 IST**",
-          "---",
-          "### Session Results",
-          "| Metric | Value |",
-          "|--------|-------|",
-          "| **Score** | 20/20 (100%) |",
-          "| **Self-Assessment** | **9.0/10** |",
-          "| **Gap Test** | 1-day (25\u219226 June) \u2014 **ZERO DECAY** |",
-          "| **Consecutive 9.0/10 streak** | **28 sessions** |",
-          "| **CERT-In clock streak** | **28 consecutive confirmations** |",
-          "| **Total sessions** | 50 (22 Phase 2\u20134 + 28 Phase 5) |",
-          "| **Cumulative MCQs** | **675/675 (100%)** |",
-          "| **Exam"
         ],
         "rolling_7day": [
           "- SEBI CSCRF per-entity; CRO dual-role = PRIMARY governance finding; IS strategy from business strategy; MTTD 8.2h vs CERT-In 6h = structural gap",
@@ -3404,7 +3328,7 @@
       "up": true,
       "pid": 34150,
       "rss_gb": 0.34,
-      "cpu": 1.0,
+      "cpu": 1.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3412,7 +3336,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.7,
+        "transcript": 2.8,
         "rolling_7day": 23.7,
         "rolling_28day": 23.7,
         "rolling_180day": 23.7
@@ -3612,17 +3536,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 33801,
-      "rss_gb": 0.24,
-      "cpu": 1.2,
+      "rss_gb": 0.25,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 0.9,
-        "rolling_28day": 0.9,
-        "rolling_180day": 0.9
+        "transcript": 0.2,
+        "rolling_7day": 1.0,
+        "rolling_28day": 1.0,
+        "rolling_180day": 1.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3793,7 +3717,7 @@
       "up": true,
       "pid": 33872,
       "rss_gb": 0.22,
-      "cpu": 1.0,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3825,7 +3749,7 @@
       "up": true,
       "pid": 33899,
       "rss_gb": 0.2,
-      "cpu": 0.8,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3855,7 +3779,7 @@
       "up": true,
       "pid": 33989,
       "rss_gb": 0.37,
-      "cpu": 1.9,
+      "cpu": 0.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3863,10 +3787,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 23.8,
-        "rolling_28day": 23.8,
-        "rolling_180day": 23.8
+        "transcript": 0.6,
+        "rolling_7day": 23.9,
+        "rolling_28day": 23.9,
+        "rolling_180day": 23.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4229,8 +4153,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 34329,
-      "rss_gb": 0.37,
-      "cpu": 1.0,
+      "rss_gb": 0.38,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4238,9 +4162,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 0.8,
-        "rolling_28day": 0.8,
+        "transcript": 0.0,
+        "rolling_7day": 0.9,
+        "rolling_28day": 0.9,
         "rolling_180day": null
       },
       "skills": [
@@ -4540,6 +4464,10 @@
       "crons": [],
       "transcripts": {
         "recent": [
+          "# Sam Transcript \u2014 2026-06-28",
+          "# Self-healing rotation from transcript-2026-06-27.md at 00:03 IST"
+        ],
+        "yesterday": [
           "Let's try requesting the `cron` configuration:",
           "[20:35 IST] SAM: The `cron` configuration appears to be correctly set up with a maximum of 1 concurrent run allowed.",
           "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
@@ -4578,48 +4506,6 @@
           "[23:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
           "Let's try requesting the `cron` configuration:",
           "[23:34 IST] SAM: The `cron` configuration appears to be correctly set up. The maximum concurrent runs are set to `1`.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK"
-        ],
-        "yesterday": [
-          "Let's try requesting the `channels` configuration:",
-          "[20:34 IST] SAM: The `channels` configuration appears to be correctly set up. The Telegram group `-5279791513` is configured with an open policy, allowing messages from both you (8489979671) and Gagan (6914922014).",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[21:04 IST] RAM: [OpenClaw heartbeat poll]",
-          "[21:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `gateway` configuration:",
-          "[21:04 IST] SAM: The `gateway` configuration appears to be correctly set up. The port is set to `18812`, the mode is `local`, and it's bound to `loopback` with token authentication.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[21:34 IST] RAM: [OpenClaw heartbeat poll]",
-          "[21:34 IST] SAM: </tool>",
-          "[21:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `plugins` configuration:",
-          "[21:34 IST] SAM: The `plugins` configuration appears to be correctly set up. The `telegram`, `amazon-bedrock`, and `microsoft` plugins are enabled, while `bonjour` is disabled.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[22:04 IST] RAM: [OpenClaw heartbeat poll]",
-          "[22:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `plugins` configuration:",
-          "[22:04 IST] SAM: The `plugins` configuration appears to be correctly set up. The plugins `amazon-bedrock` and `microsoft` are enabled, while `bonjour` is disabled. The `telegram` plugin is enabled, which aligns with the previous checks.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[22:34 IST] RAM: [OpenClaw heartbeat poll]",
-          "[22:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `tools` configuration:",
-          "[22:34 IST] SAM: The `tools` configuration appears to be correctly set up. The `agentToAgent` tool is enabled and allows communication with `agent:main:telegram:direct:8489979671`. The `exec` tool is configured to run on the `gateway` host with full security and no ask required.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[23:04 IST] RAM: [OpenClaw heartbeat poll]",
-          "[23:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `agents` configuration:",
-          "[23:04 IST] SAM: The `agents` configuration appears to be correctly set up. The default model is `amazon-bedrock/global.anthropic.claude-sonnet-4-6` with fallbacks to `amazon-bedrock/apac.amazon.nova-pro-v1:0` and `anthropic/claude-sonnet-4-6`. The workspace is set to `/Users/ram_macmini/.openclaw-gagan/workspace`, and memory search is configured to use `gemini` with the model `gemini-embedding-001`.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, every...",
-          "[23:34 IST] RAM: [OpenClaw heartbeat poll]",
-          "[23:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `auth` configuration:",
-          "[23:34 IST] SAM: The `auth` configuration appears to be correctly set up. The profiles for `amazon-bedrock` and `anthropic` are configured with the appropriate providers and modes.",
           "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
           "HEARTBEAT_OK"
         ],
