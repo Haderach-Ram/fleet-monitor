@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-28 10:30:07 IST",
-  "generated_epoch": 1782622807,
+  "generated_ist": "2026-06-28 10:35:12 IST",
+  "generated_epoch": 1782623112,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.67 / 3.40 / 3.25",
+    "load": "3.72 / 3.38 / 3.26",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 38958,
-      "rss_gb": 0.99,
-      "cpu": 0.9,
+      "rss_gb": 1.04,
+      "cpu": 21.3,
       "crons_total": 81,
       "crons_enabled": 58,
       "skills_count": 59,
@@ -42,7 +42,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
+        "transcript": 0.1,
         "rolling_7day": 10.5,
         "rolling_28day": 10.5,
         "rolling_180day": 10.5
@@ -643,19 +643,46 @@
       ],
       "crons": [
         {
-          "name": "Sam transcript update",
+          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782622649529,
+          "sched": "every 5m",
+          "last_ts": 1782622891082,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 5m",
-          "last_ts": 1782622597757,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782622857044,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782622857044,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782622857043,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782622649529,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
@@ -667,33 +694,6 @@
           "last_ts": 1782622405593,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782622223553,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782622223552,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782622223552,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1374,31 +1374,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Which means we're clear to run the **GEB musical-revisit** whenever you like \u2014 the Musical Offering finale: Six-Part Ricercar, Trio Sonata, Endlessly Rising Canon, Crab Canon. Say the wor...",
-          "[09:44 IST] HADERACH: Removed. No more morning Spotify nags.",
-          "So, to close the loop:",
-          "- **The reminder:** deleted. It was a daily-recurring cron masquerading as a one-shot \u2014 that's the bug that made it fire two days running.",
-          "- **Spotify:** already properly linked. Both `sp_dc` and `sp_t` cookies are live, so spogo is good to go.",
-          "Which means we're clear to run the **GEB musical-revisit** whenever you like \u2014 the Musical Offering finale: Six-Part Ricercar, Trio Sonata, Endlessly Rising Canon, Crab Canon. Say the wor...",
-          "[09:45 IST] RAM: Do it",
-          "[09:45 IST] HADERACH: Splendid. Let me load the MusApp skill and kick off the listening pass over the Musical Offering finale.",
-          "[09:45 IST] HADERACH: The skill is clear: genuine MusApp listening means **BlackHole 2ch capture + audio_analyze.py**, not inference. Let me verify the audio pipeline is intact, then find the four pieces on Spotify.",
-          "The Musical Offering finale comprises the two Ricercars, the Trio Sonata, and the canons. Let me locate them and check the capture setup in parallel.",
-          "[09:45 IST] HADERACH: Audio pipeline is intact (BlackHole 2ch present, audio_analyze.py present). One thing to note: the **default output is currently BlackHole 2ch alone** \u2014 for genuine listening I need the **Multi-Output Device** so audio plays on your Bose speakers *and* feeds BlackHole for capture. Let me set that, and check on the spogo searches.",
-          "[09:45 IST] HADERACH: Good \u2014 I have the first three pieces located. Let me grab the Crab Canon result and set the output to the Multi-Output Device so capture works while you hear it.",
-          "[09:45 IST] HADERACH: All four pieces located. I'll use the **Ramin Bahrami** recordings where available for consistency (single artist, piano \u2014 clean texture for analysis), and pick coherent recordings for each. Selected:",
-          "- **Ricercar a 6** \u2014 Bahrami `59EojeTQtkc1ODut2AkxLW`",
-          "- **Canon per tonos** (Endlessly Rising) \u2014 Bahrami `2K2PRiF0lHoRoR6pQeu7Ze`",
-          "- **Canon cancrizans** (Crab) \u2014 Bahrami `2LxcoIWGRipjQqaP8z5UC4`",
-          "- **Trio Sonata: Largo** \u2014 Bahrami `7KXOv9ZzlWXLBKAD688YGH`",
-          "Now let me set the Multi-Output Device ...",
-          "[09:46 IST] HADERACH: Output routed correctly. Now \u2014 the Crab Canon (*cancrizans*): the piece that reads identically forwards and backwards, the same melodic line played against its own retrograde. Starting playback and capturing.",
-          "[09:47 IST] HADERACH: First piece captured and analysed. Let me proceed through the remaining three. I'll play and capture each in turn \u2014 starting the Canon per tonos now.",
-          "[09:47 IST] HADERACH: The per tonos capture is telling \u2014 note the key reads as A# major mid-piece, not the home C minor. That's the canon's signature: it modulates up a whole tone each cycle and never resolves home. The analyzer caught it mid-ascent. Now the Trio Sonata Largo.",
-          "[09:48 IST] HADERACH: And finally the summit \u2014 the Ricercar a 6, the six-voice fugue Bach improvised the seed of before Frederick the Great and then wrote out in full.",
-          "[09:50 IST] HADERACH: All four captured and analysed. Let me restore your normal audio output, write the journal entries, and close GEB.",
-          "[09:51 IST] HADERACH: Done, Ram. Genuine listening \u2014 all four captured live through BlackHole, not inferred. Output's back on your speakers.",
-          "**The Musical Offering finale \u2014 what the captures revealed**",
           "**\ud83e\udd80 Canon cancrizans (Crab Canon)** \u2014 C minor, 99.1% harmonic, almost no percussive content. The palindrome made measurable: a line played against its own retrograde, identical forwards and backwards. There's nothing rhythmic to break the mirror \u2014 the structure *is* the content. Hofstadter's strange-loop archetype...",
           "[09:51 IST] HADERACH: Done, Ram. Genuine listening \u2014 all four captured live through BlackHole, not inferred. Output's back on your speakers.",
           "**The Musical Offering finale \u2014 what the captures revealed**",
@@ -1413,7 +1388,32 @@
           "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
           "- Token invalid (code 1006 closure pattern confirms authentication failure)",
           "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[10:21 IST] RAM: How do we solve these issues?",
+          "[10:22 IST] HADERACH: Let me actually diagnose the two real defects before prescribing fixes \u2014 I'd rather show you the root cause than guess. Let me look at the pdf-tool config and the verify-gate definition.",
+          "[10:22 IST] HADERACH: The grep over the whole workspace is slow. Let me narrow it and look at the pdf-tool model config directly.",
+          "[10:22 IST] HADERACH: Now I can see the real picture. Let me check whether that openrouter model is actually registered and whether OpenRouter is even configured, plus locate the verify-gate.",
+          "[10:23 IST] HADERACH: Now I understand both defects precisely. Let me confirm the verify-gate config and check the earlier successful sends to understand why it worked before but not now.",
+          "[10:23 IST] HADERACH: Now I have the complete diagnosis. Both problems are clear and fixable. Here's exactly what's wrong and how to solve each.",
+          "---",
+          "## The two real defects",
+          "**Defect 1 \u2014 `imageModel` points at a dead model.**",
+          "Your config has:",
+          "```",
+          "agents.defaults.imageModel.primary = openrouter/google/gemini-2.5-flash",
+          "imageModel.fallbacks = []   \u2190 empty",
+          "```",
+          "The `pdf` tool failed with *\"Unknown model: openrouter/google/gemini-2.5-flash\"* \u2014 so even though OpenRouter is configured with an API key, the runtime can'...",
+          "[10:23 IST] HADERACH: Now I have the complete diagnosis. Both problems are clear and fixable. Here's exactly what's wrong and how to solve each.",
+          "---",
+          "## The two real defects",
+          "**Defect 1 \u2014 `imageModel` points at a dead model.**",
+          "Your config has:",
+          "```",
+          "agents.defaults.imageModel.primary = openrouter/google/gemini-2.5-flash",
+          "imageModel.fallbacks = []   \u2190 empty",
+          "```",
+          "The `pdf` tool failed with *\"Unknown model: openrouter/google/gemini-2.5-flash\"* \u2014 so even though OpenRouter is configured with an API key, the runtime can'..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1551,8 +1551,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.46,
-      "cpu": 1.5,
+      "rss_gb": 0.47,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1561,10 +1561,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.3,
-        "rolling_28day": 10.3,
-        "rolling_180day": 58.1
+        "transcript": 0.2,
+        "rolling_7day": 10.4,
+        "rolling_28day": 10.4,
+        "rolling_180day": 58.2
       },
       "skills": [
         "moltguard"
@@ -1858,8 +1858,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 46450,
-      "rss_gb": 0.5,
-      "cpu": 0.8,
+      "rss_gb": 0.41,
+      "cpu": 1.2,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1867,10 +1867,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
-        "rolling_180day": 34.4
+        "transcript": 0.1,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
+        "rolling_180day": 34.5
       },
       "skills": [
         "twitacc"
@@ -2265,8 +2265,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.45,
-      "cpu": 1.2,
+      "rss_gb": 0.44,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2274,10 +2274,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 10.3,
-        "rolling_28day": 10.3,
-        "rolling_180day": 34.3
+        "transcript": 0.1,
+        "rolling_7day": 10.4,
+        "rolling_28day": 10.4,
+        "rolling_180day": 34.4
       },
       "skills": [
         "academic-deep-research",
@@ -2648,8 +2648,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 34233,
-      "rss_gb": 0.44,
-      "cpu": 0.4,
+      "rss_gb": 0.43,
+      "cpu": 1.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2657,10 +2657,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.3,
-        "rolling_7day": 10.2,
-        "rolling_28day": 10.2,
-        "rolling_180day": 10.2
+        "transcript": 1.4,
+        "rolling_7day": 10.3,
+        "rolling_28day": 10.3,
+        "rolling_180day": 10.3
       },
       "skills": [
         "moltguard"
@@ -2938,17 +2938,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 34274,
-      "rss_gb": 0.3,
-      "cpu": 0.1,
+      "rss_gb": 0.28,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 11.5
+        "transcript": 0.1,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 11.6
       },
       "skills": [
         "moltguard"
@@ -2969,7 +2969,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782622204829,
+          "last_ts": 1782622815730,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3116,10 +3116,10 @@
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 7.5,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
-        "rolling_180day": 10.4
+        "transcript": 7.6,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
+        "rolling_180day": 10.5
       },
       "skills": [
         "moltguard"
@@ -3323,7 +3323,7 @@
       "up": true,
       "pid": 34150,
       "rss_gb": 0.35,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3331,10 +3331,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.3,
-        "rolling_7day": 10.2,
-        "rolling_28day": 10.2,
-        "rolling_180day": 10.2
+        "transcript": 1.4,
+        "rolling_7day": 10.3,
+        "rolling_28day": 10.3,
+        "rolling_180day": 10.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3548,17 +3548,17 @@
       "avatar": "chet",
       "up": true,
       "pid": 33801,
-      "rss_gb": 0.28,
-      "cpu": 0.1,
+      "rss_gb": 0.27,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 11.4,
-        "rolling_28day": 11.4,
-        "rolling_180day": 11.4
+        "transcript": 0.1,
+        "rolling_7day": 11.5,
+        "rolling_28day": 11.5,
+        "rolling_180day": 11.5
       },
       "skills": [],
       "skills_detail": [],
@@ -3730,7 +3730,7 @@
       "avatar": "martin",
       "up": true,
       "pid": 33872,
-      "rss_gb": 0.22,
+      "rss_gb": 0.21,
       "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -3762,8 +3762,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 33899,
-      "rss_gb": 0.21,
-      "cpu": 0.6,
+      "rss_gb": 0.2,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3792,8 +3792,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 33989,
-      "rss_gb": 0.4,
-      "cpu": 0.4,
+      "rss_gb": 0.38,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3801,7 +3801,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
+        "transcript": 0.1,
         "rolling_7day": 10.4,
         "rolling_28day": 10.4,
         "rolling_180day": 34.4
@@ -4166,8 +4166,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 34329,
-      "rss_gb": 0.38,
-      "cpu": 0.7,
+      "rss_gb": 0.57,
+      "cpu": 31.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4175,7 +4175,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
+        "transcript": 0.1,
         "rolling_7day": 11.4,
         "rolling_28day": 11.4,
         "rolling_180day": null
