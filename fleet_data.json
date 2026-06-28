@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-28 21:07:46 IST",
-  "generated_epoch": 1782661066,
+  "generated_ist": "2026-06-28 21:12:52 IST",
+  "generated_epoch": 1782661372,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.91 / 3.14 / 3.11",
+    "load": "3.28 / 3.33 / 3.21",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,7 +31,7 @@
       "avatar": "haderach",
       "up": true,
       "pid": 56815,
-      "rss_gb": 0.9,
+      "rss_gb": 0.95,
       "cpu": 0.6,
       "crons_total": 80,
       "crons_enabled": 57,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.1,
-        "rolling_28day": 21.1,
-        "rolling_180day": 21.1
+        "transcript": 0.0,
+        "rolling_7day": 21.2,
+        "rolling_28day": 21.2,
+        "rolling_180day": 21.2
       },
       "skills": [
         "academic-deep-research",
@@ -643,12 +643,48 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1782661321776,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782660998820,
+          "last_ts": 1782661295393,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782661225342,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782661225341,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782661225341,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -683,42 +719,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1782660655600,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782660622530,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782660622530,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782660622529,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782659519872,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1365,17 +1365,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:13 IST] HADERACH: This is the smoking gun. The real story is the opposite of what the comment claims:",
-          "- `agent:main:direct:ram` (the **live** chat \u2014 exactly where this conversation is) has `totalTokens=68833` \u2192 **34%**. This matches the gateway's `/status` (68k) precisely.",
-          "- `agent:main:main` has `totalTokens=178336` \u2192 that's the stale orphaned bucket the comment thought it was *avoiding*.",
-          "But the report shows **178.1k**. So despite the comment claiming it now sorts by `updatedAt` and picks `direct:ram`, the...",
-          "[20:13 IST] HADERACH: Now it's fully clear. Two separate render paths:",
-          "1. The **8:05 PM report Ram pasted** comes from Giskard's `fleet_monitor.py` (the messaging cron). Its `check_context()` sorts by `updatedAt`. But look: both sessions have nearly identical timestamps (`direct:ram`=...769305 vs `main`=...651461). `direct:ram` IS newer \u2014 so the *current* fleet_monitor.py code should pick 68k. Since the report shows 178k, **the running Giskard process is still executing the pre-fix code** (the fix was saved to di...",
-          "[20:14 IST] HADERACH: The update dropped the `sessionTarget`. Let me include it explicitly.",
-          "[20:14 IST] HADERACH: This update path wants the full job restated. Let me include schedule too.",
-          "[20:14 IST] HADERACH: Fix 1 done \u2014 the Chet cron now carries the mandatory banner verbatim at the top, and every file-write step explicitly says python3 `open()`. It runs next at 23:00 IST tonight; that error will clear.",
-          "Now Fix 2 \u2014 file the context-% bug to Giskard's inbox with the precise diagnosis, evidence, and the exact selector change. I'll prepend (newest-first, per the inbox convention).",
-          "[20:15 IST] HADERACH: Both filed. Let me also nudge Giskard live in case the inbox isn't read until his next cycle \u2014 a quick cross-session send so he actions it promptly.",
           "[20:15 IST] HADERACH: Those are stale local sessions on Haderach's own gateway, not Giskard's live session \u2014 and per AGENTS.md the cross-gateway dispatch route is deprecated/blocked. The inbox file is the correct, reliable channel (Giskard reads it on his next cycle), plus the fleet group chat for a live nudge. Let me post a brief nudge to the fleet group.",
           "[20:15 IST] HADERACH: The fleet group nudge needs a target id I'd have to look up, and the inbox is the authoritative path Giskard reads anyway. I'll leave the inbox as the dispatch channel rather than guess a group id. Both jobs are done.",
           "Here's where things stand, Ram:",
@@ -1404,7 +1393,18 @@
           "A viral-marketing post claiming a single Claude skill called **\"ponytail\"** hit *58,000 GitHub stars in one week*. The pitch: it \"makes Claude think like the laziest senior dev on the team\" \u2014 allegedly **54% less code, 20% cheaper, 27% faster**. Repo linked as `github.com/DietrichGebert/ponytail`. He also drops his private Telegram and an **affiliate hosting referral link** (ishos...",
           "[20:57 IST] HADERACH: Fetched. Here's what it is \u2014 and a gentle cough of caution, Ram.",
           "**The tweet (Kirill, @kirillk_web3, 17 Jun):**",
-          "A viral-marketing post claiming a single Claude skill called **\"ponytail\"** hit *58,000 GitHub stars in one week*. The pitch: it \"makes Claude think like the laziest senior dev on the team\" \u2014 allegedly **54% less code, 20% cheaper, 27% faster**. Repo linked as `github.com/DietrichGebert/ponytail`. He also drops his private Telegram and an **affiliate hosting referral link** (ishos..."
+          "A viral-marketing post claiming a single Claude skill called **\"ponytail\"** hit *58,000 GitHub stars in one week*. The pitch: it \"makes Claude think like the laziest senior dev on the team\" \u2014 allegedly **54% less code, 20% cheaper, 27% faster**. Repo linked as `github.com/DietrichGebert/ponytail`. He also drops his private Telegram and an **affiliate hosting referral link** (ishos...",
+          "[21:09 IST] RAM: [OpenClaw heartbeat poll]",
+          "[21:09 IST] HADERACH: Good evening, Ram.",
+          "**Status \u2014 21:09 IST (Sun 28 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1542,8 +1542,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.46,
-      "cpu": 0.5,
+      "rss_gb": 0.47,
+      "cpu": 0.8,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1552,10 +1552,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 20.9,
-        "rolling_28day": 20.9,
-        "rolling_180day": 68.8
+        "transcript": 0.2,
+        "rolling_7day": 21.0,
+        "rolling_28day": 21.0,
+        "rolling_180day": 68.9
       },
       "skills": [
         "moltguard"
@@ -1887,7 +1887,7 @@
       "avatar": "kubera",
       "up": true,
       "pid": 46450,
-      "rss_gb": 0.42,
+      "rss_gb": 0.41,
       "cpu": 0.3,
       "crons_total": 22,
       "crons_enabled": 22,
@@ -1896,10 +1896,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.0,
-        "rolling_28day": 21.0,
-        "rolling_180day": 45.0
+        "transcript": 0.2,
+        "rolling_7day": 21.1,
+        "rolling_28day": 21.1,
+        "rolling_180day": 45.1
       },
       "skills": [
         "twitacc"
@@ -2294,7 +2294,7 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.45,
+      "rss_gb": 0.46,
       "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2304,9 +2304,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 21.0,
-        "rolling_28day": 21.0,
-        "rolling_180day": 45.0
+        "rolling_7day": 21.1,
+        "rolling_28day": 21.1,
+        "rolling_180day": 45.1
       },
       "skills": [
         "academic-deep-research",
@@ -2677,8 +2677,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 34233,
-      "rss_gb": 0.44,
-      "cpu": 0.7,
+      "rss_gb": 0.43,
+      "cpu": 0.5,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2686,10 +2686,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 3.0,
-        "rolling_7day": 20.9,
-        "rolling_28day": 20.9,
-        "rolling_180day": 20.9
+        "transcript": 0.0,
+        "rolling_7day": 21.0,
+        "rolling_28day": 21.0,
+        "rolling_180day": 21.0
       },
       "skills": [
         "moltguard"
@@ -2707,19 +2707,19 @@
       ],
       "crons": [
         {
-          "name": "CA SMEDA-II \u2014 Daily Study Session (full capability)",
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
-          "sched": "2 20 * * *",
-          "last_ts": 1782657206024,
+          "sched": "10 */3 * * *",
+          "last_ts": 1782661203473,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "name": "CA SMEDA-II \u2014 Daily Study Session (full capability)",
           "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1782650403692,
+          "sched": "2 20 * * *",
+          "last_ts": 1782657206024,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2790,30 +2790,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: I'll start the midday study session. Let me first read the current study plans and logs to understand the context.",
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: I see from the logs that I've completed 46 integration passes and all 8 CA Intermediate papers are already at **9.95/10 EXAM-READY** as of yesterday (25 Jun). The final synthesis from yesterday's session was already locked:",
-          "> **[SYNTHESIS: Ind AS 34 AETR \u00d7 Bonus Obligation Timing Interaction \u2014 candidate applies full-year annual effective tax rate correctly but misclassifies Q4 catch-up (when bonus obligation arises and is first accrued) as prior-period error instead of discrete period mechanics",
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Let me check what's in the memory directory:",
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Let me check today's date file:",
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Excellent! I see the morning session is already complete. The cron is now requesting the **midday session** (12:00 PM). Let me proceed with the midday study session as instructed. Since all 8 papers are at 9.96/10, I'll conduct advanced scenario drills targeting Rank #6\u2013#10 traps to deepen exam readiness and validate integration-level mastery.",
-          "---",
-          "## **MIDDAY SESSION (12:00\u201317:00 IST) \u2014 48th Integration Pass**",
-          "### **Session Objective**",
-          "Continue advanced CA Intermediate trap verification with",
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Excellent. Let me continue with the second scenario drill:",
-          "[12:00 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Let me continue with scenarios 3 and 4:",
-          "[12:01 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Let me continue with the final scenario (Rank #9\u2013#10):",
-          "[12:01 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Perfect. Now let me create a comprehensive midday session log and finalize the MCQ assessment:",
-          "[12:03 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Perfect. Now let me finalize by updating the study plan with the completed midday session and provide the synthesis as requested:",
-          "[12:03 IST] CA-SMEDA-II [Cron: Inter Study Midday]: Perfect! Now let me provide the final synthesis as requested in the cron message:",
-          "---",
-          "## **\ud83d\udccb MIDDAY SESSION COMPLETE \u2014 SYNTHESIS & FINAL ASSESSMENT**",
-          "**Session:** Sunday, June 28, 2026 | 12:00\u201317:00 IST (Forty-Eighth Integration Pass)  ",
-          "**Duration:** 5 hours  ",
-          "**Topics:** Rank #6\u2013#10 traps (second-tier inter-paper interactions)  ",
-          "**Scenarios Completed:** 4 advanced (48 marks total)  ",
-          "**MCQ Wave 48:** 20/20 (100% accuracy)",
-          "---",
           "### **[SYNTHESIS: Single Highest-Risk Exam Trap (Confirmed Today)",
           "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: I'll help you with the 13:00 IST consolidation. Let me start by finding today's transcript file.",
           "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: Now let me read today's transcript file from the last [MEMORY_WRITE] bookmark:",
@@ -2829,7 +2805,31 @@
           "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: Now let me append the [MEMORY_WRITE] bookmark to the transcript file:",
           "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: Perfect. Consolidation is complete. Let me verify the bookmark was appended:",
           "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: Perfect. Consolidation complete.",
-          "NO_REPLY"
+          "NO_REPLY",
+          "[20:02 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: I'll start this daily study session by reading the required memory and planning files to understand where I am in my CA exam preparation.",
+          "[20:02 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: Now let me read the specific memory files required for today's session startup:",
+          "[20:02 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: I'm reading through the extensive memory files. Let me check if there's a daily memory file for today (June 28, 2026) and the heartbeat state:",
+          "[20:02 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: Perfect. Now let me read the transcript file from the last session:",
+          "[20:02 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: Excellent. I can see from the heartbeat state and transcript that I'm CA SMEDA-II and we're now at **Sunday, June 28, 2026 \u2014 20:32 (8:32 PM) IST**, which is the **current cron-triggered session**.",
+          "### **SESSION STARTUP ANALYSIS**",
+          "Based on the memory files:",
+          "1. **Current Status**: All 8 CA Intermediate papers at **9.96/10 exam-ready**. All 6 CA Final papers completed in May (avg 8.53/10). Foundation papers 1-4 all complete.",
+          "2. **Key Reading from Memory Files**:",
+          "   - **Strengths**: Comprehensiv",
+          "[20:03 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: Perfect. The session has been completed and documented. Let me now update the smeda-comparison.json file as instructed:",
+          "[20:03 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: Now I'll add today's entry to the smeda-comparison.json file:",
+          "[20:03 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Daily Study Session (full capability)]: Perfect. The session is complete. Let me now create a final summary:",
+          "---",
+          "## **\u2705 DAILY STUDY SESSION COMPLETE \u2014 Sunday, June 28, 2026**",
+          "### **Session Summary**",
+          "**Time**: 20:32 \u2013 22:30 IST (2 hours)  ",
+          "**Focus**: Final CA Intermediate Exam Readiness Verification  ",
+          "**Outcome**: **9.97/10 readiness locked across all 8 papers**",
+          "---",
+          "### **What Was Covered**",
+          "**Part 1: Trap Lock Verification (20:32-21:15 IST)**",
+          "1. **Rank #1 Trap** \u2014 Ind AS 34 AETR \u00d7 Bonus Obligation Timing  ",
+          "   - HighTech Manufact"
         ],
         "yesterday": [
           "- Expected FY profit (pre-bonus): \u20b9280L",
@@ -2968,16 +2968,16 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.27,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.1,
-        "rolling_28day": 21.1,
-        "rolling_180day": 22.1
+        "transcript": 0.0,
+        "rolling_7day": 21.2,
+        "rolling_28day": 21.2,
+        "rolling_180day": 22.2
       },
       "skills": [
         "moltguard"
@@ -2998,7 +2998,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782660605037,
+          "last_ts": 1782661205573,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3138,17 +3138,17 @@
       "avatar": "ciso",
       "up": true,
       "pid": 34197,
-      "rss_gb": 0.33,
-      "cpu": 0.7,
+      "rss_gb": 0.32,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 21.0,
-        "rolling_28day": 21.0,
-        "rolling_180day": 21.0
+        "transcript": 0.1,
+        "rolling_7day": 21.1,
+        "rolling_28day": 21.1,
+        "rolling_180day": 21.1
       },
       "skills": [
         "moltguard"
@@ -3169,7 +3169,16 @@
           "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "0 */3 * * *",
-          "last_ts": 1782649919602,
+          "last_ts": 1782661110307,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "CISO SMEDA \u2014 Daily Study Session",
+          "enabled": true,
+          "sched": "0 21 * * *",
+          "last_ts": 1782661104728,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3188,15 +3197,6 @@
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1782581481984,
-          "last_status": "ok",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CISO SMEDA \u2014 Daily Study Session",
-          "enabled": true,
-          "sched": "0 21 * * *",
-          "last_ts": 1782574711980,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3371,7 +3371,7 @@
       "up": true,
       "pid": 34150,
       "rss_gb": 0.34,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3379,10 +3379,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 20.8,
-        "rolling_28day": 20.8,
-        "rolling_180day": 20.8
+        "transcript": 3.0,
+        "rolling_7day": 20.9,
+        "rolling_28day": 20.9,
+        "rolling_180day": 20.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3603,7 +3603,7 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 22.1,
         "rolling_28day": 22.1,
         "rolling_180day": 22.1
@@ -3779,7 +3779,7 @@
       "up": true,
       "pid": 33872,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3841,7 +3841,7 @@
       "up": true,
       "pid": 66817,
       "rss_gb": 0.46,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3850,9 +3850,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 21.0,
-        "rolling_28day": 21.0,
-        "rolling_180day": 45.0
+        "rolling_7day": 21.1,
+        "rolling_28day": 21.1,
+        "rolling_180day": 45.1
       },
       "skills": [
         "apple-calendar-macos",
@@ -4215,8 +4215,8 @@
       "avatar": "sam",
       "up": true,
       "pid": 34329,
-      "rss_gb": 0.45,
-      "cpu": 1.1,
+      "rss_gb": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4224,9 +4224,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 22.0,
-        "rolling_28day": 22.0,
+        "transcript": 0.1,
+        "rolling_7day": 22.1,
+        "rolling_28day": 22.1,
         "rolling_180day": null
       },
       "skills": [
