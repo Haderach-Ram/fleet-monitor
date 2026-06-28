@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-28 17:29:13 IST",
-  "generated_epoch": 1782647953,
+  "generated_ist": "2026-06-28 17:34:17 IST",
+  "generated_epoch": 1782648257,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.64 / 3.00 / 3.02",
+    "load": "2.83 / 2.89 / 2.95",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -32,9 +32,9 @@
       "up": true,
       "pid": 56815,
       "rss_gb": 0.86,
-      "cpu": 1.8,
-      "crons_total": 81,
-      "crons_enabled": 58,
+      "cpu": 18.2,
+      "crons_total": 80,
+      "crons_enabled": 57,
       "skills_count": 59,
       "channels": [
         "telegram",
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 17.4,
-        "rolling_28day": 17.4,
-        "rolling_180day": 17.4
+        "transcript": 0.1,
+        "rolling_7day": 17.5,
+        "rolling_28day": 17.5,
+        "rolling_180day": 17.5
       },
       "skills": [
         "academic-deep-research",
@@ -646,25 +646,16 @@
           "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
           "enabled": true,
           "sched": "every 5m",
-          "last_ts": 1782647802497,
+          "last_ts": 1782648256451,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782647740418,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782647423917,
+          "last_ts": 1782648199631,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,7 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782647423916,
+          "last_ts": 1782648199630,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,7 +673,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782647423916,
+          "last_ts": 1782648199629,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782647740418,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1129,15 +1129,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "FMGE Exam Day \u2014 Fetch Paper & Relay to Medical SMEDA (28 Jun 17:30 IST)",
-          "enabled": true,
-          "sched": "one-shot",
-          "last_ts": null,
-          "last_status": null,
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-050 R1+R3 Pilot Readout \u2014 10 Jul 07:30 IST",
           "enabled": true,
           "sched": "30 7 10 7 *",
@@ -1374,46 +1365,46 @@
       ],
       "transcripts": {
         "recent": [
-          "4. `9504e255...",
-          "[17:10 IST] HADERACH: Giskard isn't reachable as a spawnable agent from here. Let me find his correct session/agent handle.",
-          "[17:10 IST] HADERACH: Only `main` is spawnable from here \u2014 but the Giskard gateway CLI has a `cron edit` command, and I confirmed earlier that read access to his gateway works. Per AGENTS.md, cross-gateway *write* historically needed a pairing scope this session doesn't hold, but the local CLI route against his own gateway may work for edits. Let me test it on one job first (lowest-risk: a watchdog), verify it took, then do the rest.",
-          "[17:10 IST] HADERACH: The id is a positional argument, not `--id`. Let me run the test edit correctly.",
-          "[17:10 IST] HADERACH: The test edit worked \u2014 watchdog-13 now shows `amazon-bedrock/gl...` (Sonnet). The CLI route against Giskard's own gateway accepts writes. Backing up his cron store first (config-safety rule), then editing the remaining 9.",
-          "[17:11 IST] HADERACH: All 9 confirmed. Now the full verification across all 10, plus confirming the two untouched crons are still on their original cloud Claude, then I'll unload the Gemma.",
-          "[17:11 IST] HADERACH: Verified clean: 10 crons now on Bedrock Sonnet, 2 still on their original cloud Claude, **zero on Gemma**. Now unloading the Gemma to give it and the RAM the break.",
-          "[17:11 IST] HADERACH: Done \u2014 and the Gemma is gone from memory. Here's the result, Ram:",
-          "<b>\u2705 Migration complete and verified:</b>",
+          "[17:25 IST] RAM: So Gemma is shut down?",
+          "[17:25 IST] HADERACH: Yes \u2014 Gemma is shut down. Let me give you the precise state, because \"shut down\" has two senses and I want to be exact.",
+          "[17:26 IST] HADERACH: Confirmed \u2014 here's the exact state, Ram:",
+          "<b>Gemma is shut down \u2014 unloaded from memory, but not deleted from disk.</b> Two distinct things:",
           "<ul>",
-          "<li><b>All 10 Giskard crons</b> moved from <code>ollama/gemma4:31b-mlx</code> \u2192 <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code>. Verified live on his gateway: <b>10 on Bedrock Sonnet, 0 on Gemma.</b></li>",
-          "<li>Monthly Archive + Downloads SSD untouched (still on their cloud Claude).</li>",
-          "<li>Cron store backed up before edits (config-safety rule followed).</li>",
+          "<li><b>In memory (RAM/GPU):</b> \u2705 <b>Gone.</b> <code>ollama ps</code> shows only <code>qwen2.5:7b</code>. The 33 GB Gemma is no longer resident \u2014 RAM reclaimed, GPU freed. This is the \"shut down\" that solved your heat/swap problem.</li>",
+          "<li><b>On disk:</b> still <b>installed</b> (<code>gemma4:31b-mlx</code>, ~20 GB on the SSD). Unloading evicts it fr...",
+          "[17:26 IST] HADERACH: Confirmed \u2014 here's the exact state, Ram:",
+          "<b>Gemma is shut down \u2014 unloaded from memory, but not deleted from disk.</b> Two distinct things:",
+          "<ul>",
+          "<li><b>In memory (RAM/GPU):</b> \u2705 <b>Gone.</b> <code>ollama ps</code> shows only <code>qwen2.5:7b</code>. The 33 GB Gemma is no longer resident \u2014 RAM reclaimed, GPU freed. This is the \"shut down\" that solved your heat/swap problem.</li>",
+          "<li><b>On disk:</b> still <b>installed</b> (<code>gemma4:31b-mlx</code>, ~20 GB on the SSD). Unloading evicts it fr...",
+          "[17:26 IST] RAM: Ok. Do it",
+          "[17:26 IST] HADERACH: On it \u2014 reconciling the HAD-050 docs so extraction unambiguously says Qwen-7B and the stale Gemma references are struck. Let me find every Gemma reference in the project first.",
+          "[17:26 IST] HADERACH: Good \u2014 the picture is clearer than I implied earlier, and it changes the cleanup. Let me read the exact lines to be precise rather than blunt-editing.",
+          "[17:27 IST] HADERACH: Good \u2014 now I have the truth, and I owe you a correction on my own alarm. The HAD-050 docs are **already settled on Qwen-7B**. The benchmark on 25 Jun explicitly **REJECTED Gemma** and Ram's locked decision was \"Gemma dropped.\" So my earlier worry that the 10 Jul pilot would \"resurrect the Gemma\" was overstated \u2014 the operative decision is already Qwen, and PROJECT.md \u00a76 (the engine spec) and NOTES.md's benchmark both say so plainly.",
+          "What remains is genuine but cosmetic: a few **stale leftover...",
+          "[17:27 IST] HADERACH: Now verify the live build instructions are clean and check the extractor script itself (if it exists) doesn't hardcode Gemma \u2014 that's the one that would actually run.",
+          "[17:27 IST] HADERACH: Sealed \u2014 and the most important finding: **the actual extractor script that would run on 10 Jul already defaults to `qwen2.5:7b`**, hardcoded as the argument default (`--model default=\"qwen2.5:7b\"`). It calls `ask_ollama` with that, not Gemma. So the live executable path was never going to wake the Gemma \u2014 the risk was only in the prose, which is now fixed too.",
+          "The one remaining \"Gemma\" mention is in the **Bajaj Council consult** line (\"4 voices: Claude, Gemma, Nova Pro, DeepSeek\") \u2014 that's ...",
+          "[17:27 IST] HADERACH: Sealed \u2014 and the most important finding: **the actual extractor script that would run on 10 Jul already defaults to `qwen2.5:7b`**, hardcoded as the argument default (`--model default=\"qwen2.5:7b\"`). It calls `ask_ollama` with that, not Gemma. So the live executable path was never going to wake the Gemma \u2014 the risk was only in the prose, which is now fixed too.",
+          "The one remaining \"Gemma\" mention is in the **Bajaj Council consult** line (\"4 voices: Claude, Gemma, Nova Pro, DeepSeek\") \u2014 that's ...",
+          "[17:27 IST] RAM: Do this swap recheck",
+          "[17:27 IST] HADERACH: Re-checking swap now to confirm it's drained since the unload.",
+          "[17:27 IST] HADERACH: Swap re-check done, Ram.",
+          "<b>The numbers (~16 min post-unload):</b>",
+          "<ul>",
+          "<li><b>Memory pressure: 91% free</b> \u2014 healthy, holding steady. This is the metric that matters.</li>",
+          "<li><b>Swap used: 15.09 GB</b> \u2014 down only marginally from 15.16 GB. As expected, it's barely moving.</li>",
+          "<li><b>Gemma: still gone</b> from memory; only qwen2.5:7b loaded.</li>",
           "</ul>",
-          "...",
-          "[17:11 IST] HADERACH: Done \u2014 and the Gemma is gone from memory. Here's the result, Ram:",
-          "<b>\u2705 Migration complete and verified:</b>",
+          "<b>Why swap hasn't dropped \u2014 and why that's fine:</b> macOS does not actively scrub swap. Once memory pressure is relieved (which it is \u2014...",
+          "[17:28 IST] HADERACH: Swap re-check done, Ram.",
+          "<b>The numbers (~16 min post-unload):</b>",
           "<ul>",
-          "<li><b>All 10 Giskard crons</b> moved from <code>ollama/gemma4:31b-mlx</code> \u2192 <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code>. Verified live on his gateway: <b>10 on Bedrock Sonnet, 0 on Gemma.</b></li>",
-          "<li>Monthly Archive + Downloads SSD untouched (still on their cloud Claude).</li>",
-          "<li>Cron store backed up before edits (config-safety rule followed).</li>",
+          "<li><b>Memory pressure: 91% free</b> \u2014 healthy, holding steady. This is the metric that matters.</li>",
+          "<li><b>Swap used: 15.09 GB</b> \u2014 down only marginally from 15.16 GB. As expected, it's barely moving.</li>",
+          "<li><b>Gemma: still gone</b> from memory; only qwen2.5:7b loaded.</li>",
           "</ul>",
-          "...",
-          "[17:12 IST] RAM: Close EXP-001. Is anything else live on Ollama?",
-          "[17:12 IST] HADERACH: On both \u2014 closing EXP-001 and checking everything live on Ollama.",
-          "[17:12 IST] HADERACH: Let me see exactly what those 4 configs reference (so I know if anything else will reload a model), and check any other crons across the fleet that call Ollama.",
-          "[17:13 IST] HADERACH: Full picture below. EXP-001 first, then the Ollama answer.",
-          "[17:13 IST] HADERACH: Now closing EXP-001 with the evidenced verdict, and adding the dead-end.",
-          "[17:13 IST] HADERACH: Both done. Here's the full answer, Ram.",
-          "<b>\u2705 EXP-001 closed \u2014 verdict PARTIAL, reverted to cloud.</b> Outcome criteria assessed against the live 19\u201328 Jun evidence; the key failure flagged (\"RAM footprint did not vacate when idle \u2014 had to pin Forever\"). Logged the finding to <code>dead-ends.md</code> too, so neither I nor any fleet agent re-attempts pinning a 31B model Forever on this box.",
-          "<b>What is still live on Ollama \u2014 the honest, slightly awkward part:</b>",
-          "<b>1. Loaded in memory right...",
-          "[17:13 IST] HADERACH: <b>Memory pressure: 91% free \u2014 the pressure is gone.</b> The system reports 91% free, which is the real signal. Swap still <i>reads</i> 15.1 GB (barely moved) because macOS doesn't actively scrub swap \u2014 those are stale pages that'll only clear on reboot or as the space is needed. They're inert now; nothing is actively paging. The heat/contention problem is resolved.",
-          "<b>So, net state:</b>",
-          "<ul>",
-          "<li>\u2705 10 Giskard crons on Bedrock Sonnet, Gemma unloaded, ~33 GB reclaimed, pressure at 91% free.</l...",
-          "[17:14 IST] HADERACH: <b>Memory pressure: 91% free \u2014 the pressure is gone.</b> The system reports 91% free, which is the real signal. Swap still <i>reads</i> 15.1 GB (barely moved) because macOS doesn't actively scrub swap \u2014 those are stale pages that'll only clear on reboot or as the space is needed. They're inert now; nothing is actively paging. The heat/contention problem is resolved.",
-          "<b>So, net state:</b>",
-          "<ul>",
-          "<li>\u2705 10 Giskard crons on Bedrock Sonnet, Gemma unloaded, ~33 GB reclaimed, pressure at 91% free.</l..."
+          "<b>Why swap hasn't dropped \u2014 and why that's fine:</b> macOS does not actively scrub swap. Once memory pressure is relieved (which it is \u2014..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1551,8 +1542,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.45,
-      "cpu": 0.6,
+      "rss_gb": 0.46,
+      "cpu": 0.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1562,9 +1553,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 17.3,
-        "rolling_28day": 17.3,
-        "rolling_180day": 65.1
+        "rolling_7day": 17.4,
+        "rolling_28day": 17.4,
+        "rolling_180day": 65.2
       },
       "skills": [
         "moltguard"
@@ -1896,8 +1887,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 46450,
-      "rss_gb": 0.38,
-      "cpu": 0.6,
+      "rss_gb": 0.39,
+      "cpu": 0.7,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1905,10 +1896,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 17.4,
-        "rolling_28day": 17.4,
-        "rolling_180day": 41.4
+        "transcript": 0.1,
+        "rolling_7day": 17.5,
+        "rolling_28day": 17.5,
+        "rolling_180day": 41.5
       },
       "skills": [
         "twitacc"
@@ -1929,7 +1920,7 @@
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782647404406,
+          "last_ts": 1782648003246,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2126,8 +2117,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:56 IST] KUBERA: HEARTBEAT_OK",
-          "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: I'll execute the consolidation workflow. Let me start by finding and reading the transcript file.",
           "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: Now let me read the transcript file:",
           "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: Now let me check for the last [MEMORY_WRITE] bookmark:",
           "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: The daily log for June 28 doesn't exist yet. Let me check the current date files to understand the structure:",
@@ -2165,7 +2154,9 @@
           "[16:26 IST] KUBERA: Now let me check today's date context and the transcript for recent events:",
           "[16:26 IST] KUBERA: HEARTBEAT_OK",
           "[16:56 IST] RAM: [OpenClaw heartbeat poll]",
-          "[16:56 IST] KUBERA: HEARTBEAT_OK"
+          "[16:56 IST] KUBERA: HEARTBEAT_OK",
+          "[17:26 IST] RAM: [OpenClaw heartbeat poll]",
+          "[17:26 IST] KUBERA: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- Index: flat (well below 1.5% downside)",
@@ -2303,8 +2294,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.42,
-      "cpu": 0.7,
+      "rss_gb": 0.43,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2312,10 +2303,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 17.3,
-        "rolling_28day": 17.3,
-        "rolling_180day": 41.3
+        "transcript": 0.1,
+        "rolling_7day": 17.4,
+        "rolling_28day": 17.4,
+        "rolling_180day": 41.4
       },
       "skills": [
         "academic-deep-research",
@@ -2463,21 +2454,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782648004256,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1782646214675,
           "last_status": "error",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782646214673,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2528,7 +2519,6 @@
       ],
       "transcripts": {
         "recent": [
-          "HEARTBEAT_OK",
           "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Task complete.** Script ran successfully. 0 new messages appended across all transcripts. Bookmarks updated. No action needed.",
           "[14:51 IST] GROUP-Ram: Any new mails?",
           "[14:51 IST] PURL: No new mails Ram \u2014 still just Proton promo emails and the old test thread. Nothing back from Batliboi yet (sent yesterday, so still within normal response time).",
@@ -2567,7 +2557,8 @@
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Completed.** Script ran successfully. 0 new messages appended across all transcripts. Bookmarks updated.",
           "[16:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[16:55 IST] PURL: \u2705 **Context:** 21% (healthy)",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: **Completed.** Script executed successfully (0 new messages processed across all transcripts)."
         ],
         "yesterday": [
           "[19:55 IST] PURL: \u2705 **Context:** 20% (healthy)  ",
@@ -2686,8 +2677,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 34233,
-      "rss_gb": 0.43,
-      "cpu": 0.3,
+      "rss_gb": 0.42,
+      "cpu": 0.8,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2695,10 +2686,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.3,
-        "rolling_7day": 17.2,
-        "rolling_28day": 17.2,
-        "rolling_180day": 17.2
+        "transcript": 2.4,
+        "rolling_7day": 17.3,
+        "rolling_28day": 17.3,
+        "rolling_180day": 17.3
       },
       "skills": [
         "moltguard"
@@ -2977,16 +2968,16 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.27,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
+        "transcript": 0.1,
         "rolling_7day": 17.5,
         "rolling_28day": 17.5,
-        "rolling_180day": 18.5
+        "rolling_180day": 18.6
       },
       "skills": [
         "moltguard"
@@ -3007,7 +2998,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782647404955,
+          "last_ts": 1782648006817,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3148,7 +3139,7 @@
       "up": true,
       "pid": 34197,
       "rss_gb": 0.27,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3157,7 +3148,7 @@
         "transcript": 2.5,
         "rolling_7day": 17.4,
         "rolling_28day": 17.4,
-        "rolling_180day": 17.4
+        "rolling_180day": 17.5
       },
       "skills": [
         "moltguard"
@@ -3364,7 +3355,7 @@
       "up": true,
       "pid": 34150,
       "rss_gb": 0.32,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3590,16 +3581,16 @@
       "up": true,
       "pid": 33801,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 18.4,
-        "rolling_28day": 18.4,
-        "rolling_180day": 18.4
+        "transcript": 0.0,
+        "rolling_7day": 18.5,
+        "rolling_28day": 18.5,
+        "rolling_180day": 18.5
       },
       "skills": [],
       "skills_detail": [],
@@ -3771,8 +3762,8 @@
       "avatar": "martin",
       "up": true,
       "pid": 33872,
-      "rss_gb": 0.2,
-      "cpu": 0.5,
+      "rss_gb": 0.21,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3803,8 +3794,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 33899,
-      "rss_gb": 0.19,
-      "cpu": 0.1,
+      "rss_gb": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3833,8 +3824,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 66817,
-      "rss_gb": 0.32,
-      "cpu": 0.9,
+      "rss_gb": 0.41,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3842,10 +3833,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 17.3,
-        "rolling_28day": 17.3,
-        "rolling_180day": 41.3
+        "transcript": 0.1,
+        "rolling_7day": 17.4,
+        "rolling_28day": 17.4,
+        "rolling_180day": 41.4
       },
       "skills": [
         "apple-calendar-macos",
@@ -3996,7 +3987,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782646203584,
+          "last_ts": 1782648004481,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4209,7 +4200,7 @@
       "up": true,
       "pid": 34329,
       "rss_gb": 0.38,
-      "cpu": 0.2,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4218,8 +4209,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 18.3,
-        "rolling_28day": 18.3,
+        "rolling_7day": 18.4,
+        "rolling_28day": 18.4,
         "rolling_180day": null
       },
       "skills": [
