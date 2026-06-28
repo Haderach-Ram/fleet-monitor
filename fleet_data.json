@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-28 14:19:06 IST",
-  "generated_epoch": 1782636546,
+  "generated_ist": "2026-06-28 14:24:12 IST",
+  "generated_epoch": 1782636852,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.95 / 3.30 / 3.10",
+    "load": "3.02 / 3.35 / 3.19",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 48376,
-      "rss_gb": 0.77,
-      "cpu": 1.3,
+      "rss_gb": 0.71,
+      "cpu": 1.0,
       "crons_total": 81,
       "crons_enabled": 58,
       "skills_count": 59,
@@ -43,9 +43,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
-        "rolling_180day": 14.3
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
+        "rolling_180day": 14.4
       },
       "skills": [
         "academic-deep-research",
@@ -646,7 +646,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782636262900,
+          "last_ts": 1782636607937,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1374,20 +1374,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Load: 2.61 / 2.81 / 2.9 | Free RAM: 8682MB unused | Swap: 14.6GB used",
-          "\u2022 Haderach: \ud83d\udd34 CPU 85.3%",
-          "\u2501\u2501...",
-          "[13:28 IST] HADERACH: Two separate things here:",
-          "<b>1. Why does it say 88% when I said it's not?</b>",
-          "It's accurate \u2014 I can't see my own context percentage from inside the session. Giskard measures it externally by querying the gateway API. The 88% (175.7k/200k) is the real number. I had no basis to dispute it earlier \u2014 that was a mistake on my part.",
-          "<b>2. The \"Consolidation cron [Group TX active]\" \u2014 6 consecutive errors</b>",
-          "This is a *different* cron from the 13:00 session consolidation. This is the **Group Tra...",
-          "[13:28 IST] HADERACH: Two separate things here:",
-          "<b>1. Why does it say 88% when I said it's not?</b>",
-          "It's accurate \u2014 I can't see my own context percentage from inside the session. Giskard measures it externally by querying the gateway API. The 88% (175.7k/200k) is the real number. I had no basis to dispute it earlier \u2014 that was a mistake on my part.",
-          "<b>2. The \"Consolidation cron [Group TX active]\" \u2014 6 consecutive errors</b>",
-          "This is a *different* cron from the 13:00 session consolidation. This is the **Group Tra...",
-          "[14:11 IST] RAM: What\u2019s the context %?",
           "[14:11 IST] HADERACH: Let me check live.",
           "[14:12 IST] HADERACH: **67%** (133k/200k) right now.",
           "Giskard's 88% reading was from 13:10 \u2014 that was before the conversation context here was injected. The current turn includes the full conversation history you just forwarded (messages #69351\u2013#69366), which is a large block of text. Giskard measures at a point in time; the live number now is lower because this is a fresh turn with cache hits bringing the effective new-token count down.",
@@ -1413,7 +1399,21 @@
           "<b>T...",
           "[14:13 IST] HADERACH: The verify-gate is requiring full job specs on update. Let me force-run both immediately with the existing configs first to restore transcript capture, while I sort the model fix separately.",
           "[14:13 IST] HADERACH: The force-run will also fail since Nova Pro is still down. The real fix needs the model patched. Let me read the job config and do a proper full-spec update.",
-          "[14:14 IST] HADERACH: Both crons updated to Sonnet. They'll next run at 14:30 IST. Let me also force-run the transcript logger now to catch up immediately:"
+          "[14:14 IST] HADERACH: Both crons updated to Sonnet. They'll next run at 14:30 IST. Let me also force-run the transcript logger now to catch up immediately:",
+          "[14:14 IST] HADERACH: Done. Summary:",
+          "<b>What happened:</b> Amazon Bedrock Nova models (Nova Lite + Nova Pro) went down at ~12:20 IST. Both transcript crons were configured to use Nova models \u2014 they'd been silently switched from Sonnet at some point (probably by Giskard's Mid model-set change earlier today).",
+          "<b>What I've fixed:</b>",
+          "<ul>",
+          "<li>Both crons switched back to <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code></li>",
+          "<li>Transcript logger force-run now to catch up the ~100-min gap</li>",
+          "<li>Next ...",
+          "[14:14 IST] HADERACH: Done. Summary:",
+          "<b>What happened:</b> Amazon Bedrock Nova models (Nova Lite + Nova Pro) went down at ~12:20 IST. Both transcript crons were configured to use Nova models \u2014 they'd been silently switched from Sonnet at some point (probably by Giskard's Mid model-set change earlier today).",
+          "<b>What I've fixed:</b>",
+          "<ul>",
+          "<li>Both crons switched back to <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code></li>",
+          "<li>Transcript logger force-run now to catch up the ~100-min gap</li>",
+          "<li>Next ..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1551,8 +1551,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.48,
-      "cpu": 1.3,
+      "rss_gb": 0.49,
+      "cpu": 1.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1561,9 +1561,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
+        "transcript": 0.5,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
         "rolling_180day": 62.0
       },
       "skills": [
@@ -1896,8 +1896,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 46450,
-      "rss_gb": 0.43,
-      "cpu": 3.6,
+      "rss_gb": 0.44,
+      "cpu": 1.2,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1905,10 +1905,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 38.2
+        "transcript": 0.1,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 38.3
       },
       "skills": [
         "twitacc"
@@ -1929,7 +1929,7 @@
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1782636004469,
+          "last_ts": 1782636602840,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2304,7 +2304,7 @@
       "up": true,
       "pid": 34049,
       "rss_gb": 0.44,
-      "cpu": 1.7,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2312,10 +2312,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 38.2
+        "transcript": 0.4,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 38.3
       },
       "skills": [
         "academic-deep-research",
@@ -2687,7 +2687,7 @@
       "up": true,
       "pid": 34233,
       "rss_gb": 0.4,
-      "cpu": 1.3,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2695,7 +2695,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.3,
+        "transcript": 1.4,
         "rolling_7day": 14.1,
         "rolling_28day": 14.1,
         "rolling_180day": 14.1
@@ -2977,16 +2977,16 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.28,
-      "cpu": 1.3,
+      "cpu": 1.9,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 14.3,
-        "rolling_28day": 14.3,
-        "rolling_180day": 15.3
+        "transcript": 0.1,
+        "rolling_7day": 14.4,
+        "rolling_28day": 14.4,
+        "rolling_180day": 15.4
       },
       "skills": [
         "moltguard"
@@ -3007,7 +3007,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782636004980,
+          "last_ts": 1782636605060,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3148,16 +3148,16 @@
       "up": true,
       "pid": 34197,
       "rss_gb": 0.33,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 11.3,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 14.2
+        "transcript": 11.4,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 14.3
       },
       "skills": [
         "moltguard"
@@ -3361,7 +3361,7 @@
       "up": true,
       "pid": 34150,
       "rss_gb": 0.35,
-      "cpu": 0.8,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3369,10 +3369,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.1,
-        "rolling_7day": 14.0,
-        "rolling_28day": 14.0,
-        "rolling_180day": 14.0
+        "transcript": 2.2,
+        "rolling_7day": 14.1,
+        "rolling_28day": 14.1,
+        "rolling_180day": 14.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3587,16 +3587,16 @@
       "up": true,
       "pid": 33801,
       "rss_gb": 0.28,
-      "cpu": 1.1,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 3.3,
-        "rolling_7day": 15.2,
-        "rolling_28day": 15.2,
-        "rolling_180day": 15.2
+        "transcript": 3.4,
+        "rolling_7day": 15.3,
+        "rolling_28day": 15.3,
+        "rolling_180day": 15.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3769,7 +3769,7 @@
       "up": true,
       "pid": 33872,
       "rss_gb": 0.22,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3831,7 +3831,7 @@
       "up": true,
       "pid": 33989,
       "rss_gb": 0.4,
-      "cpu": 0.5,
+      "cpu": 1.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3839,10 +3839,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 38.2
+        "transcript": 0.4,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 38.3
       },
       "skills": [
         "apple-calendar-macos",
@@ -4206,7 +4206,7 @@
       "up": true,
       "pid": 34329,
       "rss_gb": 0.39,
-      "cpu": 1.5,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4214,9 +4214,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 3.2,
-        "rolling_7day": 15.2,
-        "rolling_28day": 15.2,
+        "transcript": 3.3,
+        "rolling_7day": 15.3,
+        "rolling_28day": 15.3,
         "rolling_180day": null
       },
       "skills": [
