@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-28 18:55:36 IST",
-  "generated_epoch": 1782653136,
+  "generated_ist": "2026-06-28 19:00:42 IST",
+  "generated_epoch": 1782653442,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.31 / 3.25 / 3.14",
+    "load": "3.97 / 3.42 / 3.22",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 56815,
-      "rss_gb": 0.92,
-      "cpu": 6.3,
+      "rss_gb": 0.95,
+      "cpu": 1.4,
       "crons_total": 80,
       "crons_enabled": 57,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.9,
-        "rolling_28day": 18.9,
-        "rolling_180day": 18.9
+        "transcript": 0.0,
+        "rolling_7day": 19.0,
+        "rolling_28day": 19.0,
+        "rolling_180day": 19.0
       },
       "skills": [
         "academic-deep-research",
@@ -643,19 +643,10 @@
       ],
       "crons": [
         {
-          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
-          "enabled": true,
-          "sched": "every 5m",
-          "last_ts": 1782653050400,
-          "last_status": "ok",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782652823357,
+          "last_ts": 1782653423287,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -664,7 +655,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782652823357,
+          "last_ts": 1782653423287,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,16 +664,25 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782652823356,
+          "last_ts": 1782653423286,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL IMAP check \u2014 haderach@sammaancapital.com",
+          "enabled": true,
+          "sched": "every 5m",
+          "last_ts": 1782653348623,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782652535530,
+          "last_ts": 1782653136327,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1365,46 +1365,46 @@
       ],
       "transcripts": {
         "recent": [
-          "The 71k itself is worth a glance \u2014 a \"fresh\" session...",
-          "[18:21 IST] RAM: Check where GisKard is reading from. Check yourself, something is certainly wrong",
-          "[18:21 IST] HADERACH: Right \u2014 let me actually trace this rather than theorise. I'll find Giskard's fleet-monitor code and see exactly how it reads Haderach's context figure.",
-          "[18:21 IST] HADERACH: The monitor is refreshing fine (last push 18:20). But the *Telegram alert* you got is separate from the dashboard. Let me find the code that computes the context % and where it reads the token count from.",
-          "[18:21 IST] HADERACH: The collector that reads context % must be in the M4 collector. Let me look at how it gets each agent's context figure.",
-          "[18:21 IST] HADERACH: This M4 collector doesn't compute context % at all. So the context figures come from elsewhere \u2014 likely Giskard's own collector or a shared state file. The alert said \"Haderach wdog 13\" and \"Giskard: 13 active\". Let me check Giskard's fleet-monitor code and how it reads Haderach's context.",
-          "[18:21 IST] HADERACH: Found it: `~/.openclaw-giskard/workspace/scripts/fleet_monitor.py`. Let me see exactly how it derives Haderach's context %.",
-          "[18:21 IST] HADERACH: There's the function: `check_context` at line 989, and it reads from `sessions_path` = `~/.openclaw/agents/main/sessions/sessions.json`. Let me read that function in full.",
-          "[18:21 IST] HADERACH: Found the root cause. Giskard reads `agent:main:main` from `sessions.json`. But my actual live session \u2014 the one `/new` created and that `session_status` reports as 35% \u2014 is `agent:main:direct:ram`, **not** `agent:main:main`. Let me confirm the discrepancy directly.",
-          "[18:22 IST] HADERACH: The diagnosis is now airtight. The case is conclusive.",
-          "**Root cause confirmed:**",
-          "Giskard's `check_context()` reads the session keyed **`agent:main:main`** \u2014 which shows `totalTokens=177576` \u2192 that's the 89% (177.4k/200k) in the alert.",
-          "But my **actual live session** is **`agent:main:direct:ram`** \u2192 `totalTokens=71768` \u2192 that's the 35% (71.8k/200k) that `session_status` correctly reported, `updatedAt` just seconds ago.",
-          "These are two *different* sessions. Giskard is monitoring the wrong key....",
-          "[18:22 IST] HADERACH: The diagnosis is now airtight. The case is conclusive.",
-          "**Root cause confirmed:**",
-          "Giskard's `check_context()` reads the session keyed **`agent:main:main`** \u2014 which shows `totalTokens=177576` \u2192 that's the 89% (177.4k/200k) in the alert.",
-          "But my **actual live session** is **`agent:main:direct:ram`** \u2192 `totalTokens=71768` \u2192 that's the 35% (71.8k/200k) that `session_status` correctly reported, `updatedAt` just seconds ago.",
-          "These are two *different* sessions. Giskard is monitoring the wrong key....",
-          "[18:28 IST] RAM: What else is wrong with GisKard\u2019s fleet monitor report? Check everything he reports in his fleet monitor report",
-          "[18:28 IST] HADERACH: A thorough audit it is. Let me go through every section of Giskard's report and verify each against ground truth. I'll read the full monitor script first to understand every claim it makes, then test the data sources.",
-          "[18:28 IST] HADERACH: Now let me audit each reported section against ground truth in parallel. I'll verify: (1) every agent's context key vs live session, (2) cron counts, (3) process list, (4) the \"Haderach wdog 13\" cron error, (5) transcript line counts, (6) the group transcript section.",
-          "[18:28 IST] HADERACH: A stray `\\n`. Let me write the audit to a file instead.",
-          "[18:28 IST] HADERACH: The `\\n` literal slipped into the file. Let me fix that line.",
-          "[18:28 IST] HADERACH: Fixed. Now run the context audit plus the other checks in parallel.",
-          "[18:29 IST] HADERACH: Excellent data. Section C (cron counts) checks out: Haderach 57 enabled, Giskard 13 enabled \u2014 both correct.",
-          "Section A reveals the **full scope** of the context bug \u2014 it's worse than just me. Let me fix the cron schema query and finish remaining sections.",
-          "[18:29 IST] HADERACH: The schema uses `job_id`, not `id`, and there's no `lastStatus`/`consecutiveErrors` camelCase \u2014 it's `consecutive_errors`, `last_error`, `last_run_status`. Interesting: the monitor's `check_consolidation_crons` may be querying wrong columns. Let me check the wdog cron's real state and how the monitor reads it.",
-          "[18:29 IST] HADERACH: The consolidation-error reader is correct (reads `consecutive_errors`, `last_error` properly). So the wdog-13 alert is reading real DB data. Let me check the actual current state of that cron \u2014 does it really have 1 error, or is that also stale?",
-          "[18:29 IST] HADERACH: Now I have the complete picture. The wdog-13 error is **real** (genuine error 5.3h ago at 13:10) \u2014 that part of the report is accurate. But I've also surfaced a much bigger finding: there are **far more crons in an error state** than the report shows, including some serious ones (Email Scanner: 26 consecutive errors, Giskard Fleet Memory Health: 6, Giskard Fleet Transcript Monitor: 8).",
-          "Now let me verify the remaining sections \u2014 process list, transcript line counts, and the group transcript s...",
-          "[18:29 IST] HADERACH: Process list (PIDs/ports) and transcript counts both check out \u2014 figures match within normal drift (the report was at 18:05, my check is at 18:25, so counts grew slightly; RSS fluctuates normally). Those sections are **healthy and accurate**.",
-          "Now the last section \u2014 the group transcript block, which had several \"no msgs captured yet\" lines that look suspicious.",
-          "[18:39 IST] RAM: [OpenClaw heartbeat poll]",
-          "[18:49 IST] RAM: Do 2",
-          "[18:49 IST] HADERACH: Right \u2014 option 2. Backing up first, then applying all three fixes with Python `open()`. Let me start with the backup and reading the exact current text of each target region.",
-          "[18:49 IST] HADERACH: Backup made (62189 bytes, timestamped 18:49). Now let me read the exact current text of all three target regions so I can apply precise edits.",
-          "[18:49 IST] HADERACH: Now I have exact text for Fix 1 and Fix 3. Let me apply both with the `edit` tool (interactive session \u2014 `edit` is fine here; the cron-file rule only bars apply_patch/edit *inside isolated cron runs*).",
-          "**Fix 1** \u2014 `check_context()`: always pick most-recently-updated live session, excluding cron/subagent/zero-token. **Fix 3** \u2014 `check_consolidation_errors()`: sweep all enabled erroring crons across all agent DBs.",
-          "[18:49 IST] HADERACH: Fix 1 applied. Fix 3 failed because my `oldText` contained a literal `\\n` in the except clause that doesn't match the real file (which has a real newline). Let me re-read the exact current text of that function."
+          "The night job spends its time in \"model-call-started\" \u2014 i.e. the agentTurn's LLM wrap-up call, not the script. Raising to...",
+          "[18:54 IST] HADERACH: Now the full picture for Cron B is clear. The two twins differ in two ways:",
+          "1. **Timeout:** daytime 600s vs night **120s** (too tight when Bedrock is slow at night)",
+          "2. **Prompt:** daytime has the \"be terse, reply NO_REPLY\" efficiency header; night version lacks it \u2014 so the night agent may ramble/over-process after the script returns, eating model time until the 120s cap.",
+          "The night job spends its time in \"model-call-started\" \u2014 i.e. the agentTurn's LLM wrap-up call, not the script. Raising to...",
+          "[18:56 IST] RAM: What do these crons do? Keep your answers to the point or bullet points on new lines. You are giving long, single para replies",
+          "[18:56 IST] HADERACH: Noted \u2014 tighter from here.",
+          "<b>Cron A \u2014 Fleet Memory Health Check (04:00 daily)</b>",
+          "<ul>",
+          "<li>HTTP-pings all 13 M4 agents on their ports</li>",
+          "<li>Checks each agent's memory files are fresh/not broken</li>",
+          "<li>Composes a health report and sends it to you on Telegram</li>",
+          "<li>Heavy multi-step agentic turn on Sonnet \u2014 currently failing (6 errors)</li>",
+          "</ul>",
+          "<b>Cron B \u2014 Fleet Transcript Monitor (night, 00:00\u201306:00, every 3h)</b>",
+          "<ul>",
+          "<li>Just runs <code>fleet_monitor.py</code> \u2014 the dashboard s...",
+          "[18:56 IST] HADERACH: Noted \u2014 tighter from here.",
+          "<b>Cron A \u2014 Fleet Memory Health Check (04:00 daily)</b>",
+          "<ul>",
+          "<li>HTTP-pings all 13 M4 agents on their ports</li>",
+          "<li>Checks each agent's memory files are fresh/not broken</li>",
+          "<li>Composes a health report and sends it to you on Telegram</li>",
+          "<li>Heavy multi-step agentic turn on Sonnet \u2014 currently failing (6 errors)</li>",
+          "</ul>",
+          "<b>Cron B \u2014 Fleet Transcript Monitor (night, 00:00\u201306:00, every 3h)</b>",
+          "<ul>",
+          "<li>Just runs <code>fleet_monitor.py</code> \u2014 the dashboard s...",
+          "[18:56 IST] RAM: Fix both",
+          "[18:56 IST] HADERACH: Understood. Cron B now (one-line confident fix); Cron A reworked (convert heavy agentic steps to the same script-based pattern).",
+          "Let me back up Giskard's cron store first, then inspect both rows' exact current values.",
+          "[18:56 IST] HADERACH: Backup made. Now Cron B fix \u2014 bump night timeout 120\u2192600s and copy the daytime twin's terse header into the night payload.",
+          "[18:56 IST] HADERACH: Confirmed. The daytime twin's header references \"GEMMA\" but runs on Sonnet \u2014 it's a stale label but harmless (just an efficiency instruction). I'll make the night job match the daytime twin exactly: 600s + same terse header. Let me apply and reset its error counter.",
+          "[18:59 IST] HADERACH: On it. Cron B first (simple), then Cron A (rework).",
+          "[18:59 IST] HADERACH: Cron B done \u2014 timeout 120\u2192600s, terse header added, error counter reset. Now Cron A.",
+          "Let me read the full prompt before rewriting it.",
+          "[18:59 IST] HADERACH: The issue is clear \u2014 5 sequential steps, each requiring tool calls, in one agentTurn that's timing out at ~7 min. Steps 1-4 are all data-gathering that can be done in pure Python. Only Step 5 (compose + send) needs an LLM.",
+          "The fix: convert Steps 1-4 into a Python script (like `fleet_monitor.py`), have it write a JSON summary, then the agentTurn only reads that JSON and sends the Telegram message. One tool call instead of 20+.",
+          "[18:59 IST] HADERACH: The `\\n` literal snuck into the write. Let me fix it directly with exec+Python.",
+          "[18:59 IST] HADERACH: The heredoc approach keeps polluting things. Let me use `sed` which handles this cleanly."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1542,8 +1542,8 @@
       "avatar": "giskard",
       "up": true,
       "pid": 34374,
-      "rss_gb": 0.46,
-      "cpu": 0.3,
+      "rss_gb": 0.47,
+      "cpu": 0.5,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1552,10 +1552,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.7,
-        "rolling_28day": 18.7,
-        "rolling_180day": 66.6
+        "transcript": 0.2,
+        "rolling_7day": 18.8,
+        "rolling_28day": 18.8,
+        "rolling_180day": 66.7
       },
       "skills": [
         "moltguard"
@@ -1888,7 +1888,7 @@
       "up": true,
       "pid": 46450,
       "rss_gb": 0.41,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1896,10 +1896,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
-        "rolling_180day": 42.8
+        "transcript": 0.2,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
+        "rolling_180day": 42.9
       },
       "skills": [
         "twitacc"
@@ -2294,8 +2294,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.42,
-      "cpu": 0.9,
+      "rss_gb": 0.52,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2303,10 +2303,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
-        "rolling_180day": 42.8
+        "transcript": 0.0,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
+        "rolling_180day": 42.9
       },
       "skills": [
         "academic-deep-research",
@@ -2454,10 +2454,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1782653412667,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782651603710,
+          "last_ts": 1782653412666,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2478,15 +2487,6 @@
           "last_ts": 1782650057119,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1782649815516,
-          "last_status": "error",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -2519,9 +2519,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Transcript logger complete**",
-          "- **Klub K sessions checked:** 3 (main, direct DM with Gari, group chat)",
-          "- **New messages captured:** 0",
           "- **Transcript file:** `transcript-2026-06-28.md`",
           "- **Bookmark:** No new activity",
           "All systems normal. No updates needed to rolling summaries at this time.",
@@ -2558,7 +2555,10 @@
           "- **Bookmark file updated** for next run",
           "- **Daily file:** `transcript-2026-06-28.md`",
           "All quiet on the Klub K channels. Ready for the next scheduled run.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Script completed successfully. No new messages. All sessions processed."
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Script completed successfully. No new messages. All sessions processed.",
+          "[18:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[18:55 IST] PURL: \u2705 **Context:** 21% (healthy)",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "[19:55 IST] PURL: \u2705 **Context:** 20% (healthy)  ",
@@ -2678,7 +2678,7 @@
       "up": true,
       "pid": 34233,
       "rss_gb": 0.44,
-      "cpu": 1.0,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2687,9 +2687,9 @@
       ],
       "memory": {
         "transcript": 0.8,
-        "rolling_7day": 18.7,
-        "rolling_28day": 18.7,
-        "rolling_180day": 18.7
+        "rolling_7day": 18.8,
+        "rolling_28day": 18.8,
+        "rolling_180day": 18.8
       },
       "skills": [
         "moltguard"
@@ -2967,17 +2967,17 @@
       "avatar": "legalsmeda",
       "up": true,
       "pid": 34274,
-      "rss_gb": 0.27,
+      "rss_gb": 0.28,
       "cpu": 0.7,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.9,
-        "rolling_28day": 18.9,
-        "rolling_180day": 19.9
+        "transcript": 0.0,
+        "rolling_7day": 19.0,
+        "rolling_28day": 19.0,
+        "rolling_180day": 20.0
       },
       "skills": [
         "moltguard"
@@ -2998,7 +2998,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782652804888,
+          "last_ts": 1782653404952,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3139,16 +3139,16 @@
       "up": true,
       "pid": 34197,
       "rss_gb": 0.28,
-      "cpu": 1.0,
+      "cpu": 6.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
-        "rolling_180day": 18.8
+        "transcript": 1.0,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
+        "rolling_180day": 18.9
       },
       "skills": [
         "moltguard"
@@ -3364,10 +3364,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.7,
-        "rolling_7day": 18.6,
-        "rolling_28day": 18.6,
-        "rolling_180day": 18.6
+        "transcript": 0.8,
+        "rolling_7day": 18.7,
+        "rolling_28day": 18.7,
+        "rolling_180day": 18.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3588,10 +3588,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.0,
         "rolling_7day": 19.9,
-        "rolling_28day": 19.8,
-        "rolling_180day": 19.8
+        "rolling_28day": 19.9,
+        "rolling_180day": 19.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3764,7 +3764,7 @@
       "up": true,
       "pid": 33872,
       "rss_gb": 0.21,
-      "cpu": 0.8,
+      "cpu": 1.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3796,7 +3796,7 @@
       "up": true,
       "pid": 33899,
       "rss_gb": 0.2,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3826,7 +3826,7 @@
       "up": true,
       "pid": 66817,
       "rss_gb": 0.45,
-      "cpu": 1.3,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3834,10 +3834,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
-        "rolling_180day": 42.8
+        "transcript": 0.0,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
+        "rolling_180day": 42.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -3988,7 +3988,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782651603292,
+          "last_ts": 1782653403314,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4023,8 +4023,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[06:52 IST] HERBIE: HEARTBEAT_OK",
           "[07:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[07:52 IST] HERBIE: HEARTBEAT_OK",
           "[08:52 IST] RAM: [OpenClaw heartbeat poll]",
@@ -4062,7 +4060,9 @@
           "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger script now.",
           "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2705 Transcript logger complete. 2 new messages logged to `transcript-2026-06-28.md` with bookmarks enabled.",
           "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
-          "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. Transcript logged for 2026-06-28 (no new messages since last run)."
+          "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. Transcript logged for 2026-06-28 (no new messages since last run).",
+          "[18:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[18:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Running the transcript logger now.",
@@ -4201,7 +4201,7 @@
       "up": true,
       "pid": 34329,
       "rss_gb": 0.39,
-      "cpu": 1.4,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4209,9 +4209,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 19.8,
-        "rolling_28day": 19.8,
+        "transcript": 0.1,
+        "rolling_7day": 19.9,
+        "rolling_28day": 19.9,
         "rolling_180day": null
       },
       "skills": [
