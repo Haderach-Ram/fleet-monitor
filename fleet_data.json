@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-28 14:13:59 IST",
-  "generated_epoch": 1782636239,
+  "generated_ist": "2026-06-28 14:19:06 IST",
+  "generated_epoch": 1782636546,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.85 / 2.86 / 2.93",
+    "load": "3.95 / 3.30 / 3.10",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -31,8 +31,8 @@
       "avatar": "haderach",
       "up": true,
       "pid": 48376,
-      "rss_gb": 0.73,
-      "cpu": 8.2,
+      "rss_gb": 0.77,
+      "cpu": 1.3,
       "crons_total": 81,
       "crons_enabled": 58,
       "skills_count": 59,
@@ -42,10 +42,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 1.2,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 14.2
+        "transcript": 0.1,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 14.3
       },
       "skills": [
         "academic-deep-research",
@@ -643,6 +643,15 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782636262900,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -684,7 +693,7 @@
           "sched": "*/10 6-23 * * *",
           "last_ts": 1782635149110,
           "last_status": "error",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "*/10 6-23 * * *",
           "last_ts": 1782635139901,
-          "last_status": "error",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782635130010,
           "last_status": "error",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
@@ -1374,46 +1374,46 @@
       ],
       "transcripts": {
         "recent": [
-          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
-          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
-          "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
-          "[10:21 IST] RAM: How do we solve these issues?",
-          "[10:22 IST] HADERACH: Let me actually diagnose the two real defects before prescribing fixes \u2014 I'd rather show you the root cause than guess. Let me look at the pdf-tool config and the verify-gate definition.",
-          "[10:22 IST] HADERACH: The grep over the whole workspace is slow. Let me narrow it and look at the pdf-tool model config directly.",
-          "[10:22 IST] HADERACH: Now I can see the real picture. Let me check whether that openrouter model is actually registered and whether OpenRouter is even configured, plus locate the verify-gate.",
-          "[10:23 IST] HADERACH: Now I understand both defects precisely. Let me confirm the verify-gate config and check the earlier successful sends to understand why it worked before but not now.",
-          "[10:23 IST] HADERACH: Now I have the complete diagnosis. Both problems are clear and fixable. Here's exactly what's wrong and how to solve each.",
-          "---",
-          "## The two real defects",
-          "**Defect 1 \u2014 `imageModel` points at a dead model.**",
-          "Your config has:",
-          "```",
-          "agents.defaults.imageModel.primary = openrouter/google/gemini-2.5-flash",
-          "imageModel.fallbacks = []   \u2190 empty",
-          "```",
-          "The `pdf` tool failed with *\"Unknown model: openrouter/google/gemini-2.5-flash\"* \u2014 so even though OpenRouter is configured with an API key, the runtime can'...",
-          "[10:23 IST] HADERACH: Now I have the complete diagnosis. Both problems are clear and fixable. Here's exactly what's wrong and how to solve each.",
-          "---",
-          "## The two real defects",
-          "**Defect 1 \u2014 `imageModel` points at a dead model.**",
-          "Your config has:",
-          "```",
-          "agents.defaults.imageModel.primary = openrouter/google/gemini-2.5-flash",
-          "imageModel.fallbacks = []   \u2190 empty",
-          "```",
-          "The `pdf` tool failed with *\"Unknown model: openrouter/google/gemini-2.5-flash\"* \u2014 so even though OpenRouter is configured with an API key, the runtime can'...",
-          "[10:39 IST] RAM: [OpenClaw heartbeat poll]",
-          "[10:39 IST] HADERACH: Good morning, Ram.",
-          "**Status \u2014 10:39 IST (Sun 28 Jun):**",
-          "\u2705 **Gateway:** Healthy",
-          "\u2705 **All core systems:** Operational",
-          "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
-          "**Discord Status Update:**",
-          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
-          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
-          "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc..."
+          "Load: 2.61 / 2.81 / 2.9 | Free RAM: 8682MB unused | Swap: 14.6GB used",
+          "\u2022 Haderach: \ud83d\udd34 CPU 85.3%",
+          "\u2501\u2501...",
+          "[13:28 IST] HADERACH: Two separate things here:",
+          "<b>1. Why does it say 88% when I said it's not?</b>",
+          "It's accurate \u2014 I can't see my own context percentage from inside the session. Giskard measures it externally by querying the gateway API. The 88% (175.7k/200k) is the real number. I had no basis to dispute it earlier \u2014 that was a mistake on my part.",
+          "<b>2. The \"Consolidation cron [Group TX active]\" \u2014 6 consecutive errors</b>",
+          "This is a *different* cron from the 13:00 session consolidation. This is the **Group Tra...",
+          "[13:28 IST] HADERACH: Two separate things here:",
+          "<b>1. Why does it say 88% when I said it's not?</b>",
+          "It's accurate \u2014 I can't see my own context percentage from inside the session. Giskard measures it externally by querying the gateway API. The 88% (175.7k/200k) is the real number. I had no basis to dispute it earlier \u2014 that was a mistake on my part.",
+          "<b>2. The \"Consolidation cron [Group TX active]\" \u2014 6 consecutive errors</b>",
+          "This is a *different* cron from the 13:00 session consolidation. This is the **Group Tra...",
+          "[14:11 IST] RAM: What\u2019s the context %?",
+          "[14:11 IST] HADERACH: Let me check live.",
+          "[14:12 IST] HADERACH: **67%** (133k/200k) right now.",
+          "Giskard's 88% reading was from 13:10 \u2014 that was before the conversation context here was injected. The current turn includes the full conversation history you just forwarded (messages #69351\u2013#69366), which is a large block of text. Giskard measures at a point in time; the live number now is lower because this is a fresh turn with cache hits bringing the effective new-token count down.",
+          "So: 67%, not 88%. Comfortable \u2014 no immediate need to /compact.",
+          "[14:12 IST] HADERACH: **67%** (133k/200k) right now.",
+          "Giskard's 88% reading was from 13:10 \u2014 that was before the conversation context here was injected. The current turn includes the full conversation history you just forwarded (messages #69351\u2013#69366), which is a large block of text. Giskard measures at a point in time; the live number now is lower because this is a fresh turn with cache hits bringing the effective new-token count down.",
+          "So: 67%, not 88%. Comfortable \u2014 no immediate need to /compact.",
+          "[14:13 IST] RAM: How can there be 6 consecutive errors for the group transcript cron? Is this the transcript logger? Diagnose pls",
+          "[14:13 IST] HADERACH: Let me check the cron job directly.",
+          "[14:13 IST] HADERACH: Diagnosed. Clear picture:",
+          "<b>What it is</b>",
+          "The \"Group Transcript Logger \u2014 10min daytime (v2)\" \u2014 a separate lightweight cron that runs `group_transcript_update.py` every 10 min. It is <b>not</b> the main transcript logger for your session. It captures fleet group chat messages.",
+          "<b>Root cause</b>",
+          "The cron is configured to use <code>amazon-bedrock/amazon.nova-lite-v1:0</code> as its model. That model is currently returning \"LLM request failed\" \u2014 Nova Lite appears to be down or throttled on ...",
+          "[14:13 IST] HADERACH: Full diagnosis now clear. Two separate problems, same root cause:",
+          "<b>Root cause: Amazon Bedrock Nova models went down at ~12:20 IST today</b>",
+          "The failure pattern is identical across both affected crons:",
+          "<ul>",
+          "<li>Last successful run: ~12:20 IST \u2014 model was <code>global.anthropic.claude-sonnet-4-6</code></li>",
+          "<li>First failure: ~12:30 IST \u2014 model switched to <code>nova-pro</code> / <code>nova-lite</code></li>",
+          "<li>Every run since: instant failure (~7 sec), \"LLM request failed\"</li>",
+          "</ul>",
+          "<b>T...",
+          "[14:13 IST] HADERACH: The verify-gate is requiring full job specs on update. Let me force-run both immediately with the existing configs first to restore transcript capture, while I sort the model fix separately.",
+          "[14:13 IST] HADERACH: The force-run will also fail since Nova Pro is still down. The real fix needs the model patched. Let me read the job config and do a proper full-spec update.",
+          "[14:14 IST] HADERACH: Both crons updated to Sonnet. They'll next run at 14:30 IST. Let me also force-run the transcript logger now to catch up immediately:"
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1552,7 +1552,7 @@
       "up": true,
       "pid": 34374,
       "rss_gb": 0.48,
-      "cpu": 0.9,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1561,10 +1561,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 14.0,
-        "rolling_28day": 14.0,
-        "rolling_180day": 61.9
+        "transcript": 0.4,
+        "rolling_7day": 14.1,
+        "rolling_28day": 14.1,
+        "rolling_180day": 62.0
       },
       "skills": [
         "moltguard"
@@ -1896,8 +1896,8 @@
       "avatar": "kubera",
       "up": true,
       "pid": 46450,
-      "rss_gb": 0.44,
-      "cpu": 0.6,
+      "rss_gb": 0.43,
+      "cpu": 3.6,
       "crons_total": 22,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1905,10 +1905,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 38.1
+        "transcript": 0.2,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 38.2
       },
       "skills": [
         "twitacc"
@@ -2303,8 +2303,8 @@
       "avatar": "purl",
       "up": true,
       "pid": 34049,
-      "rss_gb": 0.46,
-      "cpu": 0.9,
+      "rss_gb": 0.44,
+      "cpu": 1.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2312,10 +2312,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 38.1
+        "transcript": 0.3,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 38.2
       },
       "skills": [
         "academic-deep-research",
@@ -2686,8 +2686,8 @@
       "avatar": "casmeda",
       "up": true,
       "pid": 34233,
-      "rss_gb": 0.44,
-      "cpu": 1.5,
+      "rss_gb": 0.4,
+      "cpu": 1.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2695,10 +2695,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.2,
-        "rolling_7day": 14.0,
-        "rolling_28day": 14.0,
-        "rolling_180day": 14.0
+        "transcript": 1.3,
+        "rolling_7day": 14.1,
+        "rolling_28day": 14.1,
+        "rolling_180day": 14.1
       },
       "skills": [
         "moltguard"
@@ -2977,16 +2977,16 @@
       "up": true,
       "pid": 34274,
       "rss_gb": 0.28,
-      "cpu": 0.9,
+      "cpu": 1.3,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.2,
-        "rolling_28day": 14.2,
-        "rolling_180day": 15.2
+        "transcript": 0.2,
+        "rolling_7day": 14.3,
+        "rolling_28day": 14.3,
+        "rolling_180day": 15.3
       },
       "skills": [
         "moltguard"
@@ -3148,16 +3148,16 @@
       "up": true,
       "pid": 34197,
       "rss_gb": 0.33,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
       "channels": [],
       "memory": {
-        "transcript": 11.2,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 14.1
+        "transcript": 11.3,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 14.2
       },
       "skills": [
         "moltguard"
@@ -3361,7 +3361,7 @@
       "up": true,
       "pid": 34150,
       "rss_gb": 0.35,
-      "cpu": 0.3,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3369,10 +3369,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.0,
-        "rolling_7day": 13.9,
-        "rolling_28day": 13.9,
-        "rolling_180day": 13.9
+        "transcript": 2.1,
+        "rolling_7day": 14.0,
+        "rolling_28day": 14.0,
+        "rolling_180day": 14.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3587,13 +3587,13 @@
       "up": true,
       "pid": 33801,
       "rss_gb": 0.28,
-      "cpu": 0.5,
+      "cpu": 1.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 3.2,
+        "transcript": 3.3,
         "rolling_7day": 15.2,
         "rolling_28day": 15.2,
         "rolling_180day": 15.2
@@ -3769,7 +3769,7 @@
       "up": true,
       "pid": 33872,
       "rss_gb": 0.22,
-      "cpu": 0.5,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3800,8 +3800,8 @@
       "avatar": "clarkkent",
       "up": true,
       "pid": 33899,
-      "rss_gb": 0.21,
-      "cpu": 0.1,
+      "rss_gb": 0.2,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3830,8 +3830,8 @@
       "avatar": "herbie",
       "up": true,
       "pid": 33989,
-      "rss_gb": 0.39,
-      "cpu": 0.6,
+      "rss_gb": 0.4,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3839,10 +3839,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 14.1,
-        "rolling_28day": 14.1,
-        "rolling_180day": 38.1
+        "transcript": 0.3,
+        "rolling_7day": 14.2,
+        "rolling_28day": 14.2,
+        "rolling_180day": 38.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4206,7 +4206,7 @@
       "up": true,
       "pid": 34329,
       "rss_gb": 0.39,
-      "cpu": 0.4,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4214,9 +4214,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 3.1,
-        "rolling_7day": 15.1,
-        "rolling_28day": 15.1,
+        "transcript": 3.2,
+        "rolling_7day": 15.2,
+        "rolling_28day": 15.2,
         "rolling_180day": null
       },
       "skills": [
