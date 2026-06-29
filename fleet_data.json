@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-30 02:57:23 IST",
-  "generated_epoch": 1782768443,
+  "generated_ist": "2026-06-30 03:02:27 IST",
+  "generated_epoch": 1782768747,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.85 / 4.03 / 3.68",
+    "load": "3.78 / 3.66 / 3.59",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 39694,
-      "rss_gb": 0.9,
-      "cpu": 0.3,
+      "rss_gb": 0.95,
+      "cpu": 0.8,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 3.1,
-        "rolling_7day": 2.9,
-        "rolling_28day": 2.9,
-        "rolling_180day": 2.9
+        "transcript": 3.2,
+        "rolling_7day": 3.0,
+        "rolling_28day": 3.0,
+        "rolling_180day": 3.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,46 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782768126265,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1782768729601,
+          "last_status": "error",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782768658540,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1782768620251,
+          "last_status": "error",
+          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782768010732,
+          "last_ts": 1782768608815,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1782768126265,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,24 +718,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782758106386,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1782758106386,
-          "last_status": "error",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Twitter Watcher \u2014 Every 3h",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -724,15 +733,6 @@
           "last_ts": 1782758003289,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1782757808420,
-          "last_status": "error",
-          "model": "amazon-bedrock/amazon.nova-lite-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1305,
-      "rss_gb": 0.5,
-      "cpu": 0.6,
+      "rss_gb": 0.53,
+      "cpu": 0.5,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1588,7 +1588,7 @@
         "transcript": 3.0,
         "rolling_7day": 2.9,
         "rolling_28day": 2.9,
-        "rolling_180day": 98.6
+        "rolling_180day": 98.7
       },
       "skills": [
         "moltguard"
@@ -1606,10 +1606,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1782758190212,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1782768619314,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1618,16 +1618,16 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
           "sched": "0 0,3 * * *",
-          "last_ts": 1782757820346,
+          "last_ts": 1782768619313,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "name": "Giskard \u2014 Midnight Rolling Summary",
           "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1782757820346,
+          "sched": "5 0 * * *",
+          "last_ts": 1782758190212,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2290,8 +2290,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1287,
-      "rss_gb": 0.5,
-      "cpu": 0.9,
+      "rss_gb": 0.45,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2299,10 +2299,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 26.8,
-        "rolling_28day": 2.8,
-        "rolling_180day": 2.8
+        "transcript": 3.0,
+        "rolling_7day": 26.9,
+        "rolling_28day": 2.9,
+        "rolling_180day": 2.9
       },
       "skills": [
         "academic-deep-research",
@@ -2640,7 +2640,7 @@
       "frozen_reason": null,
       "pid": 1312,
       "rss_gb": 0.42,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2648,10 +2648,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.8,
-        "rolling_7day": 2.7,
-        "rolling_28day": 2.7,
-        "rolling_180day": 2.7
+        "transcript": 2.9,
+        "rolling_7day": 2.8,
+        "rolling_28day": 2.8,
+        "rolling_180day": 2.8
       },
       "skills": [
         "moltguard"
@@ -3100,19 +3100,19 @@
       ],
       "crons": [
         {
-          "name": "CISO SMEDA \u2014 Midnight Rolling Summary",
+          "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1782758330538,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782768725668,
           "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
+          "name": "CISO SMEDA \u2014 Midnight Rolling Summary",
           "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782757924781,
+          "sched": "5 0 * * *",
+          "last_ts": 1782758330538,
           "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3139,7 +3139,19 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-06-30",
-          "# Self-healing rotation from transcript-2026-06-29.md at 00:02 IST"
+          "# Self-healing rotation from transcript-2026-06-29.md at 00:02 IST",
+          "[21:06 IST] CISO-SMEDA: NO_REPLY",
+          "[23:00 IST] CISO-SMEDA: Context 39% \u2014 well under 80%. Proceeding with consolidation.",
+          "[23:00 IST] CISO-SMEDA: Now append all consolidation updates:",
+          "[23:01 IST] CISO-SMEDA: Now run Phase 9 \u2014 Standing Fact Aggregation:",
+          "[23:02 IST] CISO-SMEDA: NO_REPLY",
+          "[00:06 IST] CISO-SMEDA: That file has embedded literal `\\n` sequences from the editor. Let me write it cleanly:",
+          "[00:07 IST] CISO-SMEDA: The shell heredoc is inserting literal `\\n`. Let me write directly via the write tool with proper Python:",
+          "[00:07 IST] CISO-SMEDA: The write tool is converting newlines to literal `\\n`. I'll use exec directly with a printf to create the file:",
+          "[00:07 IST] CISO-SMEDA: The exec tool is also inserting literal `\\n` into the `-c` string. Let me use a different approach \u2014 write the script to a file using exec with tee/printf:",
+          "[00:07 IST] CISO-SMEDA: Today is June 30th \u2014 the daily log for June 30 doesn't exist yet (it's just past midnight). The cron is designed to summarise **today's** (June 30) log, but that log won't exist until tonight's study session. However, the midnight summary should be capturing **yesterday** (June 29) in the rolling files. Let me proceed with what's needed \u2014 write June 29 entries and the midnight marker:",
+          "[00:08 IST] CISO-SMEDA: Now trim old entries and append the midnight markers:",
+          "[00:08 IST] CISO-SMEDA: All entries appended and midnight markers in place. Git commit:"
         ],
         "yesterday": [
           "[00:07 IST] CISO-SMEDA: NO_REPLY",
@@ -3281,7 +3293,7 @@
       "frozen_reason": null,
       "pid": 1675,
       "rss_gb": 0.38,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3289,10 +3301,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.7,
-        "rolling_7day": 2.6,
-        "rolling_28day": 2.6,
-        "rolling_180day": 2.6
+        "transcript": 2.8,
+        "rolling_7day": 2.7,
+        "rolling_28day": 2.7,
+        "rolling_180day": 2.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3507,16 +3519,16 @@
       "frozen_reason": null,
       "pid": 1660,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 3.1,
-        "rolling_7day": 3.9,
-        "rolling_28day": 3.9,
-        "rolling_180day": 3.9
+        "transcript": 3.2,
+        "rolling_7day": 4.0,
+        "rolling_28day": 4.0,
+        "rolling_180day": 4.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3699,7 +3711,7 @@
       "frozen_reason": null,
       "pid": 1285,
       "rss_gb": 0.23,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3734,7 +3746,7 @@
       "frozen_reason": null,
       "pid": 1280,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3767,7 +3779,7 @@
       "frozen_reason": null,
       "pid": 1274,
       "rss_gb": 0.39,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3775,10 +3787,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 2.8,
-        "rolling_28day": 2.8,
-        "rolling_180day": 26.8
+        "transcript": 3.0,
+        "rolling_7day": 2.9,
+        "rolling_28day": 2.9,
+        "rolling_180day": 26.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4107,7 +4119,7 @@
       "frozen_reason": null,
       "pid": 1311,
       "rss_gb": 0.41,
-      "cpu": 0.6,
+      "cpu": 1.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4115,9 +4127,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 3.8,
-        "rolling_28day": 3.8,
+        "transcript": 0.0,
+        "rolling_7day": 3.9,
+        "rolling_28day": 3.9,
         "rolling_180day": null
       },
       "skills": [
@@ -4418,7 +4430,42 @@
       "transcripts": {
         "recent": [
           "# Sam Transcript \u2014 2026-06-30",
-          "# Self-healing rotation from transcript-2026-06-29.md at 00:05 IST"
+          "# Self-healing rotation from transcript-2026-06-29.md at 00:05 IST",
+          "[00:04 IST] RAM: [OpenClaw heartbeat poll]",
+          "[00:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `gateway` configuration again:",
+          "[00:04 IST] SAM: The `gateway` configuration appears to be correctly set up. The port is set to `18812`, the mode is `local`, and it's bound to `loopback` with token authentication.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK",
+          "[00:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[00:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `plugins` configuration again:",
+          "[00:34 IST] SAM: The `plugins` configuration appears to be correctly set up. The plugins `amazon-bedrock` and `microsoft` are enabled, while `bonjour` is disabled. The `telegram` plugin is enabled, which aligns with the previous checks.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK",
+          "[01:04 IST] RAM: [OpenClaw heartbeat poll]",
+          "[01:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `tools` configuration again:",
+          "[01:04 IST] SAM: The `tools` configuration appears to be correctly set up. The `agentToAgent` tool is enabled and allows communication with `agent:main:telegram:direct:8489979671`. The `exec` tool is configured to run on the `gateway` host with full security and no ask required.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK",
+          "[01:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[01:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `agents` configuration again:",
+          "[01:34 IST] SAM: The `agents` configuration appears to be correctly set up. The default model is `amazon-bedrock/global.anthropic.claude-sonnet-4-6` with fallbacks to `amazon-bedrock/apac.amazon.nova-pro-v1:0` and `anthropic/claude-sonnet-4-6`. The workspace is set to `/Users/ram_macmini/.openclaw-gagan/workspace`, and memory search is configured to use `gemini` with the model `gemini-embedding-001`.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, every...",
+          "[02:04 IST] RAM: [OpenClaw heartbeat poll]",
+          "[02:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `auth` configuration again:",
+          "[02:04 IST] SAM: The `auth` configuration appears to be correctly set up. The `amazon-bedrock:default` profile uses `aws-sdk` for authentication, and the `anthropic:default` profile uses an `api_key`.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK",
+          "[02:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[02:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `secrets` configuration again:",
+          "[02:34 IST] SAM: The `secrets` configuration appears to be correctly set up. The `bitwarden` provider is configured with the necessary details, including the command, arguments, and trusted directories.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "[20:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
