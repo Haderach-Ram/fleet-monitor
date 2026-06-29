@@ -29,12 +29,23 @@ async function load(){
     DATA = await r.json();
     document.getElementById("host").textContent = DATA.host || "";
     document.getElementById("updated").textContent = DATA.generated_ist || "—";
-    const up = DATA.agents.filter(a=>a.up).length;
+    const frozen = DATA.agents.filter(a=>a.frozen);
+    const active = DATA.agents.filter(a=>!a.frozen);
+    const up = active.filter(a=>a.up).length;
+    const frozenCount = frozen.length;
     document.getElementById("sysbar").innerHTML =
-      sysItem("Agents", up+" up &middot; "+(DATA.agents.length-up)+" down") +
+      sysItem("Active", up+" up &middot; "+(active.length-up)+" down") +
+      (frozenCount ? sysItem("Frozen", frozenCount+" agent"+(frozenCount>1?"s":"")) : "") +
       sysItem("RAM", (DATA.system.ram_total_gb||"?")+" GB") +
       sysItem("Load", DATA.system.load||"—");
-    document.getElementById("grid").innerHTML = DATA.agents.map(card).join("");
+    let gridHtml = active.map(card).join("");
+    if(frozen.length){
+      gridHtml += "<div class='frozen-divider' style='grid-column:1/-1;display:flex;align-items:center;gap:10px;margin:10px 0 4px;'>"
+        +"<span style='color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;'>&#10052; Frozen</span>"
+        +"<div style='flex:1;height:1px;background:var(--border);'></div></div>";
+      gridHtml += frozen.map(frozenCard).join("");
+    }
+    document.getElementById("grid").innerHTML = gridHtml;
   }catch(e){
     document.getElementById("grid").innerHTML = "<p style='color:var(--muted)'>Could not load fleet_data.json &mdash; "+e+"</p>";
   }
@@ -45,6 +56,18 @@ function chanChips(chs){
   if(!chs||!chs.length) return "";
   const map={telegram:["tg","Telegram"],whatsapp:["wa","WhatsApp"],discord:["dc","Discord"]};
   return "<div class='chans'>"+chs.map(c=>{const m=map[c]||["","" +c];return "<span class='chan "+m[0]+"'>"+m[1]+"</span>";}).join("")+"</div>";
+}
+
+function frozenCard(a){
+  const since = a.paused_date ? " &middot; since "+a.paused_date : "";
+  const reason = a.frozen_reason ? "<div class='r' style='font-size:11px;color:var(--muted);margin-top:3px;'>" + escapeHtml(a.frozen_reason) + "</div>" : "";
+  return "<div class='card' style='opacity:.5;border-color:#30363d;cursor:default;' onclick=\"openDetail('"+a.key+"')\">" +
+    "<div class='top'>" +
+      "<img class='av' src='avatars/"+a.avatar+".jpg' onerror=\"this.style.visibility='hidden'\">" +
+      "<div class='nm'><div class='n'>"+a.name+"</div><div class='r'>Port "+a.port+"</div>"+reason+"</div>" +
+      "<span class='badge frozen'>&#10052; Frozen</span>" +
+    "</div>" +
+  "</div>";
 }
 
 function card(a){
