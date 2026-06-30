@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-30 06:36:24 IST",
-  "generated_epoch": 1782781584,
+  "generated_ist": "2026-06-30 06:41:29 IST",
+  "generated_epoch": 1782781889,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.66 / 3.48 / 3.58",
+    "load": "3.78 / 3.76 / 3.67",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 39694,
       "rss_gb": 0.96,
-      "cpu": 0.9,
+      "cpu": 1.8,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -45,7 +45,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 6.6,
         "rolling_28day": 6.6,
         "rolling_180day": 6.6
@@ -649,16 +649,7 @@
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782781239560,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782781226846,
+          "last_ts": 1782781838940,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +658,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782781226845,
+          "last_ts": 1782781826217,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782781826217,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +676,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782781226845,
+          "last_ts": 1782781826216,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,17 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[05:42 IST] RAM: Diagnose and fix the issues pls from GisKard\u2019s fleet monitoring report:",
-          "\ud83d\udda5\ufe0f _Fleet Monitor \u2014 03:00 IST 30 Jun_",
-          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
-          "\u26a0\ufe0f _Purl_ `rolling-7day.md` stale (26.8h old, 29L) \u2014 midnight cron may have failed",
-          "\ud83d\udd34 _Consolidation cron [haderach: Consolidation watchdog \u2014 23:10 IST]_ \u2014 1 consecutive error(s): LLM request failed.",
-          "\ud83d\udd34 _Consolidation cron [haderach: HAD-003 Reading \u2014 02:00 IST]_ \u2014 1 consecutive error(s): \u26a0\ufe0f \u23f0 Cron failed",
-          "\ud83d\udd34 _Consolidation cron [haderach: Transcript Logger \u2014 3h quiet...",
-          "[05:42 IST] HADERACH: I'll diagnose all the issues systematically. Let me start by checking the cron details and recent error patterns.",
-          "[05:42 IST] HADERACH: Good, I can see all the errored crons. Let me now check the specific error details for each failed job:",
-          "[05:42 IST] HADERACH: Now I have enough to diagnose everything. The pattern is crystal clear \u2014 all the \"LLM request failed\" errors are on `model: \"nova-pro\"`. Let me now check the digest crons and fix all of them at once:",
-          "[05:42 IST] HADERACH: Diagnosis complete. All failures are nova-pro. Now fixing all 6 affected crons in parallel \u2014 switching to Sonnet:",
           "[05:42 IST] HADERACH: Need to include sessionTarget in the patch. Let me check what sessionTarget the consolidation watchdog uses and fix properly:",
           "[05:42 IST] HADERACH: Interesting \u2014 Group Transcript Logger is actually on `nova-lite`, not nova-pro. And the Transcript Logger (3h quiet) was also nova-pro. Let me now fix all these with the correct model path. The issue is nova-lite is also failing \u2014 Bedrock has a broader issue with Nova family. Let me switch them all to Sonnet:",
           "[05:43 IST] HADERACH: The verify-gate requires the schedule too. Patching all 6 with full required fields:",
@@ -1427,6 +1416,17 @@
           "[06:09 IST] RAM: [OpenClaw heartbeat poll]",
           "[06:09 IST] HADERACH: Good morning, Ram.",
           "**Status \u2014 06:09 IST (Tue 30 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
+          "[06:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[06:39 IST] HADERACH: Good morning, Ram.",
+          "**Status \u2014 06:39 IST (Tue 30 Jun):**",
           "\u2705 **Gateway:** Healthy",
           "\u2705 **All core systems:** Operational",
           "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1305,
-      "rss_gb": 0.47,
-      "cpu": 0.9,
+      "rss_gb": 0.46,
+      "cpu": 0.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 6.5,
-        "rolling_28day": 6.5,
-        "rolling_180day": 102.2
+        "transcript": 0.4,
+        "rolling_7day": 6.6,
+        "rolling_28day": 6.6,
+        "rolling_180day": 102.3
       },
       "skills": [
         "moltguard"
@@ -2290,8 +2290,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1287,
-      "rss_gb": 0.47,
-      "cpu": 0.7,
+      "rss_gb": 0.48,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2299,7 +2299,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 30.5,
         "rolling_28day": 6.5,
         "rolling_180day": 6.5
@@ -2677,8 +2677,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1312,
-      "rss_gb": 0.42,
-      "cpu": 0.9,
+      "rss_gb": 0.6,
+      "cpu": 0.7,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2686,10 +2686,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 6.3,
-        "rolling_28day": 6.3,
-        "rolling_180day": 6.3
+        "transcript": 0.5,
+        "rolling_7day": 6.4,
+        "rolling_28day": 6.4,
+        "rolling_180day": 6.4
       },
       "skills": [
         "moltguard"
@@ -2996,7 +2996,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782781206312,
+          "last_ts": 1782781805874,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3361,7 +3361,7 @@
       "frozen_reason": null,
       "pid": 1675,
       "rss_gb": 0.38,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3369,10 +3369,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 6.3,
-        "rolling_28day": 6.3,
-        "rolling_180day": 6.3
+        "transcript": 0.5,
+        "rolling_7day": 6.4,
+        "rolling_28day": 6.4,
+        "rolling_180day": 6.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3587,16 +3587,16 @@
       "frozen_reason": null,
       "pid": 1660,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 7.5,
-        "rolling_28day": 7.5,
-        "rolling_180day": 7.5
+        "transcript": 0.0,
+        "rolling_7day": 7.6,
+        "rolling_28day": 7.6,
+        "rolling_180day": 7.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3751,7 +3751,7 @@
       "frozen_reason": null,
       "pid": 1285,
       "rss_gb": 0.23,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3786,7 +3786,7 @@
       "frozen_reason": null,
       "pid": 1280,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,8 +3818,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1274,
-      "rss_gb": 0.4,
-      "cpu": 0.3,
+      "rss_gb": 0.37,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3827,7 +3827,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 6.5,
         "rolling_28day": 6.5,
         "rolling_180day": 30.5
@@ -4185,8 +4185,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1311,
-      "rss_gb": 0.46,
-      "cpu": 0.8,
+      "rss_gb": 0.45,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4194,7 +4194,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 7.5,
         "rolling_28day": 7.5,
         "rolling_180day": null
@@ -4496,12 +4496,6 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "[03:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `channels` configuration again:",
-          "[03:04 IST] SAM: The `channels` configuration appears to be correctly set up. The Telegram group `-5279791513` is configured with an open policy, allowing messages from both you (8489979671) and Gagan (6914922014).",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[03:34 IST] RAM: [OpenClaw heartbeat poll]",
           "[03:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
           "Let's try requesting the `gateway` configuration again:",
           "[03:34 IST] SAM: The `gateway` configuration appears to be correctly set up. The port is set to `18812`, the mode is `local`, and it's bound to `loopback` with token authentication.",
@@ -4534,6 +4528,12 @@
           "[06:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
           "Let's try requesting the `secrets` configuration again:",
           "[06:04 IST] SAM: The `secrets` configuration appears to be correctly set up. The `bitwarden` provider is configured with the necessary details, including the command, arguments, and trusted directories.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK",
+          "[06:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[06:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `channels` configuration again:",
+          "[06:34 IST] SAM: The `channels` configuration appears to be correctly set up. The Telegram group `-5279791513` is configured with an open policy, allowing messages from both you (8489979671) and Gagan (6914922014).",
           "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
           "HEARTBEAT_OK"
         ],
