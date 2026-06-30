@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-30 13:08:33 IST",
-  "generated_epoch": 1782805113,
+  "generated_ist": "2026-06-30 13:13:38 IST",
+  "generated_epoch": 1782805418,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.30 / 4.42 / 4.17",
+    "load": "3.67 / 3.78 / 3.92",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 22018,
-      "rss_gb": 0.68,
-      "cpu": 0.9,
+      "rss_gb": 0.67,
+      "cpu": 1.2,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -46,9 +46,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 13.1,
-        "rolling_28day": 13.1,
-        "rolling_180day": 13.1
+        "rolling_7day": 13.2,
+        "rolling_28day": 13.2,
+        "rolling_180day": 13.2
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782805243052,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
+          "last_ts": 1782805243052,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782805243052,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782805243051,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
@@ -664,36 +700,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782804717449,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782804717449,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 13:00 IST",
           "enabled": true,
           "sched": "0 13 * * *",
-          "last_ts": 1782804717448,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
           "last_ts": 1782804717448,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1042,15 +1051,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
-          "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1782718842208,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet & Monk \u2014 Weekly Memory Self-Audit (Mon 09:30)",
           "enabled": true,
           "sched": "30 9 * * 1",
@@ -1395,17 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Let me just sweep everything remaining in one shot:",
-          "[12:14 IST] HADERACH: I can see all 59. Let me get the models for the remaining erroring jobs \u2014 SCL NSE Filings, SU-01 OpenRouter Watch, and SCL-010 Avalora Mail Monitor are the new ones. The ones I already patched this morning are re-erroring because my patches didn't persist \u2014 they were overwritten when Giskard restarted the gateway. That's the real problem.",
-          "Let me get the remaining unpatched nova jobs and fix all errors in one batch:",
-          "[12:14 IST] HADERACH: Good \u2014 SCL-010 Avalora is already on Sonnet and errored due to gateway restart (not nova). Just 2 new nova jobs to patch (SCL NSE Filings + SU-01 OpenRouter Watch), plus the previously-patched ones that re-errored after the gateway restart. Let me check whether my earlier patches actually survived the restart:",
-          "[12:14 IST] HADERACH: My earlier patches DID survive \u2014 all three are already on Sonnet. The `lastRunAtMs` timestamps show they ran at 23:09 IST last night (before I patched them this morning). They're showing as errored because that was their last run \u2014 tonight they'll fire clean on Sonnet.",
-          "So the situation is actually better than it looks. The only genuinely unpatched nova jobs are the 2 new ones. Patching them now:",
-          "[12:14 IST] HADERACH: Done. Both patched. Now \u2014 the honest answer to \"why so many issues\":",
-          "**The fleet monitoring report is showing stale error state**, not new failures. The jobs that look red today fired last night between 23:00\u201309:00 on nova, errored once, and are sitting with `consecutiveErrors=1`. My patches are already in. They will fire clean tonight. Giskard's dashboard is reporting their historical last-run status \u2014 not a live problem.",
-          "The only genuinely new nova jobs today were SCL NSE Filings and SU-0...",
-          "[12:15 IST] HADERACH: Caddy was already stopped (Giskard's restart killed it). RAM is fine \u2014 799MB free + 19.6GB inactive/reclaimable. The 437MB reading was a momentary spike during the TLS chaos. All clear now.",
-          "**Status: clean.** 19 nova crons patched, RAM fine, Caddy gone, fleet healthy. Tonight's runs will be the proof.",
           "[12:15 IST] HADERACH: Caddy was already stopped (Giskard's restart killed it). RAM is fine \u2014 799MB free + 19.6GB inactive/reclaimable. The 437MB reading was a momentary spike during the TLS chaos. All clear now.",
           "**Status: clean.** 19 nova crons patched, RAM fine, Caddy gone, fleet healthy. Tonight's runs will be the proof.",
           "[12:23 IST] RAM: The openclaw app says to run 'backslash pair qr' and pair with you? Will that work on tailscale or needs to be on same network?",
@@ -1427,6 +1416,17 @@
           "[12:39 IST] RAM: [OpenClaw heartbeat poll]",
           "[12:39 IST] HADERACH: Good afternoon, Ram.",
           "**Status \u2014 12:39 IST (Tue 30 Jun):**",
+          "\u2705 **Gateway:** Healthy",
+          "\u2705 **All core systems:** Operational",
+          "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
+          "**Discord Status Update:**",
+          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
+          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
+          "- Will remain offline indefinitely without fresh token + gateway restart",
+          "**Awaiting:** Fresh Discord bot token from Developer Portal. O...",
+          "[13:09 IST] RAM: [OpenClaw heartbeat poll]",
+          "[13:09 IST] HADERACH: Good afternoon, Ram.",
+          "**Status \u2014 13:09 IST (Tue 30 Jun):**",
           "\u2705 **Gateway:** Healthy",
           "\u2705 **All core systems:** Operational",
           "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1305,
-      "rss_gb": 0.5,
-      "cpu": 0.4,
+      "rss_gb": 0.51,
+      "cpu": 0.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 13.0,
-        "rolling_28day": 13.0,
-        "rolling_180day": 108.8
+        "transcript": 0.4,
+        "rolling_7day": 13.1,
+        "rolling_28day": 13.1,
+        "rolling_180day": 108.9
       },
       "skills": [
         "moltguard"
@@ -2328,8 +2328,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1287,
-      "rss_gb": 0.48,
-      "cpu": 1.2,
+      "rss_gb": 0.47,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2337,10 +2337,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 37.0,
-        "rolling_28day": 13.0,
-        "rolling_180day": 13.0
+        "transcript": 0.2,
+        "rolling_7day": 37.1,
+        "rolling_28day": 13.1,
+        "rolling_180day": 13.1
       },
       "skills": [
         "academic-deep-research",
@@ -2715,8 +2715,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1312,
-      "rss_gb": 0.43,
-      "cpu": 1.8,
+      "rss_gb": 0.42,
+      "cpu": 0.4,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2724,10 +2724,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.9,
-        "rolling_28day": 12.9,
-        "rolling_180day": 12.9
+        "transcript": 0.2,
+        "rolling_7day": 13.0,
+        "rolling_28day": 13.0,
+        "rolling_180day": 13.0
       },
       "skills": [
         "moltguard"
@@ -3034,7 +3034,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782804605671,
+          "last_ts": 1782805205555,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3403,7 +3403,7 @@
       "frozen_reason": null,
       "pid": 1675,
       "rss_gb": 0.38,
-      "cpu": 0.6,
+      "cpu": 1.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3411,10 +3411,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 12.8,
-        "rolling_28day": 12.8,
-        "rolling_180day": 12.8
+        "transcript": 1.0,
+        "rolling_7day": 12.9,
+        "rolling_28day": 12.9,
+        "rolling_180day": 12.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3629,13 +3629,13 @@
       "frozen_reason": null,
       "pid": 1660,
       "rss_gb": 0.27,
-      "cpu": 0.2,
+      "cpu": 2.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 14.1,
         "rolling_28day": 14.1,
         "rolling_180day": 14.1
@@ -3793,7 +3793,7 @@
       "frozen_reason": null,
       "pid": 1285,
       "rss_gb": 0.23,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3828,7 +3828,7 @@
       "frozen_reason": null,
       "pid": 1280,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3860,8 +3860,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1274,
-      "rss_gb": 0.4,
-      "cpu": 0.8,
+      "rss_gb": 0.41,
+      "cpu": 0.5,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3869,10 +3869,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 13.0,
-        "rolling_28day": 13.0,
-        "rolling_180day": 37.0
+        "transcript": 0.2,
+        "rolling_7day": 13.1,
+        "rolling_28day": 13.1,
+        "rolling_180day": 37.1
       },
       "skills": [
         "apple-calendar-macos",
@@ -4239,7 +4239,7 @@
       "frozen_reason": null,
       "pid": 1311,
       "rss_gb": 0.43,
-      "cpu": 3.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4247,9 +4247,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.0,
-        "rolling_28day": 14.0,
+        "transcript": 0.2,
+        "rolling_7day": 14.1,
+        "rolling_28day": 14.1,
         "rolling_180day": null
       },
       "skills": [
