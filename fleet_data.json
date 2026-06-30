@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-06-30 11:26:40 IST",
-  "generated_epoch": 1782799000,
+  "generated_ist": "2026-06-30 11:31:46 IST",
+  "generated_epoch": 1782799306,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.49 / 4.09 / 3.97",
+    "load": "4.14 / 4.39 / 4.17",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 18887,
-      "rss_gb": 0.79,
-      "cpu": 1.1,
+      "rss_gb": 0.86,
+      "cpu": 5.9,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 11.4,
-        "rolling_28day": 11.4,
-        "rolling_180day": 11.4
+        "transcript": 0.0,
+        "rolling_7day": 11.5,
+        "rolling_28day": 11.5,
+        "rolling_180day": 11.5
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782798742428,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782798669574,
+          "last_ts": 1782799270256,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +658,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782798628510,
+          "last_ts": 1782799226083,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782798628509,
+          "last_ts": 1782799226082,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -685,7 +676,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782798628509,
+          "last_ts": 1782799226082,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1782798742428,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,46 +1395,46 @@
       ],
       "transcripts": {
         "recent": [
-          "Giskard \u2014 one config change on Haderach's <code>openclaw.json</code>:",
-          "<code>gateway.bind = \"tailnet\"</code>",
-          "Standard procedure: backup \u2192 change \u2192 validate \u2192 <code>launchctl kickstart -k gui/$UID/ai.openclaw.gateway</code>",
-          "This makes Haderach advertise his Tailscale IP (<code>100.125.45.28:18789</code>) instead of LAN IP, so the iOS app can connect over Tailscale from outside home Wi-Fi.",
-          "</blockq...",
-          "[10:41 IST] HADERACH: Ram, I can't reach Giskard directly. Here's what to send him \u2014 just forward this:",
-          "<blockquote>",
-          "Giskard \u2014 one config change on Haderach's <code>openclaw.json</code>:",
-          "<code>gateway.bind = \"tailnet\"</code>",
-          "Standard procedure: backup \u2192 change \u2192 validate \u2192 <code>launchctl kickstart -k gui/$UID/ai.openclaw.gateway</code>",
-          "This makes Haderach advertise his Tailscale IP (<code>100.125.45.28:18789</code>) instead of LAN IP, so the iOS app can connect over Tailscale from outside home Wi-Fi.",
-          "</blockq...",
-          "[11:09 IST] RAM: [OpenClaw heartbeat poll]",
-          "[11:09 IST] HADERACH: Good morning, Ram.",
-          "**Status \u2014 11:09 IST (Tue 30 Jun):**",
-          "\u2705 **Gateway:** Healthy",
-          "\u2705 **All core systems:** Operational",
-          "\u274c **Discord:** Offline 97+ hours (since Wed 13:xx IST)",
-          "**Discord Status Update:**",
-          "- Auto-retry cycling continues with failed connection attempts every 30-90 minutes",
-          "- Token invalid (code 1006 closure pattern confirms authentication failure)",
-          "- Will remain offline indefinitely without fresh token + gateway restart",
-          "**Awaiting:** Fresh Discord bot token from Developer Portal. Onc...",
-          "[11:18 IST] RAM: From G:",
-          "**Done \u2014 and a note on what happened:**",
-          "The `tailscale serve` mode has a constraint: OpenClaw must bind to loopback (not tailnet directly) because Tailscale Serve acts as the external proxy. The two settings are mutually exclusive from OpenClaw's perspective.",
-          "**Final config:**",
-          "```",
-          "gateway.bind = \"loopback\" \u2190 changed from tailnet (required by serve mode)",
-          "gateway.tailscale.mode = \"serve\" \u2190 as requested",
-          "```",
-          "Haderach health: `localhost:18789` \u2192 **200 \u2705**",
-          "Tailscale Serve will expose t...",
-          "[11:18 IST] HADERACH: Giskard's config is correct. Now I need to register the Tailscale Serve rule and then get the QR code:",
-          "[11:18 IST] HADERACH: Tailscale Serve requires activation on your tailnet account. You need to visit this URL on your phone or browser to enable it:",
-          "**`https://login.tailscale.com/f/serve?node=nZyzQ9DSJJ11CNTRL`**",
-          "Open that link, approve it (takes 10 seconds), then I'll complete the setup. Go ahead \u2014 I'm watching.",
-          "[11:18 IST] HADERACH: Tailscale Serve requires activation on your tailnet account. You need to visit this URL on your phone or browser to enable it:",
-          "**`https://login.tailscale.com/f/serve?node=nZyzQ9DSJJ11CNTRL`**",
-          "Open that link, approve it (takes 10 seconds), then I'll complete the setup. Go ahead \u2014 I'm watching."
+          "<li>Host: <code>uday-one-1.tail5d3585.ts.net</code></li>",
+          "<li>Port: <code>443</code></li>",
+          "<li>TLS: <b>ON</b></li>",
+          "</ul>",
+          "Watching right now:",
+          "[11:27 IST] HADERACH: Nothing yet \u2014 tap Connect Manual in the app now.",
+          "[11:27 IST] HADERACH: Nothing yet \u2014 tap Connect Manual in the app now.",
+          "[11:26 IST] RAM: [User sent media without caption]",
+          "[11:27 IST] HADERACH: Settings are perfect \u2014 `uday-one-1.tail5d3585.ts.net`, port `443`, TLS ON. Tap **Connect Manual** now and I'll watch live:",
+          "[11:27 IST] HADERACH: Still not coming through. Let me check if the connection attempt is even hitting the gateway:",
+          "[11:27 IST] HADERACH: No connection attempts reaching the gateway at all from the phone. The gateway log shows the QR endpoint is `wss://uday-one-1.tail5d3585.ts.net` \u2014 correct. But nothing coming in from your phone.",
+          "The app is already paired (it has a token from the earlier Wi-Fi connection). That means when you tap **Connect Manual** it may be trying to reconnect using the **old Wi-Fi token** rather than initiating a fresh pairing. The GitHub issue mentioned this \u2014 stale bootstrap tokens interfering with reconn...",
+          "[11:27 IST] HADERACH: No connection attempts reaching the gateway at all from the phone. The gateway log shows the QR endpoint is `wss://uday-one-1.tail5d3585.ts.net` \u2014 correct. But nothing coming in from your phone.",
+          "The app is already paired (it has a token from the earlier Wi-Fi connection). That means when you tap **Connect Manual** it may be trying to reconnect using the **old Wi-Fi token** rather than initiating a fresh pairing. The GitHub issue mentioned this \u2014 stale bootstrap tokens interfering with reconn...",
+          "[11:27 IST] RAM: I did",
+          "[11:27 IST] HADERACH: Still stuck on 10:12 IST. The app has a stale pairing token from the Wi-Fi session and it's not sending a new connection attempt at all.",
+          "Ram, I think we need to **unpair and start fresh**. The existing iPhone entry has a stale token \u2014 it's blocking new connections. Let me clear it:",
+          "[11:28 IST] HADERACH: Done \u2014 stale iPhone entry cleared. Now on your iPhone:",
+          "<ol>",
+          "<li><b>Force-quit OpenClaw completely</b> (swipe up)</li>",
+          "<li><b>Reopen it</b></li>",
+          "<li>It should prompt you to set up a new gateway \u2014 go through <b>Onboarding \u2192 Connect to Gateway</b></li>",
+          "<li>Enter: Host <code>uday-one-1.tail5d3585.ts.net</code>, Port <code>443</code>, TLS <b>ON</b></li>",
+          "<li>Tap Connect</li>",
+          "</ol>",
+          "Fresh start \u2014 no stale token to interfere. I'm watching for the new pairing request.",
+          "[11:28 IST] HADERACH: Done \u2014 stale iPhone entry cleared. Now on your iPhone:",
+          "<ol>",
+          "<li><b>Force-quit OpenClaw completely</b> (swipe up)</li>",
+          "<li><b>Reopen it</b></li>",
+          "<li>It should prompt you to set up a new gateway \u2014 go through <b>Onboarding \u2192 Connect to Gateway</b></li>",
+          "<li>Enter: Host <code>uday-one-1.tail5d3585.ts.net</code>, Port <code>443</code>, TLS <b>ON</b></li>",
+          "<li>Tap Connect</li>",
+          "</ol>",
+          "Fresh start \u2014 no stale token to interfere. I'm watching for the new pairing request.",
+          "[11:28 IST] RAM: I did",
+          "[11:29 IST] HADERACH: iPhone is gone from the list \u2014 removed cleanly. But no new connection coming in either.",
+          "Ram, I'm going to be straight with you: we've been at this for nearly an hour and the iOS app is simply not sending connection attempts through \u2014 not over Wi-Fi (after the first accidental connect), not over Tailscale, not after fresh installs. The README itself says **\"super-alpha and internal-use only\"** and the GitHub issue #47887 explicitly states Tailscale CGNAT addresses still fail-closed even after...",
+          "[11:29 IST] HADERACH: iPhone is gone from the list \u2014 removed cleanly. But no new connection coming in either.",
+          "Ram, I'm going to be straight with you: we've been at this for nearly an hour and the iOS app is simply not sending connection attempts through \u2014 not over Wi-Fi (after the first accidental connect), not over Tailscale, not after fresh installs. The README itself says **\"super-alpha and internal-use only\"** and the GitHub issue #47887 explicitly states Tailscale CGNAT addresses still fail-closed even after..."
         ],
         "yesterday": [
           "\u2705 **All core systems:** Operational",
@@ -1576,7 +1576,7 @@
       "frozen_reason": null,
       "pid": 1305,
       "rss_gb": 0.5,
-      "cpu": 1.5,
+      "cpu": 0.7,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 11.3,
-        "rolling_28day": 11.3,
-        "rolling_180day": 107.1
+        "transcript": 0.2,
+        "rolling_7day": 11.4,
+        "rolling_28day": 11.4,
+        "rolling_180day": 107.2
       },
       "skills": [
         "moltguard"
@@ -2329,7 +2329,7 @@
       "frozen_reason": null,
       "pid": 1287,
       "rss_gb": 0.47,
-      "cpu": 1.0,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2337,10 +2337,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 35.3,
-        "rolling_28day": 11.3,
-        "rolling_180day": 11.3
+        "transcript": 0.0,
+        "rolling_7day": 35.4,
+        "rolling_28day": 11.4,
+        "rolling_180day": 11.4
       },
       "skills": [
         "academic-deep-research",
@@ -2488,21 +2488,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782799204216,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1782797413770,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782797413769,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2553,7 +2553,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- \ud83c\udf48 **Melon / Watermelon** \u2014 hydrating, cooling, grounding",
           "- \ud83c\udf51 **Peach / Plum** \u2014 sweet and moist, great for",
           "[09:20 IST] PURL: Great question \u2014 and this is relevant to you specifically since Vana diagnosed you with a **Pitta imbalance** back in June! So you want to cool Pitta *and* also ground Vata. Here's a combined guide:",
           "---",
@@ -2592,7 +2591,8 @@
           "- \ud83e\uded0 **Figs** (fresh or soaked dry) \u2014 nourishing for Vata,...",
           "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[10:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[10:55 IST] PURL: HEARTBEAT_OK"
+          "[10:55 IST] PURL: HEARTBEAT_OK",
+          "[11:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Messages checked:** 0 new in agent:main:main, 0 new in direct Telegram, 0 new in Klub K group",
@@ -2715,8 +2715,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1312,
-      "rss_gb": 0.44,
-      "cpu": 1.4,
+      "rss_gb": 0.43,
+      "cpu": 1.0,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2724,10 +2724,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.3,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
-        "rolling_180day": 11.2
+        "transcript": 2.4,
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
+        "rolling_180day": 11.3
       },
       "skills": [
         "moltguard"
@@ -3034,7 +3034,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782798609225,
+          "last_ts": 1782799207300,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3402,7 +3402,7 @@
       "frozen_reason": null,
       "pid": 1675,
       "rss_gb": 0.39,
-      "cpu": 1.6,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3410,10 +3410,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.2,
-        "rolling_7day": 11.1,
-        "rolling_28day": 11.1,
-        "rolling_180day": 11.1
+        "transcript": 2.3,
+        "rolling_7day": 11.2,
+        "rolling_28day": 11.2,
+        "rolling_180day": 11.2
       },
       "skills": [],
       "skills_detail": [],
@@ -3628,13 +3628,13 @@
       "frozen_reason": null,
       "pid": 1660,
       "rss_gb": 0.27,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 12.4,
         "rolling_28day": 12.4,
         "rolling_180day": 12.4
@@ -3792,7 +3792,7 @@
       "frozen_reason": null,
       "pid": 1285,
       "rss_gb": 0.23,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3826,7 +3826,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1280,
-      "rss_gb": 0.23,
+      "rss_gb": 0.22,
       "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -3860,7 +3860,7 @@
       "frozen_reason": null,
       "pid": 1274,
       "rss_gb": 0.41,
-      "cpu": 1.3,
+      "cpu": 1.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3868,10 +3868,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 11.3,
-        "rolling_28day": 11.3,
-        "rolling_180day": 35.3
+        "transcript": 0.0,
+        "rolling_7day": 11.4,
+        "rolling_28day": 11.4,
+        "rolling_180day": 35.4
       },
       "skills": [
         "apple-calendar-macos",
@@ -4022,7 +4022,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782797407861,
+          "last_ts": 1782799203833,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4238,7 +4238,7 @@
       "frozen_reason": null,
       "pid": 1311,
       "rss_gb": 0.43,
-      "cpu": 1.0,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4246,9 +4246,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.3,
-        "rolling_28day": 12.3,
+        "transcript": 0.0,
+        "rolling_7day": 12.4,
+        "rolling_28day": 12.4,
         "rolling_180day": null
       },
       "skills": [
