@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 09:32:16 IST",
-  "generated_epoch": 1782878536,
+  "generated_ist": "2026-07-01 09:37:21 IST",
+  "generated_epoch": 1782878841,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.36 / 2.82 / 2.59",
+    "load": "2.13 / 2.30 / 2.40",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 55091,
-      "rss_gb": 0.65,
-      "cpu": 0.7,
+      "rss_gb": 0.71,
+      "cpu": 0.9,
       "crons_total": 84,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 9.5,
-        "rolling_28day": 9.5,
-        "rolling_180day": 9.5
+        "transcript": 0.1,
+        "rolling_7day": 9.6,
+        "rolling_28day": 9.6,
+        "rolling_180day": 9.6
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782878808053,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1782878599779,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782878591100,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -673,24 +700,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782878425799,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Sam transcript update",
-          "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782878209914,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -704,15 +713,6 @@
           "enabled": true,
           "sched": "10 9 * * *",
           "last_ts": 1782877239169,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1782877195492,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,8 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "5. Send Ram a Telegram message: \"Haderach restarted on v2026.6.11 \u2014 health O...",
-          "[09:16 IST] RAM: Refreeze all three pls",
           "[09:19 IST] HADERACH: Already done \u2014 I re-froze all three at 09:07 IST (bootout + disable, all three ports confirmed 000). You can verify from the earlier message.",
           "Now paste this to Giskard when ready:",
           "---",
@@ -1443,7 +1441,9 @@
           "<li>CISO-SMEDA (18794) \u2014 000 \u2705</li>",
           "<li>Legal-SMEDA M4 (18797) \u2014 000 \u2705</li>",
           "</ul>",
-          "Same state as 29 Jun \u2014 bootout + disabled. Have you pasted the Giskard message yet?"
+          "Same state as 29 Jun \u2014 bootout + disabled. Have you pasted the Giskard message yet?",
+          "[09:33 IST]",
+          "HEARTBEAT: 09:30 IST Wednesday 1 Jul 2026 \u2014 Checks run: transcript QC OK (67.6KB, 3 dupes), fleet dashboard OK (4m ago), git backup pushed (29 files), config backup OK, revival PDF built, output index updated (1095 files). OpenRouter: weekly $5.496 OVER threshold. Email: 3 flagged items (board appt H.E. Dalia/IHC, ICRA NDS due for SCL+SFL, SCL-SFL demerger status update). Domain review: tech.md 9 stale entries (mostly old dates, 1 RBI rate gap note from 2018), projects.md clean. State updated."
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1585,7 +1585,7 @@
       "frozen_reason": null,
       "pid": 54166,
       "rss_gb": 0.51,
-      "cpu": 0.9,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 9.4,
-        "rolling_28day": 9.4,
-        "rolling_180day": 129.2
+        "transcript": 0.3,
+        "rolling_7day": 9.5,
+        "rolling_28day": 9.5,
+        "rolling_180day": 129.3
       },
       "skills": [
         "moltguard"
@@ -2326,7 +2326,7 @@
       "frozen_reason": null,
       "pid": 52998,
       "rss_gb": 0.46,
-      "cpu": 1.5,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2334,10 +2334,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 9.4,
-        "rolling_28day": 9.4,
-        "rolling_180day": 9.4
+        "transcript": 0.1,
+        "rolling_7day": 9.5,
+        "rolling_28day": 9.5,
+        "rolling_180day": 9.5
       },
       "skills": [
         "academic-deep-research",
@@ -2714,7 +2714,7 @@
       "frozen_reason": null,
       "pid": 53204,
       "rss_gb": 0.5,
-      "cpu": 1.6,
+      "cpu": 1.1,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2722,10 +2722,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 9.3,
-        "rolling_28day": 9.3,
-        "rolling_180day": 9.3
+        "transcript": 0.5,
+        "rolling_7day": 9.4,
+        "rolling_28day": 9.4,
+        "rolling_180day": 9.4
       },
       "skills": [
         "moltguard"
@@ -3398,10 +3398,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 9.2,
-        "rolling_28day": 9.2,
-        "rolling_180day": 33.2
+        "transcript": 0.4,
+        "rolling_7day": 9.3,
+        "rolling_28day": 9.3,
+        "rolling_180day": 33.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3621,16 +3621,16 @@
       "frozen_reason": null,
       "pid": 52696,
       "rss_gb": 0.28,
-      "cpu": 0.8,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 0.1,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3776,7 +3776,7 @@
       "frozen_reason": null,
       "pid": 52794,
       "rss_gb": 0.28,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3811,7 +3811,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.24,
-      "cpu": 0.8,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3843,8 +3843,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 52892,
-      "rss_gb": 0.41,
-      "cpu": 1.5,
+      "rss_gb": 0.42,
+      "cpu": 1.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3852,10 +3852,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 9.4,
-        "rolling_28day": 9.4,
-        "rolling_180day": 9.4
+        "transcript": 0.1,
+        "rolling_7day": 9.5,
+        "rolling_28day": 9.5,
+        "rolling_180day": 9.5
       },
       "skills": [
         "apple-calendar-macos",
@@ -4219,7 +4219,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1459,
-      "rss_gb": 0.48,
+      "rss_gb": 0.53,
       "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4228,9 +4228,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.4,
-        "rolling_28day": 10.4,
+        "transcript": 0.0,
+        "rolling_7day": 10.5,
+        "rolling_28day": 10.5,
         "rolling_180day": null
       },
       "skills": [
@@ -4530,12 +4530,6 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "[06:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
-          "Let's try requesting the `auth` configuration again:",
-          "[06:05 IST] SAM: The `auth` configuration appears to be correctly set up. The `amazon-bedrock:default` profile uses `aws-sdk` for authentication, and the `anthropic:default` profile uses an `api_key`.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
-          "HEARTBEAT_OK",
-          "[06:34 IST] RAM: [OpenClaw heartbeat poll]",
           "[06:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
           "Let's try requesting the `secrets` configuration again:",
           "[06:35 IST] SAM: The `secrets` configuration appears to be correctly set up. The `bitwarden` provider is configured with the necessary details, including the command, arguments, and trusted directories.",
@@ -4569,7 +4563,13 @@
           "[09:04 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
           "Let's try requesting the `agents` configuration again:",
           "[09:05 IST] SAM: The `agents` configuration appears to be correctly set up. The default model is `amazon-bedrock/global.anthropic.claude-sonnet-4-6` with fallbacks to `amazon-bedrock/apac.amazon.nova-pro-v1:0` and `anthropic/claude-sonnet-4-6`. The workspace is set to `/Users/ram_macmini/.openclaw-gagan/workspace`, and memory search is configured to use `gemini` with the model `gemini-embedding-001`.",
-          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, every..."
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, every...",
+          "[09:34 IST] RAM: [OpenClaw heartbeat poll]",
+          "[09:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
+          "Let's try requesting the `auth` configuration again:",
+          "[09:35 IST] SAM: The `auth` configuration appears to be correctly set up. The `amazon-bedrock:default` profile uses `aws-sdk` for authentication, and the `anthropic:default` profile uses an `api_key`.",
+          "If you need further checks or assistance, please specify the area you'd like to investigate. Otherwise, everything seems to be in order.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "[20:34 IST] SAM: It seems there's an issue with the `config.get` call returning a response that's too large. To avoid this, I'll request a narrower config subtree by specifying a specific path.",
