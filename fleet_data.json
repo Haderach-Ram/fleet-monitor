@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 08:36:15 IST",
-  "generated_epoch": 1782875175,
+  "generated_ist": "2026-07-01 08:41:19 IST",
+  "generated_epoch": 1782875479,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.73 / 2.78 / 2.70",
+    "load": "2.33 / 2.49 / 2.57",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,9 +35,9 @@
       "frozen_reason": null,
       "pid": 45731,
       "rss_gb": 0.96,
-      "cpu": 2.2,
-      "crons_total": 83,
-      "crons_enabled": 59,
+      "cpu": 1.5,
+      "crons_total": 84,
+      "crons_enabled": 60,
       "skills_count": 59,
       "channels": [
         "telegram",
@@ -45,7 +45,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 8.6,
         "rolling_28day": 8.6,
         "rolling_180day": 8.6
@@ -646,6 +646,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1782875459833,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782875426958,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782875426958,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782875426957,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Daily Brief (08:33 IST)",
           "enabled": true,
           "sched": "33 8 * * *",
@@ -668,42 +704,6 @@
           "enabled": true,
           "sched": "30 8 * * *",
           "last_ts": 1782874924334,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782874924334,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782874924334,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782874924333,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1782873656953,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1168,6 +1168,15 @@
           "kind": "systemEvent"
         },
         {
+          "name": "M2 upgrade kill-switch \u2014 10:30 IST",
+          "enabled": true,
+          "sched": "one-shot",
+          "last_ts": null,
+          "last_status": null,
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-002 Quarterly Peer Tracker Refresh",
           "enabled": true,
           "sched": "0 9 1 1,4,7,10 *",
@@ -1395,46 +1404,46 @@
       ],
       "transcripts": {
         "recent": [
-          "Then G-1 = baseline cron counts, G-2 =...",
-          "[08:24 IST] RAM: Ok",
-          "[08:24 IST] HADERACH: Running G-0 and G-1 in parallel \u2014 issue checks + M2 SSH baseline simultaneously:",
-          "[08:26 IST] HADERACH: Got everything. Here's the full G-0 verdict:",
-          "<b>G-0 \u2014 Pre-flight / Go-No-Go</b>",
-          "<b>Issue status:</b>",
-          "<ul>",
-          "<li><b>#86451</b> \u2014 dup crons on update: <b>still OPEN (P1)</b> \u2192 budget dedup as a certainty, same as last time</li>",
-          "<li><b>#90378</b> \u2014 SQLite migration data-loss: <b>still OPEN (P0)</b> \u2192 does NOT apply here (M2 already on 6.10, no migration boundary to cross this run)</li>",
-          "<li><b>#93031</b> \u2014 blank agent_id: <b>still OPEN (P1)</b> \u2192 same, no migration this run; pre-existing blanks a...",
-          "[08:26 IST] HADERACH: Got everything. Here's the full G-0 verdict:",
-          "<b>G-0 \u2014 Pre-flight / Go-No-Go</b>",
-          "<b>Issue status:</b>",
-          "<ul>",
-          "<li><b>#86451</b> \u2014 dup crons on update: <b>still OPEN (P1)</b> \u2192 budget dedup as a certainty, same as last time</li>",
-          "<li><b>#90378</b> \u2014 SQLite migration data-loss: <b>still OPEN (P0)</b> \u2192 does NOT apply here (M2 already on 6.10, no migration boundary to cross this run)</li>",
-          "<li><b>#93031</b> \u2014 blank agent_id: <b>still OPEN (P1)</b> \u2192 same, no migration this run; pre-existing blanks a...",
-          "[08:26 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
-          "[08:27 IST] RAM: You want to unfreeze the frozen agent before the update? You have to check health and freeze again after the update",
-          "[08:27 IST] HADERACH: Yes \u2014 good instinct. Heda and CA-SMEDA showing 0 crons is a pre-existing issue we should understand and fix *before* the upgrade, so we have a clean baseline. Let me SSH in and diagnose both:",
-          "[08:27 IST] HADERACH: Good news \u2014 the crons are all there. The baseline script was reading the wrong SQLite path. Both heda (5 crons) and ca-smeda (32 crons) are fully intact \u2014 jobs are in the nested `.openclaw/state/` path. The baseline script was only checking the top-level `state/` path which happened to be empty.",
-          "Now the real issues:",
-          "<ul>",
-          "<li><b>Heda (port 18805): 000 \u2014 DOWN</b>. Has 5 crons in SQLite but the gateway isn't responding. Needs a restart.</li>",
-          "<li><b>CA-SMEDA (port 18793): 200 \u2014 healthy</b>, 32 ...",
-          "[08:27 IST] HADERACH: Heda last came up on 30 Jun at 12:57 IST \u2014 and the log ends there with no crash. It just silently died at some point after that, probably an OOM or macOS killed it overnight. Clean restart:",
-          "[08:28 IST] HADERACH: Heda isn't coming up. Let me check why \u2014 the log should tell us:",
-          "[08:28 IST] HADERACH: Excellent \u2014 **Heda is now up and running.** The log shows it came back up cleanly at 08:27 IST (our restart triggered it), loaded 5 crons, Telegram connected, all good. launchctl shows PID 98966, exit code 0.",
-          "The reason the initial health check returned 000 was just a timing issue \u2014 our 15s wait wasn't enough for Heda to fully start. It was actually our `bootout` that triggered the restart, and launchctl respawned it automatically.",
-          "<b>Updated G-1 baseline (corrected):</b>",
-          "| Agent | Enabled...",
-          "[08:28 IST] HADERACH: Excellent \u2014 **Heda is now up and running.** The log shows it came back up cleanly at 08:27 IST (our restart triggered it), loaded 5 crons, Telegram connected, all good. launchctl shows PID 98966, exit code 0.",
-          "The reason the initial health check returned 000 was just a timing issue \u2014 our 15s wait wasn't enough for Heda to fully start. It was actually our `bootout` that triggered the restart, and launchctl respawned it automatically.",
-          "<b>Updated G-1 baseline (corrected):</b>",
-          "| Agent | Enabled...",
-          "[08:27 IST] RAM: I think legal SMEDA is frozen. Unfreeze that",
-          "[08:28 IST] HADERACH: Let me check Legal-SMEDA's freeze state first:",
-          "[08:29 IST] HADERACH: Legal-SMEDA is healthy (200) and has 4 crons firing \u2014 but the last run timestamps are from **1781...** vs today's **1782...**. That's about 27+ hours ago. Let me check when it last ran and whether it's actually frozen via a different mechanism:",
-          "[08:29 IST] HADERACH: Confirmed frozen. All 4 crons last ran **16\u201317 Jun** \u2014 14 days ago \u2014 and `next_run_at_ms` is stuck in the past (Jun 17\u201318). The scheduler has simply stopped advancing them. This is the classic frozen-cron symptom \u2014 probably from the M2 upgrade on 26 Jun; the agent came up healthy but the scheduler didn't reload the cron store properly.",
-          "Let me unfreeze it \u2014 hard restart to force the scheduler to reload:"
+          "[08:31 IST] HADERACH: Next run times all pushed into the future. Now hard restart so the scheduler picks them up:",
+          "[08:31 IST] HADERACH: Legal-SMEDA unfrozen. All 4 crons are \u2705 with future next_run times. Transcript Logger fires next at 09:00 IST \u2014 about 30 minutes from now.",
+          "**Updated G-1 baseline (final, all 8 agents):**",
+          "| Agent | Enabled | Status |",
+          "|---|---|---|",
+          "| agastya-caio | 8 | \u2705 |",
+          "| agastya-ravindra | 4 | \u2705 |",
+          "| agastya-sandip | 8 | \u2705 |",
+          "| agastya-keshav | 10 | \u2705 |",
+          "| agastya-heda | 5 | \u2705 |",
+          "| ca-smeda (Jonas) | 32 | \u2705 |",
+          "| legal-smeda | 4 | \u2705 unfrozen |",
+          "| seneca | 4 | \u2705 |",
+          "| <b>Fleet total</b> | <b>75 enabled</b> | All gr...",
+          "[08:31 IST] HADERACH: Legal-SMEDA unfrozen. All 4 crons are \u2705 with future next_run times. Transcript Logger fires next at 09:00 IST \u2014 about 30 minutes from now.",
+          "**Updated G-1 baseline (final, all 8 agents):**",
+          "| Agent | Enabled | Status |",
+          "|---|---|---|",
+          "| agastya-caio | 8 | \u2705 |",
+          "| agastya-ravindra | 4 | \u2705 |",
+          "| agastya-sandip | 8 | \u2705 |",
+          "| agastya-keshav | 10 | \u2705 |",
+          "| agastya-heda | 5 | \u2705 |",
+          "| ca-smeda (Jonas) | 32 | \u2705 |",
+          "| legal-smeda | 4 | \u2705 unfrozen |",
+          "| seneca | 4 | \u2705 |",
+          "| <b>Fleet total</b> | <b>75 enabled</b> | All gr...",
+          "[08:35 IST] RAM: Save this cron total somewhere for reference later. Where will you save it?",
+          "[08:35 IST] HADERACH: I'll save it to the HAD-049 execution log \u2014 the same place we saved the 26 Jun baseline. Let me create the entry:",
+          "[08:36 IST] HADERACH: Saved to `projects/HAD-049-openclaw-update-management/M2/EXECUTION-LOG-20260701.md` \u2014 same structure as the 26 Jun log, so both runs are in the same place for easy comparison.",
+          "**75 enabled crons** is the number to reconcile against post-upgrade. Ready for G-2?",
+          "[08:36 IST] HADERACH: Saved to `projects/HAD-049-openclaw-update-management/M2/EXECUTION-LOG-20260701.md` \u2014 same structure as the 26 Jun log, so both runs are in the same place for easy comparison.",
+          "**75 enabled crons** is the number to reconcile against post-upgrade. Ready for G-2?",
+          "[08:37 IST] RAM: Go ahead",
+          "[08:37 IST] HADERACH: G-2 \u2014 installing the binary. Arming kill-switch first per the rule, then installing:",
+          "[08:37 IST] HADERACH: Kill-switch armed for 10:30 IST. Now G-2:",
+          "[08:37 IST] HADERACH: npm not in PATH via SSH. Let me find it:",
+          "[08:38 IST] HADERACH: `/opt/homebrew/bin/npm` exists. SSH just doesn't have the Homebrew PATH. Run with full paths:",
+          "[08:38 IST] HADERACH: Binary installed. Verify version and move to G-3:",
+          "[08:38 IST] HADERACH: v2026.6.11 confirmed. G-3 \u2014 staggered restarts, least critical first:"
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1575,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1453,
-      "rss_gb": 0.54,
-      "cpu": 0.4,
+      "rss_gb": 0.53,
+      "cpu": 0.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 8.5,
-        "rolling_28day": 8.5,
-        "rolling_180day": 128.2
+        "transcript": 0.4,
+        "rolling_7day": 8.6,
+        "rolling_28day": 8.6,
+        "rolling_180day": 128.3
       },
       "skills": [
         "moltguard"
@@ -2305,8 +2314,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1437,
-      "rss_gb": 0.48,
-      "cpu": 1.1,
+      "rss_gb": 0.49,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2314,7 +2323,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 8.5,
         "rolling_28day": 8.5,
         "rolling_180day": 8.5
@@ -2693,8 +2702,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1460,
-      "rss_gb": 0.56,
-      "cpu": 1.3,
+      "rss_gb": 0.69,
+      "cpu": 0.7,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2702,10 +2711,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 8.3,
-        "rolling_28day": 8.3,
-        "rolling_180day": 8.3
+        "transcript": 2.5,
+        "rolling_7day": 8.4,
+        "rolling_28day": 8.4,
+        "rolling_180day": 8.4
       },
       "skills": [
         "moltguard"
@@ -3012,7 +3021,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782874806374,
+          "last_ts": 1782875406334,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3366,7 +3375,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.49,
+      "rss_gb": 0.48,
       "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3375,10 +3384,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.4,
-        "rolling_7day": 8.3,
-        "rolling_28day": 8.3,
-        "rolling_180day": 32.3
+        "transcript": 2.5,
+        "rolling_7day": 8.4,
+        "rolling_28day": 8.4,
+        "rolling_180day": 32.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3598,16 +3607,16 @@
       "frozen_reason": null,
       "pid": 1436,
       "rss_gb": 0.38,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 9.5,
-        "rolling_28day": 9.5,
-        "rolling_180day": 9.5
+        "transcript": 0.0,
+        "rolling_7day": 9.6,
+        "rolling_28day": 9.6,
+        "rolling_180day": 9.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3627,7 +3636,30 @@
           "# Chet Transcript \u2014 2026-07-01",
           "[08:30 IST]",
           "HADERACH\u2192CHET: Daily Brief 2026-07-01 \u2014 write news-brief-2026-07-01.md using pre-fetched Exa research data",
-          "CHET: Wrote brief with 3 SCL bullets (homepage, about-us/IHC acquisition, Groww stock), 3 RBI bullets (RBC directions, credit facilities directions, NBFC FAQs), 3 AI bullets (ADK Go 2.0, Mastra Durable Agents, Google Interactions API GA). 20 lines, ~400 words."
+          "CHET: Wrote brief with 3 SCL bullets (homepage, about-us/IHC acquisition, Groww stock), 3 RBI bullets (RBC directions, credit facilities directions, NBFC FAQs), 3 AI bullets (ADK Go 2.0, Mastra Durable Agents, Google Interactions API GA). 20 lines, ~400 words.",
+          "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-07-01.",
+          "MANDATORY STARTUP:",
+          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
+          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
+          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
+          "{",
+          "  \"scl\": [",
+          "    {",
+          "      \"title\": \"Sammaan Capital Limited\",",
+          "      \"url\": \"https://sammaancapital.com/\",",
+          "      \"snippet\": \"\"",
+          "    },",
+          "    {",
+          "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
+          "     ...",
+          "[08:30 IST] CHET: The snippets are all empty \u2014 let me fetch the actual page content to write substantive bullets.",
+          "[08:30 IST] CHET: Now I have all the content I need. Let me write the brief",
+          "[08:31 IST] CHET: Now let me append the transcript bookmark.",
+          "[08:31 IST] CHET: File path confirmed: `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-01.md`",
+          "Lines: **20** (verified)",
+          "\"Changed since yesterday\" summary: First brief in two days after idle 06-30; Google ADK Go 2.0 graph-based workflow engine and Mastra Durable Agents are the major ecosystem developments.",
+          "[08:31 IST] CHET: Can't reach Haderach via sessions_send \u2014 no Haderach session visible in the current tree scope. Brief is written, verified, and transcript is bookmarked. Everything else is complete.",
+          "Brief summary: **File written and verified** \u2014 20 lines, 400 words. First brief after an idle day covers ADK Go 2.0 graph workflows, Mastra Durable Agents, and Interactions API GA as the major \"changed since yesterday\" items."
         ],
         "yesterday": [
           "# Chet Transcript \u2014 2026-06-30"
@@ -3765,7 +3797,7 @@
       "frozen_reason": null,
       "pid": 1430,
       "rss_gb": 0.26,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3798,7 +3830,7 @@
       "frozen_reason": null,
       "pid": 1424,
       "rss_gb": 0.49,
-      "cpu": 1.9,
+      "cpu": 0.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3806,7 +3838,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 8.5,
         "rolling_28day": 8.5,
         "rolling_180day": 8.5
@@ -4167,8 +4199,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1459,
-      "rss_gb": 0.69,
-      "cpu": 0.4,
+      "rss_gb": 0.48,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4176,9 +4208,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 9.5,
-        "rolling_28day": 9.5,
+        "transcript": 0.2,
+        "rolling_7day": 9.6,
+        "rolling_28day": 9.6,
         "rolling_180day": null
       },
       "skills": [
