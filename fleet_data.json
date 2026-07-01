@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 23:10:04 IST",
-  "generated_epoch": 1782927604,
+  "generated_ist": "2026-07-01 23:15:08 IST",
+  "generated_epoch": 1782927908,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.42 / 3.41 / 4.56",
+    "load": "3.22 / 3.43 / 4.22",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 1.0,
-      "cpu": 5.6,
+      "rss_gb": 1.04,
+      "cpu": 11.0,
       "crons_total": 84,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -46,9 +46,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 23.1,
-        "rolling_28day": 23.1,
-        "rolling_180day": 23.1
+        "rolling_7day": 23.2,
+        "rolling_28day": 23.2,
+        "rolling_180day": 23.2
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,28 @@
       ],
       "crons": [
         {
-          "name": "Sam transcript update",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782926655484,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782927705204,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Sam \u2014 Nightly Consolidation (23:00 IST)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782926427557,
+          "sched": "0 23 * * *",
+          "last_ts": 1782927705204,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript & Memory Consolidation",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1782927705203,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +676,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782926427556,
+          "last_ts": 1782927705203,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Haderach Consolidation \u2014 23:00 IST",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1782927705202,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +694,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782926427556,
+          "last_ts": 1782927705202,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782926655484,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1033,33 +1060,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Sam \u2014 Nightly Consolidation (23:00 IST)",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782841102317,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript & Memory Consolidation",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782841102316,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782841102316,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet & Monk \u2014 Weekly Memory Self-Audit (Mon 09:30)",
           "enabled": true,
           "sched": "30 9 * * 1",
@@ -1404,16 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:49 IST] HADERACH: Compact mode loaded \u2014 memory files, dead-ends, decisions, tech/people/projects, plus the wiki and SMEDA indices. All current as of the last consolidation.",
-          "A quick note on state as I settle in:",
-          "<ul><li>OpenClaw is on v2026.6.11 fleet-wide (upgraded 1 Jul) \u2014 both M2 and M4.</li><li>HAD-053 SMEDA meta-index rebuilt at 18:51 IST today, all three in-scope SMEDAs current.</li><li>No open critical alerts I need to flag from the loaded files.</li></ul>",
-          "What can I help with this evening, Ram?",
-          "[21:49 IST] HADERACH: Compact mode loaded \u2014 memory files, dead-ends, decisions, tech/people/projects, plus the wiki and SMEDA indices. All current as of the last consolidation.",
-          "A quick note on state as I settle in:",
-          "<ul><li>OpenClaw is on v2026.6.11 fleet-wide (upgraded 1 Jul) \u2014 both M2 and M4.</li><li>HAD-053 SMEDA meta-index rebuilt at 18:51 IST today, all three in-scope SMEDAs current.</li><li>No open critical alerts I need to flag from the loaded files.</li></ul>",
-          "What can I help with this evening, Ram?",
-          "[22:13 IST] RAM: Do this such that you don\u2019t bloat the context, try and parse:",
-          "Review HAD-053 and 035 and see where we got to. We were on the cross-domain test where you scored 16/22. Check if you can locate this in the ProjHads and discuss",
           "[22:13 IST] HADERACH: **Session mode?**",
           "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
           "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
@@ -1443,7 +1433,17 @@
           "[22:50 IST] HADERACH: That's actually a better test design than what we drafted \u2014 for a specific reason: it gives us an <b>independent ground truth</b>. My own primary-source verification (like the 22-question addendum) is expensive and still just me checking myself. A real question paper with an official answer key removes that entirely \u2014 score is just \"matched answer key\" or not, no web-search verification pass needed.",
           "A few things worth separating out, then a concrete proposal:",
           "<b>1. This is a different test ...",
-          "[22:56 IST] RAM: Take the May 2026 CA Finals paper, the first paper of financial report and answer it"
+          "[22:56 IST] RAM: Take the May 2026 CA Finals paper, the first paper of financial report and answer it",
+          "[23:01 IST] HADERACH: I've got the full paper (15 MCQs across 3 case scenarios + standalone Q13/14/15, plus 6 descriptive questions Q1-Q6 where I answer Q1 + 4 of the remaining 5). Before I dive in \u2014 this is a genuinely large task: 15 MCQs plus 5 substantial numerical/descriptive questions (Ind AS 103 consolidation, compound instruments, leases, employee benefits, Ind AS 20 grants, Ind AS 115, fair value). Let me set up the triage properly rather than rush it.",
+          "[23:02 IST] HADERACH: ICAI's official Suggested Answers for May 2026 were just released. Let me get the ground-truth PDF.",
+          "[23:06 IST] HADERACH: I've got the official ICAI links now \u2014 both the question paper and (crucially) the **Suggested Answers** for FR May 2026 are live:",
+          "- Question paper: https://resource.cdn.icai.org/92055bos-aps4903-final-may2026-p1.pdf",
+          "- Official Suggested Answer: https://resource.cdn.icai.org/92765bos-sa-final-may2026-p1.pdf",
+          "That second one changes the plan for the better \u2014 I can triage/answer independently, then score myself against ICAI's own answer key rather than my own judgment. Let me pull the full que...",
+          "[23:08 IST] HADERACH: This is going to be a substantial task \u2014 full paper (15 MCQs + Q1 compulsory + 4 of Q2\u2013Q6, ~100 marks of CA Final-level Ind AS work), then scored against ICAI's own answer key. Proceeding, but flagging the token cost now rather than after the fact.",
+          "Let me pull the two remaining verbatim pieces I need (Case Scenario I narrative + Q1\u20135 MCQs, and Q5(a) exact text) before working the paper.",
+          "[23:02 IST] RAM: Answer the paper first then get the solution!!",
+          "[23:02 IST] RAM: Answer the paper first then get the solution!!"
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1584,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.55,
-      "cpu": 0.8,
+      "rss_gb": 0.56,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 2.2,
+        "transcript": 2.3,
         "rolling_7day": 23.1,
         "rolling_28day": 23.1,
-        "rolling_180day": 142.8
+        "rolling_180day": 142.9
       },
       "skills": [
         "moltguard"
@@ -2337,8 +2337,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58078,
-      "rss_gb": 0.55,
-      "cpu": 0.7,
+      "rss_gb": 0.54,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2346,8 +2346,8 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.0,
+        "transcript": 0.3,
+        "rolling_7day": 23.1,
         "rolling_28day": 1.2,
         "rolling_180day": 1.2
       },
@@ -2725,8 +2725,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58350,
-      "rss_gb": 0.56,
-      "cpu": 0.6,
+      "rss_gb": 0.55,
+      "cpu": 0.7,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2735,9 +2735,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 22.9,
-        "rolling_28day": 22.9,
-        "rolling_180day": 22.9
+        "rolling_7day": 23.0,
+        "rolling_28day": 23.0,
+        "rolling_180day": 23.0
       },
       "skills": [
         "moltguard"
@@ -3041,18 +3041,18 @@
       ],
       "crons": [
         {
-          "name": "Legal-SMEDA \u2014 Nightly Memory Consolidation (23:00 IST)",
+          "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1782927297885,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782927607639,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
+          "name": "Legal-SMEDA \u2014 Nightly Memory Consolidation (23:00 IST)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
+          "sched": "0 23 * * *",
           "last_ts": 1782927297885,
           "last_status": "ok",
           "model": "(agent default)",
@@ -3463,7 +3463,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58255,
-      "rss_gb": 0.48,
+      "rss_gb": 0.55,
       "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
@@ -3472,10 +3472,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.9,
-        "rolling_7day": 22.8,
-        "rolling_28day": 22.8,
-        "rolling_180day": 46.8
+        "transcript": 2.0,
+        "rolling_7day": 22.9,
+        "rolling_28day": 22.9,
+        "rolling_180day": 46.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3695,16 +3695,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.32,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 0.0,
-        "rolling_28day": 0.0,
-        "rolling_180day": 0.0
+        "transcript": 0.1,
+        "rolling_7day": 0.1,
+        "rolling_28day": 0.1,
+        "rolling_180day": 0.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3850,7 +3850,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 1.1,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3918,7 +3918,7 @@
       "frozen_reason": null,
       "pid": 57952,
       "rss_gb": 0.48,
-      "cpu": 2.8,
+      "cpu": 0.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3926,10 +3926,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 23.0,
-        "rolling_28day": 23.0,
-        "rolling_180day": 23.0
+        "transcript": 0.3,
+        "rolling_7day": 23.1,
+        "rolling_28day": 23.1,
+        "rolling_180day": 23.1
       },
       "skills": [
         "apple-calendar-macos",
@@ -4296,7 +4296,7 @@
       "frozen_reason": null,
       "pid": 1459,
       "rss_gb": 0.48,
-      "cpu": 1.5,
+      "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4304,9 +4304,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 24.0,
-        "rolling_28day": 24.0,
+        "transcript": 0.1,
+        "rolling_7day": 0.1,
+        "rolling_28day": 0.1,
         "rolling_180day": null
       },
       "skills": [
@@ -4692,10 +4692,6 @@
         "rolling_7day": [
           "# Rolling 7-Day Log",
           "# Rolling 7-Day Log",
-          "## 2026-06-23",
-          "- Heartbeat-only day; 43 HEARTBEAT_OK cycles, no human conversation.",
-          "- Consolidation cron still failing (4 consecutive timeouts) \u2014 flagged by fleet monitor 20:08 IST.",
-          "- Root-caused by Haderach: broken model fallback slug. Fix (use amazon-bedrock/nova-pro) pending Giskard apply. Rolling files manually backfilled by Haderach 21:13 IST.",
           "## 2026-06-24",
           "- # Sam Transcript \u2014 2026-06-24",
           "- # Self-healing rotation from transcript-2026-06-23.md at 00:43 IST",
@@ -4729,11 +4725,13 @@
           "- Memory consolidation and state management operations",
           "- Heartbeat monitoring and nightly cron jobs active",
           "- Sam (Gagan workspace) assistant active with multi-session support",
-          "- File operations and workspace management performed"
+          "- File operations and workspace management performed",
+          "## 2026-07-01",
+          "- Active session with 713 transcript lines",
+          "- Nightly consolidation at 23:11 IST",
+          "- Facts promoted: 0 domains"
         ],
         "rolling_28day": [
-          "## 2026-06-14",
-          "- No active sessions.",
           "## 2026-06-15",
           "- No active sessions today.",
           "## 2026-06-16",
@@ -4771,7 +4769,9 @@
           "## 2026-06-29",
           "- Memory and heartbeat consolidation operations performed.",
           "- Web search or research activities conducted.",
-          "- File read/write operations performed."
+          "- File read/write operations performed.",
+          "## 2026-06-30",
+          "- No active sessions."
         ]
       }
     }
