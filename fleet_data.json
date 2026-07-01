@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 18:17:53 IST",
-  "generated_epoch": 1782910073,
+  "generated_ist": "2026-07-01 18:23:00 IST",
+  "generated_epoch": 1782910380,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.12 / 2.83 / 3.34",
+    "load": "3.96 / 3.47 / 3.47",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 73137,
       "rss_gb": 0.87,
-      "cpu": 2.9,
+      "cpu": 1.9,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -45,9 +45,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.2,
-        "rolling_28day": 18.2,
+        "transcript": 0.0,
+        "rolling_7day": 18.3,
+        "rolling_28day": 18.3,
         "rolling_180day": 18.3
       },
       "skills": [
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782910227414,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782910227414,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782910227413,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
@@ -659,33 +686,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782909699060,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782909627558,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782909627557,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782909627557,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,19 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:42 IST] RAM: First check if this has crept into Phases 1 to 3 and correct it",
-          "[17:42 IST] HADERACH: Good catch to check \u2014 yes, it did creep in. Let me find every place I planted that \"<14 days\" language.",
-          "[17:43 IST] HADERACH: Confirmed \u2014 it crept into all four Phase 1.5 read-side instructions (AGENTS.md) and into HAD-053's own PROJECT.md design text as the stated routing rule. This is a live bug right now, not just a Phase-4-in-waiting one: e.g. CISM-Governance.md was last touched 8 May, \"today\" is 1 Jul \u2014 that's 54 days old. Under the current instruction, every one of these SMEDAs is being told to distrust its own mastered, compiled page and re-derive from raw daily logs, for no real reason. Fixing this now, not ...",
-          "[17:44 IST] HADERACH: All",
-          "[17:44 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
-          "[17:45 IST] RAM: Revisit and redo this whole thing pls. Phases 1 to 3. If your main wiki pages itself has been created with <14 days, they will mostly be useless if not blank. Also, why the >8.5? Analyse this too, what is is getting left out because of this?",
-          "[17:45 IST] HADERACH: Good \u2014 let's actually investigate this properly rather than assume. Two separate questions to run down: (1) did the 14-day logic contaminate anything beyond the AGENTS.md instruction I already fixed \u2014 specifically, did it cause any topic page to be built thin/blank or get discarded at compile time; and (2) what's the real effect of the >8.5 gate. Let me check the actual artifacts.",
-          "[17:46 IST] HADERACH: Found more \u2014 `build_wiki_scaffold.py` (the script that generated `wiki/SCHEMA.md` for all four SMEDAs) has the same 14-day language baked into the SCHEMA.md content itself, plus explicit \"stale\" language. Let me read the whole script and the actual SCHEMA.md files it produced.",
-          "[17:46 IST] HADERACH: Good news on the data-loss front: this scaffold script never filtered or discarded content by date \u2014 the \"14 days\" text was static prose describing a *routing/consumption* rule, not a compile-time filter. So the topic pages themselves (built separately, by the Phase 1 subagent) are intact and non-blank regardless of age. But the stale rule is baked into every SMEDA's `wiki/index.md` file itself as instructional text \u2014 I only fixed AGENTS.md, not this. Let me check and fix that now, then move ...",
-          "[17:46 IST] HADERACH: Good news \u2014 the actual live `wiki/index.md` files never got the stale rule; the Phase 1 build subagent overwrote the placeholder text entirely with real content, so none of the four SMEDAs' compiled pages are blank/thin due to date filtering. Let me check SCHEMA.md (which is more likely to still carry the scaffold script's original text) and the cron payloads more carefully.",
-          "[17:47 IST] HADERACH: Now let's dig into the >8.5 question properly. Two different things could be happening: (1) the routing threshold silently excludes real, useful sub-8.5 content from ever being answered from the wiki; (2) worse \u2014 sub-8.5 topics might never have gotten a compiled page built in the first place. Let me check both against the raw source files.",
-          "[17:49 IST] HADERACH: Now let's quantify what's actually getting left out. Let me pull the real numbers across all four SMEDAs' index.md files.",
-          "[17:50 IST] HADERACH: I had a literal `\\n` typo in my source. Let me fix and rewrite properly.",
           "[17:52 IST] HADERACH: I see the issue \u2014 my own content string is literally containing backslash-n text rather than real line breaks in certain spots. Let me write this much more simply, avoiding compressed one-liners.",
           "[17:52 IST] HADERACH: Real data now. This confirms your instinct was right to push on this too \u2014 the >8.5 gate is not benign. Let me show you the actual damage, then explain what 8.5 represents and why blanket-gating on it is a mistake.",
           "[17:53 IST] HADERACH: Confirmed \u2014 I carried the same hard-gate pattern into my \"fix,\" just dropping the date half and keeping the score half unchanged. That's still wrong for the same underlying reason. Let me check what the actual known-gap content looks like on one of these sub-8.5 pages before deciding the right fix.",
@@ -1434,7 +1421,20 @@
           "What I kept is not a threshold \u2014 it's a per-page disclosure check: read the page's own <code>...",
           "[18:10 IST] HADERACH: Confirmed \u2014 no, that's a misread. Both gates are gone, not just the 14-day one.",
           "<b>Neither was retained.</b> The live text in all four AGENTS.md now says: <i>\"Neither the score nor the page age alone is a reason to distrust it.\"</i> No hard 8.5 cutoff anywhere \u2014 a page at 8.0 (or lower) is used just as directly as one at 8.5+, as long as its Known Gaps don't cover the specific question being asked.",
-          "What I kept is not a threshold \u2014 it's a per-page disclosure check: read the page's own <code>..."
+          "What I kept is not a threshold \u2014 it's a per-page disclosure check: read the page's own <code>...",
+          "[18:13 IST] RAM: In HAD-052, the original wiki design, are there any such gates?",
+          "[18:13 IST] HADERACH: Let me check the actual HAD-052 wiki files directly rather than rely on transcript search.",
+          "[18:13 IST] HADERACH: No \u2014 HAD-052 never had either gate.",
+          "Confirmed by reading it directly, not from memory: the original HAD-052 wiki has no score threshold at all (there's no \"studied/mastered\" scoring concept there \u2014 it's reference knowledge, not exam-drilled), and no hard age cutoff either. Its actual rule, verbatim from `AGENTS.md` and `wiki/index.md`, is a <b>soft disclosure check</b>:",
+          "<blockquote>\"If the page looks stale (check compiled-date header) or a number is flagged open, say so \u2014 don't paper over i...",
+          "[18:14 IST] HADERACH: No \u2014 HAD-052 never had either gate.",
+          "Confirmed by reading it directly, not from memory: the original HAD-052 wiki has no score threshold at all (there's no \"studied/mastered\" scoring concept there \u2014 it's reference knowledge, not exam-drilled), and no hard age cutoff either. Its actual rule, verbatim from `AGENTS.md` and `wiki/index.md`, is a <b>soft disclosure check</b>:",
+          "<blockquote>\"If the page looks stale (check compiled-date header) or a number is flagged open, say so \u2014 don't paper over i...",
+          "[18:15 IST] RAM: Proceed with phase 4 of HAD-053 pls",
+          "[18:16 IST] HADERACH: Now I have the full picture. Let's pull the topic rows from the three in-scope SMEDA wikis (CA-SMEDA-II, CISO-SMEDA, Legal-SMEDA \u2014 Medical excluded per decision) to build the actual meta-index content.",
+          "[18:16 IST] HADERACH: Let me pull each topic page's Known Gaps summary (first line) to populate the meta-index's gap-disclosure column.",
+          "[18:16 IST] HADERACH: GST.md's gap extraction came back blank \u2014 let me check its actual format.",
+          "[18:17 IST] HADERACH: Good \u2014 it's just \"Known Gaps (Active)\" not \"Known Gaps\" exactly, a minor header variant. Now I have everything needed. Let me build the meta-index file at `memory/smeda-meta-index.md`."
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.55,
-      "cpu": 1.3,
+      "rss_gb": 0.57,
+      "cpu": 0.7,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 18.2,
-        "rolling_28day": 18.2,
-        "rolling_180day": 137.9
+        "transcript": 0.0,
+        "rolling_7day": 18.3,
+        "rolling_28day": 18.3,
+        "rolling_180day": 138.0
       },
       "skills": [
         "moltguard"
@@ -1606,19 +1606,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1782909314453,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1782910207171,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1782908408031,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1782909314453,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2329,7 +2329,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.51,
-      "cpu": 0.8,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2337,10 +2337,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 18.1,
-        "rolling_28day": 18.1,
-        "rolling_180day": 18.1
+        "transcript": 0.3,
+        "rolling_7day": 18.2,
+        "rolling_28day": 18.2,
+        "rolling_180day": 18.2
       },
       "skills": [
         "academic-deep-research",
@@ -2717,7 +2717,7 @@
       "frozen_reason": null,
       "pid": 58350,
       "rss_gb": 0.52,
-      "cpu": 0.9,
+      "cpu": 1.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2725,10 +2725,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.0,
-        "rolling_28day": 18.0,
-        "rolling_180day": 18.0
+        "transcript": 0.2,
+        "rolling_7day": 18.1,
+        "rolling_28day": 18.1,
+        "rolling_180day": 18.1
       },
       "skills": [
         "moltguard"
@@ -3035,7 +3035,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782909606116,
+          "last_ts": 1782910206222,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3395,7 +3395,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 1.3,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3404,9 +3404,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 18.0,
-        "rolling_28day": 18.0,
-        "rolling_180day": 42.0
+        "rolling_7day": 18.1,
+        "rolling_28day": 18.1,
+        "rolling_180day": 42.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3626,16 +3626,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.32,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 19.2,
-        "rolling_28day": 19.2,
-        "rolling_180day": 19.2
+        "transcript": 0.0,
+        "rolling_7day": 19.3,
+        "rolling_28day": 19.3,
+        "rolling_180day": 19.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3781,7 +3781,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3816,7 +3816,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3849,7 +3849,7 @@
       "frozen_reason": null,
       "pid": 57952,
       "rss_gb": 0.44,
-      "cpu": 2.8,
+      "cpu": 1.9,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3857,10 +3857,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 18.1,
-        "rolling_28day": 18.1,
-        "rolling_180day": 18.1
+        "transcript": 0.3,
+        "rolling_7day": 18.2,
+        "rolling_28day": 18.2,
+        "rolling_180day": 18.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4227,7 +4227,7 @@
       "frozen_reason": null,
       "pid": 1459,
       "rss_gb": 0.48,
-      "cpu": 0.8,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4236,7 +4236,7 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 19.2,
+        "rolling_7day": 19.3,
         "rolling_28day": 19.2,
         "rolling_180day": null
       },
