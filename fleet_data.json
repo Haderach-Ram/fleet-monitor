@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 17:06:12 IST",
-  "generated_epoch": 1782905772,
+  "generated_ist": "2026-07-01 17:11:18 IST",
+  "generated_epoch": 1782906078,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.07 / 4.00 / 3.55",
+    "load": "3.23 / 3.55 / 3.46",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 0.86,
-      "cpu": 0.1,
+      "rss_gb": 0.87,
+      "cpu": 11.3,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -45,7 +45,7 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.0,
         "rolling_7day": 17.1,
         "rolling_28day": 17.1,
         "rolling_180day": 17.1
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782906027178,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782906027178,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782906027177,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
@@ -659,33 +686,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1782905605859,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782905428420,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782905428420,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782905428419,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,25 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "  \"input\": [\"text\", \"image\"]",
-          "}",
-          "```",
-          "Into `models.providers.amazon-bedrock.models` in openclaw.json. After that, hot-reload or restart and Sonnet 5 will route correctly.",
-          "Giskard needs to action this \u2014 I can't edit openclaw.json directly (Config Safety rule). If he hasn't picked it up yet, you can ping him directly or I can send a ...",
-          "[15:58 IST] RAM: Pls send me draft for GisKard I will send to him. But check agin, you were running on Sonnet 5 earlier in the day, how was that possible then?",
-          "[15:58 IST] HADERACH: Fair challenge \u2014 if the model were genuinely missing from config, every single call this session would have failed the same way, not just one. Let me check the actual error in the logs before drafting anything to Giskard.",
-          "[16:06 IST] RAM: [OpenClaw heartbeat poll]",
-          "[16:06 IST] HADERACH: HEARTBEAT_OK",
-          "[16:10 IST] RAM: Who all are the M4 agents?",
-          "[16:10 IST] HADERACH: **Session mode?**",
-          "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "**X** \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "[16:10 IST] HADERACH: **Session mode?**",
-          "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "**X** \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "[16:38 IST] RAM: [OpenClaw heartbeat poll]",
           "[16:39 IST] HADERACH: Two items to flag, otherwise clean:",
           "**\u26a0\ufe0f Transcript duplicate lines: 8** \u2014 above the alert threshold of 5. Likely a minor `transcript_update.py` hiccup. Not critical; the nightly consolidation at 23:00 will tidy it. Flagging as awareness.",
           "**\u26a0\ufe0f \"Morning Briefing + TODO Report \u2014 Daily 09:00 IST\"** (cron `217cfb4c`) \u2014 last run status: **error**. Worth checking if today's morning briefing delivered correctly.",
@@ -1434,7 +1415,26 @@
           "[16:59 IST] HADERACH: Confirmed \u2014 no, not yet. Checked all four SMEDAs' <code>AGENTS.md</code> and none currently reference the wiki at session start.",
           "This is a real gap, not something I'm second-guessing \u2014 HAD-053's Phase 2/3 only cover writing to the wiki (study ingest, work ingest). Nobody added the read-side: a \"load wiki/index.md at session startup\" step, the same mechanism I use for the HAD-052 reference wiki.",
           "Right now each SMEDA's Session Startup block reads SOUL.md \u2192 MEMORY.md \u2192 transcript tail \u2192 today'...",
-          "[16:59 IST] RAM: Ok. Plan that also amongst your phases and tell me what next is to be done"
+          "[16:59 IST] RAM: Ok. Plan that also amongst your phases and tell me what next is to be done",
+          "[17:00 IST] HADERACH: Right \u2014 will do both: wire it in now, and fold it into the phase plan properly. Let me make the edits.",
+          "[17:01 IST] HADERACH: Now let's verify all four edits landed correctly, then update HAD-053's STATUS.md/PROJECT.md/NOTES.md.",
+          "[17:01 IST] HADERACH: All four confirmed. Now update the HAD-053 project files with the phase plan and the read-side wiring completion.",
+          "[17:02 IST] HADERACH: Done. Here's where things stand.",
+          "<b>Read-side wiring \u2014 done now</b>",
+          "Added a <code>wiki/index.md</code> read step to all four SMEDA <code>AGENTS.md</code> startup sections:",
+          "<ul>",
+          "<li>CA-SMEDA-II, CISO-SMEDA, Medical-SMEDA \u2014 inserted as the next numbered startup step</li>",
+          "<li>Legal-SMEDA \u2014 its startup pattern is different (defers to runtime-provided context, only re-reads on explicit ask). Since the wiki isn't part of the standard bootstrap set, added it as an explicit \"always read regardless\"...",
+          "[17:03 IST] HADERACH: Done. Here's where things stand.",
+          "<b>Read-side wiring \u2014 done now</b>",
+          "Added a <code>wiki/index.md</code> read step to all four SMEDA <code>AGENTS.md</code> startup sections:",
+          "<ul>",
+          "<li>CA-SMEDA-II, CISO-SMEDA, Medical-SMEDA \u2014 inserted as the next numbered startup step</li>",
+          "<li>Legal-SMEDA \u2014 its startup pattern is different (defers to runtime-provided context, only re-reads on explicit ask). Since the wiki isn't part of the standard bootstrap set, added it as an explicit \"always read regardless\"...",
+          "[17:06 IST] RAM: Go ahead",
+          "[17:07 IST] HADERACH: Good \u2014 all four SMEDAs follow the identical Nightly Memory Consolidation cron pattern. I'll add a \"PHASE 10 \u2014 WIKI UPDATE\" step to each, referencing their SCHEMA.md rules. Let me check Legal and Medical quickly for path consistency, then patch all four crons.",
+          "[17:08 IST] HADERACH: Now I have CLI access via the right port env var. I'll patch the \"Nightly Memory Consolidation\" cron message for each SMEDA to add a Phase 10 wiki-update step, starting with CA-SMEDA-II.",
+          "[17:09 IST] HADERACH: Good, this approach works. Now let's build the wiki-update addition text and apply it to all four via `--message` full replacement (append Phase 10 before the final closing line)."
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.56,
-      "cpu": 0.9,
+      "rss_gb": 0.57,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 17.0,
-        "rolling_28day": 17.0,
-        "rolling_180day": 136.7
+        "transcript": 0.4,
+        "rolling_7day": 17.1,
+        "rolling_28day": 17.1,
+        "rolling_180day": 136.8
       },
       "skills": [
         "moltguard"
@@ -2329,7 +2329,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.51,
-      "cpu": 0.5,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2337,7 +2337,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 17.0,
         "rolling_28day": 17.0,
         "rolling_180day": 17.0
@@ -2716,8 +2716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58350,
-      "rss_gb": 0.52,
-      "cpu": 0.4,
+      "rss_gb": 0.54,
+      "cpu": 3.2,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2725,10 +2725,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.9,
-        "rolling_7day": 16.8,
-        "rolling_28day": 16.8,
-        "rolling_180day": 16.8
+        "transcript": 2.0,
+        "rolling_7day": 16.9,
+        "rolling_28day": 16.9,
+        "rolling_180day": 16.9
       },
       "skills": [
         "moltguard"
@@ -3394,7 +3394,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 1.0,
+      "cpu": 1.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3402,10 +3402,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.9,
-        "rolling_7day": 16.8,
-        "rolling_28day": 16.8,
-        "rolling_180day": 40.8
+        "transcript": 2.0,
+        "rolling_7day": 16.9,
+        "rolling_28day": 16.9,
+        "rolling_180day": 40.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3625,16 +3625,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.32,
-      "cpu": 0.2,
+      "cpu": 1.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.0,
-        "rolling_28day": 18.0,
-        "rolling_180day": 18.0
+        "transcript": 0.0,
+        "rolling_7day": 18.1,
+        "rolling_28day": 18.1,
+        "rolling_180day": 18.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3815,7 +3815,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3848,7 +3848,7 @@
       "frozen_reason": null,
       "pid": 57952,
       "rss_gb": 0.44,
-      "cpu": 1.0,
+      "cpu": 1.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3856,7 +3856,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
+        "transcript": 0.2,
         "rolling_7day": 17.0,
         "rolling_28day": 17.0,
         "rolling_180day": 17.0
@@ -4225,7 +4225,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1459,
-      "rss_gb": 0.54,
+      "rss_gb": 0.48,
       "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4234,9 +4234,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 18.0,
-        "rolling_28day": 18.0,
+        "transcript": 0.1,
+        "rolling_7day": 18.1,
+        "rolling_28day": 18.1,
         "rolling_180day": null
       },
       "skills": [
