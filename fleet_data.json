@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 14:48:41 IST",
-  "generated_epoch": 1782897521,
+  "generated_ist": "2026-07-01 14:53:47 IST",
+  "generated_epoch": 1782897827,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.07 / 3.42 / 3.24",
+    "load": "3.67 / 3.70 / 3.41",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 55091,
-      "rss_gb": 0.8,
-      "cpu": 1.1,
+      "rss_gb": 0.83,
+      "cpu": 0.6,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -649,7 +649,34 @@
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782897221556,
+          "last_ts": 1782897822648,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782897628739,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782897628738,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782897628738,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -659,33 +686,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782897100642,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782897027024,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782897027024,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782897027023,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,13 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>Moody's policy says: <i>\"Once a Credit Rating has been published, MIS will monitor that credit rating on an ongoing basis until the Credit Rating is withdrawn.\"</i> There is no automatic withdrawal when a mandate ends or deb...",
-          "[14:14 IST] HADERACH: Good \u2014 I have everything from their own policy documents. Here's the full picture:",
-          "---",
-          "<b>1. General answer \u2014 can a rating agency continue rating after the instrument is paid off?</b>",
-          "<b>Yes, and Moody's policy explicitly permits it.</b> Here's the structure:",
-          "<ul>",
           "<li>Moody's policy says: <i>\"Once a Credit Rating has been published, MIS will monitor that credit rating on an ongoing basis until the Credit Rating is withdrawn.\"</i> There is no automatic withdrawal when a mandate ends or deb...",
           "[14:13 IST] RAM: Check these pls:",
           "1. For an international credit rating/rating agency, can the rating agency continue to monitor the rating of a company even after the underlying instrument, which was rated, has been paid fully paid off, and make this rating and rtional rationale public. The issue is the rating is based on public information which may not clarify everything and making this public can cuase damage to the company",
@@ -1434,7 +1427,14 @@
           "---",
           "<b>Moody's Singapore \u2014 confirmed entity</b>",
           "The entity you deal with is <b>Moody's Investors Service Singapore Pte. Ltd.</b> (UEN: 200722818H), incorporated 11 Dec 2007, registered at 71 Robinson Road #05-01 / 137 Telok Ayer Street. It holds a <b>Capital Markets Services (CMS) licence</b> from MAS to provide credit rating services. Regulated by MAS under the ...",
-          "[14:39 IST] RAM: [OpenClaw heartbeat poll]"
+          "[14:39 IST] RAM: [OpenClaw heartbeat poll]",
+          "[14:40 IST] HADERACH: All clear \u2014 no flags, no alerts.",
+          "- Discord: **OK**",
+          "- Git backup: ran 14:21 (19 min ago) \u2705",
+          "- Email scan: ran 12:41 (2h ago) \u2705 \u2014 within 3h throttle, skip",
+          "- OpenRouter check: 5.1h ago \u2014 within 24h throttle, skip",
+          "- No watchdog or transcript gap flags",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.53,
-      "cpu": 0.7,
+      "rss_gb": 0.54,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,9 +1585,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 14.7,
-        "rolling_28day": 14.7,
+        "transcript": 0.1,
+        "rolling_7day": 14.8,
+        "rolling_28day": 14.8,
         "rolling_180day": 134.5
       },
       "skills": [
@@ -1609,7 +1609,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1782895807855,
+          "last_ts": 1782897607411,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2329,7 +2329,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.5,
-      "cpu": 1.4,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2337,7 +2337,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 14.7,
         "rolling_28day": 14.7,
         "rolling_180day": 14.7
@@ -2717,7 +2717,7 @@
       "frozen_reason": null,
       "pid": 58350,
       "rss_gb": 0.49,
-      "cpu": 1.3,
+      "cpu": 2.5,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2725,7 +2725,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.8,
+        "transcript": 1.9,
         "rolling_7day": 14.6,
         "rolling_28day": 14.6,
         "rolling_180day": 14.6
@@ -3394,7 +3394,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3402,10 +3402,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.6,
-        "rolling_7day": 14.5,
-        "rolling_28day": 14.5,
-        "rolling_180day": 38.5
+        "transcript": 2.7,
+        "rolling_7day": 14.6,
+        "rolling_28day": 14.6,
+        "rolling_180day": 38.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3632,9 +3632,9 @@
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 15.7,
-        "rolling_28day": 15.7,
-        "rolling_180day": 15.7
+        "rolling_7day": 15.8,
+        "rolling_28day": 15.8,
+        "rolling_180day": 15.8
       },
       "skills": [],
       "skills_detail": [],
@@ -3780,7 +3780,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3847,8 +3847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 57952,
-      "rss_gb": 0.46,
-      "cpu": 0.3,
+      "rss_gb": 0.55,
+      "cpu": 0.9,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3856,7 +3856,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 14.7,
         "rolling_28day": 14.7,
         "rolling_180day": 14.7
@@ -4226,7 +4226,7 @@
       "frozen_reason": null,
       "pid": 1459,
       "rss_gb": 0.48,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4234,9 +4234,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.7,
-        "rolling_28day": 15.7,
+        "transcript": 0.0,
+        "rolling_7day": 15.8,
+        "rolling_28day": 15.8,
         "rolling_180day": null
       },
       "skills": [
