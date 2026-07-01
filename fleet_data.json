@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 17:57:20 IST",
-  "generated_epoch": 1782908840,
+  "generated_ist": "2026-07-01 18:02:36 IST",
+  "generated_epoch": 1782909156,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "17.81 / 7.88 / 4.78",
+    "load": "2.51 / 4.88 / 4.43",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 0.92,
-      "cpu": 1.3,
+      "rss_gb": 0.87,
+      "cpu": 1.8,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 17.9,
-        "rolling_28day": 17.9,
-        "rolling_180day": 17.9
+        "transcript": 0.0,
+        "rolling_7day": 18.0,
+        "rolling_28day": 18.0,
+        "rolling_180day": 18.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,10 @@
       ],
       "crons": [
         {
-          "name": "Sam transcript update",
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
           "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782908653364,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782908427476,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782909057957,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +658,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782908427476,
+          "last_ts": 1782909028171,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782909028170,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +676,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782908427475,
+          "last_ts": 1782909028170,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782908653364,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -731,15 +740,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1782898432027,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782898257224,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,28 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:21 IST] HADERACH: Noted. I'll keep an eye on whether they drift back to disabled again \u2014 if it recurs a third time I'll dig into why rather than just re-enabling and moving on.",
-          "Holding here on Phase 3 unless you want me to push ahead \u2014 otherwise I'll wait for tonight's consolidation runs to confirm Phase 2 actually writes to the wikis as expected.",
-          "[17:21 IST] RAM: Go to phase 3. What is phase 4?",
-          "[17:21 IST] HADERACH: Quick answer to your second question, then I'll get moving on Phase 3.",
-          "**Phase 4 = HAD-035 Meta-Index.** Right now Haderach routes cross-SMEDA queries via a flat `smeda-digest.md` content-dump. Phase 4 replaces that with a proper cross-SMEDA meta-index \u2014 one line per topic across all four SMEDA wikis, pointing to the authoritative topic page rather than dumping content. Haderach's routing logic then navigates by index (same pattern as HAD-052): check meta-index \u2192 find topic page \u2192 if score \u2265...",
-          "[17:23 IST] HADERACH: Now insert into all four AGENTS.md files at the appropriate spot.",
-          "[17:24 IST] HADERACH: Legal-SMEDA has no Martin Relay section \u2014 insert Work Ingest as its own section, right after the wiki read-side line.",
-          "[17:25 IST] HADERACH: All four files edited. Let's verify each landed correctly.",
-          "[17:25 IST] HADERACH: All four confirmed. Now update the HAD-053 project docs.",
-          "[17:26 IST] HADERACH: Docs updated. Quick sanity check that all four SMEDAs are still healthy (no restart needed for this edit since AGENTS.md is read at session start, not tied to the running gateway).",
-          "[17:26 IST] HADERACH: All four healthy. Phase 3 is done.",
-          "<b>Phase 3 \u2014 Work Ingest Wiring \u2014 done</b>",
-          "Added a \"\ud83e\udde0 Work Ingest\" section to each SMEDA's <code>AGENTS.md</code>. Trigger: any real domain answer (Ram, Haderach routing, or Martin Relay analysis) \u2014 not a scheduled study drill. On completion, the SMEDA appends to <code>wiki/applied.md</code>, updates the applied score on touched topic pages, and flags any exposed gap into <code>wiki/gaps.md</code> for the next study session.",
-          "Key design choice: this runs <...",
-          "[17:26 IST] HADERACH: All four healthy. Phase 3 is done.",
-          "<b>Phase 3 \u2014 Work Ingest Wiring \u2014 done</b>",
-          "Added a \"\ud83e\udde0 Work Ingest\" section to each SMEDA's <code>AGENTS.md</code>. Trigger: any real domain answer (Ram, Haderach routing, or Martin Relay analysis) \u2014 not a scheduled study drill. On completion, the SMEDA appends to <code>wiki/applied.md</code>, updates the applied score on touched topic pages, and flags any exposed gap into <code>wiki/gaps.md</code> for the next study session.",
-          "Key design choice: this runs <...",
-          "[17:28 IST] RAM: For whose use is Phase 4? Haderach\u2019s?",
-          "[17:28 IST] HADERACH: Yes \u2014 Phase 4 is entirely for Haderach's use.",
-          "The meta-index file (`memory/smeda-meta-index.md`, replacing `smeda-digest.md`) and the updated routing logic both live in <i>this</i> workspace, not in any SMEDA's. It's the layer that lets me answer a cross-SMEDA domain question without messaging the SMEDA at all when the wiki already has a fresh, high-confidence answer \u2014 I check the meta-index, jump straight to the relevant topic page in whichever SMEDA's wiki has it, and answer directly with ...",
-          "[17:28 IST] HADERACH: Yes \u2014 Phase 4 is entirely for Haderach's use.",
           "The meta-index file (`memory/smeda-meta-index.md`, replacing `smeda-digest.md`) and the updated routing logic both live in <i>this</i> workspace, not in any SMEDA's. It's the layer that lets me answer a cross-SMEDA domain question without messaging the SMEDA at all when the wiki already has a fresh, high-confidence answer \u2014 I check the meta-index, jump straight to the relevant topic page in whichever SMEDA's wiki has it, and answer directly with ...",
           "[17:39 IST] RAM: [OpenClaw heartbeat poll]",
           "[17:40 IST] HADERACH: Git backup is recent (1h), email scan is within throttle window (2h, threshold 3h). Nothing flagged.",
@@ -1434,7 +1412,29 @@
           "[17:46 IST] HADERACH: Found more \u2014 `build_wiki_scaffold.py` (the script that generated `wiki/SCHEMA.md` for all four SMEDAs) has the same 14-day language baked into the SCHEMA.md content itself, plus explicit \"stale\" language. Let me read the whole script and the actual SCHEMA.md files it produced.",
           "[17:46 IST] HADERACH: Good news on the data-loss front: this scaffold script never filtered or discarded content by date \u2014 the \"14 days\" text was static prose describing a *routing/consumption* rule, not a compile-time filter. So the topic pages themselves (built separately, by the Phase 1 subagent) are intact and non-blank regardless of age. But the stale rule is baked into every SMEDA's `wiki/index.md` file itself as instructional text \u2014 I only fixed AGENTS.md, not this. Let me check and fix that now, then move ...",
           "[17:46 IST] HADERACH: Good news \u2014 the actual live `wiki/index.md` files never got the stale rule; the Phase 1 build subagent overwrote the placeholder text entirely with real content, so none of the four SMEDAs' compiled pages are blank/thin due to date filtering. Let me check SCHEMA.md (which is more likely to still carry the scaffold script's original text) and the cron payloads more carefully.",
-          "[17:47 IST] HADERACH: Now let's dig into the >8.5 question properly. Two different things could be happening: (1) the routing threshold silently excludes real, useful sub-8.5 content from ever being answered from the wiki; (2) worse \u2014 sub-8.5 topics might never have gotten a compiled page built in the first place. Let me check both against the raw source files."
+          "[17:47 IST] HADERACH: Now let's dig into the >8.5 question properly. Two different things could be happening: (1) the routing threshold silently excludes real, useful sub-8.5 content from ever being answered from the wiki; (2) worse \u2014 sub-8.5 topics might never have gotten a compiled page built in the first place. Let me check both against the raw source files.",
+          "[17:49 IST] HADERACH: Now let's quantify what's actually getting left out. Let me pull the real numbers across all four SMEDAs' index.md files.",
+          "[17:50 IST] HADERACH: I had a literal `\\n` typo in my source. Let me fix and rewrite properly.",
+          "[17:52 IST] HADERACH: I see the issue \u2014 my own content string is literally containing backslash-n text rather than real line breaks in certain spots. Let me write this much more simply, avoiding compressed one-liners.",
+          "[17:52 IST] HADERACH: Real data now. This confirms your instinct was right to push on this too \u2014 the >8.5 gate is not benign. Let me show you the actual damage, then explain what 8.5 represents and why blanket-gating on it is a mistake.",
+          "[17:53 IST] HADERACH: Confirmed \u2014 I carried the same hard-gate pattern into my \"fix,\" just dropping the date half and keeping the score half unchanged. That's still wrong for the same underlying reason. Let me check what the actual known-gap content looks like on one of these sub-8.5 pages before deciding the right fix.",
+          "[17:53 IST] HADERACH: This confirms exactly what you were worried about \u2014 and it's worse than \"some topics get left out.\" Look at `Ind-AS-Revenue.md`: fully rigorous page \u2014 5-step model, distinctness test, the critical trap warning about warranty allocation, worked example with real numbers, all correctly stated. Scored 8.0 not because the content is wrong or unreliable, but because a narrow edge case (partial combined-PO satisfaction) is deferred as lower priority and explicitly disclosed under Known Gaps.",
+          "Under...",
+          "[17:54 IST] HADERACH: Now fixing all four AGENTS.md files \u2014 removing the score gate, replacing with disclosure-based use of Known Gaps rather than a binary threshold:",
+          "[17:54 IST] HADERACH: Now fix HAD-053's own design docs \u2014 PROJECT.md (the source-of-truth routing rule) and NOTES.md (which documented the old rule as settled), plus the scaffold script so any future SMEDA build doesn't regenerate the bad rule.",
+          "[17:56 IST] HADERACH: Now fix the scaffold script so it doesn't regenerate the bad rule if ever re-run (e.g., for a new SMEDA in future):",
+          "[17:56 IST] HADERACH: Malformed call \u2014 let me redo this correctly with proper parameters.",
+          "[17:56 IST] HADERACH: Now update NOTES.md, which documented the old rule as a settled decision.",
+          "[17:57 IST] HADERACH: Now add a proper NOTES.md entry documenting this correction with the actual analysis, since it's a real design decision worth recording.",
+          "[17:57 IST] HADERACH: Now let's do a final comprehensive sweep to confirm zero remaining instances of the bad thresholds anywhere in the project.",
+          "[17:57 IST] HADERACH: Good \u2014 the only remaining hits are historical/explanatory text describing the old rule that was fixed, which is intentional and correct. One leftover checkbox line in PROJECT.md (line 165, Phase 1.5 checklist) still states the old rule as a completed item \u2014 let me correct that too for accuracy.",
+          "[17:58 IST] HADERACH: Now confirm all four SMEDA gateways are still healthy (AGENTS.md edits don't require restart, but sanity check).",
+          "[17:58 IST] HADERACH: All four healthy, all four fixed and verified. Here's the full account.",
+          "<b>You were right on both counts \u2014 this is fixed now, properly, not just patched forward into Phase 4.</b>",
+          "<b>What I found on the 14-day question:</b> Confirmed the compiled topic pages themselves were never blank or thin \u2014 the Phase 1 build subagent fully overwrote the scaffold's placeholder text with real compiled content before any SMEDA ever read it. So no data loss there. But the *consumption rule* (the instruction...",
+          "[17:59 IST] HADERACH: All four healthy, all four fixed and verified. Here's the full account.",
+          "<b>You were right on both counts \u2014 this is fixed now, properly, not just patched forward into Phase 4.</b>",
+          "<b>What I found on the 14-day question:</b> Confirmed the compiled topic pages themselves were never blank or thin \u2014 the Phase 1 build subagent fully overwrote the scaffold's placeholder text with real compiled content before any SMEDA ever read it. So no data loss there. But the *consumption rule* (the instruction..."
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1576,7 +1576,7 @@
       "frozen_reason": null,
       "pid": 58399,
       "rss_gb": 0.56,
-      "cpu": 1.5,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.8,
-        "rolling_180day": 137.6
+        "transcript": 0.2,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.9,
+        "rolling_180day": 137.7
       },
       "skills": [
         "moltguard"
@@ -2328,7 +2328,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58078,
-      "rss_gb": 0.51,
+      "rss_gb": 0.5,
       "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2337,10 +2337,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.8,
-        "rolling_180day": 17.8
+        "transcript": 0.0,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.9,
+        "rolling_180day": 17.9
       },
       "skills": [
         "academic-deep-research",
@@ -2488,21 +2488,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782907203530,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1782905413136,
+          "last_ts": 1782909010442,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782909010442,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2553,18 +2553,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger complete.**",
-          "- **8 messages** captured from agent:main:main",
-          "- **0 messages** from direct Telegram (8610135184)",
-          "- **0 messages** from Klub K group (-5102532606)",
-          "- **Bookmark:** Updated to True",
-          "- **File:** `transcript-2026-07-01.md`",
-          "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
-          "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: **Done.** Transcript logger ran successfully:",
-          "- **Klub K sender map:** 62 entries",
-          "- **Sessions checked:** 3 (main + 2 Telegram)",
-          "- **New messages:** 0 new across all channels",
           "- **Output file:** `transcript-2026-07-01.md`",
           "Everything is current. No new activity to log. \u2713",
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Klub K transcript logger completed. No new messages to process.",
@@ -2592,7 +2580,19 @@
           "[16:56 IST] PURL: ProtonMail check running again. Let me wait for it:",
           "[16:56 IST] PURL: ProtonMail inbox check complete. All emails are Proton marketing + the test conversation from 20 June (which we already know about). No new incoming emails from contacts.",
           "Let me update the heartbeat state and memory:",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[17:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[17:56 IST] PURL: Let me wait for the ProtonMail check to complete:",
+          "[17:56 IST] PURL: Good \u2014 ProtonMail inbox is clean. All emails are Proton notifications and the test message from 20 June. No new urgent emails.",
+          "Let me update the heartbeat state and memory:",
+          "[17:56 IST] PURL: Let me read the full file and update it properly:",
+          "[17:56 IST] PURL: Let me clean up the duplicate and add the 17:55 heartbeat:",
+          "[17:56 IST] PURL: HEARTBEAT_OK",
+          "[17:56 IST] PURL: Let me wait for the ProtonMail check to complete:",
+          "[17:56 IST] PURL: Good \u2014 ProtonMail inbox is clean. All emails are Proton notifications and the test message from 20 June. No new urgent emails.",
+          "Let me update the heartbeat state and memory:",
+          "[17:56 IST] PURL: Let me read the full file and update it properly:",
+          "[17:56 IST] PURL: Let me clean up the duplicate and add the 17:55 heartbeat:"
         ],
         "yesterday": [
           "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger complete.**",
@@ -2716,8 +2716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58350,
-      "rss_gb": 0.52,
-      "cpu": 0.6,
+      "rss_gb": 0.53,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2725,10 +2725,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.8,
-        "rolling_7day": 17.7,
-        "rolling_28day": 17.7,
-        "rolling_180day": 17.7
+        "transcript": 2.9,
+        "rolling_7day": 17.8,
+        "rolling_28day": 17.8,
+        "rolling_180day": 17.8
       },
       "skills": [
         "moltguard"
@@ -3035,7 +3035,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782908405895,
+          "last_ts": 1782909007291,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3206,7 +3206,7 @@
           "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "0 */3 * * *",
-          "last_ts": 1782906264528,
+          "last_ts": 1782909120920,
           "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3395,7 +3395,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 0.3,
+      "cpu": 1.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3403,10 +3403,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.7,
-        "rolling_7day": 17.6,
-        "rolling_28day": 17.6,
-        "rolling_180day": 41.6
+        "transcript": 2.8,
+        "rolling_7day": 17.7,
+        "rolling_28day": 17.7,
+        "rolling_180day": 41.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3626,16 +3626,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.32,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 18.9,
-        "rolling_28day": 18.9,
-        "rolling_180day": 18.9
+        "transcript": 0.0,
+        "rolling_7day": 19.0,
+        "rolling_28day": 19.0,
+        "rolling_180day": 19.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3781,7 +3781,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3816,7 +3816,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3848,8 +3848,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 57952,
-      "rss_gb": 0.47,
-      "cpu": 1.1,
+      "rss_gb": 0.44,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3857,10 +3857,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 17.8,
-        "rolling_28day": 17.8,
-        "rolling_180day": 17.8
+        "transcript": 0.0,
+        "rolling_7day": 17.9,
+        "rolling_28day": 17.9,
+        "rolling_180day": 17.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4011,7 +4011,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782907203709,
+          "last_ts": 1782909005202,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4046,8 +4046,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[05:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[05:52 IST] HERBIE: HEARTBEAT_OK",
           "[06:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
           "[06:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2705 **Transcript logged:** 6 new messages captured. Total in today's file: 8 messages. Bookmark set, stored as `transcript-2026-07-01.md`.",
           "[06:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
@@ -4085,7 +4083,9 @@
           "[15:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[15:52 IST] HERBIE: HEARTBEAT_OK",
           "[16:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[16:52 IST] HERBIE: HEARTBEAT_OK"
+          "[16:52 IST] HERBIE: HEARTBEAT_OK",
+          "[17:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[17:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2713 Logged. 2 new messages added to transcript-2026-06-30.md (bookmark updated).",
@@ -4226,7 +4226,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1459,
-      "rss_gb": 0.48,
+      "rss_gb": 0.49,
       "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4236,8 +4236,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 18.8,
-        "rolling_28day": 18.8,
+        "rolling_7day": 18.9,
+        "rolling_28day": 18.9,
         "rolling_180day": null
       },
       "skills": [
