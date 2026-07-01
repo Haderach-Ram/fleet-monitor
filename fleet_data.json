@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 21:16:18 IST",
-  "generated_epoch": 1782920778,
+  "generated_ist": "2026-07-01 21:21:23 IST",
+  "generated_epoch": 1782921083,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.91 / 3.52 / 3.38",
+    "load": "3.80 / 3.95 / 3.64",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 0.89,
-      "cpu": 4.4,
+      "rss_gb": 1.13,
+      "cpu": 1.3,
       "crons_total": 84,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.2,
-        "rolling_28day": 21.2,
-        "rolling_180day": 21.2
+        "transcript": 0.0,
+        "rolling_7day": 21.3,
+        "rolling_28day": 21.3,
+        "rolling_180day": 21.3
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782921029330,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782921029329,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782921029329,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
@@ -659,33 +686,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782920500304,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782920425683,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782920425683,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782920425682,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,11 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:52 IST] HADERACH: Zero via wiki. All 20 sub-questions were routed live to the SMEDAs \u2014 none were answered from the compiled wiki pages.",
-          "That's worth being direct about, because it's a real gap in what this test actually proved. The document itself confirms it plainly: *\"Since this test queried SMEDAs live (not the compiled wiki pages) for every sub-question, every answer in this test is properly tagged [SMEDA-ROUTED] \u2014 none were wiki-page lookups.\"*",
-          "Why that happened: the test script (`run_10query_test.sh`) ...",
-          "[20:52 IST] HADERACH: Zero via wiki. All 20 sub-questions were routed live to the SMEDAs \u2014 none were answered from the compiled wiki pages.",
-          "That's worth being direct about, because it's a real gap in what this test actually proved. The document itself confirms it plainly: *\"Since this test queried SMEDAs live (not the compiled wiki pages) for every sub-question, every answer in this test is properly tagged [SMEDA-ROUTED] \u2014 none were wiki-page lookups.\"*",
           "Why that happened: the test script (`run_10query_test.sh`) ...",
           "[20:54 IST] RAM: Did you get all the 10 questions right?",
           "[20:54 IST] HADERACH: No \u2014 and that distinction matters, so let me be precise about what I actually checked versus what I claimed.",
@@ -1443,7 +1438,12 @@
           "<b>Verified correct (matched primary sources closely):</b>",
           "<ul>",
           "<li>Q1-CA: Section 115QA buyback tax shift, 1 Oct 2024, S.2(22)(f), 10% TDS \u2014 exact match across 5 independen...",
-          "[21:09 IST] RAM: Continue the OpenClaw runtime event."
+          "[21:09 IST] RAM: Continue the OpenClaw runtime event.",
+          "[21:10 IST] HADERACH: I finished checking the remaining answers. Found one more real error \u2014 worth flagging clearly since it's a citation mix-up a professional would actually catch.",
+          "<b>New error found (Q9-Legal):</b> The answer attributes the pending-litigation disclosure requirement to \"CARO 2020 Clause 17.\" That's wrong \u2014 CARO 2020's 21 clauses (paragraph 3(i)\u2013(xxi)) don't contain a \"pending litigations impact on financial position\" clause at all. That specific disclosure \u2014 <i>\"whether the company has disclosed...",
+          "[21:13 IST] HADERACH: Let me retry with the full file content explicitly included.",
+          "[21:19 IST] HADERACH: The memory flush is captured. Since this is a pre-compaction internal turn (not a user-facing request), no reply is needed beyond confirming state.",
+          "NO_REPLY"
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1584,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.56,
-      "cpu": 0.3,
+      "rss_gb": 0.66,
+      "cpu": 0.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 21.2,
-        "rolling_28day": 21.2,
-        "rolling_180day": 140.9
+        "transcript": 0.4,
+        "rolling_7day": 21.3,
+        "rolling_28day": 21.3,
+        "rolling_180day": 141.0
       },
       "skills": [
         "moltguard"
@@ -2338,7 +2338,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.53,
-      "cpu": 0.5,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2346,10 +2346,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 21.1,
-        "rolling_28day": 21.1,
-        "rolling_180day": 21.1
+        "transcript": 0.3,
+        "rolling_7day": 21.2,
+        "rolling_28day": 21.2,
+        "rolling_180day": 21.2
       },
       "skills": [
         "academic-deep-research",
@@ -2726,7 +2726,7 @@
       "frozen_reason": null,
       "pid": 58350,
       "rss_gb": 0.56,
-      "cpu": 0.4,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2734,10 +2734,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 21.0,
-        "rolling_28day": 21.0,
-        "rolling_180day": 21.0
+        "transcript": 0.2,
+        "rolling_7day": 21.1,
+        "rolling_28day": 21.1,
+        "rolling_180day": 21.1
       },
       "skills": [
         "moltguard"
@@ -3044,7 +3044,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782920405921,
+          "last_ts": 1782921005949,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3464,7 +3464,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 0.6,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3472,7 +3472,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
+        "transcript": 0.1,
         "rolling_7day": 21.0,
         "rolling_28day": 21.0,
         "rolling_180day": 45.0
@@ -3701,10 +3701,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 22.2,
-        "rolling_28day": 22.2,
-        "rolling_180day": 22.2
+        "transcript": 0.0,
+        "rolling_7day": 22.3,
+        "rolling_28day": 22.3,
+        "rolling_180day": 22.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3885,7 +3885,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3918,7 +3918,7 @@
       "frozen_reason": null,
       "pid": 57952,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3926,10 +3926,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 21.1,
-        "rolling_28day": 21.1,
-        "rolling_180day": 21.1
+        "transcript": 0.3,
+        "rolling_7day": 21.2,
+        "rolling_28day": 21.2,
+        "rolling_180day": 21.2
       },
       "skills": [
         "apple-calendar-macos",
@@ -4296,7 +4296,7 @@
       "frozen_reason": null,
       "pid": 1459,
       "rss_gb": 0.48,
-      "cpu": 0.9,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4304,9 +4304,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
-        "rolling_7day": 22.1,
-        "rolling_28day": 22.1,
+        "transcript": 0.1,
+        "rolling_7day": 22.2,
+        "rolling_28day": 22.2,
         "rolling_180day": null
       },
       "skills": [
