@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-01 14:58:51 IST",
-  "generated_epoch": 1782898131,
+  "generated_ist": "2026-07-01 15:03:56 IST",
+  "generated_epoch": 1782898436,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.55 / 3.51 / 3.41",
+    "load": "4.24 / 3.62 / 3.45",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 55091,
-      "rss_gb": 0.82,
-      "cpu": 0.7,
+      "rss_gb": 1.03,
+      "cpu": 126.7,
       "crons_total": 83,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -46,9 +46,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 14.9,
-        "rolling_28day": 14.9,
-        "rolling_180day": 14.9
+        "rolling_7day": 15.0,
+        "rolling_28day": 15.0,
+        "rolling_180day": 15.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,10 +646,19 @@
       ],
       "crons": [
         {
-          "name": "Sam transcript update",
+          "name": "Twitter Watcher \u2014 Every 3h",
           "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782897822648,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782898432027,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782898257224,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,7 +667,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782897628739,
+          "last_ts": 1782898231452,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +676,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782897628738,
+          "last_ts": 1782898231451,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +685,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782897628738,
+          "last_ts": 1782898231451,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782897822648,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -731,24 +749,6 @@
           "enabled": true,
           "sched": "0 */4 * * *",
           "last_ts": 1782887654105,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782887632390,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782887459357,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1395,8 +1395,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Moody's policy says: <i>\"Once a Credit Rating has been published, MIS will monitor that credit rating on an ongoing basis until the Credit Rating is withdrawn.\"</i> There is no automatic withdrawal when a mandate ends or deb...",
-          "[14:13 IST] RAM: Check these pls:",
           "1. For an international credit rating/rating agency, can the rating agency continue to monitor the rating of a company even after the underlying instrument, which was rated, has been paid fully paid off, and make this rating and rtional rationale public. The issue is the rating is based on public information which may not clarify everything and making this public can cuase damage to the company",
           "2. What is Moody's policy on this? Can you check from their website",
           "The issue is...",
@@ -1434,7 +1432,9 @@
           "- Email scan: ran 12:41 (2h ago) \u2705 \u2014 within 3h throttle, skip",
           "- OpenRouter check: 5.1h ago \u2014 within 24h throttle, skip",
           "- No watchdog or transcript gap flags",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[14:56 IST] RAM: Make a note in pdf of all this including your replies to my prior questions on this. Send me the pdf here then pls",
+          "[14:57 IST] HADERACH: On it. Reading the PDF skill first as required, then building."
         ],
         "yesterday": [
           "- Will remain offline indefinitely without fresh token + gateway restart",
@@ -1575,8 +1575,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.55,
-      "cpu": 0.4,
+      "rss_gb": 0.54,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1585,10 +1585,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.9,
-        "rolling_28day": 14.9,
-        "rolling_180day": 134.6
+        "transcript": 0.2,
+        "rolling_7day": 15.0,
+        "rolling_28day": 15.0,
+        "rolling_180day": 134.7
       },
       "skills": [
         "moltguard"
@@ -2329,7 +2329,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.5,
-      "cpu": 1.2,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2337,10 +2337,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
-        "rolling_180day": 14.8
+        "transcript": 0.1,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
+        "rolling_180day": 14.9
       },
       "skills": [
         "academic-deep-research",
@@ -2488,21 +2488,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782896404928,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1782894620215,
+          "last_ts": 1782898212984,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782898212984,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2553,38 +2553,7 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:00 IST] PURL: Looks like an email draft, Gari! Just to confirm before I help polish it \u2014 a few quick questions:",
-          "1. **Who is this going to?** (Partner bank? BOBCARD?)",
-          "2. **Is this complete?** It cuts off at \"SFTP Path\" \u2014 are there numbers/tables to include?",
-          "3. **What tone?** It reads formal already \u2014 should I keep it that way, or sharpen it?",
-          "4. **Any attachments** you'd want mentioned?",
-          "Share the missing bits and I'll get it ready to send! \ud83e\uddf6",
-          "[14:00 IST] DM_USER: Reframe this email and make it stronger and sterner",
-          "[14:00 IST] PURL: [[reply_to_current]]",
-          "Got it \u2014 stronger and sterner it is. Here's a reframed version:",
-          "---",
-          "**Subject: Discrepancy in Program Yield Computation \u2013 Clarification Required**",
-          "Dear [Name],",
-          "This email is in reference to the ongoing query regarding Program Yield calculations.",
-          "As communicated in our trail dated **17th October 2025**, we received projections from your end basis the following computation methodology:",
-          "> **Program Yield = Interest Income + Late Payment Fees + Card Fees + Other Card Fees",
-          "[14:00 IST] PURL: Got it \u2014 stronger and sterner it is. Here's a reframed version:",
-          "---",
-          "**Subject: Discrepancy in Program Yield Computation \u2013 Clarification Required**",
-          "Dear [Name],",
-          "This email is in reference to the ongoing query regarding Program Yield calculations.",
-          "As communicated in our trail dated **17th October 2025**, we received projections from your end basis the following computation methodology:",
-          "> **Program Yield = Interest Income + Late Payment Fees + Card Fees + Other Card Fees + Interchange Fees**",
-          "[14:01 IST] DM_USER: Stick to my narrative itself and modify",
-          "[14:01 IST] PURL: [[reply_to_current]]",
-          "Got it \u2014 staying close to your original narrative, just tightened and strengthened:",
-          "---",
-          "**Subject: Program Yield Discrepancy \u2013 Immediate Clarification Required**",
-          "Dear [Name],",
-          "I am writing with reference to the query on Program Yield.",
-          "In the email trail dated **17th October 2025**, projections were shared by your end basis the following computation:",
-          "> **Program Yield = Interest Income + Late Payment Fees + Card Fees + Other Card Fees + Interchange Fees**",
-          "Using this **",
+          "Using this **exact same logic**, we have computed the actuals for **Q1 FY26**. The actuals have been sourced f...",
           "[14:01 IST] PURL: Got it \u2014 staying close to your original narrative, just tightened and strengthened:",
           "---",
           "**Subject: Program Yield Discrepancy \u2013 Immediate Clarification Required**",
@@ -2592,7 +2561,38 @@
           "I am writing with reference to the query on Program Yield.",
           "In the email trail dated **17th October 2025**, projections were shared by your end basis the following computation:",
           "> **Program Yield = Interest Income + Late Payment Fees + Card Fees + Other Card Fees + Interchange Fees**",
-          "Using this **exact same logic**, we"
+          "Using this **exact same logic**, we have computed the actuals for **Q1 FY26**. The actuals have been sourced from the file available...",
+          "[14:39 IST] RAM: I would have shared some sarcy comment for you constantly ignoring my calls/msges but given my state of affairs, I have nothing left in me to say anything",
+          "You have to convince MD and honour your and Nitin\u2019s words to safeguard this partnership. Nitin wanted to unwind FD and RA on 31st Mar to save him from new Stat auditor, I got everyone on board to support him.",
+          "After multiple assurances as late as 28th June that once RBI leaves, note will get approved. Based on this assurance, we have informed our board and other stakeholders.",
+          "On 29th June after having waited the whole day in your office...",
+          "[14:39 IST] PURL: [[reply_to_current]]",
+          "Gari, I can feel how much weight you're carrying right now. Let me help you put this into words that carry the gravity it deserves.",
+          "---",
+          "**Subject: Urgent \u2013 Partnership Continuity & Committed Commitments \u2013 Immediate Action Required**",
+          "Dear [Name],",
+          "I am writing to you at a moment of extreme distress, and I hope you will receive this in the spirit it is intended \u2014 as a sincere and urgent appeal from a partner who has stood by every commitment made.",
+          "Multiple assurances were given to us \u2014 as recently as **28th June** \u2014 that once the RBI inspection concluded, the necessa...",
+          "[14:39 IST] PURL: Gari, I can feel how much weight you're carrying right now. Let me help you put this into words that carry the gravity it deserves.",
+          "---",
+          "**Subject: Urgent \u2013 Partnership Continuity & Committed Commitments \u2013 Immediate Action Required**",
+          "Dear [Name],",
+          "I am writing to you at a moment of extreme distress, and I hope you will receive this in the spirit it is intended \u2014 as a sincere and urgent appeal from a partner who has stood by every commitment made.",
+          "Multiple assurances were given to us \u2014 as recently as **28th June** \u2014 that once the RBI inspection concluded, the necessary note would receive ...",
+          "[14:39 IST] RAM: This has to be sent over whatsapp and not email",
+          "[14:39 IST] PURL: [[reply_to_current]]",
+          "Got it \u2014 here's the same message reframed as a WhatsApp message. Keeping your voice, your narrative, your emotion \u2014 just formatted for chat:",
+          "---",
+          "I would have said something sarcastic about not being able to reach you, but honestly I have nothing left in me right now.",
+          "You and Nitin gave us your word \u2014 and I need you to honour it.",
+          "Nitin wanted to unwind the FD and RA by 31st March to protect himself from the new Stat auditor. I got everyone on board to support him. We did our part.",
+          "We then received multiple assurances \u2014 as late as 28th June \u2014 that once RBI leaves, t...",
+          "[14:40 IST] PURL: Got it \u2014 here's the same message reframed as a WhatsApp message. Keeping your voice, your narrative, your emotion \u2014 just formatted for chat:",
+          "---",
+          "I would have said something sarcastic about not being able to reach you, but honestly I have nothing left in me right now.",
+          "You and Nitin gave us your word \u2014 and I need you to honour it.",
+          "Nitin wanted to unwind the FD and RA by 31st March to protect himself from the new Stat auditor. I got everyone on board to support him. We did our part.",
+          "We then received multiple assurances \u2014 as late as 28th June \u2014 that once RBI leaves, the note will get appro..."
         ],
         "yesterday": [
           "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger complete.**",
@@ -2716,8 +2716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58350,
-      "rss_gb": 0.56,
-      "cpu": 28.1,
+      "rss_gb": 0.5,
+      "cpu": 1.8,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2725,10 +2725,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.0,
-        "rolling_7day": 14.7,
-        "rolling_28day": 14.7,
-        "rolling_180day": 14.7
+        "transcript": 2.1,
+        "rolling_7day": 14.8,
+        "rolling_28day": 14.8,
+        "rolling_180day": 14.8
       },
       "skills": [
         "moltguard"
@@ -3402,7 +3402,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.7,
+        "transcript": 2.8,
         "rolling_7day": 14.7,
         "rolling_28day": 14.7,
         "rolling_180day": 38.7
@@ -3625,16 +3625,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.32,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 15.9,
-        "rolling_28day": 15.9,
-        "rolling_180day": 15.9
+        "rolling_7day": 16.0,
+        "rolling_28day": 16.0,
+        "rolling_180day": 16.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3780,7 +3780,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3847,8 +3847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 57952,
-      "rss_gb": 0.45,
-      "cpu": 0.6,
+      "rss_gb": 0.46,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3856,10 +3856,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
-        "rolling_180day": 14.8
+        "transcript": 0.1,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
+        "rolling_180day": 14.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4010,7 +4010,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782896403388,
+          "last_ts": 1782898203287,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4045,8 +4045,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[01:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[01:52 IST] HERBIE: HEARTBEAT_OK",
           "[02:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[02:52 IST] HERBIE: HEARTBEAT_OK",
           "[03:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
@@ -4084,7 +4082,9 @@
           "[12:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[12:52 IST] HERBIE: HEARTBEAT_OK",
           "[13:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[13:52 IST] HERBIE: HEARTBEAT_OK"
+          "[13:52 IST] HERBIE: HEARTBEAT_OK",
+          "[14:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[14:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2713 Logged. 2 new messages added to transcript-2026-06-30.md (bookmark updated).",
@@ -4225,8 +4225,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1459,
-      "rss_gb": 0.48,
-      "cpu": 0.7,
+      "rss_gb": 0.49,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4234,9 +4234,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
+        "transcript": 0.2,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
         "rolling_180day": null
       },
       "skills": [
