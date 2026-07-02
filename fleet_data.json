@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-03 02:59:14 IST",
-  "generated_epoch": 1783027754,
+  "generated_ist": "2026-07-03 03:04:19 IST",
+  "generated_epoch": 1783028060,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.65 / 1.89 / 2.02",
+    "load": "2.04 / 1.92 / 1.99",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 0.84,
-      "cpu": 1.3,
+      "rss_gb": 0.87,
+      "cpu": 2.0,
       "crons_total": 84,
       "crons_enabled": 51,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 2.9,
-        "rolling_28day": 2.9,
-        "rolling_180day": 2.9
+        "transcript": 0.0,
+        "rolling_7day": 3.0,
+        "rolling_28day": 3.0,
+        "rolling_180day": 3.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,55 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783026795474,
+          "sched": "0 * * * *",
+          "last_ts": 1783028027960,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "name": "Twitter Watcher \u2014 Every 3h",
           "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1783025006912,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783028016190,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783027930479,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783027857806,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783027811773,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783026795474,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,46 +718,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783017283466,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783017283466,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783017283465,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
           "enabled": true,
           "sched": "0 0 * * *",
           "last_ts": 1783017202185,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783017010776,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1405,7 +1405,8 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-07-03",
-          "# Self-healing rotation from transcript-2026-07-02.md at 00:04 IST"
+          "# Self-healing rotation from transcript-2026-07-02.md at 00:04 IST",
+          "--- [TRANSCRIPT GAP: 03:02 IST \u2014 session empty for 232 min AND no transcript writes for 178 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[21:36 IST] HADERACH: Found it \u2014 done earlier today at 15:26 IST. The 7 frozen M4 agents are:",
@@ -1547,7 +1548,7 @@
       "frozen_reason": null,
       "pid": 95530,
       "rss_gb": 0.58,
-      "cpu": 0.7,
+      "cpu": 1.2,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1556,10 +1557,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 3.0,
-        "rolling_7day": 2.9,
-        "rolling_28day": 2.9,
-        "rolling_180day": 170.6
+        "transcript": 3.1,
+        "rolling_7day": 3.0,
+        "rolling_28day": 3.0,
+        "rolling_180day": 170.7
       },
       "skills": [
         "moltguard"
@@ -1577,10 +1578,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1783017389737,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783027819232,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1589,16 +1590,16 @@
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
           "sched": "0 21,0,3 * * *",
-          "last_ts": 1783017019842,
+          "last_ts": 1783027819232,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "name": "Giskard \u2014 Midnight Rolling Summary",
           "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783017019841,
+          "sched": "5 0 * * *",
+          "last_ts": 1783017389737,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2276,8 +2277,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.51,
-      "cpu": 1.3,
+      "rss_gb": 0.54,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2285,10 +2286,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.9,
-        "rolling_7day": 2.8,
-        "rolling_28day": 2.8,
-        "rolling_180day": 2.8
+        "transcript": 0.0,
+        "rolling_7day": 2.9,
+        "rolling_28day": 2.9,
+        "rolling_180day": 2.9
       },
       "skills": [
         "academic-deep-research",
@@ -2501,15 +2502,46 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-07-03",
-          "# Self-healing rotation from transcript-2026-07-02.md at 00:04 IST",
-          "[21:55 IST] PURL: Running heartbeat checks...",
-          "[21:55 IST] PURL: Good evening. All systems nominal. Last heartbeat was at 20:55 IST \u2014 updating now:",
-          "[22:55 IST] PURL: \ud83d\udccb Running heartbeat checks now...",
-          "[22:55 IST] PURL: We're in **quiet hours** (22:55 IST) \u2014 skipping ProtonMail check per HEARTBEAT.md. Let me update the daily memory and check context:",
-          "[22:55 IST] PURL: Now let me update the heartbeat state for this 22:55 check:",
-          "[23:55 IST] PURL: \ud83d\udccb Running heartbeat checks now...",
-          "[23:55 IST] PURL: We're at **23:55 IST** \u2014 still in quiet hours (23:00\u201307:00). Skipping ProtonMail check. Let me update the heartbeat state:"
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: NO_REPLY",
+          "[00:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[00:55 IST] PURL: \ud83d\udccb Running heartbeat checks now...",
+          "[00:55 IST] PURL: We're at **00:55 IST (Friday, 3 July)** \u2014 still in **quiet hours** (23:00\u201307:00). Skipping ProtonMail check. Let me update the heartbeat state:",
+          "[00:55 IST] PURL: Let me check the exact format:",
+          "[00:55 IST] PURL: Good \u2014 the transcript file rolled over automatically. Now let me update just the heartbeat timestamp:",
+          "[00:56 IST] PURL: \u2705 **Heartbeat Status \u2014 00:55 IST (Friday 3 July 2026)**",
+          "| Check | Status | Note |",
+          "|-------|--------|------|",
+          "| **Session Context** | \u2705 29% (58k/200k) | Healthy |",
+          "| **Cache Hit** | \u2705 100% | Excellent |",
+          "| **Quiet Hours** | \u2705 Active | 00:55 IST \u2014 no email checks until 07:00 |",
+          "| **Date Rotation** | \u2705 Complete | Transcript file rotated to 2026-07-03.md |",
+          "| **All Systems** | \u2705 Nominal | No alerts |",
+          "---",
+          "HEARTBEAT_OK",
+          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[01:55 IST] PURL: \ud83d\udccb Running heartbeat checks now...",
+          "[01:55 IST] PURL: We're at **01:55 IST (Friday, 3 July)** \u2014 still in **quiet hours** (23:00\u201307:00). Skipping ProtonMail check. Let me update the heartbeat state:",
+          "[01:55 IST] PURL: \u2705 **Heartbeat Status \u2014 01:55 IST (Friday 3 July 2026)**",
+          "| Check | Status | Note |",
+          "|-------|--------|------|",
+          "| **Session Context** | \u2705 30% (60k/200k) | Healthy |",
+          "| **Cache Hit** | \u2705 100% | Perfect efficiency |",
+          "| **Quiet Hours** | \u2705 Active | 01:55 IST \u2014 no email checks until 07:00 |",
+          "| **All Systems** | \u2705 Nominal | No alerts |",
+          "---",
+          "HEARTBEAT_OK",
+          "[02:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[02:55 IST] PURL: \ud83d\udccb Running heartbeat checks now...",
+          "[02:55 IST] PURL: We're at **02:55 IST (Friday, 3 July)** \u2014 still in **quiet hours** (23:00\u201307:00). Skipping ProtonMail check. Let me update the heartbeat state:",
+          "[02:55 IST] PURL: \u2705 **Heartbeat Status \u2014 02:55 IST (Friday 3 July 2026)**",
+          "| Check | Status | Note |",
+          "|-------|--------|------|",
+          "| **Session Context** | \u2705 31% (61k/200k) | Healthy |",
+          "| **Cache Hit** | \u2705 100% | Perfect |",
+          "| **Quiet Hours** | \u2705 Active | 02:55 IST \u2014 no email checks until 07:00 |",
+          "| **All Systems** | \u2705 Nominal | No alerts |",
+          "---",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Output:** `transcript-2026-07-02.md` (3 msgs total, no new bookmark updates)",
@@ -2644,10 +2676,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 11.8,
-        "rolling_7day": 26.7,
-        "rolling_28day": 26.7,
-        "rolling_180day": 26.7
+        "transcript": 11.9,
+        "rolling_7day": 26.8,
+        "rolling_28day": 26.8,
+        "rolling_180day": 26.8
       },
       "skills": [
         "moltguard"
@@ -3350,9 +3382,9 @@
       ],
       "memory": {
         "transcript": 11.8,
-        "rolling_7day": 26.7,
-        "rolling_28day": 26.7,
-        "rolling_180day": 74.7
+        "rolling_7day": 26.8,
+        "rolling_28day": 26.8,
+        "rolling_180day": 74.8
       },
       "skills": [],
       "skills_detail": [],
@@ -3573,16 +3605,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.32,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 3.1,
-        "rolling_7day": 3.9,
-        "rolling_28day": 3.9,
-        "rolling_180day": 3.9
+        "transcript": 3.2,
+        "rolling_7day": 4.0,
+        "rolling_28day": 4.0,
+        "rolling_180day": 4.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3745,7 +3777,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.7,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3780,7 +3812,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,10 +3853,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 11.9,
-        "rolling_7day": 26.8,
-        "rolling_28day": 26.8,
-        "rolling_180day": 50.8
+        "transcript": 12.0,
+        "rolling_7day": 26.9,
+        "rolling_28day": 26.9,
+        "rolling_180day": 50.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4200,8 +4232,8 @@
       ],
       "memory": {
         "transcript": 11.6,
-        "rolling_7day": 27.8,
-        "rolling_28day": 27.8,
+        "rolling_7day": 27.9,
+        "rolling_28day": 27.9,
         "rolling_180day": null
       },
       "skills": [
