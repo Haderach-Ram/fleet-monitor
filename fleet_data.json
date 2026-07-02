@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-02 16:08:15 IST",
-  "generated_epoch": 1782988695,
+  "generated_ist": "2026-07-02 16:13:20 IST",
+  "generated_epoch": 1782989000,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.92 / 2.49 / 2.75",
+    "load": "3.97 / 2.82 / 2.78",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 96744,
-      "rss_gb": 0.73,
-      "cpu": 1.6,
+      "rss_gb": 0.74,
+      "cpu": 3.6,
       "crons_total": 84,
       "crons_enabled": 51,
       "skills_count": 59,
@@ -48,7 +48,7 @@
         "transcript": 0.1,
         "rolling_7day": 16.1,
         "rolling_28day": 16.1,
-        "rolling_180day": 16.1
+        "rolling_180day": 16.2
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782988829447,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782988829447,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782988829446,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -677,33 +704,6 @@
           "enabled": true,
           "sched": "2 6-23/10 * * *",
           "last_ts": 1782988329151,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782988226097,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782988226097,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782988226097,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,9 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2022 CA SMEDA II on the M4",
-          "Kubera is already frozen.",
-          "Also draft a message to Giskard that the above (incl Kubera) on the M4 are frozen and this is to be reflected on his fleet monitoring report",
           "[15:26 IST] HADERACH: All 6 running, Kubera confirmed already stopped (not loaded). Now checking cron jobs tied to these agents before freezing:",
           "[15:26 IST] HADERACH: Now let's find Haderach-side cron jobs that dispatch to or depend on these frozen agents, so they don't error out:",
           "[15:27 IST] HADERACH: Found 5 Haderach-side crons that dispatch to these agents \u2014 disabling them along with stopping the services, so they don't spam consecutive-error alerts once the agents are frozen.",
@@ -1443,7 +1440,10 @@
           "<ul>",
           "<li>Built compiled wikis for all 4 SMEDAs (37 topic pages), meta-index (`smeda-meta-index.md`) rebuilt nightly at 23:20 IST</li>",
           "<li>Fixed the routing mechanism (`ask_smeda.sh` \u2014 works one-shot and multi-turn, ~6-7s/call)</li>",
-          "<li>Dropped the bad \"8.5 score + 14-day freshness\" gate in favor of disclosure-based (check each page'..."
+          "<li>Dropped the bad \"8.5 score + 14-day freshness\" gate in favor of disclosure-based (check each page'...",
+          "[16:09 IST] RAM: [OpenClaw heartbeat poll]",
+          "[16:09 IST] HADERACH: All checks current. Nothing due.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "That's a real deviation from what we agreed at 22:50 \u2014 \"check your wiki first an...",
@@ -1584,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.52,
-      "cpu": 1.2,
+      "rss_gb": 0.53,
+      "cpu": 1.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 16.0,
-        "rolling_28day": 16.0,
-        "rolling_180day": 159.8
+        "transcript": 0.4,
+        "rolling_7day": 16.1,
+        "rolling_28day": 16.1,
+        "rolling_180day": 159.9
       },
       "skills": [
         "moltguard"
@@ -2337,8 +2337,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.5,
-      "cpu": 0.4,
+      "rss_gb": 0.49,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2346,10 +2346,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.0,
-        "rolling_28day": 16.0,
-        "rolling_180day": 16.0
+        "transcript": 0.2,
+        "rolling_7day": 16.1,
+        "rolling_28day": 16.1,
+        "rolling_180day": 16.1
       },
       "skills": [
         "academic-deep-research",
@@ -2735,10 +2735,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.0,
-        "rolling_7day": 15.9,
-        "rolling_28day": 15.9,
-        "rolling_180day": 15.9
+        "transcript": 1.1,
+        "rolling_7day": 16.0,
+        "rolling_28day": 16.0,
+        "rolling_180day": 16.0
       },
       "skills": [
         "moltguard"
@@ -3440,10 +3440,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.9,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
-        "rolling_180day": 63.8
+        "transcript": 1.0,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
+        "rolling_180day": 63.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3671,9 +3671,9 @@
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 17.0,
-        "rolling_28day": 17.0,
-        "rolling_180day": 17.0
+        "rolling_7day": 17.1,
+        "rolling_28day": 17.1,
+        "rolling_180day": 17.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3912,10 +3912,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.1,
-        "rolling_7day": 16.0,
-        "rolling_28day": 16.0,
-        "rolling_180day": 40.0
+        "transcript": 1.2,
+        "rolling_7day": 16.1,
+        "rolling_28day": 16.1,
+        "rolling_180day": 40.1
       },
       "skills": [
         "apple-calendar-macos",
@@ -4290,9 +4290,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.7,
-        "rolling_7day": 16.9,
-        "rolling_28day": 16.9,
+        "transcript": 0.8,
+        "rolling_7day": 17.0,
+        "rolling_28day": 17.0,
         "rolling_180day": null
       },
       "skills": [
