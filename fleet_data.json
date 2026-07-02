@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-02 10:47:43 IST",
-  "generated_epoch": 1782969463,
+  "generated_ist": "2026-07-02 10:52:48 IST",
+  "generated_epoch": 1782969768,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.27 / 2.41 / 2.43",
+    "load": "2.33 / 2.19 / 2.30",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 1.12,
-      "cpu": 0.2,
+      "rss_gb": 1.11,
+      "cpu": 0.3,
       "crons_total": 84,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 10.7,
-        "rolling_28day": 10.7,
-        "rolling_180day": 10.7
+        "transcript": 0.0,
+        "rolling_7day": 10.8,
+        "rolling_28day": 10.8,
+        "rolling_180day": 10.8
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782969630342,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782969630341,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782969630341,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
@@ -659,33 +686,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782969199406,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782969025963,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782969025963,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782969025962,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,9 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:52 IST] RAM: GisKard\u2019s crons are not on Gemma anymore, it was taking up too much RAM and heating the M4. Will this get solved now?",
-          "[07:53 IST] HADERACH: Good catch, Ram \u2014 and you're right, I need to correct the record. My earlier answer assumed the 19 Jun setup was still live, but it isn't.",
-          "**What actually happened (per the transcripts):** On **28 Jun**, Giskard's crons were pulled off Gemma entirely after diagnosing exactly the RAM/heat problem you're describing \u2014 the 31B model was sitting resident at ~33GB, causing swap pressure and thermal load. All 10 daytime crons were moved to **Bedrock Sonnet**, Gemma was unloaded from memory (though ...",
           "[07:53 IST] HADERACH: Good catch, Ram \u2014 and you're right, I need to correct the record. My earlier answer assumed the 19 Jun setup was still live, but it isn't.",
           "**What actually happened (per the transcripts):** On **28 Jun**, Giskard's crons were pulled off Gemma entirely after diagnosing exactly the RAM/heat problem you're describing \u2014 the 31B model was sitting resident at ~33GB, causing swap pressure and thermal load. All 10 daytime crons were moved to **Bedrock Sonnet**, Gemma was unloaded from memory (though ...",
           "[08:09 IST] RAM: [OpenClaw heartbeat poll]",
@@ -1443,7 +1440,10 @@
           "To prevent this, increase your compaction buffer by setting` agents.defaults.compaction.reserveTokensFloor `to 20000 or higher in your config.",
           "[10:39 IST] RAM: [OpenClaw heartbeat poll]",
           "[10:40 IST] HADERACH: All clear \u2014 nothing due, no flags.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[10:41 IST] RAM: ?",
+          "[10:42 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
+          "[10:42 IST] RAM: Jonas is CA SMEDA I on the M2"
         ],
         "yesterday": [
           "That's a real deviation from what we agreed at 22:50 \u2014 \"check your wiki first an...",
@@ -1585,7 +1585,7 @@
       "frozen_reason": null,
       "pid": 58399,
       "rss_gb": 0.56,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 10.7,
-        "rolling_28day": 10.7,
-        "rolling_180day": 154.4
+        "transcript": 0.0,
+        "rolling_7day": 10.8,
+        "rolling_28day": 10.8,
+        "rolling_180day": 154.5
       },
       "skills": [
         "moltguard"
@@ -1618,7 +1618,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1782967807136,
+          "last_ts": 1782969613555,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2308,7 +2308,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.52,
-      "cpu": 0.6,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2316,10 +2316,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 10.6,
-        "rolling_28day": 10.6,
-        "rolling_180day": 10.6
+        "transcript": 0.4,
+        "rolling_7day": 10.7,
+        "rolling_28day": 10.7,
+        "rolling_180day": 10.7
       },
       "skills": [
         "academic-deep-research",
@@ -2696,7 +2696,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58350,
-      "rss_gb": 0.55,
+      "rss_gb": 0.56,
       "cpu": 0.4,
       "crons_total": 9,
       "crons_enabled": 9,
@@ -2705,10 +2705,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.6,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 10.5
+        "transcript": 1.7,
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 10.6
       },
       "skills": [
         "moltguard"
@@ -3015,7 +3015,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782969005918,
+          "last_ts": 1782969611904,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3409,9 +3409,9 @@
       ],
       "memory": {
         "transcript": 1.6,
-        "rolling_7day": 10.5,
-        "rolling_28day": 10.5,
-        "rolling_180day": 58.5
+        "rolling_7day": 10.6,
+        "rolling_28day": 10.6,
+        "rolling_180day": 58.6
       },
       "skills": [],
       "skills_detail": [],
@@ -3632,16 +3632,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.42,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 11.7,
-        "rolling_28day": 11.7,
-        "rolling_180day": 11.7
+        "transcript": 0.0,
+        "rolling_7day": 11.8,
+        "rolling_28day": 11.8,
+        "rolling_180day": 11.8
       },
       "skills": [],
       "skills_detail": [],
@@ -3804,7 +3804,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3880,10 +3880,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 10.6,
-        "rolling_28day": 10.6,
-        "rolling_180day": 34.6
+        "transcript": 0.4,
+        "rolling_7day": 10.7,
+        "rolling_28day": 10.7,
+        "rolling_180day": 34.7
       },
       "skills": [
         "apple-calendar-macos",
@@ -4250,7 +4250,7 @@
       "frozen_reason": null,
       "pid": 1459,
       "rss_gb": 0.49,
-      "cpu": 1.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4259,8 +4259,8 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 11.6,
-        "rolling_28day": 11.6,
+        "rolling_7day": 11.7,
+        "rolling_28day": 11.7,
         "rolling_180day": null
       },
       "skills": [
