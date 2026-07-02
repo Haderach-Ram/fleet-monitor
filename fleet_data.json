@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-02 14:57:05 IST",
-  "generated_epoch": 1782984425,
+  "generated_ist": "2026-07-02 15:02:10 IST",
+  "generated_epoch": 1782984730,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.82 / 2.35 / 3.59",
+    "load": "2.53 / 2.52 / 3.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 94729,
-      "rss_gb": 0.7,
-      "cpu": 2.2,
+      "rss_gb": 0.74,
+      "cpu": 0.3,
       "crons_total": 84,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.9,
-        "rolling_28day": 14.9,
-        "rolling_180day": 14.9
+        "transcript": 0.0,
+        "rolling_7day": 15.0,
+        "rolling_28day": 15.0,
+        "rolling_180day": 15.0
       },
       "skills": [
         "academic-deep-research",
@@ -646,10 +646,10 @@
       ],
       "crons": [
         {
-          "name": "Sam transcript update",
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
           "enabled": true,
-          "sched": "every 10m",
-          "last_ts": 1782984330142,
+          "sched": "0 */3 * * *",
+          "last_ts": 1782984658095,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,7 +658,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782984030521,
+          "last_ts": 1782984628614,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +667,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782984030521,
+          "last_ts": 1782984628614,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +676,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782984030520,
+          "last_ts": 1782984628613,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Sam transcript update",
+          "enabled": true,
+          "sched": "every 10m",
+          "last_ts": 1782984330142,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -740,15 +749,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1782974013070,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1782973857088,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,13 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:17 IST] HADERACH: Understood \u2014 but I cannot edit openclaw.json files myself. That's the Config Safety hard rule in AGENTS.md: tools redact secrets as `__OPENCLAW_REDACTED__` when reading, so writing back would destroy real credential values and crash the gateways.",
-          "However, I can do this safely using a Python script that reads and writes the JSON directly without going through OpenClaw's config tools \u2014 pure file manipulation, no redaction risk. Shall I proceed that way?",
-          "The script would:",
-          "1. For each agent con...",
-          "[14:17 IST] HADERACH: Understood \u2014 but I cannot edit openclaw.json files myself. That's the Config Safety hard rule in AGENTS.md: tools redact secrets as `__OPENCLAW_REDACTED__` when reading, so writing back would destroy real credential values and crash the gateways.",
-          "However, I can do this safely using a Python script that reads and writes the JSON directly without going through OpenClaw's config tools \u2014 pure file manipulation, no redaction risk. Shall I proceed that way?",
-          "The script would:",
           "1. For each agent con...",
           "[14:20 IST] RAM: Do it",
           "[14:20 IST] HADERACH: On it.",
@@ -1443,7 +1436,14 @@
           "<li><b>We don't know the correct field name.</b> It may be in <cod...",
           "[14:39 IST] RAM: [OpenClaw heartbeat poll]",
           "[14:39 IST] HADERACH: All checks current. No flags. Nothing due.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[14:55 IST] RAM: Check if done now",
+          "[14:56 IST] HADERACH: All 14 M4 agents \u2705 \u2014 Giskard applied it correctly this time, including himself. Every agent now has `cacheRetention: \"short\"` at `agents.defaults.params`.",
+          "Next turn on any Bedrock Claude model should show `cacheWrite > 0`, and the turn after that `cacheRead` hits. The fleet-wide fix is done on M4.",
+          "Remaining: M2 \u2014 that's CAIO's task via the draft you have.",
+          "[14:56 IST] HADERACH: All 14 M4 agents \u2705 \u2014 Giskard applied it correctly this time, including himself. Every agent now has `cacheRetention: \"short\"` at `agents.defaults.params`.",
+          "Next turn on any Bedrock Claude model should show `cacheWrite > 0`, and the turn after that `cacheRead` hits. The fleet-wide fix is done on M4.",
+          "Remaining: M2 \u2014 that's CAIO's task via the draft you have."
         ],
         "yesterday": [
           "That's a real deviation from what we agreed at 22:50 \u2014 \"check your wiki first an...",
@@ -1584,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.37,
-      "cpu": 1.6,
+      "rss_gb": 0.38,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
-        "rolling_180day": 158.6
+        "transcript": 0.2,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
+        "rolling_180day": 158.7
       },
       "skills": [
         "moltguard"
@@ -2337,8 +2337,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.42,
-      "cpu": 1.2,
+      "rss_gb": 0.45,
+      "cpu": 2.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2346,10 +2346,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
-        "rolling_180day": 14.8
+        "transcript": 0.0,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
+        "rolling_180day": 14.9
       },
       "skills": [
         "academic-deep-research",
@@ -2497,21 +2497,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782983113444,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1782981012364,
+          "last_ts": 1782984614081,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782984614081,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2562,10 +2562,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Main session:** 11 new msgs",
-          "- **Direct Telegram (Gari):** 0 new msgs",
-          "- **Group Telegram (Klub K):** 0 new msgs",
-          "- **Bookmark updated:** transcript-2026-07-02.md",
           "Ready for the next run. \ud83e\uddf6",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
@@ -2601,7 +2597,11 @@
           "[13:55 IST] PURL: Checking heartbeat...",
           "[13:55 IST] PURL: HEARTBEAT_OK",
           "[13:55 IST] PURL: Checking heartbeat...",
-          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[14:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[14:55 IST] PURL: Checking heartbeat duties...",
+          "[14:55 IST] PURL: HEARTBEAT_OK",
+          "[14:55 IST] PURL: Checking heartbeat duties..."
         ],
         "yesterday": [
           "[20:56 IST] PURL: HEARTBEAT_OK",
@@ -2727,7 +2727,7 @@
       "frozen_reason": null,
       "pid": 94767,
       "rss_gb": 0.37,
-      "cpu": 0.4,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2735,10 +2735,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.9,
-        "rolling_7day": 14.7,
-        "rolling_28day": 14.7,
-        "rolling_180day": 14.7
+        "transcript": 2.0,
+        "rolling_7day": 14.8,
+        "rolling_28day": 14.8,
+        "rolling_180day": 14.8
       },
       "skills": [
         "moltguard"
@@ -3045,7 +3045,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782984007636,
+          "last_ts": 1782984609047,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3243,7 +3243,7 @@
           "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "0 */3 * * *",
-          "last_ts": 1782973922778,
+          "last_ts": 1782984722902,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3289,7 +3289,8 @@
           "[00:06 IST] CISO-SMEDA: The write tool is injecting literal `\\n`. Let me use a different approach:",
           "[06:01 IST] CISO-SMEDA: NO_REPLY",
           "[09:01 IST] CISO-SMEDA: NO_REPLY",
-          "[09:31 IST] CISO-SMEDA: NO_REPLY"
+          "[09:31 IST] CISO-SMEDA: NO_REPLY",
+          "[12:01 IST] CISO-SMEDA: NO_REPLY"
         ],
         "yesterday": [
           "- Documents contain UPSI (Unpublished Price Sensitive Information) \u2192 **SEBI PIT Regulations 2015**",
@@ -3439,10 +3440,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.7,
-        "rolling_7day": 14.6,
-        "rolling_28day": 14.6,
-        "rolling_180day": 62.6
+        "transcript": 2.8,
+        "rolling_7day": 14.7,
+        "rolling_28day": 14.7,
+        "rolling_180day": 62.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3669,10 +3670,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.8,
-        "rolling_28day": 15.8,
-        "rolling_180day": 15.8
+        "transcript": 0.0,
+        "rolling_7day": 15.9,
+        "rolling_28day": 15.9,
+        "rolling_180day": 15.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3870,7 +3871,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.24,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3902,8 +3903,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95437,
-      "rss_gb": 0.32,
-      "cpu": 1.4,
+      "rss_gb": 0.43,
+      "cpu": 0.4,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3911,10 +3912,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 14.8,
-        "rolling_28day": 14.8,
-        "rolling_180day": 38.8
+        "transcript": 0.0,
+        "rolling_7day": 14.9,
+        "rolling_28day": 14.9,
+        "rolling_180day": 38.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4065,7 +4066,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782983112593,
+          "last_ts": 1782984606100,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4100,7 +4101,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[03:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Transcript logger ran successfully** (3:04 AM IST, early quiet window)",
           "- **8 new messages** logged",
           "- **15 total messages** in current session",
           "- **Bookmark:** Added",
@@ -4139,7 +4139,8 @@
           "[12:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[12:52 IST] HERBIE: HEARTBEAT_OK",
           "[13:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[13:52 IST] HERBIE: HEARTBEAT_OK"
+          "[13:52 IST] HERBIE: HEARTBEAT_OK",
+          "[14:52 IST] RAM: [OpenClaw heartbeat poll]"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Logged 2 new messages to the transcript. File: `transcript-2026-07-01.md`. \u2713",
@@ -4281,7 +4282,7 @@
       "frozen_reason": null,
       "pid": 95273,
       "rss_gb": 0.35,
-      "cpu": 0.4,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4289,7 +4290,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.0,
+        "transcript": 0.1,
         "rolling_7day": 15.8,
         "rolling_28day": 15.8,
         "rolling_180day": null
