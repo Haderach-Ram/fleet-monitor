@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-02 07:59:32 IST",
-  "generated_epoch": 1782959372,
+  "generated_ist": "2026-07-02 08:04:38 IST",
+  "generated_epoch": 1782959678,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.22 / 2.29 / 2.32",
+    "load": "2.55 / 2.42 / 2.36",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 1.0,
-      "cpu": 1.6,
+      "rss_gb": 1.07,
+      "cpu": 1.8,
       "crons_total": 84,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 7.9,
-        "rolling_28day": 7.9,
-        "rolling_180day": 7.9
+        "transcript": 0.1,
+        "rolling_7day": 8.0,
+        "rolling_28day": 8.0,
+        "rolling_180day": 8.0
       },
       "skills": [
         "academic-deep-research",
@@ -649,16 +649,25 @@
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1782959040228,
+          "last_ts": 1782959652782,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782958829865,
+          "sched": "0 */4 * * *",
+          "last_ts": 1782959640654,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1782959606212,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +676,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782958829865,
+          "last_ts": 1782959428122,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782959428121,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +694,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782958829864,
+          "last_ts": 1782959428121,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -736,15 +754,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1782956004946,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SMEDA Daily Morning Report",
           "enabled": true,
           "sched": "2 7 * * *",
@@ -785,15 +794,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1782952258256,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1782945239838,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,11 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:56 IST] HADERACH: I had an extra key. Let me retry.",
-          "[06:56 IST] HADERACH: Now let's add the actual rule section. Let me find where the Wiki Auto-Consult Rule section is, to place the new rule near it.",
-          "[06:56 IST] HADERACH: Now I'll insert the new \"Capabilities Wiki Auto-Consult Rule\" section right after the SMEDA Triage Protocol section, before ChangeModelSetTo.",
-          "[06:57 IST] HADERACH: Now let's add the TOOLS.md one-liner for Bajaj Council as originally requested.",
-          "[06:57 IST] HADERACH: Both pieces are done. Let me verify everything reads cleanly.",
           "[06:57 IST] HADERACH: Both done, Ram.",
           "**The TOOLS.md line:** Added a short Bajaj Council entry right after the SMEDA CLI section \u2014 what it is, one-line invocation, and a pointer to the fuller wiki page. Should stop the 4th rediscovery.",
           "**The proper fix (`wiki/capabilities/`):** Built the same navigate-by-index pattern as `wiki/index.md` (HAD-052) and `smeda-meta-index.md` (HAD-053), pointed at my own self-built tools instead of external facts or sub-agent knowledge:",
@@ -1443,7 +1438,12 @@
           "[07:39 IST] RAM: Upgrade Ollama",
           "[07:48 IST] RAM: [OpenClaw heartbeat poll]",
           "[07:48 IST] HADERACH: All clear \u2014 everything within throttle windows, no flags.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[07:52 IST] RAM: GisKard\u2019s crons are not on Gemma anymore, it was taking up too much RAM and heating the M4. Will this get solved now?",
+          "[07:53 IST] HADERACH: Good catch, Ram \u2014 and you're right, I need to correct the record. My earlier answer assumed the 19 Jun setup was still live, but it isn't.",
+          "**What actually happened (per the transcripts):** On **28 Jun**, Giskard's crons were pulled off Gemma entirely after diagnosing exactly the RAM/heat problem you're describing \u2014 the 31B model was sitting resident at ~33GB, causing swap pressure and thermal load. All 10 daytime crons were moved to **Bedrock Sonnet**, Gemma was unloaded from memory (though ...",
+          "[07:53 IST] HADERACH: Good catch, Ram \u2014 and you're right, I need to correct the record. My earlier answer assumed the 19 Jun setup was still live, but it isn't.",
+          "**What actually happened (per the transcripts):** On **28 Jun**, Giskard's crons were pulled off Gemma entirely after diagnosing exactly the RAM/heat problem you're describing \u2014 the 31B model was sitting resident at ~33GB, causing swap pressure and thermal load. All 10 daytime crons were moved to **Bedrock Sonnet**, Gemma was unloaded from memory (though ..."
         ],
         "yesterday": [
           "That's a real deviation from what we agreed at 22:50 \u2014 \"check your wiki first an...",
@@ -1584,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58399,
-      "rss_gb": 0.55,
-      "cpu": 1.1,
+      "rss_gb": 0.56,
+      "cpu": 1.2,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1595,9 +1595,9 @@
       ],
       "memory": {
         "transcript": 0.2,
-        "rolling_7day": 7.9,
-        "rolling_28day": 7.9,
-        "rolling_180day": 151.6
+        "rolling_7day": 8.0,
+        "rolling_28day": 8.0,
+        "rolling_180day": 151.7
       },
       "skills": [
         "moltguard"
@@ -2307,8 +2307,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58078,
-      "rss_gb": 0.53,
-      "cpu": 87.0,
+      "rss_gb": 0.55,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2316,10 +2316,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 7.8,
-        "rolling_28day": 7.8,
-        "rolling_180day": 7.8
+        "transcript": 0.1,
+        "rolling_7day": 7.9,
+        "rolling_28day": 7.9,
+        "rolling_180day": 7.9
       },
       "skills": [
         "academic-deep-research",
@@ -2467,21 +2467,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1782957605581,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1782955813550,
+          "last_ts": 1782959416922,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1782959416921,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2532,12 +2532,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[01:55 IST] PURL: Let me retry without timeout:",
-          "[01:56 IST] PURL: ProtonMail check completed but produced no output (silent success). Let me update the heartbeat state:",
-          "[02:55 IST] PURL: I'll run the heartbeat checks now.",
-          "[02:55 IST] PURL: Good status. Now let me check ProtonMail and update the daily memory:",
-          "[02:55 IST] PURL: Let me retry ProtonMail without the timeout command:",
-          "[02:55 IST] PURL: ProtonMail check is running in the background. Updating heartbeat state and daily memory while it runs:",
           "[03:55 IST] PURL: I'll run the heartbeat checks now.",
           "[03:56 IST] PURL: ProtonMail check is running. Let me wait for it and check the daily memory:",
           "[03:56 IST] PURL: Now let me update the heartbeat state and memory:",
@@ -2571,7 +2565,13 @@
           "[06:55 IST] PURL: Now let me check ProtonMail and update the daily memory:",
           "[06:55 IST] PURL: Let me try the ProtonMail check without timeout:",
           "[06:55 IST] PURL: ProtonMail check is running in the background. Let me update the daily memory and heartbeat state while it completes:",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[07:55 IST] PURL: I'll run the heartbeat checks now.",
+          "[07:55 IST] PURL: ProtonMail has been checked throughout the night \u2014 no new urgent emails. Context is healthy at 22%. Let me update the heartbeat state:",
+          "[07:55 IST] PURL: HEARTBEAT_OK",
+          "[07:55 IST] PURL: I'll run the heartbeat checks now.",
+          "[07:55 IST] PURL: ProtonMail has been checked throughout the night \u2014 no new urgent emails. Context is healthy at 22%. Let me update the heartbeat state:"
         ],
         "yesterday": [
           "[20:56 IST] PURL: HEARTBEAT_OK",
@@ -2696,8 +2696,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 58350,
-      "rss_gb": 0.54,
-      "cpu": 0.4,
+      "rss_gb": 0.53,
+      "cpu": 1.0,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2705,10 +2705,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 1.8,
-        "rolling_7day": 7.7,
-        "rolling_28day": 7.7,
-        "rolling_180day": 7.7
+        "transcript": 1.9,
+        "rolling_7day": 7.8,
+        "rolling_28day": 7.8,
+        "rolling_180day": 7.8
       },
       "skills": [
         "moltguard"
@@ -3015,7 +3015,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782958807922,
+          "last_ts": 1782959406316,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3398,7 +3398,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 1.3,
+      "cpu": 0.9,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3407,9 +3407,9 @@
       ],
       "memory": {
         "transcript": 1.8,
-        "rolling_7day": 7.7,
-        "rolling_28day": 7.7,
-        "rolling_180day": 55.7
+        "rolling_7day": 7.8,
+        "rolling_28day": 7.8,
+        "rolling_180day": 55.8
       },
       "skills": [],
       "skills_detail": [],
@@ -3630,16 +3630,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.33,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 8.9,
-        "rolling_28day": 8.9,
-        "rolling_180day": 8.9
+        "transcript": 0.1,
+        "rolling_7day": 9.0,
+        "rolling_28day": 9.0,
+        "rolling_180day": 9.0
       },
       "skills": [],
       "skills_detail": [],
@@ -3785,7 +3785,7 @@
       "frozen_reason": null,
       "pid": 58216,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.26,
-      "cpu": 0.8,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3853,7 +3853,7 @@
       "frozen_reason": null,
       "pid": 57952,
       "rss_gb": 0.48,
-      "cpu": 1.6,
+      "cpu": 1.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3861,10 +3861,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 7.8,
-        "rolling_28day": 7.8,
-        "rolling_180day": 31.8
+        "transcript": 0.1,
+        "rolling_7day": 7.9,
+        "rolling_28day": 7.9,
+        "rolling_180day": 31.9
       },
       "skills": [
         "apple-calendar-macos",
@@ -4015,7 +4015,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1782957603517,
+          "last_ts": 1782959403207,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4085,7 +4085,9 @@
           "[06:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
           "[06:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. 0 new messages logged, 2 total in file. Bookmark reset. Ready for next cycle.",
           "[06:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[06:52 IST] HERBIE: HEARTBEAT_OK"
+          "[06:52 IST] HERBIE: HEARTBEAT_OK",
+          "[07:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[07:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Logged 2 new messages to the transcript. File: `transcript-2026-07-01.md`. \u2713",
@@ -4226,8 +4228,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1459,
-      "rss_gb": 0.49,
-      "cpu": 1.2,
+      "rss_gb": 0.59,
+      "cpu": 1.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4235,9 +4237,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 8.8,
-        "rolling_28day": 8.8,
+        "transcript": 0.0,
+        "rolling_7day": 8.9,
+        "rolling_28day": 8.9,
         "rolling_180day": null
       },
       "skills": [
