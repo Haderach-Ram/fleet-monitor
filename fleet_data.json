@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-02 11:18:12 IST",
-  "generated_epoch": 1782971292,
+  "generated_ist": "2026-07-02 11:23:17 IST",
+  "generated_epoch": 1782971597,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.98 / 2.21 / 2.31",
+    "load": "2.30 / 2.37 / 2.36",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73137,
-      "rss_gb": 1.14,
-      "cpu": 1.1,
+      "rss_gb": 1.15,
+      "cpu": 0.2,
       "crons_total": 84,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -46,9 +46,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
-        "rolling_180day": 11.2
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
+        "rolling_180day": 11.3
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782971427749,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782971427748,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1782971427748,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Sam transcript update",
           "enabled": true,
           "sched": "every 10m",
@@ -659,33 +686,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1782971000001,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782970824863,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782970824863,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1782970824863,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,9 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:52 IST] HADERACH: Excellent \u2014 found it. This is exactly the right file. Let's see the actual context window map and compare M4 vs M2's version.",
-          "[10:53 IST] HADERACH: Key finding! The `KNOWN_CONTEXT_WINDOWS` map doesn't have an entry for `anthropic.claude-sonnet-5` (i.e., the actual \"Sonnet 5\" model) \u2014 only `claude-sonnet-4-6` and older ones are listed with 1e6/2e5. Let's confirm and check M2's older version.",
-          "[10:56 IST] HADERACH: Ram \u2014 I found the actual root cause, and your instinct was right to push back. This **is** a Sonnet 5 issue, but not in the way you'd expect \u2014 it's not a model capability problem, it's a bug in OpenClaw's own model-metadata table.",
           "**What I found before my tools glitched out (details below):**",
           "The OpenClaw Amazon Bedrock provider plugin ships a hardcoded lookup table (`discovery.js`) that maps model IDs to their real context window sizes \u2014 because Bedrock's own API doesn't expose that info. ...",
           "[10:57 IST] HADERACH: Ram \u2014 my tools have gone fully unresponsive (exec, memory_search, session_status, even get_goal are all returning empty). This isn't something I can self-resolve; it looks like a runtime-side glitch on my end, not anything wrong with CA-SMEDA-I.",
@@ -1443,7 +1440,10 @@
           "[11:08 IST] HADERACH: That's clean. Now run it.",
           "[11:09 IST] HADERACH: Confirmed: the **only** change between backup and current config is the addition of the `models` key under `models.providers.amazon-bedrock`. Nothing else touched \u2014 secrets, tokens, gateway auth all untouched. Now restarting the CA-SMEDA gateway to pick up the fix.",
           "[11:09 IST] HADERACH: Service is back up and healthy. Let's confirm the new process picked up the fix and check for any startup warnings related to the config.",
-          "[11:09 IST] HADERACH: Clean restart, only the pre-existing harmless `gmail-watcher` stale-plugin warning (unrelated, noted already in memory). No errors. Let's confirm the fix took effect by checking a live overflow diagnostic / new session's context window resolution."
+          "[11:09 IST] HADERACH: Clean restart, only the pre-existing harmless `gmail-watcher` stale-plugin warning (unrelated, noted already in memory). No errors. Let's confirm the fix took effect by checking a live overflow diagnostic / new session's context window resolution.",
+          "[11:10 IST] RAM: [OpenClaw heartbeat poll]",
+          "[11:10 IST] HADERACH: All within throttle windows. Nothing due.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "That's a real deviation from what we agreed at 22:50 \u2014 \"check your wiki first an...",
@@ -1585,7 +1585,7 @@
       "frozen_reason": null,
       "pid": 58399,
       "rss_gb": 0.56,
-      "cpu": 0.7,
+      "cpu": 1.2,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
-        "rolling_180day": 154.9
+        "transcript": 0.1,
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
+        "rolling_180day": 155.0
       },
       "skills": [
         "moltguard"
@@ -1615,19 +1615,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1782970511988,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1782971407390,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1782969613555,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1782970511988,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2308,7 +2308,7 @@
       "frozen_reason": null,
       "pid": 58078,
       "rss_gb": 0.55,
-      "cpu": 0.3,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2316,10 +2316,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 11.1,
-        "rolling_28day": 11.1,
-        "rolling_180day": 11.1
+        "transcript": 0.4,
+        "rolling_7day": 11.2,
+        "rolling_28day": 11.2,
+        "rolling_180day": 11.2
       },
       "skills": [
         "academic-deep-research",
@@ -2697,7 +2697,7 @@
       "frozen_reason": null,
       "pid": 58350,
       "rss_gb": 0.57,
-      "cpu": 1.1,
+      "cpu": 0.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2705,10 +2705,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.1,
-        "rolling_7day": 11.0,
-        "rolling_28day": 11.0,
-        "rolling_180day": 11.0
+        "transcript": 2.2,
+        "rolling_7day": 11.1,
+        "rolling_28day": 11.1,
+        "rolling_180day": 11.1
       },
       "skills": [
         "moltguard"
@@ -3015,7 +3015,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1782970806340,
+          "last_ts": 1782971406132,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3400,7 +3400,7 @@
       "frozen_reason": null,
       "pid": 58255,
       "rss_gb": 0.47,
-      "cpu": 1.0,
+      "cpu": 1.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3408,10 +3408,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 2.1,
-        "rolling_7day": 11.0,
-        "rolling_28day": 11.0,
-        "rolling_180day": 59.0
+        "transcript": 2.2,
+        "rolling_7day": 11.1,
+        "rolling_28day": 11.1,
+        "rolling_180day": 59.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3632,16 +3632,16 @@
       "frozen_reason": null,
       "pid": 58160,
       "rss_gb": 0.42,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 12.2,
-        "rolling_28day": 12.2,
-        "rolling_180day": 12.2
+        "rolling_7day": 12.3,
+        "rolling_28day": 12.3,
+        "rolling_180day": 12.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3839,7 +3839,7 @@
       "frozen_reason": null,
       "pid": 52846,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3872,7 +3872,7 @@
       "frozen_reason": null,
       "pid": 57952,
       "rss_gb": 0.46,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3880,7 +3880,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 11.2,
         "rolling_28day": 11.2,
         "rolling_180day": 35.2
@@ -4250,7 +4250,7 @@
       "frozen_reason": null,
       "pid": 1459,
       "rss_gb": 0.5,
-      "cpu": 1.2,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
@@ -4258,9 +4258,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.1,
-        "rolling_28day": 12.1,
+        "transcript": 0.2,
+        "rolling_7day": 12.2,
+        "rolling_28day": 12.2,
         "rolling_180day": null
       },
       "skills": [
