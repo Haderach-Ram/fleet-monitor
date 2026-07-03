@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-03 11:17:22 IST",
-  "generated_epoch": 1783057642,
+  "generated_ist": "2026-07-03 11:22:28 IST",
+  "generated_epoch": 1783057948,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.45 / 2.88 / 2.64",
+    "load": "4.50 / 3.27 / 2.84",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 1.13,
-      "cpu": 1.8,
+      "rss_gb": 1.06,
+      "cpu": 0.8,
       "crons_total": 84,
       "crons_enabled": 51,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
-        "rolling_180day": 11.2
+        "transcript": 0.0,
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
+        "rolling_180day": 11.3
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783057411500,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783057226816,
+          "last_ts": 1783057828427,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +658,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783057226816,
+          "last_ts": 1783057828427,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783057226815,
+          "last_ts": 1783057828426,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783057411500,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,46 +1404,46 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:43 IST] HADERACH: Now let me verify the keys used for those three agents match what the collector expects:",
-          "[10:43 IST] HADERACH: The Medical-SMEDA key is `medsmeda` not `medical`. Let me fix that:",
-          "[10:43 IST] HADERACH: Now run the collector and push:",
-          "[10:43 IST] HADERACH: Both fixed. Summary:",
-          "<b>1. Why no update since 07:49</b> \u2014 my fault. The empty commit I pushed at 07:52 to fix the Pages deploy issue put the remote ahead of the local site repo. Every 5-min collector run since then hit a push rejection. Fixed by rebasing the local repo onto the remote commit \u2014 should be self-sustaining again now.",
-          "<b>2. Medical, Herbie, Sam showing DOWN not Frozen</b> \u2014 they were simply missing from the `FROZEN_AGENTS` dict in the collector. Only Kubera, Legal-SMEDA and CIS...",
-          "[10:43 IST] HADERACH: Both fixed. Summary:",
-          "<b>1. Why no update since 07:49</b> \u2014 my fault. The empty commit I pushed at 07:52 to fix the Pages deploy issue put the remote ahead of the local site repo. Every 5-min collector run since then hit a push rejection. Fixed by rebasing the local repo onto the remote commit \u2014 should be self-sustaining again now.",
-          "<b>2. Medical, Herbie, Sam showing DOWN not Frozen</b> \u2014 they were simply missing from the `FROZEN_AGENTS` dict in the collector. Only Kubera, Legal-SMEDA and CIS...",
-          "[10:45 IST] RAM: Not refreshed yet",
-          "[10:45 IST] HADERACH: You said CA SMEDA II also \u2014 I missed that one. Let me check and also verify the current state of the dashboard.",
-          "[10:45 IST] HADERACH: CA-SMEDA-II key is `casmeda2` \u2014 also missing. Adding it now, then running and pushing in one go.",
-          "[10:45 IST] HADERACH: Good. Now collect and push:",
-          "[10:45 IST] HADERACH: Done. All five now in the frozen list \u2014 Medical-SMEDA, Herbie, Sam, CA-SMEDA-II, plus the original three (Kubera, Legal-SMEDA, CISO). Give it a refresh \u2014 should be clean now.",
-          "[10:45 IST] HADERACH: Done. All five now in the frozen list \u2014 Medical-SMEDA, Herbie, Sam, CA-SMEDA-II, plus the original three (Kubera, Legal-SMEDA, CISO). Give it a refresh \u2014 should be clean now.",
-          "[11:04 IST] RAM: !!?? Has the link changed or something?",
-          "[11:05 IST] HADERACH: The page is still showing the 07:49:10 snapshot \u2014 it hasn't picked up the new push. The dashboard says \"data refreshes every 5 min\" but that's the collector push cycle; the browser itself needs a hard refresh (Cmd+Shift+R) to bypass the cached version since GitHub Pages CDN may be caching the old data.",
-          "But also \u2014 looking at the screenshot, Medical-SMEDA, Herbie and Sam are still showing DOWN, and CA-SMEDA-II is DOWN too. The fix pushed fine but the page timestamp hasn't moved from 07:49:10. ...",
-          "[11:05 IST] HADERACH: The collector has been pushing successfully every 5 min since 10:46 \u2014 so the data is fresh on GitHub. The issue is purely your browser serving the cached version. The page timestamp is baked into `fleet_data.json` so a hard refresh should show 11:02 IST.",
-          "**Cmd+Shift+R** on that tab \u2014 should update immediately.",
-          "[11:05 IST] HADERACH: The collector has been pushing successfully every 5 min since 10:46 \u2014 so the data is fresh on GitHub. The issue is purely your browser serving the cached version. The page timestamp is baked into `fleet_data.json` so a hard refresh should show 11:02 IST.",
-          "**Cmd+Shift+R** on that tab \u2014 should update immediately.",
-          "[11:06 IST] RAM: Nope. Why dont you access the page yourself and cehck",
-          "[11:06 IST] HADERACH: There's a passphrase lock screen \u2014 I can't get past it without the password. The page is loading fine (not a 404 or broken link), but the dashboard has a passphrase gate and I don't have it stored. What's the passphrase?",
-          "[11:06 IST] HADERACH: There's a passphrase lock screen \u2014 I can't get past it without the password. The page is loading fine (not a 404 or broken link), but the dashboard has a passphrase gate and I don't have it stored. What's the passphrase?",
-          "[11:06 IST] RAM: You know the passphrase, you only designed it",
-          "[11:06 IST] HADERACH: Right \u2014 let me check the code.",
-          "[11:07 IST] HADERACH: `daneel-olivaw-2026`",
-          "[11:08 IST] HADERACH: Two things visible:",
-          "<b>1. Still showing 07:49:10</b> \u2014 the page has a client-side auto-refresh but the browser isn't picking up the new data. The \"Refresh\" button top-right should force it \u2014 but I can also see the issue: the page fetches `fleet_data.json` at load time, but likely caches it. Let me hit Refresh in the page itself.",
-          "[11:08 IST] HADERACH: Still stuck at 07:49:10 and the frozen agents aren't showing. The Refresh button click isn't working through my browser session here (likely needs sessionStorage to persist the auth across a page reload). The real problem is the page's `fetch('fleet_data.json')` is getting a cached response from GitHub Pages CDN \u2014 it's not adding a cache-busting query parameter.",
-          "[11:08 IST] HADERACH: Cache-busting is already in the fetch \u2014 `?t=Date.now()`. So the CDN shouldn't be the issue. The page is just not re-fetching. Looking at the screenshot again \u2014 the timestamp says 07:49:10 and frozen count says only 3. The data in `fleet_data.json` on GitHub must be the old version. Let me check what's actually on GitHub right now:",
-          "[11:08 IST] HADERACH: The data on GitHub is correct \u2014 all 7 frozen agents, no DOWN agents, and Medical/Herbie/Sam/CA-SMEDA-II are all there. The problem is the **page itself is stuck** because clicking Refresh logs out of the passphrase gate (sessionStorage is cleared on reload). The app.js Refresh button likely does a `location.reload()` which wipes sessionStorage and dumps you back to the lock screen before the new data loads.",
-          "So your browser on your phone is showing stale data because it loaded the page once (...",
-          "[11:09 IST] HADERACH: Pushed. Here's the full picture:",
-          "**The data was always correct** \u2014 GitHub had all 7 frozen agents since 10:46. The issue was `sessionStorage`: when you hit Refresh it reloaded the page, wiped the auth token, and dumped you back to the passphrase screen before the new data could render \u2014 so you only ever saw the 07:49 snapshot that was loaded when you first logged in this morning.",
-          "**Fix:** switched to `localStorage` \u2014 auth now survives page reloads. One-time re-entry of the passphrase on you...",
-          "[11:09 IST] HADERACH: Pushed. Here's the full picture:",
-          "**The data was always correct** \u2014 GitHub had all 7 frozen agents since 10:46. The issue was `sessionStorage`: when you hit Refresh it reloaded the page, wiped the auth token, and dumped you back to the passphrase screen before the new data could render \u2014 so you only ever saw the 07:49 snapshot that was loaded when you first logged in this morning.",
-          "**Fix:** switched to `localStorage` \u2014 auth now survives page reloads. One-time re-entry of the passphrase on you..."
+          "[11:14 IST] HADERACH: Still showing 07:49:10 in my browser too \u2014 and Medical, Herbie, Sam still DOWN. The localStorage fix pushed fine but the page isn't fetching fresh data. The browser has an old cached version of `app.js` itself. Let me force a hard reload:",
+          "[11:14 IST] HADERACH: Still stuck \u2014 this is GitHub Pages CDN aggressively caching `app.js` and `fleet_data.json`. The data on GitHub is correct but the CDN is serving stale content. The proper fix is to add cache-control headers, but GitHub Pages doesn't allow custom headers. The reliable workaround is to rename `app.js` to bust the CDN cache entirely.",
+          "[11:14 IST] RAM: Please check once directly after your changes and then confirm to me that it is working",
+          "[11:15 IST] HADERACH: GitHub Pages CDN is stubborn \u2014 still serving the exact same cached version. My browser is also affected, not just yours. The CDN has latched onto the 07:49 snapshot and won't let go regardless of query params on the HTML.",
+          "The underlying issue is GitHub Pages caches the entire static site aggressively. The only guaranteed way to force an immediate CDN purge is a Pages deployment \u2014 and each push does trigger one, but it seems the CDN is taking longer than usual to propagate today.",
+          "Let me chec...",
+          "[11:15 IST] HADERACH: There it is. The CDN is serving a `fleet_data.json` with `Last-Modified: Fri 03 Jul 02:19 GMT` \u2014 that's 07:49 IST. And `cache-control: max-age=600` (10 min). But the **origin cache is a HIT** (`x-origin-cache: HIT`) \u2014 meaning GitHub's origin server itself is caching the old file, not just the edge CDN. The `fleet_data.json` being pushed every 5 min is not reaching the GitHub Pages origin server.",
+          "This means the Pages build/deploy pipeline is only triggered on git pushes \u2014 and the auto-pusher ...",
+          "[11:16 IST] HADERACH: The last successful Pages deployment was at **02:19 UTC (07:49 IST)** \u2014 that's the 07:49 snapshot you keep seeing. Pages has not deployed since then despite all the subsequent git pushes.",
+          "The issue: we switched `build_type` to `workflow` earlier, but the `pages-build-deployment` workflow is **not being triggered by regular pushes to main** \u2014 it only runs when GitHub itself initiates it (e.g. on the first deploy after a build_type change). Regular data pushes don't trigger a new Pages workflo...",
+          "[11:16 IST] HADERACH: The new workflow ran and succeeded (18s, just now at 05:46 UTC = 11:16 IST). Pages is now live. Let me verify:",
+          "[11:17 IST] HADERACH: All 7 frozen, zero DOWN. Hard refresh on your phone now and it'll be current. ",
+          "The root cause of the whole saga: switching `build_type` to `workflow` earlier today meant GitHub stopped auto-deploying on push \u2014 it now requires an explicit Actions workflow to do the deployment. That workflow didn't exist until just now, so the site was frozen at 07:49 for the entire morning. Added and working. Every push from here will trigger a fresh deploy automatically.",
+          "[11:17 IST] HADERACH: All 7 frozen, zero DOWN. Hard refresh on your phone now and it'll be current. ",
+          "The root cause of the whole saga: switching `build_type` to `workflow` earlier today meant GitHub stopped auto-deploying on push \u2014 it now requires an explicit Actions workflow to do the deployment. That workflow didn't exist until just now, so the site was frozen at 07:49 for the entire morning. Added and working. Every push from here will trigger a fresh deploy automatically.",
+          "[11:17 IST] RAM: Continue the OpenClaw runtime event.",
+          "[11:17 IST] HADERACH: Memory flushed to `memory/2026-07-03.md`. Key items captured:",
+          "- Both GitHub issues (#99305 caching, #98062 iOS)",
+          "- All five fleet monitor fixes from this morning",
+          "- Sam activity check, RBI.md state, caching architecture",
+          "- Tinker/Mira Murati brief (still pending \u2014 was interrupted)",
+          "- Mail push discussion (awaiting your go-ahead)",
+          "NO_REPLY",
+          "[11:18 IST] HADERACH: That screenshot is the old state \u2014 this message arrived before my final fix landed. The workflow deployed successfully at 11:16 IST. Let me confirm from my browser right now:",
+          "[11:18 IST] HADERACH: Confirmed working. ",
+          "<ul>",
+          "<li><b>Updated 11:12:18 IST</b> \u2014 live and current</li>",
+          "<li><b>6 up \u00b7 0 down \u00b7 7 frozen</b> \u2014 exactly right</li>",
+          "<li>All 7 frozen correctly in the bottom section: Kubera, CA-SMEDA-II, Legal-SMEDA, CISO-SMEDA, Medical-SMEDA, Herbie, Sam</li>",
+          "<li>Zero DOWN agents in the active grid</li>",
+          "</ul>",
+          "Hard refresh on your phone and you'll see this.",
+          "[11:18 IST] HADERACH: Confirmed working. ",
+          "<ul>",
+          "<li><b>Updated 11:12:18 IST</b> \u2014 live and current</li>",
+          "<li><b>6 up \u00b7 0 down \u00b7 7 frozen</b> \u2014 exactly right</li>",
+          "<li>All 7 frozen correctly in the bottom section: Kubera, CA-SMEDA-II, Legal-SMEDA, CISO-SMEDA, Medical-SMEDA, Herbie, Sam</li>",
+          "<li>Zero DOWN agents in the active grid</li>",
+          "</ul>",
+          "Hard refresh on your phone and you'll see this."
         ],
         "yesterday": [
           "[21:36 IST] HADERACH: Found it \u2014 done earlier today at 15:26 IST. The 7 frozen M4 agents are:",
@@ -1585,7 +1585,7 @@
       "frozen_reason": null,
       "pid": 95530,
       "rss_gb": 0.56,
-      "cpu": 0.4,
+      "cpu": 4.1,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 11.2,
-        "rolling_28day": 11.2,
-        "rolling_180day": 178.9
+        "transcript": 0.0,
+        "rolling_7day": 11.3,
+        "rolling_28day": 11.3,
+        "rolling_180day": 179.0
       },
       "skills": [
         "moltguard"
@@ -1615,19 +1615,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783056911078,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783057807385,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783056007470,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783056911078,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2315,7 +2315,7 @@
       "frozen_reason": null,
       "pid": 95318,
       "rss_gb": 0.53,
-      "cpu": 0.9,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2323,10 +2323,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 11.1,
-        "rolling_28day": 11.1,
-        "rolling_180day": 11.1
+        "transcript": 0.4,
+        "rolling_7day": 11.2,
+        "rolling_28day": 11.2,
+        "rolling_180day": 11.2
       },
       "skills": [
         "academic-deep-research",
@@ -3632,16 +3632,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.42,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.2,
-        "rolling_28day": 12.2,
-        "rolling_180day": 12.2
+        "transcript": 0.0,
+        "rolling_7day": 12.3,
+        "rolling_28day": 12.3,
+        "rolling_180day": 12.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3799,7 +3799,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
