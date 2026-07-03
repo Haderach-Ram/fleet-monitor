@@ -9,7 +9,7 @@ async function sha256(s){
 async function checkPw(){
   const v = document.getElementById("pw").value;
   const h = await sha256(v);
-  if(h === PW_HASH){ sessionStorage.setItem("fleet_ok","1"); unlock(); }
+  if(h === PW_HASH){ localStorage.setItem("fleet_ok","1"); unlock(); }
   else { document.getElementById("err").textContent = "Wrong passphrase"; }
 }
 function unlock(){
@@ -256,5 +256,5 @@ function closeDetail(){ document.getElementById("detail").style.display="none"; 
 
 document.getElementById("pw").addEventListener("keydown",e=>{if(e.key==="Enter")checkPw();});
 document.getElementById("detail").addEventListener("click",e=>{ if(e.target.id==="detail") closeDetail(); });
-if(sessionStorage.getItem("fleet_ok")==="1"){ unlock(); }
+if(localStorage.getItem("fleet_ok")==="1"){ unlock(); }
 setInterval(()=>{ if(document.getElementById("app").style.display==="block" && document.getElementById("detail").style.display!=="block") load(); }, 300000);
