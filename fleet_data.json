@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-03 08:19:45 IST",
-  "generated_epoch": 1783046985,
+  "generated_ist": "2026-07-03 08:24:49 IST",
+  "generated_epoch": 1783047289,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.50 / 2.44 / 2.52",
+    "load": "2.07 / 2.28 / 2.42",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 0.86,
-      "cpu": 1.8,
+      "rss_gb": 0.9,
+      "cpu": 0.3,
       "crons_total": 84,
       "crons_enabled": 51,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 8.3,
-        "rolling_28day": 8.3,
-        "rolling_180day": 8.3
+        "transcript": 0.1,
+        "rolling_7day": 8.4,
+        "rolling_28day": 8.4,
+        "rolling_180day": 8.4
       },
       "skills": [
         "academic-deep-research",
@@ -646,10 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783046609870,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783047027466,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,16 +658,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783046428402,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783046428402,
+          "last_ts": 1783047027465,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783046428401,
+          "last_ts": 1783047027465,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783046609870,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,25 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Architecture (4 layers)</b>",
-          "<ul>",
-          "<li><b>L1 Raw:</b> transcript + daily logs \u2014 never touched by the wiki</li>",
-          "<li><b>L2 Edges:</b> HAD-048 link-graph + HAD-012/v29c retrieval (nomic-embed via Ollama)</li>",
-          "<li><b>L3 Compiled pages:</b> 6 entity pages + 2 stream pages</li>",
-          "<li><b>L4 Navigation:</b> <code>wiki/index.md</code> \u2014 the entry point wired into AGENTS.md</li>",
-          "</ul>",
-          "<b>Current page status</b>",
-          "<ul>",
-          "<li><b>IHC....",
-          "[08:03 IST] HADERACH: Here's a full picture of how the HAD-052 wiki system is working right now:",
-          "<b>Architecture (4 layers)</b>",
-          "<ul>",
-          "<li><b>L1 Raw:</b> transcript + daily logs \u2014 never touched by the wiki</li>",
-          "<li><b>L2 Edges:</b> HAD-048 link-graph + HAD-012/v29c retrieval (nomic-embed via Ollama)</li>",
-          "<li><b>L3 Compiled pages:</b> 6 entity pages + 2 stream pages</li>",
-          "<li><b>L4 Navigation:</b> <code>wiki/index.md</code> \u2014 the entry point wired into AGENTS.md</li>",
-          "</ul>",
-          "<b>Current page status</b>",
           "<ul>",
           "<li><b>IHC....",
           "[08:04 IST] RAM: What\u2019s on RBI.md?",
@@ -1443,7 +1424,26 @@
           "<li>Total CRAR: 20.31% vs 15% minimum (+5.31pp headroom)</li>",
           "<li>Tier I: 19.09% vs 10% (+9.09pp)</li>",
           "<li>CET1: ~19.09% vs 9% (no AT1 instruments)</li>",
-          "<li>Tier II at just 1.23% \u2014 well within the..."
+          "<li>Tier II at just 1.23% \u2014 well within the...",
+          "[08:13 IST] RAM: Is caching a feature of OpenClaw? Should it not be a feature of Anthropic models?",
+          "[08:13 IST] HADERACH: Good question \u2014 the distinction is important.",
+          "<b>Prompt caching is an Anthropic feature</b>, not an OpenClaw one. Anthropic introduced it natively into the Claude API \u2014 you attach <code>cache_control</code> blocks to certain parts of a message (system prompt, large context chunks), and Anthropic's infrastructure holds those tokens warm for 5 minutes (short TTL) so subsequent calls don't re-process them from scratch. Bedrock exposes the same mechanism via its Converse API.",
+          "<b>What OpenClaw d...",
+          "[08:13 IST] HADERACH: Good question \u2014 the distinction is important.",
+          "<b>Prompt caching is an Anthropic feature</b>, not an OpenClaw one. Anthropic introduced it natively into the Claude API \u2014 you attach <code>cache_control</code> blocks to certain parts of a message (system prompt, large context chunks), and Anthropic's infrastructure holds those tokens warm for 5 minutes (short TTL) so subsequent calls don't re-process them from scratch. Bedrock exposes the same mechanism via its Converse API.",
+          "<b>What OpenClaw d...",
+          "[08:13 IST] RAM: Any traction on the caching issue on GitHub?",
+          "[08:13 IST] HADERACH: [[reply_to_current]]",
+          "[08:14 IST] HADERACH: Good traction actually. ClawSweeper reviewed it within ~12 minutes of filing (02:02 UTC, filed at 01:50 UTC). Here's what they found:",
+          "<b>ClawSweeper verdict \u2014 labelled \ud83e\udd9e diamond lobster + queueable-fix</b>",
+          "The bot confirmed the root cause exactly:",
+          "<ul>",
+          "<li>The function <code>supportsBedrockPromptCaching()</code> in <code>extensions/amazon-bedrock/bedrock-options.ts:32</code> only returns true for model refs containing <code>-4-</code>, <code>claude-fable-5</code>, <code>claude-3-7-sonnet</...",
+          "[08:14 IST] HADERACH: Good traction actually. ClawSweeper reviewed it within ~12 minutes of filing (02:02 UTC, filed at 01:50 UTC). Here's what they found:",
+          "<b>ClawSweeper verdict \u2014 labelled \ud83e\udd9e diamond lobster + queueable-fix</b>",
+          "The bot confirmed the root cause exactly:",
+          "<ul>",
+          "<li>The function <code>supportsBedrockPromptCaching()</code> in <code>extensions/amazon-bedrock/bedrock-options.ts:32</code> only returns true for model refs containing <code>-4-</code>, <code>claude-fable-5</code>, <code>claude-3-7-sonnet</..."
         ],
         "yesterday": [
           "[21:36 IST] HADERACH: Found it \u2014 done earlier today at 15:26 IST. The 7 frozen M4 agents are:",
@@ -1584,8 +1584,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.54,
-      "cpu": 1.8,
+      "rss_gb": 0.53,
+      "cpu": 0.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 8.2,
-        "rolling_28day": 8.2,
-        "rolling_180day": 176.0
+        "transcript": 0.1,
+        "rolling_7day": 8.3,
+        "rolling_28day": 8.3,
+        "rolling_180day": 176.1
       },
       "skills": [
         "moltguard"
@@ -1615,19 +1615,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783046110972,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783047008769,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783045207856,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783046110972,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2314,8 +2314,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.53,
-      "cpu": 0.8,
+      "rss_gb": 0.54,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2323,10 +2323,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 8.2,
-        "rolling_28day": 8.2,
-        "rolling_180day": 8.2
+        "transcript": 0.4,
+        "rolling_7day": 8.3,
+        "rolling_28day": 8.3,
+        "rolling_180day": 8.3
       },
       "skills": [
         "academic-deep-research",
@@ -2714,9 +2714,9 @@
       ],
       "memory": {
         "transcript": 17.2,
-        "rolling_7day": 32.1,
-        "rolling_28day": 32.1,
-        "rolling_180day": 32.1
+        "rolling_7day": 32.2,
+        "rolling_28day": 32.2,
+        "rolling_180day": 32.2
       },
       "skills": [
         "moltguard"
@@ -3418,10 +3418,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 17.1,
-        "rolling_7day": 32.0,
-        "rolling_28day": 32.0,
-        "rolling_180day": 80.0
+        "transcript": 17.2,
+        "rolling_7day": 32.1,
+        "rolling_28day": 32.1,
+        "rolling_180day": 80.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3642,16 +3642,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.33,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 9.2,
-        "rolling_28day": 9.2,
-        "rolling_180day": 9.2
+        "transcript": 0.1,
+        "rolling_7day": 9.3,
+        "rolling_28day": 9.3,
+        "rolling_180day": 9.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3788,7 +3788,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3823,7 +3823,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3865,9 +3865,9 @@
       ],
       "memory": {
         "transcript": 17.3,
-        "rolling_7day": 32.2,
-        "rolling_28day": 32.2,
-        "rolling_180day": 56.2
+        "rolling_7day": 32.3,
+        "rolling_28day": 32.3,
+        "rolling_180day": 56.3
       },
       "skills": [
         "apple-calendar-macos",
@@ -4242,9 +4242,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 16.9,
-        "rolling_7day": 33.1,
-        "rolling_28day": 33.1,
+        "transcript": 17.0,
+        "rolling_7day": 33.2,
+        "rolling_28day": 33.2,
         "rolling_180day": null
       },
       "skills": [
