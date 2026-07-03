@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-03 08:40:02 IST",
-  "generated_epoch": 1783048202,
+  "generated_ist": "2026-07-03 08:45:07 IST",
+  "generated_epoch": 1783048507,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.56 / 2.37 / 2.45",
+    "load": "1.81 / 2.08 / 2.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 0.95,
-      "cpu": 89.3,
+      "rss_gb": 0.92,
+      "cpu": 1.8,
       "crons_total": 84,
       "crons_enabled": 51,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 8.6,
-        "rolling_28day": 8.6,
-        "rolling_180day": 8.6
+        "transcript": 0.1,
+        "rolling_7day": 8.7,
+        "rolling_28day": 8.7,
+        "rolling_180day": 8.7
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783048409336,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783048228593,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783048228593,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783048228593,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Daily Brief (08:33 IST)",
           "enabled": true,
           "sched": "33 8 * * *",
@@ -659,42 +695,6 @@
           "enabled": true,
           "sched": "30 8 * * *",
           "last_ts": 1783047766453,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783047766453,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783047766452,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783047766452,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783046609870,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1404,21 +1404,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>Total CRAR: 20.31% vs 15% minimum (+5.31pp headroom)</li>",
-          "<li>Tier I: 19.09% vs 10% (+9.09pp)</li>",
-          "<li>CET1: ~19.09% vs 9% (no AT1 instruments)</li>",
-          "<li>Tier II at just 1.23% \u2014 well within the...",
-          "[08:13 IST] RAM: Is caching a feature of OpenClaw? Should it not be a feature of Anthropic models?",
-          "[08:13 IST] HADERACH: Good question \u2014 the distinction is important.",
-          "<b>Prompt caching is an Anthropic feature</b>, not an OpenClaw one. Anthropic introduced it natively into the Claude API \u2014 you attach <code>cache_control</code> blocks to certain parts of a message (system prompt, large context chunks), and Anthropic's infrastructure holds those tokens warm for 5 minutes (short TTL) so subsequent calls don't re-process them from scratch. Bedrock exposes the same mechanism via its Converse API.",
-          "<b>What OpenClaw d...",
-          "[08:13 IST] HADERACH: Good question \u2014 the distinction is important.",
-          "<b>Prompt caching is an Anthropic feature</b>, not an OpenClaw one. Anthropic introduced it natively into the Claude API \u2014 you attach <code>cache_control</code> blocks to certain parts of a message (system prompt, large context chunks), and Anthropic's infrastructure holds those tokens warm for 5 minutes (short TTL) so subsequent calls don't re-process them from scratch. Bedrock exposes the same mechanism via its Converse API.",
-          "<b>What OpenClaw d...",
-          "[08:13 IST] RAM: Any traction on the caching issue on GitHub?",
-          "[08:13 IST] HADERACH: [[reply_to_current]]",
-          "[08:14 IST] HADERACH: Good traction actually. ClawSweeper reviewed it within ~12 minutes of filing (02:02 UTC, filed at 01:50 UTC). Here's what they found:",
           "<b>ClawSweeper verdict \u2014 labelled \ud83e\udd9e diamond lobster + queueable-fix</b>",
           "The bot confirmed the root cause exactly:",
           "<ul>",
@@ -1443,7 +1428,22 @@
           "The framing: <i>\"Experts improving AI that empowers experts\"</i> \u2014 essentially a domain-expert feedback loop for fine-tuning.",
           "<b>Why it's interesting:</b>",
           "<ul>",
-          "<li>Mira left Anthropic/Op..."
+          "<li>Mira left Anthropic/Op...",
+          "[08:32 IST] RAM: Yes pls",
+          "[08:32 IST] HADERACH: On it \u2014 researching Tinker in the background. Will have a full brief shortly.",
+          "[08:32 IST] HADERACH: On it \u2014 researching Tinker in the background. Will have a full brief shortly.",
+          "[08:34 IST] HADERACH: Here's the full brief on Tinker:",
+          "<b>Thinking Machines Lab / Tinker \u2014 Research Brief</b>",
+          "---",
+          "<b>What Tinker is</b>",
+          "A cloud fine-tuning API \u2014 launched Oct 2025, GA Dec 2025. You write Python training loops locally; Tinker runs them on their GPU clusters. No infra management. Supports 28+ open-weight models (Llama, Qwen, Nemotron, vision-language models up to Qwen3.5-397B). Trains LoRA adapters, not full weights. Multiple training modes: SFT, RL (GRPO/PPO), DPO, distillation. You own your da...",
+          "[08:34 IST] HADERACH: I now have comprehensive data to compile the full research summary.",
+          "---",
+          "## Tinker / Thinking Machines Lab \u2014 Research Summary",
+          "---",
+          "### 1. What Exactly Is Tinker",
+          "**Product:** Tinker (`tinkerapi.com`, @tinkerapi on X) is a **cloud fine-tuning API** from Thinking Machines Lab \u2014 first product, launched Oct 1 2025 (private beta), GA in Dec 2025.",
+          "**Core mechanic:** Users write Python training loops locally (SFT, RL via GRPO/PPO, DPO, distillation, on-policy distillation); Tinker executes them o..."
         ],
         "yesterday": [
           "[21:36 IST] HADERACH: Found it \u2014 done earlier today at 15:26 IST. The 7 frozen M4 agents are:",
@@ -1585,7 +1585,7 @@
       "frozen_reason": null,
       "pid": 95530,
       "rss_gb": 0.54,
-      "cpu": 0.8,
+      "cpu": 0.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1594,10 +1594,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 8.6,
         "rolling_28day": 8.6,
-        "rolling_180day": 176.3
+        "rolling_180day": 176.4
       },
       "skills": [
         "moltguard"
@@ -2315,7 +2315,7 @@
       "frozen_reason": null,
       "pid": 95318,
       "rss_gb": 0.53,
-      "cpu": 1.6,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2323,10 +2323,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 8.5,
-        "rolling_28day": 8.5,
-        "rolling_180day": 8.5
+        "transcript": 0.3,
+        "rolling_7day": 8.6,
+        "rolling_28day": 8.6,
+        "rolling_180day": 8.6
       },
       "skills": [
         "academic-deep-research",
@@ -2713,10 +2713,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 17.5,
-        "rolling_7day": 32.4,
-        "rolling_28day": 32.4,
-        "rolling_180day": 32.4
+        "transcript": 17.6,
+        "rolling_7day": 32.5,
+        "rolling_28day": 32.5,
+        "rolling_180day": 32.5
       },
       "skills": [
         "moltguard"
@@ -3418,10 +3418,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 17.4,
-        "rolling_7day": 32.3,
-        "rolling_28day": 32.3,
-        "rolling_180day": 80.3
+        "transcript": 17.5,
+        "rolling_7day": 32.4,
+        "rolling_28day": 32.4,
+        "rolling_180day": 80.4
       },
       "skills": [],
       "skills_detail": [],
@@ -3642,16 +3642,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.41,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 9.6,
-        "rolling_28day": 9.6,
-        "rolling_180day": 9.6
+        "rolling_7day": 9.7,
+        "rolling_28day": 9.7,
+        "rolling_180day": 9.7
       },
       "skills": [],
       "skills_detail": [],
@@ -3668,7 +3668,28 @@
       ],
       "transcripts": {
         "recent": [
-          "# Chet Transcript \u2014 2026-07-03"
+          "# Chet Transcript \u2014 2026-07-03",
+          "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-07-03.",
+          "MANDATORY STARTUP:",
+          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
+          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
+          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
+          "{",
+          "  \"scl\": [",
+          "    {",
+          "      \"title\": \"Sammaan Capital Limited\",",
+          "      \"url\": \"https://sammaancapital.com/\",",
+          "      \"snippet\": \"\"",
+          "    },",
+          "    {",
+          "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
+          "     ...",
+          "[08:30 IST] CHET: Now let me fetch the actual page content from the key URLs since the snippets are all empty.",
+          "[08:31 IST] CHET: Now let me write the brief based on all the fetched data",
+          "[08:32 IST] CHET: Now let me verify the write",
+          "[08:32 IST] CHET: **File:** `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-03.md`  ",
+          "**Lines:** 20  ",
+          "**Changed since yesterday:** Alibaba's SkillWeaver debuts as the third major AI agent-orchestration launch this week, RBI's id=12942 gets a July 1 revision date bump, and Sammaan Capital's post-IHC identity solidifies with the bank-license aspiration explicitly dropped."
         ],
         "yesterday": [
           "# Chet Transcript \u2014 2026-07-02",
@@ -3788,7 +3809,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3823,7 +3844,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,10 +3885,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 17.6,
-        "rolling_7day": 32.5,
-        "rolling_28day": 32.5,
-        "rolling_180day": 56.5
+        "transcript": 17.7,
+        "rolling_7day": 32.6,
+        "rolling_28day": 32.6,
+        "rolling_180day": 56.6
       },
       "skills": [
         "apple-calendar-macos",
@@ -4242,9 +4263,9 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 17.2,
-        "rolling_7day": 33.5,
-        "rolling_28day": 33.5,
+        "transcript": 17.3,
+        "rolling_7day": 33.6,
+        "rolling_28day": 33.6,
         "rolling_180day": null
       },
       "skills": [
