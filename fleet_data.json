@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 22:08:11 IST",
-  "generated_epoch": 1783183091,
+  "generated_ist": "2026-07-04 22:13:17 IST",
+  "generated_epoch": 1783183397,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.31 / 2.67 / 2.78",
+    "load": "2.05 / 2.72 / 2.81",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 25643,
-      "rss_gb": 1.02,
-      "cpu": 3.4,
+      "rss_gb": 1.0,
+      "cpu": 0.3,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783183347965,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783183235263,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783183235262,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783183235262,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -654,42 +690,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1783182806031,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783182627242,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783182627242,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783182627242,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783181523473,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1408,20 +1408,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>Martin + ClarkKent capabilities PDF \u2014 built and sent</li>",
-          "<li>Trendlyne access confirmed \u2014 last run 29 Jun, healthy</li>",
-          "<li>RBI Watcher \u2014 confirmed working (02:10 IST, 17 Master Directions downloaded); fixed delivery_completion_mode so it now logs to cron_run_logs</li>",
-          "<li>Pot3 duplicate cron \u2014 disabled in Kubera</li>",
-          "<li>Fleet monitor dashboard \u2014 fixed push pipeline (rebase bug), fixed frozen status to use live /...",
-          "[20:47 IST] RAM: Check across the M4 agents and then M2, which agents and crons are still using direct Anthropic. I want to minimise the billing there. Also, on the M4 in the downloads folder the direct Anthropic usage csv file is there, check that pls - that\u2019s how I meant that it is showing as GisKard while the one that was using was perhaps Kubera",
-          "[20:47 IST] HADERACH: The python3 script is returning blank (likely redaction issue). Let me try a different approach:",
-          "[20:47 IST] HADERACH: The grep approach seems to be hitting PATH issues in the eval shell. Let me do this properly:",
-          "[20:49 IST] HADERACH: Now I have a complete picture. Let me compile the full analysis:",
-          "[20:49 IST] HADERACH: Good \u2014 now I have everything. Let me put the full picture together for you:",
-          "---",
-          "<b>Direct Anthropic Billing Audit \u2014 Jul 1\u20134 Summary</b>",
-          "<b>Total direct Anthropic spend: $64.41 over 4 days</b>",
           "<b>Breakdown by API key:</b>",
           "<ul>",
           "<li><b>Giskard_23Mar2026 \u2014 $28.03</b> (biggest spender)",
@@ -1447,7 +1433,21 @@
           "<li><b>Haderach_Anthropic_Key \u2014 $17.57</b>",
           "  <ul><li>All S...",
           "--- [TRANSCRIPT GAP: 21:30 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:00 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 22:00 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[22:05 IST] RAM: https://m.economictimes.com/tech/startups/zeta-cofounder-bhavin-turakhia-launches-ai-startup-neo-with-30-million-personal-investment/articleshow/132129619.cms",
+          "FreeInfo",
+          "[22:06 IST] HADERACH: Good, full picture now. Here's the story:",
+          "---",
+          "<b>Bhavin Turakhia launches Neo \u2014 $30M personal bet on AI-native enterprise workspace</b>",
+          "<b>What it is</b>",
+          "Neo is Turakhia's fifth company (after Directi, Radix, Titan, Zeta), launched 1 Jul 2026. He's bootstrapping it entirely with $30M of his own capital \u2014 his standard playbook before bringing in outside investors.",
+          "The core thesis: enterprise software designed before the AI era can't just have chatbots bolted on \u2014 it has to be <i>rebuilt f...",
+          "[22:06 IST] HADERACH: Good, full picture now. Here's the story:",
+          "---",
+          "<b>Bhavin Turakhia launches Neo \u2014 $30M personal bet on AI-native enterprise workspace</b>",
+          "<b>What it is</b>",
+          "Neo is Turakhia's fifth company (after Directi, Radix, Titan, Zeta), launched 1 Jul 2026. He's bootstrapping it entirely with $30M of his own capital \u2014 his standard playbook before bringing in outside investors.",
+          "The core thesis: enterprise software designed before the AI era can't just have chatbots bolted on \u2014 it has to be <i>rebuilt f..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1589,7 +1589,7 @@
       "frozen_reason": null,
       "pid": 95530,
       "rss_gb": 0.59,
-      "cpu": 0.9,
+      "cpu": 0.8,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2322,8 +2322,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.6,
-      "cpu": 2.4,
+      "rss_gb": 0.59,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3765,7 +3765,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.5,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3795,7 +3795,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
