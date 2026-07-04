@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 17:18:28 IST",
-  "generated_epoch": 1783165708,
+  "generated_ist": "2026-07-04 17:23:32 IST",
+  "generated_epoch": 1783166012,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.47 / 2.40 / 2.54",
+    "load": "3.13 / 2.73 / 2.62",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 1.13,
-      "cpu": 0.9,
+      "rss_gb": 1.16,
+      "cpu": 0.3,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -646,19 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783165323956,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783165226539,
+          "last_ts": 1783165827104,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +658,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783165226538,
+          "last_ts": 1783165827103,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783165226538,
+          "last_ts": 1783165827103,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783165323956,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1413,19 +1413,6 @@
       ],
       "transcripts": {
         "recent": [
-          "---",
-          "<b>What was done</b>",
-          "<b>AGENTS.md \u2014 PDF House Standard section written</b> (always in context, no skill-read needed):",
-          "<ul>",
-          "<li>WeasyPrint/HTML only \u2014 never reportlab/wkhtmltopdf</li>",
-          "<li>Navy cover, Calibri, justified, SCL logo where applicable, output to `~/Desktop/Haderach/Output/`</li>",
-          "<li>All 5 quality gate checks with <b>precise CSS fixes from Bajaj Council</b>:</li>",
-          "<ul>",
-          "<li>Orphan headers: <code>break-after: avoid</code> + <code>page-b...",
-          "## Key decisions and work \u2014 4 Jul 2026 afternoon session",
-          "### GitHub issues status",
-          "- #93139 (\\n corruption): LOCAL PATCH APPLIED to M4 dist binary (json-parse-CydVzlvP.js). Verify after every openclaw update: `grep -c \"Guard: code-context markers\" /opt/homebrew/lib/node_modules/openclaw/dist/json-parse-*.js` \u2192 must return 1",
-          "- #99305 (Bedrock Sonnet 5 caching): still open, no fix in 6.11 or beta.1. ~$368/day impact. Primary model stays on Sonnet 4.6.",
           "- #98062 (iOS Tailscale WSS): still open, LAN workaround only.",
           "- Fleet monitor GitHub Pages deploy emails: fixed \u2014 workflow now retries 3x before failing, single-blip emails gone.",
           "### Fleet monitor issues fixed",
@@ -1452,7 +1439,20 @@
           "### Bajaj Council used for",
           "- \\n corruption diagnosis + workaround strategy \u2192 recommended local patch (applied)",
           "- WeasyPrint PDF CSS fixes \u2192 Claude's detailed CSS advice adopted as house standard",
-          "--- [TRANSCRIPT GAP: 17:00 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 17:00 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[17:18 IST] RAM: A few things we have to do review. Discuss first:",
+          "\u2022 In the last ~100+ days sine you have been live, we have built a lot of skills, commands etc etc. I want: 1. a catalogue of all skills, commands etc and we need a commands tab in the fleet monitor you have on GitHub - we have tabs for skills and crons. and 2. I want to know if all we have built etc is making you clunky and increasing latency etc - can you do a thorough review",
+          "\u2022 I want to review the transcript capture across the M4 agents (t...",
+          "[17:18 IST] HADERACH: A proper three-part strategic review. Let me think through how I'd approach each before we dive in.",
+          "---",
+          "**Part 1 \u2014 Skills & Commands Catalogue + Fleet Monitor Tab**",
+          "This has two sub-tasks:",
+          "- *Catalogue build:* Skills I know about (from the `<available_skills>` list \u2014 70+ entries), plus commands (ConvOn/Off, ChangeModelSetTo, heartbeat commands, slash commands, etc.) and self-built automation scripts. Some of this lives in AGENTS.md/TOOLS.md, some in `projects/`, some is institutional knowl...",
+          "[17:18 IST] HADERACH: A proper three-part strategic review. Let me think through how I'd approach each before we dive in.",
+          "---",
+          "**Part 1 \u2014 Skills & Commands Catalogue + Fleet Monitor Tab**",
+          "This has two sub-tasks:",
+          "- *Catalogue build:* Skills I know about (from the `<available_skills>` list \u2014 70+ entries), plus commands (ConvOn/Off, ChangeModelSetTo, heartbeat commands, slash commands, etc.) and self-built automation scripts. Some of this lives in AGENTS.md/TOOLS.md, some in `projects/`, some is institutional knowl..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1593,8 +1593,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.58,
+      "cpu": 0.8,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,10 +1603,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 17.2,
-        "rolling_28day": 17.2,
-        "rolling_180day": 208.9
+        "transcript": 0.1,
+        "rolling_7day": 17.3,
+        "rolling_28day": 17.3,
+        "rolling_180day": 209.0
       },
       "skills": [
         "moltguard"
@@ -1624,19 +1624,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783164910971,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783165807011,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783164006381,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783164910971,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2286,7 +2286,7 @@
       "frozen_reason": null,
       "pid": 95318,
       "rss_gb": 0.59,
-      "cpu": 0.8,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2294,7 +2294,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
+        "transcript": 0.4,
         "rolling_7day": 17.2,
         "rolling_28day": 17.2,
         "rolling_180day": 41.2
@@ -3604,16 +3604,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 18.2,
-        "rolling_28day": 18.2,
-        "rolling_180day": 18.2
+        "rolling_7day": 18.3,
+        "rolling_28day": 18.3,
+        "rolling_180day": 18.3
       },
       "skills": [],
       "skills_detail": [],
