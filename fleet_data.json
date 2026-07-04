@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 19:55:32 IST",
-  "generated_epoch": 1783175132,
+  "generated_ist": "2026-07-04 20:00:35 IST",
+  "generated_epoch": 1783175435,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.99 / 2.72 / 2.90",
+    "load": "3.71 / 2.94 / 2.92",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 25643,
-      "rss_gb": 0.94,
-      "cpu": 5.4,
+      "rss_gb": 1.01,
+      "cpu": 0.3,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 19.9,
-        "rolling_28day": 19.9,
-        "rolling_180day": 19.9
+        "transcript": 0.0,
+        "rolling_7day": 20.0,
+        "rolling_28day": 20.0,
+        "rolling_180day": 20.0
       },
       "skills": [
         "academic-deep-research",
@@ -649,7 +649,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783174825570,
+          "last_ts": 1783175425597,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,7 +658,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783174825570,
+          "last_ts": 1783175425597,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +667,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783174825569,
+          "last_ts": 1783175425596,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1413,46 +1413,46 @@
       ],
       "transcripts": {
         "recent": [
-          "### What was built:",
-          "The PDF follows the full house standard \u2014 navy cover (#1a3a5c), white title, Helvetica Neue font, justified body text, alternating table rows, navy thead, page footer on all content pages. No flex/grid on content blocks; `widows/orphans: 3`; `thead { display: table-header-group }` on all tables; `break-after: ...",
-          "[19:44 IST] RAM: Is there duplicate work. Also, we already have a 2 am cron for the RBI Master Directions bit",
-          "[19:44 IST] HADERACH: Let me check the subagent status and verify the PDF location before sending.",
-          "[19:44 IST] HADERACH: Good \u2014 388KB on the desktop. Sending now.",
-          "MEDIA:/Users/ram_macmini/Desktop/Haderach/Output/Martin_ClarkKent_Report_4Jul2026.pdf",
-          "On your two points:",
-          "**\"Is there duplicate work?\"**",
-          "Yes, potentially. Martin's RBI Watcher (02:00 IST daily) and the existing RBI Master Directions cron you mention are both pointed at RBI publications. The risk is:",
           "<ul>",
-          "<li>Martin's watcher is designed for <b>statistical data</b> (DBIE, WSS, CPI, call money) \u2014 quantitative series for the warehouse</li>",
-          "<li>The 02...",
-          "[19:44 IST] HADERACH: That's the answer. There's only **one** RBI cron \u2014 \"RBI Watcher \u2014 Master Directions + Circulars (02:00 IST)\". It has never run (no `last_run`, no status). The Martin RBI Watcher and this cron are the **same job** \u2014 or at minimum, the same thing never triggered.",
-          "So no duplicate work \u2014 just one cron that was set up and has never fired. The question is: what was it supposed to do? Let me check:",
-          "[19:44 IST] HADERACH: Clear picture. There is only **one** RBI cron \u2014 it runs `rbi_watcher.py` which monitors for new Master Directions and circulars (regulatory docs, not statistical data). It has never fired successfully \u2014 zero entries in cron_run_logs.",
-          "This is **not** the same as Martin's statistical data ingestion (WSS, call money, DBIE). So:",
+          "<li><b>RBI Watcher (02:00 IST)</b> \u2014 agentTurn \u2014 runs fine, just doesn't report back to OpenClaw. Script-level gap.</li>",
+          "<li><b>HAD-050 R1+R3 Readout (10 Jul 07:30)</b> \u2014 agentTurn \u2014 hasn't fired yet, scheduled for 6 days from now. Not an issue.</li>",
+          "<li><b>HAD-051 Ranking Report reminder (6 Sep)</b> \u2014 <i>systemEvent</i> \u2014 systemEvent crons never appear in cron_run_logs by design. The...",
+          "[19:56 IST] HADERACH: Clean answer now. Only **5 crons** across the entire M4 fleet have no run history:",
+          "<b>Haderach (3):</b>",
           "<ul>",
-          "<li>The 02:00 cron = regulatory watcher (Master Directions, circulars) \u2192 <b>never run, needs investigation</b></li>",
-          "<li>Martin's planned RBI stats ingestor (DBIE, ...",
-          "[19:44 IST] HADERACH: Clear picture. There is only **one** RBI cron \u2014 it runs `rbi_watcher.py` which monitors for new Master Directions and circulars (regulatory docs, not statistical data). It has never fired successfully \u2014 zero entries in cron_run_logs.",
-          "This is **not** the same as Martin's statistical data ingestion (WSS, call money, DBIE). So:",
+          "<li><b>RBI Watcher (02:00 IST)</b> \u2014 agentTurn \u2014 runs fine, just doesn't report back to OpenClaw. Script-level gap.</li>",
+          "<li><b>HAD-050 R1+R3 Readout (10 Jul 07:30)</b> \u2014 agentTurn \u2014 hasn't fired yet, scheduled for 6 days from now. Not an issue.</li>",
+          "<li><b>HAD-051 Ranking Report reminder (6 Sep)</b> \u2014 <i>systemEvent</i> \u2014 systemEvent crons never appear in cron_run_logs by design. The...",
+          "[19:56 IST] RAM: Do it",
+          "[19:56 IST] HADERACH: On it \u2014 fixing both in parallel.",
+          "[19:56 IST] HADERACH: Good \u2014 I can see both issues clearly. The rbi_watcher.py script writes to `/tmp/rbi_watcher_summary.txt` but the cron prompt reads that file and reports back \u2014 so the cron itself IS logging (it's an agentTurn). The issue is the cron prompt relies on the summary file being present. And for Kubera: there are TWO Pot3 crons \u2014 one has been running fine (`last_run_at_ms` set, status ok), the other (`Pot3 Auto Signal Mon/Tue`) is the legacy duplicate that never ran. Let me fix both:",
+          "[19:56 IST] HADERACH: Confirmed. \"Kubera \u2014 Pot 3 Daily Signal Check (09:15 Mon-Fri)\" is healthy \u2014 ran today at 17:35 IST (manual test run after unfreeze), status ok. \"Pot3 Auto Signal Mon/Tue 09:20\" is an old duplicate using a deprecated script (`pot3_auto.py`). It should be disabled.",
+          "[19:57 IST] HADERACH: Good \u2014 duplicate disabled. Now fix rbi_watcher.py to write back its run status so it appears in cron_run_logs:",
+          "[19:57 IST] HADERACH: The script already writes to `/tmp/rbi_watcher_summary.txt`. The cron prompt reads that file and sends the Telegram message \u2014 that part works. The reason it doesn't appear in `cron_run_logs` is that the cron prompt ends with either a Telegram send or silence (`HEARTBEAT_OK`) \u2014 both are valid completions that OpenClaw should log. Let me check the actual cron payload:",
+          "[19:57 IST] HADERACH: Found it. `delivery_mode=announce` means OpenClaw delivers the output as an announcement \u2014 but `delivery_completion_mode` is blank. That's why there's no `cron_run_logs` entry: the run completes but the completion record never gets written back to the main gateway's SQLite because the isolated session has no completion callback configured.",
+          "Every other cron that logs correctly has `delivery_completion_mode` set. This is a one-line fix:",
+          "[19:57 IST] HADERACH: Actually \u2014 I need to verify that `on_result` is the correct value, not something I'm guessing. Let me check what other working crons use:",
+          "[19:57 IST] HADERACH: `on_result` is the only value used across all working crons \u2014 correct. Fix is valid. Reverting the dead-ends.md entry I added earlier since the real cause is now fixed:",
+          "[19:58 IST] HADERACH: Done. Summary of what was fixed:",
+          "<b>1. Kubera \u2014 Pot3 Auto Signal (Mon/Tue 09:20)</b> \u2705 Disabled",
           "<ul>",
-          "<li>The 02:00 cron = regulatory watcher (Master Directions, circulars) \u2192 <b>never run, needs investigation</b></li>",
-          "<li>Martin's planned RBI stats ingestor (DBIE, ...",
-          "[19:45 IST] RAM: I think we just built it today or yesterday, but do check. I think it ran today morning, I got a message",
-          "[19:48 IST] HADERACH: Let me check properly.",
-          "[19:48 IST] HADERACH: That confirms it. The RBI Watcher \u2014 Master Directions cron has **no last_run and no run history at all** \u2014 it has genuinely never fired. The message you received this morning was almost certainly from the **Twitter Watcher** (ran at 02:00 IST this morning would be the 06:03 run, or a previous day's run \u2014 it fires every 3 hours).",
-          "No RBI Master Directions run today. You may be thinking of a different message \u2014 possibly from the HAD-052 wiki lint cron or the morning briefing. Want me to check w...",
-          "[19:48 IST] HADERACH: That's what ran at 02:00 IST today \u2014 it was the **HAD-003 Reading cron** (your Foundation's Edge reading session), not any RBI watcher. The RBI Master Directions cron did not fire.",
-          "So the situation is clean:",
+          "<li>Was a stale duplicate of the working \"Pot 3 Daily Signal Check (09:15 Mon-Fri)\" cron</li>",
+          "<li>Used deprecated <code>pot3_auto.py</code> script; the live cron uses <code>pot3_engine.py</code></li>",
+          "<li>Disabled directly in Kubera's SQLite</li>",
+          "</ul>",
+          "<b>2. RBI Watcher \u2014 no cron_run_logs entries</b> \u2705 Fixed",
           "<ul>",
-          "<li>The 02:00 IST RBI Watcher cron exists but has <b>never run</b> \u2014 zero history, zero output</li>",
-          "<li>The message you remember from this morning was likely the <b>HAD-003 reading session</b> (02:11 IST) or one of the other crons</li>",
-          "<li>No duplicate work \u2014 the RBI Master Directi...",
-          "[19:48 IST] HADERACH: That's what ran at 02:00 IST today \u2014 it was the **HAD-003 Reading cron** (your Foundation's Edge reading session), not any RBI watcher. The RBI Master Directions cron did not fire.",
-          "So the situation is clean:",
+          "<li>Root cause: <code>delivery_completion_mode</code> was blank \u2014 isolated agent...",
+          "[19:58 IST] HADERACH: Done. Summary of what was fixed:",
+          "<b>1. Kubera \u2014 Pot3 Auto Signal (Mon/Tue 09:20)</b> \u2705 Disabled",
           "<ul>",
-          "<li>The 02:00 IST RBI Watcher cron exists but has <b>never run</b> \u2014 zero history, zero output</li>",
-          "<li>The message you remember from this morning was likely the <b>HAD-003 reading session</b> (02:11 IST) or one of the other crons</li>",
-          "<li>No duplicate work \u2014 the RBI Master Directi..."
+          "<li>Was a stale duplicate of the working \"Pot 3 Daily Signal Check (09:15 Mon-Fri)\" cron</li>",
+          "<li>Used deprecated <code>pot3_auto.py</code> script; the live cron uses <code>pot3_engine.py</code></li>",
+          "<li>Disabled directly in Kubera's SQLite</li>",
+          "</ul>",
+          "<b>2. RBI Watcher \u2014 no cron_run_logs entries</b> \u2705 Fixed",
+          "<ul>",
+          "<li>Root cause: <code>delivery_completion_mode</code> was blank \u2014 isolated agent..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1593,8 +1593,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.56,
-      "cpu": 0.7,
+      "rss_gb": 0.57,
+      "cpu": 0.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,9 +1603,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 1.1,
-        "rolling_7day": 19.8,
-        "rolling_28day": 19.8,
+        "transcript": 1.2,
+        "rolling_7day": 19.9,
+        "rolling_28day": 19.9,
         "rolling_180day": 211.6
       },
       "skills": [
@@ -1921,7 +1921,7 @@
       "rss_gb": null,
       "cpu": null,
       "crons_total": 23,
-      "crons_enabled": 23,
+      "crons_enabled": 22,
       "skills_count": 1,
       "channels": [
         "telegram"
@@ -2142,7 +2142,7 @@
         },
         {
           "name": "Pot3 Auto Signal \u2014 Mon/Tue 09:20 IST",
-          "enabled": true,
+          "enabled": false,
           "sched": "20 9 * * 1,2",
           "last_ts": null,
           "last_status": null,
@@ -2332,8 +2332,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.59,
-      "cpu": 1.2,
+      "rss_gb": 0.62,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2341,10 +2341,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 19.8,
-        "rolling_28day": 19.8,
-        "rolling_180day": 43.8
+        "transcript": 0.0,
+        "rolling_7day": 19.9,
+        "rolling_28day": 19.9,
+        "rolling_180day": 43.9
       },
       "skills": [
         "academic-deep-research",
@@ -2492,21 +2492,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783173604682,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1783171811456,
+          "last_ts": 1783175411714,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783175411714,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2557,10 +2557,6 @@
       ],
       "transcripts": {
         "recent": [
-          "    <li>ECO + MAX modes, heats in 30 sec</li>",
-          "    <li>OptimalTEMP \u2014 no burns guaranteed</li>",
-          "    <li>~\u20b94,000\u20135,500</li>",
-          "  </ul>",
           "</li>",
           "<li><b>\u2705 Best Value \u2014 Philips 5000 Series (STH5010/70 or STH5030/20)</b>",
           "  <ul>",
@@ -2596,7 +2592,11 @@
           "No new messages across any sessions. All done.",
           "[18:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[18:55 IST] PURL: HEARTBEAT_OK",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[19:55 IST] PURL: Let me check the heartbeat items.",
+          "[19:55 IST] PURL: HEARTBEAT_OK",
+          "[19:55 IST] PURL: Let me check the heartbeat items."
         ],
         "yesterday": [
           "[21:11 IST] GROUP-Garima: What is your recommendation",
@@ -3614,16 +3614,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 20.8,
-        "rolling_28day": 20.8,
-        "rolling_180day": 20.8
+        "transcript": 0.0,
+        "rolling_7day": 20.9,
+        "rolling_28day": 20.9,
+        "rolling_180day": 20.9
       },
       "skills": [],
       "skills_detail": [],
@@ -3785,7 +3785,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
