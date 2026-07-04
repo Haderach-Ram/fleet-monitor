@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 12:18:49 IST",
-  "generated_epoch": 1783147729,
+  "generated_ist": "2026-07-04 12:23:55 IST",
+  "generated_epoch": 1783148035,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.22 / 3.05 / 3.09",
+    "load": "2.83 / 2.98 / 3.06",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 7955,
       "rss_gb": 1.11,
-      "cpu": 1.6,
+      "cpu": 1.4,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -646,10 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783147337466,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783147827752,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,16 +658,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783147227313,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783147227313,
+          "last_ts": 1783147827751,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783147227312,
+          "last_ts": 1783147827751,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783147337466,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1413,19 +1413,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Fix:</b> Forced a manual run \u2014 it executed cleanly with the current binary (\u2705 status). Error st...",
-          "[08:10 IST] HADERACH: Both fixed. Here's the diagnosis:",
-          "---",
-          "<b>Fleet Monitor Issues \u2014 Diagnosed & Fixed</b>",
-          "<b>\ud83d\udd34 SCL-002 Quarterly Peer Tracker Refresh</b>",
-          "<b>Root cause:</b> Stale dist hash reference from an April update. After the upgrade, the cron store module (`store-CWhnH-Ye.js`) tried to import `cleanup-t6GOeWL3.js` which no longer existed in the new binary. The job had never run successfully since 30 Apr.",
-          "<b>Fix:</b> Forced a manual run \u2014 it executed cleanly with the current binary (\u2705 status). Error st...",
-          "[08:10 IST] RAM: Check and report on Purl\u2019s issue",
-          "[08:13 IST] HADERACH: Now I have the full picture. The Giskard flag is a false positive.",
-          "---",
-          "<b>\u26a0\ufe0f Purl \u2014 \"No MEMORY_WRITE in >48h\" \u2014 False Positive</b>",
-          "<b>The alert is misleading.</b> Purl's crons are all running perfectly:",
-          "<ul>",
           "<li>Transcript Logger (30 min) \u2014 ran 8 minutes ago \u2705</li>",
           "<li>Nightly Memory Consolidation (22:00) \u2014 ran last night at 22:00 \u2705</li>",
           "<li>Midnight Rolling Summary \u2014 ran today at 00:09 \u2705</li>",
@@ -1452,7 +1439,20 @@
           "--- [TRANSCRIPT GAP: 11:20 IST \u2014 session empty for 180 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:40 IST \u2014 session empty for 200 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:53 IST \u2014 session empty for 213 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 12:10 IST \u2014 session empty for 230 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 12:10 IST \u2014 session empty for 230 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[12:18 IST] RAM: Any traction on our caching and OpenClaw app issue?",
+          "[12:18 IST] HADERACH: Already checked these earlier this morning \u2014 but let me grab the latest since a few hours have passed and the beta dropped overnight.",
+          "[12:18 IST] HADERACH: No movement on either since our check this morning. One thing worth noting though \u2014 the beta drop:",
+          "[12:19 IST] HADERACH: No fix for either issue in beta.1. Here's the full picture:",
+          "---",
+          "<b>#99305 \u2014 Bedrock Sonnet 5 caching broken</b>",
+          "<b>No movement.</b> Last comment was clawsweeper's review on 3 Jul \u2014 confirmed real, kept open for a maintainer. No response from steipete or anyone else since. The beta.1 release notes have no Bedrock cache eligibility fix.",
+          "One mildly relevant beta item: <i>PR #98267</i> moves exec-approval + Authorized Senders below the cache boundary in system prompts \u2014 adjacent territory (cac...",
+          "[12:19 IST] HADERACH: No fix for either issue in beta.1. Here's the full picture:",
+          "---",
+          "<b>#99305 \u2014 Bedrock Sonnet 5 caching broken</b>",
+          "<b>No movement.</b> Last comment was clawsweeper's review on 3 Jul \u2014 confirmed real, kept open for a maintainer. No response from steipete or anyone else since. The beta.1 release notes have no Bedrock cache eligibility fix.",
+          "One mildly relevant beta item: <i>PR #98267</i> moves exec-approval + Authorized Senders below the cache boundary in system prompts \u2014 adjacent territory (cac..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1593,8 +1593,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.56,
-      "cpu": 1.1,
+      "rss_gb": 0.57,
+      "cpu": 2.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,9 +1603,9 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 12.2,
-        "rolling_28day": 12.2,
+        "transcript": 0.1,
+        "rolling_7day": 12.3,
+        "rolling_28day": 12.3,
         "rolling_180day": 204.0
       },
       "skills": [
@@ -1624,19 +1624,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783146912378,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783147806789,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783146007485,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783146912378,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2285,8 +2285,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.59,
-      "cpu": 3.0,
+      "rss_gb": 0.6,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2294,7 +2294,7 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
+        "transcript": 0.3,
         "rolling_7day": 12.2,
         "rolling_28day": 12.2,
         "rolling_180day": 36.2
@@ -3604,16 +3604,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 13.2,
-        "rolling_28day": 13.2,
-        "rolling_180day": 13.2
+        "rolling_7day": 13.3,
+        "rolling_28day": 13.3,
+        "rolling_180day": 13.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3775,7 +3775,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
