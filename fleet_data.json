@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 19:20:02 IST",
-  "generated_epoch": 1783173002,
+  "generated_ist": "2026-07-04 19:25:06 IST",
+  "generated_epoch": 1783173306,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.51 / 2.56 / 2.62",
+    "load": "2.61 / 2.61 / 2.63",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 25643,
-      "rss_gb": 0.93,
-      "cpu": 20.6,
+      "rss_gb": 0.71,
+      "cpu": 0.7,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 19.3,
-        "rolling_28day": 19.3,
-        "rolling_180day": 19.3
+        "transcript": 0.1,
+        "rolling_7day": 19.4,
+        "rolling_28day": 19.4,
+        "rolling_180day": 19.4
       },
       "skills": [
         "academic-deep-research",
@@ -646,10 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783172524061,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783173026199,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,16 +658,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783172426685,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783172426685,
+          "last_ts": 1783173026198,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783172426684,
+          "last_ts": 1783173026198,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783172524061,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1413,27 +1413,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:50 IST] RAM: Has Martin been able to access it? Can you check when did the agents last access Trendlyne and was the access successful?",
-          "[18:50 IST] HADERACH: Martin is on M2 \u2014 let me check correctly. Martin's crons are managed from Haderach's gateway:",
-          "[18:51 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
-          "[18:51 IST] RAM: !!?? Again you are botching up M2 and M4 agnets. Which agents are on M4?",
-          "[18:51 IST] HADERACH: You're right, I was about to make the same mistake. Let me be precise.",
-          "**Martin is on M4** \u2014 port 18802, config at `~/.openclaw-martin/` on this machine. I was confusing myself. Martin is NOT on M2.",
-          "M4 active agents (on this machine, uday_one):",
-          "<ul>",
-          "<li>Haderach (18789)</li>",
-          "<li>Giskard (18791)</li>",
-          "<li>Purl (18792)</li>",
-          "<li>Chet (18810)</li>",
-          "<li>Martin (18802)</li>",
-          "<li>ClarkKent (18814 tester)</li>",
-          "</ul>",
-          "M2 agents (ssh ram_macmini@100.119.4.19):",
-          "<ul>",
-          "<li>CAIO/Jonas, Ravindra, Keshav, Sand...",
-          "[18:52 IST] HADERACH: Full picture. Here's the answer:",
-          "<b>Last access: 29 June 2026 \u2014 successful \u2705</b>",
-          "<ul>",
           "<li>36/36 companies completed. 17,971 annual rows + 9,351 quarterly rows in the DB. Two companies (SBICARD + SAMMAANCAP) needed a second pass after macOS killed the process mid-run due to memory pressure, but both succeeded cleanly.</li>",
           "<li>DB last modified: 29 Jun 09:15 IST \u2014 5 days ago (cron is weekly Monday 09:00, so next run is <b>Monday 7 Jul</b>)</li>",
           "</ul>",
@@ -1452,7 +1431,28 @@
           "[19:10 IST] RAM: [Telegram Ram Shenoy id:8489979671 +17m Sat 2026-07-04 19:10:01 GMT+5:30] Ram Shenoy: Check this - this is in the external SSD in the Haderach folder. Also can you make a report on what all MArtin does and where he stores any data he pulls etc. And do the same for ClarkKent also pls. Send me this pdf once done",
           "<file name=\"SCL-007_DataWarehouse_Spec_20260430---4a0bd915-3a1f-4066-8ca9-deeefbff53fd.pdf\" mime=\"application/pdf\">",
           "<<<EXTERNAL_UNTRUSTED_CONTENT id=\"f907cc00a96e0515\">>>",
-          "Source: Exte..."
+          "Source: Exte...",
+          "[19:10 IST] HADERACH: Good \u2014 I have the SCL-007 spec. Two reports needed: Martin and ClarkKent. Let me gather the data for both in parallel, then build the PDF.",
+          "[19:10 IST] HADERACH: Both research subagents running in parallel. I've also read the SCL-007 spec you sent \u2014 that gives me the full design intent for Martin which will enrich the report significantly.",
+          "While they run: the PDF will be built via subagent (lesson learned today) once both data files land. Should be ready in ~10-12 minutes. I'll send it directly when done.",
+          "[19:10 IST] HADERACH: Both research subagents running in parallel. I've also read the SCL-007 spec you sent \u2014 that gives me the full design intent for Martin which will enrich the report significantly.",
+          "While they run: the PDF will be built via subagent (lesson learned today) once both data files land. Should be ready in ~10-12 minutes. I'll send it directly when done.",
+          "[19:14 IST] HADERACH: ClarkKent data is in. Martin still running. Let me wait for Martin before building the PDF.",
+          "[19:14 IST] HADERACH: ClarkKent data is in. Martin still running. Let me wait for Martin before building the PDF.",
+          "[19:14 IST] HADERACH: **Task complete.** Report written to `/Users/ram_macmini/.openclaw/workspace/tmp/clarkkent_report_data.md` (13 KB).",
+          "## Key findings summary:",
+          "**ClarkKent is alive and running well** as a news fetcher \u2014 100,907+ items ingested since Apr 2026, 17/17 feeds healthy, running every 30 min, ~99%+ reliability over the last 14 days.",
+          "**But it's running on the HAD-016 foundation, not the HAD-031 spec:**",
+          "- Cron lives in **Haderach's gateway**, not ClarkKent's own (port 18811 is provisioned but idle)",
+          "- ...",
+          "[19:14 IST] HADERACH: Martin data in. Waiting for ClarkKent to complete before building the PDF.",
+          "[19:14 IST] HADERACH: Martin data in. Waiting for ClarkKent to complete before building the PDF.",
+          "[19:14 IST] HADERACH: **Task complete.** Comprehensive report written to `/Users/ram_macmini/.openclaw/workspace/tmp/martin_report_data.md`.",
+          "## Summary of findings:",
+          "**What Martin is:** A financial data relay bot (SAK-008) with two roles \u2014 ingestion engine + HTTP data API (FastAPI/uvicorn on port 8802, separate from the OpenClaw gateway on 18802).",
+          "**4 active cron jobs:**",
+          "- **Daily FX Rates** (Mon\u2013Fri 18:30 IST) \u2014 \u2705 14 consecutive clean runs, last 2026-07-03",
+          "- **WSS Friday Download** (Fri 20:00 IST) \u2014 \u2705 Working, ..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1593,8 +1593,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.58,
+      "cpu": 1.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,10 +1603,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.5,
-        "rolling_7day": 19.2,
-        "rolling_28day": 19.2,
-        "rolling_180day": 211.0
+        "transcript": 0.6,
+        "rolling_7day": 19.3,
+        "rolling_28day": 19.3,
+        "rolling_180day": 211.1
       },
       "skills": [
         "moltguard"
@@ -2332,8 +2332,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.59,
-      "cpu": 0.6,
+      "rss_gb": 0.6,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2341,10 +2341,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 19.2,
-        "rolling_28day": 19.2,
-        "rolling_180day": 43.2
+        "transcript": 0.4,
+        "rolling_7day": 19.3,
+        "rolling_28day": 19.3,
+        "rolling_180day": 43.3
       },
       "skills": [
         "academic-deep-research",
@@ -3620,10 +3620,10 @@
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 20.2,
-        "rolling_28day": 20.2,
-        "rolling_180day": 20.2
+        "transcript": 0.1,
+        "rolling_7day": 20.3,
+        "rolling_28day": 20.3,
+        "rolling_180day": 20.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3785,7 +3785,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
