@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 15:26:51 IST",
-  "generated_epoch": 1783159011,
+  "generated_ist": "2026-07-04 15:31:56 IST",
+  "generated_epoch": 1783159316,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.00 / 3.22 / 3.32",
+    "load": "3.26 / 3.09 / 3.20",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 1.07,
-      "cpu": 1.6,
+      "rss_gb": 1.18,
+      "cpu": 1.8,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.4,
-        "rolling_28day": 15.4,
-        "rolling_180day": 15.4
+        "transcript": 0.0,
+        "rolling_7day": 15.5,
+        "rolling_28day": 15.5,
+        "rolling_180day": 15.5
       },
       "skills": [
         "academic-deep-research",
@@ -646,19 +646,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783158626385,
+          "last_ts": 1783159227024,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783158626385,
+          "last_ts": 1783159227023,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -667,7 +667,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783158626384,
+          "last_ts": 1783159227023,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1413,38 +1413,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>2 failures: #28700223953 (13:45 IST) and #28699402171 (13:09 IST)</li>",
-          "<li>Both sandwiched between successful runs \u2014 the one before and after each failure succeeded fine</li>",
-          "</ul>",
-          "The fail...",
-          "[15:01 IST] RAM: Yes, only notify after consecutive failures",
-          "[15:01 IST] HADERACH: [[reply_to_current]]",
-          "[15:02 IST] HADERACH: So there's only one custom workflow \u2014 `deploy.yml`. The auto-refresh runs are triggered by the `push` event; something is pushing to main every 5 minutes. The workflow itself has no failure notification settings \u2014 those come from GitHub account-level email preferences. Let me add a concurrency/retry guard and check if there's a way to suppress single-failure emails:",
-          "[15:03 IST] HADERACH: The inline Python is getting mangled by the shell. I have enough to proceed \u2014 the `deploy.yml` is the only workflow, it triggers on `push`, and the \"auto-refresh\" label on the runs means a cron somewhere is pushing commits every 5 minutes. The workflow has no retry logic, so a single GitHub Pages CDN hiccup = immediate failure email.",
-          "The cleanest fix is to add a retry step to the workflow so it retries the deploy before marking it failed, which stops the single-blip emails entirely. Let me u...",
-          "[15:04 IST] HADERACH: The commit-triggered run deployed successfully. The failure at 15:01 was the last auto-refresh run before the fix landed \u2014 bad timing, but that's the last one of its kind.",
-          "Done. The workflow now retries the Pages deploy up to 3 times with a 10-second gap before marking it failed. A transient GitHub CDN hiccup will be retried silently and you'll only get an email if all 3 attempts fail \u2014 meaning the Pages site is genuinely down, not just GitHub sneezing.",
-          "[15:04 IST] HADERACH: The commit-triggered run deployed successfully. The failure at 15:01 was the last auto-refresh run before the fix landed \u2014 bad timing, but that's the last one of its kind.",
-          "Done. The workflow now retries the Pages deploy up to 3 times with a 10-second gap before marking it failed. A transient GitHub CDN hiccup will be retried silently and you'll only get an email if all 3 attempts fail \u2014 meaning the Pages site is genuinely down, not just GitHub sneezing.",
-          "[15:07 IST] RAM: Why are we facing so many issues with this \\n, problems writing python etc etc. Review yesterday when you had so many issues writing code for the AWS report. Check on GitHub and consult Bajaj Council if there is a solution. I am sure we are spending a lot on LLM just to wade through these errors",
-          "[15:07 IST] HADERACH: Good point \u2014 the pattern is consistent enough to warrant a proper look. Let me check the GitHub issue tracker first, then Bajaj Council.",
-          "[15:08 IST] HADERACH: Root cause found \u2014 and there's already a PR. Let me check its status and then consult Bajaj Council.",
-          "[15:08 IST] HADERACH: Good \u2014 root cause confirmed, fix exists, stalled on maintainer review. Now Bajaj Council:",
-          "[15:08 IST] RAM: Is there a new version of python or something that solved this?",
-          "[15:09 IST] HADERACH: Excellent \u2014 clear verdict from council. Here's the full picture:",
-          "---",
-          "<b>The \\n / Python corruption bug \u2014 root cause + options</b>",
-          "<b>What's happening</b>",
-          "This is a known OpenClaw bug (#93139, filed by me on 20 Jun). The culprit is a Windows-path heuristic in `json-parse.ts` \u2014 a regex that tries to detect Windows drive letters like `C:` also matches Python block openers like `if x:`, `for x:`, `except Exception:`, `def foo():`. When it false-positives, the `\\n` after the colon gets emitted...",
-          "[15:09 IST] HADERACH: Excellent \u2014 clear verdict from council. Here's the full picture:",
-          "---",
-          "<b>The \\n / Python corruption bug \u2014 root cause + options</b>",
-          "<b>What's happening</b>",
-          "This is a known OpenClaw bug (#93139, filed by me on 20 Jun). The culprit is a Windows-path heuristic in `json-parse.ts` \u2014 a regex that tries to detect Windows drive letters like `C:` also matches Python block openers like `if x:`, `for x:`, `except Exception:`, `def foo():`. When it false-positives, the `\\n` after the colon gets emitted...",
-          "[15:09 IST] HADERACH: Good question \u2014 let me check if the beta or any recent release actually shipped the fix.",
-          "[15:10 IST] HADERACH: Perfect. PR not merged, fix not in 2026.6.11. Now I have everything I need \u2014 the exact patch is 3 lines. Let me apply it directly to our installed binary:",
-          "[15:11 IST] HADERACH: The `write` tool itself is mangling my `\\n` \u2014 which is the very bug we're patching. Let me use exec with a heredoc instead:",
-          "[15:11 IST] HADERACH: Patch works. Now document it so an OpenClaw update doesn't silently clobber it:",
           "[15:11 IST] HADERACH: No new version of Python involved \u2014 this is purely an OpenClaw bug. Here's the clean summary:",
           "---",
           "<b>Root cause, fix applied</b>",
@@ -1452,7 +1420,39 @@
           "[15:11 IST] HADERACH: No new version of Python involved \u2014 this is purely an OpenClaw bug. Here's the clean summary:",
           "---",
           "<b>Root cause, fix applied</b>",
-          "Not Python, not us. OpenClaw's JSON streaming parser has a heuristic to detect Windows file paths (`C:\\...`) in tool call payloads. The regex is too broad \u2014 it also matches Python block openers (`if x:`, `except:`, `def foo():`). When it fires, the `\\n` after the colon gets emitted as a literal backslash-n. Every Python script with control flow gets silently corr..."
+          "Not Python, not us. OpenClaw's JSON streaming parser has a heuristic to detect Windows file paths (`C:\\...`) in tool call payloads. The regex is too broad \u2014 it also matches Python block openers (`if x:`, `except:`, `def foo():`). When it fires, the `\\n` after the colon gets emitted as a literal backslash-n. Every Python script with control flow gets silently corr...",
+          "[15:24 IST] RAM: Do we not have a ProjHad for updates? Please update this in that ProjHad. Any sense in making a wiki out of the updates ProjHad? If so do it and capture all this there as flags/warnings etc. Also include a sections of learnings from past updates",
+          "[15:24 IST] HADERACH: HAD-049 \u2014 OpenClaw Update Management. Let me read its current state before touching anything.",
+          "[15:24 IST] HADERACH: Good. Now check existing LESSONS.md before touching it:",
+          "[15:24 IST] HADERACH: Good foundation. Now I know exactly what's there and what's missing. Let me do both tasks \u2014 update STATUS.md and build a wiki:",
+          "[15:25 IST] HADERACH: STATUS.md and LESSONS.md both need updates. And we're building a wiki. Let me do it all:",
+          "[15:25 IST] HADERACH: Now update LESSONS.md with the new lessons and patch library:",
+          "[15:26 IST] HADERACH: Also add the 1 Jul upgrade learnings to the cross-cutting lessons:",
+          "[15:26 IST] HADERACH: Now build the wiki \u2014 an `index.md` + individual topic pages:",
+          "[15:28 IST] HADERACH: Done. Here's what was built:",
+          "---",
+          "<b>HAD-049 updated + wiki built</b>",
+          "<b>STATUS.md updated with:</b>",
+          "<ul>",
+          "<li>New \"Active Known Issues\" table \u2014 #93139, #99305, #98062 with severity, status, workaround</li>",
+          "<li>New \"Local Patches Applied\" table \u2014 PATCH-001 with verify command and post-update gate instruction</li>",
+          "</ul>",
+          "<b>LESSONS.md updated with:</b>",
+          "<ul>",
+          "<li>Issues table restructured (resolved vs open, with #92974 correctly marked fixed-in-6.10)</li>",
+          "<li>Full upgrade history table added</l...",
+          "[15:29 IST] HADERACH: Done. Here's what was built:",
+          "---",
+          "<b>HAD-049 updated + wiki built</b>",
+          "<b>STATUS.md updated with:</b>",
+          "<ul>",
+          "<li>New \"Active Known Issues\" table \u2014 #93139, #99305, #98062 with severity, status, workaround</li>",
+          "<li>New \"Local Patches Applied\" table \u2014 PATCH-001 with verify command and post-update gate instruction</li>",
+          "</ul>",
+          "<b>LESSONS.md updated with:</b>",
+          "<ul>",
+          "<li>Issues table restructured (resolved vs open, with #92974 correctly marked fixed-in-6.10)</li>",
+          "<li>Full upgrade history table added</l..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1594,7 +1594,7 @@
       "frozen_reason": null,
       "pid": 95530,
       "rss_gb": 0.55,
-      "cpu": 1.1,
+      "cpu": 1.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,10 +1603,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.3,
-        "rolling_28day": 15.3,
-        "rolling_180day": 207.1
+        "transcript": 0.2,
+        "rolling_7day": 15.4,
+        "rolling_28day": 15.4,
+        "rolling_180day": 207.2
       },
       "skills": [
         "moltguard"
@@ -2285,7 +2285,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.6,
+      "rss_gb": 0.59,
       "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2294,10 +2294,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 15.3,
-        "rolling_28day": 15.3,
-        "rolling_180day": 39.3
+        "transcript": 0.0,
+        "rolling_7day": 15.4,
+        "rolling_28day": 15.4,
+        "rolling_180day": 39.4
       },
       "skills": [
         "academic-deep-research",
@@ -2445,6 +2445,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783159205072,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2469,15 +2478,6 @@
           "last_ts": 1783157411526,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783157411526,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2510,10 +2510,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Gari, context is at **52%** now. This session is getting long \u2014 time to start fresh! \ud83e\uddf6",
-          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[14:13 IST] GROUP-Ram: Check your mail pls",
-          "[14:13 IST] PURL: All Proton mail for purl_gari@proton.me \u2014 nothing new and nothing important. Just Proton system/promo emails and the old test email from June 20th. No real incoming mail.",
           "Inbox is clear, Ram. \ud83d\udced",
           "[14:13 IST] PURL: All Proton mail for purl_gari@proton.me \u2014 nothing new and nothing important. Just Proton system/promo emails and the old test email from June 20th. No real incoming mail.",
           "Inbox is clear, Ram. \ud83d\udced",
@@ -2549,7 +2545,11 @@
           "- **Bookmark:** Updated",
           "- No new Telegram activity (Gari's direct or Klub K group)",
           "Next run: 30 minutes (3:30 PM IST).",
-          "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
+          "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Transcript logger completed.** No new messages across any channels (Klub K group, Gari's direct Telegram, main session). Bookmark set to False. Output file: `transcript-2026-07-04.md`",
+          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: **Cron task completed successfully.**",
+          "Script ran without errors. No new messages in any of the three transcript streams (transcript, gari-transcript, group-transcript). All sessions processed; no bookmarks updated."
         ],
         "yesterday": [
           "[21:11 IST] GROUP-Garima: What is your recommendation",
@@ -3604,14 +3604,14 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 1.0,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.3,
+        "transcript": 0.0,
+        "rolling_7day": 16.4,
         "rolling_28day": 16.4,
         "rolling_180day": 16.4
       },
@@ -3775,7 +3775,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.8,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
