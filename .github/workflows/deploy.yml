@@ -27,4 +27,10 @@ jobs:
         with:
           path: '.'
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: Wandalen/wretry.action@v3
+        with:
+          action: actions/deploy-pages@v4
+          with: |
+            timeout: 600000
+          attempt_limit: 3
+          attempt_delay: 10000
