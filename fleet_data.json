@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 12:08:39 IST",
-  "generated_epoch": 1783147119,
+  "generated_ist": "2026-07-04 12:13:43 IST",
+  "generated_epoch": 1783147423,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.48 / 3.46 / 3.25",
+    "load": "3.21 / 3.22 / 3.18",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 1.06,
+      "rss_gb": 1.2,
       "cpu": 1.0,
       "crons_total": 85,
       "crons_enabled": 52,
@@ -46,9 +46,9 @@
       ],
       "memory": {
         "transcript": 0.1,
-        "rolling_7day": 12.1,
-        "rolling_28day": 12.1,
-        "rolling_180day": 12.1
+        "rolling_7day": 12.2,
+        "rolling_28day": 12.2,
+        "rolling_180day": 12.2
       },
       "skills": [
         "academic-deep-research",
@@ -646,6 +646,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783147337466,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783147227313,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783147227313,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783147227312,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -691,46 +727,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783146625857,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783146625856,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783146625856,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1783146183966,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783145522631,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1413,7 +1413,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Root cause:</b> Stale dist hash reference from an April update. After the upgrade, the cron store module (`store-CWhnH-Ye.js`) tried to import `cleanup-t6GOeWL3.js` which no longer existed in the new binary. The job had never run successfully since 30 Apr.",
           "<b>Fix:</b> Forced a manual run \u2014 it executed cleanly with the current binary (\u2705 status). Error st...",
           "[08:10 IST] HADERACH: Both fixed. Here's the diagnosis:",
           "---",
@@ -1452,7 +1451,8 @@
           "--- [TRANSCRIPT GAP: 11:00 IST \u2014 session empty for 160 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:20 IST \u2014 session empty for 180 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:40 IST \u2014 session empty for 200 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:53 IST \u2014 session empty for 213 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 11:53 IST \u2014 session empty for 213 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 12:10 IST \u2014 session empty for 230 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1593,8 +1593,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.55,
-      "cpu": 1.2,
+      "rss_gb": 0.56,
+      "cpu": 0.7,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,10 +1603,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 12.0,
-        "rolling_28day": 12.0,
-        "rolling_180day": 203.8
+        "transcript": 0.4,
+        "rolling_7day": 12.1,
+        "rolling_28day": 12.1,
+        "rolling_180day": 203.9
       },
       "skills": [
         "moltguard"
@@ -2285,8 +2285,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.59,
-      "cpu": 0.9,
+      "rss_gb": 0.6,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2294,10 +2294,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 12.0,
-        "rolling_28day": 12.0,
-        "rolling_180day": 36.0
+        "transcript": 0.2,
+        "rolling_7day": 12.1,
+        "rolling_28day": 12.1,
+        "rolling_180day": 36.1
       },
       "skills": [
         "academic-deep-research",
@@ -3604,16 +3604,16 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.3,
-        "rolling_7day": 13.0,
-        "rolling_28day": 13.0,
-        "rolling_180day": 13.0
+        "transcript": 0.1,
+        "rolling_7day": 13.1,
+        "rolling_28day": 13.1,
+        "rolling_180day": 13.1
       },
       "skills": [],
       "skills_detail": [],
@@ -3775,7 +3775,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
