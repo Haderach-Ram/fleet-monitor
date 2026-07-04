@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 15:16:42 IST",
-  "generated_epoch": 1783158402,
+  "generated_ist": "2026-07-04 15:21:46 IST",
+  "generated_epoch": 1783158706,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.50 / 3.42 / 3.47",
+    "load": "2.71 / 3.11 / 3.33",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7955,
-      "rss_gb": 1.08,
-      "cpu": 0.1,
+      "rss_gb": 1.15,
+      "cpu": 1.3,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -45,10 +45,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 15.2,
-        "rolling_28day": 15.2,
-        "rolling_180day": 15.2
+        "transcript": 0.0,
+        "rolling_7day": 15.3,
+        "rolling_28day": 15.3,
+        "rolling_180day": 15.3
       },
       "skills": [
         "academic-deep-research",
@@ -646,10 +646,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783158122914,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783158626385,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -658,16 +658,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783158024716,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783158024715,
+          "last_ts": 1783158626385,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,7 +667,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783158024715,
+          "last_ts": 1783158626384,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783158122914,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1417,17 +1417,6 @@
           "<li>Both sandwiched between successful runs \u2014 the one before and after each failure succeeded fine</li>",
           "</ul>",
           "The fail...",
-          "[14:24 IST] HADERACH: That's the full picture. Clean diagnosis:",
-          "---",
-          "<b>Fleet Monitor GitHub Pages failures \u2014 not a code issue</b>",
-          "The email you're seeing is a <i>transient GitHub Pages infrastructure blip</i>, not anything broken on our end.",
-          "Looking at the run history today:",
-          "<ul>",
-          "<li>19 of 20 runs today: \u2705 success</li>",
-          "<li>2 failures: #28700223953 (13:45 IST) and #28699402171 (13:09 IST)</li>",
-          "<li>Both sandwiched between successful runs \u2014 the one before and after each failure succeeded fine</li>",
-          "</ul>",
-          "The fail...",
           "[15:01 IST] RAM: Yes, only notify after consecutive failures",
           "[15:01 IST] HADERACH: [[reply_to_current]]",
           "[15:02 IST] HADERACH: So there's only one custom workflow \u2014 `deploy.yml`. The auto-refresh runs are triggered by the `push` event; something is pushing to main every 5 minutes. The workflow itself has no failure notification settings \u2014 those come from GitHub account-level email preferences. Let me add a concurrency/retry guard and check if there's a way to suppress single-failure emails:",
@@ -1452,7 +1441,18 @@
           "<b>The \\n / Python corruption bug \u2014 root cause + options</b>",
           "<b>What's happening</b>",
           "This is a known OpenClaw bug (#93139, filed by me on 20 Jun). The culprit is a Windows-path heuristic in `json-parse.ts` \u2014 a regex that tries to detect Windows drive letters like `C:` also matches Python block openers like `if x:`, `for x:`, `except Exception:`, `def foo():`. When it false-positives, the `\\n` after the colon gets emitted...",
-          "[15:09 IST] HADERACH: Good question \u2014 let me check if the beta or any recent release actually shipped the fix."
+          "[15:09 IST] HADERACH: Good question \u2014 let me check if the beta or any recent release actually shipped the fix.",
+          "[15:10 IST] HADERACH: Perfect. PR not merged, fix not in 2026.6.11. Now I have everything I need \u2014 the exact patch is 3 lines. Let me apply it directly to our installed binary:",
+          "[15:11 IST] HADERACH: The `write` tool itself is mangling my `\\n` \u2014 which is the very bug we're patching. Let me use exec with a heredoc instead:",
+          "[15:11 IST] HADERACH: Patch works. Now document it so an OpenClaw update doesn't silently clobber it:",
+          "[15:11 IST] HADERACH: No new version of Python involved \u2014 this is purely an OpenClaw bug. Here's the clean summary:",
+          "---",
+          "<b>Root cause, fix applied</b>",
+          "Not Python, not us. OpenClaw's JSON streaming parser has a heuristic to detect Windows file paths (`C:\\...`) in tool call payloads. The regex is too broad \u2014 it also matches Python block openers (`if x:`, `except:`, `def foo():`). When it fires, the `\\n` after the colon gets emitted as a literal backslash-n. Every Python script with control flow gets silently corr...",
+          "[15:11 IST] HADERACH: No new version of Python involved \u2014 this is purely an OpenClaw bug. Here's the clean summary:",
+          "---",
+          "<b>Root cause, fix applied</b>",
+          "Not Python, not us. OpenClaw's JSON streaming parser has a heuristic to detect Windows file paths (`C:\\...`) in tool call payloads. The regex is too broad \u2014 it also matches Python block openers (`if x:`, `except:`, `def foo():`). When it fires, the `\\n` after the colon gets emitted as a literal backslash-n. Every Python script with control flow gets silently corr..."
         ],
         "yesterday": [
           "[22:13 IST] HADERACH: All paths for multi-line string injection are failing. Let me try the simplest approach \u2014 write a tiny bootstrapper script that patches the CE section in-place using Python's file manipulation:",
@@ -1593,8 +1593,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.56,
-      "cpu": 0.3,
+      "rss_gb": 0.67,
+      "cpu": 0.7,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1603,10 +1603,10 @@
         "discord"
       ],
       "memory": {
-        "transcript": 0.4,
-        "rolling_7day": 15.2,
-        "rolling_28day": 15.2,
-        "rolling_180day": 206.9
+        "transcript": 0.0,
+        "rolling_7day": 15.3,
+        "rolling_28day": 15.3,
+        "rolling_180day": 207.0
       },
       "skills": [
         "moltguard"
@@ -1624,19 +1624,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783157711982,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783158606849,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783156806516,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783157711982,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2285,8 +2285,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95318,
-      "rss_gb": 0.6,
-      "cpu": 0.6,
+      "rss_gb": 0.59,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2294,10 +2294,10 @@
         "telegram"
       ],
       "memory": {
-        "transcript": 0.2,
-        "rolling_7day": 15.1,
-        "rolling_28day": 15.1,
-        "rolling_180day": 39.1
+        "transcript": 0.3,
+        "rolling_7day": 15.2,
+        "rolling_28day": 15.2,
+        "rolling_180day": 39.2
       },
       "skills": [
         "academic-deep-research",
@@ -3603,17 +3603,17 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95012,
-      "rss_gb": 0.44,
-      "cpu": 0.1,
+      "rss_gb": 0.43,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
       "channels": [],
       "memory": {
-        "transcript": 0.1,
-        "rolling_7day": 16.2,
-        "rolling_28day": 16.2,
-        "rolling_180day": 16.2
+        "transcript": 0.0,
+        "rolling_7day": 16.3,
+        "rolling_28day": 16.3,
+        "rolling_180day": 16.3
       },
       "skills": [],
       "skills_detail": [],
@@ -3775,7 +3775,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
