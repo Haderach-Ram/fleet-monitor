@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-04 23:55:29 IST",
-  "generated_epoch": 1783189529,
+  "generated_ist": "2026-07-05 00:00:36 IST",
+  "generated_epoch": 1783189836,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.06 / 3.13 / 3.07",
+    "load": "3.44 / 2.89 / 2.95",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 25643,
-      "rss_gb": 1.02,
-      "cpu": 1.6,
+      "rss_gb": 1.09,
+      "cpu": 5.0,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -641,6 +641,15 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783189810536,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -960,15 +969,6 @@
           "enabled": true,
           "sched": "0 7 * * *",
           "last_ts": 1783128695742,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783114210212,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1588,8 +1588,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.6,
-      "cpu": 1.6,
+      "rss_gb": 0.66,
+      "cpu": 0.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1614,6 +1614,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1783189820610,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783189820609,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1636,15 +1654,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1783186511692,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1783179007700,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1681,15 +1690,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1783117820430,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783114220684,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1751,6 +1751,19 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-07-05",
+          "# Self-healing rotation from transcript-2026-07-04.md at 00:00 IST",
+          "[22:52 IST] [DM] Giskard: Looking at the fleet monitors \u2014 two issues flagged. Let me dig in.",
+          "[22:53 IST] [DM] Giskard: Clear picture. Two distinct issues:",
+          "---",
+          "**Issue 1 \u2014 Purl: No MEMORY_WRITE in >48h**",
+          "**Cause:** Cron job `4b8da4aa` (Klub K Transcript Logger) is failing with `Cron tool is restricted to the current cron job`. The cron is trying to call `cron.wake` and `cron.run` with external `gatewayUrl`/`gatewayToken` params \u2014 which OpenClaw's restricted cron sandbox now blocks. This started failing on 2026-07-03 00:04. Additionally, there's a secondary error: it's trying to read `memory/2026-07-04.md` (old",
+          "[22:53 IST] [DM] Giskard: Clear picture. Two distinct issues:",
+          "---",
+          "**Issue 1 \u2014 Purl: No MEMORY_WRITE in >48h**",
+          "**Cause:** Cron job `4b8da4aa` (Klub K Transcript Logger) is failing with `Cron tool is restricted to the current cron job`. The cron is trying to call `cron.wake` and `cron.run` with external `gatewayUrl`/`gatewayToken` params \u2014 which OpenClaw's restricted cron sandbox now blocks. This started failing on 2026-07-03 00:04. Additionally, there's a secondary error: it's trying to read `memory/2026-07-04.md` (old"
+        ],
+        "yesterday": [
           "[18:44 IST] [DM] Giskard: Two config changes for Haderach. Let me check current state first.",
           "[18:45 IST] [DM] Giskard: Let me write the script properly:",
           "[18:45 IST] [DM] Giskard: Current state confirmed:",
@@ -1791,25 +1804,6 @@
           "- \u2705 Config valid (JSON)",
           "- \u2705 Haderach restarted and healthy (200)",
           "- \u2705 Snapshot updated"
-        ],
-        "yesterday": [
-          "# Transcript - 2026-07-03",
-          "# Self-healing rotation from transcript-2026-07-02.md at 00:00 IST",
-          "[21:39 IST] [DM] Giskard: [[reply_to_current]]",
-          "Already done \u2014 updated at 15:31 IST today.",
-          "`fleet-monitor-state.json` has all 7 in the `frozen` registry with dates and reasons. They're showing as \u23f8 in reports, not as errors. The stale-transcript and frozen-cron alerts for Herbie, Sam, CA-SMEDA-II, Medical are the remaining noise \u2014 I'll suppress those too since their crons are intentionally disabled.",
-          "[21:39 IST] [DM] Giskard: Done. All 7 frozen agents now have `suppressTranscriptAlerts` and `suppressCronAlerts` set. Next heartbeat report will show them as \u23f8 stasis only \u2014 no stale-transcript warnings, no frozen-cron alerts for any of them.",
-          "[21:40 IST] [DM] Giskard: Done. All 7 frozen agents now have `suppressTranscriptAlerts` and `suppressCronAlerts` set. Next heartbeat report will show them as \u23f8 stasis only \u2014 no stale-transcript warnings, no frozen-cron alerts for any of them.",
-          "[22:07 IST] [DM] Giskard: You're right \u2014 the 22:05 report still shows Herbie, Sam, CA-SMEDA-II, Medical as ISSUES instead of FROZEN. The `fleet-monitor-state.json` was updated but my heartbeat script isn't reading the `frozen` registry for those agents yet. Let me check the heartbeat code:",
-          "[22:07 IST] [DM] Giskard: The heartbeat monitor is the \"Fleet Transcript Monitor\" cron. Let me find its actual script to see how it reads the frozen list:",
-          "[22:07 IST] [DM] Giskard: Found it. The monitor reads a separate `FROZEN_AGENTS` list \u2014 let me see exactly how it's defined:",
-          "[22:08 IST] [DM] Giskard: The monitor reads from `paused_agents.json` \u2014 a separate file from `fleet-monitor-state.json`. That's why the changes I made earlier had no effect on the live monitor. Let me check what's currently in that file and update it:",
-          "[22:08 IST] [DM] Giskard: There it is \u2014 `paused_agents.json` only has 3 entries (Kubera, CISO, Legal). The 4 new ones (Herbie, Sam, Medical, CA-SMEDA-II) were never added. Let me also check how `load_paused_registry` reads it \u2014 it uses dict keyed by name:",
-          "[22:08 IST] [DM] Giskard: Now I have the full picture. Adding all 4 missing agents to `paused_agents.json`:",
-          "[22:08 IST] [DM] Giskard: All 7 now in `paused_agents.json`. Next heartbeat (23:05 IST) will suppress all transcript-stale, frozen-cron, and health alerts for all of them and show them only in the \u23f8 FROZEN section.",
-          "The root cause: I was updating `fleet-monitor-state.json` which is a state-tracking file, not the registry the monitor actually reads. The live monitor reads `paused_agents.json` exclusively. Fixed.",
-          "[22:08 IST] [DM] Giskard: All 7 now in `paused_agents.json`. Next heartbeat (23:05 IST) will suppress all transcript-stale, frozen-cron, and health alerts for all of them and show them only in the \u23f8 FROZEN section.",
-          "The root cause: I was updating `fleet-monitor-state.json` which is a state-tracking file, not the registry the monitor actually reads. The live monitor reads `paused_agents.json` exclusively. Fixed."
         ],
         "rolling_7day": [
           "- Applied fixes: removed orphaned `google` provider, added `input` to 7 models, patched 11 unguarded `.includes()` calls in dist JS files",
@@ -2323,7 +2317,7 @@
       "frozen_reason": null,
       "pid": 95318,
       "rss_gb": 0.6,
-      "cpu": 1.2,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3599,7 +3593,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.9,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3765,7 +3759,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.8,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3795,7 +3789,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.9,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
