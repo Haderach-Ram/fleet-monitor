@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 22:48:57 IST",
-  "generated_epoch": 1783271937,
+  "generated_ist": "2026-07-05 22:54:04 IST",
+  "generated_epoch": 1783272244,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.04 / 3.77 / 3.71",
+    "load": "4.45 / 4.27 / 3.99",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 1.01,
-      "cpu": 0.8,
-      "crons_total": 88,
-      "crons_enabled": 55,
+      "rss_gb": 0.99,
+      "cpu": 0.3,
+      "crons_total": 89,
+      "crons_enabled": 56,
       "skills_count": 59,
       "channels": [
         "telegram",
@@ -641,19 +641,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783271478543,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783271424978,
+          "last_ts": 1783272025429,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +653,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783271424978,
+          "last_ts": 1783272025429,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783271424977,
+          "last_ts": 1783272025428,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783271478543,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1109,6 +1109,15 @@
           "kind": "systemEvent"
         },
         {
+          "name": "Kill-switch: market.db backfill (PID 12985)",
+          "enabled": true,
+          "sched": "one-shot",
+          "last_ts": null,
+          "last_status": null,
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "NHB RESIDEX + Trend & Progress Monthly Refresh",
           "enabled": true,
           "sched": "0 3 1 * *",
@@ -1435,16 +1444,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[22:00 IST] RAM: Update the ProjHad and the relevant md files pls. Should we start a new session or will you compact this one and we can keep going?",
-          "[22:05 IST] RAM: Check ProjHad SAK-008 and see where we got up till, and discuss",
-          "[22:05 IST] HADERACH: **Session mode?**",
-          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "[22:06 IST] HADERACH: **Session mode?**",
-          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
           "[22:13 IST] RAM: C",
           "[22:18 IST] HADERACH: Right, here's where SAK-008 stands, Ram.",
           "<b>Where we got to (all as of today, 5 Jul)</b>",
@@ -1474,7 +1473,17 @@
           "[22:33 IST] HADERACH: That worked. Let me try building the actual script in /tmp first (smaller footprint risk), then copy it into place.",
           "[22:36 IST] HADERACH: That worked when content came first. Let me now write the full script with content-first ordering.",
           "[22:37 IST] HADERACH: Let me be very deliberate and build this script through exec with a Python heredoc instead, which has worked reliably.",
-          "[22:38 IST] HADERACH: Good, exec works when I provide the parameter directly. Let me build the ingestion script using exec + Python heredoc to write the file, avoiding the write tool's apparent flakiness with large content in this turn."
+          "[22:38 IST] HADERACH: Good, exec works when I provide the parameter directly. Let me build the ingestion script using exec + Python heredoc to write the file, avoiding the write tool's apparent flakiness with large content in this turn.",
+          "[22:39 IST] HADERACH: It seems parallel/multi-tool-call blocks are occasionally dropping parameters. Let me proceed with single, isolated calls from here.",
+          "[22:40 IST] HADERACH: Now let me write the actual full ingestion script with real content in a single deliberate call.",
+          "[22:41 IST] HADERACH: I'll write the script now with the full content included directly.",
+          "[22:42 IST] HADERACH: Good, that worked. Let me try write again now.",
+          "[22:43 IST] HADERACH: Good, that heredoc approach works reliably. Let me continue building the script in parts.",
+          "[22:47 IST] RAM: Done?",
+          "[22:49 IST] HADERACH: Not done yet \u2014 I got interrupted mid-build. Let me pick this up and finish assembling the ingestion script.",
+          "[22:49 IST] HADERACH: Good, all three parts survived. Now let me write part 4 (main/backfill/CLI logic) and then assemble the full file.",
+          "[22:49 IST] HADERACH: Now let's assemble all parts into the final script and verify it parses/runs correctly.",
+          "[22:49 IST] HADERACH: Now let's do a real test run \u2014 backfill last few trading days to validate end-to-end."
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1615,8 +1624,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.59,
-      "cpu": 1.1,
+      "rss_gb": 0.56,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2373,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.53,
-      "cpu": 0.9,
+      "cpu": 4.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3649,8 +3658,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95012,
-      "rss_gb": 0.41,
-      "cpu": 0.4,
+      "rss_gb": 0.42,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3795,7 +3804,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3825,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
