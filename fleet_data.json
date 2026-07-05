@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 22:08:04 IST",
-  "generated_epoch": 1783269484,
+  "generated_ist": "2026-07-05 22:13:11 IST",
+  "generated_epoch": 1783269791,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.26 / 3.15 / 3.09",
+    "load": "2.50 / 2.90 / 3.00",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 1.03,
-      "cpu": 0.7,
+      "rss_gb": 1.02,
+      "cpu": 0.5,
       "crons_total": 88,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783269688280,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783269625035,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783269625035,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783269625034,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -654,42 +690,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1783269204714,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783269025062,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783269025062,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783269025061,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783267879132,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1435,15 +1435,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:36 IST] HADERACH: This looks correctly structured \u2014 standard pandoc HTML5, nav bar injected, custom CSS linked. Good to send.",
-          "[21:36 IST] HADERACH: Yes \u2014 wiki's done, and Kubera's cheat sheet now points to it (its old file is a one-paragraph redirect to the index rather than a duplicate).",
-          "I've rendered it as HTML too \u2014 5 pages with a nav bar and simple styling (Sammaan navy headers, clean tables). Attached below: index + the 4 DB pages. Open <code>index.html</code> first and click through.",
-          "Source stays in markdown at <code>projects/sak-008-data-warehouse/wiki/</code> \u2014 that's what the nightly cron actually updates. These HTML files are...",
-          "[21:36 IST] HADERACH: HTML sends are blocked by the host media policy for that location. Let me zip it into an archive instead \u2014 that's allowed.",
-          "[21:37 IST] HADERACH: martin-wiki-html.zip",
-          "[21:37 IST] HADERACH: That went through. The zip with all 5 HTML pages + stylesheet has been delivered \u2014 unzip locally and open `index.html` to browse the wiki with clickable navigation.",
-          "[21:37 IST] HADERACH: That went through. The zip with all 5 HTML pages + stylesheet has been delivered \u2014 unzip locally and open `index.html` to browse the wiki with clickable navigation.",
-          "[21:40 IST] RAM: What is this host media policy?",
           "[21:41 IST] HADERACH: This doc explains general file-safety infra, not the specific media-type gate I hit. Let me check the config schema for the actual policy that restricts local media sends by MIME type/path.",
           "[21:42 IST] HADERACH: It's a safety gate baked into OpenClaw's local-file-to-chat pathway (not something I configured) \u2014 governs what file types the gateway will ship from disk into a chat attachment when the \"sender\" is the host filesystem rather than a fetched URL.",
           "The rule: local files sent to a channel are only allowed through if they're one of \u2014 image, audio, video, PDF, Office doc, archive (zip etc.), or \"validated plain-text.\" Plain HTML doesn't make that list by default, because HTML can contain scripts/a...",
@@ -1474,7 +1465,16 @@
           "[21:52 IST] HADERACH: All three now scoped with live source-checking (same diligence as the NHB/SEBI build). Good news: no paid subscriptions needed for any of the three \u2014 everything below is free official-source or free aggregator access. \"Cost\" is really just build-time/token cost.",
           "<b>1. macro.db \u2014 MOSPI (CPI/WPI/IIP/GDP)</b>",
           "Official REST API exists (<code>api.mospi.gov.in</code>), stood up this year. CPI has a documented flow: signup once \u2192 15-min access token \u2192 <code>getCPIIndex</code>/<code>getItemIndex</c...",
-          "[22:00 IST] RAM: Update the ProjHad and the relevant md files pls. Should we start a new session or will you compact this one and we can keep going?"
+          "[22:00 IST] RAM: Update the ProjHad and the relevant md files pls. Should we start a new session or will you compact this one and we can keep going?",
+          "[22:05 IST] RAM: Check ProjHad SAK-008 and see where we got up till, and discuss",
+          "[22:05 IST] HADERACH: **Session mode?**",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "[22:06 IST] HADERACH: **Session mode?**",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)"
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1615,8 +1615,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.56,
-      "cpu": 1.2,
+      "rss_gb": 0.57,
+      "cpu": 0.6,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2373,7 +2373,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.52,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3650,7 +3650,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.41,
-      "cpu": 0.6,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3825,7 +3825,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.8,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
