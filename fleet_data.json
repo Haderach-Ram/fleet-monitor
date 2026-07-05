@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 11:18:20 IST",
-  "generated_epoch": 1783230500,
+  "generated_ist": "2026-07-05 11:23:27 IST",
+  "generated_epoch": 1783230807,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.42 / 3.34 / 3.28",
+    "load": "2.93 / 3.10 / 3.18",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 81152,
-      "rss_gb": 0.52,
-      "cpu": 1.6,
+      "rss_gb": 0.59,
+      "cpu": 2.6,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -641,19 +641,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783230095403,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783230025721,
+          "last_ts": 1783230629295,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +653,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783230025721,
+          "last_ts": 1783230629295,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783230025720,
+          "last_ts": 1783230629294,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783230095403,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1408,11 +1408,6 @@
       ],
       "transcripts": {
         "recent": [
-          "This is a **network-level connectivity blip** \u2014 the home WiFi briefly lost routing to Telegram's servers around 02:36 IST. My gateway recovered because it had an existing live connection; Giskard's polling failed hard and the health monitor couldn't revive it.",
-          "[10:40 IST] HADERACH: Network is fine now \u2014 Telegram is fully reachable. Giskard just needs a gateway restart to clear the stuck transport. Please relay to Giskard:",
-          "---",
-          "**Giskard \u2014 please restart your gateway:**",
-          "```",
           "launchctl kickstart -k gui/$UID/ai.openclaw.giskard",
           "```",
           "Home WiFi had a brief routing failure to Telegram's servers at 02:36 IST \u2014 your polling failed hard and the health monitor couldn't recover it (40+ attempts, all hitting the same dead state). Network is fine now. A restart will bring Telegram ...",
@@ -1447,7 +1442,12 @@
           "<ul>",
           "<li><b>Bedrock-only issue</b> \u2014 direct <code>anthropic/claude-sonnet-5</code> caches fine; only <code>amazon-bedrock/global.anthropic.claude-sonnet-5</code> is broken</li>",
           "<li><b>Nudge posted</b> on #99305, tagging steipete (he's already assigned to the Sonnet 5 PR #98254 which is the natural fix vehicle)</li>",
-          "<li><b>Fix is trivial</b> \u2014 one line in <code>bedrock-options.ts</code>; ClawSweeper already identified the exact location. If steipete picks it up for #98254 it co..."
+          "<li><b>Fix is trivial</b> \u2014 one line in <code>bedrock-options.ts</code>; ClawSweeper already identified the exact location. If steipete picks it up for #98254 it co...",
+          "[11:10 IST] RAM: Why can\u2019t we make the fix ourself?",
+          "[11:10 IST] HADERACH: We can \u2014 the fix is literally one line. Let me do it.",
+          "[11:13 IST] HADERACH: Found it \u2014 the compiled plugin files are at `~/.openclaw/npm/projects/openclaw-amazon-bedrock-provider-*/`.",
+          "[11:13 IST] HADERACH: There it is \u2014 exactly as ClawSweeper said. The fix is adding one line for `claude-sonnet-5`. Let me back up and patch:",
+          "[11:13 IST] HADERACH: Patch is in. Now restart the gateway to load it:"
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1588,8 +1588,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.47,
-      "cpu": 1.5,
+      "rss_gb": 0.51,
+      "cpu": 1.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1614,19 +1614,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783229717046,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783230607369,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783228812005,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783229717046,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2322,8 +2322,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 77940,
-      "rss_gb": 0.5,
-      "cpu": 0.5,
+      "rss_gb": 0.51,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3600,7 +3600,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.2,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3745,7 +3745,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.5,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3775,7 +3775,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.2,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
