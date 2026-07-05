@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 15:08:49 IST",
-  "generated_epoch": 1783244329,
+  "generated_ist": "2026-07-05 15:13:55 IST",
+  "generated_epoch": 1783244635,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.84 / 2.75 / 2.93",
+    "load": "2.77 / 2.87 / 2.93",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -33,9 +33,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 83981,
+      "rss_gb": 0.84,
+      "cpu": 0.0,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783244478523,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783244425770,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783244425769,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783244425769,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -663,42 +699,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1783243859190,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783243827071,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783243827071,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783243827070,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783242678149,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1408,7 +1408,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:32 IST] HADERACH: Short answer: the big one (network outage) already fixed itself; two loose ends remain \u2014 one I can fix now with your OK, one I can't reach from here.",
           "<b>1. The network outage \u2014 already resolved, no action needed</b>",
           "It cleared on its own at 10:12 IST. I checked the run history for the short-interval crons (10-30 min) and they've been green since ~10:48 IST \u2014 they self-healed automatically once connectivity returned.",
           "<b>2. The daily-cadence crons \u2014 technically still \"broken\" but only because...",
@@ -1447,7 +1446,8 @@
           "<b>What really happened (this run, 12:20 IST today):</b>",
           "1. Grok-4.3 ran the script via <code>exec</code> \u2014 script succeeded cleanly (\"No new messages, no bookmark needed. All sessions processed.\")",
           "2. Grok then made an <b>unprompted second tool call</b> to <co...",
-          "--- [TRANSCRIPT GAP: 14:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 14:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 15:10 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1589,7 +1589,7 @@
       "frozen_reason": null,
       "pid": 79454,
       "rss_gb": 0.58,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2346,7 +2346,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.53,
-      "cpu": 0.4,
+      "cpu": 2.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3623,7 +3623,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.4,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3768,7 +3768,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3798,7 +3798,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.9,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
