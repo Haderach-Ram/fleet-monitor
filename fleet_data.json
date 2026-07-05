@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 10:17:05 IST",
-  "generated_epoch": 1783226825,
+  "generated_ist": "2026-07-05 10:22:10 IST",
+  "generated_epoch": 1783227130,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.60 / 4.14 / 4.32",
+    "load": "3.61 / 3.85 / 4.14",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 25643,
-      "rss_gb": 1.18,
-      "cpu": 1.3,
+      "rss_gb": 1.31,
+      "cpu": 15.2,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -641,6 +641,15 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783227116009,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -699,15 +708,6 @@
           "enabled": true,
           "sched": "*/10 6-23 * * *",
           "last_ts": 1783223510126,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783223506738,
           "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1409,7 +1409,30 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-07-05",
-          "# Self-healing rotation from transcript-2026-07-04.md at 00:02 IST"
+          "# Self-healing rotation from transcript-2026-07-04.md at 00:02 IST",
+          "[06:33 IST] RAM: Why is it updating again? It had already updated yesterday!",
+          "[10:15 IST] HADERACH: The RBI Watcher cron runs on a schedule and checks the RBI website each time \u2014 it doesn't track *which* updates it has already reported. So if the same 01 Jul 2026 amendments are still showing as \"new\" on the RBI site (they don't disappear after the first day), the watcher picks them up again on the next run.",
+          "The fix is to add a **seen-items cache** \u2014 the cron should store the IDs/URLs of updates it's already reported, and skip anything already in the cache on subsequent runs. Without that, ...",
+          "[10:15 IST] HADERACH: The RBI Watcher cron runs on a schedule and checks the RBI website each time \u2014 it doesn't track *which* updates it has already reported. So if the same 01 Jul 2026 amendments are still showing as \"new\" on the RBI site (they don't disappear after the first day), the watcher picks them up again on the next run.",
+          "The fix is to add a **seen-items cache** \u2014 the cron should store the IDs/URLs of updates it's already reported, and skip anything already in the cache on subsequent runs. Without that, ...",
+          "[10:19 IST] RAM: You there?",
+          "[10:19 IST] HADERACH: Right here, Ram. What do you need?",
+          "[10:19 IST] RAM: You are not responding on Telegram. What\u2019s wrong?",
+          "[10:19 IST] HADERACH: Let me check immediately.",
+          "[10:20 IST] HADERACH: Gateway is up. Let me check the Telegram bot status:",
+          "[10:20 IST] HADERACH: Found it. Telegram had a transport stall \u2014 it was rebuilding at 10:15 IST and drained 16 pending messages at that point. The gateway itself was live throughout; it was specifically the Telegram polling connection that went stale and needed a rebuild.",
+          "Discord is showing `EHOSTUNREACH` errors (the block is back), but that's a separate issue.",
+          "**Status now:** Telegram reconnected at 10:15 IST and is active \u2014 you're getting this reply. The 16 queued messages should have come through.",
+          "**Discord:...",
+          "[10:20 IST] RAM: Mullvad is off",
+          "[10:20 IST] HADERACH: That's likely the cause then. Discord needs Mullvad on to reach its servers from this network (same block as Telegram was experiencing).",
+          "Two options:",
+          "<b>Quick fix:</b> Turn Mullvad on \u2014 Discord reconnects automatically within seconds.",
+          "<b>Leave it off:</b> Discord stays down, but Telegram is working fine now, so you're not blocked on anything.",
+          "Want me to do anything else while you're here?",
+          "[10:21 IST] RAM: No. I\u2019ll chat with you on Telegram",
+          "[10:21 IST] HADERACH: Perfect. See you there.",
+          "[10:21 IST] RAM: Yes pls"
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1550,7 +1573,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 95530,
-      "rss_gb": 0.58,
+      "rss_gb": 0.67,
       "cpu": 0.2,
       "crons_total": 15,
       "crons_enabled": 13,
@@ -2278,8 +2301,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 77940,
-      "rss_gb": 0.45,
-      "cpu": 2.2,
+      "rss_gb": 0.47,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3556,7 +3579,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3577,6 +3600,9 @@
       ],
       "transcripts": {
         "recent": [
+          "# Chet Transcript \u2014 2026-07-05"
+        ],
+        "yesterday": [
           "# Chet Transcript \u2014 2026-07-04",
           "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-07-04.",
           "MANDATORY STARTUP:",
@@ -3599,30 +3625,6 @@
           "[08:32 IST] CHET: **File:** `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-04.md`",
           "**Lines:** 20 | **First line:** `# Daily Brief \u2014 2026-07-04`",
           "**Changed Since Yesterday:** A complete three-track hold \u2014 the first total-freeze day since daily brief tracking began (June 19), ending an exceptionally active two-week period with no new entrants, no positional shifts, and no fresh content surfacing for Sammaan Capital, RBI, or AI."
-        ],
-        "yesterday": [
-          "# Chet Transcript \u2014 2026-07-03",
-          "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-07-03.",
-          "MANDATORY STARTUP:",
-          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
-          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
-          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
-          "{",
-          "  \"scl\": [",
-          "    {",
-          "      \"title\": \"Sammaan Capital Limited\",",
-          "      \"url\": \"https://sammaancapital.com/\",",
-          "      \"snippet\": \"\"",
-          "    },",
-          "    {",
-          "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
-          "     ...",
-          "[08:30 IST] CHET: Now let me fetch the actual page content from the key URLs since the snippets are all empty.",
-          "[08:31 IST] CHET: Now let me write the brief based on all the fetched data",
-          "[08:32 IST] CHET: Now let me verify the write",
-          "[08:32 IST] CHET: **File:** `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-03.md`  ",
-          "**Lines:** 20  ",
-          "**Changed since yesterday:** Alibaba's SkillWeaver debuts as the third major AI agent-orchestration launch this week, RBI's id=12942 gets a July 1 revision date bump, and Sammaan Capital's post-IHC identity solidifies with the bank-license aspiration explicitly dropped."
         ],
         "rolling_7day": [
           "- 09:35 IST: Weekly Memory Self-Audit 2026-06-29 produced (self-audit-2026-06-29.md); 1/5 fully correct, 3/5 partial, 1/5 failed",
@@ -3752,7 +3754,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
