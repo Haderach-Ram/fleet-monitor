@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 23:40:04 IST",
-  "generated_epoch": 1783275004,
+  "generated_ist": "2026-07-05 23:45:10 IST",
+  "generated_epoch": 1783275310,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.27 / 3.57 / 3.78",
+    "load": "3.47 / 3.47 / 3.66",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 1.02,
-      "cpu": 1.6,
+      "rss_gb": 1.07,
+      "cpu": 141.9,
       "crons_total": 89,
       "crons_enabled": 56,
       "skills_count": 59,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783274425418,
+          "sched": "every 30m",
+          "last_ts": 1783275079475,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,7 +653,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783274425418,
+          "last_ts": 1783275023903,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783275023901,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,16 +671,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783274425417,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783273278748,
+          "last_ts": 1783275023901,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1444,19 +1444,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[23:12 IST] HADERACH: Now let's write the market.md wiki page following this pattern.",
-          "[23:12 IST] HADERACH: Now update the wiki index to mark market.db as Live and link the page.",
-          "[23:13 IST] RAM: Done? What about the ~23:00 consolidation?",
-          "[23:14 IST] RAM: And, check this which one of the other agents reported: Call money data is only current to 15 Apr 2026 \u2014 May 2026 WSS bulletin hasn't been ingested into Martin yet",
-          "[23:15 IST] HADERACH: Right \u2014 to be precise about what's now sitting in `market.db`, Ram:",
-          "<b>What it is</b>",
-          "Daily official NSE trading data (\"bhavcopy\") for two segments, backfilled from 8 July 2024 (when NSE switched to the current UDiFF format) through to yesterday, 3 July 2026 \u2014 491 trading days, holidays/weekends correctly excluded.",
-          "<ul>",
-          "<li><b>Equity (CM segment)</b> \u2014 every listed security on NSE mainboard, one row per stock per day: open/high/low/close, previous close, total volume, total traded value, nu...",
-          "[23:15 IST] HADERACH: Right \u2014 to be precise about what's now sitting in `market.db`, Ram:",
-          "<b>What it is</b>",
-          "Daily official NSE trading data (\"bhavcopy\") for two segments, backfilled from 8 July 2024 (when NSE switched to the current UDiFF format) through to yesterday, 3 July 2026 \u2014 491 trading days, holidays/weekends correctly excluded.",
-          "<ul>",
           "<li><b>Equity (CM segment)</b> \u2014 every listed security on NSE mainboard, one row per stock per day: open/high/low/close, previous close, total volume, total traded value, nu...",
           "[23:16 IST] HADERACH: Right \u2014 the 23:00 IST consolidation cron already ran and finished cleanly at 23:04:35 IST (status: ok, `NO_REPLY`). It picked up the day's transcript, wrote whatever was needed to the daily log, and completed before the market.db work I've been narrating even started (that all happened after 23:11). So no conflict \u2014 it ran on schedule, and nothing from tonight's market.db session was missed since it hadn't happened yet at run time. Tonight's work will get picked up by tomorrow's consolidation...",
           "[23:16 IST] HADERACH: Right \u2014 the 23:00 IST consolidation cron already ran and finished cleanly at 23:04:35 IST (status: ok, `NO_REPLY`). It picked up the day's transcript, wrote whatever was needed to the daily log, and completed before the market.db work I've been narrating even started (that all happened after 23:11). So no conflict \u2014 it ran on schedule, and nothing from tonight's market.db session was missed since it hadn't happened yet at run time. Tonight's work will get picked up by tomorrow's consolidation...",
@@ -1483,7 +1470,20 @@
           "[23:25 IST] HADERACH: Progress steady, several editions still left (Oct/Nov 2025, Apr/May/Jun 2026, plus a scan for July). Let it continue.",
           "[23:26 IST] HADERACH: Good \u2014 729 rows backfilled, call money coverage now runs through 15 May 2026 (up from 15 April). Let's check if a newer (July) edition has published yet, which would push it further.",
           "[23:26 IST] HADERACH: No newer edition published yet (July WSS bulletin typically lands late July) \u2014 15 May 2026 is the best achievable right now for call money. Now let's do the systematic staleness sweep Ram asked for across all Martin DBs.",
-          "[23:27 IST] HADERACH: `filing_catalogue` is supposed to update daily but shows max date 1 May \u2014 and I saw its cron flagged `\"error\"` in the earlier list. Let's check it."
+          "[23:27 IST] HADERACH: `filing_catalogue` is supposed to update daily but shows max date 1 May \u2014 and I saw its cron flagged `\"error\"` in the earlier list. Let's check it.",
+          "[23:39 IST] RAM: Check tail of transcript. This was your last message:",
+          "**",
+          "Fixed: call money data",
+          "**",
+          "Root cause confirmed \u2014 the Friday WSS ingest script never had a call-money parser (only forex). Wrote` ingest\\_call\\_money\\_precise(), ` wired it into the backfill loop, ran it:** 729 new rows **added across 9 editions. Both tables now current to** 15 May 2026 **(up from 15 April). Can't go further \u2014 RBI hasn't published the July bulletin yet (checked live, nothing past base ID 24278); will self-heal further o...",
+          "[23:39 IST] HADERACH: **Session mode?**",
+          "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "**X** \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "[23:39 IST] HADERACH: **Session mode?**",
+          "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "**X** \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)"
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1624,8 +1624,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.61,
-      "cpu": 0.8,
+      "rss_gb": 0.57,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1649,6 +1649,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-watchdog-23",
+          "enabled": true,
+          "sched": "40 23 * * *",
+          "last_ts": 1783275007491,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-consolidation-23",
           "enabled": true,
@@ -1735,15 +1744,6 @@
           "enabled": true,
           "sched": "5 0 * * *",
           "last_ts": 1783190186589,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-watchdog-23",
-          "enabled": true,
-          "sched": "40 23 * * *",
-          "last_ts": 1783188607281,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.54,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3659,7 +3659,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.41,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3804,7 +3804,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
