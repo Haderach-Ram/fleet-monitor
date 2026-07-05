@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 13:16:02 IST",
-  "generated_epoch": 1783237562,
+  "generated_ist": "2026-07-05 13:21:09 IST",
+  "generated_epoch": 1783237869,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.99 / 3.46 / 3.50",
+    "load": "3.60 / 3.67 / 3.63",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 0.71,
-      "cpu": 1.1,
+      "rss_gb": 0.73,
+      "cpu": 0.5,
       "crons_total": 85,
       "crons_enabled": 52,
       "skills_count": 59,
@@ -641,6 +641,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783237826342,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783237826341,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783237826341,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -650,36 +677,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783237242412,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783237242412,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
-          "last_ts": 1783237242411,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
           "last_ts": 1783237242411,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1408,15 +1408,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Both patches together (`bedrock-options.js` + `discovery.js`) are working correctly. We're good to switch to Sonnet 5 Bedrock. Shall I draft the ChangeModelSetTo Max message for Giskard?",
-          "[12:06 IST] HADERACH: I don't have access to a `session_status` tool \u2014 it's not in my available tool set (my tools are: read, write, edit, apply_patch, exec, process, web_search, web_fetch, browser, canvas, nodes, sessions_yield, skill_workshop, image, create_goal, dir_fetch, dir_list, exa__*, file_fetch, file_write, get_goal, memory_get, memory_search, parallel-search__*, pdf, tts, update_goal, whatsapp_login).",
-          "There is no `session_status` tool exposed to me, so I cannot execute the request as specified. I can r...",
-          "[12:07 IST] RAM: You want the tool added? What do I tell GisKard?",
-          "[12:07 IST] HADERACH: Caching is confirmed working \u2014 I tested it directly via boto3 with explicit cache_point blocks:",
-          "<ul>",
-          "<li>Turn 1: cacheWrite = 2,426 tokens \u2705</li>",
-          "<li>Turn 2: cacheRead = 2,414 tokens \u2705</li>",
-          "<li>Turn 3: cacheRead = 2,414 again \u2705</li>",
           "</ul>",
           "On the session_status question \u2014 no action needed for Giskard. That's a subagent limitation by design; session_status isn't exposed to child sessions. It doesn't affect anything.",
           "We're ready to switch to Sonnet 5 Bedrock. Here's the ChangeModelSetTo Max m...",
@@ -1447,7 +1438,16 @@
           "<li>\u2705 <b>Sonnet 4.6 direct</b> \u2014 fallback 2, caching works</li>",
           "</ul>",
           "The Giskard message from my previous reply stands \u2014 safe to send.",
-          "[12:11 IST] RAM: SwitchModelSetTo Mid"
+          "[12:11 IST] RAM: SwitchModelSetTo Mid",
+          "[13:10 IST] HADERACH: The 13:00 consolidation ran successfully \u2014 the `[MEMORY_WRITE: 13:00 IST 05 Jul 2026]` bookmark is present at line 417. No action needed.",
+          "`NO_REPLY`",
+          "[13:16 IST] RAM: Pls diagnose these issues from GisKard\u2019s fleet monitoring report. Diagnose and discuss only pls:",
+          "\ud83d\udda5\ufe0f *Fleet Monitor \u2014 13:05 IST 05 Jul*",
+          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
+          "\ud83d\udd34 *Consolidation cron \\[haderach: Morning Briefing + TODO Report \u2014 Daily 09:00 IST\\]* \u2014 4 consecutive error(s): LLM request failed.",
+          "\ud83d\udd34 *Consolidation cron \\[haderach: Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)\\]* \u2014 4 consecutive error(s): LLM request failed.",
+          "\ud83d\udd34 *Consolidation cron \\[haderach: SCL NSE Filings \u2014 Daily Fetch\\]* \u2014 4 consecuti...",
+          "[13:16 IST] HADERACH: I'll dig into the actual failure signatures before drawing conclusions \u2014 this pattern (near-universal \"LLM request failed\" across three separate agents/gateways) smells systemic, not per-cron."
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1588,8 +1588,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.54,
-      "cpu": 0.6,
+      "rss_gb": 0.67,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1614,10 +1614,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "giskard-consolidation-13",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783236911646,
+          "sched": "20 13 * * *",
+          "last_ts": 1783237846192,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1626,7 +1626,16 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1783236007061,
+          "last_ts": 1783237846191,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783236911646,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1699,15 +1708,6 @@
           "enabled": true,
           "sched": "40 13 * * *",
           "last_ts": 1783152625744,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-13",
-          "enabled": true,
-          "sched": "20 13 * * *",
-          "last_ts": 1783151428031,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2346,7 +2346,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.51,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3623,7 +3623,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.43,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3768,7 +3768,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3798,7 +3798,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
