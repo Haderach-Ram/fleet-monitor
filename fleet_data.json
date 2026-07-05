@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 22:59:11 IST",
-  "generated_epoch": 1783272551,
+  "generated_ist": "2026-07-05 23:04:17 IST",
+  "generated_epoch": 1783272857,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.22 / 4.24 / 4.05",
+    "load": "3.56 / 3.95 / 3.98",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 1.02,
-      "cpu": 0.4,
-      "crons_total": 89,
-      "crons_enabled": 56,
+      "rss_gb": 0.97,
+      "cpu": 3.0,
+      "crons_total": 90,
+      "crons_enabled": 57,
       "skills_count": 59,
       "channels": [
         "telegram",
@@ -1127,6 +1127,15 @@
           "kind": "agentTurn"
         },
         {
+          "name": "NSE Market Bhavcopy Daily Refresh (market.db)",
+          "enabled": true,
+          "sched": "30 8 * * *",
+          "last_ts": null,
+          "last_status": null,
+          "model": "amazon-bedrock/nova-pro",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1444,24 +1453,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[22:13 IST] RAM: C",
-          "[22:18 IST] HADERACH: Right, here's where SAK-008 stands, Ram.",
-          "<b>Where we got to (all as of today, 5 Jul)</b>",
-          "The warehouse now has three live databases beyond the original RBI set:",
-          "<ul>",
-          "<li><b>rbi.db</b> \u2014 the original build (MPC rates, forex, DBIE Handbook, call money) \u2014 complete, all Phase 3 gaps closed back in May</li>",
-          "<li><b>nhb.db</b> \u2014 new today. RESIDEX (3,050 rows, 50 cities) + Trend & Progress of Housing (10 annual reports, 2015\u20132025; 2020 edition is a dead link, still unresolved)</li>",
-          "<li><b>sebi.db...",
-          "[22:18 IST] HADERACH: Right, here's where SAK-008 stands, Ram.",
-          "<b>Where we got to (all as of today, 5 Jul)</b>",
-          "The warehouse now has three live databases beyond the original RBI set:",
-          "<ul>",
-          "<li><b>rbi.db</b> \u2014 the original build (MPC rates, forex, DBIE Handbook, call money) \u2014 complete, all Phase 3 gaps closed back in May</li>",
-          "<li><b>nhb.db</b> \u2014 new today. RESIDEX (3,050 rows, 50 cities) + Trend & Progress of Housing (10 annual reports, 2015\u20132025; 2020 edition is a dead link, still unresolved)</li>",
-          "<li><b>sebi.db...",
-          "[22:19 IST] RAM: Do the market.db",
-          "[22:19 IST] HADERACH: NO_REPLY",
-          "Wait \u2014 actually let me reconsider. Ram gave a clear go-ahead (\"Do the market.db\"), and this needs actual execution work (building the NSE/BSE bhavcopy downloader/parser and cron), which is substantial. Let me set this up properly rather than silently stopping.",
           "[22:20 IST] HADERACH: Good \u2014 I have the pattern. Let me research the exact NSE bhavcopy URL format before building.",
           "[22:21 IST] HADERACH: Confirmed. Now let's check bulk deals / corporate actions endpoints, then build the ingestion pipeline.",
           "[22:21 IST] HADERACH: Now let me build the market.db schema and ingestion script, following the established pattern.",
@@ -1483,7 +1474,25 @@
           "[22:49 IST] HADERACH: Not done yet \u2014 I got interrupted mid-build. Let me pick this up and finish assembling the ingestion script.",
           "[22:49 IST] HADERACH: Good, all three parts survived. Now let me write part 4 (main/backfill/CLI logic) and then assemble the full file.",
           "[22:49 IST] HADERACH: Now let's assemble all parts into the final script and verify it parses/runs correctly.",
-          "[22:49 IST] HADERACH: Now let's do a real test run \u2014 backfill last few trading days to validate end-to-end."
+          "[22:49 IST] HADERACH: Now let's do a real test run \u2014 backfill last few trading days to validate end-to-end.",
+          "[22:49 IST] HADERACH: Excellent, working perfectly. Let's verify the DB contents and check SAMMAANCAP data specifically.",
+          "[22:50 IST] HADERACH: Working perfectly \u2014 SAMMAANCAP data is correct, matches known close prices. Now let's test idempotency (re-run same range) and also test a weekend/holiday to confirm NO_DATA handling.",
+          "[22:50 IST] HADERACH: Idempotency confirmed \u2014 re-running the same date doesn't duplicate rows (upsert works correctly). Now let's test the default (no-args) daily-run path.",
+          "[22:50 IST] HADERACH: Now let's check how far back the UDiFF archive actually holds data, then decide on backfill depth.",
+          "[22:52 IST] HADERACH: This backfill (520 trading days) will take a while \u2014 let's estimate properly and set the mandatory kill-switch per AGENTS.md.",
+          "[22:52 IST] HADERACH: Progressing fast. Let's check again to gauge rate and ETA.",
+          "[22:53 IST] HADERACH: Estimated ~20 min total (well under the 30-min kill-switch threshold), but I'll monitor to be safe.",
+          "[22:53 IST] HADERACH: Setting the mandatory kill-switch per AGENTS.md (process could exceed 30 min).",
+          "[22:53 IST] HADERACH: Kill-switch set for 23:35 IST (~40 min from start). Now let's continue monitoring while other work proceeds.",
+          "[22:55 IST] HADERACH: Good progress: 111/520 dates in ~4 min. ETA ~15 more minutes. Let me check back periodically.",
+          "[22:57 IST] HADERACH: Good, ~173/520 after 6 min. On track to finish around 23:08-23:10 IST, well within the kill-switch window. Let me wait longer.",
+          "[22:57 IST] HADERACH: While the backfill runs in the background, let me check the mf.db and macro.db plans that were mentioned as queued next, and prep the cron job for market.db daily refresh.",
+          "[22:57 IST] HADERACH: Good, this confirms the plan. Let me check backfill progress while waiting.",
+          "[22:58 IST] HADERACH: Let me now build the martin_api.py DB_FILES integration and the wiki page for market.db while waiting for the backfill.",
+          "[22:58 IST] HADERACH: I'll add `market` to DB_FILES and add API endpoints, following the established pattern.",
+          "[22:58 IST] HADERACH: Now update the endpoints list and version in the root health check:",
+          "[22:58 IST] HADERACH: Now let's verify syntax and check backfill progress.",
+          "[22:59 IST] HADERACH: Good, ~218/520 dates. Let's wait more and set up the daily refresh cron in the meantime."
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1624,8 +1633,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.57,
-      "cpu": 1.0,
+      "rss_gb": 0.58,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2382,7 +2391,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.53,
-      "cpu": 1.3,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2539,7 +2548,7 @@
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1783270803884,
+          "last_ts": 1783272604309,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2601,9 +2610,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- Last email scan: 11:22 this morning (within throttle)",
-          "- Last cost review: 27 June",
-          "- Last weekly bulletin: 1 July",
           "- Config backup: 2 July",
           "All systems nominal.",
           "HEARTBEAT_OK",
@@ -2640,7 +2646,10 @@
           "[21:56 IST] DM_USER: That was Gari. Reply in voice pls",
           "[21:57 IST] PURL: [[audio_as_voice]]",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now consolidating to rolling files:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY"
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
+          "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[22:55 IST] PURL: **Context:** 22% (healthy) \u2713",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **0 messages** in direct Telegram (with Gari)",
@@ -3659,7 +3668,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.41,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3707,10 +3716,6 @@
           "**Changed Since Yesterday:** A complete three-track hold \u2014 the first total-freeze day since daily brief tracking began (June 19), ending an exceptionally active two-week period with no new entrants, no positional shifts, and no fresh content surfacing for Sammaan Capital, RBI, or AI."
         ],
         "rolling_7day": [
-          "- 09:35 IST: Weekly Memory Self-Audit 2026-06-29 produced (self-audit-2026-06-29.md); 1/5 fully correct, 3/5 partial, 1/5 failed",
-          "- Self-audit finding: Q4 temporal retrieval failure persists (same as 22 Jun audit); scoring bias toward older keyword-dense sessions drowns recency; tech.md model staleness (deepseek-chat vs. actual deepseek-v4-pro)",
-          "- ~240+ heartbeat checkpoints (09:40\u201322:50 IST), all silent",
-          "- No [FACT:] tags in transcript; no domain file promotions required",
           "- Nightly consolidation ran 23:03 IST",
           "## 2026-06-30 \u2014 Idle Day (No Sessions)",
           "- No Chet sessions today; transcript contains only auto-checkpoints",
@@ -3746,16 +3751,13 @@
           "- AI: all three feed slots unchanged (no new AI tool/framework debut)",
           "- ~270+ heartbeat checkpoints (08:40-22:50 IST), all silent",
           "- No [FACT:] tags in transcript; no domain file promotions required",
-          "- Nightly consolidation ran 23:03 IST"
+          "- Nightly consolidation ran 23:03 IST",
+          "## 2026-07-05 \u2014 Idle Day (No Sessions)",
+          "- No Chet sessions today; all heartbeat checkpoints silent (10:22\u201322:50 IST)",
+          "- No [FACT:] tags in transcript; no domain file promotions required",
+          "- Nightly consolidation ran 23:02 IST"
         ],
         "rolling_28day": [
-          "- Daily Brief 2026-06-24: SCL third-slot oscillation enters third phase (LinkedIn returns after four-day absence, displacing Groww; About Us record 18d); RBI first positional reshuffle within hybrid regime (id=12957 to slot 2, FAQ id=1167 to slot 3); AI two-pillar equilibrium breaks \u2014 AgentCore exits after record 6 days, Google advances to slot 2, Cloudflare Flue returns to slot 3",
-          "- Heartbeat-only remainder; nightly consolidation 23:33 IST",
-          "## 2026-06-25 \u2014 Daily Brief Produced",
-          "- Daily Brief 2026-06-25: SCL third-slot oscillation phase four \u2014 Groww returns, LinkedIn exits; About Us record 19d",
-          "- RBI: first freeze since 23 June hybrid regime \u2014 directive-directive-FAQ holds",
-          "- AI: IBM/HuggingFace CUGA debuts in slot 2; Vercel eve slot 1 8th day",
-          "- Heartbeat-only remainder; nightly consolidation 23:33 IST",
           "## 2026-06-26 \u2014 Daily Brief Produced",
           "- Daily Brief 2026-06-26: SCL first-ever complete feed freeze; RBI second consecutive freeze; AI Vercel AI SDK 7 enters slot 2; Vercel eve 9th day",
           "- Heartbeat-only remainder; nightly consolidation 23:04 IST",
@@ -3788,7 +3790,14 @@
           "- Daily Brief 2026-07-03: Alibaba SkillWeaver (SAD, 99% token reduction) joins ADK Go 2.0 + Genkit Agents as third major AI orchestration launch this week",
           "- SCL: bank licence aspiration explicitly dropped; IHC 41.5% stake, Rs 5,652 Cr first tranche; 15+ products FY29 roadmap",
           "- RBI: id=12942 updated July 1, 2026; id=12959 enters feed",
-          "- Heartbeat-only remainder; nightly consolidation 23:02 IST"
+          "- Heartbeat-only remainder; nightly consolidation 23:02 IST",
+          "## 2026-07-04 \u2014 Daily Brief Produced",
+          "- Complete three-track hold day: no new entrants in SCL, RBI, or AI tracks; first total-freeze day since tracking began",
+          "- SCL: homepage stable; no new exchange filings or news surfaced",
+          "- Heartbeat-only; nightly consolidation 23:03 IST",
+          "## 2026-07-05 \u2014 Idle Day (No Sessions)",
+          "- No Chet sessions; all heartbeat checkpoints silent",
+          "- Heartbeat-only; nightly consolidation 23:02 IST"
         ]
       }
     },
@@ -3804,7 +3813,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
