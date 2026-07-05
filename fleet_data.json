@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 21:57:53 IST",
-  "generated_epoch": 1783268873,
+  "generated_ist": "2026-07-05 22:02:59 IST",
+  "generated_epoch": 1783269179,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.76 / 2.91 / 3.04",
+    "load": "2.89 / 2.85 / 2.96",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 1.01,
-      "cpu": 0.3,
+      "rss_gb": 1.06,
+      "cpu": 0.4,
       "crons_total": 88,
       "crons_enabled": 55,
       "skills_count": 59,
@@ -641,19 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783268426772,
+          "last_ts": 1783269025062,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783268426771,
+          "last_ts": 1783269025062,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +662,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783268426771,
+          "last_ts": 1783269025061,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1435,14 +1435,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Index + 4 DB pages</b> at `projects/sak-008-data-warehouse/wiki/` \u2014 `index.md`, `rbi.md`, `trendlyne.md`, `nhb.md`, `sebi.md`. Each page has: tables held, source, storage path, cadence/cron, an auto-refreshing \"Live Stats\" block, known gaps, and refresh mechanism.",
-          "<b>Kubera pointed at it</b> \u2014 its old `martin-data-api.md` cheat sheet is now a one-paragraph pointer to the wiki index, with the quick-reference base URL kept for convenience. Martin's own AGENTS.md...",
-          "[21:32 IST] HADERACH: <b>Wiki built and live.</b>",
-          "<b>Index + 4 DB pages</b> at `projects/sak-008-data-warehouse/wiki/` \u2014 `index.md`, `rbi.md`, `trendlyne.md`, `nhb.md`, `sebi.md`. Each page has: tables held, source, storage path, cadence/cron, an auto-refreshing \"Live Stats\" block, known gaps, and refresh mechanism.",
-          "<b>Kubera pointed at it</b> \u2014 its old `martin-data-api.md` cheat sheet is now a one-paragraph pointer to the wiki index, with the quick-reference base URL kept for convenience. Martin's own AGENTS.md...",
-          "[21:33 IST] RAM: So wiki is done and Kubera is pointing to it for his needs? Can I see this wiki, would it be openable as html or something?",
-          "[21:35 IST] HADERACH: Pandoc is available. Let me build a small HTML site from the wiki with a simple nav/CSS.",
-          "[21:36 IST] HADERACH: Rendered. Let me sanity-check one page renders cleanly before sending.",
           "[21:36 IST] HADERACH: This looks correctly structured \u2014 standard pandoc HTML5, nav bar injected, custom CSS linked. Good to send.",
           "[21:36 IST] HADERACH: Yes \u2014 wiki's done, and Kubera's cheat sheet now points to it (its old file is a one-paragraph redirect to the index rather than a duplicate).",
           "I've rendered it as HTML too \u2014 5 pages with a nav bar and simple styling (Sammaan navy headers, clean tables). Attached below: index + the 4 DB pages. Open <code>index.html</code> first and click through.",
@@ -1474,7 +1466,15 @@
           "[21:47 IST] HADERACH: <b>macro.db \u2014 MOSPI (CPI/WPI/IIP/GDP)</b>",
           "Good news here: MoSPI stood up a proper API platform this year (`api.mospi.gov.in`), not just a scrape target.",
           "<ul>",
-          "<li><b>CPI</b> \u2014 official REST API, well-documented (found the actual API User Manual PDF). Flow: one-time signup \u2192 login for a 15-min access token \u2192 <code>getCPIIndex</code> (group/sub-group index+inflation, Jan 2013 onward) and <code>getItemIndex</code> (item-level, Jan 2014 onward). No key without signup, but it's free registration,..."
+          "<li><b>CPI</b> \u2014 official REST API, well-documented (found the actual API User Manual PDF). Flow: one-time signup \u2192 login for a 15-min access token \u2192 <code>getCPIIndex</code> (group/sub-group index+inflation, Jan 2013 onward) and <code>getItemIndex</code> (item-level, Jan 2014 onward). No key without signup, but it's free registration,...",
+          "[21:50 IST] RAM: What about the portfolio data for all the mutual funds. Please plan for this as well as macro.db and markets.db and tell me effort and cost please, and your recommendaiton",
+          "[21:52 IST] HADERACH: All three now scoped with live source-checking (same diligence as the NHB/SEBI build). Good news: no paid subscriptions needed for any of the three \u2014 everything below is free official-source or free aggregator access. \"Cost\" is really just build-time/token cost.",
+          "<b>1. macro.db \u2014 MOSPI (CPI/WPI/IIP/GDP)</b>",
+          "Official REST API exists (<code>api.mospi.gov.in</code>), stood up this year. CPI has a documented flow: signup once \u2192 15-min access token \u2192 <code>getCPIIndex</code>/<code>getItemIndex</c...",
+          "[21:52 IST] HADERACH: All three now scoped with live source-checking (same diligence as the NHB/SEBI build). Good news: no paid subscriptions needed for any of the three \u2014 everything below is free official-source or free aggregator access. \"Cost\" is really just build-time/token cost.",
+          "<b>1. macro.db \u2014 MOSPI (CPI/WPI/IIP/GDP)</b>",
+          "Official REST API exists (<code>api.mospi.gov.in</code>), stood up this year. CPI has a documented flow: signup once \u2192 15-min access token \u2192 <code>getCPIIndex</code>/<code>getItemIndex</c...",
+          "[22:00 IST] RAM: Update the ProjHad and the relevant md files pls. Should we start a new session or will you compact this one and we can keep going?"
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1616,7 +1616,7 @@
       "frozen_reason": null,
       "pid": 79454,
       "rss_gb": 0.57,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2372,8 +2372,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 77940,
-      "rss_gb": 0.64,
-      "cpu": 0.3,
+      "rss_gb": 0.52,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2527,10 +2527,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1783269012888,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1783267204607,
+          "last_ts": 1783269012887,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2572,15 +2581,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1783182610321,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2192 Haderach: Send Pinch enquiry email",
           "enabled": false,
           "sched": "one-shot",
@@ -2592,15 +2592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- Everything nominal",
-          "**HEARTBEAT_OK**",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[19:55 IST] PURL: **Context:** 22% (good) \u2713  ",
-          "**No urgent items pending.**",
-          "HEARTBEAT_OK",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[20:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[20:55 IST] PURL: **Context check:** 22% (well under 50%) \u2713",
           "**Heartbeat status:**",
           "- Last email scan: 11:22 this morning (within throttle)",
@@ -2631,7 +2622,16 @@
           "Quiet night across all channels. \ud83e\uddf6",
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K transcript logger script now.",
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Klub K transcript logger completed.**",
-          "No new messages in any of the monitored sessions. Bookmarks unchanged. Task finished cleanly."
+          "No new messages in any of the monitored sessions. Bookmarks unchanged. Task finished cleanly.",
+          "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[21:55 IST] PURL: **Context:** 22% (solid) \u2713  ",
+          "**No urgent items.** All systems running clean.",
+          "HEARTBEAT_OK",
+          "[21:56 IST] DM_USER: [Audio transcript (machine-generated, untrusted)]: \"\\\"Paul, can you hear me?\\\"\"",
+          "[21:56 IST] PURL: Loud and clear, Ram! \ud83e\uddf6 What's up?",
+          "[21:56 IST] PURL: Loud and clear, Ram! \ud83e\uddf6 What's up?",
+          "[21:56 IST] DM_USER: That was Gari. Reply in voice pls",
+          "[21:57 IST] PURL: [[audio_as_voice]]"
         ],
         "yesterday": [
           "- **0 messages** in direct Telegram (with Gari)",
@@ -2705,8 +2705,6 @@
           "--- [Midnight run OK \u2014 2026-07-05 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "## 2026-06-21",
-          "## 2026-06-22 \u2014 No agent activity",
           "## 2026-06-22",
           "## 2026-06-23 \u2014 No agent activity",
           "## 2026-06-23",
@@ -2744,7 +2742,9 @@
           "## 2026-07-05 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-05 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-05 \u2014 no new content] ---",
+          "## 2026-07-05",
+          "- Ram heartbeat checks: Giskard status healthy, ProtonMail inbox clear, 22% session cost budget"
         ]
       }
     },
@@ -3795,7 +3795,7 @@
       "frozen_reason": null,
       "pid": 95125,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3825,7 +3825,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
