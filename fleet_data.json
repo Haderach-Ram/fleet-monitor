@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-05 22:28:31 IST",
-  "generated_epoch": 1783270711,
+  "generated_ist": "2026-07-05 22:33:38 IST",
+  "generated_epoch": 1783271018,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.46 / 3.84 / 3.54",
+    "load": "3.55 / 3.59 / 3.49",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83981,
-      "rss_gb": 1.04,
+      "rss_gb": 1.02,
       "cpu": 0.4,
       "crons_total": 88,
       "crons_enabled": 55,
@@ -641,19 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783270226427,
+          "last_ts": 1783270825898,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783270226426,
+          "last_ts": 1783270825898,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +662,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783270226426,
+          "last_ts": 1783270825897,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1435,12 +1435,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li><b>CPI</b> \u2014 official REST API, well-documented (found the actual API User Manual PDF). Flow: one-time signup \u2192 login for a 15-min access token \u2192 <code>getCPIIndex</code> (group/sub-group index+inflation, Jan 2013 onward) and <code>getItemIndex</code> (item-level, Jan 2014 onward). No key without signup, but it's free registration,...",
-          "[21:47 IST] HADERACH: <b>macro.db \u2014 MOSPI (CPI/WPI/IIP/GDP)</b>",
-          "Good news here: MoSPI stood up a proper API platform this year (`api.mospi.gov.in`), not just a scrape target.",
-          "<ul>",
-          "<li><b>CPI</b> \u2014 official REST API, well-documented (found the actual API User Manual PDF). Flow: one-time signup \u2192 login for a 15-min access token \u2192 <code>getCPIIndex</code> (group/sub-group index+inflation, Jan 2013 onward) and <code>getItemIndex</code> (item-level, Jan 2014 onward). No key without signup, but it's free registration,...",
-          "[21:50 IST] RAM: What about the portfolio data for all the mutual funds. Please plan for this as well as macro.db and markets.db and tell me effort and cost please, and your recommendaiton",
           "[21:52 IST] HADERACH: All three now scoped with live source-checking (same diligence as the NHB/SEBI build). Good news: no paid subscriptions needed for any of the three \u2014 everything below is free official-source or free aggregator access. \"Cost\" is really just build-time/token cost.",
           "<b>1. macro.db \u2014 MOSPI (CPI/WPI/IIP/GDP)</b>",
           "Official REST API exists (<code>api.mospi.gov.in</code>), stood up this year. CPI has a documented flow: signup once \u2192 15-min access token \u2192 <code>getCPIIndex</code>/<code>getItemIndex</c...",
@@ -1474,7 +1468,13 @@
           "<li><b>sebi.db...",
           "[22:19 IST] RAM: Do the market.db",
           "[22:19 IST] HADERACH: NO_REPLY",
-          "Wait \u2014 actually let me reconsider. Ram gave a clear go-ahead (\"Do the market.db\"), and this needs actual execution work (building the NSE/BSE bhavcopy downloader/parser and cron), which is substantial. Let me set this up properly rather than silently stopping."
+          "Wait \u2014 actually let me reconsider. Ram gave a clear go-ahead (\"Do the market.db\"), and this needs actual execution work (building the NSE/BSE bhavcopy downloader/parser and cron), which is substantial. Let me set this up properly rather than silently stopping.",
+          "[22:20 IST] HADERACH: Good \u2014 I have the pattern. Let me research the exact NSE bhavcopy URL format before building.",
+          "[22:21 IST] HADERACH: Confirmed. Now let's check bulk deals / corporate actions endpoints, then build the ingestion pipeline.",
+          "[22:21 IST] HADERACH: Now let me build the market.db schema and ingestion script, following the established pattern.",
+          "[22:22 IST] HADERACH: Now let's write the ingestion script. It needs to handle: warm-up cookies, date iteration (backfill + daily), retry on 404 (weekends/holidays), and idempotent upsert.",
+          "[22:26 IST] HADERACH: The write tool seems to choke on large content in this turn. Let me build the script via exec/heredoc instead.",
+          "[22:27 IST] HADERACH: I see \u2014 I omitted the content parameter in those calls. Let me write the actual ingestion script now."
         ],
         "yesterday": [
           "[23:07 IST] HADERACH: Found it \u2014 `A|Login_signInLink__GZiv6`. Let me click it:",
@@ -1615,8 +1615,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79454,
-      "rss_gb": 0.56,
-      "cpu": 5.8,
+      "rss_gb": 0.57,
+      "cpu": 0.8,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2373,7 +2373,7 @@
       "frozen_reason": null,
       "pid": 77940,
       "rss_gb": 0.53,
-      "cpu": 0.8,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2527,19 +2527,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1783269012888,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783270803884,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783269012887,
+          "sched": "0 22 * * *",
+          "last_ts": 1783269012888,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2592,8 +2592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:55 IST] PURL: **Context check:** 22% (well under 50%) \u2713",
-          "**Heartbeat status:**",
           "- Last email scan: 11:22 this morning (within throttle)",
           "- Last cost review: 27 June",
           "- Last weekly bulletin: 1 July",
@@ -2631,7 +2629,9 @@
           "[21:56 IST] PURL: Loud and clear, Ram! \ud83e\uddf6 What's up?",
           "[21:56 IST] PURL: Loud and clear, Ram! \ud83e\uddf6 What's up?",
           "[21:56 IST] DM_USER: That was Gari. Reply in voice pls",
-          "[21:57 IST] PURL: [[audio_as_voice]]"
+          "[21:57 IST] PURL: [[audio_as_voice]]",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now consolidating to rolling files:",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY"
         ],
         "yesterday": [
           "- **0 messages** in direct Telegram (with Gari)",
@@ -3650,7 +3650,7 @@
       "frozen_reason": null,
       "pid": 95012,
       "rss_gb": 0.41,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3825,7 +3825,7 @@
       "frozen_reason": null,
       "pid": 95075,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
