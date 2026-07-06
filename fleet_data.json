@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-06 18:28:23 IST",
-  "generated_epoch": 1783342703,
+  "generated_ist": "2026-07-06 18:33:30 IST",
+  "generated_epoch": 1783343010,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.02 / 2.14 / 2.18",
+    "load": "1.73 / 2.15 / 2.19",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 0.92,
-      "cpu": 0.4,
+      "rss_gb": 0.89,
+      "cpu": 0.2,
       "crons_total": 92,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -641,10 +641,19 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783342451650,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783342840802,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Martin \u2014 Daily FX Rates Update",
+          "enabled": true,
+          "sched": "30 18 * * 1-5",
+          "last_ts": 1783342840802,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +662,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783342226976,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783342226976,
+          "last_ts": 1783342840801,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +671,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783342226975,
+          "last_ts": 1783342840801,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783342451650,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1100,15 +1109,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Martin \u2014 Daily FX Rates Update",
-          "enabled": true,
-          "sched": "30 18 * * 1-5",
-          "last_ts": 1783083641334,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ProjHad Weekly Briefing \u2014 Prepare (Friday)",
           "enabled": true,
           "sched": "0 18 * * 5",
@@ -1471,7 +1471,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:25 IST] HADERACH: Found it \u2014 the patch lives in a separate per-agent npm plugin package (`@openclaw/amazon-bedrock-provider`), not in the shared dist. Let me check that path on M2 directly.",
           "[15:26 IST] HADERACH: Confirmed \u2014 the Sonnet 5 Bedrock caching patch is **not present on any M2 agent**. I checked all 8: CAIO, Heda, Keshav, Ravindra, Sandip, CA-SMEDA, Legal-SMEDA, Seneca \u2014 zero `claude-sonnet-5` matches in either `bedrock-options.js` or `discovery.js` on any of them.",
           "One thing worth flagging: most M2 agents run Sonnet 4.6 as primary and Nova as fallback, so this gap is currently dormant for them \u2014 except **CA-SMEDA**, whose fallback chain is `sonnet-4-6 \u2192 sonnet-5 \u2192 nova-pro`. If CA-SMEDA ever...",
           "[15:29 IST] HADERACH: Confirmed both halves of the gap. Applying the fix now \u2014 this is a plugin dist-file patch (not `openclaw.json`), same low-risk pattern already proven on all 8 M4 agents, so I'll do it myself over SSH.",
@@ -1510,7 +1509,8 @@
           "So we have never operated like this, but we have to learn to operate like this.",
           "I'm just sending it to...",
           "--- [TRANSCRIPT GAP: 17:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 18:30 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<b>What's actually going on</b>",
@@ -1651,8 +1651,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.52,
-      "cpu": 1.0,
+      "rss_gb": 0.53,
+      "cpu": 1.5,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2408,8 +2408,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.46,
-      "cpu": 1.9,
+      "rss_gb": 0.45,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2563,6 +2563,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783342805529,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2587,15 +2596,6 @@
           "last_ts": 1783341011959,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783341011958,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2628,16 +2628,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Klub K group chat:** 0 new messages",
-          "- **Direct (Gari's Telegram):** 0 new messages",
-          "- **Main session:** 0 new messages",
-          "- **Total captured:** 3 messages",
-          "- **File:** `transcript-2026-07-06.md`",
-          "No new activity to process. Bookmark reset for next run.",
-          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K transcript logger script now.",
-          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Script completed successfully.**",
-          "No new messages in any session. Bookmark state unchanged. All transcript logs current.",
-          "[15:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[15:55 IST] PURL: Let me check today's memory file and session status:",
           "[15:55 IST] PURL: Perfect \u2014 all systems nominal. Session clean at 25% context, excellent cache efficiency. No urgent items flagged today.",
           "HEARTBEAT_OK",
@@ -2667,7 +2657,17 @@
           "- **Bookmark saved** for next run",
           "- **Output file:** `transcript-2026-07-06.md`",
           "Ready for the next cycle.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Transcript logger ran successfully. No new messages across main, direct Gari, or Klub K group chat.",
+          "**Summary:**",
+          "- 3 messages total (from previous state)",
+          "- 0 new messages this run",
+          "- File: `transcript-2026-07-06.md`",
+          "- Bookmark state: unchanged",
+          "The logger is working as expected. Nothing new to log at this hour.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages detected across all sessions (Klub K group, Gari transcript, group transcript). Bookmark state unchanged. Task complete."
         ],
         "yesterday": [
           "- Config backup: 2 July",
@@ -2796,8 +2796,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1232,
-      "rss_gb": 0.45,
-      "cpu": 0.4,
+      "rss_gb": 0.44,
+      "cpu": 1.7,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -3085,7 +3085,7 @@
       "frozen_reason": null,
       "pid": 1222,
       "rss_gb": 0.34,
-      "cpu": 0.4,
+      "cpu": 1.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3110,7 +3110,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783342205563,
+          "last_ts": 1783342805669,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3255,8 +3255,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1217,
-      "rss_gb": 0.35,
-      "cpu": 0.2,
+      "rss_gb": 0.36,
+      "cpu": 1.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3443,7 +3443,7 @@
       "frozen_reason": null,
       "pid": 1623,
       "rss_gb": 0.42,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3817,7 +3817,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.27,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3847,7 +3847,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3874,8 +3874,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1570,
-      "rss_gb": 0.43,
-      "cpu": 0.3,
+      "rss_gb": 0.44,
+      "cpu": 0.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -4029,19 +4029,19 @@
       ],
       "crons": [
         {
-          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1783341246744,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783342806083,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
+          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783341004168,
+          "sched": "4 */3 * * *",
+          "last_ts": 1783341246744,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4067,8 +4067,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:19 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: Now checking for today's daily log:",
-          "[07:19 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: No daily log found. Appending stub to rolling-28day.md and rolling-180day.md, then updating both with the required midnight marker:",
           "[07:19 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: Now trimming old entries from rolling-28day.md and rolling-180day.md:",
           "[07:20 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: NO_REPLY",
           "[07:52 IST] RAM: [OpenClaw heartbeat poll]",
@@ -4106,7 +4104,9 @@
           "[17:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[17:53 IST] HERBIE: HEARTBEAT_OK",
           "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
-          "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2705 Transcript logged successfully. Updated file: `transcript-2026-07-06.md` with 2 new messages."
+          "[18:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2705 Transcript logged successfully. Updated file: `transcript-2026-07-06.md` with 2 new messages.",
+          "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
+          "[18:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. 0 new messages since last run. Transcript file updated: `transcript-2026-07-06.md` (2 messages total)."
         ],
         "yesterday": [
           "- **Bookmark:** Added",
@@ -4248,7 +4248,7 @@
       "frozen_reason": null,
       "pid": 1231,
       "rss_gb": 0.44,
-      "cpu": 0.5,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
