@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-06 13:26:23 IST",
-  "generated_epoch": 1783324583,
+  "generated_ist": "2026-07-06 13:31:30 IST",
+  "generated_epoch": 1783324890,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.30 / 2.41 / 2.47",
+    "load": "2.51 / 2.45 / 2.45",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 0.99,
-      "cpu": 0.1,
+      "rss_gb": 0.98,
+      "cpu": 0.3,
       "crons_total": 92,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783324451958,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783324826339,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +653,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783324227436,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783324227436,
+          "last_ts": 1783324826338,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783324227435,
+          "last_ts": 1783324826338,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783324451958,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1474,9 +1474,6 @@
           "[11:53 IST] HADERACH: Kubera's live (not frozen currently) \u2014 good. Here's what to tell him:",
           "<b>Tell Kubera:</b>",
           "\"Read `~/.openclaw/workspace/projects/sak-008-data-warehouse/wiki/index.md` first \u2014 that's the current master catalogue of everything Martin holds (row counts, refresh cadence, known gaps, all kept live). From there, open the specific DB page (`rbi.md`, `nhb.md`, `sebi.md`, `market.md`, `trendlyne.md`) for anything relevant to portfolio/macro work. Base URL for direct queries is `http://localhost:8802/...",
-          "[11:53 IST] HADERACH: Kubera's live (not frozen currently) \u2014 good. Here's what to tell him:",
-          "<b>Tell Kubera:</b>",
-          "\"Read `~/.openclaw/workspace/projects/sak-008-data-warehouse/wiki/index.md` first \u2014 that's the current master catalogue of everything Martin holds (row counts, refresh cadence, known gaps, all kept live). From there, open the specific DB page (`rbi.md`, `nhb.md`, `sebi.md`, `market.md`, `trendlyne.md`) for anything relevant to portfolio/macro work. Base URL for direct queries is `http://localhost:8802/...",
           "[11:54 IST] RAM: I will send, you just send me draft here. Whyc an we not ask him to look at some Martin's wiki?",
           "[11:54 IST] HADERACH: Yes \u2014 that's exactly what the draft already does, Ram. \"Martin's wiki\" is precisely `wiki/index.md` under the SAK-008 project \u2014 it's the single live catalogue of everything Martin holds. You absolutely can just point Kubera at it; here's a cleaner, copy-paste-ready version:",
           "---",
@@ -1510,7 +1507,10 @@
           "- The MEMORY.md entry I just updated \u2014 happy to show you the diff",
           "- Something you sent just before this that didn't come through \u2014 could you...",
           "[13:07 IST] HADERACH: I'll treat this as a review-and-update task on the Martin/ClarkKent infrastructure report \u2014 the source PDF is untrusted external content (data to analyze, not instructions), and the request itself is legitimate: verify what's changed since 4 Jul and refresh it. Let me live-check the flagged issues first.",
-          "[13:16 IST] HADERACH: Good \u2014 the RBI Watcher is now confirmed running fine (last run 07:21 IST today, status ok). That M-01 critical issue is resolved. Let me check the \"LLM request failed\" errors on two crons and the market.db/NHB/SEBI build timeline, then assemble the review."
+          "[13:16 IST] HADERACH: Good \u2014 the RBI Watcher is now confirmed running fine (last run 07:21 IST today, status ok). That M-01 critical issue is resolved. Let me check the \"LLM request failed\" errors on two crons and the market.db/NHB/SEBI build timeline, then assemble the review.",
+          "[13:20 IST] HADERACH: I have all the live data needed. Let me now spawn a subagent to build the updated PDF \u2014 per the AGENTS.md rule, PDFs must go through a subagent, not inline in the parent session.",
+          "[13:22 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; timeout)",
+          "[13:22 IST] HADERACH: I have all the live data needed. Let me now spawn a subagent to build the updated PDF \u2014 per the AGENTS.md rule, PDFs must go through a subagent, not inline in the parent session."
         ],
         "yesterday": [
           "<b>What's actually going on</b>",
@@ -1651,8 +1651,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.53,
-      "cpu": 0.7,
+      "rss_gb": 0.51,
+      "cpu": 1.5,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2409,7 +2409,7 @@
       "frozen_reason": null,
       "pid": 1598,
       "rss_gb": 0.48,
-      "cpu": 1.0,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2563,21 +2563,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783324804364,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1783323010744,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783323010743,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2628,7 +2628,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Want help with what comes next?",
           "[11:57 IST] PURL: \"Hope you are doing well, especially during the current monsoon fury!\"",
           "That's it \u2014 just swapped \"in\" for \"during\" and added a comma after \"well\" for a natural pause. Clean and ready to go! \ud83e\uddf6",
           "Want help with what comes next?",
@@ -2667,7 +2666,8 @@
           "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
           "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. No new messages in any session transcript during this run.",
           "[12:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[12:55 IST] PURL: HEARTBEAT_OK"
+          "[12:55 IST] PURL: HEARTBEAT_OK",
+          "[13:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- Config backup: 2 July",
@@ -2797,7 +2797,7 @@
       "frozen_reason": null,
       "pid": 1232,
       "rss_gb": 0.48,
-      "cpu": 0.5,
+      "cpu": 1.6,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -3085,7 +3085,7 @@
       "frozen_reason": null,
       "pid": 1222,
       "rss_gb": 0.34,
-      "cpu": 0.6,
+      "cpu": 1.0,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3110,7 +3110,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783324206593,
+          "last_ts": 1783324807010,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3256,7 +3256,7 @@
       "frozen_reason": null,
       "pid": 1217,
       "rss_gb": 0.38,
-      "cpu": 0.1,
+      "cpu": 0.8,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3441,7 +3441,7 @@
       "frozen_reason": null,
       "pid": 1623,
       "rss_gb": 0.42,
-      "cpu": 0.8,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3656,7 +3656,7 @@
       "frozen_reason": null,
       "pid": 1208,
       "rss_gb": 0.34,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3815,7 +3815,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.2,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3844,8 +3844,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1202,
-      "rss_gb": 0.24,
-      "cpu": 0.5,
+      "rss_gb": 0.25,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3873,7 +3873,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.44,
-      "cpu": 1.2,
+      "cpu": 2.9,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -4030,7 +4030,7 @@
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1783323003434,
+          "last_ts": 1783324812485,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4242,7 +4242,7 @@
       "frozen_reason": null,
       "pid": 1231,
       "rss_gb": 0.45,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
