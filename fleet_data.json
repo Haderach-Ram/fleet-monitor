@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-07 02:59:01 IST",
-  "generated_epoch": 1783373341,
+  "generated_ist": "2026-07-07 03:04:08 IST",
+  "generated_epoch": 1783373648,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.32 / 2.41 / 2.34",
+    "load": "2.61 / 2.59 / 2.44",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.03,
+      "rss_gb": 1.11,
       "cpu": 0.4,
       "crons_total": 93,
       "crons_enabled": 60,
@@ -641,6 +641,51 @@
       ],
       "crons": [
         {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1783373627288,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783373616582,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783373530360,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783373461402,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783373411756,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -656,15 +701,6 @@
           "last_ts": 1783372509776,
           "last_status": "error",
           "model": "amazon-bedrock/nova-pro",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1783370005113,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -695,46 +731,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783362818821,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783362762409,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783362762408,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
           "enabled": true,
           "sched": "0 0 * * *",
           "last_ts": 1783362737614,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783362610270,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,8 +1480,46 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-07-07",
-          "# Self-healing rotation from transcript-2026-07-06.md at 00:02 IST"
+          "[00:18 IST] HADERACH: Backup taken. Now wiring the DB entry and routes.",
+          "[00:19 IST] HADERACH: Now update the version + endpoint list + phase string:",
+          "[00:19 IST] HADERACH: Now validate syntax before restarting the live service.",
+          "[00:19 IST] HADERACH: Syntax good. Now restart the live Martin API service and verify.",
+          "[00:19 IST] HADERACH: Version bumped to 0.6.0, endpoints listed. Now live-verify each of the 4 new endpoints with real queries.",
+          "[00:20 IST] HADERACH: All 5 routes verified with real live data. Now the wiki page.",
+          "[00:20 IST] HADERACH: Now update wiki/index.md to add macro.db:",
+          "[00:21 IST] HADERACH: First edit already went through successfully (before this retry) \u2014 let me check current state.",
+          "[00:21 IST] HADERACH: None of my edits landed (the first apparent success was actually the error before it \u2014 apply didn't persist). Let me redo the full edit in one call properly.",
+          "[00:21 IST] HADERACH: Now the monthly refresh cron, staggered 15 min after the NHB monthly refresh:",
+          "[00:22 IST] HADERACH: Cron wired: fires 1st of each month at 03:15 IST, next run 1 Aug 2026. Now update STATUS.md to close out this item.",
+          "[00:22 IST] HADERACH: The second edit is missing oldText \u2014 I need to insert new content, not replace with itself. Let me find the right anchor point (end of \"In Progress\" section).",
+          "[00:23 IST] HADERACH: Now I have the \"Done\" section end and \"In Progress\" start. Let me combine into one correct edit call.",
+          "[00:23 IST] HADERACH: Now correct anchors identified.",
+          "[00:24 IST] HADERACH: All done. Summary for Ram:",
+          "<b>macro.db is now fully live</b> \u2014 built, served, documented, and scheduled. Completed in ~20 minutes (faster than the 35\u201340 min estimate since the ingest itself was already done last night).",
+          "<ul>",
+          "<li><b>API wired:</b> 4 new routes on Martin (port 8802) \u2014 <code>/data/macro/cpi</code>, <code>/data/macro/cpi-item</code>, <code>/data/macro/wpi</code>, <code>/data/macro/iip</code>. Backed up <code>martin_api.py</code> first, validated syntax, restarted the live servi...",
+          "[00:24 IST] HADERACH: All done. Summary for Ram:",
+          "<b>macro.db is now fully live</b> \u2014 built, served, documented, and scheduled. Completed in ~20 minutes (faster than the 35\u201340 min estimate since the ingest itself was already done last night).",
+          "<ul>",
+          "<li><b>API wired:</b> 4 new routes on Martin (port 8802) \u2014 <code>/data/macro/cpi</code>, <code>/data/macro/cpi-item</code>, <code>/data/macro/wpi</code>, <code>/data/macro/iip</code>. Backed up <code>martin_api.py</code> first, validated syntax, restarted the live servi...",
+          "[00:26 IST] RAM: Test it first and then go ahead",
+          "[00:28 IST] HADERACH: Found one loose end \u2014 a duplicate line in STATUS.md's Next section. Fixing that now.",
+          "[00:28 IST] HADERACH: <b>Tested \u2014 all clean. Found and fixed one loose end.</b>",
+          "<b>API tests (7 total, beyond the earlier smoke test):</b>",
+          "<ul>",
+          "<li>Root health check \u2014 v0.6.0, all 4 macro routes listed \u2705</li>",
+          "<li>CPI group \u2014 broad filter (All India/Combined/latest) returns real data \u2705</li>",
+          "<li>CPI item \u2014 substring search \"Rice\" returns 3 distinct matches \u2705</li>",
+          "<li>WPI \u2014 exact year+month filter (not just latest) returns correct single row \u2705</li>",
+          "<li>IIP monthly \u2014 category filter without latest flag returns proper...",
+          "[00:29 IST] HADERACH: <b>Tested \u2014 all clean. Found and fixed one loose end.</b>",
+          "<b>API tests (7 total, beyond the earlier smoke test):</b>",
+          "<ul>",
+          "<li>Root health check \u2014 v0.6.0, all 4 macro routes listed \u2705</li>",
+          "<li>CPI group \u2014 broad filter (All India/Combined/latest) returns real data \u2705</li>",
+          "<li>CPI item \u2014 substring search \"Rice\" returns 3 distinct matches \u2705</li>",
+          "<li>WPI \u2014 exact year+month filter (not just latest) returns correct single row \u2705</li>",
+          "<li>IIP monthly \u2014 category filter without latest flag returns proper..."
         ],
         "yesterday": [
           "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
@@ -1622,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.57,
-      "cpu": 1.0,
+      "rss_gb": 0.58,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1648,19 +1686,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1783362988246,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
           "sched": "0 21,0,3 * * *",
-          "last_ts": 1783362621498,
+          "last_ts": 1783373457059,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1669,7 +1698,16 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
           "sched": "0 0,3 * * *",
-          "last_ts": 1783362621497,
+          "last_ts": 1783373457058,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1783362988246,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2341,8 +2379,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.48,
-      "cpu": 3.1,
+      "rss_gb": 0.53,
+      "cpu": 4.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2696,8 +2734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1232,
-      "rss_gb": 0.47,
-      "cpu": 1.4,
+      "rss_gb": 0.46,
+      "cpu": 0.3,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2972,8 +3010,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1222,
-      "rss_gb": 0.34,
-      "cpu": 0.8,
+      "rss_gb": 0.35,
+      "cpu": 0.2,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3151,8 +3189,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1217,
-      "rss_gb": 0.37,
-      "cpu": 0.7,
+      "rss_gb": 0.39,
+      "cpu": 0.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3174,19 +3212,19 @@
       ],
       "crons": [
         {
-          "name": "CISO SMEDA \u2014 Midnight Rolling Summary",
+          "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1783362975421,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783373524827,
           "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
-          "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
+          "name": "CISO SMEDA \u2014 Midnight Rolling Summary",
           "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783362725168,
+          "sched": "5 0 * * *",
+          "last_ts": 1783362975421,
           "last_status": "error",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3213,7 +3251,9 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-07-07",
-          "# Self-healing rotation from transcript-2026-07-06.md at 00:01 IST"
+          "# Self-healing rotation from transcript-2026-07-06.md at 00:01 IST",
+          "[23:00 IST] CISO-SMEDA: Context at 60% \u2014 proceeding.",
+          "[23:00 IST] CISO-SMEDA: Consolidation already ran at 07:26 IST this morning (triggered by the morning cron). All files updated: strengths, gaps, exam-strategy, study-trajectory, wiki. Checking for any new content since then."
         ],
         "yesterday": [
           "# Transcript \u2014 2026-07-06",
@@ -3353,7 +3393,7 @@
       "frozen_reason": null,
       "pid": 1623,
       "rss_gb": 0.43,
-      "cpu": 1.3,
+      "cpu": 0.3,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3536,7 +3576,7 @@
       "frozen_reason": null,
       "pid": 55763,
       "rss_gb": 0.32,
-      "cpu": 0.8,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3695,7 +3735,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3725,7 +3765,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.8,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3752,8 +3792,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1570,
-      "rss_gb": 0.43,
-      "cpu": 1.6,
+      "rss_gb": 0.45,
+      "cpu": 2.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -3907,19 +3947,19 @@
       ],
       "crons": [
         {
-          "name": "Herbie \u2014 Midnight Rolling Summary",
+          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1783363147773,
+          "sched": "4 */3 * * *",
+          "last_ts": 1783373644129,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "name": "Herbie \u2014 Midnight Rolling Summary",
           "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1783362843137,
+          "sched": "9 0 * * *",
+          "last_ts": 1783363147773,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3946,7 +3986,21 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-07-07",
-          "# Self-healing rotation from transcript-2026-07-06.md at 00:04 IST"
+          "# Self-healing rotation from transcript-2026-07-06.md at 00:04 IST",
+          "[23:30 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I can see this is a cron job trigger to run the transcript logger. However, I notice the current time is 11:30 PM (23:30), which falls outside the configured 06:00-23:00 window. Let me check the script and run it anyway since the cron job is explicitly calling it:",
+          "[23:30 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Transcript logger ran successfully. No new messages to log\u2014the transcript file is current.",
+          "[23:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[23:52 IST] HERBIE: HEARTBEAT_OK",
+          "[00:09 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary task. Let me start by checking today's date in IST and reading the daily log.",
+          "[00:09 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: No daily log found. Appending stub to rolling-28day.md and exiting.",
+          "[00:09 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: Now appending the final timestamp markers to both rolling files:",
+          "[00:09 IST] HERBIE [Cron: Herbie \u2014 Midnight Rolling Summary]: NO_REPLY",
+          "[00:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[00:52 IST] HERBIE: HEARTBEAT_OK",
+          "[01:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[01:52 IST] HERBIE: HEARTBEAT_OK",
+          "[02:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[02:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. Logged 2 new messages to transcript-2026-07-06.md. Bookmark updated.",
@@ -4088,7 +4142,7 @@
       "frozen_reason": null,
       "pid": 1231,
       "rss_gb": 0.46,
-      "cpu": 0.9,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
