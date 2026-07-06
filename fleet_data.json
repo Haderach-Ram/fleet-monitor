@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-06 21:57:57 IST",
-  "generated_epoch": 1783355277,
+  "generated_ist": "2026-07-06 22:03:04 IST",
+  "generated_epoch": 1783355584,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.86 / 2.42 / 2.36",
+    "load": "2.42 / 2.32 / 2.32",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 0.96,
-      "cpu": 0.4,
+      "rss_gb": 1.07,
+      "cpu": 0.1,
       "crons_total": 92,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783355045198,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783355430789,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +653,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783354826589,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783354826589,
+          "last_ts": 1783355430788,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783354826588,
+          "last_ts": 1783355430788,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783355045198,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1471,19 +1471,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Primary: AWS BedRock Sonnet 5",
-          "FallBack1: AWS BedRock Sonnet 4.6",
-          "Fallback2: AWS BedRock DeepSeek 3.2",
-          "- Monk will have caching enabled hopefully",
-          "[20:37 IST] HADERACH: Right, let me research Hermes caching and get the current configs before touching anything.",
-          "[20:37 IST] HADERACH: Good, I have everything I need. Key findings from the docs:",
-          "1. **Caching on Bedrock via Hermes:** Automatic for native Anthropic + OpenRouter + Nous Portal only. For Bedrock, it \"falls back to the provider's own caching defaults\" (i.e. Bedrock handles it server-side). The only user knob is `cache_ttl` \u2014 current config has `5m`, I'll upgrade it to `1h` for better cross-session hit rates. No other explicit caching config needed.",
-          "2. **Bedrock model IDs in Hermes:** Use `us.anthropic.claude-son...",
-          "[20:38 IST] HADERACH: Config looks correct. Now update Hermes itself:",
-          "[20:39 IST] HADERACH: All done on Monk. Now the Giskard message for Chet:",
-          "---",
-          "<b>Monk: complete.</b>",
-          "<ul><li>Updated v0.16.0 \u2192 <b>v0.18.0</b> (2026.7.1, \"The Judgment Release\" \u2014 all P0/P1s closed, Mixture-of-Agents added)</li><li>Model hierarchy: Primary <code>us.anthropic.claude-sonnet-5</code> (Bedrock) \u2192 Fallback1 <code>us.anthropic.claude-sonnet-4-6</code> (Bedrock) \u2192 Fallback2 <code>deepseek.v3.2</code> (Bedrock) \u2192 Fallback3 <code>deepseek/deepseek-v4-pro</code> (OpenRouter, last resort only)</li><li>Cachi...",
           "[20:39 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; format)",
           "[20:39 IST] HADERACH: All done on Monk. Now the Giskard message for Chet:",
           "---",
@@ -1510,7 +1497,20 @@
           "[21:28 IST] HADERACH: Only 10 rows without token (confirms the \"10-record limit without auth\" rule, and the Year filter isn't being applied either without auth). Let's test with our token.",
           "[21:31 IST] HADERACH: `limit=100` works \u2014 that's the actual pagination mechanism. Let's push it further and check total row counts.",
           "[21:33 IST] HADERACH: Both endpoints confirmed working. Now let me check WPI, IIP, and GDP/NAS endpoints (per the plan, macro.db needs CPI + WPI + IIP + GDP).",
-          "[21:33 IST] HADERACH: WPI works via `api/wpi/getWpiRecords`. Now let's find IIP and GDP/NAS."
+          "[21:33 IST] HADERACH: WPI works via `api/wpi/getWpiRecords`. Now let's find IIP and GDP/NAS.",
+          "[21:55 IST] RAM: Done?",
+          "[21:58 IST] HADERACH: Not done yet, Ram \u2014 here's exactly where it stands right now.",
+          "<b>Confirmed working (live-tested with real credentials, real data):</b>",
+          "<ul>",
+          "<li>Fresh MoSPI account created + logged in (token obtained, valid 15 min)</li>",
+          "<li><b>CPI</b> \u2014 <code>api/cpi/getCPIIndex</code> and <code>api/cpi/getItemIndex</code> both live. Found the real pagination trick: <code>limit=</code> param (undocumented in the manual) \u2014 pulled all 25,884 rows for 2024 in one call</li>",
+          "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
+          "[21:58 IST] HADERACH: Not done yet, Ram \u2014 here's exactly where it stands right now.",
+          "<b>Confirmed working (live-tested with real credentials, real data):</b>",
+          "<ul>",
+          "<li>Fresh MoSPI account created + logged in (token obtained, valid 15 min)</li>",
+          "<li><b>CPI</b> \u2014 <code>api/cpi/getCPIIndex</code> and <code>api/cpi/getItemIndex</code> both live. Found the real pagination trick: <code>limit=</code> param (undocumented in the manual) \u2014 pulled all 25,884 rows for 2024 in one call</li>",
+          "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR..."
         ],
         "yesterday": [
           "<b>What's actually going on</b>",
@@ -1652,7 +1652,7 @@
       "frozen_reason": null,
       "pid": 1225,
       "rss_gb": 0.53,
-      "cpu": 0.7,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2408,8 +2408,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.48,
-      "cpu": 0.4,
+      "rss_gb": 0.47,
+      "cpu": 1.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2563,10 +2563,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1783355417075,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1783353605855,
+          "last_ts": 1783355417074,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2608,15 +2617,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1783269012888,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2192 Haderach: Send Pinch enquiry email",
           "enabled": false,
           "sched": "one-shot",
@@ -2628,10 +2628,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Update:** No new unread emails detected since morning check. All monitoring nominal.",
-          "HEARTBEAT_OK",
-          "[18:55 IST] PURL: Direct Telegram with Gari (8610135184). Checking ProtonMail and memory state.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[19:55 IST] PURL: Evening heartbeat at 19:55 IST. Checking ProtonMail (quiet hours 23:00\u201307:00 don't apply yet), updating memory, and verifying nothing urgent needs flagging.",
           "[19:56 IST] PURL: \u2705 **ProtonMail still clean** \u2014 no new unread messages since morning check.",
@@ -2667,7 +2663,11 @@
           "- **Output file:** `transcript-2026-07-06.md`",
           "All current. Next run scheduled for 3h from now (quiet hours).",
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages in any transcripts. All sessions processed."
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages in any transcripts. All sessions processed.",
+          "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[21:55 IST] PURL: Quiet hours check \u2014 21:55 IST. Email scans are skipped between 23:00\u201307:00 IST per HEARTBEAT.md. Next scheduled email check is morning at 07:55 IST.",
+          "Session context stable. Cost review next due Saturday 12 July. No urgent flags.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "- Config backup: 2 July",
@@ -2742,10 +2742,6 @@
           "--- [Midnight run OK \u2014 2026-07-06 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "## 2026-06-22 \u2014 No agent activity",
-          "## 2026-06-22",
-          "## 2026-06-23 \u2014 No agent activity",
-          "## 2026-06-23",
           "## 2026-06-24 \u2014 No agent activity",
           "## 2026-06-24",
           "## 2026-06-25 \u2014 No agent activity",
@@ -2781,7 +2777,11 @@
           "## 2026-07-06 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-06 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-06 \u2014 no new content] ---",
+          "## 2026-07-06",
+          "- Morning heartbeat: inbox clear, config backup nominal, weekly bulletin complete",
+          "- Line editing: monsoon greeting refined and ready",
+          "- Afternoon/evening heartbeats: all systems nominal, context stable at 21%"
         ]
       }
     },
@@ -2796,8 +2796,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1232,
-      "rss_gb": 0.46,
-      "cpu": 0.6,
+      "rss_gb": 0.45,
+      "cpu": 1.9,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -2820,6 +2820,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Inter Study Evening (22:00)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1783355428668,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
@@ -2852,15 +2861,6 @@
           "enabled": true,
           "sched": "0 12 * * *",
           "last_ts": 1783319420932,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Inter Study Evening (22:00)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1783302703843,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3085,7 +3085,7 @@
       "frozen_reason": null,
       "pid": 1222,
       "rss_gb": 0.34,
-      "cpu": 0.1,
+      "cpu": 1.3,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3110,7 +3110,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783354805557,
+          "last_ts": 1783355406027,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3257,7 +3257,7 @@
       "frozen_reason": null,
       "pid": 1217,
       "rss_gb": 0.39,
-      "cpu": 0.1,
+      "cpu": 0.9,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3458,8 +3458,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1623,
-      "rss_gb": 0.42,
-      "cpu": 1.0,
+      "rss_gb": 0.46,
+      "cpu": 2.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3673,8 +3673,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 55763,
-      "rss_gb": 0.31,
-      "cpu": 0.1,
+      "rss_gb": 0.32,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3833,7 +3833,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.8,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3890,8 +3890,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1570,
-      "rss_gb": 0.46,
-      "cpu": 0.6,
+      "rss_gb": 0.47,
+      "cpu": 2.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -4045,10 +4045,19 @@
       ],
       "crons": [
         {
+          "name": "Herbie \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1783355409289,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1783353603713,
+          "last_ts": 1783355409289,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4070,21 +4079,10 @@
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
-        },
-        {
-          "name": "Herbie \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1783302587836,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
         }
       ],
       "transcripts": {
         "recent": [
-          "[09:52 IST] RAM: [OpenClaw heartbeat poll]",
-          "[09:52 IST] HERBIE: HEARTBEAT_OK",
           "[10:52 IST] RAM: [OpenClaw heartbeat poll]",
           "[10:52 IST] HERBIE: HEARTBEAT_OK",
           "[11:52 IST] RAM: [OpenClaw heartbeat poll]",
@@ -4122,7 +4120,9 @@
           "[21:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger script now.",
           "[21:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2705 Transcript logged: **transcript-2026-07-06.md** with 2 messages (4 new total). Bookmark updated.",
           "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
-          "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Logged. 2 messages captured, no new entries from this run."
+          "[21:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Logged. 2 messages captured, no new entries from this run.",
+          "[21:52 IST] RAM: [OpenClaw heartbeat poll]",
+          "[21:52 IST] HERBIE: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Bookmark:** Added",
@@ -4264,7 +4264,7 @@
       "frozen_reason": null,
       "pid": 1231,
       "rss_gb": 0.45,
-      "cpu": 1.0,
+      "cpu": 1.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
