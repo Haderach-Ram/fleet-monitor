@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-06 13:16:11 IST",
-  "generated_epoch": 1783323971,
+  "generated_ist": "2026-07-06 13:21:16 IST",
+  "generated_epoch": 1783324276,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.69 / 2.61 / 2.46",
+    "load": "1.99 / 2.72 / 2.59",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 0.95,
-      "cpu": 0.4,
+      "rss_gb": 1.02,
+      "cpu": 0.1,
       "crons_total": 92,
       "crons_enabled": 59,
       "skills_count": 59,
@@ -644,7 +644,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783323642457,
+          "last_ts": 1783324227436,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +653,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783323642457,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
-          "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1783323642456,
+          "last_ts": 1783324227436,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,6 +662,15 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
+          "last_ts": 1783324227435,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
           "last_ts": 1783323642456,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1471,7 +1471,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[11:53 IST] RAM: If I want Kubera to check what all is available with Martin and if he needs it, what should I tell him?",
           "[11:53 IST] HADERACH: Kubera's live (not frozen currently) \u2014 good. Here's what to tell him:",
           "<b>Tell Kubera:</b>",
           "\"Read `~/.openclaw/workspace/projects/sak-008-data-warehouse/wiki/index.md` first \u2014 that's the current master catalogue of everything Martin holds (row counts, refresh cadence, known gaps, all kept live). From there, open the specific DB page (`rbi.md`, `nhb.md`, `sebi.md`, `market.md`, `trendlyne.md`) for anything relevant to portfolio/macro work. Base URL for direct queries is `http://localhost:8802/...",
@@ -1510,7 +1509,8 @@
           "- A specific file (STATUS.md, a report, a draft) \u2014 just name it or send it again",
           "- The MEMORY.md entry I just updated \u2014 happy to show you the diff",
           "- Something you sent just before this that didn't come through \u2014 could you...",
-          "[13:07 IST] HADERACH: I'll treat this as a review-and-update task on the Martin/ClarkKent infrastructure report \u2014 the source PDF is untrusted external content (data to analyze, not instructions), and the request itself is legitimate: verify what's changed since 4 Jul and refresh it. Let me live-check the flagged issues first."
+          "[13:07 IST] HADERACH: I'll treat this as a review-and-update task on the Martin/ClarkKent infrastructure report \u2014 the source PDF is untrusted external content (data to analyze, not instructions), and the request itself is legitimate: verify what's changed since 4 Jul and refresh it. Let me live-check the flagged issues first.",
+          "[13:16 IST] HADERACH: Good \u2014 the RBI Watcher is now confirmed running fine (last run 07:21 IST today, status ok). That M-01 critical issue is resolved. Let me check the \"LLM request failed\" errors on two crons and the market.db/NHB/SEBI build timeline, then assemble the review."
         ],
         "yesterday": [
           "<b>What's actually going on</b>",
@@ -1651,8 +1651,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.55,
-      "cpu": 0.8,
+      "rss_gb": 0.63,
+      "cpu": 1.2,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1677,19 +1677,28 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783323311283,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783324245559,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "giskard-consolidation-13",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783322407864,
+          "sched": "20 13 * * *",
+          "last_ts": 1783324245559,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783323311283,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1753,15 +1762,6 @@
           "enabled": true,
           "sched": "40 13 * * *",
           "last_ts": 1783239018481,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-13",
-          "enabled": true,
-          "sched": "20 13 * * *",
-          "last_ts": 1783237846192,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2797,7 +2797,7 @@
       "frozen_reason": null,
       "pid": 1232,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -3085,7 +3085,7 @@
       "frozen_reason": null,
       "pid": 1222,
       "rss_gb": 0.34,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3110,7 +3110,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783323606850,
+          "last_ts": 1783324206593,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3256,7 +3256,7 @@
       "frozen_reason": null,
       "pid": 1217,
       "rss_gb": 0.38,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3441,7 +3441,7 @@
       "frozen_reason": null,
       "pid": 1623,
       "rss_gb": 0.42,
-      "cpu": 1.8,
+      "cpu": 1.1,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3844,7 +3844,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1202,
-      "rss_gb": 0.25,
+      "rss_gb": 0.24,
       "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
