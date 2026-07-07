@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-07 09:28:30 IST",
-  "generated_epoch": 1783396710,
+  "generated_ist": "2026-07-07 09:33:39 IST",
+  "generated_epoch": 1783397019,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.57 / 3.92 / 3.58",
+    "load": "4.33 / 4.09 / 3.74",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.09,
-      "cpu": 0.4,
+      "rss_gb": 1.26,
+      "cpu": 0.1,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,51 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783396918967,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783396910181,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783396827472,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-052 resume reminder",
+          "enabled": true,
+          "sched": "30 9 * * *",
+          "last_ts": 1783396827472,
+          "last_status": "ok",
+          "model": "(no LLM)",
+          "kind": "systemEvent"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783396827471,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -654,33 +699,6 @@
           "enabled": true,
           "sched": "45 2 * * *",
           "last_ts": 1783396329704,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783396224876,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783396224876,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783396224875,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -866,15 +884,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783373530360,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -1035,15 +1044,6 @@
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
-        },
-        {
-          "name": "HAD-052 resume reminder",
-          "enabled": true,
-          "sched": "30 9 * * *",
-          "last_ts": 1783310614943,
-          "last_status": "ok",
-          "model": "(no LLM)",
-          "kind": "systemEvent"
         },
         {
           "name": "SAK-008 trendlyne.db \u2014 filing_catalogue Weekly Refresh",
@@ -1480,18 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:47 IST] HADERACH: Kubera's model hierarchy (from its live config, though the gateway itself is currently frozen \u2014 bootout'd since 6 Jul per standing notes, confirmed just now: no response on port 18798, no launchctl service registered):",
-          "<b>Primary:</b> anthropic/claude-sonnet-5 (direct Anthropic)",
-          "<b>Fallback 1:</b> openrouter/x-ai/grok-4.3",
-          "<b>Fallback 2:</b> anthropic/claude-sonnet-4-6 (direct Anthropic)",
-          "Notably, this is <i>not</i> a Bedrock stack at all \u2014 Kubera runs on direct Anthropic + OpenRouter, so the...",
-          "[08:48 IST] RAM: Reactivate Kubera pls",
-          "[08:49 IST] HADERACH: Kubera is back up.",
-          "[08:49 IST] HADERACH: That log is stale (last activity 29 Jun before the freeze). Let me check today's live log to confirm the current run is healthy.",
-          "[08:49 IST] HADERACH: Confirmed live: process 89158 running, health endpoint returns `{\"ok\":true,\"status\":\"live\"}` on port 18798.",
-          "<b>Kubera reactivated.</b> Unfroze via <code>launchctl enable</code> + <code>bootstrap</code> \u2014 process is up (PID 89158), gateway healthy, model hierarchy as previously reported:",
-          "<b>Primary:</b> anthropic/claude-sonnet-5",
-          "<b>Fallback 1:</b> openrouter/x-ai/grok-4.3",
           "<b>Fallback 2:</b> anthropic/claude-sonnet-4-6",
           "Telegram bot @Kubera_Ram_Bot should be responsive again. One flag: MEMORY...",
           "[08:49 IST] HADERACH: Confirmed live: process 89158 running, health endpoint returns `{\"ok\":true,\"status\":\"live\"}` on port 18798.",
@@ -1519,7 +1507,19 @@
           "Root cause: the job's <code>delivery</code> block was <code>{\"mode\": \"announce\"}</code> with no <code>channel</code>/<code>to</code> \u2014 so when it tried to deliver its silent completion status to Telegram, it had nowhere to send it and threw \"Delivering to Telegram requires...",
           "[09:11 IST] HADERACH: Checked all three flagged items against live cron state and Kubera's own freeze note (already resolved by your correction above). Here's where things stand:",
           "<b>1. Monk \u2014 Memory Consolidation (haderach) \u2014 FIXED just now</b>",
-          "Root cause: the job's <code>delivery</code> block was <code>{\"mode\": \"announce\"}</code> with no <code>channel</code>/<code>to</code> \u2014 so when it tried to deliver its silent completion status to Telegram, it had nowhere to send it and threw \"Delivering to Telegram requires..."
+          "Root cause: the job's <code>delivery</code> block was <code>{\"mode\": \"announce\"}</code> with no <code>channel</code>/<code>to</code> \u2014 so when it tried to deliver its silent completion status to Telegram, it had nowhere to send it and threw \"Delivering to Telegram requires...",
+          "[09:21 IST] RAM: Check and run SAK-008",
+          "[09:21 IST] HADERACH: Force-run triggered on SAK-008 Martin Wiki. Let me check the outcome.",
+          "[09:22 IST] HADERACH: The runs log hasn't reflected my forced trigger yet (still showing the same 7 old entries, all pre-fix on nova-pro). Let me wait a moment and check again.",
+          "[09:22 IST] HADERACH: <b>SAK-008 Martin Wiki \u2014 confirmed fixed.</b> Forced run just completed:",
+          "<code>lastRunStatus: \"ok\"</code>, ran in 11.2s, <code>consecutiveErrors: 0</code>.",
+          "The nova-pro \u2192 Sonnet 4.6 repin holds \u2014 the wiki stats refresh script ran clean against the live SQLite files on RamMiniSSD1. Next scheduled run stays at 02:45 IST tomorrow as normal.",
+          "That closes out all three items from Giskard's report except the Downloads SSD Weekly Cleanup (Giskard's own cron \u2014 still just needs relaying whenever you...",
+          "[09:22 IST] HADERACH: <b>SAK-008 Martin Wiki \u2014 confirmed fixed.</b> Forced run just completed:",
+          "<code>lastRunStatus: \"ok\"</code>, ran in 11.2s, <code>consecutiveErrors: 0</code>.",
+          "The nova-pro \u2192 Sonnet 4.6 repin holds \u2014 the wiki stats refresh script ran clean against the live SQLite files on RamMiniSSD1. Next scheduled run stays at 02:45 IST tomorrow as normal.",
+          "That closes out all three items from Giskard's report except the Downloads SSD Weekly Cleanup (Giskard's own cron \u2014 still just needs relaying whenever you...",
+          "## 09:32 IST \u2014 Heartbeat: OK (no action)"
         ],
         "yesterday": [
           "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.56,
-      "cpu": 0.9,
+      "rss_gb": 0.57,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1997,7 +1997,7 @@
       "frozen_reason": null,
       "pid": 89158,
       "rss_gb": 0.56,
-      "cpu": 1.3,
+      "cpu": 1.2,
       "crons_total": 23,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -2021,6 +2021,42 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
+          "enabled": true,
+          "sched": "*/15 9-15 * * 1-5",
+          "last_ts": 1783396867473,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
+          "enabled": true,
+          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
+          "last_ts": 1783396867472,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "enabled": true,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1783396867472,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
+          "enabled": true,
+          "sched": "*/15 8-15 * * 1-5",
+          "last_ts": 1783396867472,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 Market Open Analysis (09:20 IST Mon-Fri)",
           "enabled": true,
           "sched": "20 9 * * 1-5",
@@ -2030,46 +2066,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
-          "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1783396247131,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
-          "enabled": true,
-          "sched": "*/15 9-15 * * 1-5",
-          "last_ts": 1783395977851,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)",
           "enabled": true,
           "sched": "15 9 * * 1-5",
           "last_ts": 1783395977851,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
-          "enabled": true,
-          "sched": "*/15 8-15 * * 1-5",
-          "last_ts": 1783395977850,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
-          "enabled": true,
-          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
-          "last_ts": 1783395328062,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2230,7 +2230,6 @@
       ],
       "transcripts": {
         "recent": [
-          "5. **DTE \u2265 7** on target expiry",
           "6. **Max 2 active Pot 3 positions**",
           "7. **Premium gate** \u2014 adaptive by VIX zone (",
           "[09:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by reading the portfolio and checking market status, then scan for relevant market moves.",
@@ -2269,7 +2268,8 @@
           "- **Nifty:** 24430 | **VIX:** 11.8 (NORMAL, Pot 2 gate OPEN \u2705)",
           "- **Pot 1:** -0.1% (-\u20b9462), broad weakness in TCS, HDFCAMC, ITC; offset by ICICIBANK (+\u20b92.5k), AUROPHARMA (+\u20b91.7k), APOLLOHOSP (+\u20b91.5k)",
           "- **Pot 2:** Short ITC 290 call (1725 qty), -\u20b9483 P&L (1 day to expiry)",
-          "- **Portfolio total:** -17.4% from capital base (net \u20b91,567,385 after 6 Jul reconciliation)"
+          "- **Portfolio total:** -17.4% from capital base (net \u20b91,567,385 after 6 Jul reconciliation)",
+          "[09:20 IST] KUBERA [Cron: Kubera \u2014 Market Open Analysis (09:20 IST Mon-Fri)]: Sent. Portfolio flat (+0.1%, \u20b9859,861), VIX low at 11.8, no alerts \u2014 HOLD across the board. Only notable mover was COALINDIA (-3.8%, oil-linked, in line with thesis)."
         ],
         "yesterday": [
           "- **Nifty:** 24,377.6 | **VIX:** 11.92 \u2705 (Pot2 gate open)",
@@ -2411,7 +2411,7 @@
       "frozen_reason": null,
       "pid": 1598,
       "rss_gb": 0.51,
-      "cpu": 1.0,
+      "cpu": 2.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2565,6 +2565,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783396804216,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2589,15 +2598,6 @@
           "last_ts": 1783395018454,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783395018454,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2630,20 +2630,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- 0 new direct Telegram messages (Gari)",
-          "- 0 new group messages (Klub K)",
-          "- 3 messages total in transcript (no new ones)",
-          "- Bookmark state: False",
-          "- File: `transcript-2026-07-07.md`",
-          "Quiet night. Nothing new to flag.",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger now.",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. All transcript sessions checked; no new messages to process. Continuing silently.",
-          "[06:55 IST] PURL: Morning heartbeat \u2014 06:55 IST. Updating daily memory, then checking ProtonMail.",
-          "[06:55 IST] PURL: Still in quiet hours (06:55 IST \u2014 email scans skip until 07:00). Appending heartbeat checkpoint now.",
-          "[06:56 IST] PURL: Now updating heartbeat-state and giving the all-clear.",
-          "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[07:55 IST] PURL: Good \u2014 07:55 IST, quiet hours ending. Now running the full heartbeat check: email scan, cost context, and update memory.",
-          "[07:56 IST] PURL: \u2705 **ProtonMail check complete** \u2014 inbox is clean. Only Proton marketing + test email from 20 June (already seen). No new external messages.",
           "Now updating memory with this heartbeat.",
           "[07:56 IST] PURL: HEARTBEAT_OK",
           "[07:55 IST] PURL: Good \u2014 07:55 IST, quiet hours ending. Now running the full heartbeat check: email scan, cost context, and update memory.",
@@ -2669,7 +2655,21 @@
           "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logged.** 5 new messages captured from main session, bookmark updated.",
           "**File:** `memory/transcript-2026-07-07.md`",
           "Next run: 9:30 AM IST.",
-          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Transcript logger complete. ",
+          "**Summary:**",
+          "- 3 messages total captured",
+          "- No new messages in main session",
+          "- No new messages in Klub K group chat",
+          "- Updated bookmark for `transcript-2026-07-07.md`",
+          "The job ran during the quiet hours window (00:00\u201306:00). Next run will be in 3 hours. \ud83e\uddf6",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Task completed. The script ran successfully:",
+          "- No new Klub K group messages to log",
+          "- No new direct messages from Gari",
+          "- All sessions processed cleanly",
+          "\u2713 Transcript logger cycle complete. No action required."
         ],
         "yesterday": [
           "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2799,8 +2799,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1232,
-      "rss_gb": 0.46,
-      "cpu": 1.5,
+      "rss_gb": 0.47,
+      "cpu": 1.6,
       "crons_total": 9,
       "crons_enabled": 9,
       "skills_count": 1,
@@ -3076,7 +3076,7 @@
       "frozen_reason": null,
       "pid": 1222,
       "rss_gb": 0.35,
-      "cpu": 0.9,
+      "cpu": 1.3,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3101,7 +3101,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783396206545,
+          "last_ts": 1783396806165,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3252,7 +3252,7 @@
       "frozen_reason": null,
       "pid": 1217,
       "rss_gb": 0.4,
-      "cpu": 1.3,
+      "cpu": 1.0,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 1,
@@ -3277,7 +3277,7 @@
           "name": "CISO SMEDA \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "0 */3 * * *",
-          "last_ts": 1783395121043,
+          "last_ts": 1783396909657,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3316,7 +3316,8 @@
           "# Self-healing rotation from transcript-2026-07-06.md at 00:01 IST",
           "[23:00 IST] CISO-SMEDA: Context at 60% \u2014 proceeding.",
           "[23:00 IST] CISO-SMEDA: Consolidation already ran at 07:26 IST this morning (triggered by the morning cron). All files updated: strengths, gaps, exam-strategy, study-trajectory, wiki. Checking for any new content since then.",
-          "[06:01 IST] CISO-SMEDA: NO_REPLY"
+          "[06:01 IST] CISO-SMEDA: NO_REPLY",
+          "[09:01 IST] CISO-SMEDA: NO_REPLY"
         ],
         "yesterday": [
           "# Transcript \u2014 2026-07-06",
@@ -3456,7 +3457,7 @@
       "frozen_reason": null,
       "pid": 1623,
       "rss_gb": 0.43,
-      "cpu": 1.0,
+      "cpu": 1.2,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 0,
@@ -3677,7 +3678,7 @@
       "frozen_reason": null,
       "pid": 55763,
       "rss_gb": 0.35,
-      "cpu": 0.8,
+      "cpu": 1.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3867,7 +3868,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 1.3,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3924,8 +3925,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1570,
-      "rss_gb": 0.47,
-      "cpu": 1.5,
+      "rss_gb": 0.48,
+      "cpu": 1.7,
       "crons_total": 4,
       "crons_enabled": 4,
       "skills_count": 14,
@@ -4079,19 +4080,19 @@
       ],
       "crons": [
         {
-          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
           "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1783395243601,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783396802988,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)",
+          "name": "Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783395003292,
+          "sched": "4 */3 * * *",
+          "last_ts": 1783395243601,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -4117,8 +4118,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2705 **Session age: 17 days 16 hours** \u2014 no compactions needed yet  ",
-          "**Current model:** `anthropic/claude-haiku-4-5`  ",
           "**Fallbacks:** `anthropic/claude-sonnet-4-6`",
           "No pending tasks or alerts. All systems normal. Last heartbeat check ~2 minutes ago.",
           "HEARTBEAT_OK",
@@ -4156,7 +4155,9 @@
           "\u2705 **Session: 17d 21h** \u2014 no issues  ",
           "HEARTBEAT_OK",
           "[09:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: I'll run the transcript logger now.",
-          "[09:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2713 Transcript logged successfully. 2 messages processed, bookmark updated, file: `transcript-2026-07-07.md`"
+          "[09:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: \u2713 Transcript logged successfully. 2 messages processed, bookmark updated, file: `transcript-2026-07-07.md`",
+          "[09:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
+          "[09:04 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. No new messages in the transcript since last run \u2014 2 messages total in today's file. Bookmark is off."
         ],
         "yesterday": [
           "[12:00 IST] HERBIE [Cron: Herbie \u2014 Transcript Logger (30 min, 06:00-23:00)]: Done. Logged 2 new messages to transcript-2026-07-06.md. Bookmark updated.",
@@ -4298,7 +4299,7 @@
       "frozen_reason": null,
       "pid": 1231,
       "rss_gb": 0.47,
-      "cpu": 1.4,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
