@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-07 17:49:36 IST",
-  "generated_epoch": 1783426776,
+  "generated_ist": "2026-07-07 17:54:44 IST",
+  "generated_epoch": 1783427084,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.23 / 2.41 / 2.33",
+    "load": "2.19 / 2.43 / 2.38",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.11,
-      "cpu": 0.4,
+      "rss_gb": 1.21,
+      "cpu": 1.8,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,10 +641,19 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783427044367,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783426227661,
+          "last_ts": 1783426826173,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,7 +662,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783426227661,
+          "last_ts": 1783426826173,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,16 +671,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783426227661,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783425252119,
+          "last_ts": 1783426826172,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,7 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>CISO-SMEDA (18794): <b>running</b>, PID 1217, health OK</li>",
           "<li>Legal-SMEDA (18797): <b>running</b>, PID 1222, health OK</li>",
           "<li>Herbie, Medical-SMEDA, Sam: all also <b>u...",
           "--- [TRANSCRIPT GAP: 15:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1519,7 +1518,8 @@
           "<li>Kubera, Legal-SMEDA, Medical-SMEDA, CISO-SMEDA, CA-SMEDA-II, Herbie, Sam</li>",
           "</ul>",
           "Still live: Haderach, Giskard, Purl, Chet, Martin, ClarkKent.",
-          "I've also corrected MEMORY.md \u2014 the old \"[FROZEN 2 Jul]\" tags were stale (those agents had silently drifted back to running sometime around the 1 Jul restart cycle, with no alert). Updated it to record the real timeline and flagged the failure mode itself: a restart/OS-updat..."
+          "I've also corrected MEMORY.md \u2014 the old \"[FROZEN 2 Jul]\" tags were stale (those agents had silently drifted back to running sometime around the 1 Jul restart cycle, with no alert). Updated it to record the real timeline and flagged the failure mode itself: a restart/OS-updat...",
+          "--- [TRANSCRIPT GAP: 17:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
@@ -1661,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 1225,
       "rss_gb": 0.56,
-      "cpu": 0.6,
+      "cpu": 1.8,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1689,7 +1689,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1783425008581,
+          "last_ts": 1783426808354,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1823,18 +1823,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Downloads SSD Weekly Cleanup** \u2014 model updated:",
-          "- ~~`anthropic/claude-haiku-4-5`~~ \u2192 `amazon-bedrock/global.anthropic.claude-sonnet-4-6`",
-          "- Fallbacks removed (was using direct Anthropic, both timing out)",
-          "Network path to api.anthropic.com is alive (got 401, not a drop), so this is the same pattern as Haderach's nova-pro crons \u2014 direct-Anthropic calls timing out at model-launch time from isolated cron sessions. Bedrock sidesteps it entirely. Will clear on next Sunday 10:00 IST run.",
-          "[08:12 IST] [DM] Giskard: Done.",
-          "**Downloads SSD Weekly Cleanup** \u2014 model updated:",
-          "- ~~`anthropic/claude-haiku-4-5`~~ \u2192 `amazon-bedrock/global.anthropic.claude-sonnet-4-6`",
-          "- Fallbacks removed (was using direct Anthropic, both timing out)",
-          "Network path to api.anthropic.com is alive (got 401, not a drop), so this is the same pattern as Haderach's nova-pro crons \u2014 direct-Anthropic calls timing out at model-launch time from isolated cron sessions. Bedrock sidesteps it entirely. Will clear on next Sunday 10:00 IST run.",
-          "[08:14 IST] [DM] Giskard: The cron moves files to **`/Volumes/RamMiniSSD1/Downloads SSD/`** \u2014 that's an external SSD mounted at `/Volumes/RamMiniSSD1`.",
-          "Source: `~/Downloads` (files older than 7 days)",
-          "Destination: `/Volumes/RamMiniSSD1/Downloads SSD/`",
           "If you're asking where the *cron job itself* is stored \u2014 it's in the OpenClaw Gateway's internal scheduler DB (not a file you'd find on disk directly).",
           "[08:14 IST] [DM] Giskard: The cron moves files to **`/Volumes/RamMiniSSD1/Downloads SSD/`** \u2014 that's an external SSD mounted at `/Volumes/RamMiniSSD1`.",
           "Source: `~/Downloads` (files older than 7 days)",
@@ -1862,7 +1850,19 @@
           "1. SSH into the M2 and check/restart it, or",
           "2. Have the M2 Giskard instance diagnose it",
           "Pinging Ram now.",
-          "[14:12 IST] [Agastya Fleet] Giskard: Keshav \u2014 I've pinged Ram in the A-Team group. Your bot (Agastya-Keshav) is on the M2 office Mac Mini and has actually been down since ~June 10 \u2014 recovery was pending. Ram needs to restart it from the M2 side. He's been flagged."
+          "[14:12 IST] [Agastya Fleet] Giskard: Keshav \u2014 I've pinged Ram in the A-Team group. Your bot (Agastya-Keshav) is on the M2 office Mac Mini and has actually been down since ~June 10 \u2014 recovery was pending. Ram needs to restart it from the M2 side. He's been flagged.",
+          "[17:38 IST] [Agastya Fleet] Giskard: Tailscale! The office Mac Mini is `ramnaths-mac-mini` at `100.119.4.19` \u2014 active and direct.",
+          "[17:38 IST] [Agastya Fleet] Giskard: Connected. Now let me check Keshav's bot.",
+          "[17:39 IST] [Agastya Fleet] Giskard: Process is running but crashing in a restart loop \u2014 never gets past \"resolving authentication\". Looks like a BWS/auth issue. Let me check deeper.",
+          "[17:39 IST] [Agastya Fleet] Giskard: Got the root cause. Let me check the config:",
+          "[17:39 IST] [Agastya Fleet] Giskard: Found it. `gateway.auth.mode = \"none\"` but the host binding requires auth. The token is present but mode is set to `\"none\"` which explicitly disables it. Need to set mode to `\"token\"`.",
+          "[17:39 IST] [Agastya Fleet] Giskard: Agastya-Keshav is back up \u2014 HTTP 200. ",
+          "**Diagnosis:** `gateway.auth.mode` was set to `\"none\"` which caused OpenClaw to refuse binding (security block \u2014 can't expose gateway without auth). The token was present but the mode override disabled it.",
+          "**Fix applied:** Set `auth.mode` \u2192 `\"token\"` on the M2 config, restarted.",
+          "[17:40 IST] [Agastya Fleet] Giskard: \u2705 Agastya-Keshav is back up (port 18808 \u2014 HTTP 200).",
+          "<b>Root cause:</b> <code>gateway.auth.mode</code> was set to <code>\"none\"</code> \u2014 OpenClaw refuses to bind when auth is explicitly disabled. The token was present but the mode override killed it.",
+          "<b>Fix:</b> Set <code>auth.mode</code> \u2192 <code>\"token\"</code> on the M2 config, restarted via SSH over Tailscale.",
+          "Keshav \u2014 your bot should be working now."
         ],
         "yesterday": [
           "[07:28 IST] [DM] Giskard: Can't open the browser automatically (Chrome not running). You'll need to do this manually \u2014 it's 3 clicks:",
@@ -2418,7 +2418,7 @@
       "frozen_reason": null,
       "pid": 1598,
       "rss_gb": 0.51,
-      "cpu": 1.7,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3687,7 +3687,7 @@
       "frozen_reason": null,
       "pid": 55763,
       "rss_gb": 0.35,
-      "cpu": 0.8,
+      "cpu": 0.9,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3877,7 +3877,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3907,7 +3907,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
