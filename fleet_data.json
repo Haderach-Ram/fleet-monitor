@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-07 23:06:04 IST",
-  "generated_epoch": 1783445764,
+  "generated_ist": "2026-07-07 23:11:10 IST",
+  "generated_epoch": 1783446070,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.07 / 2.42 / 2.28",
+    "load": "2.85 / 2.41 / 2.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.32,
-      "cpu": 0.2,
+      "rss_gb": 1.29,
+      "cpu": 0.1,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783446041065,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783446041064,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
+          "last_ts": 1783446041064,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783446041064,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Consolidation \u2014 23:05 IST (v2)",
           "enabled": true,
           "sched": "5 23 * * *",
@@ -677,36 +713,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783445660139,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783445660139,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
-          "last_ts": 1783445660138,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
           "last_ts": 1783445660138,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1005,15 +1014,6 @@
           "enabled": true,
           "sched": "45 23 * * *",
           "last_ts": 1783361709130,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
-          "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1783359641411,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,12 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:11 IST] HADERACH: I have the full verbatim content for all slides now. Let me rebuild the deck with the correct source material for slides 17\u201327 and then deliver it.",
-          "[20:13 IST] HADERACH: Comparing what I had with the actual source \u2014 the current script already has the correct content. Let me check exactly what's in slides 17\u201320 vs the source, and if it matches, I'll just rebuild and send.",
-          "Looking at the script vs source:",
-          "- Slide 17 (Pay Mix): script has slightly compressed text but structure matches \u2713",
-          "- Slide 18 (ESOP): script built a *summary table* instead of the 6 explanation boxes from source \u2014 needs fix",
-          "- Slide 19 (CFO): script has cross-peer table \u2014 source actually has ...",
           "[20:16 IST] HADERACH: The heredoc was cut off mid-line. Let me append the rest properly:",
           "[20:17 IST] HADERACH: 27 slides, 94 KB, valid OOXML. Sending it now.",
           "MEDIA:/Users/ram_macmini/Desktop/Haderach/Output/Sammaan_Comp_Benchmarking_USD_Converted.pptx",
@@ -1519,7 +1513,13 @@
           "<b>\"Message not supported\" error on rich messages sent to groups (macOS)</b>",
           "<ul>",
           "<li>Bot sends a rich message directly to you (1:1 DM) \u2192 renders fine</li>",
-          "<li>Same bot sends the same kind of rich message to a group \u2192 ..."
+          "<li>Same bot sends the same kind of rich message to a group \u2192 ...",
+          "[23:05 IST] HADERACH: Nightly consolidation complete. Summary:",
+          "- **Steps 1\u20133:** No sessions, no [FACT:] tags today \u2014 nothing to promote",
+          "- **Steps 4\u20136:** rolling-7day / 28day / 180day all updated with Jul 7 entry (idle day)",
+          "- **Step 7:** Tag index rebuilt \u2014 51 days indexed, 2 updated",
+          "- **Step 8:** MEMORY_WRITE bookmark appended to transcript",
+          "- **Step 9:** heartbeat-state.json lastConsolidation updated"
         ],
         "yesterday": [
           "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.57,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2418,7 +2418,7 @@
       "frozen_reason": null,
       "pid": 1598,
       "rss_gb": 0.57,
-      "cpu": 1.9,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3687,7 +3687,7 @@
       "frozen_reason": null,
       "pid": 55763,
       "rss_gb": 0.35,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3877,7 +3877,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3907,7 +3907,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
