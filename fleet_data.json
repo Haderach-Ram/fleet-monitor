@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-07 23:57:08 IST",
-  "generated_epoch": 1783448828,
+  "generated_ist": "2026-07-08 00:02:14 IST",
+  "generated_epoch": 1783449134,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.25 / 2.19 / 2.35",
+    "load": "2.52 / 2.24 / 2.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.16,
-      "cpu": 0.3,
+      "rss_gb": 1.29,
+      "cpu": 98.7,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783449131986,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783449120792,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1783449106671,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783449010217,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -758,15 +794,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783438257833,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -825,15 +852,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1783398640747,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783396918967,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -983,15 +1001,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783373411756,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-003 Reading \u2014 02:00 IST",
           "enabled": true,
           "sched": "0 2 * * *",
@@ -1005,15 +1014,6 @@
           "enabled": true,
           "sched": "0 2 * * *",
           "last_ts": 1783369904066,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1783362737614,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,6 +1480,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-08",
+          "# Self-healing rotation from transcript-2026-07-07.md at 00:02 IST"
+        ],
+        "yesterday": [
           "[20:17 IST] HADERACH: 27 slides, 94 KB, valid OOXML. Sending it now.",
           "MEDIA:/Users/ram_macmini/Desktop/Haderach/Output/Sammaan_Comp_Benchmarking_USD_Converted.pptx",
           "Done, Ram. 27 slides, rebuilt from verbatim source throughout.",
@@ -1521,57 +1525,7 @@
           "- **Step 9:** heartbeat-state.json lastConsolidation updated",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
-        "yesterday": [
-          "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
-          "[21:58 IST] HADERACH: Not done yet, Ram \u2014 here's exactly where it stands right now.",
-          "<b>Confirmed working (live-tested with real credentials, real data):</b>",
-          "<ul>",
-          "<li>Fresh MoSPI account created + logged in (token obtained, valid 15 min)</li>",
-          "<li><b>CPI</b> \u2014 <code>api/cpi/getCPIIndex</code> and <code>api/cpi/getItemIndex</code> both live. Found the real pagination trick: <code>limit=</code> param (undocumented in the manual) \u2014 pulled all 25,884 rows for 2024 in one call</li>",
-          "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
-          "[22:16 IST] RAM: You\u2019re still working on it?",
-          "[22:17 IST] HADERACH: `api/nas/getNasData` is a real endpoint (returned a JSON auth error, not the 404 HTML page) \u2014 but our token just expired (15-min limit). Let me refresh and confirm.",
-          "[22:17 IST] HADERACH: Found it \u2014 the earlier \"successful\" login used a password value that's been redacted from my own view (shows as `***`), so I've lost access to it. Let me create a fresh account now with a password I generate and immediately preserve, so this never happens again.",
-          "[22:18 IST] HADERACH: Login works with credentials I control. Now let's save these to BWS immediately (before I lose them again), then continue verifying the NAS/GDP endpoint.",
-          "[22:19 IST] HADERACH: Credentials secured permanently in BWS. Now let's continue verifying the GDP/NAS endpoint and check the exact required parameters.",
-          "[22:19 IST] HADERACH: Real endpoint, just needs correct params. Let's find the required schema.",
-          "[22:20 IST] HADERACH: Endpoint is `getNASData` (capital NAS), not `getNasData`. Let's test it.",
-          "[22:24 IST] HADERACH: IIP confirmed working too. Now for NAS \u2014 let's re-check the NAS PDF more precisely since our attempts keep failing with 500.",
-          "[22:26 IST] HADERACH: Yes \u2014 steady progress, not stuck. Quick status:",
-          "<b>Confirmed working (3 of 4 sources):</b>",
-          "<ul>",
-          "<li>CPI \u2014 <code>api/cpi/getCPIIndex</code> + <code>getItemIndex</code></li>",
-          "<li>WPI \u2014 <code>api/wpi/getWpiRecords</code></li>",
-          "<li>IIP \u2014 <code>api/iip/getIIPMonthly</code> + <code>getIIPAnnual</code></li>",
-          "</ul>",
-          "<b>NAS/GDP \u2014 hit a wall, but on MoSPI's end, not mine.</b> Found the real endpoint (<code>api/nas/getNASData</code>) and every documented parameter combination from their own manual, tried ...",
-          "[22:26 IST] HADERACH: All confirmed. Now let's build the ingestor script and macro.db schema.",
-          "[22:26 IST] HADERACH: Let's look at an existing ingestor (e.g. NHB or SEBI) for style consistency before writing macro's.",
-          "[22:27 IST] HADERACH: Good style reference. Now let's write the macro.db schema/build script and ingestor.",
-          "[22:30 IST] HADERACH: This is the exact tool-flakiness pattern noted in memory (params getting dropped). Let me retry as a fully isolated single call.",
-          "[22:30 IST] HADERACH: Switching to writing the file via exec/Python instead, since the write tool keeps dropping the content param.",
-          "[22:32 IST] HADERACH: Now assemble the full script and write it to the actual location.",
-          "[22:32 IST] HADERACH: Script written. Now let's test the BWS lookup function works, then do a small dry run before the full pull.",
-          "[22:33 IST] HADERACH: Found it \u2014 `certifi` (Python's bundled CA store) doesn't trust the Indian CA (eMudhra) that issued MoSPI's cert, but macOS's system keychain does (which is what `curl` uses). Fix: point `requests` at the system CA bundle.",
-          "[22:34 IST] HADERACH: That confirms `/etc/ssl/cert.pem` (system CA bundle) resolves the SSL issue. Let's patch the script to use it globally.",
-          "[22:34 IST] HADERACH: Full pipeline works end-to-end. Now run the actual full ingest as a background process (this will take a while given the row counts and 15-min token refresh cycle).",
-          "[22:35 IST] HADERACH: Running, log is buffered. Let's set a kill-switch per the AGENTS.md rule since this could run long (CPI alone is ~14 years \u00d7 full pagination), then monitor.",
-          "[22:35 IST] HADERACH: Kill-switch set for 02:00 IST (3.5 hours out). Now let's monitor progress in real time.",
-          "[22:36 IST] HADERACH: Log is empty (Python stdout buffering with `>` redirect). Let's check the DB directly instead.",
-          "[22:37 IST] HADERACH: Good \u2014 396k rows in cpi_group so far (locked briefly but resolved, expected with SQLite). Let's keep checking progress periodically.",
-          "--- [TRANSCRIPT GAP: 23:20 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
         "rolling_7day": [
-          "- [23:00 IST] SMEDA Triage Protocol + Meta-Index Rule added to AGENTS.md; meta-index now Session Startup step 11",
-          "---",
-          "## 2026-07-02 --- Fleet caching crisis, Sonnet-5 broken, transcript fix",
-          "- [07:00 IST] Capabilities wiki + Bajaj Council entry; R3 trigger table; Jonas M2 compaction fixed",
-          "- [13:00 IST] Fleet-wide cacheRetention short (23 agents); 6 M4 agents frozen; Sonnet-5 then Mid2",
-          "- [17:34 IST] transcript_update.py multi-session collector fix shipped",
-          "- [18:47 IST] Sonnet-5 caching broken; Mid2 permanent; Giskard direct-send rule added",
-          "---",
           "--- [Midnight run OK --- 2026-07-03 --- 2026-07-02 entry added] ---",
           "## 2026-07-03 - Fleet Monitor Fixes, GitHub Issues, RBI Watcher, AWS Cost Scripts",
           "- [07:20 IST] Filed #99305: Bedrock Sonnet-5 prompt caching broken; ClawSweeper confirmed queueable-fix",
@@ -1603,21 +1557,17 @@
           "- [19:27 IST] Ram: no em-dash in Haderach output (standing style pref, written to MEMORY.md)",
           "- [20:37 IST] Monk: updated v0.16.0\u2192v0.18.0, model hierarchy Sonnet 5/4.6/DeepSeek v3.2 (Bedrock), cache_ttl 1h",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-07 \u2014 rolling-7day updated with 2026-07-06] ---"
+          "--- [Midnight run OK \u2014 2026-07-07 \u2014 rolling-7day updated with 2026-07-06] ---",
+          "## 2026-07-07 \u2014 Fleet Freeze + SAK-008 Live + Comp PPTX",
+          "- [00:09 IST] SAK-008 macro.db confirmed live \u2014 6.69M rows, Martin API v0.6.0, 4 new endpoints, monthly refresh cron set (1st of month, 03:15 IST)",
+          "- [14:44 IST] Silent agent drift confirmed systemic \u2014 6 agents drifted from frozen to running undetected between 1\u20137 Jul; MEMORY.md updated",
+          "- [17:02 IST] Mass fleet freeze: 7 agents frozen (Kubera, Legal-SMEDA, Medical-SMEDA, CISO-SMEDA, CA-SMEDA-II, Herbie, Sam); live fleet: Haderach, Giskard, Purl, Chet, Martin, ClarkKent",
+          "- [18:57 IST] Sammaan Comp Benchmarking PPTX (27 slides, USD conversion @ 95.5 INR/USD) delivered at 20:17 IST",
+          "- [21:32 IST] Telegram macOS group rich-message bug confirmed (no ETA fix); GitHub #90531 closed, #87318 still open",
+          "---",
+          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "*Day opened: ~07:53 IST. Major events in sequence:*",
-          "- [07:53 IST] GitHub issues checked: #99305 (Bedrock Sonnet-5 caching broken) and #98062 (iOS app) \u2014 still open, no fix in beta.1",
-          "- [08:07 IST] Fleet monitor alerts diagnosed and fixed: SCL-002 stale-binary error (force-run cleared it); RBI Watcher missing chatId in delivery config (deleted+recreated)",
-          "- [08:10 IST] Purl \"no MEMORY_WRITE >48h\" alert identified as false positive \u2014 all 7 crons running cleanly",
-          "- [15:01 IST] GitHub Pages deploy emails fixed \u2014 workflow retry (3\u00d7 with 10s gap) added so transient CDN blips don't send failure emails",
-          "- [15:07 IST] \\n/Python corruption root cause found: OpenClaw #93139, looksLikeWindowsPathPrefix() regex false-positives on Python block openers; Bajaj Council consulted; local patch applied to dist binary; TOOLS.md + HAD-049 documented",
-          "- [15:24 IST] HAD-049 updated; wiki built (7 pages: known-issues, local-patches, learnings, checklists, upgrade-history); LESSONS.md expanded",
-          "- [15:36 IST] ConvOn tested \u2014 audio device bug found and fixed: voice_stream.py now auto-sets output=Multi-Output Device + input=EMBERTON III at startup",
-          "- [16:09 IST] AGENTS.md PDF House Standard written: WeasyPrint/HTML, navy cover, Calibri, 5-point quality gate with CSS fixes; capabilities wiki updated with MSJoint + pdf-generator",
-          "- [17:18 IST] Three-part strategic review spawned in parallel: Skills catalogue (114 skills), transcript capture audit, performance/clunkiness review; Bajaj Council run on architecture questions",
-          "- [17:25 IST] Kubera unfrozen and confirmed live on port 18798",
-          "- [18:x IST] Full review PDF produced and sent to Ram (WeasyPrint, navy cover)",
           "- [20:x IST] AWS billing audit: $64.41 direct Anthropic charges Jul 1\u20134; cost spike traced to caching bug on Sonnet 5",
           "- [23:05 IST] InfoFreedom cascade run on ET paywall (Turakhia/Neo article); all 4 routes tried; ET login via BWS credentials succeeded; ETPrime session cookie now stored",
           "- [23:30 IST] Turakhia/Neo compared to Haderach fleet: unified context, proactive AI execution, product-grade polish identified as gaps",
@@ -1645,7 +1595,19 @@
           "- [19:27 IST] Ram requested no em-dash in Haderach output; written to MEMORY.md as standing style preference",
           "- [20:37 IST] Monk updated v0.16.0 to v0.18.0; model hierarchy set to Sonnet 5/4.6/DeepSeek v3.2 (Bedrock); cache_ttl upgraded to 1h",
           "- [21:09 IST] macro.db build started: MoSPI API endpoints confirmed live (CPI, WPI, IIP, NAS), credentials verified; full ingestor build in progress",
-          "--- [Midnight run OK \u2014 2026-07-07 \u2014 rolling-28day updated with 2026-07-06] ---"
+          "--- [Midnight run OK \u2014 2026-07-07 \u2014 rolling-28day updated with 2026-07-06] ---",
+          "## 2026-07-07 \u2014 Fleet Freeze + SAK-008 Live + Comp Benchmarking PPTX",
+          "*Day opened: ~00:09 IST. Major events in sequence:*",
+          "- [00:09 IST] SAK-008 macro.db confirmed complete \u2014 6.69M rows (CPI/WPI/IIP) ingested overnight; Martin API v0.6.0 wired with 4 new endpoints; monthly refresh cron set for 1st of each month at 03:15 IST",
+          "- [08:48 IST] Kubera reactivated at Ram's request, then refrozen at 10:05 IST \u2014 intentional fleet parking confirmed",
+          "- [13:00 IST] Giskard fleet alerts triaged \u2014 Monk Memory Consolidation, SAK-008 Martin Wiki Nightly Stats, NSE Bhavcopy cron failures all diagnosed and fixed",
+          "- [14:44 IST] Frozen-agent dashboard inconsistency investigated \u2014 6 agents had silently drifted from frozen to running between ~1\u20137 Jul (systemic failure mode documented); silent drift confirmed for CA-SMEDA-II, CISO-SMEDA, Legal-SMEDA",
+          "- [17:02 IST] Mass fleet freeze: 7 agents frozen simultaneously (Kubera, Legal-SMEDA, Medical-SMEDA, CISO-SMEDA, CA-SMEDA-II, Herbie, Sam); remaining live: Haderach, Giskard, Purl, Chet, Martin, ClarkKent",
+          "- [17:51 IST] GitHub issue #90531 (group chat JSONL) CLOSED; #87318 (Bedrock Haiku ARN) still open; #99305 (Sonnet 5 caching) merged but not yet released",
+          "- [18:57 IST] Sammaan Compensation Benchmarking \u2014 27-slide PPTX built with USD conversions (1 USD = 95.5 INR); final file delivered at 20:17 IST",
+          "- [21:32 IST] Telegram macOS group rich-message bug confirmed (bugs.telegram.org/c/62896, macOS client 12.8.0) \u2014 rich messages in groups show \"Message not supported\" on macOS; iOS/Windows unaffected",
+          "- [23:00 IST] MEMORY.md updated \u2014 fleet status corrected, stale-drift failure mode documented",
+          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---"
         ]
       }
     },
@@ -1660,8 +1622,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.56,
-      "cpu": 0.4,
+      "rss_gb": 0.55,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1686,6 +1648,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1783449020069,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783449020068,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1708,15 +1688,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1783445712702,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1783438207408,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1753,15 +1724,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1783377017831,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783373457058,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1823,6 +1785,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-07-08",
+          "# Self-healing rotation from transcript-2026-07-07.md at 00:00 IST"
+        ],
+        "yesterday": [
           "If you're asking where the *cron job itself* is stored \u2014 it's in the OpenClaw Gateway's internal scheduler DB (not a file you'd find on disk directly).",
           "[08:14 IST] [DM] Giskard: The cron moves files to **`/Volumes/RamMiniSSD1/Downloads SSD/`** \u2014 that's an external SSD mounted at `/Volumes/RamMiniSSD1`.",
           "Source: `~/Downloads` (files older than 7 days)",
@@ -1863,48 +1829,6 @@
           "<b>Root cause:</b> <code>gateway.auth.mode</code> was set to <code>\"none\"</code> \u2014 OpenClaw refuses to bind when auth is explicitly disabled. The token was present but the mode override killed it.",
           "<b>Fix:</b> Set <code>auth.mode</code> \u2192 <code>\"token\"</code> on the M2 config, restarted via SSH over Tailscale.",
           "Keshav \u2014 your bot should be working now."
-        ],
-        "yesterday": [
-          "[07:28 IST] [DM] Giskard: Can't open the browser automatically (Chrome not running). You'll need to do this manually \u2014 it's 3 clicks:",
-          "1. Open \u2192 **https://login.tailscale.com/admin/machines**",
-          "2. Find `uday-one` at **100.79.229.37**",
-          "3. Click **\u22ef** \u2192 **Delete**",
-          "That's the ghost. Your real node is 100.108.25.31.",
-          "Also, once you're done, fix the CLI mismatch:",
-          "```bash",
-          "sudo ln -sf /Applications/Tailscale.app/Contents/MacOS/Tailscale /usr/local/bin/tailscale",
-          "```",
-          "[07:28 IST] [DM] Giskard: Can't open the browser automatically (Chrome not running). You'll need to do this manually \u2014 it's 3 clicks:",
-          "1. Open \u2192 **https://login.tailscale.com/admin/machines**",
-          "2. Find `uday-one` at **100.79.229.37**",
-          "3. Click **\u22ef** \u2192 **Delete**",
-          "That's the ghost. Your real node is 100.108.25.31.",
-          "Also, once you're done, fix the CLI mismatch:",
-          "```bash",
-          "sudo ln -sf /Applications/Tailscale.app/Contents/MacOS/Tailscale /usr/local/bin/tailscale",
-          "```",
-          "[08:39 IST] [DM] Giskard: **Kubera's models:**",
-          "- **Primary:** `anthropic/claude-sonnet-4-6`",
-          "- **Fallbacks:** `openrouter/x-ai/grok-4.3` \u2192 `anthropic/claude-haiku-4-5`",
-          "[08:39 IST] [DM] Giskard: **Kubera's models:**",
-          "- **Primary:** `anthropic/claude-sonnet-4-6`",
-          "- **Fallbacks:** `openrouter/x-ai/grok-4.3` \u2192 `anthropic/claude-haiku-4-5`",
-          "[08:40 IST] [DM] Giskard: Now need to check if `anthropic/claude-sonnet-5` is defined in Kubera's models list \u2014 it's not currently in the anthropic provider models:",
-          "[08:40 IST] [DM] Giskard: `claude-sonnet-5` isn't in the anthropic provider list. Need to add it:",
-          "[08:40 IST] [DM] Giskard: Now restart Kubera:",
-          "[08:41 IST] [DM] Giskard: Done. Kubera is back up.",
-          "- **Primary:** `anthropic/claude-sonnet-5`",
-          "- **Fallbacks:** `openrouter/x-ai/grok-4.3` \u2192 `anthropic/claude-sonnet-4-6`",
-          "[08:41 IST] [DM] Giskard: Done. Kubera is back up.",
-          "- **Primary:** `anthropic/claude-sonnet-5`",
-          "- **Fallbacks:** `openrouter/x-ai/grok-4.3` \u2192 `anthropic/claude-sonnet-4-6`",
-          "[20:47 IST] [DM] Giskard: Hmm \u2014 that validated my config, not Chet's. Let me check the correct validate syntax:",
-          "[20:48 IST] [DM] Giskard: Done. Chet is up \u2705",
-          "- **Primary:** `amazon-bedrock/global.anthropic.claude-sonnet-5`",
-          "- **Fallbacks:** `amazon-bedrock/global.anthropic.claude-sonnet-4-6` \u2192 `amazon-bedrock/deepseek.v3.2`",
-          "[20:48 IST] [DM] Giskard: Done. Chet is up \u2705",
-          "- **Primary:** `amazon-bedrock/global.anthropic.claude-sonnet-5`",
-          "- **Fallbacks:** `amazon-bedrock/global.anthropic.claude-sonnet-4-6` \u2192 `amazon-bedrock/deepseek.v3.2`"
         ],
         "rolling_7day": [
           "- Stay on OpenClaw 2026.5.28 confirmed per Ram's explicit direction",
@@ -2417,8 +2341,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.6,
-      "cpu": 1.3,
+      "rss_gb": 0.57,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3687,7 +3611,7 @@
       "frozen_reason": null,
       "pid": 55763,
       "rss_gb": 0.35,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3877,7 +3801,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3907,7 +3831,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
