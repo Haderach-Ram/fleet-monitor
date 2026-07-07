@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-07 19:26:44 IST",
-  "generated_epoch": 1783432604,
+  "generated_ist": "2026-07-07 19:31:51 IST",
+  "generated_epoch": 1783432911,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.50 / 3.64 / 2.96",
+    "load": "3.17 / 3.33 / 3.02",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.15,
+      "rss_gb": 1.24,
       "cpu": 0.4,
       "crons_total": 93,
       "crons_enabled": 60,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783432453797,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783432827270,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +653,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783432227317,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783432227317,
+          "last_ts": 1783432827269,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783432227317,
+          "last_ts": 1783432827269,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783432453797,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,10 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Copy the OpenClaw onboarding setup Hugging Face generates for that model</li>",
-          "<li>You've got a tool-calling agent running fully local \u2014 no cloud, no AP...",
-          "[17:54 IST] RAM: Is there no peripheral, external machine I can connect to you with which you can effectively use such local models?",
-          "[17:54 IST] HADERACH: Yes, actually \u2014 and this is a genuinely good architecture question. Two real candidates already exist:",
           "<b>1. The M2 (office Mac mini, 16GB RAM) \u2014 already available, zero cost</b>",
           "Already Tailscale-paired to this machine (SSH confirmed working both ways). I could install Ollama on it and point OpenClaw's model config at its Tailscale IP instead of localhost \u2014 the model would run and sit in RAM entirely on the M2, not on uday_one. Downside: 16GB is tight. It could handle smaller quantised mode...",
           "[17:55 IST] HADERACH: Yes, actually \u2014 and this is a genuinely good architecture question. Two real candidates already exist:",
@@ -1519,7 +1515,11 @@
           "[18:59 IST] RAM: Use 1 $ = 95.5 \u20b9. Mention this at the bottom of the slides too put just \u20181 $ = 95.5 \u20b9\u2019",
           "[19:02 IST] HADERACH: All same size, so identical file (retried downloads). Let me use the latest one and read the PowerPoint skill for guidance since this is a PPTX build task.",
           "[19:11 IST] HADERACH: Good, python-pptx is available. Given the scope (27 slides, tables, charts, colored panels, dual-currency conversion throughout), this will take a substantial build. Let me get started \u2014 I'll build it as a structured Python script.",
-          "[19:16 IST] HADERACH: Got it \u2014 both INR and $ on each slide. Building now."
+          "[19:16 IST] HADERACH: Got it \u2014 both INR and $ on each slide. Building now.",
+          "[19:20 IST] HADERACH: Given the size of this task, let me consolidate everything into a single clean script and run it via a subagent to avoid the script split issues:",
+          "[19:22 IST] HADERACH: \u21aa\ufe0f Model Fallback: anthropic/claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; timeout (+1 more attempts))",
+          "[19:22 IST] HADERACH: Got it \u2014 both INR and $ on each slide. Building now.",
+          "[19:22 IST] HADERACH: Given the size of this task, let me consolidate everything into a single clean script and run it via a subagent to avoid the script split issues:"
         ],
         "yesterday": [
           "<li><b>WPI</b> \u2014 <code>api/wpi/getWpiR...",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.54,
-      "cpu": 1.7,
+      "rss_gb": 0.55,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2418,7 +2418,7 @@
       "frozen_reason": null,
       "pid": 1598,
       "rss_gb": 0.51,
-      "cpu": 1.4,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2572,21 +2572,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783432804353,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1783431013128,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783431013128,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2637,7 +2637,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **IBA / IIBF circle** \u2014 banking association people",
           "- **Fintech founders or banking exec...",
           "[16:55 IST] PURL: Running heartbeat now \u2014 checking session state, email, and backups.",
           "[16:55 IST] PURL: Updating memory with current heartbeat findings:",
@@ -2676,7 +2675,8 @@
           "HEARTBEAT_OK",
           "[18:55 IST] PURL: Running heartbeat checks now:",
           "**1. Session Save** \u2014 Saving today's memory (Sanjay Mudaliar research + outreach prep):",
-          "[18:56 IST] PURL: **2. ProtonMail Inbox Check:**"
+          "[18:56 IST] PURL: **2. ProtonMail Inbox Check:**",
+          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -3687,7 +3687,7 @@
       "frozen_reason": null,
       "pid": 55763,
       "rss_gb": 0.35,
-      "cpu": 1.1,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3877,7 +3877,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3907,7 +3907,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.2,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
