@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-08 14:55:39 IST",
-  "generated_epoch": 1783502739,
+  "generated_ist": "2026-07-08 15:00:45 IST",
+  "generated_epoch": 1783503045,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.36 / 2.24 / 2.20",
+    "load": "2.42 / 2.61 / 2.40",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.23,
-      "cpu": 0.1,
+      "rss_gb": 1.27,
+      "cpu": 0.6,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783502658613,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783503026138,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +653,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783502428041,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783502428041,
+          "last_ts": 1783503026137,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783502428041,
+          "last_ts": 1783503026137,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783502658613,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,9 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:37 IST] HADERACH: This is a meaty one \u2014 three full annual reports (550-600 pages each) plus dedicated ESOP disclosures. Let me first locate the relevant sections in each AR (KMP remuneration, ESOP notes, related-party disclosures) so I'm not burning tokens reading cover-to-cover, then delegate the extraction to parallel subagents \u2014 one per company \u2014 followed by a dedicated PDF-build subagent per house standard. This will take a little while; I'll keep you posted.",
-          "[13:50 IST] HADERACH: Ram, that Drive question's already resolved \u2014 the zip file (`Base Material.zip`, ~55MB) was sitting in your Drive root, uploaded at 13:19. I've pulled it down, unzipped it, and I'm now deep into extraction across all three companies. Quick progress note before I continue:",
-          "<b>Extracted so far:</b>",
           "<ul>",
           "<li>Tata Capital: ESOP note (detailed, includes KMP-level grants by name) \u2713</li>",
           "<li>ABCL: ESOP disclosure pulled; still need the Section 197 KMP remuneration table (fixed/variable split)</li>",
@@ -1519,7 +1516,10 @@
           "[14:47 IST] HADERACH: PDF build is underway \u2014 subagent has all the data and is rendering it now. I'll let you know the moment it confirms completion and send it over. Shouldn't be long.",
           "[14:47 IST] RAM: Also send relevant data in excel",
           "[14:47 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; timeout)",
-          "[14:47 IST] HADERACH: PDF build is underway \u2014 subagent has all the data and is rendering it now. I'll let you know the moment it confirms completion and send it over. Shouldn't be long."
+          "[14:47 IST] HADERACH: PDF build is underway \u2014 subagent has all the data and is rendering it now. I'll let you know the moment it confirms completion and send it over. Shouldn't be long.",
+          "[14:51 IST] HADERACH: On it \u2014 spawning the Excel builder in parallel while the PDF subagent finishes.",
+          "[14:52 IST] HADERACH: Excel subagent is running in parallel with the PDF one. Both are on the same dataset \u2014 five sheets covering summary comparison, ESOP movement, scheme-by-scheme detail, KMP grants & remuneration, and notes/caveats. I'll send both files the moment they're done.",
+          "[14:52 IST] HADERACH: Excel subagent is running in parallel with the PDF one. Both are on the same dataset \u2014 five sheets covering summary comparison, ESOP movement, scheme-by-scheme detail, KMP grants & remuneration, and notes/caveats. I'll send both files the moment they're done."
         ],
         "yesterday": [
           "[20:17 IST] HADERACH: 27 slides, 94 KB, valid OOXML. Sending it now.",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.57,
-      "cpu": 0.6,
+      "rss_gb": 0.58,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1979,8 +1979,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 59467,
-      "rss_gb": 0.58,
-      "cpu": 3.1,
+      "rss_gb": 0.68,
+      "cpu": 47.4,
       "crons_total": 23,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -2213,9 +2213,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Action:** Continuing silent monitoring through market close (15:30 IST). N",
-          "[14:26 IST] RAM: [OpenClaw heartbeat poll]",
-          "[14:26 IST] KUBERA: Nothing needs attention \u2014 VIX 14.84 (gate open), no single position down >8%, Pot 1 -2.2% intraday drift, Pot 2 covered call MTM +\u20b95,123. Routine.",
           "HEARTBEAT_OK",
           "[14:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by checking the market status and reading the current portfolio, then scrape Twitter/news for trading impact.",
           "[14:30 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me read the current portfolio:",
@@ -2252,7 +2249,10 @@
           "  - Thesis demotion: 9.5 \u2192 6.5 \u2192 4.5/10",
           "  - Portfolio safe: -1.8% Pot 1 (13% buffer to red-line)",
           "\u2705 **Alert gates status (14:30 IST snapshot):**",
-          "  - Crude: Likely >3% threshold"
+          "  - Crude: Likely >3% threshold",
+          "[14:56 IST] RAM: [OpenClaw heartbeat poll]",
+          "[14:56 IST] KUBERA: No positions breaching the -8% single-stock trigger (worst is HDFCAMC -6.0%), VIX 15.09 still under the 18 gate. Nifty continuing to drift down (~24,249\u219223,832 today, -1.7%) alongside the Iran/Hormuz escalation noted this morning, but nothing new or threshold-breaching since the last check. Routine.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Pot1 down 0.4%** \u2014 ITC leading loss (\u20b96,180). AURO and APOLLO offsetting with strong gains (+\u20b91,708 and +\u20b91,573).",
@@ -2393,8 +2393,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.55,
-      "cpu": 1.5,
+      "rss_gb": 0.66,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2548,21 +2548,21 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1783501204139,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1783499416222,
+          "last_ts": 1783503015890,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1783503015890,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2613,30 +2613,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2705 Office Gmail: Unconfigured",
-          "\u2705 No urgent alerts",
-          "**4. Session Health:**",
-          "\u2705 Context well under 50%",
-          "\u2705 Cost optimal",
-          "\u2705 7+ hourly checks completed today \u2014 all clear",
-          "**5. Schedule:**",
-          "- Saturday cost review: 2026-07-12",
-          "- Weekly bulletin: 2026-07-14",
-          "---",
-          "**All checks complete. No alerts.**",
-          "HEARTBE",
-          "[12:55 IST] PURL: Running heartbeat checks now:",
-          "**1. Session Save** \u2014 Updating memory with hour 12:55 marker and noon check:",
-          "[13:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[13:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[13:55 IST] PURL: Running heartbeat checks now:",
-          "**1. Session Save** \u2014 Updating memory with hour 13:55 marker:",
-          "[13:55 IST] PURL: **2. Status Check:**",
-          "\ud83d\udcca **Context:** ~33%, stable",
-          "\ud83d\udcb0 **Cost:** Under threshold",
-          "\ud83d\udd27 **Config:** Current (2026-07-07)",
-          "\u23f0 **Time:** 13:55 IST \u2014 active hours",
-          "**3. Email Status:**",
           "\u2705 ProtonMail: Deckard unavailable",
           "\u2705 Office Gmail: Unconfigured",
           "\u2705 No urgent alerts",
@@ -2652,7 +2628,31 @@
           "HEARTBEAT_OK",
           "[13:55 IST] PURL: Running heartbeat checks now:",
           "**1. Session Save** \u2014 Updating memory with hour 13:55 marker:",
-          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[14:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[14:55 IST] PURL: Running heartbeat checks now:",
+          "**1. Session Save** \u2014 Updating memory with hour 14:55 marker:",
+          "[14:55 IST] PURL: **2. Status Check:**",
+          "\ud83d\udcca **Context:** ~33%, stable",
+          "\ud83d\udcb0 **Cost:** Under threshold",
+          "\ud83d\udd27 **Config:** Current (2026-07-07)",
+          "\u23f0 **Time:** 14:55 IST \u2014 active hours",
+          "**3. Email Status:**",
+          "\u2705 ProtonMail: Deckard unavailable",
+          "\u2705 Office Gmail: Unconfigured",
+          "\u2705 No urgent alerts",
+          "**4. Session Health:**",
+          "\u2705 Context well under 50%",
+          "\u2705 Cost optimal",
+          "\u2705 9+ hourly checks completed \u2014 all clear",
+          "**5. Schedule:**",
+          "- Saturday cost review: 2026-07-12",
+          "- Weekly bulletin: 2026-07-14",
+          "---",
+          "**All checks complete. No alerts.**",
+          "HEARTBEAT_OK",
+          "[14:55 IST] PURL: Running heartbeat checks now:",
+          "**1. Session Save** \u2014 Updating memory with hour 14:55 marker:"
         ],
         "yesterday": [
           "What I said \u2014 *\"any account that undergoes settlement is classified as NPA regardless of the 90-day mark\"* \u2014 was **overstated and not directly from an RBI source**. I should not have presented it so definitively. I'm sorry for that.",
@@ -3664,7 +3664,7 @@
       "frozen_reason": null,
       "pid": 71664,
       "rss_gb": 0.32,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.9,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
