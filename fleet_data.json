@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-08 23:57:10 IST",
-  "generated_epoch": 1783535230,
+  "generated_ist": "2026-07-09 00:02:16 IST",
+  "generated_epoch": 1783535536,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.37 / 2.04 / 2.26",
+    "load": "2.12 / 2.06 / 2.19",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.15,
-      "cpu": 0.4,
+      "rss_gb": 1.35,
+      "cpu": 0.1,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783535528458,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783535514777,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1783535498151,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783535411021,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -758,15 +794,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783524658182,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -825,15 +852,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1783485051473,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783483308747,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -965,15 +983,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783459809760,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1014,15 +1023,6 @@
           "enabled": true,
           "sched": "0 1 * * 3,6",
           "last_ts": 1783453358613,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1783449106671,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,6 +1480,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-09",
+          "# Self-healing rotation from transcript-2026-07-08.md at 00:02 IST"
+        ],
+        "yesterday": [
           "Your day was anything but idle:",
           "<ul>",
           "<li>Morning: Kubera unfreeze, Chet root cause investigation, infrastructure triage</li>",
@@ -1521,57 +1525,7 @@
           "<li>Auth: bearer token minted from your existing Bedrock AWS key (Ramnath-Shenoy IAM user, AIML account) via AWS's token generator \u2014 no new credentials needed</li>",
           "<li>Round trip: ~13s (used \"medium\" reasoning effort, 150 reasoning tokens + 15 output t..."
         ],
-        "yesterday": [
-          "[20:17 IST] HADERACH: 27 slides, 94 KB, valid OOXML. Sending it now.",
-          "MEDIA:/Users/ram_macmini/Desktop/Haderach/Output/Sammaan_Comp_Benchmarking_USD_Converted.pptx",
-          "Done, Ram. 27 slides, rebuilt from verbatim source throughout.",
-          "What changed from the first build:",
-          "<ul>",
-          "<li><b>Slide 17</b> \u2014 all 5 peer boxes updated with exact hiring notes and warnings from source</li>",
-          "<li><b>Slide 18</b> \u2014 replaced a summary table with the 6 actual ESOP concept boxes from the deck (What is ESOP / Vesting / Fair Value / Distortion ...",
-          "[20:18 IST] HADERACH: \u21aa\ufe0f Model Fallback: anthropic/claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; timeout (+1 more attempts))",
-          "--- [TRANSCRIPT GAP: 20:50 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:10 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:30 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[21:31 IST] RAM: Thanks, good work",
-          "[21:31 IST] HADERACH: You're welcome, Ram. Glad it's sorted \u2014 let me know if any figures need adjusting once you've had a look through it.",
-          "[21:31 IST] HADERACH: You're welcome, Ram. Glad it's sorted \u2014 let me know if any figures need adjusting once you've had a look through it.",
-          "[21:32 IST] RAM: No, all done. Why does the mac book version of telegram not support rich messages? Is an update on the way? Anything in GitHub issues on this?",
-          "[21:33 IST] HADERACH: Checked this properly \u2014 here's the picture, Ram:",
-          "<b>Why it's not rendering:</b> Rich Messages (Telegram Bot API 10.1, tables/headings/rich blocks) only just arrived on the wire on 11 June 2026. Telegram Desktop's own client-side support for rendering them shipped in <b>v6.9</b> (9 June 2026), with a string of bug-fix point releases straight after \u2014 6.9.1, 6.9.2, 6.9.3 (13 June) \u2014 fixing crashes and layout glitches in the new rich-message renderer. If your MacBook's Telegram Desktop app preda...",
-          "[21:33 IST] HADERACH: Checked this properly \u2014 here's the picture, Ram:",
-          "<b>Why it's not rendering:</b> Rich Messages (Telegram Bot API 10.1, tables/headings/rich blocks) only just arrived on the wire on 11 June 2026. Telegram Desktop's own client-side support for rendering them shipped in <b>v6.9</b> (9 June 2026), with a string of bug-fix point releases straight after \u2014 6.9.1, 6.9.2, 6.9.3 (13 June) \u2014 fixing crashes and layout glitches in the new rich-message renderer. If your MacBook's Telegram Desktop app preda...",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[22:21 IST] RAM: Actually it is working fine in DM, not in groups",
-          "[22:26 IST] HADERACH: Found it, Ram \u2014 and it's not an OpenClaw bug, it's a Telegram client bug specific to macOS.",
-          "There's a live, unresolved bug on Telegram's own bug tracker (bugs.telegram.org/c/62896, filed 18 June, still \"Open Issue \u2014 macOS,\" last reproduced on the current stable build 12.8.0):",
-          "<b>\"Message not supported\" error on rich messages sent to groups (macOS)</b>",
-          "<ul>",
-          "<li>Bot sends a rich message directly to you (1:1 DM) \u2192 renders fine</li>",
-          "<li>Same bot sends the same kind of rich message to a group \u2192 ...",
-          "[22:27 IST] HADERACH: Found it, Ram \u2014 and it's not an OpenClaw bug, it's a Telegram client bug specific to macOS.",
-          "There's a live, unresolved bug on Telegram's own bug tracker (bugs.telegram.org/c/62896, filed 18 June, still \"Open Issue \u2014 macOS,\" last reproduced on the current stable build 12.8.0):",
-          "<b>\"Message not supported\" error on rich messages sent to groups (macOS)</b>",
-          "<ul>",
-          "<li>Bot sends a rich message directly to you (1:1 DM) \u2192 renders fine</li>",
-          "<li>Same bot sends the same kind of rich message to a group \u2192 ...",
-          "[23:05 IST] HADERACH: Nightly consolidation complete. Summary:",
-          "- **Steps 1\u20133:** No sessions, no [FACT:] tags today \u2014 nothing to promote",
-          "- **Steps 4\u20136:** rolling-7day / 28day / 180day all updated with Jul 7 entry (idle day)",
-          "- **Step 7:** Tag index rebuilt \u2014 51 days indexed, 2 updated",
-          "- **Step 8:** MEMORY_WRITE bookmark appended to transcript",
-          "- **Step 9:** heartbeat-state.json lastConsolidation updated",
-          "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
         "rolling_7day": [
-          "--- [Midnight run OK --- 2026-07-03 --- 2026-07-02 entry added] ---",
-          "## 2026-07-03 - Fleet Monitor Fixes, GitHub Issues, RBI Watcher, AWS Cost Scripts",
-          "- [07:20 IST] Filed #99305: Bedrock Sonnet-5 prompt caching broken; ClawSweeper confirmed queueable-fix",
-          "- [07:44-11:17 IST] Fleet monitor saga resolved: Pages deploy type, frozen agents, auth persistence fixed",
-          "- [14:28-15:03 IST] RBI Watcher built - 2am cron for Master Directions + NBFC/HFC circulars",
-          "- [21:51-22:23 IST] AWS cost scripts fixed: CE captures all Claude services, real ~$222/day",
-          "- [23:09 IST] Monk consolidation complete; all LLM crons pinned to Sonnet 4.6",
-          "---",
           "--- [Midnight run OK -- 2026-07-04 -- 2026-07-03 entry added] ---",
           "## 2026-07-04 \u2014 Fleet fixes, \\n patch, PDF standard, ConvOn audio, strategic review",
           "- [07:53 IST] GitHub issues #99305/#98062 checked \u2014 no fix in beta.1; fleet monitor alerts (SCL-002 stale binary, RBI Watcher chatId) diagnosed and fixed",
@@ -1603,19 +1557,17 @@
           "- [18:57 IST] Sammaan Comp Benchmarking PPTX (27 slides, USD conversion @ 95.5 INR/USD) delivered at 20:17 IST",
           "- [21:32 IST] Telegram macOS group rich-message bug confirmed (no ETA fix); GitHub #90531 closed, #87318 still open",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---",
+          "## 2026-07-08 \u2014 Kubera Unfreeze, ESOP Study, Chet Diagnosis, GPT-5.5 on Bedrock",
+          "- [08:11 IST] Kubera unfrozen, self-healed; bhavcopy 2026-07-07 ingested (3,394 equity + 34,652 F&O rows)",
+          "- [11:50 IST] Chet root cause diagnosed: config change 6 Jul 20:47 IST; fix confirmed",
+          "- [13:24\u201315:57 IST] ESOP/KMP study for Tata Capital, ABCL, Piramal Finance \u2014 PDF (102 KB, 13 pages) + Excel (5 sheets) delivered after taking over from stalled subagents",
+          "- [17:13 IST] Kubera re-frozen (Ram directive); fleet frozen count = 7",
+          "- [23:32 IST] GPT-5.5 live-tested on AWS Bedrock (bedrock-mantle endpoint, Responses API) \u2014 confirmed working",
+          "---",
+          "--- [Midnight run OK \u2014 2026-07-09 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [20:x IST] AWS billing audit: $64.41 direct Anthropic charges Jul 1\u20134; cost spike traced to caching bug on Sonnet 5",
-          "- [23:05 IST] InfoFreedom cascade run on ET paywall (Turakhia/Neo article); all 4 routes tried; ET login via BWS credentials succeeded; ETPrime session cookie now stored",
-          "- [23:30 IST] Turakhia/Neo compared to Haderach fleet: unified context, proactive AI execution, product-grade polish identified as gaps",
-          "--- [Midnight run OK \u2014 2026-07-05 \u2014 entries added for 2026-07-04] ---",
-          "## 2026-07-05 \u2014 RBI Watcher Fix, Sonnet 5 Bedrock Cache Patch, NHB RESIDEX & Market DB Build",
-          "*Day opened: ~06:33 IST. Major events in sequence:*",
-          "- [06:33 IST] Ram noticed RBI Watcher re-reporting same 17 Master Directions; initially thought duplicate run",
-          "- [10:15 IST] Telegram transport stalled (16 queued msgs drained on reconnect); Giskard Telegram also down \u2014 traced to brief EHOSTUNREACH outage (~02:35\u201310:12 IST); Giskard gateway restarted at 10:42 IST",
-          "- [10:22 IST] RBI Watcher dedup bug confirmed and fixed: snapshot was writing local_mtime=None on first download causing every subsequent run to re-trigger; fixed to record real file mtime",
-          "- [11:08 IST] Sonnet 5 Bedrock caching bug diagnosed (bedrock-options.js allowlist missing claude-sonnet-5) and patched across all 8 M4 agents; discovery.js also patched for model ID routing; caching confirmed working (88% hit rate)",
           "- [13:27 IST] Fleet monitor showed 4 consecutive \"LLM request failed\" errors across multiple crons \u2014 traced to overnight network outage, self-resolved at 10:12 IST; daily crons need manual force-run",
           "- [14:03 IST] Purl Klub K Transcript Logger failures diagnosed: Grok-4.3 making unprompted cron(run) / cron(wake) tool calls after task completes; independently verified from session logs on disk",
           "- [19:18 IST] NHB RESIDEX API discovered (residex.nhbonline.org.in JSON endpoint); full dataset ingested: 3,050 rows, 50 cities, quarterly, two base-year series (FY2017-18, FY2024-25)",
@@ -1645,7 +1597,17 @@
           "- [18:57 IST] Sammaan Compensation Benchmarking \u2014 27-slide PPTX built with USD conversions (1 USD = 95.5 INR); final file delivered at 20:17 IST",
           "- [21:32 IST] Telegram macOS group rich-message bug confirmed (bugs.telegram.org/c/62896, macOS client 12.8.0) \u2014 rich messages in groups show \"Message not supported\" on macOS; iOS/Windows unaffected",
           "- [23:00 IST] MEMORY.md updated \u2014 fleet status corrected, stale-drift failure mode documented",
-          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---",
+          "## 2026-07-08 \u2014 Kubera Unfreeze, ESOP Study, Chet Diagnosis, GPT-5.5 on Bedrock",
+          "*Day opened: ~08:11 IST. Major events in sequence:*",
+          "- [08:11 IST] Kubera unfrozen \u2014 gateway re-enabled after ~1-week freeze; self-healed rolling files + crons intact; bhavcopy 2026-07-07 ingested (3,394 equity + 34,652 F&O rows)",
+          "- [11:50 IST] Chet investigated \u2014 root cause found: openclaw.json config change on 6 Jul 20:47 IST broke Chet's gateway; backup confirmed timestamp",
+          "- [13:24 IST] ESOP & KMP compensation study requested for Tata Capital, ABCL, Piramal Finance from annual reports + ESOP disclosures (55 MB zip via Google Drive ram.haderach@gmail.com)",
+          "- [15:57 IST] PDF + Excel delivered \u2014 ESOP_KMP_Study_NBFCs_Jul2026.pdf (102 KB, 13 pages) + ESOP_KMP_Study_NBFCs_Jul2026.xlsx (5 sheets); 2h+ build due to subagent loop, took over directly",
+          "- [17:13 IST] Kubera re-frozen on Ram's directive \u2014 launchctl bootout + disable; fleet frozen count now 7",
+          "- [23:04 IST] TwitAcc: OpenAI tweet read \u2014 GPT-5.6 Sol/Terra/Luna launching Thursday; Bedrock GPT model query",
+          "- [23:19 IST] GPT-5.5 live-tested on AWS Bedrock via bedrock-mantle.us-east-1.api.aws (Responses API, openai.gpt-5.5, ~13s round-trip, confirmed working)",
+          "--- [Midnight run OK \u2014 2026-07-09 \u2014 no new content] ---"
         ]
       }
     },
@@ -1661,7 +1623,7 @@
       "frozen_reason": null,
       "pid": 1225,
       "rss_gb": 0.56,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1686,6 +1648,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783535421377,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1783535421377,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1708,15 +1688,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1783532111172,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1783524607463,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1753,15 +1724,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1783463420400,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783459821316,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1823,6 +1785,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-07-09",
+          "# Self-healing rotation from transcript-2026-07-08.md at 00:00 IST"
+        ],
+        "yesterday": [
           "# Transcript - 2026-07-08",
           "# Self-healing rotation from transcript-2026-07-07.md at 00:00 IST",
           "[12:03 IST] [DM] Giskard: Let me check Chet's current config first before making any changes.",
@@ -1839,48 +1805,6 @@
           "- \u2705 `amazon-bedrock: {enabled: true}` added alongside `openrouter` + `anthropic`",
           "- \u2705 Config validated clean",
           "- \u2705 Chet restarted \u2014 200 on :18810/health"
-        ],
-        "yesterday": [
-          "If you're asking where the *cron job itself* is stored \u2014 it's in the OpenClaw Gateway's internal scheduler DB (not a file you'd find on disk directly).",
-          "[08:14 IST] [DM] Giskard: The cron moves files to **`/Volumes/RamMiniSSD1/Downloads SSD/`** \u2014 that's an external SSD mounted at `/Volumes/RamMiniSSD1`.",
-          "Source: `~/Downloads` (files older than 7 days)",
-          "Destination: `/Volumes/RamMiniSSD1/Downloads SSD/`",
-          "If you're asking where the *cron job itself* is stored \u2014 it's in the OpenClaw Gateway's internal scheduler DB (not a file you'd find on disk directly).",
-          "[08:15 IST] [DM] Giskard: All good:",
-          "- **SSD mounted** \u2705 \u2014 `/Volumes/RamMiniSSD1/` is live",
-          "- **Destination folder exists** \u2705 \u2014 `Downloads SSD/` is there (1,315 items, last written Jun 28)",
-          "- **Permissions** \u2705 \u2014 owned by `ram_macmini`, writable",
-          "The cron will work fine on next Sunday's run with the Bedrock model.",
-          "[08:15 IST] [DM] Giskard: All good:",
-          "- **SSD mounted** \u2705 \u2014 `/Volumes/RamMiniSSD1/` is live",
-          "- **Destination folder exists** \u2705 \u2014 `Downloads SSD/` is there (1,315 items, last written Jun 28)",
-          "- **Permissions** \u2705 \u2014 owned by `ram_macmini`, writable",
-          "The cron will work fine on next Sunday's run with the Bedrock model.",
-          "[12:46 IST] [DM] Giskard: The monitor is still showing the stale error state from before the fix \u2014 the cron last ran on Jul 6 (before I updated the model this morning). The fix is in place; the error count won't clear until it runs successfully next Sunday 10:00 IST.",
-          "The monitor is reading `lastRunStatus: error` + `consecutiveErrors: 4` which were set before my change at 08:12 today. Nothing to fix \u2014 it'll self-clear on the next run.",
-          "[12:46 IST] [DM] Giskard: The monitor is still showing the stale error state from before the fix \u2014 the cron last ran on Jul 6 (before I updated the model this morning). The fix is in place; the error count won't clear until it runs successfully next Sunday 10:00 IST.",
-          "The monitor is reading `lastRunStatus: error` + `consecutiveErrors: 4` which were set before my change at 08:12 today. Nothing to fix \u2014 it'll self-clear on the next run.",
-          "[14:10 IST] [Agastya Fleet] Giskard: Keshav's bot is Agastya-Keshav on port 18805. Let me check it.",
-          "[14:11 IST] [Agastya Fleet] Giskard: The Agastya-Keshav bot is on the M2 (office Mac Mini), not this machine. I can't ping it from here directly. Let me check if there's an SSH path to the M2.",
-          "[14:11 IST] [Agastya Fleet] Giskard: No paired nodes \u2014 can't reach the M2 directly. I need to escalate to Ram since the Agastya-Keshav bot lives on the M2.",
-          "[14:12 IST] [Agastya Fleet] Giskard: Keshav \u2014 I see your bot (Agastya-Keshav, port 18805/18808 on the M2) is down. It lives on the office Mac Mini, which I can't reach directly from here \u2014 no SSH path configured from this machine to the M2.",
-          "I need Ram to either:",
-          "1. SSH into the M2 and check/restart it, or",
-          "2. Have the M2 Giskard instance diagnose it",
-          "Pinging Ram now.",
-          "[14:12 IST] [Agastya Fleet] Giskard: Keshav \u2014 I've pinged Ram in the A-Team group. Your bot (Agastya-Keshav) is on the M2 office Mac Mini and has actually been down since ~June 10 \u2014 recovery was pending. Ram needs to restart it from the M2 side. He's been flagged.",
-          "[17:38 IST] [Agastya Fleet] Giskard: Tailscale! The office Mac Mini is `ramnaths-mac-mini` at `100.119.4.19` \u2014 active and direct.",
-          "[17:38 IST] [Agastya Fleet] Giskard: Connected. Now let me check Keshav's bot.",
-          "[17:39 IST] [Agastya Fleet] Giskard: Process is running but crashing in a restart loop \u2014 never gets past \"resolving authentication\". Looks like a BWS/auth issue. Let me check deeper.",
-          "[17:39 IST] [Agastya Fleet] Giskard: Got the root cause. Let me check the config:",
-          "[17:39 IST] [Agastya Fleet] Giskard: Found it. `gateway.auth.mode = \"none\"` but the host binding requires auth. The token is present but mode is set to `\"none\"` which explicitly disables it. Need to set mode to `\"token\"`.",
-          "[17:39 IST] [Agastya Fleet] Giskard: Agastya-Keshav is back up \u2014 HTTP 200. ",
-          "**Diagnosis:** `gateway.auth.mode` was set to `\"none\"` which caused OpenClaw to refuse binding (security block \u2014 can't expose gateway without auth). The token was present but the mode override disabled it.",
-          "**Fix applied:** Set `auth.mode` \u2192 `\"token\"` on the M2 config, restarted.",
-          "[17:40 IST] [Agastya Fleet] Giskard: \u2705 Agastya-Keshav is back up (port 18808 \u2014 HTTP 200).",
-          "<b>Root cause:</b> <code>gateway.auth.mode</code> was set to <code>\"none\"</code> \u2014 OpenClaw refuses to bind when auth is explicitly disabled. The token was present but the mode override killed it.",
-          "<b>Fix:</b> Set <code>auth.mode</code> \u2192 <code>\"token\"</code> on the M2 config, restarted via SSH over Tailscale.",
-          "Keshav \u2014 your bot should be working now."
         ],
         "rolling_7day": [
           "---",
@@ -2393,8 +2317,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.66,
-      "cpu": 1.3,
+      "rss_gb": 0.57,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3664,7 +3588,7 @@
       "frozen_reason": null,
       "pid": 71664,
       "rss_gb": 0.32,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3758,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3788,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
