@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-08 23:36:41 IST",
-  "generated_epoch": 1783534001,
+  "generated_ist": "2026-07-08 23:41:47 IST",
+  "generated_epoch": 1783534307,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.89 / 2.73 / 2.97",
+    "load": "2.07 / 2.24 / 2.65",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.18,
-      "cpu": 0.5,
+      "rss_gb": 1.19,
+      "cpu": 1.0,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,19 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783533627155,
+          "last_ts": 1783534229240,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783533627155,
+          "last_ts": 1783534229239,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +662,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783533627154,
+          "last_ts": 1783534229239,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,22 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Today (Jul 8):** 0 sessions, idle day \u2014 no facts to promote, no domain file updates",
-          "- **rolling-7day:** dropped Jun 30, appended Jul 8 (7 sections retained)",
-          "- **rolling-28day:** appended Jul 8 (28 sections retained)",
-          "- **rolling-180day:** appended Jul 8 (47 sections, 0 pruned)",
-          "- **Tag index:** rebuilt \u2014 52 days, 2 updated",
-          "- **MEMORY_WRITE bookmark:** inserted in transcript-2026-07-08.md",
-          "- **heartbeat-state.json:** `lastConsolidation` \u2192 2026-07-08T1...",
-          "[23:06 IST] HADERACH: **TwitAcc summary** (@OpenAI, posted 8 Jul, 09:29 IST):",
-          "<blockquote>\"GPT-5.6 Sol, along with Terra and Luna, will launch publicly this Thursday. We're expanding preview access globally now.\"</blockquote>",
-          "Replies are the usual mix \u2014 excitement, wrapper-startup jokes, one snarky note that \"Sol\" just means \"sun/ground\" in French, an early tester claim it's \"not quite as smart as Fable,\" and a #keep4o holdout. Nothing substantive beyond the announcement itself. Treating all of that as observed ...",
-          "[23:07 IST] HADERACH: **TwitAcc summary** (@OpenAI, posted 8 Jul, 09:29 IST):",
-          "<blockquote>\"GPT-5.6 Sol, along with Terra and Luna, will launch publicly this Thursday. We're expanding preview access globally now.\"</blockquote>",
-          "Replies are the usual mix \u2014 excitement, wrapper-startup jokes, one snarky note that \"Sol\" just means \"sun/ground\" in French, an early tester claim it's \"not quite as smart as Fable,\" and a #keep4o holdout. Nothing substantive beyond the announcement itself. Treating all of that as observed ...",
-          "[23:07 IST] RAM: 0 sessions, idle day!!!???",
-          "[23:18 IST] HADERACH: [[reply_to_current]]",
-          "Ha \u2014 I know what you mean, but that's the consolidation cron's perspective, not yours. It's saying *it* saw 0 interactive session exchanges to process in the transcript tail (because this direct conversation doesn't register as a \"session\" in the group-consolidation count \u2014 that cron tracks group chat transcripts, not direct DMs).",
           "Your day was anything but idle:",
           "<ul>",
           "<li>Morning: Kubera unfreeze, Chet root cause investigation, infrastructure triage</li>",
@@ -1519,7 +1503,23 @@
           "<li>Tester instance: port 18814</li>",
           "<li>Current leaderboard (canonical v3): #1 Sonnet 5 (91.8%), #2 Sonnet 4.6 (91.7%), #3 Grok 4.3...",
           "[23:19 IST] RAM: Test AWS BedRock gpt 5.5 pls",
-          "[23:27 IST] HADERACH: Now let me generate a bearer token and test GPT-5.5 via the bedrock-mantle endpoint."
+          "[23:27 IST] HADERACH: Now let me generate a bearer token and test GPT-5.5 via the bedrock-mantle endpoint.",
+          "[23:30 IST] HADERACH: That's Haderach's own AWS Bedrock key (Ramnath-Shenoy IAM user), separate from Martin's. Let's use that for the GPT-5.5 test.",
+          "[23:30 IST] HADERACH: Same AWS account (615894661560 \u2014 the AIML account used fleet-wide), different IAM user. Let's try the request.",
+          "[23:32 IST] HADERACH: GPT-5.5 on AWS Bedrock \u2014 live-tested, works.",
+          "<b>Test result</b>",
+          "<ul>",
+          "<li>Endpoint: <code>bedrock-mantle.us-east-1.api.aws/openai/v1</code> (Responses API, not the older Bedrock runtime path)</li>",
+          "<li>Model ID: <code>openai.gpt-5.5</code></li>",
+          "<li>Auth: bearer token minted from your existing Bedrock AWS key (Ramnath-Shenoy IAM user, AIML account) via AWS's token generator \u2014 no new credentials needed</li>",
+          "<li>Round trip: ~13s (used \"medium\" reasoning effort, 150 reasoning tokens + 15 output t...",
+          "[23:33 IST] HADERACH: GPT-5.5 on AWS Bedrock \u2014 live-tested, works.",
+          "<b>Test result</b>",
+          "<ul>",
+          "<li>Endpoint: <code>bedrock-mantle.us-east-1.api.aws/openai/v1</code> (Responses API, not the older Bedrock runtime path)</li>",
+          "<li>Model ID: <code>openai.gpt-5.5</code></li>",
+          "<li>Auth: bearer token minted from your existing Bedrock AWS key (Ramnath-Shenoy IAM user, AIML account) via AWS's token generator \u2014 no new credentials needed</li>",
+          "<li>Round trip: ~13s (used \"medium\" reasoning effort, 150 reasoning tokens + 15 output t..."
         ],
         "yesterday": [
           "[20:17 IST] HADERACH: 27 slides, 94 KB, valid OOXML. Sending it now.",
@@ -1661,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 1225,
       "rss_gb": 0.56,
-      "cpu": 1.2,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1685,6 +1685,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-watchdog-23",
+          "enabled": true,
+          "sched": "40 23 * * *",
+          "last_ts": 1783534209619,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-consolidation-23",
           "enabled": true,
@@ -1762,15 +1771,6 @@
           "enabled": true,
           "sched": "5 0 * * *",
           "last_ts": 1783449386218,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-watchdog-23",
-          "enabled": true,
-          "sched": "40 23 * * *",
-          "last_ts": 1783447807879,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2394,7 +2394,7 @@
       "frozen_reason": null,
       "pid": 1598,
       "rss_gb": 0.58,
-      "cpu": 0.9,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3664,7 +3664,7 @@
       "frozen_reason": null,
       "pid": 71664,
       "rss_gb": 0.32,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.5,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
