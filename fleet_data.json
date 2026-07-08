@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-08 16:07:09 IST",
-  "generated_epoch": 1783507029,
+  "generated_ist": "2026-07-08 16:12:16 IST",
+  "generated_epoch": 1783507336,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.00 / 2.71 / 2.46",
+    "load": "2.31 / 2.91 / 2.66",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.27,
-      "cpu": 1.0,
+      "rss_gb": 1.24,
+      "cpu": 0.3,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783507228309,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783507228308,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783507228308,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -672,33 +699,6 @@
           "enabled": true,
           "sched": "2 6-23/10 * * *",
           "last_ts": 1783506728591,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783506626333,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783506626332,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783506626332,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,13 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:49 IST] RAM: Done?",
-          "[15:49 IST] HADERACH: Not yet \u2014 and this is now well past reasonable, so let me check the actual disk state directly rather than trust the subagent's self-report.",
-          "[15:50 IST] HADERACH: Excel is done \u2014 landed on disk at 15:49. PDF is still assembling (body content still partial, only 4KB written so far). Let me verify the Excel file quickly.",
-          "[15:50 IST] HADERACH: Excel is on disk but only 4 of 5 sheets (missing \"Notes & Caveats\") \u2014 the subagent may still be finishing that, consistent with it still showing \"running.\" Let me check its latest activity.",
-          "[15:50 IST] HADERACH: Confirmed \u2014 the Excel subagent is still mid-build (currently adding sheets 4 and 5, so the file on disk is a partial/incremental save, not final). Not done yet on either front.",
-          "<b>Status:</b>",
-          "<ul>",
           "<li>Excel: 4 of 5 sheets built and saving incrementally; sheets 4-5 (KMP Grants + Notes/Caveats) in progress now</li>",
           "<li>PDF: still assembling HTML body content, not yet rendered</li>",
           "</ul>",
@@ -1519,7 +1512,14 @@
           "[15:57 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; timeout)",
           "[15:57 IST] HADERACH: Both delivered. Apologies for the 2+ hour wait \u2014 the subagents got into a loop of incremental writes rather than just building the thing. Should have taken over much earlier. Here's what's in each file:",
           "<b>PDF</b> \u2014 5 sections, navy cover, all tables formatted:",
-          "<ul><li>Executive summary comparison table</li><li>Tata Capital: ESOP movement, tranche breakdown, KMP grants</li><li>ABCL: KMP remuneration, 3-scheme detail, SMP grants</li><li>Piramal Finance: KMP remuneration, ESOP movement</li><li..."
+          "<ul><li>Executive summary comparison table</li><li>Tata Capital: ESOP movement, tranche breakdown, KMP grants</li><li>ABCL: KMP remuneration, 3-scheme detail, SMP grants</li><li>Piramal Finance: KMP remuneration, ESOP movement</li><li...",
+          "[16:02 IST] HADERACH: NO_REPLY",
+          "[16:03 IST] HADERACH: PDF report built and quality-checked successfully.",
+          "**1. Full path:** `/Users/ram_macmini/Desktop/Haderach/Output/ESOP_KMP_Study_NBFCs_Jul2026.pdf`",
+          "**2. File size:** 102,917 bytes (~104 KB), 13 pages",
+          "**3. Notable data gaps/caveats (also documented in the report's Section 6.5):**",
+          "- **Tata Capital:** Scheme-level exercisable splits below the aggregate 79,33,994 figure aren't separately disclosed; ESOP 2022 tranche confirmed fully exercised.",
+          "- **Aditya Birla Capital:** 24-employee standalone h..."
         ],
         "yesterday": [
           "[20:17 IST] HADERACH: 27 slides, 94 KB, valid OOXML. Sending it now.",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.58,
-      "cpu": 1.2,
+      "rss_gb": 0.59,
+      "cpu": 1.0,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1979,8 +1979,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 59467,
-      "rss_gb": 0.57,
-      "cpu": 1.6,
+      "rss_gb": 0.6,
+      "cpu": 1.2,
       "crons_total": 23,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -2004,19 +2004,19 @@
       ],
       "crons": [
         {
-          "name": "Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)",
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
-          "sched": "0 16 * * 1-5",
-          "last_ts": 1783506607132,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1783507203434,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "name": "Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)",
           "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1783506607131,
+          "sched": "0 16 * * 1-5",
+          "last_ts": 1783506607132,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2213,7 +2213,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Pot 2:** +\u20b95,727",
           "[15:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: Now running Step 2:",
           "[15:30 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: ```",
           "\ud83d\udcca 15:30 IST | Nifty 23,894.90 | VIX 14.54 \u2705",
@@ -2252,7 +2251,8 @@
           "  - Portfolio: -2.6% Pot",
           "[15:56 IST] RAM: [OpenClaw heartbeat poll]",
           "[15:56 IST] KUBERA: Market closed at 15:30, no new data since the 15:00 snapshot already reviewed (Pot 1 -2.7%, Pot 2 +\u20b95,727, Total \u20b912,80,867, no threshold breaches \u2014 VIX/drawdown gates all fine). EOD summary is due at 16:00, not yet.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[16:00 IST] KUBERA [Cron: Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)]: NO_REPLY"
         ],
         "yesterday": [
           "- **Pot1 down 0.4%** \u2014 ITC leading loss (\u20b96,180). AURO and APOLLO offsetting with strong gains (+\u20b91,708 and +\u20b91,573).",
@@ -2393,8 +2393,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1598,
-      "rss_gb": 0.56,
-      "cpu": 1.3,
+      "rss_gb": 0.57,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
