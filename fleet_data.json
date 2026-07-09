@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-09 10:19:48 IST",
-  "generated_epoch": 1783572588,
+  "generated_ist": "2026-07-09 10:24:54 IST",
+  "generated_epoch": 1783572894,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.94 / 2.00 / 2.11",
+    "load": "1.97 / 2.29 / 2.23",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.17,
-      "cpu": 0.3,
+      "rss_gb": 1.26,
+      "cpu": 0.1,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,10 +641,19 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783572853654,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783572027030,
+          "last_ts": 1783572626597,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,7 +662,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783572027030,
+          "last_ts": 1783572626597,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +671,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783572027029,
+          "last_ts": 1783572626596,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -690,15 +699,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1783571441133,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783571056385,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,7 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:10 IST] RAM: Pls unfreeze Kubera",
           "[09:11 IST] HADERACH: Backfilled successfully. Let's verify the file on disk and also backfill 07-07 and 07-08 while checking the wider gap.",
           "[09:11 IST] HADERACH: Genuinely produced, real URLs, good synthesis. Fully fixed and verified end-to-end. Let's do a final health check and confirm the fix is durable (plugin persists across restart, cron config unaffected).",
           "[09:12 IST] HADERACH: Good \u2014 the config already had `amazon-bedrock: {enabled: true}` (that's how it was set on 6 Jul per MEMORY.md's Chet primary-model update), it was just never actually npm-installed on Chet's own gateway. Now it's installed and persists on disk under `~/.openclaw-chet/npm/projects/`.",
@@ -1519,7 +1518,8 @@
           "**Benchmark results (from earlier session):**",
           "- Grok 4.5: **92.8%** avg (Credit 93.6%, Reg 87.0%, CA 93.3%, Fleet 97.0%, Research 87.2%, Memory 98.4%) \u2014 0 errors, 26/26 tasks",
           "- GPT-5.5: **85.7%** avg (Credit 88.8%, Reg 88.0%, CA 89.3%, Fleet 87.0%, Research 85.6%, Memory 77.6%) \u2014 0 errors",
-          "--- [TRANSCRIPT GAP: 10:00 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 10:00 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 10:20 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "Your day was anything but idle:",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.56,
-      "cpu": 1.5,
+      "rss_gb": 0.58,
+      "cpu": 0.9,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1686,19 +1686,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783571710630,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783572609008,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783570807113,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783571710630,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1942,7 +1942,7 @@
       "frozen_reason": null,
       "pid": 28633,
       "rss_gb": 0.54,
-      "cpu": 0.8,
+      "cpu": 0.9,
       "crons_total": 23,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1966,19 +1966,19 @@
       ],
       "crons": [
         {
-          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
+          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
-          "sched": "*/15 8-15 * * 1-5",
-          "last_ts": 1783572338262,
+          "sched": "*/10 6-18 * * *",
+          "last_ts": 1783572604796,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
+          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
           "enabled": true,
-          "sched": "*/10 6-18 * * *",
-          "last_ts": 1783572003571,
+          "sched": "*/15 8-15 * * 1-5",
+          "last_ts": 1783572338262,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2175,22 +2175,6 @@
       ],
       "transcripts": {
         "recent": [
-          "### Summary",
-          "**Status: SILENT**. No new escalation overnight. All alert thresholds passing.",
-          "**Current Market State:**",
-          "- **Crude:** WTI $74.35 (+1.13% today) \u2014 below 3% breach threshold",
-          "- **Portfolio:** \u20b91,296,455 (-1.1% vs invested, **+13.8% buffer** to -15% red-line) \u2705",
-          "- **VIX:** 13.71 (safe, <18) \u2014 Pot 2 gate open",
-          "- **Thesis:** Iran-crude bearish at 4.5/10 (demoted from 9.5/10 Wed, but **not invalidate",
-          "[10:01 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll run the portfolio refresh and Pot 2 snapshot. First, let me verify it's not an NSE holiday, then execute both scripts.",
-          "[10:01 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \u26a0\ufe0f **Step 1 error:** `update_portfolio.py` failed to authenticate with Angel One API (JSON decode error \u2014 likely temporary API connectivity issue or invalid response).",
-          "**Step 2 output:**",
-          "```",
-          "\ud83d\udcca 10:01 IST | Nifty 24,061.00 | VIX 13.39 \u2705",
-          "Pot1: \u20b9839,912 / \u20b9859,135 (-2.2%)",
-          "  \u25bc ITC25AUG26290CE: qty=-1725 avg=CF ltp=\u20b95.90 | +4,864",
-          "Pot2: +4,864",
-          "Cash: \u20b9451,179",
           "TOTAL: \u20b91,295,956 / \u20b91,567,385 (-17.3%)",
           "```",
           "**Note:** Portfolio file may not have updated. Step 1 auth failure suggests an API issue on Angel O",
@@ -2214,7 +2198,23 @@
           "- **Overall % vs \u20b915,67,385:** (1,296,455 - 1,567,385) / 1,567,385 \u00d7 100 = **-17.3%**",
           "**Step 5: Send message**",
           "[10:01 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 Portfolio update sent to Ram at 10:01 IST.",
-          "**Status:** Pot 1 down 2.2% on broad market weakness (all equity holdings red except ICICIBANK, AUROPHARMA, APOLLOHOSP). Pot 2 profitable +\u20b94,778 on the ITC short call. VIX benign at 13.71 \u2705. Overall portfolio at -17.3% vs committed capital."
+          "**Status:** Pot 1 down 2.2% on broad market weakness (all equity holdings red except ICICIBANK, AUROPHARMA, APOLLOHOSP). Pot 2 profitable +\u20b94,778 on the ITC short call. VIX benign at 13.71 \u2705. Overall portfolio at -17.3% vs committed capital.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: I'll start by checking the current trading status and reading the portfolio, then run the Twitter watcher analysis.",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Let me check the correct path and read the portfolio:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Now let me run a web search for Twitter/news during trading hours and check for urgent moves:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Web search is not available. Let me check memory for research inbox and check if any data has arrived:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. I have the full context. Let me check the thesis ledger and today's daily log to assess if anything new has triggered since yesterday's escalation alerts:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Good. Let me check today's daily log to see if there's been any overnight or pre-market activity:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. I have full context now. Let me update the research inbox with the current Twitter Watcher checkpoint:",
+          "[10:15 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Trading Hours)]: Perfect. Assessment complete. Here's the summary:",
+          "---",
+          "## **TWITTER WATCHER \u2014 Thu Jul 9, 10:15 IST**",
+          "\u2705 **ALL ALERT GATES SAFE \u2014 SILENT CHECKPOINT**",
+          "| Gate | Threshold | Current | Status |",
+          "|------|-----------|---------|--------|",
+          "| **Crude >3%** | >3% | WTI $74.35 (+1.13%) | \u2705 SAFE |",
+          "| **Nifty >-1.5%** | >-1.5% | Not yet intraday snapshot, but prior weakness likely contained | \u2705 SAFE |",
+          "| **Geopolitical escalation** | Major new escalation | Status quo from Wed 16:00 IST (Iran attacks on 3 vessel"
         ],
         "yesterday": [
           "From the daily log and research inbox, I can see:",
@@ -2355,8 +2355,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.49,
-      "cpu": 1.2,
+      "rss_gb": 0.5,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3626,7 +3626,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.41,
-      "cpu": 2.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3804,7 +3804,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
