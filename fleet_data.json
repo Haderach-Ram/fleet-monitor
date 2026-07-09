@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-09 12:06:58 IST",
-  "generated_epoch": 1783579018,
+  "generated_ist": "2026-07-09 12:12:05 IST",
+  "generated_epoch": 1783579325,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.07 / 2.50 / 2.33",
+    "load": "2.03 / 2.32 / 2.32",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.21,
+      "rss_gb": 1.27,
       "cpu": 0.4,
       "crons_total": 93,
       "crons_enabled": 60,
@@ -641,6 +641,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783579225850,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783579225850,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783579225849,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -681,33 +708,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1783578657557,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783578625299,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783578625299,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783578625299,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,11 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Fixed \u2014 Chet's daily brief was silently failing on every LLM call for 3 days straight</b>",
-          "<b>Root cause:</b> Chet's config was switched to Bedrock models on 6 Jul (Sonnet 5 \u2192 Sonnet 4.6 \u2192 DeepSeek v3.2), but ...",
-          "[09:12 IST] HADERACH: Good \u2014 the config already had `amazon-bedrock: {enabled: true}` (that's how it was set on 6 Jul per MEMORY.md's Chet primary-model update), it was just never actually npm-installed on Chet's own gateway. Now it's installed and persists on disk under `~/.openclaw-chet/npm/projects/`.",
-          "<b>Fixed \u2014 Chet's daily brief was silently failing on every LLM call for 3 days straight</b>",
-          "<b>Root cause:</b> Chet's config was switched to Bedrock models on 6 Jul (Sonnet 5 \u2192 Sonnet 4.6 \u2192 DeepSeek v3.2), but ...",
           "[09:14 IST] HADERACH: Confirmed it's fully booted out (not just disabled). Let's unfreeze it properly.",
           "[09:15 IST] HADERACH: Kubera is back up and healthy.",
           "[09:15 IST] HADERACH: <b>Kubera unfrozen</b>",
@@ -1519,7 +1514,12 @@
           "--- [TRANSCRIPT GAP: 10:20 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 10:50 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:20 IST \u2014 session empty for 120 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:50 IST \u2014 session empty for 150 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 11:50 IST \u2014 session empty for 150 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[12:01 IST] RAM: Freeze Kubera again pls",
+          "[12:01 IST] HADERACH: <b>Kubera frozen again</b>",
+          "<code>launchctl bootout</code> + <code>disable</code> \u2014 service no longer registered (\"Could not find service\" \u2014 confirms full bootout), health check refuses connection (curl exit 7). Crons inside its gateway are halted along with it. Back to parked state as before.",
+          "[12:01 IST] HADERACH: <b>Kubera frozen again</b>",
+          "<code>launchctl bootout</code> + <code>disable</code> \u2014 service no longer registered (\"Could not find service\" \u2014 confirms full bootout), health check refuses connection (curl exit 7). Crons inside its gateway are halted along with it. Back to parked state as before."
         ],
         "yesterday": [
           "Your day was anything but idle:",
@@ -1661,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 1225,
       "rss_gb": 0.59,
-      "cpu": 1.3,
+      "cpu": 1.4,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -2355,8 +2355,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.53,
-      "cpu": 1.9,
+      "rss_gb": 0.54,
+      "cpu": 6.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3626,7 +3626,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.41,
-      "cpu": 0.6,
+      "cpu": 1.0,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3804,7 +3804,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 1.0,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
