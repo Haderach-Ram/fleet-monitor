@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-09 09:18:38 IST",
-  "generated_epoch": 1783568918,
+  "generated_ist": "2026-07-09 09:23:44 IST",
+  "generated_epoch": 1783569224,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.61 / 2.23 / 2.35",
+    "load": "2.78 / 2.24 / 2.30",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1205,
-      "rss_gb": 1.19,
-      "cpu": 3.6,
+      "rss_gb": 1.18,
+      "cpu": 0.3,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,28 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783568435711,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783568435710,
+          "last_ts": 1783569026408,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "SCL NSE Filings \u2014 Daily Fetch",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "10 9 * * *",
-          "last_ts": 1783568435710,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783569026408,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,6 +662,15 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
+          "last_ts": 1783569026407,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL NSE Filings \u2014 Daily Fetch",
+          "enabled": true,
+          "sched": "10 9 * * *",
           "last_ts": 1783568435710,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1480,34 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>The cron itself is fine.</b> \"Purl \u2014 Midnight Rolling Summary\" (09:00 IST daily) ran successfully last night \u2014 status <code>ok</code>, 10.7s, 68k tokens consumed, no error. It's not stuck or crashed.",
-          "<b>Root cause of the staleness:</b> a logic-ordering bug in the cron's own prompt, same bug class already identified and partially fixed for Legal SMEDA (see MEMORY.md \u2014...",
-          "[08:51 IST] RAM: Checked?",
-          "[08:53 IST] HADERACH: Yes \u2014 sorry, that got cut off by a tool error last time. Here's the complete diagnosis.",
-          "<b>Purl rolling-7day.md staleness \u2014 root cause found, not a real failure</b>",
-          "The cron ran fine: \"Purl \u2014 Midnight Rolling Summary\" (00:09 IST daily) executed successfully last night \u2014 status <code>ok</code>, 10.7s runtime, no error. It's not stuck, crashed, or misfiring.",
-          "<b>What actually happened:</b> the cron's own prompt has an early-exit bug. Step 1 says: check if today's daily log file exists yet; if...",
-          "[08:53 IST] HADERACH: Yes \u2014 sorry, that got cut off by a tool error last time. Here's the complete diagnosis.",
-          "<b>Purl rolling-7day.md staleness \u2014 root cause found, not a real failure</b>",
-          "The cron ran fine: \"Purl \u2014 Midnight Rolling Summary\" (00:09 IST daily) executed successfully last night \u2014 status <code>ok</code>, 10.7s runtime, no error. It's not stuck, crashed, or misfiring.",
-          "<b>What actually happened:</b> the cron's own prompt has an early-exit bug. Step 1 says: check if today's daily log file exists yet; if...",
-          "[08:56 IST] RAM: Ok, go ahead",
-          "[08:57 IST] HADERACH: Good, confirmed the plist name. Now let's backup and patch the cron job.",
-          "[08:57 IST] HADERACH: Now restart Purl's gateway to make sure the change is loaded cleanly (avoiding any WAL/cache staleness).",
-          "[08:58 IST] HADERACH: Purl is back up healthy (PID 27427, exit code 0). Let's verify the cron job actually persisted the fix.",
-          "[08:58 IST] HADERACH: Fix confirmed live and Purl restarted clean.",
-          "<b>Done \u2014 Purl's midnight cron patched</b>",
-          "<ul>",
-          "<li>Backed up the sqlite state first: <code>openclaw.sqlite.bak-precron-fix-20260709-085748</code></li>",
-          "<li>Rewrote the \"Midnight Rolling Summary\" job prompt so the mandatory touch step (both <code>rolling-7day.md</code> + <code>rolling-28day.md</code>) is called out as step 0, and the early-exit branch in step 1 now explicitly routes through it before exiting, instead of bypassing it</li>",
-          "<li>Resta...",
-          "[08:58 IST] HADERACH: Fix confirmed live and Purl restarted clean.",
-          "<b>Done \u2014 Purl's midnight cron patched</b>",
-          "<ul>",
-          "<li>Backed up the sqlite state first: <code>openclaw.sqlite.bak-precron-fix-20260709-085748</code></li>",
-          "<li>Rewrote the \"Midnight Rolling Summary\" job prompt so the mandatory touch step (both <code>rolling-7day.md</code> + <code>rolling-28day.md</code>) is called out as step 0, and the early-exit branch in step 1 now explicitly routes through it before exiting, instead of bypassing it</li>",
-          "<li>Resta...",
-          "[09:03 IST] RAM: What\u2019s wrong with Chet. He\u2019s on OpenClaw and on Sonnet 5 if I am not mistaken",
           "[09:03 IST] HADERACH: Confirmed \u2014 Chet is up (health OK, PID 71664) and running on Sonnet 5 primary as you said. So the gateway is fine; the news-brief cron itself failed or didn't run. Let's dig into that specific cron.",
           "[09:04 IST] HADERACH: Found it. \"Chet \u2014 Daily Brief (08:30 IST)\" job `a71ad5b4-ce08-475f-9808-c87029dc381b`. Let's check its run log.",
           "[09:05 IST] HADERACH: Found something important \u2014 the news-brief file is missing not just for today, but for **07-07 and 07-08 as well** (last successful file was 07-06), even though the cron logs show \"ok\" status for all three days. Let me dig further.",
@@ -1519,7 +1491,35 @@
           "<b>What's actually broken</b>",
           "Chet's own OpenClaw gateway never had the <code>amazon-bedrock</code> provider plugin installed \u2014 only Haderach's gateway has it (installed 16 Jun). Chet's config sets model primary/fallbacks to <code>amazon-bedrock/*</code> across the board (Sonnet 5 \u2192 Sonnet 4.6 \u2192 DeepSeek v3.2, all Bedrock), but the plugin package that actually talks to AWS Bedrock is missing on Chet's side. Every LLM ca...",
           "[09:09 IST] HADERACH: Plugin installed. Now restart Chet's gateway to load it and verify.",
-          "[09:09 IST] HADERACH: Plugin count is now 11 (was 10) \u2014 amazon-bedrock is loaded. Let's confirm with a live test call."
+          "[09:09 IST] HADERACH: Plugin count is now 11 (was 10) \u2014 amazon-bedrock is loaded. Let's confirm with a live test call.",
+          "[09:10 IST] HADERACH: Confirmed working \u2014 got a clean \"PONG\" response through the amazon-bedrock plugin, no LLM failure. Now let's manually run today's daily brief to backfill it and verify end-to-end.",
+          "[09:10 IST] RAM: Pls unfreeze Kubera",
+          "[09:11 IST] HADERACH: Backfilled successfully. Let's verify the file on disk and also backfill 07-07 and 07-08 while checking the wider gap.",
+          "[09:11 IST] HADERACH: Genuinely produced, real URLs, good synthesis. Fully fixed and verified end-to-end. Let's do a final health check and confirm the fix is durable (plugin persists across restart, cron config unaffected).",
+          "[09:12 IST] HADERACH: Good \u2014 the config already had `amazon-bedrock: {enabled: true}` (that's how it was set on 6 Jul per MEMORY.md's Chet primary-model update), it was just never actually npm-installed on Chet's own gateway. Now it's installed and persists on disk under `~/.openclaw-chet/npm/projects/`.",
+          "<b>Fixed \u2014 Chet's daily brief was silently failing on every LLM call for 3 days straight</b>",
+          "<b>Root cause:</b> Chet's config was switched to Bedrock models on 6 Jul (Sonnet 5 \u2192 Sonnet 4.6 \u2192 DeepSeek v3.2), but ...",
+          "[09:12 IST] HADERACH: Good \u2014 the config already had `amazon-bedrock: {enabled: true}` (that's how it was set on 6 Jul per MEMORY.md's Chet primary-model update), it was just never actually npm-installed on Chet's own gateway. Now it's installed and persists on disk under `~/.openclaw-chet/npm/projects/`.",
+          "<b>Fixed \u2014 Chet's daily brief was silently failing on every LLM call for 3 days straight</b>",
+          "<b>Root cause:</b> Chet's config was switched to Bedrock models on 6 Jul (Sonnet 5 \u2192 Sonnet 4.6 \u2192 DeepSeek v3.2), but ...",
+          "[09:14 IST] HADERACH: Confirmed it's fully booted out (not just disabled). Let's unfreeze it properly.",
+          "[09:15 IST] HADERACH: Kubera is back up and healthy.",
+          "[09:15 IST] HADERACH: <b>Kubera unfrozen</b>",
+          "<ul>",
+          "<li><code>launchctl enable</code> + <code>bootstrap</code> \u2014 gateway is running, health check <code>{\"ok\":true,\"status\":\"live\"}</code></li>",
+          "<li>Telegram bot (@Kubera_Ram_Bot) started polling cleanly</li>",
+          "<li>Model: <code>anthropic/claude-sonnet-5</code> direct (not Bedrock \u2014 no plugin issue here)</li>",
+          "<li>Crons live inside its own gateway process again, so they'll resume on their normal schedule</li>",
+          "</ul>",
+          "Portfolio manager is back on duty. Say the word if you wa...",
+          "[09:15 IST] HADERACH: <b>Kubera unfrozen</b>",
+          "<ul>",
+          "<li><code>launchctl enable</code> + <code>bootstrap</code> \u2014 gateway is running, health check <code>{\"ok\":true,\"status\":\"live\"}</code></li>",
+          "<li>Telegram bot (@Kubera_Ram_Bot) started polling cleanly</li>",
+          "<li>Model: <code>anthropic/claude-sonnet-5</code> direct (not Bedrock \u2014 no plugin issue here)</li>",
+          "<li>Crons live inside its own gateway process again, so they'll resume on their normal schedule</li>",
+          "</ul>",
+          "Portfolio manager is back on duty. Say the word if you wa..."
         ],
         "yesterday": [
           "Your day was anything but idle:",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1225,
-      "rss_gb": 0.58,
-      "cpu": 1.1,
+      "rss_gb": 0.55,
+      "cpu": 1.3,
       "crons_total": 15,
       "crons_enabled": 13,
       "skills_count": 1,
@@ -1686,19 +1686,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783568110889,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1783569007375,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1783567207535,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783568110889,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1942,7 +1942,7 @@
       "frozen_reason": null,
       "pid": 28633,
       "rss_gb": 0.58,
-      "cpu": 100.7,
+      "cpu": 2.2,
       "crons_total": 23,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1966,19 +1966,127 @@
       ],
       "crons": [
         {
-          "name": "Kubera \u2014 Twitter Watcher (Off Hours)",
+          "name": "Kubera \u2014 Market Open Analysis (09:20 IST Mon-Fri)",
           "enabled": true,
-          "sched": "3 0,3,6,17,18,19,20,21 * * 1-5",
-          "last_ts": 1783568889045,
+          "sched": "20 9 * * 1-5",
+          "last_ts": 1783569171049,
           "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
+          "model": "anthropic/claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
-          "last_ts": 1783568835232,
+          "last_ts": 1783569171048,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
+          "enabled": true,
+          "sched": "0 9-15 * * 1-5",
+          "last_ts": 1783569110629,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)",
+          "enabled": true,
+          "sched": "15 9 * * 1-5",
+          "last_ts": 1783569110629,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
+          "enabled": true,
+          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
+          "last_ts": 1783569110628,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "kubera-consolidation-23",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1783569110624,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Daily Data Refresh \u2014 Kubera Corpus",
+          "enabled": true,
+          "sched": "15 0 * * 1-5",
+          "last_ts": 1783569110623,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1783569110623,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Nightly Memory Consolidation (23:00 IST)",
+          "enabled": true,
+          "sched": "30 23 * * *",
+          "last_ts": 1783569110623,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Morning Brief (Mon-Fri 06:05 IST)",
+          "enabled": true,
+          "sched": "5 6 * * 1-5",
+          "last_ts": 1783569110622,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 View Entry Template Check (Mon-Fri 08:45)",
+          "enabled": true,
+          "sched": "45 8 * * 1-5",
+          "last_ts": 1783569110622,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "3 18,21,0,3 * * *",
+          "last_ts": 1783569110621,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
+          "enabled": true,
+          "sched": "*/15 8-15 * * 1-5",
+          "last_ts": 1783569110621,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Twitter Watcher (Off Hours)",
+          "enabled": true,
+          "sched": "3 0,3,6,17,18,19,20,21 * * 1-5",
+          "last_ts": 1783568889045,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2020,15 +2128,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
-          "enabled": true,
-          "sched": "*/15 8-15 * * 1-5",
-          "last_ts": 1783505740687,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Kubera \u2014 End of Day P&L Summary (Mon-Fri 15:35)",
           "enabled": true,
           "sched": "35 15 * * 1-5",
@@ -2038,109 +2137,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
-          "enabled": true,
-          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
-          "last_ts": 1783504838727,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
-          "enabled": true,
-          "sched": "0 9-15 * * 1-5",
-          "last_ts": 1783503066409,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "kubera-consolidation-13",
           "enabled": true,
           "sched": "0 13 * * *",
           "last_ts": 1783495937569,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Market Open Analysis (09:20 IST Mon-Fri)",
-          "enabled": true,
-          "sched": "20 9 * * 1-5",
-          "last_ts": 1783482801605,
-          "last_status": "ok",
-          "model": "anthropic/claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)",
-          "enabled": true,
-          "sched": "15 9 * * 1-5",
-          "last_ts": 1783482332091,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 View Entry Template Check (Mon-Fri 08:45)",
-          "enabled": true,
-          "sched": "45 8 * * 1-5",
-          "last_ts": 1783480535775,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "kubera-consolidation-23",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1783479044406,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Daily Data Refresh \u2014 Kubera Corpus",
-          "enabled": true,
-          "sched": "15 0 * * 1-5",
-          "last_ts": 1783479044405,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1783479044405,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Morning Brief (Mon-Fri 06:05 IST)",
-          "enabled": true,
-          "sched": "5 6 * * 1-5",
-          "last_ts": 1783479044404,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Nightly Memory Consolidation (23:00 IST)",
-          "enabled": true,
-          "sched": "30 23 * * *",
-          "last_ts": 1783479044404,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "3 18,21,0,3 * * *",
-          "last_ts": 1783479044403,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2175,8 +2175,46 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-07-09",
-          "# Self-healing rotation from transcript-2026-07-08.md at 09:17 IST"
+          "- No [MEMORY:] tags to promote",
+          "- No [FACT:critical:] tags to promote to domain files",
+          "- Daily log created with key actions from morning cron runs",
+          "- [MEMORY_WRITE] bookmark appended",
+          "NO_REPLY",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll run the portfolio refresh cron. First, let me check if today is an NSE holiday and then execute the steps.",
+          "Today is July 9th, 2026 \u2014 not an NSE holiday. Proceeding with Steps 1 and 2.",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \u26a0\ufe0f Step 1 completed (portfolio updated). Step 2 error: **Login failed** \u2014 SmartAPI authentication issue. Likely session expired or API connectivity problem.",
+          "**Snapshot Status:**",
+          "- Pot1: \u20b9838,439 (-2.4%) ",
+          "- Pot2 P&L: \u20b9+5,210",
+          "- Cash: \u20b9451,545",
+          "- Total: \u20b91,295,193",
+          "*Note: Pot 2 live data unavailable due to API login failure. Portfolio summary is from Step 1 only.*",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)]: I'll run the Pot 3 signal engine and check for trading signals.",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 Pot 3 Daily Signal Check (09:15 IST, Mon-Fri)]: Output shows: **\u274c NO TRADE TODAY** \u2014 macro filter failed (Iran escalation / Hormuz blockade concern, elevated geopolitical risk).",
+          "Per instructions: reply NO_REPLY (silent).",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll run the 15-min portfolio update cron for trading hours.",
+          "**Step 1: Check NSE holiday**",
+          "Today is Thursday, 9-Jul-2026 \u2014 not on the NSE holiday list. Proceed.",
+          "**Step 2: Update portfolio**",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 3: Read PORTFOLIO.md and nowcast_state.json**",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 4: Check for pending orders**",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 5: Compose and send message**",
+          "Portfolio snapshot ready. Formatting message now:",
+          "- **Nifty spot:** 23,992.25",
+          "- **VIX:** 13.76 (< 18, green)",
+          "- **Pot 1:** \u20b9838,904 / \u20b9859,135 (-2.4%)",
+          "- **Pot 2:** \u20b9+5,210 P&L on short ITC call (1725 x ITC25AUG26290CE)",
+          "- **Pot 3:** No deployed capital",
+          "- **Cash:** \u20b9451,542",
+          "- **Pending orders:** \u20b90",
+          "- **Total:** \u20b91,295,655 / \u20b91,567,385 = -17.3%",
+          "[09:21 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: \u2705 **Portfolio update sent to Ram.**",
+          "**Market context:**",
+          "- Nifty 23,992 | VIX 13.8 (Pot 2 gate OPEN)",
+          "- Pot 1 down 2.4% \u2014 broad weakness across most positions",
+          "- Pot 2 short call (+\u20b95.2k) profiting from time decay on ITC250AUGCE",
+          "- Bulk of cash (\u20b9451.5k) still undeployed \u2014 28.8% of portfolio in dry powder",
+          "- Overall portfolio at -17.3% vs \u20b91.57L net capital committed"
         ],
         "yesterday": [
           "From the daily log and research inbox, I can see:",
@@ -2221,7 +2259,6 @@
           "- **Nifty:** -0.64% at 09:30, approached but did NOT breach -1.5%"
         ],
         "rolling_7day": [
-          "## Sun Jul 5, 2026",
           "- No activity (Kubera frozen per Ram instruction).",
           "## Sun Jul 6, 2026 \u2014 Weekly Knowledge Synthesis (20:00 IST)",
           "- **Synthesis run:** Reviewed Jun 29\u2013Jul 6 daily logs, thesis ledger, study progress.",
@@ -2260,10 +2297,10 @@
           "## 2026-07-07",
           "- Brief summary",
           "---",
-          "--- Midnight run OK 2026-07-08 ---"
+          "--- Midnight run OK 2026-07-08 ---",
+          "--- Midnight run OK 2026-07-09 ---"
         ],
         "rolling_28day": [
-          "- COALINDIA crude bearish confirmed 8.5/10 \u2192 9.2/10 confidence raise eligible",
           "- Portfolio +7.1% YTD (Pot 1 \u20b963,120), Pot 2 idle (VIX 13.39 gate open), \u20b9282,617 cash, 8-10% buffer to red-line maintained",
           "- All 6 holdings HOLD (ICICIBANK +9.3%, AUROPHARMA +18.8%, APOLLOHOSP +17.0%, COALINDIA -2.5%, ITC -1.7%, BEL -1.3%)",
           "---",
@@ -2302,7 +2339,8 @@
           "## 2026-07-07 \u2014 Daily Summary",
           "- Processed from daily_log",
           "---",
-          "--- Midnight run OK 2026-07-08 ---"
+          "--- Midnight run OK 2026-07-08 ---",
+          "--- Midnight run OK 2026-07-09 ---"
         ]
       }
     },
@@ -2318,7 +2356,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.46,
-      "cpu": 1.9,
+      "cpu": 1.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3588,7 +3626,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.4,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3609,7 +3647,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Chet Transcript \u2014 2026-07-09",
           "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-07-09.",
           "MANDATORY STARTUP:",
           "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
@@ -3630,7 +3667,26 @@
           "[09:10 IST] HADERACH\u2192CHET: Reply with the word PONG and nothing else.",
           "[09:12 IST]",
           "HADERACH\u2192CHET: Daily Brief 2026-07-09 (pre-fetched Exa data for SCL/RBI/AI)",
-          "CHET: Wrote /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-09.md (22 lines, ~400 words). Note: all Exa snippets were empty; bullets built from headlines/URLs only, cross-referenced against rolling-7day.md for context."
+          "CHET: Wrote /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-09.md (22 lines, ~400 words). Note: all Exa snippets were empty; bullets built from headlines/URLs only, cross-referenced against rolling-7day.md for context.",
+          "[09:10 IST] CHET: PONG",
+          "[09:10 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-07-09.",
+          "MANDATORY STARTUP:",
+          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
+          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
+          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
+          "{",
+          "  \"scl\": [",
+          "    {",
+          "      \"title\": \"Sammaan Capital Limited\",",
+          "      \"url\": \"https://sammaancapital.com/\",",
+          "      \"snippet\": \"\"",
+          "    },",
+          "    {",
+          "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
+          "     ...",
+          "[09:11 IST] CHET: [Chet \u2013 Write verified] news-brief-2026-07-09.md | 22 lines | first line: `# Daily Brief \u2014 2026-07-09`",
+          "File: /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-09.md confirmed, 22 lines.",
+          "Changed since yesterday: AI track breaks its 3-day freeze with a new NVIDIA\u2013LangChain \"NemoClaw Deep Agents Blueprint\" (Nemotron benchmarked on LangChain's Deep Agents harness) plus a Gemini API Managed Agents update, while SCL and RBI tracks remain unchanged (note: yesterday, 07-08, was ..."
         ],
         "yesterday": [
           "# Chet Transcript \u2014 2026-07-08",
@@ -3778,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
