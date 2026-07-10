@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-10 18:09:36 IST",
-  "generated_epoch": 1783687176,
+  "generated_ist": "2026-07-10 18:14:43 IST",
+  "generated_epoch": 1783687483,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.72 / 2.91 / 2.56",
+    "load": "2.86 / 2.70 / 2.54",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 0.87,
-      "cpu": 2.0,
+      "rss_gb": 1.0,
+      "cpu": 1.0,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783687233671,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783687233670,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783687233669,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Weekly Briefing \u2014 Prepare (Friday)",
+          "enabled": true,
+          "sched": "0 18 * * 5",
+          "last_ts": 1783687202799,
+          "last_status": "ok",
+          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -672,42 +708,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1783687053581,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783686928116,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783686928116,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Weekly Briefing \u2014 Prepare (Friday)",
-          "enabled": true,
-          "sched": "0 18 * * 5",
-          "last_ts": 1783686928115,
-          "last_status": "error",
-          "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783686928112,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,11 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:31 IST] HADERACH: App Review timing isn't something I can pull from a live source right now (web_search is down), but I can give you the honest general pattern:",
-          "<b>Typical Apple App Review turnaround: 24\u201348 hours</b> for a routine update from an established app with a clean review history \u2014 which this one is (OpenClaw's official app is already live, this is just a version bump).",
-          "Given it went into review around <b>10 Jul</b> (that's when joshavant's comment referenced the submitted build), a reasonable expec...",
-          "[17:32 IST] HADERACH: App Review timing isn't something I can pull from a live source right now (web_search is down), but I can give you the honest general pattern:",
-          "<b>Typical Apple App Review turnaround: 24\u201348 hours</b> for a routine update from an established app with a clean review history \u2014 which this one is (OpenClaw's official app is already live, this is just a version bump).",
           "Given it went into review around <b>10 Jul</b> (that's when joshavant's comment referenced the submitted build), a reasonable expec...",
           "[17:32 IST] HADERACH: Yes, Ram \u2014 squarely so. This wasn't a case of us just reporting a known bug; the sequence shows we drove it end to end:",
           "<b>1. We filed it, on day one.</b> #98062 was opened by our account (Haderach-Ram) on <b>30 Jun 2026</b> \u2014 the same day the iOS app publicly launched (2026.6.10). You caught the failure on your own iPhone almost immediately after release and we wrote it up with full repro detail: exact Tailscale IPs, three separate connection paths attempted (direct CGNAT, Tailscale Serve, ...",
@@ -1519,7 +1514,12 @@
           "[17:48 IST] HADERACH: Done, Ram \u2014 clean restart, verified live.",
           "<b>Change applied to Jonas (CA-SMEDA-I, M2, port 18793):</b>",
           "<ul><li><b>Backed up</b> config first: <code>openclaw.json.bak-&lt;timestamp&gt;</code></li><li><b>New model hierarchy (all AWS Bedrock, per your instruction):</b>",
-          "<ol><li>Primary: <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code></li><li>Fallback 1: <code>amazon-bedrock/global.anthropic.claude-sonnet-5</code></li><li>Fallback 2: <code>amazon-bedrock/us.amazon.nova-pro-v1:0</co..."
+          "<ol><li>Primary: <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code></li><li>Fallback 1: <code>amazon-bedrock/global.anthropic.claude-sonnet-5</code></li><li>Fallback 2: <code>amazon-bedrock/us.amazon.nova-pro-v1:0</co...",
+          "[18:09 IST] RAM: From Jonas on the M2. Can you check and fix pls:",
+          "Still seeing the same outage post-restart, Ram \u2014 exec is still returning empty (\"Tool ran without output or errors\") with no actual output. The restart completed (confirmed pid/signal returned ok) but the underlying exec failure is persisting.",
+          "This may be a deeper process isolation issue rather than just the gateway. A few things worth checking on the host:",
+          "\u2022` ps aux \\| grep openclaw `\u2014 is the new gateway process running cleanly?",
+          "\u2022` df -h `..."
         ],
         "yesterday": [
           "You're right to ask \u2014 and yes, I've been whiplashing between \"queue exhausted\" framing and forgetting a chunk of the original list still sitting unread. Checked the master novel list from Reference/Favourite_Authors_Novels.pdf (the ~60-book brief from 18 March) against reading_log.md line by line. Here's the real state:",
@@ -1661,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.55,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2351,7 +2351,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.57,
-      "cpu": 0.8,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3622,7 +3622,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.4,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3807,7 +3807,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3837,7 +3837,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
