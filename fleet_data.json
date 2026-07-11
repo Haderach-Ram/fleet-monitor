@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-11 23:46:55 IST",
-  "generated_epoch": 1783793815,
+  "generated_ist": "2026-07-11 23:52:02 IST",
+  "generated_epoch": 1783794122,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.18 / 2.13 / 2.18",
+    "load": "1.83 / 2.22 / 2.25",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.2,
-      "cpu": 0.7,
+      "rss_gb": 1.15,
+      "cpu": 1.8,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "HAD-042 Daily Diary Page Generator",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "45 23 * * *",
-          "last_ts": 1783793709898,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783794029411,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,16 +653,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783793422884,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783793422884,
+          "last_ts": 1783794029410,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783793422883,
+          "last_ts": 1783794029410,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-042 Daily Diary Page Generator",
+          "enabled": true,
+          "sched": "45 23 * * *",
+          "last_ts": 1783793709898,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,10 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[22:53 IST] HADERACH: Subagent is running. Here's what it will do:",
-          "<ul>",
-          "<li>Work through all 17 companies one by one \u2014 NSE/BSE annual report filings, download each AR PDF to the SSD folder</li>",
-          "<li>Try FY2025-26 first; fall back to FY2024-25 if not yet published</li>",
           "<li>Extract MD/CEO name + compensation components from each AR (Directors' Report / MGT-9 / Corporate Governance section)</li>",
           "<li>Build the Excel with all components in \u20b9 Lakhs, both on the SSD and Desktop/Output</li>",
           "</ul>",
@@ -1519,7 +1515,11 @@
           "[23:17 IST] HADERACH: Progress update, Ram \u2014 the previous subagent hit a snag but actually got further than its message suggested.",
           "<b>Downloads: all 17/17 complete</b> \u2014 every Annual Report is sitting in `/Volumes/RamMiniSSD1/Haderach/Peers/Annual Reports/` (4-30MB each, mostly FY2024-25; Poonawalla's is FY2025-26).",
           "It stalled on the extraction step (tool response errors) and yielded rather than pushing through. I've relaunched a fresh subagent scoped only to the extraction + Excel-build phase \u2014 no re-downloadin...",
-          "[23:18 IST] HADERACH: Given consistent tool response failures, let me yield and let the system recover, then continue."
+          "[23:18 IST] HADERACH: Given consistent tool response failures, let me yield and let the system recover, then continue.",
+          "[23:48 IST] HADERACH: All 17 Annual Reports downloaded successfully. The extraction subagent hit a compaction timeout partway through (likely from reading too many large PDFs in one context). Let me check if it captured any partial results before checking the transcript.",
+          "[23:49 IST] HADERACH: That subagent hit a tool-call outage loop near the end, but it looks like it had already been writing extraction text to `/tmp/scl013/*.txt` before things broke. Let me check what's salvageable there.",
+          "[23:49 IST] HADERACH: All 17 companies have extracted text files \u2014 the subagent got much further than it appeared. Let me check the content of these extracts for compensation data.",
+          "[23:49 IST] HADERACH: All 17 companies already have relevant remuneration-section text extracted (the prior subagent got quite far before it crashed on the outage). Let me check a couple more and then spawn a focused subagent to just do extraction + Excel build from these existing text files \u2014 much lighter task, should avoid the timeout this time."
         ],
         "yesterday": [
           "**",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.58,
-      "cpu": 0.4,
+      "rss_gb": 0.57,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2350,8 +2350,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.68,
-      "cpu": 0.6,
+      "rss_gb": 0.67,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3623,7 +3623,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.41,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.23,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
