@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-11 12:09:28 IST",
-  "generated_epoch": 1783751968,
+  "generated_ist": "2026-07-11 12:14:43 IST",
+  "generated_epoch": 1783752283,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.83 / 3.04 / 2.92",
+    "load": "2.10 / 2.60 / 2.75",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -33,9 +33,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": 87336,
-      "rss_gb": 1.13,
-      "cpu": 0.3,
+      "pid": null,
+      "rss_gb": null,
+      "cpu": null,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783752026585,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783752026584,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783752026584,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -690,33 +717,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1783751457180,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783751426256,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783751426256,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783751426255,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,9 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 08:20 IST \u2014 session empty for 550 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[08:31 IST] HADERACH: It's Saturday \u2014 NSE markets are closed, so no bhavcopy to ingest. Skipping silently as expected for a non-trading day.",
-          "[09:09 IST] RAM: Don\u2019t you ingest for the prior day?",
           "[09:11 IST] HADERACH: Fair catch, Ram. Yes \u2014 every trading day's bhavcopy should be ingested, and it wasn't a \"there's nothing to do on Saturday\" situation at all. Two things:",
           "**What went wrong:** the cron does always fetch the *most recent trading day* (its date logic correctly skips back over weekends \u2014 a Saturday run should have pulled Friday's data, same as it does after any weekend). But this morning's run reasoned about the calendar itself instead of trusting the script, and skipped the actual execution wit...",
           "[09:11 IST] HADERACH: Fair catch, Ram. Yes \u2014 every trading day's bhavcopy should be ingested, and it wasn't a \"there's nothing to do on Saturday\" situation at all. Two things:",
@@ -1519,7 +1516,10 @@
           "<b>v2026.7.1</b> (which carries the iOS Tailscale/CGNAT fix you and I filed back on 30 Jun) is still in beta (beta.2 as of 5 Jul) \u2014 not yet pushed to the App ...",
           "--- [TRANSCRIPT GAP: 11:00 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 11:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[12:01 IST] RAM: Can you make this into a document, but edit it to be more bullet points type and descriptive",
+          "[12:02 IST] HADERACH: Done, Ram. I've converted the scorecard into a Word document, rewritten as descriptive bullet points grouped under each KPI heading (weight, ABP objective, target, threshold, stretch \u2014 only where the original cell wasn't blank), with a navy title and Calibri throughout.",
+          "MEDIA:/Users/ram_macmini/Desktop/Haderach/Output/KPI_Scorecard_FY26-27.docx"
         ],
         "yesterday": [
           "**",
@@ -1661,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.56,
-      "cpu": 1.5,
+      "cpu": 0.7,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2350,8 +2350,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.58,
-      "cpu": 1.2,
+      "rss_gb": 0.59,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3623,7 +3623,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.41,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3791,7 +3791,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.28,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
