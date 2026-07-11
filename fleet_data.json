@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-11 23:16:20 IST",
-  "generated_epoch": 1783791980,
+  "generated_ist": "2026-07-11 23:21:25 IST",
+  "generated_epoch": 1783792285,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.25 / 2.43 / 2.58",
+    "load": "2.39 / 2.57 / 2.61",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.25,
-      "cpu": 1.4,
+      "rss_gb": 1.17,
+      "cpu": 0.9,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,28 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783791636841,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783791636841,
+          "last_ts": 1783792225528,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1783791636840,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783792225527,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,6 +662,15 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
+          "last_ts": 1783792225527,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
           "last_ts": 1783791636840,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1480,12 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Try FY2025-26 first; fall back to FY2024-25 if not yet published</li>",
-          "<li>Extract MD/CEO name + compensation components from each AR (Directors' Report / MGT-9 / Corporate Governance section)</li>",
-          "<li>Build the Excel with all components in \u20b9 Lakhs, both on the SSD and Desktop/Output</li>",
-          "</ul>",
-          "This will take some time...",
-          "[22:53 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; format)",
           "[22:53 IST] HADERACH: Subagent is running. Here's what it will do:",
           "<ul>",
           "<li>Work through all 17 companies one by one \u2014 NSE/BSE annual report filings, download each AR PDF to the SSD folder</li>",
@@ -1519,7 +1513,13 @@
           "- **rolling-28day.md:** Jul 11 entry appended",
           "- **rolling-180day.md:** Jul 11 entry appended",
           "- **Tag index:** Rebuilt \u2014 55 days indexed, 2 updated (Jul 10\u201311)",
-          "- **MEMORY_WRITE bookmark:** Appended to tra..."
+          "- **MEMORY_WRITE bookmark:** Appended to tra...",
+          "[23:17 IST] HADERACH: The subagent hit tool failures and yielded early rather than completing the download/extraction work. Let me check what it actually got done before deciding how to proceed.",
+          "[23:17 IST] HADERACH: Good news \u2014 all 17 Annual Reports downloaded successfully; the failure happened only in the extraction phase. Let me continue that phase with a fresh subagent.",
+          "[23:17 IST] HADERACH: Progress update, Ram \u2014 the previous subagent hit a snag but actually got further than its message suggested.",
+          "<b>Downloads: all 17/17 complete</b> \u2014 every Annual Report is sitting in `/Volumes/RamMiniSSD1/Haderach/Peers/Annual Reports/` (4-30MB each, mostly FY2024-25; Poonawalla's is FY2025-26).",
+          "It stalled on the extraction step (tool response errors) and yielded rather than pushing through. I've relaunched a fresh subagent scoped only to the extraction + Excel-build phase \u2014 no re-downloadin...",
+          "[23:18 IST] HADERACH: Given consistent tool response failures, let me yield and let the system recover, then continue."
         ],
         "yesterday": [
           "**",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.6,
-      "cpu": 0.7,
+      "rss_gb": 0.71,
+      "cpu": 1.1,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1685,6 +1685,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-consolidation-23",
+          "enabled": true,
+          "sched": "20 23 * * *",
+          "last_ts": 1783792239011,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
@@ -1762,15 +1771,6 @@
           "enabled": true,
           "sched": "40 23 * * *",
           "last_ts": 1783707007505,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-23",
-          "enabled": true,
-          "sched": "20 23 * * *",
-          "last_ts": 1783705827475,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2350,8 +2350,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.67,
-      "cpu": 1.3,
+      "rss_gb": 0.68,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3791,7 +3791,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.25,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
