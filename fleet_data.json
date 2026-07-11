@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-11 23:57:09 IST",
-  "generated_epoch": 1783794429,
+  "generated_ist": "2026-07-12 00:02:15 IST",
+  "generated_epoch": 1783794735,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.99 / 2.06 / 2.16",
+    "load": "2.96 / 2.24 / 2.16",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.2,
-      "cpu": 2.8,
+      "rss_gb": 1.31,
+      "cpu": 1.3,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,33 @@
       ],
       "crons": [
         {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783794726403,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1783794713359,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783794608914,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -753,15 +780,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1783784009028,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783783856608,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -965,15 +983,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783719010008,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1005,15 +1014,6 @@
           "enabled": true,
           "sched": "0 1 * * 3,6",
           "last_ts": 1783713913974,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1783708287439,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,6 +1480,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-12",
+          "# Self-healing rotation from transcript-2026-07-11.md at 00:02 IST"
+        ],
+        "yesterday": [
           "<li>Extract MD/CEO name + compensation components from each AR (Directors' Report / MGT-9 / Corporate Governance section)</li>",
           "<li>Build the Excel with all components in \u20b9 Lakhs, both on the SSD and Desktop/Output</li>",
           "</ul>",
@@ -1521,57 +1525,7 @@
           "[23:49 IST] HADERACH: All 17 companies have extracted text files \u2014 the subagent got much further than it appeared. Let me check the content of these extracts for compensation data.",
           "[23:49 IST] HADERACH: All 17 companies already have relevant remuneration-section text extracted (the prior subagent got quite far before it crashed on the outage). Let me check a couple more and then spawn a focused subagent to just do extraction + Excel build from these existing text files \u2014 much lighter task, should avoid the timeout this time."
         ],
-        "yesterday": [
-          "**",
-          "| Tool | Status | Latest data |",
-          "| :---: | :---: | :---: |",
-          "|** RBI FX script **| \u2705 | USD/INR 95.3129 (10 Jul 2026) |",
-          "|** Martin API **| \u2705 Live | Responding normally |",
-          "|** Martin \u2014 FX rates **| \u2705 | USD/INR 95.3129 (10 Jul) |",
-          "|** Martin \u2014 MPC/policy **| \u2705 | Repo 5.25%, SDF 5.0%, MSF 5.5% (Jun 4) |",
-          "|** Martin \u2014 Call money **| \u2705 Updated | Latest: 15 May 2026, WAR 5.21% (ingested 5 Jul;...",
-          "[19:08 IST] HADERACH: Jonas's data checks out \u2014 verified independently against Martin directly:",
-          "[19:09 IST] HADERACH: All matches. Verified independently against Martin, Ram \u2014 Jonas's report is accurate:",
-          "<b>Jonas's Martin data report \u2014 verified correct</b>",
-          "<table><tr><td><b>Tool</b></td><td><b>Jonas's claim</b></td><td><b>Independent check</b></td></tr>",
-          "<tr><td>RBI FX / Martin FX rates</td><td>USD/INR 95.3129 (10 Jul)</td><td>\u2705 matches exactly \u2014 <code>/data/rbi/fx-rates?latest=true</code></td></tr>",
-          "<tr><td>Martin API</td><td>Live, responding</td><td>\u2705 confirmed responsive across all endpoints tested</td></...",
-          "[19:09 IST] HADERACH: All matches. Verified independently against Martin, Ram \u2014 Jonas's report is accurate:",
-          "<b>Jonas's Martin data report \u2014 verified correct</b>",
-          "<table><tr><td><b>Tool</b></td><td><b>Jonas's claim</b></td><td><b>Independent check</b></td></tr>",
-          "<tr><td>RBI FX / Martin FX rates</td><td>USD/INR 95.3129 (10 Jul)</td><td>\u2705 matches exactly \u2014 <code>/data/rbi/fx-rates?latest=true</code></td></tr>",
-          "<tr><td>Martin API</td><td>Live, responding</td><td>\u2705 confirmed responsive across all endpoints tested</td></...",
-          "[19:17 IST] RAM: Can you fill Martin\u2019s data gap identified by Jonas?",
-          "[19:21 IST] HADERACH: Now let's find why the Jun/Jul WSS editions haven't landed. Let's run the actual ingestion script live.",
-          "[19:22 IST] HADERACH: Found it. The real `rbi.db` is on the SSD. Let's check its current state and figure out why the gap exists.",
-          "[19:22 IST] HADERACH: Confirmed: latest WSS data ingested is the 6 Jun 2026 edition (WSS published 22 Jun 2026 bulletin). We need Jun 19/26 and Jul 3/10 editions. Let's run the actual backfill script to check for and pull new editions.",
-          "[19:23 IST] HADERACH: The Jun 22 edition exists and has data. Now let's find later editions and run the full backfill for all missing ones.",
-          "[19:42 IST] HADERACH: This wide scan will take too long. Let me try the Bulletin section (not WSS) archive with the correct step size pattern, and use narrower probing.",
-          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:40 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:10 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:30 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 150 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 170 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:06 IST] HADERACH: All steps complete. Summary:",
-          "- **Step 1:** Transcript checked \u2014 no MEMORY_WRITE found (first run today), no sessions or [FACT:] tags to process",
-          "- **Step 2\u20133:** No domain file promotions needed (idle day, 0 sessions)",
-          "- **Step 4:** rolling-7day.md \u2014 dropped Jul 3, appended Jul 10 (7 entries: Jul 4\u201310)",
-          "- **Step 5:** rolling-28day.md \u2014 appended Jul 10, pruned Jun 11 (now 29 entries: Jun 12\u2013Jul 10)",
-          "- **Step 6:** rolling-180day.md \u2014 appended Jul 10 (48 entries, no pruning needed)",
-          "- **Step 7:** Tag...",
-          "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
         "rolling_7day": [
-          "## 2026-07-06 \u2014 uday_one Crash Recovery, SAK-008 API Fix, M2 Cache Patch, Monk Updated",
-          "- [06:39 IST] uday_one hard freeze at ~00:33 IST (6.5h outage); recovered at 07:17 IST on reboot",
-          "- [12:35 IST] Kubera frozen again; SAK-008 5 DBs confirmed live; BhavCopy cron LLM-timeout root cause fixed",
-          "- [15:26 IST] Sonnet 5 Bedrock caching patch applied to all 8 M2 agents via SSH; all gateways restarted",
-          "- [19:27 IST] Ram: no em-dash in Haderach output (standing style pref, written to MEMORY.md)",
-          "- [20:37 IST] Monk: updated v0.16.0\u2192v0.18.0, model hierarchy Sonnet 5/4.6/DeepSeek v3.2 (Bedrock), cache_ttl 1h",
-          "---",
-          "--- [Midnight run OK \u2014 2026-07-07 \u2014 rolling-7day updated with 2026-07-06] ---",
           "## 2026-07-07 \u2014 Fleet Freeze + SAK-008 Live + Comp PPTX",
           "- [00:09 IST] SAK-008 macro.db confirmed live \u2014 6.69M rows, Martin API v0.6.0, 4 new endpoints, monthly refresh cron set (1st of month, 03:15 IST)",
           "- [14:44 IST] Silent agent drift confirmed systemic \u2014 6 agents drifted from frozen to running undetected between 1\u20137 Jul; MEMORY.md updated",
@@ -1603,22 +1557,17 @@
           "- [17:44 IST] Jonas M2 tool outage root-caused (Bedrock Sonnet-5 stopReason=length cascade + self-restart loop) and fixed",
           "- [19:09 IST] Martin data independently verified correct; WSS data gap investigated",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-11 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-11 \u2014 no new content] ---",
+          "## 2026-07-11 \u2014 Ratings Research, CEO Comp Project, Building Plan",
+          "- [09:36 IST] Bhavcopy cron fixed (Tue\u2013Sat only); pxpipe context-compression tool researched (lossy, niche)",
+          "- [10:09 IST] OpenClaw iOS v2026.7.1 still in App Review (Tailscale fix); KPI Scorecard FY26-27 Word doc built",
+          "- [13:28 IST] Auditor resignation research: no auto NFRA/MCA trigger post-sign-off; SCL AA+ confirmed (CRISIL upgrade 9 Apr 2026)",
+          "- [17:49 IST] AA+\u2192AAA trajectory Excel for 14 NBFCs; SCL-013 CEO Compensation project opened (17-company peer list)",
+          "- [22:53 IST] All 17 peer Annual Reports downloaded to SSD; extraction subagent running at midnight",
+          "---",
+          "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [17:51 IST] GitHub issue #90531 (group chat JSONL) CLOSED; #87318 (Bedrock Haiku ARN) still open; #99305 (Sonnet 5 caching) merged but not yet released",
-          "- [18:57 IST] Sammaan Compensation Benchmarking \u2014 27-slide PPTX built with USD conversions (1 USD = 95.5 INR); final file delivered at 20:17 IST",
-          "- [21:32 IST] Telegram macOS group rich-message bug confirmed (bugs.telegram.org/c/62896, macOS client 12.8.0) \u2014 rich messages in groups show \"Message not supported\" on macOS; iOS/Windows unaffected",
-          "- [23:00 IST] MEMORY.md updated \u2014 fleet status corrected, stale-drift failure mode documented",
-          "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---",
-          "## 2026-07-08 \u2014 Kubera Unfreeze, ESOP Study, Chet Diagnosis, GPT-5.5 on Bedrock",
-          "*Day opened: ~08:11 IST. Major events in sequence:*",
-          "- [08:11 IST] Kubera unfrozen \u2014 gateway re-enabled after ~1-week freeze; self-healed rolling files + crons intact; bhavcopy 2026-07-07 ingested (3,394 equity + 34,652 F&O rows)",
-          "- [11:50 IST] Chet investigated \u2014 root cause found: openclaw.json config change on 6 Jul 20:47 IST broke Chet's gateway; backup confirmed timestamp",
-          "- [13:24 IST] ESOP & KMP compensation study requested for Tata Capital, ABCL, Piramal Finance from annual reports + ESOP disclosures (55 MB zip via Google Drive ram.haderach@gmail.com)",
-          "- [15:57 IST] PDF + Excel delivered \u2014 ESOP_KMP_Study_NBFCs_Jul2026.pdf (102 KB, 13 pages) + ESOP_KMP_Study_NBFCs_Jul2026.xlsx (5 sheets); 2h+ build due to subagent loop, took over directly",
-          "- [17:13 IST] Kubera re-frozen on Ram's directive \u2014 launchctl bootout + disable; fleet frozen count now 7",
-          "- [23:04 IST] TwitAcc: OpenAI tweet read \u2014 GPT-5.6 Sol/Terra/Luna launching Thursday; Bedrock GPT model query",
           "- [23:19 IST] GPT-5.5 live-tested on AWS Bedrock via bedrock-mantle.us-east-1.api.aws (Responses API, openai.gpt-5.5, ~13s round-trip, confirmed working)",
           "--- [Midnight run OK \u2014 2026-07-09 \u2014 no new content] ---",
           "## 2026-07-09 \u2014 HAD-047 Benchmarks, Fleet Fixes, Reading Queue Audit",
@@ -1645,7 +1594,20 @@
           "- [17:16 IST] OpenClaw iOS #98062 closed/fixed (10 Jul); app store live version 2026.6.11; 2026.7.1 in App Review; confirmed Haderach-Ram filed & drove it end-to-end",
           "- [17:44 IST] Jonas (CA-SMEDA-I, M2) tool outage diagnosed \u2014 Bedrock Sonnet-5 stopReason=length cascade; model hierarchy reordered (Sonnet-4.6 primary, Sonnet-5 fb1, Nova-Pro fb2); `gateway` tool denied to stop self-restart loop",
           "- [19:09 IST] Martin data verified independently \u2014 FX/MPC/call-money all accurate per Jonas report; WSS data gap (Jun 19/26, Jul 3/10) investigated but not fully resolved",
-          "--- [Midnight run OK \u2014 2026-07-11 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-11 \u2014 no new content] ---",
+          "## 2026-07-11 \u2014 Ratings Research, CEO Comp Project, Building Plan",
+          "*Day opened: ~08:30 IST. Major events in sequence:*",
+          "- [08:31 IST] Bhavcopy cron skipped (Saturday) \u2014 but Ram flagged the error: Saturday runs should pull Friday's data. Cron fixed to run Tue\u2013Sat only",
+          "- [09:36 IST] pxpipe context-compression tool researched (TwitAcc fetch): lossy gist compressor, saves ~59\u201374% on dense traffic \u2014 verdict: niche use, not for Haderach's setup",
+          "- [10:09 IST] OpenClaw iOS app version confirmed: v2026.6.11 live; v2026.7.1 (Tailscale/CGNAT fix) still in App Review",
+          "- [12:02 IST] KPI Scorecard FY26-27 converted to bullet-point Word doc (Output/KPI_Scorecard_FY26-27.docx)",
+          "- [13:10 IST] CFO and CHRO role bullet-point descriptions drafted for NBFC context (SCL-relevant)",
+          "- [13:28 IST] Auditor resignation research: no automatic NFRA/MCA trigger post-sign-off; materially different from IL&FS/Vakrangee precedent where resignation happened pre-sign-off",
+          "- [17:04 IST] Full 35-company Trendlyne peer set rating verified; SCL itself confirmed AA+/Stable (CRISIL upgrade 9 Apr 2026); several upgrades noted including Shriram Finance to AAA",
+          "- [17:49 IST] AA+\u2192AAA trajectory research for 14 NBFCs/HFCs; Excel built: Credit_Rating_AAplus_to_AAA_Trajectory_11Jul2026.xlsx",
+          "- [21:22 IST] Shenava building plan (Kuthpady, Udupi) absorbed: 5 bedrooms (1 first floor + 4 second floor), 515.97 sq.m plot, 639.49 sq.m built-up (6,883 sq.ft)",
+          "- [22:43 IST] SCL-013 opened (CEO Compensation project); 17-company working list locked (13 AAA + 4 AA+); all 17 Annual Reports downloaded to SSD; extraction subagent running at midnight",
+          "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---"
         ]
       }
     },
@@ -1660,8 +1622,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.57,
-      "cpu": 2.2,
+      "rss_gb": 0.63,
+      "cpu": 0.4,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1686,6 +1648,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783794617753,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1783794617753,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1708,15 +1688,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1783791311203,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1783783807014,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1753,15 +1724,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1783722620923,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783719047052,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1814,50 +1776,12 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-07-11",
-          "# Self-healing rotation from transcript-2026-07-10.md at 00:00 IST"
+          "# Transcript - 2026-07-12",
+          "# Self-healing rotation from transcript-2026-07-11.md at 00:00 IST"
         ],
         "yesterday": [
-          "[08:05 IST] [DM] Giskard: Clean. Now push to Haderach via SIGUSR1 \u2014 but first check BWS stress:",
-          "[08:05 IST] [DM] Giskard: No BWS stress. Now commit and reload. The plugin is loaded from the filesystem path (`plugins.load.paths`), so a SIGUSR1 to Haderach hot-reloads it:",
-          "[08:06 IST] [DM] Giskard: The SIGUSR1 hit Haderach's PID 27427 \u2014 but that's Purl's PID, not Haderach's. Let me recheck:",
-          "[08:06 IST] [DM] Giskard: Haderach is PID 1205. I sent SIGUSR1 to PID 27427 (Purl). The SIGUSR1 landed on the wrong process. Let me send it to the correct one:",
-          "[08:06 IST] [DM] Giskard: Haderach is live at 200. Let me also confirm the new plugin version loaded by checking Haderach's log for the SIGUSR1 reload:",
-          "[08:06 IST] [DM] Giskard: Plugin registration failed: `Error: hook registration missing name`. The `registerHook` API requires a name in the options. Let me check the exact signature:",
-          "[08:07 IST] [DM] Giskard: `name` is optional in the type, but the runtime is requiring it. Let me add it:",
-          "[08:08 IST] [DM] Giskard: The last log line confirms it: `13 plugins: ... verify-gate ...` \u2014 **loaded and registered cleanly** at 08:08:01 IST.",
-          "The earlier failure logs (08:06) were from the first SIGUSR1 (which I accidentally sent to Purl). The second reload at 08:06:30 picked up the fix with the `name` option and loaded correctly.",
-          "Done. Summary for the record:",
-          "---",
-          "**verify-gate PDF eyeball false-positive \u2014 fixed and live.**",
-          "**Root cause (full picture):**",
-          "Three overlapping issues:",
-          "1. Original gate (26 Jun): require",
-          "[08:08 IST] [DM] Giskard: The last log line confirms it: `13 plugins: ... verify-gate ...` \u2014 **loaded and registered cleanly** at 08:08:01 IST.",
-          "The earlier failure logs (08:06) were from the first SIGUSR1 (which I accidentally sent to Purl). The second reload at 08:06:30 picked up the fix with the `name` option and loaded correctly.",
-          "Done. Summary for the record:",
-          "---",
-          "**verify-gate PDF eyeball false-positive \u2014 fixed and live.**",
-          "**Root cause (full picture):**",
-          "Three overlapping issues:",
-          "1. Original gate (26 Jun): require",
-          "[08:36 IST] [DM] Giskard: That's a stale error message from an exec command that ran during the fix \u2014 specifically when I tried to send SIGUSR1 to PID 1205 (Haderach), but by that point launchd had already respawned Haderach with a new PID (87161) after the first reload cycle. The `kill 1205` failed because the old PID no longer existed.",
-          "It's noise from the recovery path, not an active problem. The subsequent commands found the correct PID (87161), sent SIGUSR1 successfully, and the final confirmation was clean: `13 plu",
-          "[08:36 IST] [DM] Giskard: That's a stale error message from an exec command that ran during the fix \u2014 specifically when I tried to send SIGUSR1 to PID 1205 (Haderach), but by that point launchd had already respawned Haderach with a new PID (87161) after the first reload cycle. The `kill 1205` failed because the old PID no longer existed.",
-          "It's noise from the recovery path, not an active problem. The subsequent commands found the correct PID (87161), sent SIGUSR1 successfully, and the final confirmation was clean: `13 plu",
-          "[08:38 IST] [DM] Giskard: On it.",
-          "[08:38 IST] [DM] Giskard: Config validates and `cacheRetention: short` is intact. Kicking myself over now:",
-          "[08:59 IST] [DM] Giskard: That restart interruption was expected \u2014 I had just run `launchctl kickstart -k` on my own process (step 4 of the procedure), which killed and restarted me mid-turn. Let me confirm the change landed.",
-          "[08:59 IST] [DM] Giskard: The kickstart landed and the change is confirmed live post-restart:",
-          "- **Primary:** `amazon-bedrock/global.anthropic.claude-sonnet-5`",
-          "- **Fallback 1:** `amazon-bedrock/global.anthropic.claude-sonnet-4-6`",
-          "- **Fallback 2:** `anthropic/claude-haiku-4-5`",
-          "`cacheRetention: short` confirmed still set. Backup saved at `openclaw.json.bak-20260710-083808`. I'm live at 200. All 5 steps complete.",
-          "[08:59 IST] [DM] Giskard: The kickstart landed and the change is confirmed live post-restart:",
-          "- **Primary:** `amazon-bedrock/global.anthropic.claude-sonnet-5`",
-          "- **Fallback 1:** `amazon-bedrock/global.anthropic.claude-sonnet-4-6`",
-          "- **Fallback 2:** `anthropic/claude-haiku-4-5`",
-          "`cacheRetention: short` confirmed still set. Backup saved at `openclaw.json.bak-20260710-083808`. I'm live at 200. All 5 steps complete."
+          "# Transcript - 2026-07-11",
+          "# Self-healing rotation from transcript-2026-07-10.md at 00:00 IST"
         ],
         "rolling_7day": [
           "- Keshav instance (port 18808, M2) reported down at 12:16 IST; fix workflow initiated but aborted mid-task before completion",
@@ -2351,7 +2275,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.68,
-      "cpu": 0.4,
+      "cpu": 1.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3791,7 +3715,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.25,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3745,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.23,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
