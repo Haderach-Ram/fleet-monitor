@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-11 10:09:39 IST",
-  "generated_epoch": 1783744779,
+  "generated_ist": "2026-07-11 10:14:55 IST",
+  "generated_epoch": 1783745095,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.33 / 2.31 / 2.23",
+    "load": "2.44 / 2.17 / 2.17",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783744825999,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783744825998,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783744825998,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783744724744,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL-010 Avalora/Taurus Mail Monitor (every 2h, 08-22 IST)",
           "enabled": true,
           "sched": "5 8-22/2 * * *",
@@ -659,46 +695,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783744241395,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783744241394,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SU-01 OpenRouter Watch \u2014 Daily",
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1783744241394,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783744241394,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783742916223,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,10 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-07-11",
-          "# Self-healing rotation from transcript-2026-07-10.md at 00:02 IST",
-          "--- [TRANSCRIPT GAP: 03:02 IST \u2014 session empty for 232 min AND no transcript writes for 180 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 06:00 IST \u2014 session empty for 410 min AND no transcript writes for 178 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 06:20 IST \u2014 session empty for 430 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 07:20 IST \u2014 session empty for 490 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 08:00 IST \u2014 session empty for 530 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1516,7 +1512,14 @@
           "[09:39 IST] HADERACH: Both done, Ram.",
           "<b>pxpipe repo \u2014 verdict after digging in:</b>",
           "The GitHub thread's own <code>FINDINGS.md</code> is far more candid than the tweet summary let on, and it changes the picture a bit:",
-          "<ul><li><b>It's real, but not what it first sounds like.</b> It's not \"compress your context losslessly.\" It's a <i>lossy gist compressor</i> \u2014 renders old history/docs as PNGs, current turns stay text. On dense traffic (code/JSON, not prose) it saves ~59\u201374% end-to-end, verified independently in ..."
+          "<ul><li><b>It's real, but not what it first sounds like.</b> It's not \"compress your context losslessly.\" It's a <i>lossy gist compressor</i> \u2014 renders old history/docs as PNGs, current turns stay text. On dense traffic (code/JSON, not prose) it saves ~59\u201374% end-to-end, verified independently in ...",
+          "[10:09 IST] RAM: I meant the OpenClaw iOS app",
+          "[10:09 IST] HADERACH: Ah, got it \u2014 the iOS app specifically, not the gateway.",
+          "Checked the App Store listing directly: <b>the iOS app is also on v2026.6.11</b> (\"Maintenance update... Refreshed iOS 26 visual styling, Talk controls, Gateway recovery, and localization\" \u2014 posted 1 day ago as of my check). That matches your gateway version, so both are in sync.",
+          "<b>v2026.7.1</b> (which carries the iOS Tailscale/CGNAT fix you and I filed back on 30 Jun) is still in beta (beta.2 as of 5 Jul) \u2014 not yet pushed to the App ...",
+          "[10:10 IST] HADERACH: Ah, got it \u2014 the iOS app specifically, not the gateway.",
+          "Checked the App Store listing directly: <b>the iOS app is also on v2026.6.11</b> (\"Maintenance update... Refreshed iOS 26 visual styling, Talk controls, Gateway recovery, and localization\" \u2014 posted 1 day ago as of my check). That matches your gateway version, so both are in sync.",
+          "<b>v2026.7.1</b> (which carries the iOS Tailscale/CGNAT fix you and I filed back on 30 Jun) is still in beta (beta.2 as of 5 Jul) \u2014 not yet pushed to the App ..."
         ],
         "yesterday": [
           "**",
@@ -1656,9 +1659,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 88922,
+      "rss_gb": 0.58,
+      "cpu": 0.5,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2346,9 +2349,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 27427,
+      "rss_gb": 0.56,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3618,9 +3621,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 28301,
+      "rss_gb": 0.4,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3786,9 +3789,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 1207,
+      "rss_gb": 0.28,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.25,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
