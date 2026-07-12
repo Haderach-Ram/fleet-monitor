@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-12 13:18:47 IST",
-  "generated_epoch": 1783842527,
+  "generated_ist": "2026-07-12 13:23:53 IST",
+  "generated_epoch": 1783842833,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.26 / 2.46 / 2.82",
+    "load": "2.31 / 2.49 / 2.73",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.17,
-      "cpu": 0.5,
+      "rss_gb": 1.15,
+      "cpu": 0.3,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,28 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783842043723,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1783842043723,
+          "last_ts": 1783842627750,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1783842043722,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783842627749,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -671,6 +662,15 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
+          "last_ts": 1783842627749,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
           "last_ts": 1783842043722,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1480,9 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:03 IST] HADERACH: Good \u2014 that works. I'll build the full script now.",
-          "[12:07 IST] HADERACH: Good, exec works. I'll build the file via exec heredoc instead.",
-          "[12:09 IST] HADERACH: I'll write the docx builder script using exec + heredoc, which avoided the earlier issue with the write tool for large content.",
           "[12:10 IST] HADERACH: Good, exec is working fine now. Let me write the script content via exec heredoc to avoid the earlier hiccup with the write tool.",
           "[12:11 IST] HADERACH: Good, tool calls are working now when I include the parameter properly. Let me write the full Python script using the write tool.",
           "[12:11 IST] HADERACH: Now let me build the full script, with content parameter listed first.",
@@ -1519,7 +1516,10 @@
           "[13:00 IST] RAM: pdf?",
           "[13:00 IST] HADERACH: Let me check the subagent's progress.",
           "[13:00 IST] HADERACH: Still running, Ram \u2014 about 5 minutes in on the WeasyPrint build (HTML rendering + quality-gate CSS checks). Will send the moment it's done.",
-          "[13:00 IST] HADERACH: Still running, Ram \u2014 about 5 minutes in on the WeasyPrint build (HTML rendering + quality-gate CSS checks). Will send the moment it's done."
+          "[13:00 IST] HADERACH: Still running, Ram \u2014 about 5 minutes in on the WeasyPrint build (HTML rendering + quality-gate CSS checks). Will send the moment it's done.",
+          "[13:10 IST] HADERACH: PDF's built and passed all quality checks. Let me verify it's actually there before sending.",
+          "[13:10 IST] HADERACH: Gagan_Banga_Remuneration_vR4.pdf",
+          "[13:10 IST] HADERACH: PDF's sent, Ram. Both formats are with you now \u2014 Word (vR4) and this PDF, content matching your latest edits exactly."
         ],
         "yesterday": [
           "<li>Extract MD/CEO name + compensation components from each AR (Directors' Report / MGT-9 / Corporate Governance section)</li>",
@@ -1660,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.49,
-      "cpu": 0.7,
+      "rss_gb": 0.5,
+      "cpu": 1.0,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1686,10 +1686,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "giskard-consolidation-13",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1783841711408,
+          "sched": "20 13 * * *",
+          "last_ts": 1783842631086,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1698,7 +1698,16 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1783840806972,
+          "last_ts": 1783842631085,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1783841711408,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1771,15 +1780,6 @@
           "enabled": true,
           "sched": "40 13 * * *",
           "last_ts": 1783757417138,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-13",
-          "enabled": true,
-          "sched": "20 13 * * *",
-          "last_ts": 1783756231836,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2313,7 +2313,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.47,
-      "cpu": 1.1,
+      "cpu": 0.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3586,7 +3586,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.31,
-      "cpu": 0.4,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3801,7 +3801,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.23,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
