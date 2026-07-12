@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-12 23:57:17 IST",
-  "generated_epoch": 1783880837,
+  "generated_ist": "2026-07-13 00:02:25 IST",
+  "generated_epoch": 1783881145,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.33 / 2.59 / 2.65",
+    "load": "2.50 / 2.56 / 2.61",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.17,
-      "cpu": 0.1,
+      "rss_gb": 1.27,
+      "cpu": 11.9,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783881141870,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783881141869,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1783881119179,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783881009484,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -758,15 +794,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783870256402,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -816,15 +843,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1783830643160,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783828971114,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -956,15 +974,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783805410273,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -987,15 +996,6 @@
           "enabled": true,
           "sched": "0 2 * * *",
           "last_ts": 1783802037129,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1783794713359,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,6 +1480,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-13",
+          "# Self-healing rotation from transcript-2026-07-12.md at 00:02 IST"
+        ],
+        "yesterday": [
           "[22:51 IST] HADERACH: Something is systemically stuck. Let me try once more with a fresh, minimal call.",
           "[22:51 IST] HADERACH: That worked. Let's retry the file operations now.",
           "[22:52 IST] HADERACH: This is a persistent glitch, not related to the specific command. Let me try a completely different tool to check overall responsiveness.",
@@ -1521,56 +1525,7 @@
           "[23:49 IST] HADERACH: The workbook built successfully. Let me verify it opens cleanly and has no formula errors, then copy to Output and send it.",
           "[23:49 IST] HADERACH: I've caught a data-entry bug \u2014 I manually converted Indian-format numbers (lakh/crore grouping) to plain integers and made transcription errors on at least one row (BAJAJHFL). Let me rebuild this properly by parsing the exact comma-formatted strings from source, not hand-converting, to eliminate that risk entirely."
         ],
-        "yesterday": [
-          "<li>Extract MD/CEO name + compensation components from each AR (Directors' Report / MGT-9 / Corporate Governance section)</li>",
-          "<li>Build the Excel with all components in \u20b9 Lakhs, both on the SSD and Desktop/Output</li>",
-          "</ul>",
-          "This will take some time...",
-          "[22:54 IST] RAM: Any update on the OpenClaw iOS app? A build was waiting Apple reviewer approval",
-          "[22:54 IST] HADERACH: Let me check the App Store directly for the current live version \u2014 that's ground truth.",
-          "[22:54 IST] HADERACH: Still no movement \u2014 checked the App Store directly just now.",
-          "<b>Live version: 2026.6.11</b> (released 6 Jul 2026) \u2014 unchanged since yesterday's check.",
-          "<b>2026.7.1</b> \u2014 the build containing the Tailscale/CGNAT fix (#98062, closed 10 Jul) \u2014 is still sitting in App Review, hasn't gone live yet. Let me check if there's any fresher signal from GitHub on the review timeline.",
-          "[22:55 IST] HADERACH: Checked both the live App Store listing and the source changelog just now.",
-          "<b>Still not live.</b> No change since yesterday's check.",
-          "<ul>",
-          "<li><b>Current live version:</b> 2026.6.11 (last updated 6 Jul 2026)</li>",
-          "<li><b>2026.7.1</b> \u2014 built 8 Jul 2026, still sitting in App Review. That's now <b>3+ days</b> in review, longer than Apple's typical 24-48hr turnaround, though not unusual for an app with sensor/device-permission surface area (camera, location, screen recording, contacts).</li>",
-          "</u...",
-          "[22:55 IST] HADERACH: Checked both the live App Store listing and the source changelog just now.",
-          "<b>Still not live.</b> No change since yesterday's check.",
-          "<ul>",
-          "<li><b>Current live version:</b> 2026.6.11 (last updated 6 Jul 2026)</li>",
-          "<li><b>2026.7.1</b> \u2014 built 8 Jul 2026, still sitting in App Review. That's now <b>3+ days</b> in review, longer than Apple's typical 24-48hr turnaround, though not unusual for an app with sensor/device-permission surface area (camera, location, screen recording, contacts).</li>",
-          "</u...",
-          "[23:06 IST] HADERACH: Monk nightly consolidation complete \u2014 Saturday, July 11, 2026 at 23:05 IST.",
-          "- **Transcript tail:** No MEMORY_WRITE on record for today; 0 sessions, auto-checkpoints only",
-          "- **Facts promoted:** None (idle day)",
-          "- **Domain files:** No updates required",
-          "- **rolling-7day.md:** Jul 11 entry appended",
-          "- **rolling-28day.md:** Jul 11 entry appended",
-          "- **rolling-180day.md:** Jul 11 entry appended",
-          "- **Tag index:** Rebuilt \u2014 55 days indexed, 2 updated (Jul 10\u201311)",
-          "- **MEMORY_WRITE bookmark:** Appended to tra...",
-          "[23:17 IST] HADERACH: The subagent hit tool failures and yielded early rather than completing the download/extraction work. Let me check what it actually got done before deciding how to proceed.",
-          "[23:17 IST] HADERACH: Good news \u2014 all 17 Annual Reports downloaded successfully; the failure happened only in the extraction phase. Let me continue that phase with a fresh subagent.",
-          "[23:17 IST] HADERACH: Progress update, Ram \u2014 the previous subagent hit a snag but actually got further than its message suggested.",
-          "<b>Downloads: all 17/17 complete</b> \u2014 every Annual Report is sitting in `/Volumes/RamMiniSSD1/Haderach/Peers/Annual Reports/` (4-30MB each, mostly FY2024-25; Poonawalla's is FY2025-26).",
-          "It stalled on the extraction step (tool response errors) and yielded rather than pushing through. I've relaunched a fresh subagent scoped only to the extraction + Excel-build phase \u2014 no re-downloadin...",
-          "[23:18 IST] HADERACH: Given consistent tool response failures, let me yield and let the system recover, then continue.",
-          "[23:48 IST] HADERACH: All 17 Annual Reports downloaded successfully. The extraction subagent hit a compaction timeout partway through (likely from reading too many large PDFs in one context). Let me check if it captured any partial results before checking the transcript.",
-          "[23:49 IST] HADERACH: That subagent hit a tool-call outage loop near the end, but it looks like it had already been writing extraction text to `/tmp/scl013/*.txt` before things broke. Let me check what's salvageable there.",
-          "[23:49 IST] HADERACH: All 17 companies have extracted text files \u2014 the subagent got much further than it appeared. Let me check the content of these extracts for compensation data.",
-          "[23:49 IST] HADERACH: All 17 companies already have relevant remuneration-section text extracted (the prior subagent got quite far before it crashed on the outage). Let me check a couple more and then spawn a focused subagent to just do extraction + Excel build from these existing text files \u2014 much lighter task, should avoid the timeout this time."
-        ],
         "rolling_7day": [
-          "## 2026-07-07 \u2014 Fleet Freeze + SAK-008 Live + Comp PPTX",
-          "- [00:09 IST] SAK-008 macro.db confirmed live \u2014 6.69M rows, Martin API v0.6.0, 4 new endpoints, monthly refresh cron set (1st of month, 03:15 IST)",
-          "- [14:44 IST] Silent agent drift confirmed systemic \u2014 6 agents drifted from frozen to running undetected between 1\u20137 Jul; MEMORY.md updated",
-          "- [17:02 IST] Mass fleet freeze: 7 agents frozen (Kubera, Legal-SMEDA, Medical-SMEDA, CISO-SMEDA, CA-SMEDA-II, Herbie, Sam); live fleet: Haderach, Giskard, Purl, Chet, Martin, ClarkKent",
-          "- [18:57 IST] Sammaan Comp Benchmarking PPTX (27 slides, USD conversion @ 95.5 INR/USD) delivered at 20:17 IST",
-          "- [21:32 IST] Telegram macOS group rich-message bug confirmed (no ETA fix); GitHub #90531 closed, #87318 still open",
-          "---",
           "--- [Midnight run OK \u2014 2026-07-08 \u2014 no new content] ---",
           "## 2026-07-08 \u2014 Kubera Unfreeze, ESOP Study, Chet Diagnosis, GPT-5.5 on Bedrock",
           "- [08:11 IST] Kubera unfrozen, self-healed; bhavcopy 2026-07-07 ingested (3,394 equity + 34,652 F&O rows)",
@@ -1603,23 +1558,16 @@
           "- [17:49 IST] AA+\u2192AAA trajectory Excel for 14 NBFCs; SCL-013 CEO Compensation project opened (17-company peer list)",
           "- [22:53 IST] All 17 peer Annual Reports downloaded to SSD; extraction subagent running at midnight",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---",
+          "## 2026-07-12 \u2014 SCL-013 CEO Comp Complete, ESOP Study, Gagan Remuneration Doc",
+          "- [00:22 IST] CEO comp Excel 17/17 complete and sent; corrected Rajeev Jain (not Anup Saha) for Bajaj Finance",
+          "- [08:39 IST] Bajaj Finance AA\u2192AAA upgrade research \u2014 CRISIL 05-Oct-2016, ICRA Jun 2017",
+          "- [12:17 IST] Gagan Banga remuneration Word + PDF (vR3\u2192vR4) built and delivered",
+          "- [21:50 IST] SCL-013 ESOP study: 4 parallel subagents, 18 companies complete by 22:49 IST; Excel compile pending (tool glitch at midnight)",
+          "---",
+          "--- [Midnight run OK \u2014 2026-07-13 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [23:19 IST] GPT-5.5 live-tested on AWS Bedrock via bedrock-mantle.us-east-1.api.aws (Responses API, openai.gpt-5.5, ~13s round-trip, confirmed working)",
-          "--- [Midnight run OK \u2014 2026-07-09 \u2014 no new content] ---",
-          "## 2026-07-09 \u2014 HAD-047 Benchmarks, Fleet Fixes, Reading Queue Audit",
-          "*Day opened: ~06:40 IST. Major events in sequence:*",
-          "- [06:40 IST] TwitAcc check on @openclaw tweet about Grok 4.5 launch; reaction mostly mixed on subscription vs API access",
-          "- [06:44 IST] HAD-047: Added Grok 4.5 to benchmark runner (OpenRouter `x-ai/grok-4.5`, $2/$6 per M tokens); smoke test passed; full 26-task run launched",
-          "- [06:54 IST] Grok 4.5 result: **92.8% \u2014 new #1** on leaderboard (Fleet 97.0%, Memory 98.4%, Credit 93.6%); 0 errors",
-          "- [06:58 IST] GPT-5.5 added and benchmarked: **85.7%** overall (#12 on leaderboard); HAD-047 v4 leaderboard merged + STATUS.md/MEMORY.md updated",
-          "- [08:45 IST] Fleet issues: Purl rolling-7day staleness diagnosed (cron early-exit bug, not a real failure) \u2014 patched and Purl restarted",
-          "- [09:03 IST] Chet's amazon-bedrock plugin missing (silently failing all LLM calls for 3 days since model switch to Bedrock on 6 Jul) \u2014 plugin installed, gateway restarted, daily brief backfilled",
-          "- [09:10 IST] Kubera unfrozen (launchctl enable+bootstrap); later re-frozen at 12:01 IST on Ram's request",
-          "- [12:15 IST] iOS/Tailscale WebSocket connectivity issue (GitHub #98062) \u2014 still open, no maintainer update; broader mobile-pairing bug cluster confirmed across 4 open issues",
-          "- [15:26 IST] M2 fleet Bedrock caching verified: all 8 agents confirmed patched (Opus 4.8, Sonnet 4.6, Sonnet 5 all registered with cacheRetention:short); matches M4 byte-for-byte",
-          "- [21:28 IST] Reading queue audited: Positronic Man mis-logged as unread (was completed 9 May) \u2014 corrected; 13 Asimov novels (Robot, Galactic Empire, Foundation) downloaded and verified to Books folder",
           "--- [Midnight run OK \u2014 2026-07-10 \u2014 no new content] ---",
           "## 2026-07-10 \u2014 Jonas M2 fix, iOS #98062 closed, verify-gate PDF bug resolved, Martin data gap",
           "*Day opened: ~06:44 IST. Major events in sequence:*",
@@ -1645,7 +1593,21 @@
           "- [17:49 IST] AA+\u2192AAA trajectory research for 14 NBFCs/HFCs; Excel built: Credit_Rating_AAplus_to_AAA_Trajectory_11Jul2026.xlsx",
           "- [21:22 IST] Shenava building plan (Kuthpady, Udupi) absorbed: 5 bedrooms (1 first floor + 4 second floor), 515.97 sq.m plot, 639.49 sq.m built-up (6,883 sq.ft)",
           "- [22:43 IST] SCL-013 opened (CEO Compensation project); 17-company working list locked (13 AAA + 4 AA+); all 17 Annual Reports downloaded to SSD; extraction subagent running at midnight",
-          "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---",
+          "## 2026-07-12 \u2014 SCL-013 CEO Comp Complete, ESOP Study Launched, Gagan Remuneration Doc Delivered",
+          "*Day opened: ~23:49 IST (prior night carry-over). Major events in sequence:*",
+          "- [00:05 IST] SCL-013: Completed direct extraction of remaining CEO compensation gaps for 17 peers (SHRIRAMFIN, LICHSGFIN, SBICARD, HDBFS, TATACAP, etc.)",
+          "- [00:22 IST] Excel built: SCL013_CEO_Compensation.xlsx \u2014 all 17 companies, 17/17 complete; sent to Ram",
+          "- [04:00 IST] GEN-002 weekly link-graph refresh done \u2014 190 nodes, 3034 edges, top node SCL (strength 1811)",
+          "- [07:46 IST] SCL013_CEO_Compensation.xlsx re-sent to Ram on request",
+          "- [08:14 IST] Research: Bajaj Finance AA\u2192AAA rating history; confirmed CRISIL upgraded to AAA on 05-Oct-2016 from AA+/Positive (02-Mar-2016); ICRA followed Jun 2017",
+          "- [09:38 IST] SCL-013 correction: Rajeev Jain (not Anup Saha) as Bajaj Finance MD/CEO for FY24-25; corrected Excel re-sent",
+          "- [10:21 IST] PDF extract of KMP remuneration pages for ABCAPITAL, PIRAMALFIN, TATACAP \u2014 7-page combined PDF sent",
+          "- [12:17 IST] Gagan Banga remuneration Word doc (vR3) built from Ram's spreadsheet \u2014 4 sections (Present Remuneration, Peer Comparison, History & Loss of Pay, Suggested Structure)",
+          "- [12:55 IST] vR4 Word + PDF (WeasyPrint, house standard) delivered after Ram's edits",
+          "- [21:50 IST] SCL-013 ESOP study launched \u2014 4 parallel subagents extracting ESOP data (granted/vested/unexercised/unvested + % of O/S shares) for all 17 peers + Sammaan Capital (18 cos total)",
+          "- [22:49 IST] All 4 ESOP batches complete (18 companies cross-verified); tool glitch ~22:51\u201322:57 IST caused Excel compilation delay; rebuilding underway at midnight",
+          "--- [Midnight run OK \u2014 2026-07-13 \u2014 no new content] ---"
         ]
       }
     },
@@ -1660,8 +1622,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.5,
-      "cpu": 1.6,
+      "rss_gb": 0.49,
+      "cpu": 2.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1686,6 +1648,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783881018824,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1783881018824,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1708,15 +1688,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1783877710847,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1783870207266,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1767,15 +1738,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783805422226,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Giskard \u2014 Midnight Rolling Summary",
           "enabled": true,
           "sched": "5 0 * * *",
@@ -1814,12 +1776,12 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-07-12",
-          "# Self-healing rotation from transcript-2026-07-11.md at 00:00 IST"
+          "# Transcript - 2026-07-13",
+          "# Self-healing rotation from transcript-2026-07-12.md at 00:00 IST"
         ],
         "yesterday": [
-          "# Transcript - 2026-07-11",
-          "# Self-healing rotation from transcript-2026-07-10.md at 00:00 IST"
+          "# Transcript - 2026-07-12",
+          "# Self-healing rotation from transcript-2026-07-11.md at 00:00 IST"
         ],
         "rolling_7day": [
           "- Keshav recovery remains pending; manual config verification and restart required when system access restored",
@@ -2312,8 +2274,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.61,
-      "cpu": 1.5,
+      "rss_gb": 0.51,
+      "cpu": 3.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3586,7 +3548,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.31,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3771,7 +3733,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
