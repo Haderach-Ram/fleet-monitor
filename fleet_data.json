@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-13 07:37:36 IST",
-  "generated_epoch": 1783908456,
+  "generated_ist": "2026-07-13 07:42:43 IST",
+  "generated_epoch": 1783908763,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.04 / 2.77 / 2.67",
+    "load": "3.03 / 2.47 / 2.52",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.17,
-      "cpu": 0.2,
+      "rss_gb": 1.16,
+      "cpu": 0.4,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,42 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783908624081,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783908624080,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1783908624080,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1783908528440,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "HAD-052 Wiki Lint",
           "enabled": true,
           "sched": "30 7 * * *",
@@ -650,46 +686,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783908084281,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783908084281,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "The Ken \u2014 Daily Fetch (Stealth Automated)",
           "enabled": true,
           "sched": "30 7 * * *",
           "last_ts": 1783908084280,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1783908084280,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1783906726818,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1496,7 +1496,19 @@
           "[05:44 IST] RAM: Done?",
           "[05:46 IST] HADERACH: I found the bug Ram flagged, and it recurs at least once more. Let me do a systematic digit-by-digit reconciliation of every row against the source batch tables before touching the Excel.",
           "--- [TRANSCRIPT GAP: 06:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 07:30 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 07:30 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[07:31 IST] RAM: The excel pls",
+          "[07:33 IST] HADERACH: Good, PctOS recalculates automatically from total_out/total_os. Now let me fix the three digit errors found and rebuild.",
+          "[07:34 IST] HADERACH: I had an extra key. Retry.",
+          "[07:34 IST] HADERACH: Now let me re-verify all rows one more time with the corrected data, then check % of O/S sanity (should be small, single-digit percentages) as an extra guard against remaining digit errors.",
+          "[07:34 IST] HADERACH: All internal sums reconcile and all percentages line up with the source batch tables (rounding aside). Now rebuild the Excel.",
+          "[07:34 IST] HADERACH: All 18 rows check out cleanly. Let me update STATUS.md, save to Desktop Output, and send it.",
+          "[07:35 IST] HADERACH: Done, Ram \u2014 and glad I caught it before sending. The workbook you were flagged about had three data-entry bugs, all the same 10x misread of Indian digit-grouping (lakhs/crores commas confused for a Western thousands-separator):",
+          "<b>BAJAJHFL</b> \u2014 Yet-to-Vest/Total were inflated 10x (\u20b916.76 Cr \u2192 had shown \u20b9167.6 Cr)",
+          "<b>BAJFINANCE</b> \u2014 Total O/S Equity Shares inflated 10x (62.1 Cr shares \u2192 had shown 621 Cr)",
+          "<b>HDBFS</b> \u2014 Yet-to-Vest overstated by 200,000 (didn't tie to Total minus Vested)",
+          "I ...",
+          "[07:39 IST] RAM: Did you get the ESOP disclosure pdf of all these companies?"
         ],
         "yesterday": [
           "[22:51 IST] HADERACH: Something is systemically stuck. Let me try once more with a fresh, minimal call.",
@@ -1638,7 +1650,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.52,
-      "cpu": 2.1,
+      "cpu": 1.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2290,7 +2302,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.55,
-      "cpu": 1.1,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3567,7 +3579,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.31,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3730,7 +3742,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 1.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3760,7 +3772,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.9,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
