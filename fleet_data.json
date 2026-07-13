@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-14 02:58:14 IST",
-  "generated_epoch": 1783978094,
+  "generated_ist": "2026-07-14 03:03:21 IST",
+  "generated_epoch": 1783978401,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.65 / 3.08 / 3.09",
+    "load": "2.45 / 2.87 / 3.00",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 87336,
-      "rss_gb": 1.18,
-      "cpu": 0.4,
+      "rss_gb": 1.21,
+      "cpu": 0.3,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,6 +641,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1783978328270,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1783978261722,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1783978214325,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -704,37 +731,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1783967529264,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1783967491085,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
           "enabled": true,
           "sched": "0 0 * * *",
           "last_ts": 1783967474097,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1783967409286,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1481,7 +1481,8 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-07-14",
-          "# Self-healing rotation from transcript-2026-07-13.md at 00:02 IST"
+          "# Self-healing rotation from transcript-2026-07-13.md at 00:02 IST",
+          "--- [TRANSCRIPT GAP: 03:02 IST \u2014 session empty for 232 min AND no transcript writes for 180 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 12:20 IST \u2014 session empty for 270 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1622,8 +1623,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.51,
-      "cpu": 1.9,
+      "rss_gb": 0.52,
+      "cpu": 3.0,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1648,19 +1649,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1783967786505,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
           "sched": "0 21,0,3 * * *",
-          "last_ts": 1783967419564,
+          "last_ts": 1783978220495,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1669,7 +1661,16 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
           "sched": "0 0,3 * * *",
-          "last_ts": 1783967419563,
+          "last_ts": 1783978220494,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1783967786505,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2274,8 +2275,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.58,
-      "cpu": 1.8,
+      "rss_gb": 0.59,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3553,7 +3554,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.9,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3750,7 +3751,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3779,7 +3780,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1202,
-      "rss_gb": 0.21,
+      "rss_gb": 0.2,
       "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
