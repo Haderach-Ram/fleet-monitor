@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-15 09:38:28 IST",
-  "generated_epoch": 1784088508,
+  "generated_ist": "2026-07-15 09:43:34 IST",
+  "generated_epoch": 1784088814,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.29 / 2.50 / 2.55",
+    "load": "2.25 / 2.32 / 2.44",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 1.11,
-      "cpu": 1.1,
+      "rss_gb": 1.07,
+      "cpu": 1.0,
       "crons_total": 93,
       "crons_enabled": 60,
       "skills_count": 59,
@@ -641,10 +641,19 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1784088119034,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784088626656,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784088626656,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,7 +662,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784088109373,
+          "last_ts": 1784088626655,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1784088119034,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -666,24 +684,6 @@
           "last_status": "ok",
           "model": "(no LLM)",
           "kind": "systemEvent"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784088026573,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784088026573,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
         },
         {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
@@ -1480,11 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:45 IST] HADERACH: The Google passkey verification is a device-bound dead end I can't complete headlessly \u2014 it needs a live approval on a trusted device, which isn't something to push through without you. I'll set that aside and focus on what I can actually execute now: the distribution side, since that's the higher-leverage move anyway (fixing email delivery is moot with zero audience).",
-          "[08:46 IST] HADERACH: Good \u2014 RSS actually works cleanly (`feed.xml` is live, valid, up-to-date). That's a real distribution channel we already have without any auth blocker. Now let me check the Reddit account's current standing.",
-          "[08:47 IST] HADERACH: I flagged in my earlier reply that we \"already have standing\" on r/openclaw \u2014 let me verify that's actually true before building a plan on it, since I asserted it without checking.",
-          "[08:49 IST] HADERACH: Found the Reddit session cookies. Let me verify u/haderach_ram's current karma/standing live.",
-          "[08:50 IST] HADERACH: Good, VPN off \u2014 the account was created without VPN, so I'll check it the same way to avoid a location-jump flag.",
           "[08:50 IST] HADERACH: This is straightforward \u2014 Deckard's own persistent profile already has the Reddit login. Let me use it directly rather than reloading cookies into a fresh profile.",
           "[08:53 IST] HADERACH: Good \u2014 jekyll-sitemap and jekyll-seo-tag plugins are both installed, which means sitemap.xml and proper meta/OG tags are auto-generated at build time. Let me confirm they're actually live on the deployed site.",
           "[08:53 IST] HADERACH: Sitemap works but the real gap for organic discovery is: has it ever been submitted to Google Search Console? That's almost certainly why there's zero organic/search traffic. That's not something I can do without a Google Search Console account decision from Ram though. Let me check what's realistic to execute right now myself.",
@@ -1519,7 +1514,12 @@
           "<li>Ch.2 \u2014 Alma Kessler, age nine, the hardware-store sign, the save of Mrs. Pryce (1,273 words)</li>",
           "<li>Ch.3 \u2014 Alma at seventeen, the nu...",
           "[09:31 IST] RAM: I have read. They are good. What do you suggest on pace of writing? How many chapters a day? And you will have continuous memory via the ProjHad md files etc?",
-          "## 09:31 IST -- Heartbeat: OK (no action)"
+          "## 09:31 IST -- Heartbeat: OK (no action)",
+          "[09:31 IST] HADERACH: <b>Pace:</b> I'd suggest 2 chapters/day as the steady-state, with room to flex to 3\u20134 on a strong day. Reasoning: these chapters run 1,000\u20131,300 words, so 2/day is a comfortable but not rushed rate that leaves room to actually think about voice, continuity, and thematic threading rather than just producing volume. Push much past that daily and quality control starts to slip, especially cross-referencing style-notes.md and keeping B's flat register distinct from Alma's warmer one. At 2/day, a ...",
+          "[09:32 IST] HADERACH: <b>Pace:</b> I'd suggest 2 chapters/day as the steady-state, with room to flex to 3\u20134 on a strong day. Reasoning: these chapters run 1,000\u20131,300 words, so 2/day is a comfortable but not rushed rate that leaves room to actually think about voice, continuity, and thematic threading rather than just producing volume. Push much past that daily and quality control starts to slip, especially cross-referencing style-notes.md and keeping B's flat register distinct from Alma's warmer one. At 2/day, a ...",
+          "[09:36 IST] RAM: Set it all up. Review the first four chapters too so that there is no gap. And start on chapter 5. I am ok with 2 chapters a day pace \ud83d\udc4d",
+          "[09:38 IST] HADERACH: Clean \u2014 no em dashes, 1,257 words, in range. Now let me write chapter 6 to hit the 2/day pace, then update STATUS/PROJECT.",
+          "[09:39 IST] HADERACH: Clean, 1,132 words. Now let me update the bible with Ch5/6 facts, and update STATUS.md."
         ],
         "yesterday": [
           "[23:11 IST] HADERACH: Good, that went through this time.",
@@ -2352,7 +2352,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.6,
-      "cpu": 1.0,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3630,7 +3630,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.3,
+      "rss_gb": 0.29,
       "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
@@ -3793,7 +3793,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3823,7 +3823,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.9,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
