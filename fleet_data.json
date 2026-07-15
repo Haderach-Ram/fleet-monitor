@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-15 20:17:12 IST",
-  "generated_epoch": 1784126832,
+  "generated_ist": "2026-07-15 20:22:18 IST",
+  "generated_epoch": 1784127138,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.24 / 2.42 / 2.46",
+    "load": "1.96 / 2.27 / 2.38",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 1.09,
-      "cpu": 0.6,
+      "rss_gb": 1.19,
+      "cpu": 1.0,
       "crons_total": 93,
       "crons_enabled": 61,
       "skills_count": 59,
@@ -641,10 +641,10 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784126428207,
+          "sched": "every 30m",
+          "last_ts": 1784127091313,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -653,7 +653,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784126428207,
+          "last_ts": 1784127027839,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784127027838,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -662,7 +671,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784126428206,
+          "last_ts": 1784127027838,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -681,15 +690,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1784126005939,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784125281070,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1480,17 +1480,6 @@
       ],
       "transcripts": {
         "recent": [
-          "source: subagent",
-          "session_key: agent:main:subagent:672e086e-d1c3-46b7-a646-523bd068b203",
-          "session_id: 6009f995-3061-4fe6-ac22-1397f2c42d1f",
-          "type: subagent task",
-          "task: Run a full skill-discovery catalogue scrub, refreshing the \"ClawHub Skill Catalogue Review\" habit from HEARTBEAT.md \u00a75b (last full run: 29 Ap...",
-          "[19:00 IST] HADERACH: Good, that duplicate-content bug is confirmed real (this is the exact known trap). Building the report content in small controlled Python chunks now, appending progressively rather than one giant payload.",
-          "[19:01 IST] HADERACH: That write succeeded cleanly. Now appending the executive summary + Table A section in a controlled chunk.",
-          "[19:01 IST] HADERACH: Good, that edit landed cleanly too. Now Table A/B/C content.",
-          "[19:01 IST] HADERACH: Good, clean \u2014 only one occurrence, replaced correctly. Now Table C (Skipped) + new-registry findings + closing note.",
-          "[19:02 IST] HADERACH: Now the render step.",
-          "[19:02 IST] HADERACH: Rendered clean in one pass, no dropped payloads, no leaked heredoc lines \u2014 3 pages. Quality gate check now.",
           "[19:02 IST] HADERACH: Content is clean and readable, no orphaned headers, tables rendering with headers. Let me check for widow/overflow issues on the later pages and confirm table text isn't clipped.",
           "[19:02 IST] HADERACH: Text is wrapping correctly within columns, nothing clipped, table headers repeating conceptually via layout. Good enough quality bar \u2014 no overflow, no orphan headers (each table has content directly under it), justified paragraphs render fine. Let's confirm final page count/no widow issues visually via image check on page 1.",
           "[19:03 IST] HADERACH: Genuine overflow bug \u2014 table column widths don't account for cell padding under `table-layout:fixed`. Fixing with `box-sizing:border-box` on cells, and cleaning up the Owner/Source cell-merge glitch in Table C.",
@@ -1519,7 +1508,18 @@
           "[20:04 IST] HADERACH: Good \u2014 I found something genuinely useful for Ram's specific ask. Building the corrected, upgraded PDF now with real stats (stars/downloads/installs), the notion fix, and a strong PowerPoint recommendation.",
           "[20:07 IST] HADERACH: Good, write works with content. Now let me build the HTML content file in parts, then assemble.",
           "[20:08 IST] HADERACH: Now assemble and render.",
-          "[20:08 IST] HADERACH: Now let's do the quality-gate visual check before sending."
+          "[20:08 IST] HADERACH: Now let's do the quality-gate visual check before sending.",
+          "[20:09 IST] HADERACH: Found a genuine bug \u2014 WeasyPrint is splitting a single table row across the page break (the `powerpoint-pptx-1-0-1` row's cells got separated: name on page 3, owner/security data-orphaned on page 2). Need `break-inside: avoid` on table rows. Fixing now.",
+          "[20:10 IST] HADERACH: Bug fixed and verified. Now sending to Ram with the PDF copied to the allowed Telegram media directory.",
+          "[20:10 IST] HADERACH: Skills_Catalogue_Review_v2_15Jul2026.pdf",
+          "[20:11 IST] HADERACH: Sent \u2014 v2's above, with the actual fix you were surprised was missing.",
+          "Straight answer on your two points:",
+          "<b>Why v1 looked thin:</b> the earlier scrub genuinely undersold ClawHub \u2014 I hadn't pulled live stats (stars/installs/downloads), so everything read as speculative rather than evidence-backed. Fixed that with <code>clawhub inspect --json</code> across the board.",
+          "<b>Your pptx ask \u2014 found a real one:</b> <b>powerpoint-pptx</b> by ivangdavila. 142 stars, 1,529 installs, 49,576 downloads,...",
+          "[20:11 IST] HADERACH: Sent \u2014 v2's above, with the actual fix you were surprised was missing.",
+          "Straight answer on your two points:",
+          "<b>Why v1 looked thin:</b> the earlier scrub genuinely undersold ClawHub \u2014 I hadn't pulled live stats (stars/installs/downloads), so everything read as speculative rather than evidence-backed. Fixed that with <code>clawhub inspect --json</code> across the board.",
+          "<b>Your pptx ask \u2014 found a real one:</b> <b>powerpoint-pptx</b> by ivangdavila. 142 stars, 1,529 installs, 49,576 downloads,..."
         ],
         "yesterday": [
           "[23:11 IST] HADERACH: Good, that went through this time.",
@@ -1661,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.51,
-      "cpu": 0.6,
+      "cpu": 1.5,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2397,7 +2397,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.58,
-      "cpu": 0.9,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3676,7 +3676,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3838,7 +3838,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3868,7 +3868,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
