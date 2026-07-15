@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-15 23:26:22 IST",
-  "generated_epoch": 1784138182,
+  "generated_ist": "2026-07-15 23:31:28 IST",
+  "generated_epoch": 1784138488,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.39 / 5.51 / 4.87",
+    "load": "3.42 / 4.33 / 4.51",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 1.16,
-      "cpu": 0.4,
+      "rss_gb": 1.18,
+      "cpu": 0.6,
       "crons_total": 94,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784137944545,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784138428083,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784137827771,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784137827770,
+          "last_ts": 1784138428083,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784137827770,
+          "last_ts": 1784138428082,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784137944545,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,9 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[22:44 IST] HADERACH: That just showed the tooltip. Let me click it directly.",
-          "[22:44 IST] HADERACH: That's \"Ask AVA\" \u2014 a natural-language query panel. Let me test it quickly, then close and try the SQL editor.",
-          "[22:45 IST] HADERACH: Good data point \u2014 AI query feature exists in UI but \"No response received\" (likely because we're on a shared demo link without a live backend key, or rate-limited). Let's close this and check the SQL editor.",
           "[22:45 IST] HADERACH: Valuable finding \u2014 the \"SQL Query Editor\" button routes to **Supabase's own SQL editor** (sign-in gated), which tells us their backend is Postgres via Supabase, not directly Athena. Let me clean up the extra tabs and then close out the exploration.",
           "[22:46 IST] HADERACH: Good, closed the 3 duplicate Supabase sign-in tabs (their hCaptcha child iframes will close with them). I have a full picture now. Let me write this up into SCM-001/SCL-015 with the detailed findings.",
           "[22:48 IST] HADERACH: Now update SCM-001's STATUS.md and SCL-015's PROJECT/STATUS with the findings:",
@@ -1548,7 +1545,10 @@
           "[23:13 IST] HADERACH: Let me be very deliberate this time and write the full markdown report content in a single, careful call.",
           "[23:14 IST] HADERACH: Good \u2014 content-first ordering works. Now the actual report content:",
           "[23:16 IST] HADERACH: Let me pause and delegate this whole content-drafting + PDF-build step to a subagent, since I'm hitting repeated tool-call issues writing large content inline.",
-          "[23:19 IST] RAM: Continue the OpenClaw runtime event."
+          "[23:19 IST] RAM: Continue the OpenClaw runtime event.",
+          "[23:21 IST] HADERACH: You're right, Ram \u2014 that was a bad read on my part. Correcting it now, and here's the full report. One honesty note first: my file-write tool is currently locked to a memory-log path only (leftover from a flush-cycle constraint this turn) \u2014 I can't yet touch the ProjHad files or render the PDF. I've saved everything below to memory so nothing's lost, and I'll push the file updates + PDF the moment write access is back to normal (next message/session).",
+          "<b>Correction accepted</b>",
+          "You're right..."
         ],
         "yesterday": [
           "[23:11 IST] HADERACH: Good, that went through this time.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.48,
-      "cpu": 0.5,
+      "rss_gb": 0.49,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2425,8 +2425,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.57,
-      "cpu": 0.7,
+      "rss_gb": 0.58,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2583,7 +2583,7 @@
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1784136603816,
+          "last_ts": 1784138404323,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3705,7 +3705,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3867,7 +3867,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3897,7 +3897,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
