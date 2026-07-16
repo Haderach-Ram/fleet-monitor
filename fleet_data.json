@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-16 07:26:42 IST",
-  "generated_epoch": 1784167002,
+  "generated_ist": "2026-07-16 07:31:48 IST",
+  "generated_epoch": 1784167308,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.08 / 2.38 / 2.61",
+    "load": "5.11 / 3.42 / 2.94",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 1.45,
-      "cpu": 1.4,
+      "rss_gb": 1.51,
+      "cpu": 0.5,
       "crons_total": 94,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,19 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "HAD-052 Wiki Lint",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784166745118,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784166628498,
+          "sched": "30 7 * * *",
+          "last_ts": 1784167292542,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,7 +673,25 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784166628497,
+          "last_ts": 1784167292541,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784167292541,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "The Ken \u2014 Daily Fetch (Stealth Automated)",
+          "enabled": true,
+          "sched": "30 7 * * *",
+          "last_ts": 1784167292541,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,7 +700,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784166628497,
+          "last_ts": 1784167292540,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784166745118,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -998,24 +1016,6 @@
           "enabled": true,
           "sched": "45 7 * * *",
           "last_ts": 1784081845932,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "HAD-052 Wiki Lint",
-          "enabled": true,
-          "sched": "30 7 * * *",
-          "last_ts": 1784080893191,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "The Ken \u2014 Daily Fetch (Stealth Automated)",
-          "enabled": true,
-          "sched": "30 7 * * *",
-          "last_ts": 1784080893190,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,18 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[02:07 IST] HADERACH: There it is \u2014 two tabs: **Anthropic API** (path `/anthropic/v1/messages`) and **OpenAI API**. GPT-5.6 uses the **OpenAI API** tab. Let me click that:",
-          "[02:07 IST] HADERACH: This is the Anthropic API tab. I need to click the \"OpenAI API\" tab. I don't see it in the snapshot \u2014 it may have been a top-level tab. Let me navigate directly to the OpenAI API docs path:",
-          "[02:07 IST] HADERACH: OpenAI API tab \u2014 \"Select an endpoint...\" dropdown. Let me open it to see what endpoints are listed for GPT-5.6:",
-          "[02:08 IST] HADERACH: The OpenAI API endpoints are:",
-          "- **Chat** \u2192 `POST /chat/completions`",
-          "- **Files** \u2192 GET/POST/DELETE `/files`",
-          "- **Responses** \u2192 `POST /responses`",
-          "GPT-5.6 rejected both `/v1/chat/completions` and `/v1/responses`. The endpoint is `POST /chat/completions` but the path prefix may be different. Let me click \"Create chat completion\" to see the exact URL and a working example:",
-          "[02:10 IST] HADERACH: Noted \u2014 keeping both keys. Now let me quickly check the right endpoint path for GPT-5.6 from the Live API docs instead of fighting the browser tab switching issue:",
-          "[02:10 IST] HADERACH: Interesting pattern:",
-          "- `/openai/v1/responses` \u2192 **401 access_denied** (auth reaches the model gate, model is recognized, but account not subscribed)",
-          "- All `/v1/...` paths \u2192 **400 validation_error** (wrong API for this model)",
           "The correct path is `/openai/v1/responses` \u2014 and the error is a genuine account subscription gap, not a path or key issue. This is exactly what Ram flagged in #76327: *\"Can't you just consult Bajaj Council or GitHub on where to pick from?\"* \u2014 meaning look up the actual s...",
           "[02:11 IST] HADERACH: Council says the premise is flawed \u2014 Bajaj thinks \"bedrock-mantle\" isn't a real AWS pattern and OpenAI models don't exist on Bedrock. **But we've already proven it's real** \u2014 `/v1/models` returned 54 models including `openai.gpt-5.6-sol`, the console shows GPT-5.6 Sol/Luna/Terra as \"Latest models\", and the domain `bedrock-mantle.us-east-1.api.aws` is a genuine AWS certificate. Council's knowledge is just stale \u2014 this is genuinely new (GPT-5.6 Luna 2 weeks ago, Sol 3 weeks ago).",
           "The real find...",
@@ -1548,7 +1536,19 @@
           "--- [TRANSCRIPT GAP: 06:00 IST \u2014 session empty for 178 min AND no transcript writes for 178 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 06:10 IST \u2014 session empty for 188 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 06:40 IST \u2014 session empty for 218 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 07:20 IST \u2014 session empty for 258 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 07:20 IST \u2014 session empty for 258 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[07:21 IST] RAM: We couldn\u2019t get this done?",
+          "[07:21 IST] HADERACH: No, Ram \u2014 not done. It stalled mid-investigation, and there was also a genuine gateway gap (roughly 03:00\u201307:20 IST, no transcript activity, likely a restart) sitting on top of that.",
+          "<b>Where it actually stands:</b>",
+          "<ul>",
+          "<li>The runner code side is <b>finished</b> \u2014 I built and wired the bedrock-mantle endpoint support (SigV4-signed, OpenAI Responses API schema) for Sol/Terra/Luna in <code>run_benchmark.py</code>. That part works whenever access clears.</li>",
+          "<li>The blocker is <b>account-si...",
+          "[07:22 IST] HADERACH: No, Ram \u2014 not done. It stalled mid-investigation, and there was also a genuine gateway gap (roughly 03:00\u201307:20 IST, no transcript activity, likely a restart) sitting on top of that.",
+          "<b>Where it actually stands:</b>",
+          "<ul>",
+          "<li>The runner code side is <b>finished</b> \u2014 I built and wired the bedrock-mantle endpoint support (SigV4-signed, OpenAI Responses API schema) for Sol/Terra/Luna in <code>run_benchmark.py</code>. That part works whenever access clears.</li>",
+          "<li>The blocker is <b>account-si...",
+          "[07:26 IST] RAM: Check/add"
         ],
         "yesterday": [
           "[22:59 IST] HADERACH: Now let me write the full HTML report content, then hand the actual PDF build to a subagent per house rule.",
@@ -1689,7 +1689,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.46,
+      "rss_gb": 0.47,
       "cpu": 0.6,
       "crons_total": 14,
       "crons_enabled": 12,
@@ -2387,8 +2387,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.54,
-      "cpu": 0.5,
+      "rss_gb": 0.52,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2542,21 +2542,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1784167203920,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1784165411503,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1784165411503,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2607,7 +2607,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[05:55 IST] PURL: \u2705 **Heartbeat \u2014 Thursday 16 July, 05:55 IST (Quiet Hours Ending)**",
           "| Check | Status | Note |",
           "|-------|--------|------|",
           "| **ProtonMail** | \u2705 Clear | Last check at 15:55 yesterday \u2014 no new/unread emails |",
@@ -2646,7 +2645,8 @@
           "| **Gateway** | \u2705 6d 8h uptime | Stable |",
           "| **All Systems** | \u2705 Green | No alerts |",
           "Quiet hours end at 07:00 IST in 5 minutes. Session nominal. All clear.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Klub K group:** 0 new messages",
@@ -3667,7 +3667,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.28,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3812,7 +3812,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 2.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3842,7 +3842,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
