@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-16 06:09:58 IST",
-  "generated_epoch": 1784162398,
+  "generated_ist": "2026-07-16 06:15:03 IST",
+  "generated_epoch": 1784162703,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.89 / 3.49 / 3.13",
+    "load": "2.08 / 3.05 / 3.09",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 1.45,
-      "cpu": 0.7,
+      "rss_gb": 1.5,
+      "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784162425948,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784162425947,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784162425947,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -697,39 +724,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784161929927,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1784161929927,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784161929926,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784161929926,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[02:05 IST] HADERACH: `/v1/models` returns 54 models. Let me check if the GPT-5.6 family appears:",
           "[02:06 IST] HADERACH: `openai.gpt-5.6-luna`, `openai.gpt-5.6-sol`, and `openai.gpt-5.6-terra` are **all listed** in the 54 models. The account has access. The issue is I was hitting the wrong API path \u2014 `/openai/v1/responses` returns 401, but the mantle endpoint uses `/v1/chat/completions` (OpenAI-compat). Let me test that immediately:",
           "[02:06 IST] HADERACH: GPT-5.6 Sol doesn't support `/v1/responses` either. The model list works, `/v1/chat/completions` is rejected, `/v1/responses` is rejected. Let me check the Live API docs in the new console to see what endpoint GPT-5.6 actually uses:",
           "[02:07 IST] HADERACH: There it is \u2014 two tabs: **Anthropic API** (path `/anthropic/v1/messages`) and **OpenAI API**. GPT-5.6 uses the **OpenAI API** tab. Let me click that:",
@@ -1548,7 +1547,8 @@
           "[02:17 IST] HADERACH: OK. The consistent error `access_denied` on `/openai/v1/responses` and not on `/v1/responses` means the OpenAI-provider path requires a different authorization layer. Let me check what the Getting Started page in the new console says:",
           "[02:20 IST] HADERACH: Fair on both counts \u2014 let me own this cleanly.",
           "**On the key exposure:** Yes, I displayed the actual key value in a screenshot and sent it in chat. That's a direct violation of the hard rule against ever printing credentials, no qualification needed. I should have described the action (\"key generated, captured into env var\") without ever letting the value render on-screen in something I then screenshotted. That's on me, not a gray area. Given it's now visible in chat images regardless of what...",
-          "--- [TRANSCRIPT GAP: 06:00 IST \u2014 session empty for 178 min AND no transcript writes for 178 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 06:00 IST \u2014 session empty for 178 min AND no transcript writes for 178 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 06:10 IST \u2014 session empty for 188 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[22:59 IST] HADERACH: Now let me write the full HTML report content, then hand the actual PDF build to a subagent per house rule.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.48,
-      "cpu": 0.9,
+      "rss_gb": 0.49,
+      "cpu": 1.0,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2388,7 +2388,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.56,
-      "cpu": 0.5,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3667,7 +3667,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3812,7 +3812,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3842,7 +3842,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
