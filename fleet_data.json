@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-16 07:47:06 IST",
-  "generated_epoch": 1784168226,
+  "generated_ist": "2026-07-16 07:53:49 IST",
+  "generated_epoch": 1784168629,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.26 / 3.33 / 2.94",
+    "load": "2.08 / 2.70 / 2.78",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 1.49,
-      "cpu": 0.6,
+      "rss_gb": 1.47,
+      "cpu": 1.3,
       "crons_total": 94,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784167825744,
+          "sched": "every 30m",
+          "last_ts": 1784168547453,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,7 +673,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784167825743,
+          "last_ts": 1784168427887,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784168427887,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,7 +691,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784167825738,
+          "last_ts": 1784168427886,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Ecosystem Digest \u2014 07:45 IST daily",
+          "enabled": true,
+          "sched": "45 7 * * *",
+          "last_ts": 1784168343429,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -701,15 +719,6 @@
           "enabled": true,
           "sched": "30 7 * * *",
           "last_ts": 1784167292541,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784166745118,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1007,15 +1016,6 @@
           "enabled": true,
           "sched": "30 8 * * 2-6",
           "last_ts": 1784084468240,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Ecosystem Digest \u2014 07:45 IST daily",
-          "enabled": true,
-          "sched": "45 7 * * *",
-          "last_ts": 1784081845932,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,16 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[02:14 IST] HADERACH: Found it \u2014 `textarea` with placeholder \"Send the same prompt to all models\u2026\" at y=754. Let me click it and type:",
-          "[02:14 IST] HADERACH: Wrong button. Let me find the correct submit button:",
-          "[02:14 IST] HADERACH: A feedback dialog opened \u2014 cancel that immediately. I can also see that \"Say hi in 3 w...\" is showing at the bottom as if the prompt was already entered. Let me close this dialog and check what happened:",
-          "[02:15 IST] HADERACH: This feedback modal is stuck. Also \u2014 I can see behind it: \"Say hi in 3 w...\" is at the bottom, meaning the prompt **was** typed into the workbench. Let me close the modal via the X button and check if the response came back:",
-          "[02:15 IST] HADERACH: This modal is persistent. Let me click the \u2715 directly:",
-          "[02:15 IST] HADERACH: The modal is completely stuck. I can also see behind it \u2014 the workbench shows \"Say hi in 3 w...\" at the bottom, meaning the prompt was submitted. Let me reload the page and approach this differently \u2014 I'll use the CloudShell instead since I can see behind the modal that the console DID invoke something:",
-          "[02:15 IST] HADERACH: Good \u2014 clean workbench again. The key insight I've been missing: the console uses a **project-scoped session API key**, not the account-level long-term key. I need to check the Dashboard first \u2014 if \"1 inference request\" counter incremented, that means the workbench DID call it successfully (before the modal appeared). Let me instead use CloudShell directly \u2014 it uses the console's IAM session, which should have full access:",
-          "[02:16 IST] HADERACH: CloudShell is live. Let me close the welcome dialog and run a Python call using the session credentials (which have full AdministratorAccess):",
-          "[02:16 IST] HADERACH: Welcome modal is back. Let me click Close properly:",
-          "[02:16 IST] HADERACH: CloudShell session hasn't fully initialized yet (still showing Welcome). Let me stop fighting the browser for this. I've established clearly what the situation is. Let me summarise and tell Ram where we are:",
           "The account (615894661560 / AIML) **has** GPT-5.6 Sol/Terra/Luna listed in its model catalog (confirmed: `/v1/models` returns all three). The `ABSK...` classic-console key and the new mantle-console key both return `access_denied` on `/openai/v1/responses` \u2014 that's a **project subscripti...",
           "[02:17 IST] HADERACH: OK. The consistent error `access_denied` on `/openai/v1/responses` and not on `/v1/responses` means the OpenAI-provider path requires a different authorization layer. Let me check what the Getting Started page in the new console says:",
           "[02:20 IST] HADERACH: Fair on both counts \u2014 let me own this cleanly.",
@@ -1548,7 +1538,17 @@
           "[07:36 IST] RAM: Leave it out for now",
           "[07:36 IST] HADERACH: Understood \u2014 parking GPT-5.6 for now. Updating the project record so this doesn't get re-investigated from scratch next time it comes up.",
           "[07:36 IST] HADERACH: Done. GPT-5.6 Sol/Terra/Luna is parked in HAD-047's STATUS.md as Blocked, with the full trail (code finished, account-gate confirmed via IAM + admin creds, only viable path is an AWS Support case) \u2014 so it won't get reopened cold next time. No further action on it unless you say otherwise.",
-          "[07:36 IST] HADERACH: Done. GPT-5.6 Sol/Terra/Luna is parked in HAD-047's STATUS.md as Blocked, with the full trail (code finished, account-gate confirmed via IAM + admin creds, only viable path is an AWS Support case) \u2014 so it won't get reopened cold next time. No further action on it unless you say otherwise."
+          "[07:36 IST] HADERACH: Done. GPT-5.6 Sol/Terra/Luna is parked in HAD-047's STATUS.md as Blocked, with the full trail (code finished, account-gate confirmed via IAM + admin creds, only viable path is an AWS Support case) \u2014 so it won't get reopened cold next time. No further action on it unless you say otherwise.",
+          "[07:49 IST] HADERACH: I now have all the data. From the log, today's most active repo is **IronClaw** (10 new issues) and **ZeroClaw** (11 new issues \u2014 highest). Let me compose the digest:",
+          "From the 2026-07-16 run:",
+          "- ZeroClaw: 11 new issues (highest)",
+          "- IronClaw: 10 new",
+          "- OpenClaw: 10 new",
+          "- hermesagent: 10 new",
+          "Most active: **ZeroClaw** (11 new issues)",
+          "Issue URL: https://github.com/Haderach-Ram/openclaw-radar/issues/80",
+          "draCuLAW traffic (7d): 4 PV",
+          "Top page: `/openclaw-radar/newsletter/2026/07/01/newsletter-010.html`..."
         ],
         "yesterday": [
           "[22:59 IST] HADERACH: Now let me write the full HTML report content, then hand the actual PDF build to a subagent per house rule.",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.47,
-      "cpu": 1.5,
+      "cpu": 0.8,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1784166608440,
+          "last_ts": 1784168408728,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2387,8 +2387,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.52,
-      "cpu": 0.6,
+      "rss_gb": 0.53,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3842,7 +3842,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
