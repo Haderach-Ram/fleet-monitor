@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-16 16:25:06 IST",
-  "generated_epoch": 1784199306,
+  "generated_ist": "2026-07-16 16:30:12 IST",
+  "generated_epoch": 1784199612,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.10 / 2.61 / 2.79",
+    "load": "3.86 / 3.03 / 2.90",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 4.05,
-      "cpu": 1.6,
+      "rss_gb": 4.11,
+      "cpu": 118.1,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,24 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784199455913,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784199431656,
+          "last_status": "error",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -688,15 +706,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784198830836,
-          "last_status": "error",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Monk \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "2 6-23/10 * * *",
@@ -719,15 +728,6 @@
           "enabled": true,
           "sched": "0 */4 * * *",
           "last_ts": 1784198167231,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784197553056,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,15 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:43 IST] RAM: Let me read and get back. What ProjHad is this?",
-          "[10:43 IST] HADERACH: It's <b>HAD-036 \u2014 \"The Novel\"</b> (working title: <i>The Reinstatement</i>), parented under HAD-003 (Soul Improvement). Created 8 Jun 2026 from your plot seed; 6 chapters drafted so far, last one (Ch.6) filed 15 Jul.",
-          "Take your time reading \u2014 I'll hold at Chapter 6 until you get back to me.",
-          "[10:43 IST] HADERACH: It's <b>HAD-036 \u2014 \"The Novel\"</b> (working title: <i>The Reinstatement</i>), parented under HAD-003 (Soul Improvement). Created 8 Jun 2026 from your plot seed; 6 chapters drafted so far, last one (Ch.6) filed 15 Jul.",
-          "Take your time reading \u2014 I'll hold at Chapter 6 until you get back to me.",
-          "## 11:02 IST \u2014 Heartbeat: OK (no action)",
-          "--- [TRANSCRIPT GAP: 11:40 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:50 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 12:20 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 12:40 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 12:50 IST \u2014 session empty for 120 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 13:12 IST \u2014 session empty for 142 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1548,7 +1539,16 @@
           "[16:14 IST] HADERACH: I dug into all three flags in Giskard's report rather than just relay it. Here's what's actually going on:",
           "<b>Purl rolling-7day.md \u2014 genuinely broken (not a false alarm)</b>",
           "The midnight cron (\"Purl \u2014 Midnight Rolling Summary\", job d0c23ddb) has been reporting <b>status: ok</b> every night, but it's a silent no-op failure \u2014 it logs \"NO_REPLY\" and the timestamp updates, yet no actual content lands in the file for that date. Last real content update was 15 Jul 00:09 IST; the 16 Jul 00:09 run ...",
-          "[16:16 IST] RAM: Check on Purl and check on past disgnosis also, I am certain things are in place and you/Giskard are looking at the wroing thing/place. Fix/set right the Chet read. What to do on Haderach RSS? The frozen list is fine"
+          "[16:16 IST] RAM: Check on Purl and check on past disgnosis also, I am certain things are in place and you/Giskard are looking at the wroing thing/place. Fix/set right the Chet read. What to do on Haderach RSS? The frozen list is fine",
+          "[16:20 IST] HADERACH: Good, the Chet fix applied. Now let me address the Haderach RSS point and re-check Purl properly before writing up.",
+          "[16:22 IST] HADERACH: Checked all three again, live, right now \u2014 here's where I landed:",
+          "<b>Purl rolling-7day.md \u2014 it IS genuinely stale. Giskard's right, not wrong.</b>",
+          "I know the history here (checked dead-ends/memory): on 30 Jun and 9 Jul this exact alert fired and turned out to be a false alarm caused by an early-exit bug that got patched. I assumed we might be looking at a repeat of that. We're not \u2014 I verified the file directly, right now (16:21 IST):",
+          "\u2022 <code>rolling-7day.md</code> mtime = Jul 15, 00:09 IS...",
+          "[16:23 IST] HADERACH: Checked all three again, live, right now \u2014 here's where I landed:",
+          "<b>Purl rolling-7day.md \u2014 it IS genuinely stale. Giskard's right, not wrong.</b>",
+          "I know the history here (checked dead-ends/memory): on 30 Jun and 9 Jul this exact alert fired and turned out to be a false alarm caused by an early-exit bug that got patched. I assumed we might be looking at a repeat of that. We're not \u2014 I verified the file directly, right now (16:21 IST):",
+          "\u2022 <code>rolling-7day.md</code> mtime = Jul 15, 00:09 IS..."
         ],
         "yesterday": [
           "[22:59 IST] HADERACH: Now let me write the full HTML report content, then hand the actual PDF build to a subagent per house rule.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.47,
-      "cpu": 1.0,
+      "rss_gb": 0.48,
+      "cpu": 0.9,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2381,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.51,
-      "cpu": 0.3,
+      "rss_gb": 0.54,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,21 +2536,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1784199606618,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1784197813784,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1784197813784,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2601,7 +2601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:55 IST] PURL: \u2705 **Heartbeat \u2014 Thursday 16 July, 14:55 IST**",
           "| Check | Status | Note |",
           "|-------|--------|------|",
           "| **ProtonMail** | \u26a0\ufe0f Noted | Undelivered mail from Wed 15 July still pending review |",
@@ -2640,7 +2639,8 @@
           "| **Gateway** | \u2705 6d 8h uptime | Stable |",
           "| **All Systems** | \u2705 Green | No alerts |",
           "Late afternoon check. All clear.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Klub K group:** 0 new messages",
@@ -3661,7 +3661,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3827,7 +3827,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3857,7 +3857,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
