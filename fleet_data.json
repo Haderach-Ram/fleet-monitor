@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-16 16:20:00 IST",
-  "generated_epoch": 1784199000,
+  "generated_ist": "2026-07-16 16:25:06 IST",
+  "generated_epoch": 1784199306,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.48 / 3.22 / 3.02",
+    "load": "2.10 / 2.61 / 2.79",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 4.06,
-      "cpu": 4.1,
+      "rss_gb": 4.05,
+      "cpu": 1.6,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,28 +661,19 @@
       ],
       "crons": [
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784198830836,
-          "last_status": "error",
-          "model": "(agent default)",
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784199025335,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784198502093,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784198502093,
+          "last_ts": 1784199025334,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,9 +682,18 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784198502092,
+          "last_ts": 1784199025334,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784198830836,
+          "last_status": "error",
+          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -1509,13 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Pointed it at the exact script output line (<code>CE_grand=$X run_rate=$Y/day proj=$Z</code>) so it captures the right number under the right label instead of guessing</li>",
-          "<li>Locked the caption template with fixed field names: <code>CE Actual (ground truth)</code> for the he...",
-          "[10:43 IST] HADERACH: Fixed, Ram. The cron prompt now explicitly locks the labeling:",
-          "<ul>",
-          "<li>Added a hard rule at the top: CE = actual bill (ground truth), CW = per-agent proportional estimate only, never call one the other's name</li>",
-          "<li>Pointed it at the exact script output line (<code>CE_grand=$X run_rate=$Y/day proj=$Z</code>) so it captures the right number under the right label instead of guessing</li>",
-          "<li>Locked the caption template with fixed field names: <code>CE Actual (ground truth)</code> for the he...",
           "[10:43 IST] RAM: Let me read and get back. What ProjHad is this?",
           "[10:43 IST] HADERACH: It's <b>HAD-036 \u2014 \"The Novel\"</b> (working title: <i>The Reinstatement</i>), parented under HAD-003 (Soul Improvement). Created 8 Jun 2026 from your plot seed; 6 chapters drafted so far, last one (Ch.6) filed 15 Jul.",
           "Take your time reading \u2014 I'll hold at Chapter 6 until you get back to me.",
@@ -1548,7 +1541,14 @@
           "\u2501\u2501\u2501 FROZEN \u2501\u2501\u2501",
           "\u23f8 Kubera [18798] \u2014 frozen 2026-06-29 \u2014 Intentionally frozen \u2014 portfolio manager parked pending reactivation. No transcript checks, no cron-freeze alerts.",
           "\u23f8 CISO-SMEDA [18...",
-          "[16:08 IST] HADERACH: Let me look into each flagged item rather than just relay the report."
+          "[16:08 IST] HADERACH: Let me look into each flagged item rather than just relay the report.",
+          "[16:13 IST] HADERACH: I dug into all three flags in Giskard's report rather than just relay it. Here's what's actually going on:",
+          "<b>Purl rolling-7day.md \u2014 genuinely broken (not a false alarm)</b>",
+          "The midnight cron (\"Purl \u2014 Midnight Rolling Summary\", job d0c23ddb) has been reporting <b>status: ok</b> every night, but it's a silent no-op failure \u2014 it logs \"NO_REPLY\" and the timestamp updates, yet no actual content lands in the file for that date. Last real content update was 15 Jul 00:09 IST; the 16 Jul 00:09 run ...",
+          "[16:14 IST] HADERACH: I dug into all three flags in Giskard's report rather than just relay it. Here's what's actually going on:",
+          "<b>Purl rolling-7day.md \u2014 genuinely broken (not a false alarm)</b>",
+          "The midnight cron (\"Purl \u2014 Midnight Rolling Summary\", job d0c23ddb) has been reporting <b>status: ok</b> every night, but it's a silent no-op failure \u2014 it logs \"NO_REPLY\" and the timestamp updates, yet no actual content lands in the file for that date. Last real content update was 15 Jul 00:09 IST; the 16 Jul 00:09 run ...",
+          "[16:16 IST] RAM: Check on Purl and check on past disgnosis also, I am certain things are in place and you/Giskard are looking at the wroing thing/place. Fix/set right the Chet read. What to do on Haderach RSS? The frozen list is fine"
         ],
         "yesterday": [
           "[22:59 IST] HADERACH: Now let me write the full HTML report content, then hand the actual PDF build to a subagent per house rule.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.51,
-      "cpu": 27.1,
+      "rss_gb": 0.47,
+      "cpu": 1.0,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1784198115564,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1784199009250,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1784197208491,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1784198115564,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2381,7 +2381,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.6,
+      "rss_gb": 0.51,
       "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -3661,7 +3661,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3827,7 +3827,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3857,7 +3857,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
