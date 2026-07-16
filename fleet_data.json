@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-16 16:09:47 IST",
-  "generated_epoch": 1784198387,
+  "generated_ist": "2026-07-16 16:14:54 IST",
+  "generated_epoch": 1784198694,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.25 / 3.01 / 2.82",
+    "load": "3.01 / 3.25 / 2.97",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 86251,
-      "rss_gb": 4.06,
-      "cpu": 0.1,
+      "rss_gb": 4.12,
+      "cpu": 1.1,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784198502093,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784198502093,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784198502092,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784198470104,
+          "last_status": "error",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "2 6-23/10 * * *",
@@ -683,42 +719,6 @@
           "enabled": true,
           "sched": "0 */4 * * *",
           "last_ts": 1784198167231,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784198132010,
-          "last_status": "error",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784198132008,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784198132008,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784198132007,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,15 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Where it actually sits:</b> Chapter 6 was filed at 09:39 IST yesterday (15 Jul). That's the last activity \u2014 nothing today. It's not cron-driven; there's no automated overnight writing session for this, unlike the reading programme. It only advances when we're actively working it in a session together.",
-          "<b>Why it stalled:</b> Per the pace plan you locked in yesterday morning \u2014 2 chapters/day, ...",
-          "[10:36 IST] HADERACH: Nothing has happened, Ram \u2014 it stalled right where it left off yesterday morning, waiting on you.",
-          "<b>Where it actually sits:</b> Chapter 6 was filed at 09:39 IST yesterday (15 Jul). That's the last activity \u2014 nothing today. It's not cron-driven; there's no automated overnight writing session for this, unlike the reading programme. It only advances when we're actively working it in a session together.",
-          "<b>Why it stalled:</b> Per the pace plan you locked in yesterday morning \u2014 2 chapters/day, ...",
-          "[10:42 IST] RAM: Ok, correct the cron pls",
-          "[10:43 IST] HADERACH: Fixed, Ram. The cron prompt now explicitly locks the labeling:",
-          "<ul>",
-          "<li>Added a hard rule at the top: CE = actual bill (ground truth), CW = per-agent proportional estimate only, never call one the other's name</li>",
           "<li>Pointed it at the exact script output line (<code>CE_grand=$X run_rate=$Y/day proj=$Z</code>) so it captures the right number under the right label instead of guessing</li>",
           "<li>Locked the caption template with fixed field names: <code>CE Actual (ground truth)</code> for the he...",
           "[10:43 IST] HADERACH: Fixed, Ram. The cron prompt now explicitly locks the labeling:",
@@ -1548,7 +1539,16 @@
           "[14:51 IST] HADERACH: Logged.",
           "--- [TRANSCRIPT GAP: 15:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 15:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 16:00 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 16:00 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[16:08 IST] RAM: Pls check this Fleet Monitoring report from G:",
+          "\ud83d\udda5\ufe0f _Fleet Monitor \u2014 16:05 IST 16 Jul_",
+          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
+          "\u26a0\ufe0f _Purl_ `rolling-7day.md` stale (39.9h old, 48L) \u2014 midnight cron may have failed",
+          "\ud83d\udd34 _Consolidation cron [haderach: Chet \u2014 Daily Brief (08:30 IST)]_ \u2014 1 consecutive error(s): \u26a0\ufe0f \ud83e\uddf0 Process: `tidy-sage` failed",
+          "\u2501\u2501\u2501 FROZEN \u2501\u2501\u2501",
+          "\u23f8 Kubera [18798] \u2014 frozen 2026-06-29 \u2014 Intentionally frozen \u2014 portfolio manager parked pending reactivation. No transcript checks, no cron-freeze alerts.",
+          "\u23f8 CISO-SMEDA [18...",
+          "[16:08 IST] HADERACH: Let me look into each flagged item rather than just relay the report."
         ],
         "yesterday": [
           "[22:59 IST] HADERACH: Now let me write the full HTML report content, then hand the actual PDF build to a subagent per house rule.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.49,
-      "cpu": 0.3,
+      "rss_gb": 0.5,
+      "cpu": 0.5,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.59,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3661,7 +3661,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3827,7 +3827,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3857,7 +3857,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
