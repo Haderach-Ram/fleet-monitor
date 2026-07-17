@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 08:35:04 IST",
-  "generated_epoch": 1784257504,
+  "generated_ist": "2026-07-17 08:40:10 IST",
+  "generated_epoch": 1784257810,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.13 / 2.98 / 2.89",
+    "load": "4.33 / 3.24 / 2.98",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 14407,
-      "rss_gb": 1.13,
-      "cpu": 0.4,
+      "rss_gb": 1.26,
+      "cpu": 46.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -1509,11 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>2. CA-SMEDA-II model change \u2014 NOT done. Giskard (or you) needs to do it</b> \u2014 I can't edit openclaw.json myself. Here's the exact message to paste to Giskard:",
-          "<pre>Giskard \u2014 please update CA-SMEDA-II's model config to match Haderach's live hierarchy:",
-          "  agents.defaults.model.primary   = amazon-bedrock/global.anthropic.claude-s...",
-          "[08:09 IST] RAM: You have filed so many issues!!",
-          "[08:09 IST] HADERACH: You're right, Ram \u2014 and that was a real error on my part. My earlier answer (\"the two filed issues #65041, #65060\") badly undersold it. Let me correct with the actual count:",
           "<b>Total issues filed: 30</b>",
           "<ul>",
           "<li><b>Haderach-Ram account: 19 issues</b> (10 closed, 9 open) \u2014 spanning Bedrock provider bugs, cron scheduler bugs, Telegram/Discord integration, iOS Tailscale connectivity, session handling, and feature requests</li>",
@@ -1548,7 +1543,12 @@
           "[08:26 IST] HADERACH: Enqueued (Day 1's task). This is a real study session that will run in the background and can take a while (timeout 1200s = 20 min). Let me check progress without blocking.",
           "[08:27 IST] HADERACH: Job is queued and starting (session created, sqlite reflects job updates from my CLI actions). It hasn't produced output yet \u2014 this is a real multi-step study session so it'll take a few minutes. Let me update the ProjHad STATUS.md now with the root-cause fix, then check back on the run.",
           "[08:27 IST] HADERACH: Now let's monitor the manual Day 1 run to completion.",
-          "[08:28 IST] HADERACH: Job has its own 20-minute self-timeout, so no separate kill-switch needed. Let it run in the background and check back periodically."
+          "[08:28 IST] HADERACH: Job has its own 20-minute self-timeout, so no separate kill-switch needed. Let it run in the background and check back periodically.",
+          "[08:31 IST] HADERACH: `runningAtMs` confirms it's actively executing (started 08:29 IST). Let's wait and check periodically without blocking further work.",
+          "[08:32 IST] HADERACH: All good \u2014 bhavcopy for 2026-07-16 (Thursday) ingested cleanly: 3,439 equity rows and 37,595 F&O rows into market.db. No action required.",
+          "[08:34 IST] HADERACH: ~8.4 minutes elapsed, well within the 1200s (20 min) timeout. This is a real research/study task (sourcing Foundation past papers + amendments refresh) \u2014 let me keep checking without blocking other work.",
+          "[08:39 IST] HADERACH: That run hit a transient tool outage mid-session (self-reported: exec/read/write/web_search/etc. all started failing after ~15 min) \u2014 likely caused by resource contention from my own concurrent CLI calls against that same gateway while its agent turn was in flight. It made real progress (confirmed FA2024 LTCG amendment, GST s.74A/11A, sourced Sept 2025 & May 2025 Foundation papers) but never got to write it to disk. Let me retry cleanly now that things have settled.",
+          "[08:39 IST] HADERACH: Gateway is healthy and idle now. Retrying the Day 1 run."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.48,
-      "cpu": 0.9,
+      "cpu": 0.8,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2361,7 +2361,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.54,
-      "cpu": 3.4,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2760,8 +2760,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.53,
-      "cpu": 4.6,
+      "rss_gb": 0.5,
+      "cpu": 1.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2784,6 +2784,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
+          "enabled": true,
+          "sched": "0 6,14,21 * * *",
+          "last_ts": 1784257581848,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
@@ -2827,15 +2836,6 @@
           "last_ts": 1784219706812,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
-          "enabled": true,
-          "sched": "0 6,14,21 * * *",
-          "last_ts": null,
-          "last_status": null,
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -3597,7 +3597,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 3.3,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3745,7 +3745,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3775,7 +3775,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
