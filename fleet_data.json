@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 09:56:52 IST",
-  "generated_epoch": 1784262412,
+  "generated_ist": "2026-07-17 10:01:58 IST",
+  "generated_epoch": 1784262718,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.37 / 2.47 / 2.59",
+    "load": "3.37 / 3.18 / 2.86",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 0.77,
-      "cpu": 1.2,
+      "rss_gb": 0.79,
+      "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,15 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784262591681,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -704,15 +713,6 @@
           "last_status": "ok",
           "model": "(no LLM)",
           "kind": "systemEvent"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784260796188,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
         },
         {
           "name": "SCL NSE Filings \u2014 Daily Fetch",
@@ -1509,15 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "tools.web.fetch.provider = \"firecrawl\"",
-          "```",
-          "Standard procedure:",
-          "1. cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak-$(date +%Y%m%d-%H%M%S)",
-          "2. Add the field above",
-          "3. openclaw config validate",
-          "4. launchctl kickstart -k gui/$UID/ai.openclaw.gateway",
-          "5. cp ~/.openclaw/openclaw.json ~/.openc...",
-          "[09:38 IST] RAM: Check now. Is this just a browser? Is this our default browser now or a fallback?",
           "[09:39 IST] HADERACH: Config confirmed live \u2014 `tools.web.fetch.provider: \"firecrawl\"` is set, and the plugin is enabled. Let me clarify the actual mechanics with a proper test (my earlier test page didn't trigger the fallback, since Readability technically \"succeeded\" even on an empty JS shell).",
           "[09:39 IST] HADERACH: Confirmed live and working correctly \u2014 here's the direct answer to both questions:",
           "<b>Is it a browser?</b> No. Firecrawl is a hosted server-side scraping/rendering service accessed over HTTP \u2014 no local browser involved. It's a different mechanism entirely from the actual <code>browser</code> tool (which drives a real Chromium instance on this machine for JS-heavy/logged-in interactive sites). Firecrawl handles bot-circumvention and rendering on its own servers and hands back extracted markdo...",
@@ -1548,7 +1539,16 @@
           "<b>LinkedIn:</b> Failed cleanly on both. Firecrawl's own free tier explicitly refuses LinkedIn (\"we do not support this site\") \u2014 so this one's a dead end regardless, not something the fallback fixes.",
           "<b>CRISIL homepage:</b> Plain <code>web_fetch</code> succeeded on its own (Readability handled it fine) \u2014 Firecrawl never needed to fire.",
           "<b>NSE corporate filings page:</b> Same \u2014 plain fetch succeeded directly.",
-          "<b>BSE announcements page:</b> <b..."
+          "<b>BSE announcements page:</b> <b...",
+          "[09:54 IST] RAM: Did CA SMEDA II\u2019s study happen?",
+          "[09:55 IST] HADERACH: <b>No \u2014 not successfully.</b> Checked live just now, direct from CA-SMEDA-II's own cron store:",
+          "<b>Today's Restudy Program cron fired twice already</b> (06:00 and a manual/early retry ~08:26 IST) and <b>both failed to make real progress</b>:",
+          "\u2022 <b>First run (08:26 IST):</b> Hit a mid-session tool outage \u2014 exec/read/write/web_fetch all went dark for ~15 consecutive retries. It had drafted some genuine Day 1 findings (FA2024 LTCG rate confirmation, GST s.74A/s.11A amendments) but never got to pe...",
+          "[09:55 IST] HADERACH: <b>No \u2014 not successfully.</b> Checked live just now, direct from CA-SMEDA-II's own cron store:",
+          "<b>Today's Restudy Program cron fired twice already</b> (06:00 and a manual/early retry ~08:26 IST) and <b>both failed to make real progress</b>:",
+          "\u2022 <b>First run (08:26 IST):</b> Hit a mid-session tool outage \u2014 exec/read/write/web_fetch all went dark for ~15 consecutive retries. It had drafted some genuine Day 1 findings (FA2024 LTCG rate confirmation, GST s.74A/s.11A amendments) but never got to pe...",
+          "[09:55 IST] RAM: Check, fix it, and fire it again",
+          "[09:57 IST] RAM: Check, fix it, and fire it again"
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.5,
-      "cpu": 1.2,
+      "rss_gb": 0.49,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2376,8 +2376,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.62,
-      "cpu": 1.5,
+      "rss_gb": 0.53,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2531,10 +2531,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1784262613606,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1784260804899,
+          "last_ts": 1784262613606,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2555,15 +2564,6 @@
           "last_ts": 1784259246965,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1784259013580,
-          "last_status": "ok",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -2596,16 +2596,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- All seen, no new unread emails",
-          "- No flagged items",
-          "**Update heartbeat-state.json:**",
-          "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[08:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[08:55 IST] PURL: **\ud83d\udccb Heartbeat Check (Fri 17 Jul 08:55 IST)**",
-          "**1. Session Save** \u2014 Updating today's memory:",
-          "[08:55 IST] PURL: **2. Email Scan:**",
-          "- Last scan: 2026-07-17-07:55 (1 hour ago)",
-          "- Throttle: 3-hour minimum",
           "- **Skip** (within throttle window)",
           "**2b. Config Backup:**",
           "- Last backup: 2026-07-16 (yesterday, still within daily window)",
@@ -2635,7 +2625,17 @@
           "- **Bookmark state:** False (no session advancement)",
           "All transcript files are up to date. Nothing new to log since the last run.",
           "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger now.",
-          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages in any tracked sessions. All transcripts processed."
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages in any tracked sessions. All transcripts processed.",
+          "[09:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[09:55 IST] PURL: **\ud83d\udccb Heartbeat Check (Fri 17 Jul 09:55 IST)**",
+          "**Email Scan:**",
+          "- Last scan: 2026-07-17-07:55 (2 hours ago)",
+          "- Throttle: 3-hour minimum",
+          "- **Skip** (within throttle window)",
+          "**Cost Check:**",
+          "- Context: 33% \u2713",
+          "**No outstanding tasks.**",
+          "**HEARTBEAT_OK**"
         ],
         "yesterday": [
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2776,8 +2776,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.51,
-      "cpu": 2.8,
+      "rss_gb": 0.52,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3613,7 +3613,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3780,7 +3780,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
