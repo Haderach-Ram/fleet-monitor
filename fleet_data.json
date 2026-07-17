@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 11:18:27 IST",
-  "generated_epoch": 1784267307,
+  "generated_ist": "2026-07-17 11:23:32 IST",
+  "generated_epoch": 1784267612,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.25 / 2.71 / 3.11",
+    "load": "3.41 / 3.14 / 3.16",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 0.86,
-      "cpu": 0.8,
+      "rss_gb": 0.88,
+      "cpu": 0.9,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,28 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784266828525,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784266828524,
+          "last_ts": 1784267588465,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784266828524,
+          "last_ts": 1784267588465,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,9 +682,18 @@
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784266730700,
+          "last_ts": 1784267588465,
           "last_status": "ok",
           "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784267588464,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,18 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2022 <b>First run (08:26 IST):</b> Hit a mid-session tool outage \u2014 exec/read/write/web_fetch all went dark for ~15 consecutive retries. It had drafted some genuine Day 1 findings (FA2024 LTCG rate confirmation, GST s.74A/s.11A amendments) but never got to pe...",
-          "[09:55 IST] HADERACH: <b>No \u2014 not successfully.</b> Checked live just now, direct from CA-SMEDA-II's own cron store:",
-          "<b>Today's Restudy Program cron fired twice already</b> (06:00 and a manual/early retry ~08:26 IST) and <b>both failed to make real progress</b>:",
-          "\u2022 <b>First run (08:26 IST):</b> Hit a mid-session tool outage \u2014 exec/read/write/web_fetch all went dark for ~15 consecutive retries. It had drafted some genuine Day 1 findings (FA2024 LTCG rate confirmation, GST s.74A/s.11A amendments) but never got to pe...",
-          "[09:55 IST] RAM: Check, fix it, and fire it again",
-          "[09:57 IST] RAM: Check, fix it, and fire it again",
-          "[10:02 IST] HADERACH: Model call and CLI both check out fine (PONG test succeeded instantly), and the retry is now running live in the background. Let me set a kill-switch per standing rule, then monitor.",
-          "[10:03 IST] HADERACH: <b>Diagnosis so far:</b>",
-          "<b>Root cause of the two earlier failures:</b> not a config bug, not a broken gateway \u2014 the CA-SMEDA-II gateway itself is healthy (port 200, sanity <code>PONG</code> test via CLI responded instantly, Bedrock Sonnet 5 model call worked fine). What actually happened:",
-          "\u2022 <b>08:26 run:</b> genuine tool-execution outage mid-session (exec/read/write/web_fetch went dark for ~15 retries) \u2014 this looks like a transient environment glitch, not a config problem. Work was drafted...",
-          "[10:03 IST] HADERACH: <b>Diagnosis so far:</b>",
-          "<b>Root cause of the two earlier failures:</b> not a config bug, not a broken gateway \u2014 the CA-SMEDA-II gateway itself is healthy (port 200, sanity <code>PONG</code> test via CLI responded instantly, Bedrock Sonnet 5 model call worked fine). What actually happened:",
           "\u2022 <b>08:26 run:</b> genuine tool-execution outage mid-session (exec/read/write/web_fetch went dark for ~15 retries) \u2014 this looks like a transient environment glitch, not a config problem. Work was drafted...",
           "[10:21 IST] RAM: All fine?",
           "[10:21 IST] HADERACH: Good news \u2014 that retry actually succeeded. Let me quickly check what the \"Cron failed\" notification at 10:03 was about, since it wasn't from the run I just launched.",
@@ -1548,7 +1536,19 @@
           "[10:46 IST] HADERACH: The CA-SMEDA-II restudy retest finished normally \u2014 no intervention needed.",
           "<b>Status: Completed, not stuck</b>",
           "The Day 1 retest (launched 09:57 IST, pid 67688) finished right on schedule at <b>10:12 IST</b> \u2014 matching the ~15 min estimate almost exactly. The process is no longer running, and the git commit trail confirms clean completion:",
-          "<b>Commit \"Restudy Day 1: amendments refresh + Foundation Jan2025 papers sourced\"</b> (10:12:01 IST) \u2014 wrote <code>amendments_refresh_16Jul2026.md</code>..."
+          "<b>Commit \"Restudy Day 1: amendments refresh + Foundation Jan2025 papers sourced\"</b> (10:12:01 IST) \u2014 wrote <code>amendments_refresh_16Jul2026.md</code>...",
+          "[11:16 IST] RAM: Check G\u2019s fleet monitoring report pls:",
+          "\ud83d\udda5\ufe0f _Fleet Monitor \u2014 11:05 IST 17 Jul_",
+          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
+          "\ud83d\udd34 _Consolidation cron [haderach: Twitter Watcher \u2014 Every 3h]_ \u2014 1 consecutive error(s): cron: job interrupted by gateway restart",
+          "\ud83d\udd34 _Consolidation cron [haderach: SCL Media Monitor \u2014 Every 3h (RSS + Twitter)]_ \u2014 1 consecutive error(s): cron: job interrupted by gateway restart",
+          "\ud83d\udd34 _Consolidation cron [haderach: steipete Twitter Monitor]_ \u2014 1 consecutive error(s): cron: job interrupted by gateway resta...",
+          "[11:16 IST] HADERACH: Reviewed it, Ram. Verdict: nothing that needs intervention.",
+          "<b>The three \ud83d\udd34 items</b>",
+          "All three \u2014 Twitter Watcher, SCL Media Monitor, steipete Twitter Monitor \u2014 show the identical cause: <i>\"job interrupted by gateway restart.\"</i> I cross-checked the live cron list: each has exactly 1 consecutive error, all are still enabled, and all have their next run already scheduled within the next few minutes. This is the expected fallout when a gateway restart happens mid-cycle on a 3-hourly job \u2014 not...",
+          "[11:17 IST] HADERACH: Reviewed it, Ram. Verdict: nothing that needs intervention.",
+          "<b>The three \ud83d\udd34 items</b>",
+          "All three \u2014 Twitter Watcher, SCL Media Monitor, steipete Twitter Monitor \u2014 show the identical cause: <i>\"job interrupted by gateway restart.\"</i> I cross-checked the live cron list: each has exactly 1 consecutive error, all are still enabled, and all have their next run already scheduled within the next few minutes. This is the expected fallout when a gateway restart happens mid-cycle on a 3-hourly job \u2014 not..."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.49,
-      "cpu": 0.5,
+      "rss_gb": 0.54,
+      "cpu": 0.9,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1784266511876,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1784267407503,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1784265607590,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1784266511876,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2377,7 +2377,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.59,
-      "cpu": 0.7,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2777,7 +2777,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.54,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3780,7 +3780,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
