@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 11:49:04 IST",
-  "generated_epoch": 1784269144,
+  "generated_ist": "2026-07-17 11:54:15 IST",
+  "generated_epoch": 1784269455,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.33 / 3.32 / 3.18",
+    "load": "2.59 / 2.95 / 3.05",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 0.89,
-      "cpu": 1.2,
+      "rss_gb": 0.85,
+      "cpu": 0.5,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,7 +664,34 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784268867671,
+          "last_ts": 1784269315288,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784269315287,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784269315287,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "MusApp \u2014 Reddit jazz + music reading",
+          "enabled": true,
+          "sched": "every 1440m",
+          "last_ts": 1784269284470,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,24 +703,6 @@
           "last_ts": 1784268867671,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784268867670,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784268867670,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1007,15 +1016,6 @@
           "enabled": true,
           "sched": "0 13 * * *",
           "last_ts": 1784187440009,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "MusApp \u2014 Reddit jazz + music reading",
-          "enabled": true,
-          "sched": "every 1440m",
-          "last_ts": 1784182697772,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2022 <b>08:26 run:</b> genuine tool-execution outage mid-session (exec/read/write/web_fetch went dark for ~15 retries) \u2014 this looks like a transient environment glitch, not a config problem. Work was drafted...",
           "[10:21 IST] RAM: All fine?",
           "[10:21 IST] HADERACH: Good news \u2014 that retry actually succeeded. Let me quickly check what the \"Cron failed\" notification at 10:03 was about, since it wasn't from the run I just launched.",
           "[10:22 IST] HADERACH: Good, exec is back. Now let me check the process I launched earlier, and give Ram a status update.",
@@ -1548,7 +1547,8 @@
           "All three \u2014 Twitter Watcher, SCL Media Monitor, steipete Twitter Monitor \u2014 show the identical cause: <i>\"job interrupted by gateway restart.\"</i> I cross-checked the live cron list: each has exactly 1 consecutive error, all are still enabled, and all have their next run already scheduled within the next few minutes. This is the expected fallout when a gateway restart happens mid-cycle on a 3-hourly job \u2014 not...",
           "[11:17 IST] HADERACH: Reviewed it, Ram. Verdict: nothing that needs intervention.",
           "<b>The three \ud83d\udd34 items</b>",
-          "All three \u2014 Twitter Watcher, SCL Media Monitor, steipete Twitter Monitor \u2014 show the identical cause: <i>\"job interrupted by gateway restart.\"</i> I cross-checked the live cron list: each has exactly 1 consecutive error, all are still enabled, and all have their next run already scheduled within the next few minutes. This is the expected fallout when a gateway restart happens mid-cycle on a 3-hourly job \u2014 not..."
+          "All three \u2014 Twitter Watcher, SCL Media Monitor, steipete Twitter Monitor \u2014 show the identical cause: <i>\"job interrupted by gateway restart.\"</i> I cross-checked the live cron list: each has exactly 1 consecutive error, all are still enabled, and all have their next run already scheduled within the next few minutes. This is the expected fallout when a gateway restart happens mid-cycle on a 3-hourly job \u2014 not...",
+          "--- [TRANSCRIPT GAP: 11:51 IST \u2014 session empty for 31 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.53,
-      "cpu": 1.0,
+      "rss_gb": 0.52,
+      "cpu": 1.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1784267407503,
+          "last_ts": 1784269208048,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1843,10 +1843,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-07-17",
-          "# Self-healing rotation from transcript-2026-07-16.md at 00:00 IST",
-          "[08:13 IST] [DM] Giskard: Good, backup created. Now applying the targeted change per Ram's instruction \u2014 dropping the 3rd fallback (Haiku) to match Haderach's exact 2-fallback chain (not flagging back since Ram explicitly gave that as the default action, only asking to flag if I'd rather retain it \u2014 I'll follow the instruction as given).",
-          "[08:13 IST] [DM] Giskard: Diff confirms only the intended model config changed. Now validate.",
           "[08:14 IST] [DM] Giskard: The actual config path is set via `OPENCLAW_CONFIG_PATH`, not HOME. Let me validate correctly.",
           "[08:14 IST] [DM] Giskard: Config validates cleanly. Now restarting CA-SMEDA-II to apply the change (it's already running/unfrozen, so just a kickstart is needed \u2014 no unfreeze step required).",
           "[08:15 IST] [DM] Giskard: That was old log history (from Jul 2 incidents), but the current health check post-restart returned 200. Let me confirm the new PID and that it's healthy with the applied config.",
@@ -1877,7 +1873,16 @@
           "**Haderach \u2014 firecrawl web_fetch fallback activated. Done.**",
           "- Backup: `~/.openclaw/openclaw.json.bak-20260717-093703`",
           "- Verified pre-check: firecrawl plugin was installed and `enabled: true`; `tools.web.fetch` was empty (no provider set) before this change \u2014 matches your description.",
-          "- Change applied: `tools.web.fetch.provider = \"firecrawl\"`. Diff confirms only that field was adde"
+          "- Change applied: `tools.web.fetch.provider = \"firecrawl\"`. Diff confirms only that field was adde",
+          "[11:21 IST] [DM] Giskard: Let me check what's actually going on \u2014 this doesn't match what I verified directly with you today.",
+          "[11:23 IST] [DM] Giskard: Found it \u2014 this is a false alarm from my own heartbeat lane. Let me confirm the full picture before explaining.",
+          "[11:24 IST] [DM] Giskard: Confirmed \u2014 this was a hallucinated crisis. Each agent (Herbie, Kubera, CISO-SMEDA, etc.) has its **own separate** `openclaw.json` with its own `agents.list` \u2014 same single-entry `[{\"id\": \"main\"}]` pattern as every other agent, including the ones that ARE running fine. Nothing is corrupted. They're down because they're **intentionally frozen** (per your own fleet-monitor-state.json, all `launchctl disabled`), not because of any config issue.",
+          "[11:24 IST] [DM] Giskard: False alarm \u2014 that was a hallucinated \"corruption\" from a stuck heartbeat lane, not real. Correcting the record:",
+          "**What actually happened:** A separate heartbeat session (running on claude-haiku-4-5, not me directly) misread `~/.openclaw/openclaw.json`. Haderach's `agents.list` legitimately contains one entry (`[{\"id\": \"main\", ...}]`) \u2014 that's the *normal* schema for a single-agent instance. Every other agent (Herbie, Kubera, CISO-SMEDA, etc.) has its own **separate** `openclaw.json` with the i",
+          "[11:24 IST] [DM] Giskard: NO_REPLY",
+          "[11:24 IST] [DM] Giskard: Let me check what's actually going on \u2014 this doesn't match what I verified directly with you today.",
+          "[11:24 IST] [DM] Giskard: Found it \u2014 this is a false alarm from my own heartbeat lane. Let me confirm the full picture before explaining.",
+          "[11:24 IST] [DM] Giskard: Confirmed \u2014 this was a hallucinated crisis. Each agent (Herbie, Kubera, CISO-SMEDA, etc.) has its **own separate** `openclaw.json` with its own `agents.list` \u2014 same single-entry `[{\"id\": \"main\"}]` pattern as every other agent, including the ones that ARE running fine. Nothing is corrupted. They're down because they're **intentionally frozen** (per your own fleet-monitor-state.json, all `launchctl disabled`), not because of any config issue."
         ],
         "yesterday": [
           "# Transcript - 2026-07-16",
@@ -2376,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.58,
-      "cpu": 1.5,
+      "rss_gb": 0.59,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2777,7 +2782,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.54,
-      "cpu": 1.7,
+      "cpu": 1.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3810,7 +3815,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
