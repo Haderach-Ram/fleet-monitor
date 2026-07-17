@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 20:09:47 IST",
-  "generated_epoch": 1784299187,
+  "generated_ist": "2026-07-17 20:14:53 IST",
+  "generated_epoch": 1784299493,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.34 / 2.61 / 2.77",
+    "load": "2.32 / 2.51 / 2.68",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.0,
-      "cpu": 1.9,
+      "rss_gb": 1.16,
+      "cpu": 0.9,
       "crons_total": 95,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784299392554,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784299226751,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784299226751,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784299226750,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -679,48 +715,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784298805478,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784298805478,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 WSS Friday Download",
           "enabled": true,
           "sched": "0 20 * * 5",
           "last_ts": 1784298805477,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-lite-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784298805477,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784297585434,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1524,13 +1524,6 @@
           "<li>One malformed/truncated JSON response body (likely a stream hiccup)</li>",
           "</ul>",
           "<b>Fixed both</b> in <code>run_benchmark.py</code>'s OpenRouter call path \u2014...",
-          "[19:40 IST] HADERACH: <b>Clean re-run launched \u2014 with the actual bugs fixed first.</b>",
-          "Before re-running blind, I dug into why those 5 tasks failed and found <b>two distinct transient failure modes</b> on OpenRouter's side (not the model's fault):",
-          "<ul>",
-          "<li>Intermittent HTTP 400 \"not a valid model ID\" on the correct canonical slug (4 of the 5 failures)</li>",
-          "<li>One malformed/truncated JSON response body (likely a stream hiccup)</li>",
-          "</ul>",
-          "<b>Fixed both</b> in <code>run_benchmark.py</code>'s OpenRouter call path \u2014...",
           "[19:43 IST] HADERACH: Still running \u2014 2/26 done so far (68.0%, 92.0%), on task 3. Too early for a final score yet.",
           "<b>Still in progress</b> \u2014 2 of 26 tasks complete so far (68.0%, 92.0%), currently on task 3. The retries are adding real time per task when triggered, so this is going slower than the first pass. I'll message you the final average and error count the moment it finishes \u2014 should be within the next 30-40 minutes, well before the 20:50 IST kill-switch.",
           "[19:43 IST] HADERACH: Still running \u2014 2/26 done so far (68.0%, 92.0%), on task 3. Too early for a final score yet.",
@@ -1557,7 +1550,14 @@
           "<li>Fleet/Technical: 86.0%</li>",
           "<li>Memory (QS3): 72.8% \u2014 clear weak spot, dragged down by T-MEM-02 Temporal Ordering (52%) and T-MEM-03 K-Update (60%)</li>",
           "</ul>",
-          "That would rank it below Sonnet 4.6 (91.7%), Sonnet 5 (90.9%), GPT-5.5 (85.7..."
+          "That would rank it below Sonnet 4.6 (91.7%), Sonnet 5 (90.9%), GPT-5.5 (85.7...",
+          "[20:08 IST] RAM: Kimi run is done?",
+          "[20:08 IST] HADERACH: Not done yet \u2014 currently on task 17/26, running slower than expected because retries are kicking in on several tasks (each one costs 45-185s extra).",
+          "<b>Progress so far (16/26 complete):</b> mostly strong \u2014 100% on 7 tasks, but one genuine error slipped through: <b>T-TECH-04 (Dead-End Detection)</b> hit the HTTP 400 three times in a row (max retries for that class) and gave up. That's a legitimately persistent failure this time, not a one-off \u2014 worth noting when the final tally comes in.",
+          "I'l...",
+          "[20:08 IST] HADERACH: Not done yet \u2014 currently on task 17/26, running slower than expected because retries are kicking in on several tasks (each one costs 45-185s extra).",
+          "<b>Progress so far (16/26 complete):</b> mostly strong \u2014 100% on 7 tasks, but one genuine error slipped through: <b>T-TECH-04 (Dead-End Detection)</b> hit the HTTP 400 three times in a row (max retries for that class) and gave up. That's a legitimately persistent failure this time, not a one-off \u2014 worth noting when the final tally comes in.",
+          "I'l..."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.51,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2390,8 +2390,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.68,
-      "cpu": 0.4,
+      "rss_gb": 0.69,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2790,7 +2790,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.56,
+      "rss_gb": 0.57,
       "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3794,7 +3794,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3824,7 +3824,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4225,7 +4225,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.42,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
