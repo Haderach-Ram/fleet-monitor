@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 23:39:03 IST",
-  "generated_epoch": 1784311743,
+  "generated_ist": "2026-07-17 23:44:10 IST",
+  "generated_epoch": 1784312050,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.41 / 2.60 / 2.82",
+    "load": "2.80 / 3.10 / 3.01",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.02,
-      "cpu": 3.7,
+      "rss_gb": 1.1,
+      "cpu": 4.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784312040372,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784312027065,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784311228437,
+          "last_ts": 1784311829055,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,7 +691,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784311228436,
+          "last_ts": 1784311829054,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,16 +700,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784311228436,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784310193306,
+          "last_ts": 1784311829054,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -811,15 +820,6 @@
           "last_ts": 1784292159743,
           "last_status": "ok",
           "model": "amazon-bedrock/amazon.nova-pro-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784290620643,
-          "last_status": "error",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -1509,10 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Step 1:** No unprocessed tail \u2014 0 sessions today, auto-checkpoints only",
-          "- **Steps 2\u20133:** No `[FACT:]` tags to promote; no domain file updates needed",
-          "- **Step 4:** rolling-7day.md \u2014 dropped Jul 10, added Jul 17 (7 entries)",
-          "- **Step 5:** rolling-28day.md \u2014 dropped Jun 18, added Jul 17 (29 entries)",
           "- **Step 6:** rolling-180day.md \u2014 added Jul 17 (56 entries; oldest May 22 still within 180 days)",
           "- **Step 7:** Tag index rebuilt \u2014 61 days, 2 updated",
           "- **Step 8:** ME...",
@@ -1548,7 +1544,11 @@
           "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
           "\ud83d\udfe0 _Haderach_ context at 91% \u2014 approaching limit (suggest /compact)",
           "\ud83d\udd34 _Consolidation cron [haderach: steipete Twitter Monitor]_ \u2014 1 consecutive error(s): cron: job interrupted by gateway restart",
-          "\ud83d\udd34 _Consolidation cron [haderach: SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)]_ \u2014 5 consecutive error(s): cron: job execution timed out (last phase: tool-execution-sta..."
+          "\ud83d\udd34 _Consolidation cron [haderach: SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)]_ \u2014 5 consecutive error(s): cron: job execution timed out (last phase: tool-execution-sta...",
+          "[23:35 IST] RAM: ?",
+          "[23:35 IST] HADERACH: Apologies \u2014 that stray tool-failure message leaking through was a background diagnostic step, not a reply. Here's the actual finding, Ram.",
+          "I dug into both issues from Giskard's report:",
+          "[23:36 IST] HADERACH: Mail.app restarted cleanly (new PID 11856). Let me verify the ingest now runs fast and clear the cron error state."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.52,
-      "cpu": 0.3,
+      "rss_gb": 0.51,
+      "cpu": 1.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1714,6 +1714,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-watchdog-23",
+          "enabled": true,
+          "sched": "40 23 * * *",
+          "last_ts": 1784311808425,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-consolidation-23",
           "enabled": true,
@@ -1791,15 +1800,6 @@
           "enabled": true,
           "sched": "5 0 * * *",
           "last_ts": 1784226987637,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-watchdog-23",
-          "enabled": true,
-          "sched": "40 23 * * *",
-          "last_ts": 1784225407936,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2781,8 +2781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.57,
-      "cpu": 0.4,
+      "rss_gb": 0.59,
+      "cpu": 0.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3618,7 +3618,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3785,7 +3785,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4216,7 +4216,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.44,
-      "cpu": 0.9,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
