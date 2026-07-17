@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 10:37:40 IST",
-  "generated_epoch": 1784264860,
+  "generated_ist": "2026-07-17 10:42:47 IST",
+  "generated_epoch": 1784265167,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.98 / 2.94 / 2.90",
+    "load": "2.68 / 3.02 / 2.96",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 0.83,
-      "cpu": 0.9,
+      "rss_gb": 0.87,
+      "cpu": 1.1,
       "crons_total": 95,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784265027127,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784265027126,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784265027126,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
@@ -670,37 +697,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784264510991,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784264510990,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1784264510990,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784264510989,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1518,19 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>1. Exchange filings (NSE/BSE)</b> \u2014 these archive pages occasionally return bot-challenge pages instead of the PDF/filing listing. Firecrawl gives a second attempt automatically instead of me reporting \"couldn't fetch\" and stopping.",
-          "<b>2. Rating agency sites (CRISIL, CARE, ICRA)</b> \u2014 press-release and ratings-action pages are often behind heavier bot protection than plain news sites. Same benefit \u2014 automatic retry instead of a dead end when I'm che...",
-          "[09:48 IST] RAM: Ok. You want to test it maybe",
-          "[09:48 IST] HADERACH: Let me retest with actual working URLs rather than guesses (my first attempts hit dead pages, not real bot-blocks).",
-          "[09:48 IST] HADERACH: <b>Test results \u2014 real answers, not theory:</b>",
-          "<b>LinkedIn:</b> Failed cleanly on both. Firecrawl's own free tier explicitly refuses LinkedIn (\"we do not support this site\") \u2014 so this one's a dead end regardless, not something the fallback fixes.",
-          "<b>CRISIL homepage:</b> Plain <code>web_fetch</code> succeeded on its own (Readability handled it fine) \u2014 Firecrawl never needed to fire.",
-          "<b>NSE corporate filings page:</b> Same \u2014 plain fetch succeeded directly.",
-          "<b>BSE announcements page:</b> <b...",
-          "[09:49 IST] HADERACH: <b>Test results \u2014 real answers, not theory:</b>",
-          "<b>LinkedIn:</b> Failed cleanly on both. Firecrawl's own free tier explicitly refuses LinkedIn (\"we do not support this site\") \u2014 so this one's a dead end regardless, not something the fallback fixes.",
-          "<b>CRISIL homepage:</b> Plain <code>web_fetch</code> succeeded on its own (Readability handled it fine) \u2014 Firecrawl never needed to fire.",
-          "<b>NSE corporate filings page:</b> Same \u2014 plain fetch succeeded directly.",
           "<b>BSE announcements page:</b> <b...",
           "[09:54 IST] RAM: Did CA SMEDA II\u2019s study happen?",
           "[09:55 IST] HADERACH: <b>No \u2014 not successfully.</b> Checked live just now, direct from CA-SMEDA-II's own cron store:",
@@ -1557,7 +1544,20 @@
           "[10:23 IST] HADERACH: <b>Yes \u2014 all fine now.</b> Two separate things happened, both resolved:",
           "<b>1. CA-SMEDA-II Restudy Program</b> \u2014 the manual retry succeeded. Confirmed on disk: Day 1 (amendments refresh + Foundation paper sourcing) is now genuinely complete \u2014 LTCG 12.5% FA2024 rate confirmed, GST s.74A/s.11A amendments logged, a fresh unused ICAI Foundation Jan 2025 paper set sourced and verified. <code>current_day</code> advanced from 1 \u2192 2, committed to disk. Killed the standing kill-switch check since it's...",
           "[10:24 IST] RAM: Can you find out what are these two scrip codes?: INE0HXR01011 and INE1MRY01017",
-          "[10:27 IST] HADERACH: The search results didn't find these exact codes directly. Let me try direct ISIN lookups."
+          "[10:27 IST] HADERACH: The search results didn't find these exact codes directly. Let me try direct ISIN lookups.",
+          "[10:32 IST] HADERACH: This is the master list! Let me fetch the full CSV and grep for the two ISINs.",
+          "[10:32 IST] HADERACH: Not found in NSE main-board list. Let me check NSE SME and debt segments, and BSE listings.",
+          "[10:36 IST] HADERACH: Let me try using the browser tool for a more robust search on these ISINs.",
+          "[10:36 IST] HADERACH: Found the first one. Now the second.",
+          "[10:36 IST] HADERACH: Both identified. Let me close the browser tab and give Ram the answer.",
+          "[10:36 IST] HADERACH: Both identified via CDSL depository records (unlisted equity, not NSE/BSE-traded, so nothing shows up on standard exchange lookups):",
+          "<b>INE0HXR01011</b> \u2014 <b>Super Six Sports Gaming Private Limited</b>. Equity shares, face value \u20b910. Admitted to CDSL in May 2021. Registrar: Bigshare Services Private Limited.",
+          "<b>INE1MRY01017</b> \u2014 <b>F2P Sports Private Limited</b>. Equity shares, face value \u20b910. Admitted to CDSL in March 2025. Registrar: Maashitla Securities (P) Limited.",
+          "Both are private/un...",
+          "[10:36 IST] HADERACH: Both identified via CDSL depository records (unlisted equity, not NSE/BSE-traded, so nothing shows up on standard exchange lookups):",
+          "<b>INE0HXR01011</b> \u2014 <b>Super Six Sports Gaming Private Limited</b>. Equity shares, face value \u20b910. Admitted to CDSL in May 2021. Registrar: Bigshare Services Private Limited.",
+          "<b>INE1MRY01017</b> \u2014 <b>F2P Sports Private Limited</b>. Equity shares, face value \u20b910. Admitted to CDSL in March 2025. Registrar: Maashitla Securities (P) Limited.",
+          "Both are private/un..."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.49,
-      "cpu": 0.5,
+      "rss_gb": 0.5,
+      "cpu": 0.9,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2386,7 +2386,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.54,
-      "cpu": 0.3,
+      "cpu": 1.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2786,7 +2786,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.54,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3622,7 +3622,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3789,7 +3789,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3819,7 +3819,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
