@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 19:28:54 IST",
-  "generated_epoch": 1784296734,
+  "generated_ist": "2026-07-17 19:34:00 IST",
+  "generated_epoch": 1784297040,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.99 / 3.16 / 3.07",
+    "load": "2.81 / 2.90 / 2.96",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 0.99,
-      "cpu": 3.9,
+      "rss_gb": 0.98,
+      "cpu": 2.7,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784296225948,
+          "last_ts": 1784296827238,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784296225948,
+          "last_ts": 1784296827238,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784296225947,
+          "last_ts": 1784296827236,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,9 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:54 IST] HADERACH: Model registry entry added and syntax-clean. Now let's check on the Kimi run and set up the queued launch to fire right after it finishes.",
-          "[18:54 IST] HADERACH: Kimi K3 run has finished. Let's check its final state and results file before launching GPT-5.6 Sol via OpenRouter.",
-          "[18:54 IST] HADERACH: Found the stale Kimi kill-switch (`e4fdbb7e`) \u2014 the run already finished, so let me remove it and launch the GPT-5.6 Sol (OpenRouter) run with a fresh kill-switch, per the mandatory rule for background processes.",
           "[18:54 IST] HADERACH: Now let's smoke test the new OpenRouter entry with 2 tasks before committing to the full run (per HAD-047's established discipline for new model additions).",
           "[18:54 IST] HADERACH: Right \u2014 the wrapper injects AWS creds needed by other model branches even though this run only needs the OpenRouter key. Let's use it.",
           "[18:55 IST] HADERACH: Smoke test clean: 90.0%, 0 errors, fast per-task latency. Launching the full 26-task run now in the background, with the mandatory kill-switch per policy.",
@@ -1548,7 +1545,10 @@
           "That 93.1% would put it <b>above Grok 4.5 (92.8%, current #1)</b> on raw a...",
           "[19:18 IST] RAM: Do a clean re-run",
           "[19:19 IST] HADERACH: GPT-5.6 Sol run already finished too \u2014 let me clean that up and get Kimi's re-run going.",
-          "[19:19 IST] HADERACH: Now let's smoke-test on the 5 tasks that previously errored, to confirm the retry fix actually resolves them, before committing to a full clean re-run."
+          "[19:19 IST] HADERACH: Now let's smoke-test on the 5 tasks that previously errored, to confirm the retry fix actually resolves them, before committing to a full clean re-run.",
+          "[19:25 IST] HADERACH: The process wrapper session got killed but the actual benchmark process (99037) is still running independently. Let me check on it directly.",
+          "[19:27 IST] HADERACH: That process backgrounded itself again (the wrapper's `execve` replaces the process but nohup still returns). Let's just wait and check the log file directly rather than relying on process tracking.",
+          "[19:28 IST] HADERACH: Good, still progressing on task 1 with the retry logic presumably in effect (which explains the longer time). Let's poll again."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.51,
-      "cpu": 4.1,
+      "cpu": 0.9,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2381,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.68,
-      "cpu": 1.0,
+      "rss_gb": 0.65,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,21 +2536,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1784296804395,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1784295013300,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1784295013299,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2601,7 +2601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **File saved:** `transcript-2026-07-17.md`",
           "Logger is working as expected. Group chat is quiet at the moment, but the main session has some activity logged.",
           "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
@@ -2640,7 +2639,8 @@
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Klub K transcript logger completed. No new messages across all tracked sessions.",
           "[18:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[18:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
-          "[18:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one."
+          "[18:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
+          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2781,8 +2781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.56,
-      "cpu": 0.8,
+      "rss_gb": 0.57,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3618,7 +3618,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3785,7 +3785,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
