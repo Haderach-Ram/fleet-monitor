@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 10:07:04 IST",
-  "generated_epoch": 1784263024,
+  "generated_ist": "2026-07-17 10:12:10 IST",
+  "generated_epoch": 1784263330,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.89 / 3.80 / 3.17",
+    "load": "3.74 / 3.29 / 3.07",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 0.7,
-      "cpu": 2.1,
+      "rss_gb": 0.74,
+      "cpu": 1.6,
       "crons_total": 95,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1784262815630,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784263226413,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -673,7 +673,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784262805647,
+          "last_ts": 1784263226413,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784263226412,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1784262815630,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -688,27 +706,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784262805646,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SU-01 OpenRouter Watch \u2014 Daily",
           "enabled": true,
           "sched": "0 10 * * *",
-          "last_ts": 1784262805646,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
           "last_ts": 1784262805646,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
@@ -1518,13 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:39 IST] HADERACH: Config confirmed live \u2014 `tools.web.fetch.provider: \"firecrawl\"` is set, and the plugin is enabled. Let me clarify the actual mechanics with a proper test (my earlier test page didn't trigger the fallback, since Readability technically \"succeeded\" even on an empty JS shell).",
-          "[09:39 IST] HADERACH: Confirmed live and working correctly \u2014 here's the direct answer to both questions:",
-          "<b>Is it a browser?</b> No. Firecrawl is a hosted server-side scraping/rendering service accessed over HTTP \u2014 no local browser involved. It's a different mechanism entirely from the actual <code>browser</code> tool (which drives a real Chromium instance on this machine for JS-heavy/logged-in interactive sites). Firecrawl handles bot-circumvention and rendering on its own servers and hands back extracted markdo...",
-          "[09:39 IST] HADERACH: Confirmed live and working correctly \u2014 here's the direct answer to both questions:",
-          "<b>Is it a browser?</b> No. Firecrawl is a hosted server-side scraping/rendering service accessed over HTTP \u2014 no local browser involved. It's a different mechanism entirely from the actual <code>browser</code> tool (which drives a real Chromium instance on this machine for JS-heavy/logged-in interactive sites). Firecrawl handles bot-circumvention and rendering on its own servers and hands back extracted markdo...",
-          "[09:40 IST] RAM: Sorry, what does it do exactly?",
-          "[09:40 IST] HADERACH: <b>In plain terms:</b>",
           "Firecrawl is a paid-by-someone-else web-scraping service that OpenClaw can call over the internet. Its job: take a URL, load it properly (handling JavaScript, bypassing bot-blockers), and hand back clean readable text.",
           "<b>Why it matters here:</b> my normal <code>web_fetch</code> tool does a basic HTTP request \u2014 it works for most simple pages, but it can't run JavaScript and often gets blocked or returns garbage on sites that actively resist scraping (LinkedIn, Glassdo...",
           "[09:40 IST] HADERACH: <b>In plain terms:</b>",
@@ -1557,7 +1550,14 @@
           "<b>Today's Restudy Program cron fired twice already</b> (06:00 and a manual/early retry ~08:26 IST) and <b>both failed to make real progress</b>:",
           "\u2022 <b>First run (08:26 IST):</b> Hit a mid-session tool outage \u2014 exec/read/write/web_fetch all went dark for ~15 consecutive retries. It had drafted some genuine Day 1 findings (FA2024 LTCG rate confirmation, GST s.74A/s.11A amendments) but never got to pe...",
           "[09:55 IST] RAM: Check, fix it, and fire it again",
-          "[09:57 IST] RAM: Check, fix it, and fire it again"
+          "[09:57 IST] RAM: Check, fix it, and fire it again",
+          "[10:02 IST] HADERACH: Model call and CLI both check out fine (PONG test succeeded instantly), and the retry is now running live in the background. Let me set a kill-switch per standing rule, then monitor.",
+          "[10:03 IST] HADERACH: <b>Diagnosis so far:</b>",
+          "<b>Root cause of the two earlier failures:</b> not a config bug, not a broken gateway \u2014 the CA-SMEDA-II gateway itself is healthy (port 200, sanity <code>PONG</code> test via CLI responded instantly, Bedrock Sonnet 5 model call worked fine). What actually happened:",
+          "\u2022 <b>08:26 run:</b> genuine tool-execution outage mid-session (exec/read/write/web_fetch went dark for ~15 retries) \u2014 this looks like a transient environment glitch, not a config problem. Work was drafted...",
+          "[10:03 IST] HADERACH: <b>Diagnosis so far:</b>",
+          "<b>Root cause of the two earlier failures:</b> not a config bug, not a broken gateway \u2014 the CA-SMEDA-II gateway itself is healthy (port 200, sanity <code>PONG</code> test via CLI responded instantly, Bedrock Sonnet 5 model call worked fine). What actually happened:",
+          "\u2022 <b>08:26 run:</b> genuine tool-execution outage mid-session (exec/read/write/web_fetch went dark for ~15 retries) \u2014 this looks like a transient environment glitch, not a config problem. Work was drafted..."
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.49,
-      "cpu": 1.0,
+      "cpu": 0.7,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2385,7 +2385,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.53,
+      "rss_gb": 0.54,
       "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2786,7 +2786,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.59,
-      "cpu": 9.5,
+      "cpu": 1.8,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3789,7 +3789,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3819,7 +3819,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
