@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-17 15:08:26 IST",
-  "generated_epoch": 1784281106,
+  "generated_ist": "2026-07-17 15:13:32 IST",
+  "generated_epoch": 1784281412,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.39 / 3.47 / 3.10",
+    "load": "3.20 / 3.12 / 3.03",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.0,
-      "cpu": 0.4,
+      "rss_gb": 1.05,
+      "cpu": 1.0,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,51 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784281305503,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784281305502,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784281305502,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784281277921,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784281277920,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -683,51 +728,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1784281003730,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784280930282,
-          "last_status": "error",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784280930280,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784280930279,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784280930278,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784279212319,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:02 IST] HADERACH: Both PDF and summary are delivered, Ram. Waiting on your read and, in particular, your call on Ch.16's decision to close Alma's forward arc \u2014 that's the one place I'd genuinely like your steer before I write anything further in that thread.",
           "--- [TRANSCRIPT GAP: 13:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:00 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "[14:13 IST] RAM: See and consult Bajaj Council on how you can access google maps data and history of ram.haderach@gmail.com",
@@ -1548,7 +1547,8 @@
           "<ul>",
           "<li>Both crash-loop fixes are merged: #107243 (14 Jul) and #108652 (16 Jul, 06:55 UTC) \u2014 both underlying issues (#107133, #107220) are now closed.</li>",
           "<li><b>npm's <code>latest</code> tag is still <code>2026.7.1</code></b> \u2014 the broken one for M2's upgrade purposes. No stable <code>2026.7.2</code> has shipped yet.</li>",
-          "<li>There IS a <code>2026.7.2-beta.2..."
+          "<li>There IS a <code>2026.7.2-beta.2...",
+          "--- [TRANSCRIPT GAP: 15:11 IST \u2014 session empty for 31 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[22:19 IST] HADERACH: Now the daily log, per the Session Close Checklist and ProjHad rules:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.5,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.66,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2782,7 +2782,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.55,
-      "cpu": 0.8,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3618,7 +3618,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3785,7 +3785,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3815,7 +3815,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
