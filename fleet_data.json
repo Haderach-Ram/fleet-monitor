@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-18 11:07:50 IST",
-  "generated_epoch": 1784353070,
+  "generated_ist": "2026-07-18 11:12:58 IST",
+  "generated_epoch": 1784353378,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.77 / 2.31 / 2.49",
+    "load": "2.84 / 2.44 / 2.48",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.29,
-      "cpu": 0.3,
+      "rss_gb": 1.24,
+      "cpu": 1.5,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784353229079,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784353229079,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784353229078,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -676,33 +703,6 @@
           "last_ts": 1784352854787,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784352854786,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784352854786,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784352854785,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,10 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:39 IST] HADERACH: Stopping here \u2014 I found something important before doing any more sourcing. <b>All four \"papers\" I have on disk are contaminated</b>, in a worse way than the earlier fix addressed:",
-          "<ul>",
-          "<li><b>P1 and P2</b> (\"May2024/June2024\") are ICAI's official \"Suggested Answer\" booklets \u2014 question, immediately followed by the full worked answer, question, answer, repeating. Not a blank question paper at all.</li>",
-          "<li><b>P3 and P4</b> (\"Jan2025\") are scanned copies of what looks like an actual student's ...",
           "[10:39 IST] HADERACH: The ICAI page is JS-rendered. Let me try the browser tool to navigate it properly.",
           "[10:40 IST] HADERACH: Found the official blank question papers for P1/P2 June 2024. Now I need to find the equivalent for P3/P4 (MCQ papers - different page on ICAI site).",
           "[10:40 IST] HADERACH: No text extracted \u2014 these are likely image-based/scanned PDFs too (common for ICAI question papers). Let me check with pdfinfo and render a page to verify content.",
@@ -1548,7 +1544,11 @@
           "[10:55 IST] HADERACH: Good, this is a fresh, separate direct run (this session `40b359be`) reading paper images properly, in progress. Let it continue.",
           "[10:57 IST] HADERACH: Progress continues (17 lines now, growing steadily). This is a slow but genuinely working run. Let it continue further.",
           "[10:58 IST] HADERACH: No new lines in ~5 minutes \u2014 might be stalled again, or it might be composing a long answer write. Let me check the last entry more closely.",
-          "[10:59 IST] HADERACH: I found the actual root cause now \u2014 it's consistent and diagnosable, not random. Let me verify one hypothesis before reporting."
+          "[10:59 IST] HADERACH: I found the actual root cause now \u2014 it's consistent and diagnosable, not random. Let me verify one hypothesis before reporting.",
+          "[11:00 IST] HADERACH: Found something concrete. Let me verify.",
+          "[11:00 IST] HADERACH: Found the actual root cause \u2014 I have definitive proof now. Let me report clearly before continuing.",
+          "<b>Root cause identified (finally, with certainty):</b> This isn't random flakiness. Amazon Bedrock's Claude Sonnet 5 (CA-SMEDA-II's primary model) has a specific, reproducible bug: after it reads exam page images via the vision tool and tries to produce its final answer, it fails with an internal error called <code>non_deliverable_terminal_turn</code> \u2014 essentially, it generates a response th...",
+          "[11:02 IST] HADERACH: Still running, no output file yet. Let it continue."
         ],
         "yesterday": [
           "[23:16 IST] HADERACH: That's the correctly decrypted, complete original file (73 lines, proper content). Now let me append my new entries properly using `edit` (append via oldText/newText, not overwrite).",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.52,
-      "cpu": 1.2,
+      "cpu": 1.5,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2381,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.65,
-      "cpu": 0.4,
+      "rss_gb": 0.66,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2781,8 +2781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.61,
-      "cpu": 0.3,
+      "rss_gb": 0.55,
+      "cpu": 1.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3656,7 +3656,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,8 +3820,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1207,
-      "rss_gb": 0.22,
-      "cpu": 0.3,
+      "rss_gb": 0.23,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 3.0,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4252,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.41,
-      "cpu": 0.3,
+      "cpu": 1.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
