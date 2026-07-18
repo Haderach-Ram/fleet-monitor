@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-18 12:50:00 IST",
-  "generated_epoch": 1784359200,
+  "generated_ist": "2026-07-18 12:55:06 IST",
+  "generated_epoch": 1784359506,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.73 / 4.82 / 4.12",
+    "load": "3.00 / 3.48 / 3.69",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.36,
-      "cpu": 1.2,
+      "rss_gb": 1.34,
+      "cpu": 1.3,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,37 +661,19 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784358942212,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784359286715,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784358927051,
-          "last_status": "error",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784358927049,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784358927048,
+          "last_ts": 1784359286715,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -700,7 +682,25 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784358927048,
+          "last_ts": 1784359286715,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784359257874,
+          "last_status": "error",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784358942212,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,8 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "task: Grade a CA Foundation Paper 1 (Accounting) mock exam answer script against the official ICAI suggested answer. FILES: - Candidate's answer sc...",
-          "[11:44 IST] HADERACH: The P1 grading subagent didn't actually finish \u2014 its last message was just \"Copied into the workspace. Now let's extract the PDF content in chunks,\" which means it stalled partway through, not delivered a real grade. Let me verify the file state before deciding next steps.",
           "[11:44 IST] HADERACH: Confirmed \u2014 the P1 grading subagent stalled without producing a report (it never got past extracting the PDF). I'll re-spawn it properly. Meanwhile, P2 is still being sat live (6:29 elapsed).",
           "[11:45 IST] HADERACH: The first grading attempt stalled mid-task without producing a report \u2014 I've re-launched it with the PDF pre-extracted to plain text so it doesn't need to re-parse the PDF itself. Meanwhile P2 (Business Laws) is still being sat live in the background (~6.5 min in). I'll report back once the grading and the P2 sit are both done.",
           "[11:45 IST] HADERACH: The first grading attempt stalled mid-task without producing a report \u2014 I've re-launched it with the PDF pre-extracted to plain text so it doesn't need to re-parse the PDF itself. Meanwhile P2 (Business Laws) is still being sat live in the background (~6.5 min in). I'll report back once the grading and the P2 sit are both done.",
@@ -1548,7 +1546,9 @@
           "[12:11 IST] HADERACH: Excellent \u2014 that worked cleanly. Now let's get Q4(c) and Q5 the same way, one question per call to avoid overload.",
           "[12:11 IST] HADERACH: Now Q5. Since the images need reading for the exact facts, let me have it read the images first in this fresh session, then answer.",
           "[12:12 IST] HADERACH: Now I have the exact Q5 text. Let me get the full answer for Q5.",
-          "[12:14 IST] HADERACH: All pieces obtained. Now let me assemble the complete P2 answer file by appending Q4(b), Q4(c), and Q5 to the existing file (which has Q1-Q4(a)(ii))."
+          "[12:14 IST] HADERACH: All pieces obtained. Now let me assemble the complete P2 answer file by appending Q4(b), Q4(c), and Q5 to the existing file (which has Q1-Q4(a)(ii)).",
+          "[12:47 IST] RAM: Update?",
+          "[12:49 IST] HADERACH: Picking this back up \u2014 I have all three answer pieces (Q4(b), Q4(c), Q5a, Q5b) already generated cleanly. Appending them to the P2 file now."
         ],
         "yesterday": [
           "[23:16 IST] HADERACH: That's the correctly decrypted, complete original file (73 lines, proper content). Now let me append my new entries properly using `edit` (append via oldText/newText, not overwrite).",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.53,
-      "cpu": 13.0,
+      "rss_gb": 0.52,
+      "cpu": 0.6,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1784357406586,
+          "last_ts": 1784359206847,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.65,
-      "cpu": 0.5,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2781,8 +2781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.61,
-      "cpu": 0.7,
+      "rss_gb": 0.55,
+      "cpu": 1.1,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3655,7 +3655,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.29,
+      "rss_gb": 0.3,
       "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4252,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.37,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
