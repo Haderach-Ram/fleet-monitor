@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-18 10:27:02 IST",
-  "generated_epoch": 1784350622,
+  "generated_ist": "2026-07-18 10:32:09 IST",
+  "generated_epoch": 1784350929,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.42 / 2.80 / 2.77",
+    "load": "3.75 / 3.20 / 2.96",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.27,
-      "cpu": 2.8,
+      "rss_gb": 1.37,
+      "cpu": 1.0,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,28 +661,19 @@
       ],
       "crons": [
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784350527919,
-          "last_status": "error",
-          "model": "(agent default)",
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784350889136,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784350527916,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784350527916,
+          "last_ts": 1784350889135,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,9 +682,18 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784350527915,
+          "last_ts": 1784350889135,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784350858690,
+          "last_status": "error",
+          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -1509,26 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>Day 1 (amendments refresh + source Foundation papers) \u2014 <b>done</b></li>",
-          "<li>Day 2 (Foundation fresh study P1+P2) \u2014 <b>done</b> \u2014 readiness 8/10, 6.5/10</li>",
-          "<li>Day 3 (Foundation fresh study P3+P4, source Intermediate papers) \u2014 <b>done</b> \u2014 readiness 7.5/10, 8/10; sourced ge...",
-          "[09:08 IST] RAM: Check and fix contamination. And then run day 4",
-          "[09:12 IST] HADERACH: Found the fix. The Day 1 search actually already sourced a second, completely untouched Foundation sitting \u2014 I just verified it directly:",
-          "<ul>",
-          "<li><b>P1_Accounting_May2024.pdf</b> and <b>P2_Laws_May2024.pdf</b> are genuine ICAI papers (\"Suggested Answer, June 2024 Foundation Examination\") \u2014 confirmed via pdftotext, never opened/extracted by the SMEDA (no .txt exists for them, only for the Jan2025 set)</li>",
-          "<li>P3/P4 Jan2025 papers were already confirmed clean in the study notes (explicitly f...",
-          "[09:12 IST] HADERACH: Now forcing Day 4 to run immediately rather than waiting for the 14:00 IST fire:",
-          "[09:13 IST] HADERACH: It's a background/long-running task (past runs took 12-18 minutes). Let me kick it off without blocking and check in on it.",
-          "[09:13 IST] HADERACH: Day 4 is now running (enqueued, likely to take 12-20 minutes based on prior runs). Let me check progress in a bit.",
-          "[09:13 IST] HADERACH: This will take a while (last run was 18 minutes). Rather than block here, I'll check back periodically.",
-          "[09:14 IST] HADERACH: That output looks stale (matches the earlier 06:00 failed run, not this new one). Let me check the live cron state directly.",
-          "[09:15 IST] HADERACH: Only 2 minutes in \u2014 the manual run hasn't shown up in the runs list yet because it's still executing. Let me check for live progress on disk and poll again shortly.",
-          "[09:16 IST] HADERACH: The manual force-run also errored out, this time after ~2 minutes. Let me get the full error detail.",
-          "[09:17 IST] HADERACH: It errors fast (~2 min) and produces zero disk writes or transcript activity \u2014 meaning it's failing on the very first turn, before any tool calls land. This looks like an infrastructure-level issue (e.g. model provider hiccup), not a task-logic problem. Let me check the raw run diagnostics more closely and check if it's a Bedrock throttling/capacity issue.",
-          "[09:18 IST] HADERACH: Good news: it did make real progress before erroring \u2014 the raw extraction for all 4 papers (correctly using the May2024 set for P1/P2 and Jan2025 for P3/P4, per the contamination fix) is on disk. It's erroring at the response-generation stage after doing the extraction work, likely a token-limit or output-generation issue given the paper sizes (P1 alone is 1544 lines). Let me check if run 5 (currently in-flight) completes.",
-          "[09:20 IST] HADERACH: Run 5 is still in flight at 3 minutes \u2014 longer than the prior 2 failed attempts, which is a good sign it's past the point where those errored. Let me wait longer for it.",
-          "[09:22 IST] HADERACH: This is taking a while to fetch \u2014 let me check directly on disk in the meantime rather than keep the process tool blocked.",
           "[09:22 IST] HADERACH: This run is actively doing substantial OCR/extraction work on P3 and P4 (which are image-based PDFs, hence OCR pipeline). It's genuinely working, not stuck. Let me keep waiting \u2014 this could easily run 10-15+ minutes given the scope.",
           "[09:24 IST] HADERACH: Run 5 is still genuinely in progress (11+ minutes so far) \u2014 it's doing heavy OCR extraction on scanned PDFs (43 page images processed across P3/P4), which is why it's taking longer than the raw-text-based days. Day 3's successful run took 18 minutes, so this is within range. I'll keep monitoring.",
           "[09:26 IST] HADERACH: It just finished \u2014 with another error (3rd consecutive fail now). Let me get the detail on what happened.",
@@ -1548,7 +1528,27 @@
           "<li>Day 4 \u2014 still 0/4 papers graded, 3 consecutive errors, last one at 09:25 IST</li>",
           "<li>Next auto-attempt: 14:00 IST (~3.5 hrs away)</li>",
           "</ul>",
-          "<b>Root cause of the last failure:</b> it got through extracting all 4 papers (P1/P2 clean text via pdftotext, P3/P4 via OCR since those two are scanned image PDFs), ..."
+          "<b>Root cause of the last failure:</b> it got through extracting all 4 papers (P1/P2 clean text via pdftotext, P3/P4 via OCR since those two are scanned image PDFs), ...",
+          "[10:20 IST] HADERACH: The prior OCR used a low render resolution (likely 150dpi default). Let me test if higher DPI + tesseract with proper config fixes it.",
+          "[10:21 IST] HADERACH: Found it. The source scan is genuinely readable \u2014 it's a physical photo/scan with handwriting, redaction bars, and a fabric background that defeats Tesseract, but a vision model reads it cleanly. The fix is to re-extract P3/P4 using vision instead of Tesseract OCR.",
+          "[10:21 IST] HADERACH: 34 pages total across P3+P4 \u2014 too many to feed through the `image` tool one at a time in this session cost-effectively. Rather than do this manually here, let me re-render at good quality into the CA-SMEDA-II workspace and update the program instructions to use vision-based reading instead of tesseract for these two papers.",
+          "[10:23 IST] HADERACH: It's genuinely rendering (P4 is a large scanned PDF, ~1.8MB source). Let it finish.",
+          "[10:23 IST] HADERACH: Both rendered. Now let me update the program instructions so the SMEDA reads these via the `image`/vision tool instead of Tesseract OCR.",
+          "[10:23 IST] HADERACH: 81MB+42MB PNGs are too large/costly for the model to read directly. Let me convert to compressed JPEGs at reasonable size.",
+          "[10:23 IST] HADERACH: Much more manageable (18.5MB total vs 123MB). Now update the Day 4 instructions to use these instead of the tesseract-OCR'd P3/P4.",
+          "[10:24 IST] HADERACH: Confirmed \u2014 P3's raw pdftotext extract is also garbage (watermark noise, no real question text), while P1's is clean. Let me remove the stale bad P3/P4 raw extracts too so the next run doesn't accidentally use them.",
+          "[10:24 IST] HADERACH: Now forcing Day 4 again with the fixed source material in place.",
+          "[10:24 IST] HADERACH: Both fixes are in. Running now \u2014 I'll check back once it's completed.",
+          "[10:26 IST] HADERACH: Only 1.5 minutes elapsed (my kill of the process session ended the polling, not the actual cron run \u2014 it's still running server-side since I used `openclaw cron run` which returns immediately). Let it continue and check back.",
+          "[10:28 IST] HADERACH: Failed again after only ~4 minutes \u2014 4th consecutive error. Let me get the exact error.",
+          "[10:29 IST] HADERACH: This is a different session-store CLI, not directly the gateway sessions_history I have as a tool but for a different profile. Let me try tail to see the transcript from this failed run.",
+          "[10:29 IST] HADERACH: That's base64-encoded image content (the jpgs being sent as vision input) \u2014 session file is binary/encoded, not directly useful. Let me check the last few text-role entries near the end for the actual error/tool-call context.",
+          "[10:29 IST] HADERACH: 4th consecutive failure \u2014 but this one is different and more useful. Here's what actually happened:",
+          "<b>Contamination fix \u2014 confirmed working.</b> The transcript shows it correctly read P1's May2024 text (\"SUGGESTED ANSWER JUNE 2024... PAPER 1: ACCOUNTING\") \u2014 the right, uncontaminated source. Setup steps all worked cleanly.",
+          "<b>The failure itself:</b> After ~14 tool calls of legitimate setup (reading progress file, program spec, listing directories, reading P1's raw text), the model entered a...",
+          "[10:30 IST] HADERACH: 4th consecutive failure \u2014 but this one is different and more useful. Here's what actually happened:",
+          "<b>Contamination fix \u2014 confirmed working.</b> The transcript shows it correctly read P1's May2024 text (\"SUGGESTED ANSWER JUNE 2024... PAPER 1: ACCOUNTING\") \u2014 the right, uncontaminated source. Setup steps all worked cleanly.",
+          "<b>The failure itself:</b> After ~14 tool calls of legitimate setup (reading progress file, program spec, listing directories, reading P1's raw text), the model entered a..."
         ],
         "yesterday": [
           "[23:16 IST] HADERACH: That's the correctly decrypted, complete original file (73 lines, proper content). Now let me append my new entries properly using `edit` (append via oldText/newText, not overwrite).",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88922,
-      "rss_gb": 0.49,
-      "cpu": 1.2,
+      "rss_gb": 0.5,
+      "cpu": 1.3,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.65,
-      "cpu": 0.9,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,21 +2536,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1784350805186,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1784349013538,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1784349013537,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2601,7 +2601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[06:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger ran successfully.**",
           "- **Main session:** 14 new messages captured",
           "- **Telegram direct:** 0 new messages",
@@ -2640,7 +2639,8 @@
           "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Task complete. Script ran successfully. No new messages across any tracked sessions (Klub K group transcript, personal transcripts). All bookmarks current.",
           "[09:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[09:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
-          "[09:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one."
+          "[09:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
+          "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Messages fetched:** 0 new from main, 0 from direct (Gari), 0 from group \u2014 all caught up",
@@ -2782,7 +2782,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.46,
-      "cpu": 0.9,
+      "cpu": 1.1,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3656,7 +3656,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.5,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.8,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4252,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.39,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
