@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-18 14:26:52 IST",
-  "generated_epoch": 1784365012,
+  "generated_ist": "2026-07-18 14:31:58 IST",
+  "generated_epoch": 1784365318,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.07 / 2.68 / 2.92",
+    "load": "2.03 / 2.63 / 2.85",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.32,
-      "cpu": 14.0,
+      "rss_gb": 1.43,
+      "cpu": 1.4,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,10 @@
       ],
       "crons": [
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784364929003,
-          "last_status": "error",
-          "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784364929001,
+          "last_ts": 1784365290988,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -682,7 +673,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784364929001,
+          "last_ts": 1784365290988,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,9 +682,18 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784364929000,
+          "last_ts": 1784365290987,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784365259792,
+          "last_status": "error",
+          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -1509,21 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:30 IST] HADERACH: Now I'll have CA SMEDA-II sit each paper in one clean pass \u2014 pure text output, no tool calls (the pattern that worked reliably during P2 recovery).",
-          "[13:30 IST] HADERACH: While P3 runs, let me prep the P4 sit prompt.",
-          "[13:31 IST] HADERACH: Process finished already. Let's check the result.",
-          "[13:31 IST] HADERACH: No `timeout` on macOS by default. Let me retry without it, using background exec's own timeout handling.",
-          "[13:32 IST] HADERACH: Good, it's running. Let's start P4 in parallel with a different session id, then wait for both.",
-          "[13:34 IST] HADERACH: P3 finished. Let's check the output.",
-          "[13:34 IST] HADERACH: All 100 answers received cleanly for Paper 3. Now let's grade it directly against the answer key.",
-          "[13:34 IST] HADERACH: Let me check Q30 and Q85 which should be bonus marks, not wrong.",
-          "[13:34 IST] HADERACH: Confirmed \u2014 Q30 and Q85 should be bonus (marks given to all per ICAI's own note), not wrong. Let me correct.",
-          "[13:34 IST] HADERACH: **P3 (Quantitative Aptitude): 87/100 \u2014 PASS.** Now let's check on P4.",
-          "[13:35 IST] HADERACH: All 100 P4 answers received cleanly. Now grading against the P4 answer key.",
-          "[13:35 IST] HADERACH: All four papers are now graded. Let me write proper P3/P4 grade reports and answer scripts to the exam results directory.",
-          "[13:35 IST] HADERACH: Now write the grade reports.",
-          "[13:36 IST] HADERACH: All four papers are now graded and filed. Let me clean up temp files before the final report.",
-          "[13:36 IST] HADERACH: All eight files (4 answer scripts + 4 grade reports) are on disk. Here's the fair review you asked for, followed by all four results.",
           "**On the botch-ups:** You're right to call it out. The core failure was letting CA SMEDA-II's own agent loop repeatedly during P2's live sit \u2014 it stalled on tool-call validation errors, and I compounded it by trying multiple live \"resume\" attempts inside that same fragile session instead of stepping back immediately. That ate well over an hour before I pivoted...",
           "[13:36 IST] HADERACH: All eight files (4 answer scripts + 4 grade reports) are on disk. Here's the fair review you asked for, followed by all four results.",
           "**On the botch-ups:** You're right to call it out. The core failure was letting CA SMEDA-II's own agent loop repeatedly during P2's live sit \u2014 it stalled on tool-call validation errors, and I compounded it by trying multiple live \"resume\" attempts inside that same fragile session instead of stepping back immediately. That ate well over an hour before I pivoted...",
@@ -1548,7 +1533,22 @@
           "<ul>",
           "<li>4 grade reports (question-by-question breakdown, gaps, strengths) \u2014 <code>P1-P4_GRADE_REPORT.md</code></li>",
           "<li>4 full answer scripts \u2014 <code>P1-P4_my_answers.md</code></li>",
-          "<li>Question papers + suggested answers (P1/P2 PDFs) and transcribed questions + answer keys + grading detail (P3/P4) \u2014 <code>qu..."
+          "<li>Question papers + suggested answers (P1/P2 PDFs) and transcribed questions + answer keys + grading detail (P3/P4) \u2014 <code>qu...",
+          "[14:19 IST] RAM: Ok. What\u2019s day 5?",
+          "[14:20 IST] HADERACH: Good \u2014 the program itself confirms it. Day 4 (Foundation sit) is now marked done, and it has already advanced to Day 5.",
+          "<b>Day 5 = Intermediate fresh study, Papers 1 &amp; 2</b>",
+          "<ul>",
+          "<li><b>P1 \u2014 Advanced Accounting</li>",
+          "<li>P2 \u2014 Corporate &amp; Other Laws</b></li>",
+          "</ul>",
+          "Not yet started (status: <code>done: false</code>). Per the program spec, this is a fresh study pass \u2014 new worked examples distinct from the real ICAI Intermediate May 2025 sitting already sourced on Day 3 (that paper set s...",
+          "[14:20 IST] HADERACH: Good \u2014 the program itself confirms it. Day 4 (Foundation sit) is now marked done, and it has already advanced to Day 5.",
+          "<b>Day 5 = Intermediate fresh study, Papers 1 &amp; 2</b>",
+          "<ul>",
+          "<li><b>P1 \u2014 Advanced Accounting</li>",
+          "<li>P2 \u2014 Corporate &amp; Other Laws</b></li>",
+          "</ul>",
+          "Not yet started (status: <code>done: false</code>). Per the program spec, this is a fresh study pass \u2014 new worked examples distinct from the real ICAI Intermediate May 2025 sitting already sourced on Day 3 (that paper set s..."
         ],
         "yesterday": [
           "[23:16 IST] HADERACH: That's the correctly decrypted, complete original file (73 lines, proper content). Now let me append my new entries properly using `edit` (append via oldText/newText, not overwrite).",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.55,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2381,7 +2381,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27427,
-      "rss_gb": 0.64,
+      "rss_gb": 0.65,
       "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2536,21 +2536,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1784365203721,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1784363412742,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1784363412742,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2601,7 +2601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[09:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
           "[09:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
           "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2640,7 +2639,8 @@
           "[13:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[13:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[13:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
-          "[13:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one."
+          "[13:55 IST] PURL: Gari, this session is getting large \u2014 consider starting a fresh one.",
+          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- **Messages fetched:** 0 new from main, 0 from direct (Gari), 0 from group \u2014 all caught up",
@@ -2782,7 +2782,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.56,
-      "cpu": 1.1,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3656,7 +3656,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4252,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.4,
-      "cpu": 1.0,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
