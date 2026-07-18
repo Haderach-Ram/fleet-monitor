@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-18 12:09:08 IST",
-  "generated_epoch": 1784356748,
+  "generated_ist": "2026-07-18 12:14:15 IST",
+  "generated_epoch": 1784357055,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.85 / 2.42 / 2.82",
+    "load": "3.71 / 2.89 / 2.87",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.27,
-      "cpu": 1.8,
+      "rss_gb": 1.25,
+      "cpu": 1.4,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784356825868,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784356825868,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784356825868,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -697,39 +724,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784356454109,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784356454109,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1784356454109,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784356454108,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,11 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[11:43 IST] HADERACH: Still actively working \u2014 session file jumped to 958KB (reading through the images). Let me continue monitoring.",
-          "[11:44 IST] RAM: <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>",
-          "OpenClaw runtime context (internal):",
-          "This context is runtime-generated, not user-authored. Keep internal details private.",
-          "[Internal task completion event]",
           "source: subagent",
           "session_key: agent:main:subagent:c9f56c44-febd-40af-82fb-2a4de103073a",
           "session_id: 2b32d8d4-2a32-461e-87be-4d2f4369da11",
@@ -1548,7 +1543,12 @@
           "[11:53 IST] HADERACH: Process killed. Now resuming P2 with a continuation prompt in a fresh session (as instructed, to keep context lean), starting from where it left off.",
           "[11:54 IST] HADERACH: I'll keep monitoring this in the background while the P1 grading report is already confirmed done. Let me check the P1_GRADE_REPORT more closely too, to make sure it's solid, while waiting for P2.",
           "[11:56 IST] HADERACH: Still at 448 lines (no growth yet) after ~2:41. Let it continue reading pages; will check again shortly.",
-          "[11:59 IST] HADERACH: It's stuck retrying `edit` with invalid arguments (missing `edits` array), now trying to figure out the exact tail via `read`. It's recovering on its own \u2014 let it keep trying."
+          "[11:59 IST] HADERACH: It's stuck retrying `edit` with invalid arguments (missing `edits` array), now trying to figure out the exact tail via `read`. It's recovering on its own \u2014 let it keep trying.",
+          "[12:00 IST] HADERACH: It's now correctly diagnosing the file state and about to append the missing content properly. Good sign \u2014 let it continue.",
+          "[12:03 IST] HADERACH: The exec process (PID 48590) has exited entirely and the file is still stuck at 448 lines \u2014 it never got past the diagnostic step. Let me check the log for what happened at the end.",
+          "[12:03 IST] HADERACH: The resume attempt crashed after an invalid tool call (\"search\" isn't a valid tool for it). Rather than keep fighting its flaky tool-calling, I'll have it produce the remaining answers as plain chat output only (no file tools needed), then I'll append that to the file myself.",
+          "[12:04 IST] HADERACH: This is hitting the known Bedrock Sonnet 5 bug (terminal-turn-generation failure after heavy tool use) documented in this project's notes. Let me try a completely fresh session-id to shake off whatever corrupted context accumulated.",
+          "[12:09 IST] HADERACH: It tried web_search (disabled for this SMEDA) despite instructions to avoid tools, which caused a hard failure. Let me retry with an explicit no-tools-at-all instruction."
         ],
         "yesterday": [
           "[23:16 IST] HADERACH: That's the correctly decrypted, complete original file (73 lines, proper content). Now let me append my new entries properly using `edit` (append via oldText/newText, not overwrite).",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.51,
-      "cpu": 1.1,
+      "cpu": 0.7,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.65,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2781,8 +2781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.56,
-      "cpu": 0.5,
+      "rss_gb": 0.7,
+      "cpu": 7.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2806,21 +2806,21 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "enabled": true,
+          "sched": "10 */3 * * *",
+          "last_ts": 1784356802851,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
           "enabled": true,
           "sched": "0 6,14,21 * * *",
           "last_ts": 1784352116122,
           "last_status": "error",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
-          "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1784346006413,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -3656,7 +3656,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,8 +4251,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91175,
-      "rss_gb": 0.42,
-      "cpu": 0.8,
+      "rss_gb": 0.36,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
