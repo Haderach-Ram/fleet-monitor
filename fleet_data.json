@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-19 09:19:44 IST",
-  "generated_epoch": 1784432984,
+  "generated_ist": "2026-07-19 09:24:50 IST",
+  "generated_epoch": 1784433290,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.07 / 2.45 / 2.50",
+    "load": "2.76 / 2.62 / 2.56",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.27,
+      "rss_gb": 1.28,
       "cpu": 1.0,
       "crons_total": 94,
       "crons_enabled": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784433270133,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784433270133,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784433270133,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784433270132,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,37 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784432492864,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784432492864,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCL NSE Filings \u2014 Daily Fetch",
           "enabled": true,
           "sched": "10 9 * * *",
           "last_ts": 1784432492864,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784432492863,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -739,15 +748,6 @@
           "last_ts": 1784432454902,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784432164910,
-          "last_status": "ok",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -1509,14 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>P4 \u2014 Cost and Management Accounting</li>",
-          "<li>P5 \u2014 Auditing and Ethics</li>",
-          "<li>P6 \u2014 Financial Management and Strategic Management (split into 6A FM + 6B SM, again one paper)</li>",
-          "</ul>",
-          "Grouped as Group I (P1\u2013P3) and Group II (P4\u2013P6). All 6 have been freshly studied (Days ...",
-          "[08:43 IST] HADERACH: There are 6 Intermediate papers in all:",
-          "<ul>",
-          "<li>P1 \u2014 Advanced Accounting</li>",
           "<li>P2 \u2014 Corporate and Other Laws</li>",
           "<li>P3 \u2014 Taxation (split into 3A Income Tax + 3B GST for suggested answers, but it's one paper)</li>",
           "<li>P4 \u2014 Cost and Management Accounting</li>",
@@ -1548,7 +1540,15 @@
           "[09:06 IST] HADERACH: Let me switch to exec/Python for writing the large content, which is more reliable per past experience with this exact issue.",
           "[09:06 IST] HADERACH: That confirmed writes with content-first ordering work fine on small files. The issue seems specific to when I pass both params but content gets dropped for large payloads. Let me use exec with a heredoc instead, which the transcript notes worked reliably yesterday.",
           "[09:07 IST] HADERACH: Good, exec works fine with proper params. Let me build the P1 question file via a Python script written to disk in one go.",
-          "[09:08 IST] HADERACH: Good, that works. Let me write the P1 question paper content using cat with a heredoc via exec, which avoids the write tool's apparent parameter-dropping issue for this call."
+          "[09:08 IST] HADERACH: Good, that works. Let me write the P1 question paper content using cat with a heredoc via exec, which avoids the write tool's apparent parameter-dropping issue for this call.",
+          "[09:11 IST] HADERACH: That works consistently when done as a single isolated call. Let me now write the full P1 question paper content properly.",
+          "[09:12 IST] HADERACH: That works when called alone. The issue seems to occur when I batch write+exec in the same turn. Let me write the P1 question paper content as a single call now.",
+          "[09:14 IST] HADERACH: Let me check whether the known \\n-corruption patch (OpenClaw #93139) is still active \u2014 this smells like that bug affecting large write calls.",
+          "[09:14 IST] HADERACH: That works. Let me now try the actual full P1 question paper content as one call.",
+          "[09:15 IST] HADERACH: Let me use exec with a Python script to build the content instead, avoiding the write tool for this large payload.",
+          "[09:16 IST] HADERACH: Good, single calls work. Let me build the P1 question file using exec with Python heredoc, one call at a time.",
+          "[09:17 IST] HADERACH: I see the issue \u2014 I've been forgetting to include the content parameter itself in several of these calls. Let me write the actual full P1 question paper content correctly this time.",
+          "[09:17 IST] HADERACH: Good, that worked. Now let me append the full transcribed question content using the append pattern that worked reliably yesterday (exec + Python)."
         ],
         "yesterday": [
           "It's currently running (fired naturally at 21:...",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.53,
-      "cpu": 1.6,
+      "cpu": 1.1,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1784432111396,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1784433006855,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1784431206525,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1784432111396,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2344,7 +2344,7 @@
       "frozen_reason": null,
       "pid": 27427,
       "rss_gb": 0.66,
-      "cpu": 0.8,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2744,7 +2744,7 @@
       "frozen_reason": null,
       "pid": 56095,
       "rss_gb": 0.57,
-      "cpu": 0.8,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3623,8 +3623,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.29,
-      "cpu": 0.1,
+      "rss_gb": 0.28,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3788,7 +3788,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 1.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4219,7 +4219,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.4,
-      "cpu": 0.8,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
