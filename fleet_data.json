@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-20 12:07:27 IST",
-  "generated_epoch": 1784529447,
+  "generated_ist": "2026-07-20 12:12:34 IST",
+  "generated_epoch": 1784529754,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.52 / 2.90 / 2.91",
+    "load": "2.73 / 2.98 / 2.94",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 66278,
-      "rss_gb": 1.34,
-      "cpu": 0.9,
+      "rss_gb": 1.21,
+      "cpu": 1.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784529629516,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784529629516,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784529629515,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784529525576,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -697,15 +733,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784529250729,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
@@ -715,37 +742,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784529250728,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784529250728,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1784528290039,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784527725335,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,24 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 10:30 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 10:40 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 10:50 IST \u2014 session empty for 120 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:00 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[11:18 IST] RAM: Pls check the issues you have posted on GitHub, any udpates?",
-          "[11:20 IST] HADERACH: <b>Checked all issues under your GitHub account \u2014 here's the state of everything, sorted by what actually moved:</b>",
-          "<b>\ud83d\udd34 Still open \u2014 the one that matters most (our local patch)</b>",
-          "<b>#93139</b> \u2014 write/exec heredoc `\\n` corruption (the bug we've been manually patching after every <code>openclaw update</code>). New activity since we last looked:",
-          "\u2022 <b>jrusz</b> reproduced it cleanly on 2026.7.1 stable (100% repro without fix, 0% with the guard) and opened a <b>new PR #111523</b> (19 Jul) w...",
-          "[11:21 IST] HADERACH: <b>Checked all issues under your GitHub account \u2014 here's the state of everything, sorted by what actually moved:</b>",
-          "<b>\ud83d\udd34 Still open \u2014 the one that matters most (our local patch)</b>",
-          "<b>#93139</b> \u2014 write/exec heredoc `\\n` corruption (the bug we've been manually patching after every <code>openclaw update</code>). New activity since we last looked:",
-          "\u2022 <b>jrusz</b> reproduced it cleanly on 2026.7.1 stable (100% repro without fix, 0% with the guard) and opened a <b>new PR #111523</b> (19 Jul) w...",
-          "[11:26 IST] RAM: Which GitHub account did you check?",
-          "[11:26 IST] HADERACH: I queried by author filter <code>--author ramshenoy</code> \u2014 that's Ram's own GitHub username (the account under which all those issues were originally filed), not Haderach's.",
-          "The actual API calls, though, were made using the <b>Haderach-Ram</b> account's token, since that's the active <code>gh auth</code> account on this machine (confirmed via <code>gh auth status</code>: Haderach-Ram is Active: true; the <code>ramshenoy</code> account is also logged in on this machine but Active: false). R...",
-          "[11:26 IST] HADERACH: I queried by author filter <code>--author ramshenoy</code> \u2014 that's Ram's own GitHub username (the account under which all those issues were originally filed), not Haderach's.",
-          "The actual API calls, though, were made using the <b>Haderach-Ram</b> account's token, since that's the active <code>gh auth</code> account on this machine (confirmed via <code>gh auth status</code>: Haderach-Ram is Active: true; the <code>ramshenoy</code> account is also logged in on this machine but Active: false). R...",
           "[11:27 IST] RAM: You have been filing under haderach-ram account. Is that what you checked?",
           "[11:27 IST] HADERACH: You're right to catch that \u2014 I checked the wrong account entirely last time. <code>ramshenoy</code> only has old, already-closed issues; the actual filing account per house rule (TOOLS.md: \"Default account for all GitHub operations: Haderach-Ram\") has a much larger, more current list. Redoing this properly now \u2014 pulling comment activity on the open ones under Haderach-Ram.",
           "[11:27 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
@@ -1548,7 +1530,25 @@
           "<b>#93140</b> \u2014 <code>apply_patch</code>/<code>write</code> fail on paths outside workspace sandbox (<code>/tmp</code>, absolute paths) \u2014 regression from v2026.5.28, still open. ClawSweeper just started an automated review (19 Jul, in progress) \u2014 no verdict yet. Not urgent ...",
           "[11:30 IST] HADERACH: <b>Fix is live in HEARTBEAT.md \u2014 checks both accounts going forward.</b> Here's the corrected full rundown, this time actually from Haderach-Ram (7 open issues, all filed by us):",
           "<b>\ud83d\udd34 Open \u2014 needs occasional watching</b>",
-          "<b>#93140</b> \u2014 <code>apply_patch</code>/<code>write</code> fail on paths outside workspace sandbox (<code>/tmp</code>, absolute paths) \u2014 regression from v2026.5.28, still open. ClawSweeper just started an automated review (19 Jul, in progress) \u2014 no verdict yet. Not urgent ..."
+          "<b>#93140</b> \u2014 <code>apply_patch</code>/<code>write</code> fail on paths outside workspace sandbox (<code>/tmp</code>, absolute paths) \u2014 regression from v2026.5.28, still open. ClawSweeper just started an automated review (19 Jul, in progress) \u2014 no verdict yet. Not urgent ...",
+          "[12:05 IST] RAM: Do we have a stable version of OpenClaw v2026.7.1? Any major issues you have seen on GitHub etc? I am planning to update M2 first",
+          "[12:06 IST] HADERACH: <b>Short answer: \"stable\" is technically true (v2026.7.1-2 is npm's <code>latest</code> tag, not a beta), but it's had a rough couple of weeks and I wouldn't call it clean. Here's the real picture before you touch M2.</b>",
+          "<b>Version state right now</b>",
+          "\u2022 <code>latest</code> = <b>2026.7.1-2</b> (published 18 Jul, 03:53 UTC) \u2014 a patch release on top of 7.1 (13 Jul) and 7.1-1 (18 Jul, same day, superseded within 30 min).",
+          "\u2022 <code>beta</code> = 2026.7.2-beta.3 \u2014 don't touch, has its own fresh mig...",
+          "[12:07 IST] HADERACH: <b>Short answer: \"stable\" is technically true (v2026.7.1-2 is npm's <code>latest</code> tag, not a beta), but it's had a rough couple of weeks and I wouldn't call it clean. Here's the real picture before you touch M2.</b>",
+          "<b>Version state right now</b>",
+          "\u2022 <code>latest</code> = <b>2026.7.1-2</b> (published 18 Jul, 03:53 UTC) \u2014 a patch release on top of 7.1 (13 Jul) and 7.1-1 (18 Jul, same day, superseded within 30 min).",
+          "\u2022 <code>beta</code> = 2026.7.2-beta.3 \u2014 don't touch, has its own fresh mig...",
+          "[12:07 IST] RAM: You suggest we wait? Any big advantage in 7.1-2 compared with the version we are presently on?",
+          "[12:08 IST] HADERACH: <b>Real answer: no killer feature for us specifically, and yes \u2014 I'd still wait a bit longer, though the case for waiting is weaker now than it was a few days ago.</b>",
+          "<b>What 7.1 actually brings that's relevant to Haderach's setup</b> (skipping the huge Control UI/mobile-app overhaul \u2014 we're Telegram-first, that mostly doesn't touch us):",
+          "<table>",
+          "<tr><td><b>Cron reapply without duplicates</b></td><td>#100480 \u2014 declarations can be reapplied in place without creating duplicate jobs or losing ...",
+          "[12:08 IST] HADERACH: <b>Real answer: no killer feature for us specifically, and yes \u2014 I'd still wait a bit longer, though the case for waiting is weaker now than it was a few days ago.</b>",
+          "<b>What 7.1 actually brings that's relevant to Haderach's setup</b> (skipping the huge Control UI/mobile-app overhaul \u2014 we're Telegram-first, that mostly doesn't touch us):",
+          "<table>",
+          "<tr><td><b>Cron reapply without duplicates</b></td><td>#100480 \u2014 declarations can be reapplied in place without creating duplicate jobs or losing ..."
         ],
         "yesterday": [
           "[23:15 IST] RAM: ?",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 88922,
       "rss_gb": 0.55,
-      "cpu": 0.7,
+      "cpu": 0.9,
       "crons_total": 14,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2344,7 +2344,7 @@
       "frozen_reason": null,
       "pid": 60450,
       "rss_gb": 0.51,
-      "cpu": 1.5,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2743,8 +2743,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 56095,
-      "rss_gb": 0.57,
-      "cpu": 0.5,
+      "rss_gb": 0.56,
+      "cpu": 1.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2771,7 +2771,7 @@
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "10 */3 * * *",
-          "last_ts": 1784518803850,
+          "last_ts": 1784529603692,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -3629,7 +3629,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3837,7 +3837,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4238,7 +4238,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.42,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
