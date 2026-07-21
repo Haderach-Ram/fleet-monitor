@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-21 14:18:32 IST",
-  "generated_epoch": 1784623712,
+  "generated_ist": "2026-07-21 14:23:38 IST",
+  "generated_epoch": 1784624018,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.13 / 2.40 / 2.77",
+    "load": "3.70 / 3.24 / 3.03",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 1.12,
-      "cpu": 3.5,
+      "rss_gb": 1.14,
+      "cpu": 1.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,15 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784623717977,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -703,15 +712,6 @@
           "last_ts": 1784623105906,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784621916905,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,17 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:18 IST] HADERACH: Found it, Ram \u2014 and it's good news: <b>nothing is actually broken.</b> Jonas misdiagnosed its own situation.",
-          "<b>What actually happened:</b>",
-          "<ul>",
-          "<li>The CA-SMEDA-I (Jonas) gateway on M2 is healthy \u2014 port 18793 responds fine, process running normally</li>",
-          "<li>The ENBD Data Package PDF was <b>successfully delivered to you via Telegram at 12:03:55 IST</b> (confirmed in the server log: <code>sendDocument</code>, chatId 8489979671, \"outbound send ok\")</li>",
-          "<li>Jonas then ran a post-send self-chec...",
-          "[13:30 IST] RAM: Any stable versions of OpenClaw update we can install? Only discuss",
-          "[13:33 IST] HADERACH: Discussion only, as requested \u2014 nothing installed.",
-          "<b>Current state (per memory):</b> Both M4 and M2 fleets are on <b>v2026.6.11</b>, held there since mid-July after the #107220 crash-loop bug (legacy `.dreams`/memory-sidecar migration) forced a HOLD.",
-          "<b>What npm shows right now:</b>",
-          "<ul>",
           "<li><code>latest</code> tag = <b>2026.7.1-2</b> (published 18 Jul \u2014 this is the patched build that fixed #107220)</li>",
           "<li><code>beta</code> tag = 2026.7.2-beta.3 \u2014 beta only, not a candidate</li>",
           "</ul>",
@@ -1548,7 +1537,18 @@
           "<li>Process state: <code>running</code>, same pid (84063), no restarts</li>",
           "<li><code>pdfinfo</code> against the real file just now: works fine, returns full metadata</li>",
           "<li>The <code>_v2</code> file Jonas keeps checking for: still doesn't exist \u2014 never did</li>",
-          "<li>Log tail since the incident: no further \"tools down\" or file-not-found chatter; just routine noise (unrelate..."
+          "<li>Log tail since the incident: no further \"tools down\" or file-not-found chatter; just routine noise (unrelate...",
+          "[14:13 IST] RAM: Draft a note. I will DM it",
+          "[14:13 IST] HADERACH: Here's a draft, Ram \u2014 plain text, ready to paste into a DM:",
+          "---",
+          "<b>Jonas / CA SMEDA I \u2014 \"tools down\" false alarm, root cause found</b>",
+          "Checked directly on M2 (gateway health, process state, PATH, poppler/pdfinfo, disk, memory) \u2014 everything is fine. There is no tools outage, no PATH issue, no sandbox/infra problem.",
+          "What actually happened: Jonas generated and sent the ENBD Data Package PDF successfully (confirmed server-side: <code>sendDocument</code> delivered to Ram at 12:03:55 IST). Its ...",
+          "[14:13 IST] HADERACH: Here's a draft, Ram \u2014 plain text, ready to paste into a DM:",
+          "---",
+          "<b>Jonas / CA SMEDA I \u2014 \"tools down\" false alarm, root cause found</b>",
+          "Checked directly on M2 (gateway health, process state, PATH, poppler/pdfinfo, disk, memory) \u2014 everything is fine. There is no tools outage, no PATH issue, no sandbox/infra problem.",
+          "What actually happened: Jonas generated and sent the ENBD Data Package PDF successfully (confirmed server-side: <code>sendDocument</code> delivered to Ram at 12:03:55 IST). Its ..."
         ],
         "yesterday": [
           "[20:10 IST] RAM: How does your status swell up so quickly?",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 90810,
       "rss_gb": 0.52,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1784622912017,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1784623807404,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1784622006994,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1784622912017,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2354,8 +2354,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 60450,
-      "rss_gb": 0.46,
-      "cpu": 0.4,
+      "rss_gb": 0.45,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3601,7 +3601,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3780,7 +3780,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3810,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4211,7 +4211,7 @@
       "frozen_reason": null,
       "pid": 91175,
       "rss_gb": 0.42,
-      "cpu": 1.0,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
