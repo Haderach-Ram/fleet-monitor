@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-21 23:15:05 IST",
-  "generated_epoch": 1784655905,
+  "generated_ist": "2026-07-21 23:20:32 IST",
+  "generated_epoch": 1784656232,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.51 / 2.53 / 2.49",
+    "load": "29.80 / 12.44 / 6.43",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 0.97,
-      "cpu": 1.0,
+      "rss_gb": 1.07,
+      "cpu": 73.5,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,15 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784656136406,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -737,15 +746,6 @@
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1784655217587,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784654327846,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -1509,11 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "I pulled the actual session transcript...",
-          "[22:11 IST] HADERACH: Dug into Purl's live cron store and session logs directly, Ram. Full picture below.",
-          "<b>The recurring issue \u2014 root cause identified</b>",
-          "Purl's \"Klub K Transcript Logger (60 min)\" cron has failed intermittently since at least late June \u2014 1 error tonight (21:00 IST), and a scattered history before it (18 Jul, 17 Jul, 14 Jul, 11 Jul, 10 Jul, and a cluster in late June). The error is always some variant of <b>\"\u26a0\ufe0f \u2709\ufe0f Message failed\"</b> or \"\u26a0\ufe0f Cron failed.\"",
-          "I pulled the actual session transcript...",
           "[22:46 IST] RAM: Ok",
           "[22:47 IST] HADERACH: Right \u2014 here's the fix, ready to hand to Giskard.",
           "<b>What to change:</b> Purl's cron `12066aca-3911-4de4-910b-4ff601244b93` (\"Klub K Transcript Logger, 60 min, 06:00-21:00\"), and its quiet-hours twin `4b8da4aa` (same pattern, hasn't tripped yet but carries the same risk).",
@@ -1548,7 +1543,12 @@
           "- **rolling-7day.md:** Updated \u2014 Jul 15\u201321 (8 entries, Jul 14 pruned)",
           "- **rolling-28day.md:** Jul 21 appended \u2014 28 kept sections + today",
           "- **rolling-180day.md:** Jul 21 appended \u2014 59 sections retained, 0 pruned",
-          "- **Tag index:** Rebuilt \u2014 65 days, 2..."
+          "- **Tag index:** Rebuilt \u2014 65 days, 2...",
+          "[23:11 IST] RAM: Send me just the message I can paste to G",
+          "[23:11 IST] HADERACH: Giskard \u2014 small cron prompt fix for Purl, root-caused via live cron store + session log inspection:",
+          "Purl's \"Klub K Transcript Logger (60 min, 06:00-21:00)\" (job id 12066aca-3911-4de4-910b-4ff601244b93) intermittently logs \"Message failed\" errors. Root cause: the payload prompt ends \"...When done, reply with exactly: HEARTBEAT_OK\" \u2014 on x-ai/grok-4.3 this occasionally gets interpreted as \"use the message tool to send HEARTBEAT_OK\" instead of a plain text reply, and that tool call fails (no tar...",
+          "[23:12 IST] HADERACH: Giskard \u2014 small cron prompt fix for Purl, root-caused via live cron store + session log inspection:",
+          "Purl's \"Klub K Transcript Logger (60 min, 06:00-21:00)\" (job id 12066aca-3911-4de4-910b-4ff601244b93) intermittently logs \"Message failed\" errors. Root cause: the payload prompt ends \"...When done, reply with exactly: HEARTBEAT_OK\" \u2014 on x-ai/grok-4.3 this occasionally gets interpreted as \"use the message tool to send HEARTBEAT_OK\" instead of a plain text reply, and that tool call fails (no tar..."
         ],
         "yesterday": [
           "[20:10 IST] RAM: How does your status swell up so quickly?",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90810,
-      "rss_gb": 0.53,
-      "cpu": 0.7,
+      "rss_gb": 0.5,
+      "cpu": 1.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2357,7 +2357,7 @@
       "frozen_reason": null,
       "pid": 60450,
       "rss_gb": 0.53,
-      "cpu": 2.1,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2730,8 +2730,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91319,
-      "rss_gb": 0.54,
-      "cpu": 1.1,
+      "rss_gb": 0.53,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3608,7 +3608,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.27,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3787,7 +3787,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.21,
-      "cpu": 0.9,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3817,7 +3817,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.2,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
