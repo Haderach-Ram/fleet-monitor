@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-21 17:47:58 IST",
-  "generated_epoch": 1784636278,
+  "generated_ist": "2026-07-21 17:53:04 IST",
+  "generated_epoch": 1784636584,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.73 / 2.69 / 2.66",
+    "load": "2.19 / 2.50 / 2.57",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 1.06,
-      "cpu": 0.6,
+      "rss_gb": 0.95,
+      "cpu": 0.7,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,37 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784636430267,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784635982177,
+          "last_ts": 1784636430267,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784636430265,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784636327529,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -676,33 +703,6 @@
           "last_ts": 1784635982177,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784635982176,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784635982176,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784634535459,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,16 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:13 IST] HADERACH: Here's a draft, Ram \u2014 plain text, ready to paste into a DM:",
-          "---",
-          "<b>Jonas / CA SMEDA I \u2014 \"tools down\" false alarm, root cause found</b>",
-          "Checked directly on M2 (gateway health, process state, PATH, poppler/pdfinfo, disk, memory) \u2014 everything is fine. There is no tools outage, no PATH issue, no sandbox/infra problem.",
-          "What actually happened: Jonas generated and sent the ENBD Data Package PDF successfully (confirmed server-side: <code>sendDocument</code> delivered to Ram at 12:03:55 IST). Its ...",
-          "[14:25 IST] RAM: CA SMEDA I/Jonas on M2. Pls SSH in and diagnose",
-          "[14:25 IST] HADERACH: This is a different, more specific claim than before \u2014 Jonas is now describing `ls` failing consistently while `echo`/`cat`/`python3` succeed, which is a real technical signature, not the same \"_v2 filename\" mistake. Let me actually reproduce this on M2 rather than assume it's another false alarm.",
-          "[14:28 IST] HADERACH: Checked again, live \u2014 same conclusion: nothing is actually down on the infra side, and I now have direct evidence Jonas's new \"ls fails, cat/echo/python3 work\" narrative is also mistaken, not a real bug.",
-          "<b>What I verified directly on M2 just now:</b>",
-          "<ul>",
           "<li>Gateway health: <code>{\"ok\":true,\"status\":\"live\"}</code>, process running, same pid, no crashes</li>",
           "<li>Ran the exact command types Jonas claims are failing \u2014 <code>ls -la</code> on the ENBD folder, <code>ls -la</code> on a path with ...",
           "[14:28 IST] HADERACH: Checked again, live \u2014 same conclusion: nothing is actually down on the infra side, and I now have direct evidence Jonas's new \"ls fails, cat/echo/python3 work\" narrative is also mistaken, not a real bug.",
@@ -1548,7 +1538,17 @@
           "</ul>",
           "Sam is frozen \u2014 gateway stopped, no crons running. Say the word when you want it unfrozen again.",
           "[17:37 IST] RAM: There is a mail on haderach@sammaancapital.com from Gyanendra Singh. Pls dig that up and tell me about his company. Also download the presentaiton, but don't go through it yet",
-          "[17:39 IST] HADERACH: Found it via the SCM mail archive \u2014 much faster than re-scanning the mailbox. Let me read both matches."
+          "[17:39 IST] HADERACH: Found it via the SCM mail archive \u2014 much faster than re-scanning the mailbox. Let me read both matches.",
+          "[17:40 IST] HADERACH: The attachment is already archived. Let me copy it to the standard Output folder and quickly research Cognifin's company profile.",
+          "[17:40 IST] HADERACH: Good, I have enough to summarize. Let me put this together for Ram.",
+          "[17:41 IST] HADERACH: Just replying with the media directive this time since the message was already sent as text (send call failed entirely, so nothing went out). I'll resend with the workspace path.",
+          "[17:41 IST] HADERACH: Cognifin_Agentic_AI_Playbook.pdf",
+          "[17:41 IST] HADERACH: Sent, Ram \u2014 the writeup and the PDF should both be in your Telegram now. Let me know when you'd like me to actually go through the playbook.",
+          "[17:41 IST] HADERACH: Sent, Ram \u2014 the writeup and the PDF should both be in your Telegram now. Let me know when you'd like me to actually go through the playbook.",
+          "[17:44 IST] RAM: https://cognifin.tech is the website",
+          "[17:44 IST] HADERACH: Noted, Ram \u2014 that matches what I found and used for the summary. Just say the word when you want me to go through the playbook itself.",
+          "[17:44 IST] HADERACH: Noted, Ram \u2014 that matches what I found and used for the summary. Just say the word when you want me to go through the playbook itself.",
+          "[17:45 IST] RAM: Yeah, review the playbook, and give me your views. Any of this we can independently build ourselves?"
         ],
         "yesterday": [
           "[20:10 IST] RAM: How does your status swell up so quickly?",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90810,
-      "rss_gb": 0.46,
-      "cpu": 0.6,
+      "rss_gb": 0.47,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1784634607755,
+          "last_ts": 1784636408867,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -2729,7 +2729,7 @@
       "frozen_reason": null,
       "pid": 91319,
       "rss_gb": 0.51,
-      "cpu": 0.7,
+      "cpu": 0.9,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3605,7 +3605,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3784,7 +3784,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.21,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
