@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 23:51:10 IST",
-  "generated_epoch": 1784830870,
+  "generated_ist": "2026-07-23 23:56:16 IST",
+  "generated_epoch": 1784831176,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.76 / 2.59 / 2.44",
+    "load": "2.15 / 2.28 / 2.33",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 34532,
-      "rss_gb": 0.67,
-      "cpu": 2.8,
+      "rss_gb": 0.73,
+      "cpu": 6.7,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784830822825,
+          "sched": "0 */4 * * *",
+          "last_ts": 1784830988308,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784830822824,
+          "last_ts": 1784830960695,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784830822825,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -800,15 +809,6 @@
           "enabled": true,
           "sched": "30 8 * * *",
           "last_ts": 1784819917092,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1784817240921,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,8 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[23:32 IST] HADERACH: Let me check the required schema fields first.",
-          "[23:32 IST] HADERACH: The gate wants the full pairing context. Let me include sessionTarget + payload.kind explicitly in the patch.",
           "[23:32 IST] HADERACH: That worked. Now I need to fix the remaining ~30 Haiku-pinned crons the same way. Let me get the full list and their schedules/payloads first, then batch-patch.",
           "[23:33 IST] HADERACH: Now let's write a script that reads this and calls the cron patch API for each. Since I can't call cron tool from exec, I'll generate the patch calls programmatically but need to invoke them via the actual tool. Let me first inspect the data to build correct patches.",
           "[23:33 IST] HADERACH: Now I have full data for all 32 remaining jobs. I'll patch each one with the correct schedule + payload including the dated model ID. Let me do these in batches of tool calls.",
@@ -1548,7 +1546,9 @@
           "S \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
           "C \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
           "X \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "I'll hold off on the Haiku catalog verification until you pick one \u2014 shouldn't take more than a moment, and then I'll check whether Giskard's fix actually resolved the crons to Haiku."
+          "I'll hold off on the Haiku catalog verification until you pick one \u2014 shouldn't take more than a moment, and then I'll check whether Giskard's fix actually resolved the crons to Haiku.",
+          "[23:48 IST] RAM: C",
+          "[23:52 IST] HADERACH: Good \u2014 the catalog entry is now present. Let me force-run a couple of the Haiku-pinned crons to confirm they actually resolve to Haiku now."
         ],
         "yesterday": [
           "<li>ClarkKent \u2014 news fetcher</li>",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.67,
-      "cpu": 31.1,
+      "rss_gb": 0.53,
+      "cpu": 1.2,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1998,7 +1998,7 @@
       "frozen_reason": null,
       "pid": 81940,
       "rss_gb": 0.66,
-      "cpu": 1.0,
+      "cpu": 1.5,
       "crons_total": 29,
       "crons_enabled": 28,
       "skills_count": 1,
@@ -2446,8 +2446,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88155,
-      "rss_gb": 0.42,
-      "cpu": 0.4,
+      "rss_gb": 0.53,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3691,7 +3691,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
