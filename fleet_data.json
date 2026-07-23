@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 23:56:16 IST",
-  "generated_epoch": 1784831176,
+  "generated_ist": "2026-07-24 00:01:22 IST",
+  "generated_epoch": 1784831482,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.15 / 2.28 / 2.33",
+    "load": "2.73 / 2.39 / 2.33",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 34532,
-      "rss_gb": 0.73,
-      "cpu": 6.7,
+      "rss_gb": 0.78,
+      "cpu": 1.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.53,
-      "cpu": 1.2,
+      "rss_gb": 0.61,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1714,6 +1714,24 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1784831423225,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1784831423224,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-watchdog-23",
           "enabled": true,
@@ -1755,24 +1773,6 @@
           "enabled": true,
           "sched": "5 0 * * *",
           "last_ts": 1784823426754,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1784823399731,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1784823392085,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1834,6 +1834,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-07-24",
+          "# Self-healing rotation from transcript-2026-07-23.md at 00:00 IST"
+        ],
+        "yesterday": [
           "[20:55 IST] [DM] Giskard: Here's the draft \u2014 plain text, ready to paste:",
           "---",
           "**Haderach \u2014 status update on the Haiku migration investigation.**",
@@ -1874,31 +1878,6 @@
           "[21:42 IST] [DM] Giskard: HEARTBEAT_OK",
           "[21:45 IST] [DM] Giskard: All 4 remaining jobs already carry the versioned string (correct for my catalog) \u2014 Haderach only added fallback arrays, didn't touch the primary model. Since my catalog already matches, these may already be fine, but per Ram's explicit \"verify first\" instruction, I need to force-run each and check the log, not trust stale \"ok\" timestamps.",
           "[21:46 IST] [DM] Giskard: All 4 enqueued simultaneously \u2014 waiting for completion, then checking each against the actual log for clean primary-model resolution (no fallback, no Unknown model)."
-        ],
-        "yesterday": [
-          "# Transcript - 2026-07-22",
-          "# Self-healing rotation from transcript-2026-07-21.md at 00:00 IST",
-          "[22:57 IST] [DM] Giskard: I have Purl's gateway token. Let me use the `cron` tool pointed at Purl's gateway to inspect the two jobs before making any changes.",
-          "[22:57 IST] [DM] Giskard: The cron tool is locked to my own port. Editing Purl's SQLite directly would risk being overwritten by its live in-memory cron state. The correct path is to have Purl apply the fix via its own cron tool (its gateway on 18792 is the \"own loopback\" for its session).",
-          "[22:58 IST] [DM] Giskard: I inspected Purl's cron store directly before touching anything (per protocol). Findings:",
-          "**Job `12066aca...` (60-min, 06:00\u201321:00) \u2014 \"Klub K Transcript Logger\":**",
-          "Payload does end with:",
-          "> \"...When done, reply with exactly: HEARTBEAT_OK\"",
-          "This matches the diagnosis in the message \u2014 that sentinel phrasing can get misinterpreted by the model as a tool-call instruction rather than plain text, causing the \"Message failed\" cron error.",
-          "**Job `4b8da4aa...` (3h quiet, 00:00\u201306:00) \u2014 same logger, quiet",
-          "[22:59 IST] [DM] Giskard: I inspected Purl's cron store directly before touching anything (per protocol). Findings:",
-          "**Job `12066aca...` (60-min, 06:00\u201321:00) \u2014 \"Klub K Transcript Logger\":**",
-          "Payload does end with:",
-          "> \"...When done, reply with exactly: HEARTBEAT_OK\"",
-          "This matches the diagnosis in the message \u2014 that sentinel phrasing can get misinterpreted by the model as a tool-call instruction rather than plain text, causing the \"Message failed\" cron error.",
-          "**Job `4b8da4aa...` (3h quiet, 00:00\u201306:00) \u2014 same logger, quiet",
-          "[23:13 IST] [DM] Giskard: Now applying the fix via targeted Python (not raw SQL string surgery, to keep job_json and payload_message column consistent):",
-          "[23:14 IST] [DM] Giskard: Let me check whether Purl's cron engine reads live from disk each tick or caches jobs in memory \u2014 this determines whether the running process needs a reload signal to pick up the sqlite edit.",
-          "[23:15 IST] [DM] Giskard: No active BWS 429 stress on Purl's logs. The cron store edit is applied and verified in SQLite. Since Purl's cron scheduler likely holds jobs in-memory (loaded at startup) rather than re-reading SQLite on every tick, the running process needs a reload to pick up the new payload text. Checking for a safe reload path.",
-          "[23:15 IST] [DM] Giskard: Fix applied. Backup created, job `12066aca...` payload verified fixed in Purl's live SQLite cron store, job `4b8da4aa...` confirmed untouched (correctly, since it never had the bug).",
-          "**One deviation worth flagging:** your instruction said \"apply via cron update\" \u2014 but the `cron` tool is hard-locked to my own gateway (18791 loopback only); it rejected any `gatewayUrl` override toward Purl's 18792. So I couldn't use the cron tool's `update` action against Purl directly. Instead I edited Purl's `o",
-          "[23:15 IST] [DM] Giskard: Fix applied. Backup created, job `12066aca...` payload verified fixed in Purl's live SQLite cron store, job `4b8da4aa...` confirmed untouched (correctly, since it never had the bug).",
-          "**One deviation worth flagging:** your instruction said \"apply via cron update\" \u2014 but the `cron` tool is hard-locked to my own gateway (18791 loopback only); it rejected any `gatewayUrl` override toward Purl's 18792. So I couldn't use the cron tool's `update` action against Purl directly. Instead I edited Purl's `o"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-06-15 \u2014 no new content] ---",
@@ -1998,7 +1977,7 @@
       "frozen_reason": null,
       "pid": 81940,
       "rss_gb": 0.66,
-      "cpu": 1.5,
+      "cpu": 0.4,
       "crons_total": 29,
       "crons_enabled": 28,
       "skills_count": 1,
@@ -2446,8 +2425,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88155,
-      "rss_gb": 0.53,
-      "cpu": 0.7,
+      "rss_gb": 0.44,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3690,8 +3669,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.29,
-      "cpu": 0.6,
+      "rss_gb": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3866,7 +3845,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
