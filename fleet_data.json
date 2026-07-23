@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 09:56:33 IST",
-  "generated_epoch": 1784780793,
+  "generated_ist": "2026-07-23 10:01:40 IST",
+  "generated_epoch": 1784781100,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.23 / 2.34 / 2.47",
+    "load": "2.68 / 2.41 / 2.45",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 0.92,
+      "rss_gb": 0.95,
       "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 61,
@@ -1509,9 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u23f8 Kubera [18798] \u2014 frozen 2026-06-29 \u2014 Intentionally frozen \u2014 portfo...",
-          "[06:22 IST] HADERACH: I'll dig into both flagged errors live rather than guess. Let me check the actual cron jobs and relevant files.",
-          "[06:24 IST] HADERACH: Dug into both live \u2014 here's what actually happened, not just the surface error text.",
           "<b>\ud83d\udd34 Issue 1 \u2014 HAD-003 Reading cron (Haderach, 02:00 IST): \"Process: mild-otter failed\"</b>",
           "This is a false alarm, not a real task failure. Walked the full session transcript:",
           "<ul>",
@@ -1548,7 +1545,10 @@
           "[08:50 IST] HADERACH: Posted, Ram \u2014 confirmed live at 08:50 IST as @HaderachRam:",
           "\"IronClaw is on fire \u2014 15 new issues in a day while the rest of the ecosystem idles. Something's brewing. Full radar: https://github.com/Haderach-Ram/openclaw-radar/issues/87 #openclaw #AI\"",
           "## 09:30 IST \u2014 Heartbeat: OK (no action required \u2014 all checks passed)",
-          "--- [TRANSCRIPT GAP: 09:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 09:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[09:53 IST] RAM: Unfreeze Kubera pls",
+          "[09:54 IST] HADERACH: Kubera is unfrozen, Ram \u2014 verified live: launchctl shows `state = running`, and port 18798 health check returns HTTP 200.",
+          "[09:54 IST] HADERACH: Kubera is unfrozen, Ram \u2014 verified live: launchctl shows `state = running`, and port 18798 health check returns HTTP 200."
         ],
         "yesterday": [
           "<li>ClarkKent \u2014 news fetcher</li>",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90810,
-      "rss_gb": 0.49,
-      "cpu": 0.9,
+      "rss_gb": 0.5,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1966,8 +1966,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 79956,
-      "rss_gb": 0.55,
-      "cpu": 11.5,
+      "rss_gb": 0.61,
+      "cpu": 30.1,
       "crons_total": 23,
       "crons_enabled": 22,
       "skills_count": 1,
@@ -1991,6 +1991,60 @@
       ],
       "crons": [
         {
+          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
+          "enabled": true,
+          "sched": "0 9-15 * * 1-5",
+          "last_ts": 1784780847850,
+          "last_status": "ok",
+          "model": "openrouter/anthropic/claude-haiku-4.5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)",
+          "enabled": true,
+          "sched": "0 16 * * 1-5",
+          "last_ts": 1784780847850,
+          "last_status": "ok",
+          "model": "openrouter/anthropic/claude-haiku-4.5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
+          "enabled": true,
+          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
+          "last_ts": 1784780847850,
+          "last_status": "ok",
+          "model": "openrouter/anthropic/claude-haiku-4.5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "EOD Knowledge Consolidation",
+          "enabled": true,
+          "sched": "15 16 * * 1-5",
+          "last_ts": 1784780847849,
+          "last_status": "error",
+          "model": "openrouter/anthropic/claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 End of Day P&L Summary (Mon-Fri 15:35)",
+          "enabled": true,
+          "sched": "35 15 * * 1-5",
+          "last_ts": 1784780847849,
+          "last_status": "ok",
+          "model": "openrouter/anthropic/claude-haiku-4.5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
+          "enabled": true,
+          "sched": "*/15 8-15 * * 1-5",
+          "last_ts": 1784780796772,
+          "last_status": "ok",
+          "model": "openrouter/anthropic/claude-haiku-4.5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kubera \u2014 Transcript Logger (10 min, 06:00-18:00)",
           "enabled": true,
           "sched": "*/10 6-18 * * *",
@@ -2000,37 +2054,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 15min Portfolio Update (trading hours)",
-          "enabled": true,
-          "sched": "0 9-15 * * 1-5",
-          "last_ts": 1784705497829,
-          "last_status": "ok",
-          "model": "openrouter/anthropic/claude-haiku-4.5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
-          "enabled": true,
-          "sched": "0,30 9,10,11,12,13,14,15 * * 1-5",
-          "last_ts": 1784705497828,
-          "last_status": "ok",
-          "model": "openrouter/anthropic/claude-haiku-4.5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "kubera-consolidation-13",
           "enabled": true,
           "sched": "0 13 * * *",
           "last_ts": 1784705497828,
-          "last_status": "ok",
-          "model": "openrouter/anthropic/claude-haiku-4.5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 Twitter Watcher (Trading Hours)",
-          "enabled": true,
-          "sched": "*/15 8-15 * * 1-5",
-          "last_ts": 1784705497827,
           "last_status": "ok",
           "model": "openrouter/anthropic/claude-haiku-4.5",
           "kind": "agentTurn"
@@ -2117,27 +2144,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kubera \u2014 EOD Trade Log Capture (Mon-Fri 16:00)",
-          "enabled": true,
-          "sched": "0 16 * * 1-5",
-          "last_ts": 1784693933932,
-          "last_status": "ok",
-          "model": "openrouter/anthropic/claude-haiku-4.5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Kubera \u2014 EOD Portfolio Log (16:15 IST)",
           "enabled": true,
           "sched": "15 16 * * 1-5",
-          "last_ts": 1784693933931,
-          "last_status": "ok",
-          "model": "openrouter/anthropic/claude-haiku-4.5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 End of Day P&L Summary (Mon-Fri 15:35)",
-          "enabled": true,
-          "sched": "35 15 * * 1-5",
           "last_ts": 1784693933931,
           "last_status": "ok",
           "model": "openrouter/anthropic/claude-haiku-4.5",
@@ -2159,15 +2168,6 @@
           "last_ts": 1784693933930,
           "last_status": "error",
           "model": "openrouter/anthropic/claude-haiku-4.5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "EOD Knowledge Consolidation",
-          "enabled": true,
-          "sched": "15 16 * * 1-5",
-          "last_ts": 1784693933927,
-          "last_status": "error",
-          "model": "openrouter/anthropic/claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -2200,46 +2200,46 @@
       ],
       "transcripts": {
         "recent": [
-          "- Nifty 50: 24,021 (stable, -0.85% intraday)",
-          "- VIX: ~12.95 (benign)",
-          "- Crude (MCX Nov 2026): \u20b97,865 (holding +7.02% baseline from 21 Jul overnight spike \u2014 NO NE",
-          "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: I'll execute the consolidation workflow. Let me start by finding today's transcript file and the last memory write bookmark.",
-          "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: Now let me read today's transcript from the last MEMORY_WRITE bookmark:",
-          "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: Let me read the last portion of today's transcript to find the [MEMORY_WRITE] bookmark:",
-          "[13:00 IST] KUBERA [Cron: kubera-consolidation-13]: Now I'll write today's daily log and consolidate all the key actions from the transcript:",
-          "[13:01 IST] KUBERA [Cron: kubera-consolidation-13]: Now I'll append the memory write bookmark to the transcript:",
-          "[13:01 IST] KUBERA [Cron: kubera-consolidation-13]: Consolidation complete.",
-          "**\u2705 WORKFLOW EXECUTED:**",
-          "- **Read today's transcript** (22 Jul 2026): 09:45 IST rotation \u2192 13:00 IST freeze. No [MEMORY_WRITE] bookmark existed, so consolidated from full day.",
-          "- **Wrote daily log** (2026-07-22.md): 9-point narrative covering morning market scan, infrastructure fix (place_order.py NFO blocker RESOLVED), Bull Call Spread deployment (both legs executed 10:18 IST), portfolio status (-2.0% to -2.4%, 12\u201313% buffer safe), data diagnostics (Martin VIX/MCX schem",
-          "[13:01 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: I'll run the portfolio refresh and Pot 2 snapshot. First, let me check if today is an NSE holiday.",
-          "Today is **July 22, 2026** \u2014 not on the NSE holiday list. Proceeding.",
-          "[13:01 IST] KUBERA [Cron: Kubera \u2014 Portfolio Refresh (30min, market hours)]: \u26a0\ufe0f Step 1 (update_portfolio.py) failed \u2014 Angel One login returned empty response. SmartAPI authentication failing.",
-          "**Step 2 output:**",
-          "```",
-          "\ud83d\udcca 13:01 IST | Nifty 23,992.40 | VIX 13.06 \u2705",
-          "Pot1: \u20b9843,288 / \u20b9859,135 (-1.8%)",
-          "  \u25bc NIFTY28JUL2624000CE: qty=-195 avg=CF ltp=\u20b9146.30 | +5,002",
-          "  \u25b2 NIFTY28JUL2624200CE: qty=+195 avg=\u20b979.70 ltp=\u20b969.50 | -1,989",
-          "  \u25bc ITC25AUG26290CE: qty=-1725 avg=CF ltp=\u20b94.90 | +6,590",
-          "Pot2: +9,602",
-          "Cash: \u20b9842,705",
-          "TOTAL: \u20b91,695,595 / \u20b91,567,385 (+8.2%)",
-          "```",
-          "[13:01 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll run the 15-min portfolio update cron for trading hours.",
-          "**Step 1: Check for NSE holidays**",
-          "Today is Wednesday, July 22nd, 2026. This date is NOT on the NSE 2026 holiday list. Proceeding.",
-          "**Step 2: Fetch live portfolio snapshot**",
-          "[13:01 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 3: Compose and send update**",
-          "[13:01 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Update sent.** Portfolio +8.2% vs net capital. All systems nominal. Next 15-min check in ~15 minutes.",
-          "[09:54 IST] RAM: You were frozen overnight. Pull all your data and run your models pls",
-          "[09:54 IST] KUBERA: I'll start my session wake-up protocol immediately.",
-          "[09:54 IST] KUBERA: Now let me read the recent transcript and run the full model suite:",
-          "[09:55 IST] KUBERA: Excellent. Let me now pull the live portfolio state and run my full model suite:",
-          "[09:55 IST] KUBERA: Good! Now let me get live portfolio and compile full analysis. Let me also check what investment opportunities we have:",
-          "[09:55 IST] KUBERA: Now let me read the fresh portfolio and run comprehensive analysis:",
-          "[09:55 IST] KUBERA: Perfect. Now let me compile a comprehensive morning report with all analysis and opportunities:",
-          "[09:55 IST] KUBERA: Perfect. Now let me send this to Ram via Telegram:"
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: I'll run the 15-min portfolio update cron.",
+          "**Step 0 \u2014 Holiday check:** July 23, 2026 is not a listed NSE holiday. Proceeding.",
+          "**Step 1 \u2014 Fetch live snapshot:**",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Step 2 \u2014 Feed status:** \u2705 Live feed OK (no staleness warning). Nifty 23,933.35 at 09:57 IST, VIX 13.16.",
+          "**Step 3 \u2014 Compose message:**",
+          "Drawdown is -19.5% vs net capital (\u20b91,261,235 actual / \u20b91,567,385 denominator). This is notable but informational only per Ram's instruction (6 Jul 2026 removal of hard-stop rule). I will note it plainly without escalation language.",
+          "**Step 4 \u2014 Send to Telegram:**",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 15min Portfolio Update (trading hours)]: **Done.** Live snapshot sent to Telegram. VIX 13.16 (green zone for Pot 2). Nifty stable at 23,933. Pot 2 solidly green (+12,915). Portfolio tracking at -19.5% drawdown.",
+          "[09:57 IST] RAM: [OpenClaw heartbeat poll]",
+          "[09:57 IST] KUBERA: HEARTBEAT_OK",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: I'll run the Twitter Watcher off-hours analysis. Let me start by checking market status and then fetching current market data and news.",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Market is open this morning. Let me fetch current global cues and portfolio context, then check for urgent moves.",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Web search is unavailable. Let me try fetching news from financial websites directly.",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Fetches are returning wrapped content. Let me check memory files to understand recent context, then write the analysis to research-inbox.",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good context. Now let me check the latest transcript file for any recent updates:",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Let me continue reading the transcript to get the latest status:",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Good. Now let me write to research-inbox with the off-hours analysis. Given that:",
+          "- Web search is disabled",
+          "- Web fetch is returning wrapped content only",
+          "- It's 09:57 IST (market is OPEN, trading hours)",
+          "- Last portfolio check: 09:55 IST (very fresh)",
+          "- No urgent-macro moves detected in the heartbeat state",
+          "- VIX: 13.21 (benign)",
+          "- Nifty: 23,926.45 (stable from 22 Jul close)",
+          "Let me write the off-hours findings:",
+          "[09:57 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Now I'll append today's off-hours analysis:",
+          "[09:58 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Now update the heartbeat state to reflect this off-hours run:",
+          "[09:58 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Perfect. Let me verify the research-inbox was appended correctly:",
+          "[09:58 IST] KUBERA [Cron: Kubera \u2014 Twitter Watcher (Off Hours)]: Excellent. The off-hours sweep has been completed and logged. Let me confirm the final status:",
+          "---",
+          "## \u2705 **OFF-HOURS TWITTER WATCHER RUN COMPLETE**",
+          "**Time:** Thursday, 23 Jul 2026 \u2014 09:57 IST  ",
+          "**Session:** Off-hours market sweep (overnight + pre-market)  ",
+          "**Status:** **SILENT MONITORING \u2014 No urgent-macro triggers detected**",
+          "### **Monitoring Results:**",
+          "| Check | Result | Verdict |",
+          "|-------|--------|---------|",
+          "| **Crude Oil** | +7.02% baseline hold (\u20b97,865) \u2014 no overnight spike | \u2705 Pass |",
+          "| *",
+          "[09:58 IST] RAM: You are sending similar messages multiple times. What are your recommendations? Any investment proposals?"
         ],
         "yesterday": [
           "### **Root Cause (Verified by Haderach)**",
@@ -2292,12 +2292,6 @@
           "---",
           "--- Midnight run OK 2026-07-10 ---",
           "--- Midnight run OK 2026-07-14 ---",
-          "## 2026-07-15 \u2014 Hormuz toll regime, market absorbed",
-          "- (08:42 IST) Trump Hormuz blockade briefing, Iran thesis downgrade, portfolio monitoring initiated",
-          "- (12:30\u201314:30 IST) Intra-session checkpoints SILENT, all gates PASSING, COALINDIA -4.1% resilient",
-          "- (14:30 IST) EOD checkpoint: portfolio -1.4%, Pot 2 +\u20b98.6k, standing escalation through EOD",
-          "---",
-          "--- Midnight run OK 2026-07-16 ---",
           "## 2026-07-20 \u2014 Evening consolidation \u2014 portfolio stable, macro contained",
           "- (16:15 IST) Portfolio \u20b91,087,801 (-3.2%); safety buffer 13.9% \u2705",
           "- (16:15 IST) VIX 13.10 (benign); Hormuz blockade stable; all macro gates PASS",
@@ -2314,10 +2308,17 @@
           "- (09:43\u201310:01 IST) API debugging: scripconsent field corruption fixed",
           "- Pot 2 closed; margin 2.0%; no new exposure; VIX 12.80",
           "---",
-          "--- Midnight run OK 2026-07-22 ---"
+          "--- Midnight run OK 2026-07-22 ---",
+          "## 2026-07-22 \u2014 Spread deployment & infrastructure fix",
+          "- (10:02 IST) place_order.py critical blocker resolved: symboltoken, lot units, NFO product type, symbol format all fixed",
+          "- (10:18 IST) Bull Call Spread 28JUL 24000CE SHORT / 24200CE LONG 195 units active, +\u20b915k premium collected",
+          "- Pot 1 -2.0-2.4% vs invested (safe); VIX 12.95 open gate; crude baseline stable; Iran escalation filter SKIP",
+          "- All Twitter Watcher runs silent 09:44-12:45 IST (12 cycles), no escalation detected",
+          "- Portfolio YTD +5.7-8.0%, position P&L tracking +\u20b91.5-2k on spread, legacy ITC -\u20b97.6k",
+          "---",
+          "--- Midnight run OK 2026-07-23 ---"
         ],
         "rolling_28day": [
-          "## 2026-06-24 \u2014 Final weekly expiry, all gates clear, +6.9% YTD",
           "## 2026-06-25 \u2014 Friday - Weekly Expiry",
           "## 2026-06-26 \u2014 Market closed (Muharram) \u2014 Crude thesis operationalized",
           "## 2026-06-27 \u2014 Saturday weekend consolidation",
@@ -2337,7 +2338,15 @@
           "- (09:43\u201310:01 IST) API debugging: scripconsent field corruption fixed",
           "- Pot 2 closed; margin 2.0%; no new exposure; VIX 12.80",
           "---",
-          "--- Midnight run OK 2026-07-22 ---"
+          "--- Midnight run OK 2026-07-22 ---",
+          "## 2026-07-22 \u2014 Bull Call Spread deployed, Pot 1 stable",
+          "- (10:18 IST) Infrastructure fix RESOLVED: Bull Call Spread 28JUL NIFTY 24000CE/24200CE executed successfully (2 legs, Order IDs 260722000253318 & 260722000253819)",
+          "- Premium collected \u20b915,005 (margin ~\u20b93.5-4.5k, P&L tracking +\u20b91.5-2.3k intraday)",
+          "- Pot 1 portfolio -2.0% to -2.4% vs invested (safe, 12-13% buffer to -15% red-line)",
+          "- Market scan: Nifty 24,000.15 within profit zone, VIX 12.95 benign, all models BULL regime eligible",
+          "- Martin API data gap confirmed by infrastructure scan (VIX/MCX schema never ingested; workarounds active)",
+          "---",
+          "--- Midnight run OK 2026-07-23 ---"
         ]
       }
     },
@@ -2352,8 +2361,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88155,
-      "rss_gb": 0.48,
-      "cpu": 1.8,
+      "rss_gb": 0.43,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2507,10 +2516,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1784781013284,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1784779205090,
+          "last_ts": 1784781013284,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2531,15 +2549,6 @@
           "last_ts": 1784777647861,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1784777413179,
-          "last_status": "ok",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -2572,14 +2581,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Transcript:** Rotated to `transcript-2026-07-23.md` (new day)",
-          "- **No urgent items**",
-          "**HEARTBEAT_OK**",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[07:55 IST] PURL: **\ud83e\uddf6 HEARTBEAT CHECK \u2014 07:55 IST, Thursday 23 July 2026**",
-          "- **Context:** 29% \u2014 healthy \u2713",
-          "- **Session duration:** 12h 39m (aging, but fine)",
           "- **Time:** 07:55 IST \u2014 business day active",
           "- **Last email scan:** 2026-07-21 18:55 (1.5 days old)",
           "- **No urgent pending items**",
@@ -2611,7 +2612,15 @@
           "All quiet on the messaging front. Next scheduled run: 3 hours.",
           "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K transcript logger script now.",
           "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Script completed successfully.**",
-          "The Klub K transcript logger ran through all session transcripts. No new messages detected across Telegram group chats, so no bookmarks were updated. All sessions processed cleanly."
+          "The Klub K transcript logger ran through all session transcripts. No new messages detected across Telegram group chats, so no bookmarks were updated. All sessions processed cleanly.",
+          "[09:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[09:55 IST] PURL: **\ud83e\uddf6 HEARTBEAT CHECK \u2014 09:55 IST, Thursday 23 July 2026**",
+          "- **Context:** 30% \u2014 healthy \u2713",
+          "- **Session duration:** 14h 39m (getting long, but still good)",
+          "- **Cache hit:** 98%",
+          "- **Business hours:** Active (09:55 IST)",
+          "- **No urgent items**",
+          "**HEARTBEAT_OK**"
         ],
         "yesterday": [
           "- Weather in summer: **very hot** \ud83e\udd75",
@@ -3755,7 +3764,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3785,7 +3794,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
