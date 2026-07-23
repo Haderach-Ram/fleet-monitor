@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 15:09:12 IST",
-  "generated_epoch": 1784799552,
+  "generated_ist": "2026-07-23 15:14:19 IST",
+  "generated_epoch": 1784799859,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.38 / 2.42 / 2.55",
+    "load": "1.60 / 2.12 / 2.38",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 1.02,
+      "rss_gb": 0.99,
       "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784799625337,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784799625336,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784799625336,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -688,39 +715,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784799270316,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1784799270316,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784799270315,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784799270315,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
@@ -1509,17 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:31 IST] HADERACH: No, still stuck \u2014 checked GitHub live just now (not from memory).",
-          "<b>#87318 \u2014 amazon-bedrock provider: Haiku 4.5 inference profile ARN not supported; params.modelId override ignored</b>",
-          "<ul>",
-          "<li><b>State:</b> Still OPEN, marked <code>stale</code>, <code>P2</code>, <code>clawsweeper:needs-maintainer-review</code>, <code>clawsweeper:needs-product-decision</code>, <code>clawsweeper:no-new-fix-pr</code>.</li>",
-          "<li><b>Last activity:</b> 22 Jul 2026 (yesterday) \u2014 but that's just label churn from th...",
-          "[14:34 IST] RAM: This is crucial for us from a cost perspective. Isn't it strange that haiku is not available on AWS BedRock!!?? Pls check if others have raised this issue and if there is a solution",
-          "[14:35 IST] HADERACH: Checked live on GitHub, Ram \u2014 full picture, not just the issue thread.",
-          "<b>Yes, this is a real and recognised problem \u2014 and we're actually the primary voice raising it.</b>",
-          "<b>The issue itself (#87318):</b>",
-          "<ul>",
-          "<li>Filed by us (Haderach-Ram) on 27 May 2026. One other person (WarrenJones) commented \"I'll work on this\" back in May but never submitted anything \u2014 no PR ever materialised from that.</li>",
           "<li>We've pushed it three separate times since (29 May, 22 Jun \u00d72, 7 Jul) with escalating bus...",
           "[14:35 IST] HADERACH: Checked live on GitHub, Ram \u2014 full picture, not just the issue thread.",
           "<b>Yes, this is a real and recognised problem \u2014 and we're actually the primary voice raising it.</b>",
@@ -1548,7 +1537,18 @@
           "[14:55 IST] RAM: !!! We have wasted so much moeny running everything on sonnet!!! Test this one properly please before we move crons to haiku. And give me a full list of your crons, which model they are on, and your recommended model, their function etc",
           "[14:58 IST] HADERACH: Good, AWS creds work via env already (that's why boto3 worked directly). Let me use the `--profile tester` isolated instance to run a proper, safe test without touching the live config \u2014 using the corrected Haiku model ID.",
           "[14:59 IST] HADERACH: Config valid. Now restart tester's gateway and run a live test through the full OpenClaw stack (not raw boto3).",
-          "[14:59 IST] HADERACH: Gateway restarted clean with the patched config. Now the real test \u2014 a full agent turn through the actual OpenClaw Bedrock pipeline (streaming, tool calls, everything) on the corrected Haiku model ID."
+          "[14:59 IST] HADERACH: Gateway restarted clean with the patched config. Now the real test \u2014 a full agent turn through the actual OpenClaw Bedrock pipeline (streaming, tool calls, everything) on the corrected Haiku model ID.",
+          "[15:00 IST] HADERACH: Wait \u2014 I need to check two things: whether raw boto3 actually succeeds with this exact full ID (I never confirmed that), and why the tester session shows `~/.openclaw-chet/workspace` instead of tester's own workspace.",
+          "[15:02 IST] HADERACH: The tester profile doesn't have the Bedrock plugin installed at all \u2014 that's a separate, unrelated problem specific to that isolated instance, nothing to do with our fix. Let me install it there so I can complete a clean end-to-end test without touching any live production config.",
+          "[15:03 IST] HADERACH: Plugin loaded now (10 plugins, includes amazon-bedrock). Now the real test.",
+          "[15:04 IST] HADERACH: Confirmed live and clean \u2014 exact text match, real token usage, and cache writes (27,290 tokens cached) working correctly. Let me verify cache *read* works on a follow-up turn (same session) and test a tool call, since that's the other real risk area for cron migration.",
+          "[15:04 IST] HADERACH: Excellent \u2014 full validation complete: clean text match, tool-calling (exec) works, and cache read (27,446 tokens) confirms prompt caching survives across turns with the corrected model ID. This is a fully verified fix, not just a raw API test.",
+          "Now let me restore the tester profile to its original state (it's a shared benchmark instance, not meant to carry this change) and then pull the live cron list.",
+          "[15:05 IST] HADERACH: Tester restored to original state, healthy. Now let's build the full cron inventory with current model, function, and my recommendation for each.",
+          "[15:05 IST] HADERACH: Good, but let's just use the `cron` tool for accuracy instead of raw SQL \u2014 cleaner and canonical.",
+          "[15:08 IST] HADERACH: Live test is confirmed \u2705 \u2014 let me now pull the actual model per cron from the SQLite store directly.",
+          "[15:08 IST] HADERACH: Good, I have everything. Now let me build the full analysis.",
+          "[15:08 IST] HADERACH: That's the number. Now the full table:"
         ],
         "yesterday": [
           "<li>ClarkKent \u2014 news fetcher</li>",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 90810,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1967,7 +1967,7 @@
       "frozen_reason": null,
       "pid": 81940,
       "rss_gb": 0.67,
-      "cpu": 0.4,
+      "cpu": 1.0,
       "crons_total": 29,
       "crons_enabled": 28,
       "skills_count": 1,
@@ -3659,8 +3659,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.29,
-      "cpu": 0.2,
+      "rss_gb": 0.3,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3848,7 +3848,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
