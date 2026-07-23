@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 18:08:32 IST",
-  "generated_epoch": 1784810312,
+  "generated_ist": "2026-07-23 18:13:39 IST",
+  "generated_epoch": 1784810619,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.27 / 2.71 / 2.64",
+    "load": "2.72 / 2.59 / 2.59",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 1.2,
-      "cpu": 0.6,
+      "rss_gb": 1.11,
+      "cpu": 49.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784810428241,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784810428240,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784810428240,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -688,37 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784810038126,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1784810038126,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784810038125,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784810038125,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Problem 1 \u2014 Haiku model IDs wrong (bare vs dated suffix)</b>",
-          "The bare `global.anthropic.claude-haiku-4-5` we used in the first pass was the wrong ID \u2014 Bedrock requires `global.anthropic.claude-haiku-4-5-20251001-v1:0`. This is exactly the...",
-          "[17:52 IST] RAM: In the previous session you moved 32 of your crons to haiku. Can you check if they are working fine?",
-          "[17:52 IST] HADERACH: **Session mode?**",
-          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
           "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
           "[17:52 IST] HADERACH: **Session mode?**",
           "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
@@ -1548,7 +1542,13 @@
           "<b>Case for moving it:</b>",
           "<ul>",
           "<li>It fires every 30 min, 48\u00d7/day \u2014 the highest-frequency thing on the account. Even a small per-call saving compounds fast, more than almost any single cron we just migrated.</li>",
-          "<li>The core task is mechanical: run <code>heartbeat_status.py</code>, read HEARTBEAT.md's throttled checks, look for the literal word \"ALERT,\" reply NO_REPLY otherwise. That'..."
+          "<li>The core task is mechanical: run <code>heartbeat_status.py</code>, read HEARTBEAT.md's throttled checks, look for the literal word \"ALERT,\" reply NO_REPLY otherwise. That'...",
+          "[17:59 IST] RAM: Ok. Do the trial. Haiku primary, but sonnet 5 as fallback",
+          "[18:07 IST] HADERACH: This confirms no `heartbeatFallbacks`-style field exists \u2014 only `heartbeatModelOverride` (single string) gets passed through. Let me check what candidate chain the runner actually builds for a heartbeat run (does it use `run.provider`/`run.model` = Haiku as the \"primary\" for fallback purposes, with global `agents.defaults.model.fallbacks` appended after it, and the global primary appended last)?",
+          "[18:07 IST] HADERACH: I found the answer, and it changes the plan slightly \u2014 there's a real config limitation to flag before I act.",
+          "<b>What I found:</b> OpenClaw's heartbeat config only supports a single <code>heartbeat.model</code> override string \u2014 there's no separate <code>heartbeat.fallbacks</code> field in the schema. When a heartbeat run's model override fails, the runtime doesn't get a heartbeat-specific fallback list; it falls through the <b>global</b> <code>agents.defaults.model.fallbacks</code> chain, t...",
+          "[18:08 IST] HADERACH: I found the answer, and it changes the plan slightly \u2014 there's a real config limitation to flag before I act.",
+          "<b>What I found:</b> OpenClaw's heartbeat config only supports a single <code>heartbeat.model</code> override string \u2014 there's no separate <code>heartbeat.fallbacks</code> field in the schema. When a heartbeat run's model override fails, the runtime doesn't get a heartbeat-specific fallback list; it falls through the <b>global</b> <code>agents.defaults.model.fallbacks</code> chain, t..."
         ],
         "yesterday": [
           "<li>ClarkKent \u2014 news fetcher</li>",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 90810,
       "rss_gb": 0.56,
-      "cpu": 1.2,
+      "cpu": 1.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1997,7 +1997,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 81940,
-      "rss_gb": 0.67,
+      "rss_gb": 0.68,
       "cpu": 0.9,
       "crons_total": 29,
       "crons_enabled": 28,
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 88155,
       "rss_gb": 0.43,
-      "cpu": 1.4,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3691,7 +3691,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3849,7 +3849,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
