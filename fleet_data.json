@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 21:17:49 IST",
-  "generated_epoch": 1784821669,
+  "generated_ist": "2026-07-23 21:22:55 IST",
+  "generated_epoch": 1784821975,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.43 / 2.48 / 2.50",
+    "load": "2.56 / 2.33 / 2.41",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 13635,
-      "rss_gb": 0.94,
-      "cpu": 2.1,
+      "rss_gb": 0.95,
+      "cpu": 3.1,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784821230110,
+          "last_ts": 1784821829668,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784821230110,
+          "last_ts": 1784821829667,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784821230110,
+          "last_ts": 1784821829667,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784821751156,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -719,15 +728,6 @@
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1784820783045,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784819993649,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "</ul>",
-          "<b>Sam / Gagan's bot (18812)</b> \u2014 heartbeat is on-demand only (n...",
-          "[20:46 IST] RAM: GisKard is saying the Haiku crons are failing. Pls check. And check his failed crons pls",
-          "[20:46 IST] HADERACH: Let me verify both claims directly rather than relying on secondhand info \u2014 force-running the two jobs I just switched, and checking Giskard's own gateway for cron failures.",
-          "[20:48 IST] HADERACH: Let me confirm the force-triggered Chet/Monk runs I just fired complete cleanly on Haiku, and dig one level deeper into Giskard's Fleet Monitor timeout (is this a live Bedrock issue right now?).",
-          "[20:51 IST] HADERACH: Let me verify directly rather than going in circles \u2014 checking my own patched jobs' actual latest run status, and pulling Giskard's real cron list (not guessed IDs).",
           "[20:51 IST] HADERACH: Found Giskard's failing cron \u2014 but my Chet/Monk Haiku jobs are running clean (both show `lastRunStatus: \"ok\"`, 0 consecutive errors, ran fine at 68s/64s). Let me pull Giskard's full list to see if there are more failures beyond this one, and dig into why it's failing.",
           "[20:56 IST] RAM: From G, pls check:",
           "**Haderach \u2014 status update on the Haiku migration investigation.**",
@@ -1548,7 +1542,13 @@
           "<b>What's really happening on my side:</b>",
           "<ul>",
           "<li><b>Chet \u2014 Transcript Capture (10 min)</b>: config says Haiku (versioned string <code>global.anthropic.claude-haiku-4-5-20251001-v1:0</code>). Every actual run in the log used <code>global.anthropic.claude-sonnet-4-6</code> instead \u2014 silent fallback, no error.</li>",
-          "<li><..."
+          "<li><...",
+          "[21:14 IST] RAM: What are you saying? We need to change to the short form? How did this happen? I thought you tested",
+          "[21:14 IST] HADERACH: Yes \u2014 short form, no version suffix. That's the fix: `amazon-bedrock/global.anthropic.claude-haiku-4-5`, not `amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0`.",
+          "<b>How this happened:</b> When I switched jobs to Haiku today, I used the fully-versioned Bedrock model ID (with the date/version suffix). OpenClaw's own model catalog only lists the short form \u2014 the versioned string isn't in it. So OpenClaw's resolver doesn't recognize the model, and instead of throwing an error it sil...",
+          "[21:14 IST] HADERACH: Yes \u2014 short form, no version suffix. That's the fix: `amazon-bedrock/global.anthropic.claude-haiku-4-5`, not `amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0`.",
+          "<b>How this happened:</b> When I switched jobs to Haiku today, I used the fully-versioned Bedrock model ID (with the date/version suffix). OpenClaw's own model catalog only lists the short form \u2014 the versioned string isn't in it. So OpenClaw's resolver doesn't recognize the model, and instead of throwing an error it sil...",
+          "[21:19 IST] RAM: Fix GisKard\u2019s first. Then we will know if it is working. Do you remember which all of GisKard\u2019s crons (and maybe heartbeat) you switched to Haiku? If you don\u2019t remember check your transcript and HAD-034 and then proceed"
         ],
         "yesterday": [
           "<li>ClarkKent \u2014 news fetcher</li>",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 17993,
       "rss_gb": 0.55,
-      "cpu": 0.6,
+      "cpu": 1.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1998,7 +1998,7 @@
       "frozen_reason": null,
       "pid": 81940,
       "rss_gb": 0.68,
-      "cpu": 1.0,
+      "cpu": 0.4,
       "crons_total": 29,
       "crons_enabled": 28,
       "skills_count": 1,
@@ -2446,8 +2446,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88155,
-      "rss_gb": 0.44,
-      "cpu": 0.4,
+      "rss_gb": 0.43,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3690,7 +3690,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.3,
+      "rss_gb": 0.29,
       "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
@@ -3896,7 +3896,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
