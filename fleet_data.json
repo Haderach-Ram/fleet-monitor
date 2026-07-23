@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-23 15:34:52 IST",
-  "generated_epoch": 1784801092,
+  "generated_ist": "2026-07-23 15:40:02 IST",
+  "generated_epoch": 1784801402,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.25 / 2.45 / 2.55",
+    "load": "3.06 / 2.77 / 2.63",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 89268,
-      "rss_gb": 1.05,
-      "cpu": 1.1,
+      "rss_gb": 1.03,
+      "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,28 +661,19 @@
       ],
       "crons": [
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1784800706349,
-          "last_status": "error",
-          "model": "(agent default)",
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784801247253,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784800706347,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784800706347,
+          "last_ts": 1784801247252,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
           "kind": "agentTurn"
@@ -691,9 +682,18 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784800706346,
+          "last_ts": 1784801247252,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-4-6",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1784801217190,
+          "last_status": "error",
+          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -1509,17 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>The real root cause \u2014 and it's on our side, not OpenClaw's:</b>",
-          "Our `openclaw.json` has the Bedrock Haiku model configured as:",
-          "<pre>global.anthropic.claude-haiku-4-5</pre>",
-          "But the actual AWS inference profile ID for Haiku 4.5 is:",
-          "<pre>global....",
-          "[14:55 IST] RAM: !!! We have wasted so much moeny running everything on sonnet!!! Test this one properly please before we move crons to haiku. And give me a full list of your crons, which model they are on, and your recommended model, their function etc",
-          "[14:58 IST] HADERACH: Good, AWS creds work via env already (that's why boto3 worked directly). Let me use the `--profile tester` isolated instance to run a proper, safe test without touching the live config \u2014 using the corrected Haiku model ID.",
-          "[14:59 IST] HADERACH: Config valid. Now restart tester's gateway and run a live test through the full OpenClaw stack (not raw boto3).",
-          "[14:59 IST] HADERACH: Gateway restarted clean with the patched config. Now the real test \u2014 a full agent turn through the actual OpenClaw Bedrock pipeline (streaming, tool calls, everything) on the corrected Haiku model ID.",
-          "[15:00 IST] HADERACH: Wait \u2014 I need to check two things: whether raw boto3 actually succeeds with this exact full ID (I never confirmed that), and why the tester session shows `~/.openclaw-chet/workspace` instead of tester's own workspace.",
-          "[15:02 IST] HADERACH: The tester profile doesn't have the Bedrock plugin installed at all \u2014 that's a separate, unrelated problem specific to that isolated instance, nothing to do with our fix. Let me install it there so I can complete a clean end-to-end test without touching any live production config.",
           "[15:03 IST] HADERACH: Plugin loaded now (10 plugins, includes amazon-bedrock). Now the real test.",
           "[15:04 IST] HADERACH: Confirmed live and clean \u2014 exact text match, real token usage, and cache writes (27,290 tokens cached) working correctly. Let me verify cache *read* works on a follow-up turn (same session) and test a tool call, since that's the other real risk area for cron migration.",
           "[15:04 IST] HADERACH: Excellent \u2014 full validation complete: clean text match, tool-calling (exec) works, and cache read (27,446 tokens) confirms prompt caching survives across turns with the corrected model ID. This is a fully verified fix, not just a raw API test.",
@@ -1548,7 +1537,18 @@
           "<li><b>Tool calls + prompt caching</b> \u2192 exec tool fired, <code>cacheWrite=27,290 T, cacheRead=27,...",
           "[15:18 IST] RAM: Yes, send me draft for GisKard pls",
           "[15:19 IST] HADERACH: Let me verify something important \u2014 I need to check if I made an error in my cron table before sending anything to Giskard.",
-          "[15:19 IST] HADERACH: Good catch on my own error \u2014 several crons in my earlier table (Sam transcript, digest-update-ca/ciso/legal, digest-verify-weekly, SMEDA Daily Report, SCL-010, HAD-052 Mail Digest) are actually **disabled/retired** \u2014 I pulled them from a stale SQL query that didn't filter for `enabled=1`. Rebuilding the accurate list restricted to the real 61 active crons before sending anything to Giskard."
+          "[15:19 IST] HADERACH: Good catch on my own error \u2014 several crons in my earlier table (Sam transcript, digest-update-ca/ciso/legal, digest-verify-weekly, SMEDA Daily Report, SCL-010, HAD-052 Mail Digest) are actually **disabled/retired** \u2014 I pulled them from a stale SQL query that didn't filter for `enabled=1`. Rebuilding the accurate list restricted to the real 61 active crons before sending anything to Giskard.",
+          "[15:33 IST] RAM: I am sending you a file of your instructions for GisKard, and separately his response. Review both and then discuss",
+          "[15:33 IST] HADERACH: Ram, I don't see any file attached to this message \u2014 just the note that one's coming. Could you send the instructions file for Giskard and his response (as attachments, pasted text, or forwarded messages)? Once I have both I'll review them together and give you my take.",
+          "[15:33 IST] HADERACH: Ram, I don't see any file attached to this message \u2014 just the note that one's coming. Could you send the instructions file for Giskard and his response (as attachments, pasted text, or forwarded messages)? Once I have both I'll review them together and give you my take.",
+          "[15:33 IST] RAM: [Telegram Ram Shenoy id:8489979671 +1s Thu 2026-07-23 15:33:16 GMT+5:30] Ram Shenoy: This was your instruction",
+          "<file name=\"Cron_Instructions_23Jul2026---94c8990b-5f24-470f-b311-c98d57680dd2.pdf\" mime=\"application/pdf\">",
+          "<<<EXTERNAL_UNTRUSTED_CONTENT id=\"9462fcf64488e0dc\">>>",
+          "Source: External",
+          "---",
+          "Giskard \u2014 two changes, both live-verified by Haderach before this request (raw boto3 + full OpenClaw stack test incl. tool calls + prompt",
+          "caching on the tester instance, config restored after test).",
+          "C..."
         ],
         "yesterday": [
           "<li>ClarkKent \u2014 news fetcher</li>",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90810,
-      "rss_gb": 0.52,
-      "cpu": 1.3,
+      "rss_gb": 0.61,
+      "cpu": 4.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1967,7 +1967,7 @@
       "frozen_reason": null,
       "pid": 81940,
       "rss_gb": 0.67,
-      "cpu": 0.8,
+      "cpu": 1.3,
       "crons_total": 29,
       "crons_enabled": 28,
       "skills_count": 1,
@@ -1990,6 +1990,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Kubera \u2014 End of Day P&L Summary (Mon-Fri 15:35)",
+          "enabled": true,
+          "sched": "35 15 * * 1-5",
+          "last_ts": 1784801118015,
+          "last_status": "ok",
+          "model": "openrouter/anthropic/claude-haiku-4.5",
+          "kind": "agentTurn"
+        },
         {
           "name": "Kubera \u2014 Portfolio Refresh (30min, market hours)",
           "enabled": true,
@@ -2150,15 +2159,6 @@
           "last_ts": 1784780847849,
           "last_status": "error",
           "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Kubera \u2014 End of Day P&L Summary (Mon-Fri 15:35)",
-          "enabled": true,
-          "sched": "35 15 * * 1-5",
-          "last_ts": 1784780847849,
-          "last_status": "ok",
-          "model": "openrouter/anthropic/claude-haiku-4.5",
           "kind": "agentTurn"
         },
         {
@@ -2416,7 +2416,7 @@
       "frozen_reason": null,
       "pid": 88155,
       "rss_gb": 0.41,
-      "cpu": 1.0,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3659,8 +3659,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.29,
-      "cpu": 0.1,
+      "rss_gb": 0.3,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3848,7 +3848,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
