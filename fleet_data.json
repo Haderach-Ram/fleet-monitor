@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-24 19:29:11 IST",
-  "generated_epoch": 1784901551,
+  "generated_ist": "2026-07-24 19:34:17 IST",
+  "generated_epoch": 1784901857,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.62 / 3.07 / 2.83",
+    "load": "2.91 / 2.92 / 2.82",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 0.84,
-      "cpu": 1.1,
+      "rss_gb": 0.83,
+      "cpu": 2.7,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784901307636,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784901634135,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784901031393,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784901031393,
+          "last_ts": 1784901634134,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784901031392,
+          "last_ts": 1784901634134,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784901307636,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,19 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:34 IST] HADERACH: Still running. Let me continue gathering context while it works \u2014 check the Reference framework docs and PORTFOLIO.md/MEMORY.md for full current state.",
-          "[18:34 IST] HADERACH: Still running (parallel API calls take time). Let me wait longer while reviewing a few more transcript excerpts for the \"forgot orders placed minutes ago\" pattern specifically.",
-          "[18:35 IST] HADERACH: Process finished. Let me check the output.",
-          "[18:37 IST] HADERACH: Ram \u2014 flagging a live issue rather than continuing to hammer on it: every tool call in this session has returned empty for the last several minutes (exec, read, memory_get, session_status, agents_list, even trivial `echo` commands). This looks like a gateway-side stall, not something retrying will fix on my end.",
-          "The Kubera review itself is well underway and the picture is already clear \u2014 I have his full incident history (order-placement failures, the protocol violation, the forgotten-order/d...",
-          "[18:37 IST] HADERACH: Ram \u2014 flagging a live issue rather than continuing to hammer on it: every tool call in this session has returned empty for the last several minutes (exec, read, memory_get, session_status, agents_list, even trivial `echo` commands). This looks like a gateway-side stall, not something retrying will fix on my end.",
-          "The Kubera review itself is well underway and the picture is already clear \u2014 I have his full incident history (order-placement failures, the protocol violation, the forgotten-order/d...",
-          "[18:39 IST] RAM: You can check gateway health",
-          "[18:41 IST] HADERACH: Gateway is up and responding \u2014 pid 83430, state active, connectivity probe ok. Tools have recovered (the last several calls all returned normally). There's a stale service-config warning (plist installed under 2026.5.4, CLI now 2026.6.11) plus plugin version drift, but nothing indicating an active outage. I'll resume the Kubera review now.",
-          "[18:41 IST] HADERACH: Good, tools are back. Let me continue the review efficiently \u2014 pulling key transcript excerpts across the date range and Kubera's own architecture docs, then re-run the council and synthesize.",
-          "[18:42 IST] HADERACH: 108 stale pending-order tokens sitting in the directory, going back to April, most never cleaned up. That's a confirmed reliability finding \u2014 no expiry-cleanup job. Let me check the crontab list and a couple more key docs quickly, then move to research + council synthesis.",
-          "[18:42 IST] HADERACH: I have a complete, evidence-rich picture now. Let me re-run the Bajaj Council in the background while I finalize the assessment, then write the full proposal.",
-          "[18:42 IST] HADERACH: This is exactly what I need. Full picture assembled. Let me check the council result.",
           "[18:43 IST] HADERACH: While that runs, let me check the freshest incident (today's protocol violation) and the ORDER_EXECUTION_ANALYSIS failure taxonomy for completeness.",
           "[18:43 IST] HADERACH: Good \u2014 matches the pattern already established. I have more than enough evidence. Let me check the council result now.",
           "[18:44 IST] HADERACH: I have everything needed. Now let me write the full architectural proposal document.",
@@ -1548,7 +1535,20 @@
           "Cross-gateway control is a known dead end (documented in AGENTS.md, verified broken 20 Jun 2026). I can read every file in Kubera's workspace, but I have no tool-call access into hi...",
           "[19:18 IST] HADERACH: Confirmed what I suspected before answering \u2014 Kubera doesn't show up in my session list at all (separate gateway, port 18798, not mine). So let me be straight about what's actually possible versus what needs building.",
           "<b>The honest technical answer: not live, not today \u2014 but there's a clean way to get there.</b>",
-          "Cross-gateway control is a known dead end (documented in AGENTS.md, verified broken 20 Jun 2026). I can read every file in Kubera's workspace, but I have no tool-call access into hi..."
+          "Cross-gateway control is a known dead end (documented in AGENTS.md, verified broken 20 Jun 2026). I can read every file in Kubera's workspace, but I have no tool-call access into hi...",
+          "[19:26 IST] RAM: We will park this for later. Can you update everything in the ProjHad pls? Also, freeze Kubera. We will work on this over the weekend",
+          "[19:26 IST] HADERACH: Confirmed running. Freezing now.",
+          "[19:26 IST] HADERACH: Kubera is frozen \u2014 service booted out, disabled, and port 18798 confirms down (HTTP 000/connection refused). Now updating PER-003 fully and MEMORY.md's freeze-state line.",
+          "[19:26 IST] HADERACH: Now update MEMORY.md's Kubera critical-fact freeze-state line to reflect the live freeze just performed.",
+          "[19:27 IST] HADERACH: Both files updated. Let me quickly confirm the frozen state one more time and wrap up.",
+          "[19:27 IST] HADERACH: Done on both fronts, Ram.",
+          "<b>Kubera \u2014 frozen and verified.</b> Service disabled + booted out of launchctl; port 18798 confirmed down (connection refused, service no longer found in the domain). Won't auto-restart on its own.",
+          "<b>PER-003 updated:</b>",
+          "<ul><li><code>STATUS.md</code> \u2014 logged today's full architecture review, the freeze, and the Option A/B decision parked for the weekend (Haderach absorbs Kubera's role vs. Haderach as a gate above a live Kubera), plus the immediate next steps on...",
+          "[19:27 IST] HADERACH: Done on both fronts, Ram.",
+          "<b>Kubera \u2014 frozen and verified.</b> Service disabled + booted out of launchctl; port 18798 confirmed down (connection refused, service no longer found in the domain). Won't auto-restart on its own.",
+          "<b>PER-003 updated:</b>",
+          "<ul><li><code>STATUS.md</code> \u2014 logged today's full architecture review, the freeze, and the Option A/B decision parked for the weekend (Haderach absorbs Kubera's role vs. Haderach as a gate above a live Kubera), plus the immediate next steps on..."
         ],
         "yesterday": [
           "[23:32 IST] HADERACH: That worked. Now I need to fix the remaining ~30 Haiku-pinned crons the same way. Let me get the full list and their schedules/payloads first, then batch-patch.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.46,
-      "cpu": 0.7,
+      "rss_gb": 0.47,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2448,8 +2448,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 88155,
-      "rss_gb": 0.47,
-      "cpu": 1.1,
+      "rss_gb": 0.46,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2603,21 +2603,21 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1784901603286,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1784899809637,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1784899809636,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
@@ -2668,7 +2668,6 @@
       ],
       "transcripts": {
         "recent": [
-          "3. Just skip it for now?",
           "Let me know. \ud83e\uddf6",
           "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[17:55 IST] DM_USER: [OpenClaw heartbeat poll]",
@@ -2707,7 +2706,8 @@
           "[18:55 IST] PURL: I'll check the heartbeat checklist and memory state.",
           "[18:55 IST] PURL: Context is at 21% and cost is excellent. ProtonMail was clear. All systems good.",
           "HEARTBEAT_OK",
-          "[18:55 IST] PURL: I'll check the heartbeat checklist and memory state."
+          "[18:55 IST] PURL: I'll check the heartbeat checklist and memory state.",
+          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "- Klub K sender map: 66 entries",
@@ -3696,7 +3696,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 1.1,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3873,7 +3873,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.8,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3903,7 +3903,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 1.1,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
