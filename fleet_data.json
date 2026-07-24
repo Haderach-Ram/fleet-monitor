@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-24 08:17:55 IST",
-  "generated_epoch": 1784861275,
+  "generated_ist": "2026-07-24 08:23:01 IST",
+  "generated_epoch": 1784861581,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.56 / 2.22 / 2.20",
+    "load": "2.22 / 2.12 / 2.15",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 34532,
-      "rss_gb": 0.86,
+      "rss_gb": 0.91,
       "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 61,
@@ -664,7 +664,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784860829226,
+          "last_ts": 1784861437008,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784860829225,
+          "last_ts": 1784861437007,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784860829225,
+          "last_ts": 1784861437007,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1784861404191,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -701,15 +710,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1784860407858,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1784859603390,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:26 IST] HADERACH: Enqueued. Give it a couple of minutes (it's a 600s-timeout job doing a full tail scan + git push) and I'll confirm completion.",
           "[07:26 IST] RAM: Why didn\u2019t the watchdog fallback to other models?",
           "[07:28 IST] HADERACH: Done \u2014 ran it manually and it completed clean (97s, status: ok).",
           "<b>What it caught up:</b>",
@@ -1548,7 +1547,8 @@
           "<b>Fallback added:</b> Primary <code>amazon-bedrock/global.anthropic.claude-haiku-4-5</code> \u2192 Fallback <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code>. If Haiku times out again, it'll retry on Sonnet 4.6 within the same run instead of just dying.",
           "<b>Failure alert added:</b> After 2 consecutive failures, it'll announce to your Telegram directly (1hr cooldown so it doesn't spam) rather than failing silently with <co...",
           "[07:30 IST] HADERACH: Corrected \u2014 fallback is now <code>amazon-bedrock/global.anthropic.claude-sonnet-5</code> (not 4.6). Failure alert (2 consecutive failures, Telegram, 1hr cooldown) stays as set. Job confirmed updated.",
-          "[07:31 IST] HADERACH: Corrected \u2014 fallback is now <code>amazon-bedrock/global.anthropic.claude-sonnet-5</code> (not 4.6). Failure alert (2 consecutive failures, Telegram, 1hr cooldown) stays as set. Job confirmed updated."
+          "[07:31 IST] HADERACH: Corrected \u2014 fallback is now <code>amazon-bedrock/global.anthropic.claude-sonnet-5</code> (not 4.6). Failure alert (2 consecutive failures, Telegram, 1hr cooldown) stays as set. Job confirmed updated.",
+          "--- [TRANSCRIPT GAP: 08:20 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[23:32 IST] HADERACH: That worked. Now I need to fix the remaining ~30 Haiku-pinned crons the same way. Let me get the full list and their schedules/payloads first, then batch-patch.",
@@ -1715,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1784860512893,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1784861407771,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1784859607171,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1784860512893,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2013,9 +2013,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 81940,
+      "rss_gb": 0.65,
+      "cpu": 1.0,
       "crons_total": 29,
       "crons_enabled": 28,
       "skills_count": 1,
@@ -2476,7 +2476,7 @@
       "frozen_reason": null,
       "pid": 88155,
       "rss_gb": 0.43,
-      "cpu": 0.6,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3723,7 +3723,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3881,7 +3881,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3911,7 +3911,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
