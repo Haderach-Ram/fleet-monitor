@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-24 12:48:29 IST",
-  "generated_epoch": 1784877509,
+  "generated_ist": "2026-07-24 12:53:37 IST",
+  "generated_epoch": 1784877817,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.08 / 5.33 / 5.17",
+    "load": "4.98 / 5.41 / 5.26",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 34532,
-      "rss_gb": 0.97,
+      "rss_gb": 1.06,
       "cpu": 0.7,
       "crons_total": 94,
       "crons_enabled": 61,
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784877626207,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784877260481,
+          "last_ts": 1784877626207,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784877626206,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -674,24 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1784877260481,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784877260480,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784877260480,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:39 IST] RAM: Check pls",
           "[10:40 IST] RAM: Also let me know Kubera\u2019s transcript logging frequency",
           "[10:43 IST] HADERACH: Confirmed \u2014 Kubera uses the same OpenRouter key I just checked. So the $240.33 total usage figure already reflects Kubera's real spend on this key (shared across the fleet's OpenRouter consumers).",
           "[10:43 IST] HADERACH: Pulled live OpenRouter numbers on the shared key (BWS `fcb10ef6`, used by Kubera + Chet + Monk):",
@@ -1548,7 +1547,8 @@
           "[12:24 IST] HADERACH: I owe you a correction \u2014 my earlier diagnosis was wrong on the mechanism. I just tested it live and disproved my own claim.",
           "<b>What I got wrong:</b> I said <code>gateway.tools.allow: [\"sessions_send\"]</code> hard-blocks everything else. But <b>Haderach's own config has that exact same setting</b> \u2014 and I obviously have far more than <code>sessions_send</code> working right now (exec, read, write, memory_search, etc.). So that allowlist claim doesn't hold up; it's not actually the blocking me...",
           "[12:24 IST] HADERACH: I owe you a correction \u2014 my earlier diagnosis was wrong on the mechanism. I just tested it live and disproved my own claim.",
-          "<b>What I got wrong:</b> I said <code>gateway.tools.allow: [\"sessions_send\"]</code> hard-blocks everything else. But <b>Haderach's own config has that exact same setting</b> \u2014 and I obviously have far more than <code>sessions_send</code> working right now (exec, read, write, memory_search, etc.). So that allowlist claim doesn't hold up; it's not actually the blocking me..."
+          "<b>What I got wrong:</b> I said <code>gateway.tools.allow: [\"sessions_send\"]</code> hard-blocks everything else. But <b>Haderach's own config has that exact same setting</b> \u2014 and I obviously have far more than <code>sessions_send</code> working right now (exec, read, write, memory_search, etc.). So that allowlist claim doesn't hold up; it's not actually the blocking me...",
+          "[12:49 IST] RAM: Continue the OpenClaw runtime event."
         ],
         "yesterday": [
           "[23:32 IST] HADERACH: That worked. Now I need to fix the remaining ~30 Haiku-pinned crons the same way. Let me get the full list and their schedules/payloads first, then batch-patch.",
@@ -1689,7 +1689,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.47,
+      "rss_gb": 0.48,
       "cpu": 1.2,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1784875805944,
+          "last_ts": 1784877605809,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2014,8 +2014,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 81940,
-      "rss_gb": 0.83,
-      "cpu": 1.6,
+      "rss_gb": 0.92,
+      "cpu": 1.4,
       "crons_total": 27,
       "crons_enabled": 26,
       "skills_count": 1,
@@ -2458,7 +2458,7 @@
       "frozen_reason": null,
       "pid": 88155,
       "rss_gb": 0.45,
-      "cpu": 1.0,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3882,7 +3882,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3912,7 +3912,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
