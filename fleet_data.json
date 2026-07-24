@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-24 13:39:41 IST",
-  "generated_epoch": 1784880581,
+  "generated_ist": "2026-07-24 13:44:47 IST",
+  "generated_epoch": 1784880887,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.68 / 3.04 / 3.70",
+    "load": "3.98 / 3.29 / 3.57",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 34532,
-      "rss_gb": 1.04,
-      "cpu": 0.9,
+      "rss_gb": 1.07,
+      "cpu": 0.6,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -1509,16 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>Verified Kubera live state directly (it wasn't frozen \u2014 confirmed running, port 18798 healthy) before touching anything</li>",
-          "<li>Backed up Kubera's config: <code>openclaw.json.bak-20260724-131xxx</code></li>",
-          "<li>Added <code>mcp.servers.exa</code> block (same key I use, <code>9c6e40dd-...</code>)</li>",
-          "<li>Validated JSON, hot-reloaded \u2014 gateway log confirms \"confi...",
-          "[13:24 IST] HADERACH: Confirmed working end-to-end. Exa MCP is now live on Kubera and successfully pulled real, current web results.",
-          "<b>Done</b>",
-          "<ul>",
-          "<li>Verified Kubera live state directly (it wasn't frozen \u2014 confirmed running, port 18798 healthy) before touching anything</li>",
-          "<li>Backed up Kubera's config: <code>openclaw.json.bak-20260724-131xxx</code></li>",
           "<li>Added <code>mcp.servers.exa</code> block (same key I use, <code>9c6e40dd-...</code>)</li>",
           "<li>Validated JSON, hot-reloaded \u2014 gateway log confirms \"confi...",
           "[13:25 IST] RAM: Do you have full access to Kubera and all his files etc?",
@@ -1548,7 +1538,17 @@
           "<li>This is the exact known failure mode already documented in our own AGENTS.md \u2014 the ...",
           "[13:28 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
           "[13:28 IST] RAM: The cron that failed was yours, right? What has Kubera got to do with it?",
-          "[13:29 IST] HADERACH: You're right, and I got this wrong again. That original 13:10 alert was about <b>my own</b> heartbeat-state.json field \u2014 I just checked directly: <code>lastConsolidation: 2026-07-22T23:00:00+05:30</code> lives in <b>Haderach's</b> file, not Kubera's. Kubera has nothing to do with it. I pattern-matched \"consolidation\" onto whatever agent I'd just been working on (Kubera, from the Exa task) instead of checking whose file the alert actually came from. That's three unverified assertions in one se..."
+          "[13:29 IST] HADERACH: You're right, and I got this wrong again. That original 13:10 alert was about <b>my own</b> heartbeat-state.json field \u2014 I just checked directly: <code>lastConsolidation: 2026-07-22T23:00:00+05:30</code> lives in <b>Haderach's</b> file, not Kubera's. Kubera has nothing to do with it. I pattern-matched \"consolidation\" onto whatever agent I'd just been working on (Kubera, from the Exa task) instead of checking whose file the alert actually came from. That's three unverified assertions in one se...",
+          "[13:30 IST] HADERACH: Confirmed. This is <b>my own bug</b>, nothing to do with Kubera at all \u2014 apologies for dragging Kubera into it.",
+          "<b>Root cause, verified from source</b>",
+          "<ul>",
+          "<li>The \"Haderach Consolidation \u2014 13:00 IST\" cron <b>did run successfully today</b> (13:00:09 IST, status: ok) \u2014 it wrote its bookmark into the transcript, promoted facts, everything as intended.</li>",
+          "<li>But its payload only reads <code>heartbeat-state.json</code> to get the transcript file path \u2014 it <b>never writes back a <code>lastCon...",
+          "[13:30 IST] HADERACH: Confirmed. This is <b>my own bug</b>, nothing to do with Kubera at all \u2014 apologies for dragging Kubera into it.",
+          "<b>Root cause, verified from source</b>",
+          "<ul>",
+          "<li>The \"Haderach Consolidation \u2014 13:00 IST\" cron <b>did run successfully today</b> (13:00:09 IST, status: ok) \u2014 it wrote its bookmark into the transcript, promoted facts, everything as intended.</li>",
+          "<li>But its payload only reads <code>heartbeat-state.json</code> to get the transcript file path \u2014 it <b>never writes back a <code>lastCon..."
         ],
         "yesterday": [
           "[23:32 IST] HADERACH: That worked. Now I need to fix the remaining ~30 Haiku-pinned crons the same way. Let me get the full list and their schedules/payloads first, then batch-patch.",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.48,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1714,6 +1714,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-watchdog-13",
+          "enabled": true,
+          "sched": "40 13 * * *",
+          "last_ts": 1784880613213,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
@@ -1793,15 +1802,6 @@
           "last_ts": 1784829055548,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-watchdog-13",
-          "enabled": true,
-          "sched": "40 13 * * *",
-          "last_ts": 1784794221076,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -2014,8 +2014,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73330,
-      "rss_gb": 0.5,
-      "cpu": 1.3,
+      "rss_gb": 0.51,
+      "cpu": 0.7,
       "crons_total": 27,
       "crons_enabled": 26,
       "skills_count": 1,
@@ -2458,7 +2458,7 @@
       "frozen_reason": null,
       "pid": 88155,
       "rss_gb": 0.46,
-      "cpu": 0.6,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3705,7 +3705,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3882,7 +3882,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3912,7 +3912,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
