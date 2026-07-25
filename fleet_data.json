@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-25 18:58:41 IST",
-  "generated_epoch": 1784986121,
+  "generated_ist": "2026-07-25 19:03:48 IST",
+  "generated_epoch": 1784986428,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.38 / 2.34 / 2.42",
+    "load": "2.81 / 3.04 / 2.78",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.06,
-      "cpu": 0.7,
+      "rss_gb": 1.13,
+      "cpu": 1.2,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784985628698,
+          "sched": "0 * * * *",
+          "last_ts": 1784986407015,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784985628698,
+          "last_ts": 1784986231232,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784986231231,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784985628697,
+          "last_ts": 1784986231231,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1784984899928,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1784982872033,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,13 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:34 IST] HADERACH: <b>Jonas's heartbeat:</b> every 30 minutes (OpenClaw's built-in default \u2014 no `agents.defaults.heartbeat.every` override on Jonas, so it inherits the global default cadence).",
-          "<b>Jonas's transcript logger \u2014 actually two crons covering different hours:</b>",
-          "<ul>",
-          "<li><b>Daytime job</b> \u2014 every 15 minutes, 06:00\u201323:00 IST (`*/15 6-23 * * *`)</li>",
-          "<li><b>Overnight job</b> \u2014 3 times, at 00:00, 03:00, 06:00 IST (`0 0,3,6 * * *`)</li>",
-          "</ul>",
-          "So together it's a 15-min cadence during waking hours, dropp...",
           "[18:36 IST] RAM: \u2022 Make Jonas's heartbeat every 60 minutes and should we put it on Haiku also?",
           "\u2022 Make daytime transcript logger every 20 minutes instead of 15",
           "[18:36 IST] HADERACH: Good calls on both. Quick take on the Haiku question before I touch it: heartbeat isn't a fixed reminder text \u2014 it reads live state (health checks, inbox/context monitoring) and needs to reason about what it's seeing, closer to the \"real synthesis\" tier than to the pure-mechanical crons we just moved. Also, your own fleet standard elsewhere pins heartbeats to Sonnet 4.6, not Haiku, for exactly that reason. My rec: leave heartbeat model alone (Sonnet 5 primary) for now \u2014 the interval change al...",
@@ -1548,7 +1541,14 @@
           "<b>HAD-034 updated.</b>",
           "<ul>",
           "<li><b>STATUS.md:</b> new \"Done\" line at top, full dated session block under \"In Progress\" covering all three parts (Haiku migration, duplicate investigation, cadence tuning), two new \"Next\" items (duplicate decision + heartbeat model decision, both explicitly parked pending your call), and Key Files updated with all 4 backup filenames.</li>",
-          "<li><b>NOTES.md:</b> full technical writeup up top \u2014 exact job_ids for..."
+          "<li><b>NOTES.md:</b> full technical writeup up top \u2014 exact job_ids for...",
+          "[18:55 IST] RAM: Review previous session and also HAD-034. Then, do a similar review of the crons and heartbeat of the M2 agents Ravindra, Keshav, CAIO, Seneca and discuss suggested changes for moving to AWS BedRock Haiku",
+          "[18:55 IST] HADERACH: SSH to M2 confirmed. Now let me pull the live config + cron data for CAIO, Ravindra, Keshav, and Seneca.",
+          "[18:57 IST] HADERACH: Good, found the live cron stores. Now let's pull job details for each.",
+          "[18:57 IST] HADERACH: Now I have the schema. Let's query all four agents with proper column names.",
+          "[18:59 IST] HADERACH: SSH to M2 confirmed. Now let me pull the live config + cron data for CAIO, Ravindra, Keshav, and Seneca.",
+          "[18:59 IST] HADERACH: Good, found the live cron stores. Now let's pull job details for each.",
+          "[18:59 IST] HADERACH: Now I have the schema. Let's query all four agents with proper column names."
         ],
         "yesterday": [
           "<li>On ARC-AGI-3 (n...",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.5,
-      "cpu": 1.0,
+      "rss_gb": 0.49,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2432,7 +2432,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.49,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2586,10 +2586,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1784986209517,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1784984404379,
+          "last_ts": 1784986209516,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2608,15 +2617,6 @@
           "enabled": true,
           "sched": "4 */3 * * *",
           "last_ts": 1784982848869,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1784982605552,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2651,26 +2651,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\ud83d\udcca **Context:** ~45%, stable  ",
-          "\ud83d\udcb0 **Cost:** Under threshold  ",
-          "\ud83d\udd27 **Config:** Current (2026-07-25)  ",
-          "\u23f0 **Time:** 17:55 IST \u2014 active hours",
-          "**3. Email Status:**",
-          "\u2705 ProtonMail: Checking inbox...",
-          "[17:56 IST] PURL: ProtonMail inbox check failed (login timeout). This is a recurring stealth browser issue on this run. Skipping email alert and proceeding with heartbeat summary.",
-          "\u2705 **No urgent flags** from manual check  ",
-          "\u26a0\ufe0f **ProtonMail script:** Timing out (likely Cloudflare or browser lag)",
-          "**4. Saturday Cost Review:**",
-          "Checking if this is the weekly cost-review day:",
-          "From heartbeat-state.json \u2014 need to check when last review happened. But context is stable and under 50%, so no immediate alerts.",
-          "**5. Session",
-          "[17:55 IST] PURL: \ud83e\uddf6 **HEARTBEAT CHECK \u2014 17:55 IST, Saturday 25 July 2026**",
-          "Running checks now:",
-          "**1. Session Save** \u2014 Updating memory with this exchange:",
-          "[17:55 IST] PURL: **2. Status Check:**",
-          "\ud83d\udcca **Context:** ~45%, stable  ",
-          "\ud83d\udcb0 **Cost:** Under threshold  ",
-          "\ud83d\udd27 **Config:** Current (2026-07-25)  ",
           "\u23f0 **Time:** 17:55 IST \u2014 active hours",
           "**3. Email Status:**",
           "\u2705 ProtonMail: Checking inbox...",
@@ -2690,7 +2670,27 @@
           "- **Output file:** `transcript-2026-07-25.md`",
           "All sessions are current\u2014nothing new to capture at this cycle.",
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Completed. No new messages across all tracked sessions (Klub K group, Gari transcript, group transcript). Logger ran cleanly."
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Completed. No new messages across all tracked sessions (Klub K group, Gari transcript, group transcript). Logger ran cleanly.",
+          "[18:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[18:55 IST] PURL: \ud83e\uddf6 **HEARTBEAT CHECK \u2014 18:55 IST, Saturday 25 July 2026**",
+          "This heartbeat is from Ram (8489979671) direct chat.",
+          "Running checks now:",
+          "**1. Session Save** \u2014 Updating memory:",
+          "[18:55 IST] PURL: **2. Status Check:**",
+          "\ud83d\udcca **Context:** ~43%, stable  ",
+          "\ud83d\udcb0 **Cost:** Optimal  ",
+          "\ud83d\udd27 **Config:** Current  ",
+          "\u23f0 **Time:** 18:55 IST \u2014 active hours (Ram's direct)",
+          "**3. Session Health:**",
+          "\u2705 Context well under 50%  ",
+          "\u2705 No pending work  ",
+          "\u2705 All quiet",
+          "---",
+          "**HEARTBEAT_OK**",
+          "[18:55 IST] PURL: \ud83e\uddf6 **HEARTBEAT CHECK \u2014 18:55 IST, Saturday 25 July 2026**",
+          "This heartbeat is from Ram (8489979671) direct chat.",
+          "Running checks now:",
+          "**1. Session Save** \u2014 Updating memory:"
         ],
         "yesterday": [
           "[19:55 IST] PURL: Perfect. Let me update memory and complete the checklist:",
@@ -3102,7 +3102,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784985605652,
+          "last_ts": 1784986205867,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3852,7 +3852,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
