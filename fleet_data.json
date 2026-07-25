@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-25 17:47:02 IST",
-  "generated_epoch": 1784981822,
+  "generated_ist": "2026-07-25 17:52:09 IST",
+  "generated_epoch": 1784982129,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.87 / 2.20 / 2.28",
+    "load": "1.82 / 2.15 / 2.26",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.07,
-      "cpu": 0.4,
+      "rss_gb": 1.0,
+      "cpu": 3.8,
       "crons_total": 94,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,28 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784981638259,
+          "last_ts": 1784982030149,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784981638259,
+          "last_ts": 1784982030148,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1784982030148,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -683,15 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1784981638259,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1784981638258,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,13 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:11 IST] HADERACH: I'll gather Purl's config (model/fallback, heartbeat) and its cron jobs, then build the PDF via subagent per house standard.",
-          "[16:11 IST] HADERACH: Good, I can query this directly. Let me pull full job details as JSON.",
-          "[16:12 IST] HADERACH: All 6 active crons are healthy (last_run_status=ok, 0 consecutive errors). Let me peek at the heartbeat file for what it actually checks.",
-          "[16:12 IST] HADERACH: Now I have full data. Per house standard, I'll delegate PDF building to a subagent (never inline).",
-          "[16:13 IST] HADERACH: Audit data is gathered and the PDF build is delegated to a subagent (per house standard \u2014 PDFs are always built via subagent, never inline). I'll wait for it to finish and send the result.",
-          "[16:13 IST] HADERACH: Audit data is gathered and the PDF build is delegated to a subagent (per house standard \u2014 PDFs are always built via subagent, never inline). I'll wait for it to finish and send the result.",
-          "[16:42 IST] HADERACH: The PDF is built and QA-verified. Now I'll deliver it to Ram.",
           "[16:42 IST] HADERACH: Purl_Cron_Heartbeat_Audit_25Jul2026.pdf",
           "[16:42 IST] HADERACH: Delivered. The audit is done and the PDF is with you \u2014 all data pulled live from Purl's own SQLite cron store and config, not from memory notes.",
           "[16:44 IST] RAM: Put the overnight twin also on Haiku 4.5",
@@ -1548,7 +1541,14 @@
           "[17:06 IST] HADERACH: Rating_Agency_Presentation_08Apr2026_vR19_vShown_to_CRISIL.pptx",
           "[17:06 IST] HADERACH: Sent, Ram.",
           "[17:06 IST] HADERACH: Sent, Ram.",
-          "--- [TRANSCRIPT GAP: 17:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 17:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[17:49 IST] RAM: Which is the fleet update ProjHad of M2?",
+          "[17:49 IST] HADERACH: The fleet update ProjHad is <b>HAD-049 (openclaw-update-management)</b> \u2014 that's the standing project covering OpenClaw version upgrades for both M2 and M4.",
+          "For M2 specifically: HAD-049 tracks the upgrade cycles, with `UPDATE-PLAN.md` as the working plan document. It also draws on HAD-034 (M2 Fleet Health Monitor), which holds the `OPENCLAW-UPGRADE-GUIDE.md` \u2014 the 5-failure-mode M2 upgrade reference built from past lessons.",
+          "Current state per that ProjHad: both M2 and M4 completed the 6.10\u21926...",
+          "[17:49 IST] HADERACH: The fleet update ProjHad is <b>HAD-049 (openclaw-update-management)</b> \u2014 that's the standing project covering OpenClaw version upgrades for both M2 and M4.",
+          "For M2 specifically: HAD-049 tracks the upgrade cycles, with `UPDATE-PLAN.md` as the working plan document. It also draws on HAD-034 (M2 Fleet Health Monitor), which holds the `OPENCLAW-UPGRADE-GUIDE.md` \u2014 the 5-failure-mode M2 upgrade reference built from past lessons.",
+          "Current state per that ProjHad: both M2 and M4 completed the 6.10\u21926..."
         ],
         "yesterday": [
           "<li>On ARC-AGI-3 (n...",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.45,
-      "cpu": 0.9,
+      "rss_gb": 0.5,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1784980206361,
+          "last_ts": 1784982006713,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2411,7 +2411,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.49,
-      "cpu": 1.7,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3055,8 +3055,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 42125,
-      "rss_gb": 0.41,
-      "cpu": 3.3,
+      "rss_gb": 0.43,
+      "cpu": 0.1,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3081,7 +3081,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1784981405651,
+          "last_ts": 1784982006590,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3667,7 +3667,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3831,7 +3831,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3861,7 +3861,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
