@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-25 23:39:46 IST",
-  "generated_epoch": 1785002986,
+  "generated_ist": "2026-07-25 23:44:52 IST",
+  "generated_epoch": 1785003292,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.10 / 2.12 / 2.15",
+    "load": "1.64 / 1.98 / 2.09",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.07,
-      "cpu": 0.4,
+      "rss_gb": 1.06,
+      "cpu": 0.1,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785002431398,
+          "last_ts": 1785003031511,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785002431397,
+          "last_ts": 1785003031510,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785002431397,
+          "last_ts": 1785003031510,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785002985784,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "10 23 * * *",
           "last_ts": 1785001243188,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785001184850,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,8 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "S \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "C \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
           "X \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
           "[22:57 IST] HADERACH: **Session mode?**",
           "S \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
@@ -1557,7 +1555,9 @@
           "<b>The mechanism:</b>",
           "<ul>",
           "<li>OpenClaw enforces an aggregate character budget across ALL tool results accumulated in a session's prompt history.<...",
-          "[23:23 IST] RAM: Put in dead-ends.md. Is there no solution? Also, could you fix the Seneca issue that CAIO was working on?"
+          "[23:23 IST] RAM: Put in dead-ends.md. Is there no solution? Also, could you fix the Seneca issue that CAIO was working on?",
+          "[23:36 IST] HADERACH: Good \u2014 clean columnar schema, no embedded JSON duplicate to worry about here. Now restart Seneca's gateway to apply.",
+          "[23:37 IST] HADERACH: Now let's set up a one-shot verification cron for the next natural run, and check the run history table columns to confirm the fix will actually be reflected in future runs (model_thinking)."
         ],
         "yesterday": [
           "<li>On ARC-AGI-3 (n...",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.49,
-      "cpu": 1.0,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1723,6 +1723,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-watchdog-23",
+          "enabled": true,
+          "sched": "40 23 * * *",
+          "last_ts": 1785003007907,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-consolidation-23",
           "enabled": true,
@@ -1800,15 +1809,6 @@
           "enabled": true,
           "sched": "5 0 * * *",
           "last_ts": 1784918190773,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-watchdog-23",
-          "enabled": true,
-          "sched": "40 23 * * *",
-          "last_ts": 1784916608363,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2441,7 +2441,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.49,
-      "cpu": 0.9,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3086,7 +3086,7 @@
       "frozen_reason": null,
       "pid": 42125,
       "rss_gb": 0.41,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3111,7 +3111,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785002405749,
+          "last_ts": 1785003006052,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3704,7 +3704,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3868,7 +3868,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3898,7 +3898,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
