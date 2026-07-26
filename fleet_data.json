@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-26 20:47:15 IST",
-  "generated_epoch": 1785079035,
+  "generated_ist": "2026-07-26 20:52:21 IST",
+  "generated_epoch": 1785079341,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.26 / 2.34 / 2.37",
+    "load": "2.74 / 2.23 / 2.28",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.17,
-      "cpu": 4.6,
+      "rss_gb": 1.2,
+      "cpu": 0.1,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785078629915,
+          "last_ts": 1785079231374,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785078629915,
+          "last_ts": 1785079231374,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785078629915,
+          "last_ts": 1785079231374,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,14 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "Once you pick one I'll answer the actual question \u2014 since it bears directly on it (the HAD-055 Workstream 1 trims to MEMORY.md and the new issues-archive.md move should ...",
-          "[19:14 IST] HADERACH: **Session mode?**",
-          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "Once you pick one I'll answer the actual question \u2014 since it bears directly on it (the HAD-055 Workstream 1 trims to MEMORY.md and the new issues-archive.md move should ...",
-          "--- [TRANSCRIPT GAP: 20:00 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "[20:13 IST] RAM: X",
           "[20:14 IST] HADERACH: <b>Short answer: no \u2014 not as light as the X-mode label suggests.</b>",
           "The auto-injected baseline (AGENTS.md, SOUL.md, IDENTITY.md, USER.md, TOOLS.md, MEMORY.md, HEARTBEAT.md \u2014 same in every mode, S/C/X) already runs ~150KB+ before any mode choice. Biggest single piece: <b>AGENTS.md at 51.8KB</b> \u2014 MEMORY.md is 39.9KB.",
@@ -1557,7 +1549,15 @@
           "There's a hard 150,000-byte cap on the 7 auto-injected bootstrap files (MEMORY.md, AGENTS.md, TOOLS.md, HEARTBEAT.md, SOUL.md, IDENTITY.md, USER.md). Before the fix, those 7 totalled <b>160,243B</b> \u2014 over the cap, causing <i>silent truncation</i> (content just vanishing from context w...",
           "[20:27 IST] HADERACH: Fair challenge \u2014 let me separate what HAD-055 actually targeted from what I was measuring in my last answer, because those are two different problems.",
           "<b>What HAD-055 Workstream 1 fixed (26 Jul, verified):</b>",
-          "There's a hard 150,000-byte cap on the 7 auto-injected bootstrap files (MEMORY.md, AGENTS.md, TOOLS.md, HEARTBEAT.md, SOUL.md, IDENTITY.md, USER.md). Before the fix, those 7 totalled <b>160,243B</b> \u2014 over the cap, causing <i>silent truncation</i> (content just vanishing from context w..."
+          "There's a hard 150,000-byte cap on the 7 auto-injected bootstrap files (MEMORY.md, AGENTS.md, TOOLS.md, HEARTBEAT.md, SOUL.md, IDENTITY.md, USER.md). Before the fix, those 7 totalled <b>160,243B</b> \u2014 over the cap, causing <i>silent truncation</i> (content just vanishing from context w...",
+          "[20:43 IST] RAM: Yes pls",
+          "[20:43 IST] HADERACH: Good \u2014 let's do this properly. First I need to read the entire dead-ends.md file (it was capped at 78KB in my earlier read) so I can judge what's genuinely resolved/superseded vs still-live.",
+          "[20:44 IST] HADERACH: I did a full pass. Here's the reality: dead-ends.md's bloat isn't mostly \"resolved entries that should move\" (MEMORY.md's problem) \u2014 it's <b>duplicate progressive-update logging</b>. Two clear patterns:",
+          "<b>1. SCM Mail Archive Ingest \u2014 Inbox AppleScript timeout entry: 12.2KB, 22 near-identical \"Update HH:MM\" lines</b>",
+          "Every line says the same thing with an incremented hour count (\"streak continues, now spanning X hours, still unresolved\") \u2014 e.g. 20 separate timestamped restatements of \"Inbox ...",
+          "[20:44 IST] HADERACH: I did a full pass. Here's the reality: dead-ends.md's bloat isn't mostly \"resolved entries that should move\" (MEMORY.md's problem) \u2014 it's <b>duplicate progressive-update logging</b>. Two clear patterns:",
+          "<b>1. SCM Mail Archive Ingest \u2014 Inbox AppleScript timeout entry: 12.2KB, 22 near-identical \"Update HH:MM\" lines</b>",
+          "Every line says the same thing with an incremented hour count (\"streak continues, now spanning X hours, still unresolved\") \u2014 e.g. 20 separate timestamped restatements of \"Inbox ..."
         ],
         "yesterday": [
           "<ul>",
@@ -2403,7 +2403,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.53,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3670,7 +3670,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3835,7 +3835,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 1.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3865,7 +3865,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
