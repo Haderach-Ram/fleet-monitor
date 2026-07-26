@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-27 00:07:07 IST",
-  "generated_epoch": 1785091027,
+  "generated_ist": "2026-07-27 00:12:14 IST",
+  "generated_epoch": 1785091334,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.29 / 2.53 / 2.47",
+    "load": "2.52 / 2.33 / 2.38",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.16,
-      "cpu": 0.4,
+      "rss_gb": 1.18,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,60 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1785091077843,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1785091077843,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785091077842,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785091077842,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1785091077841,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1785091077841,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
@@ -751,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1785087367111,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -775,33 +820,6 @@
           "last_ts": 1785087287289,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785080123685,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785080123685,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1785076347948,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1048,15 +1066,6 @@
           "kind": "systemEvent"
         },
         {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": null,
-          "last_status": null,
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Monk \u2014 Daily Brief (08:33 IST)",
           "enabled": true,
           "sched": "33 8 * * *",
@@ -1168,15 +1177,6 @@
           "name": "The Ken \u2014 Daily Fetch (Stealth Automated)",
           "enabled": true,
           "sched": "30 7 * * *",
-          "last_ts": null,
-          "last_status": null,
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
           "last_ts": null,
           "last_status": null,
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -1518,6 +1518,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-27",
+          "# Self-healing rotation from transcript-2026-07-26.md at 00:07 IST"
+        ],
+        "yesterday": [
           "<b>What reviewers like</b>",
           "<ul>",
           "<li>Very light and comfortable \u2014 most reviewers call it one of the most wearable trackers around</li>",
@@ -1559,50 +1563,7 @@
           "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 38 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 48 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
-        "yesterday": [
-          "<ul>",
-          "<li>20:55\u201322:07 IST: You asked about recurring tool failures (apply_patch/edit) across M4+M2. I found the pattern \u2014 those two tools fail specifically in isolated cron runs, fixed by a \"never use apply_patch/edit in cron\" banner. Confirmed CAIO's Midnight Rolling Summary cron (M2) hit this 23 Jul because it lacked the banner.</li>",
-          "<li>You tried forwarding two CAIO messages about a separate issue (Seneca Bedrock t...",
-          "[23:09 IST] HADERACH: Consolidation complete. No new facts (0 sessions today, empty transcript tail). NO_REPLY.",
-          "[23:09 IST] RAM: Go ahead",
-          "[23:10 IST] HADERACH: Good \u2014 the banner fix is confirmed live in SQLite on both CAIO (3/3 crons) and Seneca (4/4 crons). Now writing up STATUS.md for both projects.",
-          "[23:10 IST] HADERACH: Both STATUS.md files are updated.",
-          "<b>HAD-034 (M2):</b> Added a \"Done\" entry documenting the apply_patch/edit banner fix on CAIO (3 crons) and Seneca (4 crons) \u2014 re-verified live in SQLite this session, all 7 confirmed with the banner present and enabled.",
-          "<b>HAD-038 (M4):</b> Added the fuller write-up \u2014 trigger, scope check (Ravindra/Keshav already safe, no banner needed), fix applied, verification, and a note that the session got interrupted right after by the tool-layer stall (same symptom...",
-          "[23:10 IST] HADERACH: Both STATUS.md files are updated.",
-          "<b>HAD-034 (M2):</b> Added a \"Done\" entry documenting the apply_patch/edit banner fix on CAIO (3 crons) and Seneca (4 crons) \u2014 re-verified live in SQLite this session, all 7 confirmed with the banner present and enabled.",
-          "<b>HAD-038 (M4):</b> Added the fuller write-up \u2014 trigger, scope check (Ravindra/Keshav already safe, no banner needed), fix applied, verification, and a note that the session got interrupted right after by the tool-layer stall (same symptom...",
-          "[23:12 IST] RAM: Dig in and report",
-          "[23:15 IST] HADERACH: Found it \u2014 root cause confirmed, this is a known upstream OpenClaw bug, not a network/M2/infra issue at all.",
-          "[23:15 IST] HADERACH: <b>Root cause found \u2014 it's a known, open OpenClaw bug, not an M2/network/infra problem.</b>",
-          "<b>GitHub issue <a href=\"https://github.com/openclaw/openclaw/issues/102268\">#102268</a></b> (OPEN, P1) \u2014 a community contributor already read the source and root-caused it, and it's cross-provider (Sonnet 5, Fable 5, Gemini) confirmed, not model-specific.",
-          "<b>The mechanism:</b>",
-          "<ul>",
-          "<li>OpenClaw enforces an aggregate character budget across ALL tool results accumulated in a session's prompt history.<...",
-          "[23:15 IST] HADERACH: <b>Root cause found \u2014 it's a known, open OpenClaw bug, not an M2/network/infra problem.</b>",
-          "<b>GitHub issue <a href=\"https://github.com/openclaw/openclaw/issues/102268\">#102268</a></b> (OPEN, P1) \u2014 a community contributor already read the source and root-caused it, and it's cross-provider (Sonnet 5, Fable 5, Gemini) confirmed, not model-specific.",
-          "<b>The mechanism:</b>",
-          "<ul>",
-          "<li>OpenClaw enforces an aggregate character budget across ALL tool results accumulated in a session's prompt history.<...",
-          "[23:23 IST] RAM: Put in dead-ends.md. Is there no solution? Also, could you fix the Seneca issue that CAIO was working on?",
-          "[23:36 IST] HADERACH: Good \u2014 clean columnar schema, no embedded JSON duplicate to worry about here. Now restart Seneca's gateway to apply.",
-          "[23:37 IST] HADERACH: Now let's set up a one-shot verification cron for the next natural run, and check the run history table columns to confirm the fix will actually be reflected in future runs (model_thinking).",
-          "[23:40 IST] HADERACH: All done. Here's the answer to both parts:",
-          "<b>Dead-ends.md \u2014 updated</b> \u2705 with the full #102268 write-up.",
-          "<b>Is there no solution (for #102268)?</b> Correct \u2014 no fix merged yet. A candidate PR (#99524) is open but not in <code>main</code> or v2026.6.11. Nothing to apply ourselves; the workaround is just \"don't retry into it, start fresh.\" I'll keep an eye on it via the weekly GitHub issues watch.",
-          "<b>Seneca's `nightly-consolidation` issue \u2014 different bug, and I found + fixed it.</b>",
-          "I pul...",
-          "[23:40 IST] HADERACH: All done. Here's the answer to both parts:",
-          "<b>Dead-ends.md \u2014 updated</b> \u2705 with the full #102268 write-up.",
-          "<b>Is there no solution (for #102268)?</b> Correct \u2014 no fix merged yet. A candidate PR (#99524) is open but not in <code>main</code> or v2026.6.11. Nothing to apply ourselves; the workaround is just \"don't retry into it, start fresh.\" I'll keep an eye on it via the weekly GitHub issues watch.",
-          "<b>Seneca's `nightly-consolidation` issue \u2014 different bug, and I found + fixed it.</b>",
-          "I pul...",
-          "[23:45 IST] RAM: Updated HAD-034 and HAD-038 pls",
-          "[23:47 IST] HADERACH: Both HAD-038's tool-layer stall entry and HAD-034's Seneca fix entry are already fully written up from this session \u2014 I've now closed the loop by cross-linking the #102268 root-cause finding into HAD-038 explicitly (it had been left as \"not yet diagnosed\" there). HAD-034's Seneca `nightly-consolidation` entry and its \"Next\" pointer were already current from earlier this session. Both files are now consistent and complete.",
-          "[23:47 IST] HADERACH: Both HAD-038's tool-layer stall entry and HAD-034's Seneca fix entry are already fully written up from this session \u2014 I've now closed the loop by cross-linking the #102268 root-cause finding into HAD-038 explicitly (it had been left as \"not yet diagnosed\" there). HAD-034's Seneca `nightly-consolidation` entry and its \"Next\" pointer were already current from earlier this session. Both files are now consistent and complete."
-        ],
         "rolling_7day": [
-          "## 2026-07-21 \u2014 Twitter posting, Jonas false alarms, Cognifin, Purl fix",
           "- [07:07 IST] ai-website-cloner installed; first @HaderachRam tweet posted 08:18 IST (IronClaw digest link); Twitter crons folded into digest/radar crons.",
           "- [13:12 IST] Jonas/CA-SMEDA-I false-alarm \"tools down\" diagnosed: M2 infra healthy, _v2 filename hallucination identified.",
           "- [17:04 IST] Sam frozen; Cognifin agentic AI playbook reviewed; assessed as low marginal value vs existing Haderach stack.",
@@ -1641,10 +1602,10 @@
           "- [13:23\u201313:31 IST] SCL Board of Directors table with full bios delivered (Mundra/Banga/Chaudhary/Rajiv Gupta/Crasta), sourced from docx + PIL slides.",
           "- [15:52\u201316:10 IST] HAD-055 Workstream 1 executed with Ram's approval: MEMORY.md 65,239B\u219239,934B, bootstrap total 160,243B\u2192134,938B (now under 150K cap); Workstream 3 later condensed dead-ends.md 85,728B\u219270,825B (dupes archived, nothing lost).",
           "- [22:22\u201323:02 IST] Coffee machine comparison (Breville BES870XL vs La Specialista Opera) delivered; Fitbit Air reviewed, two linked ProjHads opened (PER-017 Ram / PER-018 Garima) for Doctor SMEDA integration \u2014 scaffolding incomplete, PER-012 flagged stale.",
-          "---"
+          "---",
+          "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [09:53\u201310:29 IST] Kubera freeze/unfreeze cycle tested twice on request; left unfrozen (port 18798 HTTP 200).",
           "- [12:53\u201312:55 IST] PER-001 (Python & AI \u2192 CAO) identified as the study ProjHad; its STATUS.md found stale since 22 Mar 2026, flagged to Ram.",
           "- [14:34\u201314:50 IST] Investigated why Anthropic Haiku is unavailable on AWS Bedrock; found the real fix live-tested end-to-end (short-form catalog model ID `amazon-bedrock/global.anthropic.claude-haiku-4-5`, no version suffix) \u2014 clean text, tool-calling, and cache read/write all confirmed on an isolated tester instance.",
           "- [14:55\u201317:27 IST] Ram, alarmed at Sonnet-only spend, ordered a full cron audit; comprehensive PDF built (after a stuck/looping subagent was killed and the PDF rebuilt directly with WeasyPrint); all 32 of Haderach's own crons migrated from Sonnet to Haiku 4.5.",
@@ -1683,7 +1644,8 @@
           "- [13:23\u201313:31 IST] SCL Board of Directors table with full director bios delivered.",
           "- [15:52\u201321:17 IST] HAD-055 Workstream 1 (Memory File Hygiene) executed with Ram's approval: MEMORY.md 65,239B\u219239,934B, bootstrap total 160,243B\u2192134,938B (now under 150K cap); Workstream 3 condensed dead-ends.md 85,728B\u219270,825B \u2014 nothing lost, both archived and pushed.",
           "- [22:22\u201323:02 IST] Coffee machine comparison delivered; Fitbit Air reviewed and two linked ProjHads (PER-017/PER-018) opened for future Doctor SMEDA vitals integration \u2014 scaffolding incomplete.",
-          "--- [Midnight run OK \u2014 2026-07-27 \u2014 entry written for 2026-07-26] ---"
+          "--- [Midnight run OK \u2014 2026-07-27 \u2014 entry written for 2026-07-26] ---",
+          "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---"
         ]
       }
     },
@@ -1698,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.56,
-      "cpu": 0.6,
+      "rss_gb": 0.5,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2382,7 +2344,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.49,
-      "cpu": 1.2,
+      "cpu": 1.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,6 +2498,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1785091152646,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2576,15 +2547,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1785079807688,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1785004746206,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2648,9 +2610,6 @@
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-07-19 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-07-20 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2671,12 +2630,12 @@
           "---",
           "## 2026-07-26 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-07-27 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "## 2026-07-21 \u2014 No agent activity",
-          "## 2026-07-21",
-          "## Session: BOBCARD OneCard MITC Study & Comparative (18:10\u201320:55 IST)",
           "## 2026-07-22 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2713,7 +2672,10 @@
           "---",
           "## 2026-07-26",
           "- Heartbeat checks throughout quiet hours (00:55\u201306:55 IST) \u2014 context stable, email scans skipped per protocol",
-          "- Active hours resumed at 07:00 IST"
+          "- Active hours resumed at 07:00 IST",
+          "## 2026-07-27 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---"
         ]
       }
     },
@@ -3806,7 +3768,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
