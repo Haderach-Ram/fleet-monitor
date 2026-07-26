@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-26 20:26:50 IST",
-  "generated_epoch": 1785077810,
+  "generated_ist": "2026-07-26 20:31:56 IST",
+  "generated_epoch": 1785078116,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.31 / 2.48 / 2.38",
+    "load": "2.28 / 2.40 / 2.38",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.06,
-      "cpu": 0.0,
+      "rss_gb": 1.26,
+      "cpu": 0.1,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785077666908,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785078029809,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785077429619,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785077429619,
+          "last_ts": 1785078029808,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785077429618,
+          "last_ts": 1785078029808,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785077666908,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,13 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[19:10 IST] HADERACH: Looked at it \u2014 there's exactly one live issue, and it's minor.",
-          "<b>The issue:</b> \"Memory Pressure Alert (free% + pageout, alert-only)\" cron \u2014 1 consecutive error, on its last run (18:47\u201318:49 IST).",
-          "<b>What happened:</b> The job's isolated run tried to spawn a background exec process (auto-named <code>vivid-orbit</code>) to sample <code>vm_stat</code> pageouts over a 5-second window, but that process failed to return cleanly before the job's 120s timeout \u2014 the run duration was 117.7s, right ...",
-          "[19:14 IST] RAM: Is your session start context light now?",
-          "[19:14 IST] HADERACH: **Session mode?**",
-          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
           "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
           "Once you pick one I'll answer the actual question \u2014 since it bears directly on it (the HAD-055 Workstream 1 trims to MEMORY.md and the new issues-archive.md move should ...",
           "[19:14 IST] HADERACH: **Session mode?**",
@@ -1557,7 +1550,14 @@
           "<li>Port 18797: HTTP 000 (connection refused, no process listening)</li>",
           "<li>launchctl: service not found in domain \u2014 disabled + booted out cleanly</li>",
           "</ul>",
-          "That's now consistent with the M2 Legal-SMEDA freeze noted in memory. I'll update MEMORY.md's fleet-bifurcation entry to reflect this refreeze on next curation pass \u2014 flag if you'd like it done now instead."
+          "That's now consistent with the M2 Legal-SMEDA freeze noted in memory. I'll update MEMORY.md's fleet-bifurcation entry to reflect this refreeze on next curation pass \u2014 flag if you'd like it done now instead.",
+          "[20:27 IST] RAM: Why is your session start still heavy? We did HAD-055 to lighten it",
+          "[20:27 IST] HADERACH: Fair challenge \u2014 let me separate what HAD-055 actually targeted from what I was measuring in my last answer, because those are two different problems.",
+          "<b>What HAD-055 Workstream 1 fixed (26 Jul, verified):</b>",
+          "There's a hard 150,000-byte cap on the 7 auto-injected bootstrap files (MEMORY.md, AGENTS.md, TOOLS.md, HEARTBEAT.md, SOUL.md, IDENTITY.md, USER.md). Before the fix, those 7 totalled <b>160,243B</b> \u2014 over the cap, causing <i>silent truncation</i> (content just vanishing from context w...",
+          "[20:27 IST] HADERACH: Fair challenge \u2014 let me separate what HAD-055 actually targeted from what I was measuring in my last answer, because those are two different problems.",
+          "<b>What HAD-055 Workstream 1 fixed (26 Jul, verified):</b>",
+          "There's a hard 150,000-byte cap on the 7 auto-injected bootstrap files (MEMORY.md, AGENTS.md, TOOLS.md, HEARTBEAT.md, SOUL.md, IDENTITY.md, USER.md). Before the fix, those 7 totalled <b>160,243B</b> \u2014 over the cap, causing <i>silent truncation</i> (content just vanishing from context w..."
         ],
         "yesterday": [
           "<ul>",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.48,
-      "cpu": 1.0,
+      "rss_gb": 0.49,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2403,7 +2403,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.54,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2557,18 +2557,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1785076207167,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1785078003800,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 6-21 * * *",
           "last_ts": 1785076207167,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
@@ -2622,7 +2622,6 @@
       ],
       "transcripts": {
         "recent": [
-          "All sessions are caught up.",
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. All transcript sessions checked \u2014 no new messages to process. Bookmark state maintained.",
           "[15:55 IST] DM_USER: [OpenClaw heartbeat poll]",
@@ -2661,7 +2660,8 @@
           "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
           "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[19:55 IST] PURL: HEARTBEAT_OK"
+          "[19:55 IST] PURL: HEARTBEAT_OK",
+          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. All transcript sessions checked \u2014 no new messages to log across group, Gari, or transcript channels. Bookmarks unchanged.",
@@ -3835,7 +3835,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3865,7 +3865,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
