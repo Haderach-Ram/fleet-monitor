@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-26 16:26:01 IST",
-  "generated_epoch": 1785063361,
+  "generated_ist": "2026-07-26 16:31:08 IST",
+  "generated_epoch": 1785063668,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.06 / 2.72 / 2.49",
+    "load": "1.78 / 2.30 / 2.36",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.24,
+      "rss_gb": 1.28,
       "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785063633994,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785063633994,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785063633993,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,37 +697,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785063230753,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785063230752,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1785063230752,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785063230751,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,19 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li><b>MEMORY.md:</b> 65,239B \u2192 39,934B (18 historical/technical sections moved to <code>tech.md</code>, 3 project-status sections to <code>projects.md</code>, 24 closed issues to new <code>memory/issues-archive.md</code>)</li>",
-          "<li><b>Bootstrap total (7 files):</b> 160,243B \u2192 <b>134,938B</b> \u2014 under the 150,000B cap. Sile...",
-          "[15:57 IST] HADERACH: Committed and backed up. Everything checks out \u2014 16 clean headers, file ends cleanly, git commit captured with a clear message.",
-          "<b>HAD-055 Workstream 1 \u2014 executed</b>",
-          "<ul>",
-          "<li><b>MEMORY.md:</b> 65,239B \u2192 39,934B (18 historical/technical sections moved to <code>tech.md</code>, 3 project-status sections to <code>projects.md</code>, 24 closed issues to new <code>memory/issues-archive.md</code>)</li>",
-          "<li><b>Bootstrap total (7 files):</b> 160,243B \u2192 <b>134,938B</b> \u2014 under the 150,000B cap. Sile...",
-          "[15:59 IST] RAM: Do it. update ProjHad HAD-055 once done",
-          "[16:04 IST] HADERACH: Both consolidation crons updated successfully with the MEMORY.md structure note. Now updating the HEARTBEAT.md Saturday curation routine to route resolved entries to `issues-archive.md` instead of marking them in-place.",
-          "[16:04 IST] HADERACH: Now let's force-run the 13:00 consolidation cron to verify it handles the new structure correctly before trusting it unsupervised.",
-          "[16:04 IST] HADERACH: The run is queued but not yet reflected in history. Let me wait a bit and check.",
-          "[16:09 IST] HADERACH: Two manual force-run attempts both hit `\"isolated agent setup timed out before runner start\"` \u2014 likely resource contention with this active interactive session (isolated cron spawns and this session are competing for the same runner slot). The payload/schedule itself saved correctly (both `cron.update` calls returned successfully with the new content in place), so this isn't a config problem. I'll let it verify naturally at tomorrow's 13:00 run rather than keep retrying against a busy session...",
-          "[16:09 IST] HADERACH: Now committing the cron/HEARTBEAT/STATUS updates to git.",
           "[16:09 IST] HADERACH: Done. Here's the full close-out.",
           "<b>HAD-055 \u2014 all follow-up items completed</b>",
           "<ul>",
@@ -1557,7 +1544,20 @@
           "Both listings are variants of the same Breville espresso machine, but they are not identical SKUs:",
           "<ul>",
           "<li><b>Listing 1 \u2014 BES870XL (standard)</b>: \u20b978,000 | 4.5\u2605 | 21,847 ratings | Sold by \"Elite Brew house\"</li>",
-          "<li><b>Listing 2 \u2014 RM-BES870XL</b>: \u20b978,000 | 4.2\u2605 | 363 ra..."
+          "<li><b>Listing 2 \u2014 RM-BES870XL</b>: \u20b978,000 | 4.2\u2605 | 363 ra...",
+          "[16:27 IST] RAM: https://delonghiindia.in/la-specialista-opera",
+          "How's this? Better than the Breville's machines?",
+          "[16:27 IST] HADERACH: Let me pull the Opera's actual Amazon.in listing to check its reviews properly before giving you a verdict.",
+          "[16:27 IST] HADERACH: Good \u2014 that page is the official DeLonghi Amazon listing (sold via \"the DeLonghi Store,\" not a third-party reseller), and it carries all three La Specialista variants on one listing with variant-switchable pricing. Here's the real comparison.",
+          "<b>Opera \u2014 verified pricing & reviews (Amazon.in, official DeLonghi Store)</b>",
+          "<ul>",
+          "<li><b>Price:</b> \u20b989,999 (45% off \u20b91,64,999 MRP) \u2014 matches delonghiindia.in exactly</li>",
+          "<li><b>Rating:</b> 4.8\u2605 across 176 reviews \u2014 91% five-star, 6% four-star, only...",
+          "[16:28 IST] HADERACH: Good \u2014 that page is the official DeLonghi Amazon listing (sold via \"the DeLonghi Store,\" not a third-party reseller), and it carries all three La Specialista variants on one listing with variant-switchable pricing. Here's the real comparison.",
+          "<b>Opera \u2014 verified pricing & reviews (Amazon.in, official DeLonghi Store)</b>",
+          "<ul>",
+          "<li><b>Price:</b> \u20b989,999 (45% off \u20b91,64,999 MRP) \u2014 matches delonghiindia.in exactly</li>",
+          "<li><b>Rating:</b> 4.8\u2605 across 176 reviews \u2014 91% five-star, 6% four-star, only..."
         ],
         "yesterday": [
           "<ul>",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.47,
-      "cpu": 0.9,
+      "rss_gb": 0.45,
+      "cpu": 2.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2403,7 +2403,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.53,
-      "cpu": 0.2,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2557,19 +2557,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1785061808962,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1785063604122,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1785061808961,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1785061808962,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2622,8 +2622,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
-          "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script for you.",
           "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Transcript logger complete.**",
           "- Checked 3 session lanes (main, direct DM, Klub K group)",
@@ -2661,7 +2659,9 @@
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. All transcript sessions checked \u2014 no new messages to process. Bookmark state maintained.",
           "[15:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[15:55 IST] PURL: HEARTBEAT_OK"
+          "[15:55 IST] PURL: HEARTBEAT_OK",
+          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
+          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. All transcript sessions checked \u2014 no new messages to log across group, Gari, or transcript channels. Bookmarks unchanged.",
@@ -3049,8 +3049,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 42125,
-      "rss_gb": 0.42,
-      "cpu": 0.4,
+      "rss_gb": 0.44,
+      "cpu": 0.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3075,7 +3075,7 @@
           "name": "Legal-SMEDA \u2014 Transcript Logger (10min, 06-23)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785063006660,
+          "last_ts": 1785063605636,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -3670,7 +3670,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3835,7 +3835,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3865,7 +3865,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
