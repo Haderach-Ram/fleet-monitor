@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-26 23:56:54 IST",
-  "generated_epoch": 1785090414,
+  "generated_ist": "2026-07-27 00:02:00 IST",
+  "generated_epoch": 1785090720,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.15 / 2.37 / 2.32",
+    "load": "4.31 / 3.04 / 2.58",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.11,
-      "cpu": 0.0,
+      "rss_gb": 1.12,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -1698,7 +1698,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.49,
+      "rss_gb": 0.56,
       "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -1724,6 +1724,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1785090618875,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1785090618875,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1746,15 +1764,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1785087312516,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1785079807988,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1805,15 +1814,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1785015025060,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Giskard \u2014 Midnight Rolling Summary",
           "enabled": true,
           "sched": "5 0 * * *",
@@ -1843,33 +1843,12 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-07-26",
-          "# Self-healing rotation from transcript-2026-07-25.md at 00:00 IST"
+          "# Transcript - 2026-07-27",
+          "# Self-healing rotation from transcript-2026-07-26.md at 00:00 IST"
         ],
         "yesterday": [
-          "# Transcript - 2026-07-25",
-          "# Self-healing rotation from transcript-2026-07-24.md at 00:00 IST",
-          "[17:51 IST] [DM] Giskard: Here. Fleet's stable \u2014 Haderach's context dipped back to 76% after the 87% peak, two recurring cron errors on Haderach (HAD-003 Reading, SCL NSE Filings) still unresolved but not urgent, everything else nominal. Anything you need?",
-          "[17:51 IST] [DM] Giskard: Here. Fleet's stable \u2014 Haderach's context dipped back to 76% after the 87% peak, two recurring cron errors on Haderach (HAD-003 Reading, SCL NSE Filings) still unresolved but not urgent, everything else nominal. Anything you need?",
-          "[17:52 IST] [DM] Giskard: Health endpoint is 200 \u2014 process is up. But that doesn't rule out a stuck Telegram polling loop (same class of issue as the 13 May blackout). Checking logs and Telegram connectivity now.",
-          "[17:52 IST] [DM] Giskard: Telegram API itself is reachable, and health returns 200. But that `gateway.log` is stale (last entry June 7) \u2014 checking today's actual log file per AGENTS.md path.",
-          "[17:52 IST] [DM] Giskard: Found it. There's a real error at 17:50:16 \u2014 right when you noticed H wasn't responding:",
-          "```",
-          "telegram dispatch failed: Error: reply session initialization conflicted for agent:main:direct:ram",
-          "[telegram][diag] spooled update 870935128 failed; keeping for retry",
-          "```",
-          "Let me check how many times this recurred and the current tail of the log.",
-          "[17:52 IST] [DM] Giskard: **Diagnosis confirmed.** Haderach process is up (health=200), but every inbound Telegram message to `@ram_haderach_bot` on your direct session has been failing since **17:49:59 IST** with the same repeating error \u2014 it's now on its ~20th failed retry (retrying every ~40-60s):",
-          "```",
-          "Error: reply session initialization conflicted for agent:main:direct:ram",
-          "```",
-          "This isn't a process crash or a Telegram polling stall (both of those are already covered by other watchdog rules) \u2014 it's a **stuck/conflicte",
-          "[17:52 IST] [DM] Giskard: No BWS 429 stress visible \u2014 a `kickstart -k` restart is safe per protocol.",
-          "**Diagnosis:** Haderach's `agent:main:direct:ram` Telegram session is stuck with a \"reply session initialization conflicted\" error since 17:49:59 IST. Every message you've sent since then (including this one) is failing on the same lock and getting spooled for retry \u2014 none have been processed. Process itself is healthy; this is a session-init deadlock, not a crash.",
-          "**Proposed fix:** restart Haderach to clear the stuck s",
-          "[17:53 IST] [DM] Giskard: No BWS 429 stress visible \u2014 a `kickstart -k` restart is safe per protocol.",
-          "**Diagnosis:** Haderach's `agent:main:direct:ram` Telegram session is stuck with a \"reply session initialization conflicted\" error since 17:49:59 IST. Every message you've sent since then (including this one) is failing on the same lock and getting spooled for retry \u2014 none have been processed. Process itself is healthy; this is a session-init deadlock, not a crash.",
-          "**Proposed fix:** restart Haderach to clear the stuck s"
+          "# Transcript - 2026-07-26",
+          "# Self-healing rotation from transcript-2026-07-25.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-06-18 \u2014 no new content] ---",
@@ -2402,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 45191,
-      "rss_gb": 0.53,
-      "cpu": 1.1,
+      "rss_gb": 0.5,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3670,7 +3649,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3835,7 +3814,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3865,7 +3844,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
