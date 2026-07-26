@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-26 15:50:18 IST",
-  "generated_epoch": 1785061218,
+  "generated_ist": "2026-07-26 15:55:24 IST",
+  "generated_epoch": 1785061524,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.46 / 2.72 / 2.59",
+    "load": "2.14 / 2.39 / 2.48",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.27,
-      "cpu": 0.9,
+      "rss_gb": 1.22,
+      "cpu": 0.2,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,37 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785061456994,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785060834875,
+          "last_ts": 1785061232613,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785061232613,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785061232612,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -674,33 +701,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1785060834875,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785060834875,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785060834874,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785059658409,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,14 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Two cron bugs were root-caused and fixed: a leftover <code>sessionKey</code> was overriding <code>sessionTarge...",
-          "[15:10 IST] RAM: This was your last message:",
-          "All 30 crons fixed and verified \u2014 confirmed via the `add` responses that not one of the 30 new job objects carries a `sessionKey` field, and all have `sessionTarget: \"isolated\"`. Total job count is stable (61 enabled + 34 disabled = 95, matching before). No \"DO NOT TOUCH\" jobs were touched \u2014 the main-session-target jobs, the Chet nightly-consolidation job (flagged for Chet's own gateway, not modified), and all disabled jobs are exactly as they were.",
-          "**Loose thread...",
-          "[15:10 IST] HADERACH: Ah \u2014 that's more current than what I had. Correcting the picture: the loose thread wasn't just the 2 crons (HAD-003 + SCL NSE) \u2014 a full audit found the same leftover-<code>sessionKey</code> bug across <b>30 crons total</b>, and all 30 were fixed and verified (fresh isolated sessions, no stray <code>sessionKey</code>, total job count unchanged at 61 enabled + 34 disabled). Nothing \"DO NOT TOUCH\" was touched \u2014 main-target jobs, Chet's own cron, and disabled jobs were left alone by design. That ...",
-          "[15:11 IST] HADERACH: Ah \u2014 that's more current than what I had. Correcting the picture: the loose thread wasn't just the 2 crons (HAD-003 + SCL NSE) \u2014 a full audit found the same leftover-<code>sessionKey</code> bug across <b>30 crons total</b>, and all 30 were fixed and verified (fresh isolated sessions, no stray <code>sessionKey</code>, total job count unchanged at 61 enabled + 34 disabled). Nothing \"DO NOT TOUCH\" was touched \u2014 main-target jobs, Chet's own cron, and disabled jobs were left alone by design. That ...",
-          "[15:14 IST] RAM: Update ProjHad HAD-055 so that we don't lose track of what has been done",
-          "[15:14 IST] HADERACH: Now the PROJECT.md, to add Workstream 2 for full context/scope:",
           "[15:15 IST] HADERACH: HAD-055 is updated \u2014 both files now capture the full picture.",
           "<b>PROJECT.md:</b> added a new \"Workstream 2 \u2014 Cron sessionKey Hygiene\" section documenting the root cause, the API dead-end (sessionKey:null doesn't clear), the remove+add fix pattern, the 30-cron scope expansion, and what was deliberately left untouched.",
           "<b>STATUS.md:</b> Done list now includes the 30-cron fix as a completed line; Next list is trimmed down to just Workstream 1 (Memory File Hygiene), with your still-pending deci...",
@@ -1557,7 +1549,15 @@
           "<li>Workstream 2 (cron sessionKey hygiene) \u2014 <b>closed</b>. 30 crons fixed fleet-wide (remove+add pattern), verified clean, job count unchanged (61 enabled + 34 disabled)</li>",
           "</ul>",
           "<b>St...",
-          "[15:34 IST] RAM: Go ahead"
+          "[15:34 IST] RAM: Go ahead",
+          "[15:49 IST] RAM: !!??",
+          "[15:49 IST] HADERACH: Apologies \u2014 that first attempt hit a tool error before producing anything (nothing was executed, no files were touched). Here's the actual cut list, drafted fresh.",
+          "<b>Cut List Proposal \u2014 MEMORY.md + AGENTS.md</b>",
+          "<i>Nothing deleted \u2014 everything relocates to a file already read on-demand (tech.md / decisions.md / projects.md), same pattern as wiki/index.md.</i>",
+          "<b>MEMORY.md \u2014 keep vs. relocate</b>",
+          "<b>KEEP as-is (short, currently-active, must stay eager-loaded):</b>",
+          "<ul>",
+          "<li>\ud83d\udd34 CRITICAL FACTS..."
         ],
         "yesterday": [
           "<ul>",
@@ -1698,7 +1698,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.53,
+      "rss_gb": 0.5,
       "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -2403,7 +2403,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.53,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3049,8 +3049,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 42125,
-      "rss_gb": 0.44,
-      "cpu": 0.6,
+      "rss_gb": 0.42,
+      "cpu": 0.4,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 1,
@@ -3670,7 +3670,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3835,7 +3835,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3865,7 +3865,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
