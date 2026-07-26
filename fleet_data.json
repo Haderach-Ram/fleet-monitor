@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-27 00:02:00 IST",
-  "generated_epoch": 1785090720,
+  "generated_ist": "2026-07-27 00:07:07 IST",
+  "generated_epoch": 1785091027,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.31 / 3.04 / 2.58",
+    "load": "2.29 / 2.53 / 2.47",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.12,
-      "cpu": 0.3,
+      "rss_gb": 1.16,
+      "cpu": 0.4,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,24 @@
       ],
       "crons": [
         {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1785090809720,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1785090809719,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -778,15 +796,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1785080036769,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -865,15 +874,6 @@
           "last_ts": 1785018632855,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1785015224877,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1602,13 +1602,6 @@
           "[23:47 IST] HADERACH: Both HAD-038's tool-layer stall entry and HAD-034's Seneca fix entry are already fully written up from this session \u2014 I've now closed the loop by cross-linking the #102268 root-cause finding into HAD-038 explicitly (it had been left as \"not yet diagnosed\" there). HAD-034's Seneca `nightly-consolidation` entry and its \"Next\" pointer were already current from earlier this session. Both files are now consistent and complete."
         ],
         "rolling_7day": [
-          "## 2026-07-20 \u2014 Fleet Cleanup: Model Hierarchies + GitHub Issues Audit",
-          "- [03:00 IST] Fleet fixes: Purl rolling-7day stale + 23:00 cron edit-tool fail + SCM Mail timeout \u2014 all three resolved",
-          "- [08:33 IST] Weekly bulletin; HEARTBEAT.md GitHub author corrected (Haderach-Ram + ramshenoy both checked)",
-          "- [13:18\u201316:39 IST] Full fleet direct-Anthropic cleanup: Max/Mid/Mid2 presets updated; Giskard/CA-SMEDA-II crons to Bedrock Sonnet 5; Kubera migrated to full OpenRouter hierarchy; Kubera unfrozen \u2192 re-frozen",
-          "- [20:29 IST] gog CLI confirmed as primary email tool for ram.haderach@gmail.com (read + send); TOOLS.md updated",
-          "---",
-          "--- [Midnight run OK \u2014 2026-07-21 \u2014 no new content] ---",
           "## 2026-07-21 \u2014 Twitter posting, Jonas false alarms, Cognifin, Purl fix",
           "- [07:07 IST] ai-website-cloner installed; first @HaderachRam tweet posted 08:18 IST (IronClaw digest link); Twitter crons folded into digest/radar crons.",
           "- [13:12 IST] Jonas/CA-SMEDA-I false-alarm \"tools down\" diagnosed: M2 infra healthy, _v2 filename hallucination identified.",
@@ -1641,16 +1634,16 @@
           "- [15:45\u201316:09 IST] Legal-SMEDA unfrozen, tasked with affidavit fact-check (stake % overstatement flagged: \u20b98,850 Cr claimed vs \u20b95,652 Cr received).",
           "- [16:11\u201319:35 IST] Purl audit delivered; Jonas (M2) 23 crons + CAIO/Ravindra/Keshav/Seneca (M2) mostly migrated to Bedrock Haiku 4.5; allowlist gap caught and fixed; HAD-034 updated.",
           "- [20:55\u201323:47 IST] apply_patch/edit cron failures diagnosed as banner-discipline gap (fixed on CAIO/Seneca); separate tool-layer stall root-caused to open GitHub issue #102268 (no fix yet, logged to dead-ends.md); Seneca nightly-consolidation bug fixed.",
-          "--- [Midnight run OK \u2014 2026-07-25 \u2014 rolling-7day updated] ---"
+          "--- [Midnight run OK \u2014 2026-07-25 \u2014 rolling-7day updated] ---",
+          "## 2026-07-26 \u2014 HAD-055 Maintenance (Cron Hygiene + Memory Restructure), SCL Board Bios, Fitbit Air ProjHads",
+          "- [07:02\u201307:18 IST] Diagnosed + fixed leftover-sessionKey bug on HAD-003 Reading + SCL NSE Filings crons (shared session had grown to 200K/200K context tokens); root cause flagged for fleet-wide audit.",
+          "- [10:47\u201315:15 IST] HAD-055 \"Haderach Maintenance\" opened; full cron audit found 30 enabled crons (not just 2) carried the same leftover-sessionKey bug \u2014 all fixed via remove+add-clean pattern, verified 0/30 remaining, job count unchanged (61 enabled + 34 disabled).",
+          "- [13:23\u201313:31 IST] SCL Board of Directors table with full bios delivered (Mundra/Banga/Chaudhary/Rajiv Gupta/Crasta), sourced from docx + PIL slides.",
+          "- [15:52\u201316:10 IST] HAD-055 Workstream 1 executed with Ram's approval: MEMORY.md 65,239B\u219239,934B, bootstrap total 160,243B\u2192134,938B (now under 150K cap); Workstream 3 later condensed dead-ends.md 85,728B\u219270,825B (dupes archived, nothing lost).",
+          "- [22:22\u201323:02 IST] Coffee machine comparison (Breville BES870XL vs La Specialista Opera) delivered; Fitbit Air reviewed, two linked ProjHads opened (PER-017 Ram / PER-018 Garima) for Doctor SMEDA integration \u2014 scaffolding incomplete, PER-012 flagged stale.",
+          "---"
         ],
         "rolling_28day": [
-          "- [13:55 IST] TwitAcc: Slate app (Eli Rousso) \u2014 100% on-device voice journal (Apple Intelligence 3B, SwiftData); summarised for Ram.",
-          "- [16:30 IST] OpenClaw update check: 2026.7.1-2 is stable but 3 open issues relevant to our setup (upgrade-from-6.11 migration block, memory-sidecar rollback, cron SQLite conflict); Ram decided no cron needed, hold update.",
-          "- [19:52 IST] Marcus/CA-SMEDA-II frozen (launchctl bootout+disable); M4 frozen count now 7.",
-          "## 2026-07-23 \u2014 Haiku 4.5 Cost Migration + Model-ID Catalog Bug (unresolved at session end)",
-          "- [06:22\u201306:39 IST] Giskard Fleet Monitor diagnosis: HAD-003 \"mild-otter\" flag was a false positive (cron ran fine); Giskard's own Midnight Rolling Summary cron had a real bug (Step 2 reads day-file before it exists at 00:05 IST) \u2014 fix drafted and sent to Ram for relay.",
-          "- [07:48\u201308:50 IST] Weekly GitHub OpenClaw Radar digest (Issue #87) compiled; tweet posted live via @HaderachRam.",
-          "- [08:31 IST] NSE bhavcopy (2026-07-22) ingested cleanly \u2014 Equity 3,417 rows, F&O 38,343 rows.",
           "- [09:53\u201310:29 IST] Kubera freeze/unfreeze cycle tested twice on request; left unfrozen (port 18798 HTTP 200).",
           "- [12:53\u201312:55 IST] PER-001 (Python & AI \u2192 CAO) identified as the study ProjHad; its STATUS.md found stale since 22 Mar 2026, flagged to Ram.",
           "- [14:34\u201314:50 IST] Investigated why Anthropic Haiku is unavailable on AWS Bedrock; found the real fix live-tested end-to-end (short-form catalog model ID `amazon-bedrock/global.anthropic.claude-haiku-4-5`, no version suffix) \u2014 clean text, tool-calling, and cache read/write all confirmed on an isolated tester instance.",
@@ -1683,7 +1676,14 @@
           "- [16:11\u201319:16 IST] Purl cron/heartbeat audit PDF delivered; Purl's Klub K daytime logger pinned to Haiku 4.5; Jonas (CA-SMEDA-I, M2) \u2014 23 crons migrated to Bedrock Haiku 4.5 (two catalog gaps fixed, same pattern as HAD-038); heartbeat 30\u219260 min, daytime transcript logger 15\u219220 min; HAD-034 updated.",
           "- [18:55\u201319:35 IST] CAIO/Ravindra/Keshav/Seneca (M2) cron review \u2014 most mechanical crons migrated to Haiku 4.5; a real allowlist gap caught after Ravindra's natural run failed, fixed and re-verified; HAD-034 updated.",
           "- [20:55\u201323:47 IST] Recurring apply_patch/edit cron failures diagnosed as known cross-fleet pattern (banner-discipline gap); CAIO/Seneca banner fix applied on M2. Separate live tool-layer stall (empty tool-call returns) root-caused to open OpenClaw GitHub issue #102268 (aggregate tool-result character-budget bug, no merged fix) \u2014 logged to dead-ends.md. Seneca's `nightly-consolidation` bug found and fixed. HAD-034/HAD-038 both updated.",
-          "--- [Midnight run OK \u2014 2026-07-25 \u2014 rolling-28day + rolling-180day updated] ---"
+          "--- [Midnight run OK \u2014 2026-07-25 \u2014 rolling-28day + rolling-180day updated] ---",
+          "## 2026-07-26 \u2014 HAD-055 Haderach Maintenance: 30-Cron sessionKey Fix + Memory File Restructure",
+          "- [07:02\u201307:18 IST] HAD-003 Reading + SCL NSE Filings cron timeouts root-caused to leftover sessionKey overriding sessionTarget:isolated (shared session bloated to 200K/200K tokens); both jobs fixed.",
+          "- [10:47\u201315:15 IST] HAD-055 opened; fleet-wide audit found 30 enabled crons carried the same bug \u2014 all fixed via remove+add-clean pattern; verified 0/30 remain, total job count unchanged (61 enabled + 34 disabled).",
+          "- [13:23\u201313:31 IST] SCL Board of Directors table with full director bios delivered.",
+          "- [15:52\u201321:17 IST] HAD-055 Workstream 1 (Memory File Hygiene) executed with Ram's approval: MEMORY.md 65,239B\u219239,934B, bootstrap total 160,243B\u2192134,938B (now under 150K cap); Workstream 3 condensed dead-ends.md 85,728B\u219270,825B \u2014 nothing lost, both archived and pushed.",
+          "- [22:22\u201323:02 IST] Coffee machine comparison delivered; Fitbit Air reviewed and two linked ProjHads (PER-017/PER-018) opened for future Doctor SMEDA vitals integration \u2014 scaffolding incomplete.",
+          "--- [Midnight run OK \u2014 2026-07-27 \u2014 entry written for 2026-07-26] ---"
         ]
       }
     },
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.56,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1723,6 +1723,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1785090987725,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
@@ -1814,15 +1823,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1785004583884,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Monthly Archive \u2014 All Agents (1st of month 06:00 IST)",
           "enabled": true,
           "sched": "0 6 1 * *",
@@ -1851,7 +1851,6 @@
           "# Self-healing rotation from transcript-2026-07-25.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-06-18 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-20 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-21 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-22 \u2014 no new content] ---",
@@ -1890,10 +1889,10 @@
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-25 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-07-26 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-26 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "---",
           "--- [Midnight run OK \u2014 2026-06-12 \u2014 no new content] ---",
           "- No sessions initiated on this date (Giskard standby; cron-triggered fleet monitoring ran normally).",
           "---",
@@ -1932,7 +1931,8 @@
           "---",
           "--- [Midnight run OK \u2014 2026-07-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-25 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-07-26 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-26 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---"
         ]
       }
     },
@@ -2381,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 45191,
-      "rss_gb": 0.5,
-      "cpu": 0.8,
+      "rss_gb": 0.49,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,6 +2536,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785090848339,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785090848339,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2549,24 +2567,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1785083417760,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785080048048,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785080048047,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2601,6 +2601,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-27",
+          "# Self-healing rotation from transcript-2026-07-26.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger...",
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K transcript logger completed successfully.**",
           "No new messages to capture across any sessions. All bookmarks current. Task complete.",
@@ -2641,48 +2645,6 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
           "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[22:55 IST] PURL: HEARTBEAT_OK"
-        ],
-        "yesterday": [
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. All transcript sessions checked \u2014 no new messages to log across group, Gari, or transcript channels. Bookmarks unchanged.",
-          "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[21:55 IST] PURL: \ud83e\uddf6 **HEARTBEAT CHECK \u2014 21:55 IST, Saturday 25 July 2026**",
-          "Running checks now:",
-          "**1. Session Save** \u2014 Updating memory:",
-          "[21:56 IST] PURL: **2. Status Check:**",
-          "\ud83d\udcca **Context:** ~42%, stable  ",
-          "\ud83d\udcb0 **Cost:** Under threshold  ",
-          "\u23f0 **Time:** 21:55 IST \u2014 active hours",
-          "**3. Session Health:**",
-          "\u2705 Context well under 50%  ",
-          "\u2705 No pending work  ",
-          "\u2705 Evening quiet",
-          "---",
-          "**HEARTBEAT_OK**",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation. Let me start by checking today's daily log and processing it.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now I'll consolidate this into rolling memory files and update the heartbeat state:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now trimming old entries and adding the final bookmark:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Final bookmark:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[22:55 IST] PURL: \ud83e\uddf6 **HEARTBEAT CHECK \u2014 22:55 IST, Saturday 25 July 2026**",
-          "Running checks now:",
-          "**1. Session Save** \u2014 Updating memory:",
-          "[22:55 IST] PURL: **2. Status Check:**",
-          "\ud83d\udcca **Context:** ~42%, stable  ",
-          "\ud83d\udcb0 **Cost:** Optimal  ",
-          "\ud83d\udd27 **Config:** Current (2026-07-25)  ",
-          "\u23f0 **Time:** 22:55 IST \u2014 end of active hours (quiet hours start at 23:00)",
-          "**3. Quiet Hours Incoming:**",
-          "\u23f0 In 5 minutes, quiet-hour protocol engages (23:00\u201307:00 IST):",
-          "- \u2705 Email scans paused until 07:00",
-          "- \u2705 No alerts after 23:00",
-          "- \u2705 Session stays healthy",
-          "**4. Session Health:**",
-          "\u2705 Context: 42% \u2014 well under 50%  ",
-          "\u2705 No pending items  ",
-          "\u2705 Ready for quiet hours",
-          "---",
-          "**HEARTBEAT_OK**"
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
@@ -3649,7 +3611,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3814,7 +3776,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3844,7 +3806,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
