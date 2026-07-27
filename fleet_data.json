@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-27 13:08:08 IST",
-  "generated_epoch": 1785137888,
+  "generated_ist": "2026-07-27 13:13:14 IST",
+  "generated_epoch": 1785138194,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.06 / 2.81 / 2.85",
+    "load": "2.27 / 2.47 / 2.67",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.17,
+      "rss_gb": 0.93,
       "cpu": 0.1,
       "crons_total": 95,
       "crons_enabled": 61,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1785137843827,
+          "sched": "10 13 * * *",
+          "last_ts": 1785138042370,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785138042370,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +682,34 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785137831759,
+          "last_ts": 1785138042368,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785138042368,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785137952151,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1785137843827,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -688,37 +724,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785137831759,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785137831758,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1785137831758,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785136162895,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1108,15 +1117,6 @@
           "last_ts": 1783649039491,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
-          "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": null,
-          "last_status": null,
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1518,14 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:11 IST] HADERACH: **Session mode?**",
-          "S \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "C \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "X \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "[12:11 IST] HADERACH: **Session mode?**",
-          "S \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
-          "C \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "X \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
           "[12:22 IST] RAM: X",
           "[12:23 IST] HADERACH: <b>PER-003 (Kubera) \u2014 Review</b>",
           "<b>What it is:</b> AI portfolio manager DA, live on port 18798 (confirmed healthy right now \u2014 HTTP 200, launchctl running). \u20b91,60,002 corpus across Pot 1 (equity, Angel One) and Pot 2 (Nifty options).",
@@ -1557,7 +1549,15 @@
           "[12:56 IST] RAM: Continue the OpenClaw runtime event.",
           "[12:56 IST] HADERACH: NO_REPLY",
           "[12:56 IST] HADERACH: The v2 run is still going (5m54s in, actively working \u2014 reading incrementally as instructed rather than front-loading). No new completion event yet, so nothing to report beyond what you've already seen. I'll come back to you the moment it finishes with the file list, live test results, and reconciliation summary.",
-          "[12:56 IST] HADERACH: The v2 run is still going (5m54s in, actively working \u2014 reading incrementally as instructed rather than front-loading). No new completion event yet, so nothing to report beyond what you've already seen. I'll come back to you the moment it finishes with the file list, live test results, and reconciliation summary."
+          "[12:56 IST] HADERACH: The v2 run is still going (5m54s in, actively working \u2014 reading incrementally as instructed rather than front-loading). No new completion event yet, so nothing to report beyond what you've already seen. I'll come back to you the moment it finishes with the file list, live test results, and reconciliation summary.",
+          "[13:05 IST] HADERACH: <b>Day 1-2 kubera_core build \u2014 done, verified.</b>",
+          "Independently checked the subagent's work (not taking its report on faith):",
+          "<b>Files created</b> (all compile clean, 760 lines total):",
+          "<ul>",
+          "<li><code>broker/smartapi_client.py</code> (341 lines) \u2014 the only file that talks to Angel One. Bakes in the hard-won rules as code: DELIVERY-for-NSE / CARRYFORWARD-for-NFO enforcement, -EQ suffix, NFO symbol formatting, no-scripconsent fix, WAF-HTML detection, plus a new retry-on-empty-body safeguard i...",
+          "[13:05 IST] HADERACH: ## Day 1-2 Complete \u2014 kubera_core Architecture Fix (PER-003)",
+          "**1. Files created (line counts):**",
+          "- `kubera_core/broker/smartapi_client.py` \u2014 341 lines. `AngelOneClient` class: `login()`, `get_holdings()`, `get_positions()`, `get_order_book()`, `resolve_symboltoken_nse()`, `resolve_symboltoken_nfo()`, `place_order()` (implemented, never invoked live this session). Only module importing `requests`/talking to Angel One. Bakes in: DELIVERY-for-NSE / CARRYFORWARD-for-NFO enforcement, -EQ suffix f..."
         ],
         "yesterday": [
           "<b>What reviewers like</b>",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.49,
-      "cpu": 0.9,
+      "cpu": 3.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1948,7 +1948,7 @@
       "frozen_reason": null,
       "pid": 54657,
       "rss_gb": 0.61,
-      "cpu": 1.0,
+      "cpu": 1.5,
       "crons_total": 22,
       "crons_enabled": 21,
       "skills_count": 1,
@@ -2348,7 +2348,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.46,
-      "cpu": 0.9,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3615,7 +3615,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.31,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3788,7 +3788,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.23,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 6.8,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
