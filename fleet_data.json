@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-28 00:07:31 IST",
-  "generated_epoch": 1785177451,
+  "generated_ist": "2026-07-28 00:12:37 IST",
+  "generated_epoch": 1785177757,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.89 / 2.26 / 2.25",
+    "load": "2.81 / 2.41 / 2.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.16,
-      "cpu": 46.5,
+      "rss_gb": 1.1,
+      "cpu": 1.3,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,69 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785177594152,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1785177482100,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1785177482100,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785177482100,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785177482099,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1785177482098,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1785177482098,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
@@ -715,15 +778,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785175778300,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 23:10 IST",
           "enabled": true,
           "sched": "10 23 * * *",
@@ -739,15 +793,6 @@
           "last_ts": 1785173965053,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1785173965052,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -775,33 +820,6 @@
           "last_ts": 1785173724095,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785166502705,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785166502705,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1785162783000,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1021,15 +1039,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1785102096142,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-003 Reading \u2014 02:00 IST",
           "enabled": true,
           "sched": "0 2 * * *",
@@ -1054,15 +1063,6 @@
           "last_ts": 1785098722427,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1785091077843,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1518,6 +1518,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-28",
+          "# Self-healing rotation from transcript-2026-07-27.md at 00:07 IST"
+        ],
+        "yesterday": [
           "</ul>",
           "This is a...",
           "[19:00 IST] HADERACH: All four ProjHad files are updated and Kubera is confirmed frozen.",
@@ -1558,48 +1562,6 @@
           "The tweet (Kimi.ai / @Kimi_Moonshot, 27 Jul 2026): Moonshot AI has released the model weights and technical report for <b>Kimi K3</b> \u2014 described as their most capable model yet: a 2.8T-parameter MoE model with native visual understanding and a 1M-token context window, built with a new architecture claimed to deliver \"2.5x the intelligence per unit of compute, not just more params.\" They're also open-sourcing supporting infra: high-performance attenti...",
           "[23:27 IST] HADERACH: <b>TwitAcc \u2014 Kimi K3 weights release</b>",
           "The tweet (Kimi.ai / @Kimi_Moonshot, 27 Jul 2026): Moonshot AI has released the model weights and technical report for <b>Kimi K3</b> \u2014 described as their most capable model yet: a 2.8T-parameter MoE model with native visual understanding and a 1M-token context window, built with a new architecture claimed to deliver \"2.5x the intelligence per unit of compute, not just more params.\" They're also open-sourcing supporting infra: high-performance attenti..."
-        ],
-        "yesterday": [
-          "<b>What reviewers like</b>",
-          "<ul>",
-          "<li>Very light and comfortable \u2014 most reviewers call it one of the most wearable trackers around</li>",
-          "<li>Strong sleep tracking and passive monitoring (HR, SpO2, AFib detection)</li>",
-          "<li>Week-long battery life</li>",
-          "<li>Works fully without a subscription \u2014 core trac...",
-          "[22:23 IST] HADERACH: <b>Fitbit Air \u2014 Reviews at a Glance</b>",
-          "Reception has been largely favourable, Ram. It's the screen-free, band-style tracker Google shipped in May, priced at $99/\u00a385, competing directly with Whoop.",
-          "<b>What reviewers like</b>",
-          "<ul>",
-          "<li>Very light and comfortable \u2014 most reviewers call it one of the most wearable trackers around</li>",
-          "<li>Strong sleep tracking and passive monitoring (HR, SpO2, AFib detection)</li>",
-          "<li>Week-long battery life</li>",
-          "<li>Works fully without a subscription \u2014 core trac...",
-          "[22:27 IST] RAM: So I can integrate it with Doctor SMEDA to give give Doctor SMEDA continuous access to my vitals?",
-          "[22:27 IST] HADERACH: <b>Short answer: technically yes, but a few things worth flagging first, Ram.</b>",
-          "<b>1. Doctor SMEDA's actual state</b>",
-          "I just live-checked \u2014 Medical-SMEDA (port 18809, aka \"Doctor SMEDA\" internally, PER-012) is currently <b>frozen</b> \u2014 not in launchctl, port not responding. It went into effective freeze after the FMGE exam on 28 June, pending a decision on whether to push toward NEET-PG/USMLE/GPAT.",
-          "<b>2. What Doctor SMEDA actually is, today</b>",
-          "It's an exam-prep instance \u2014 trained on Harr...",
-          "[22:28 IST] HADERACH: <b>Short answer: technically yes, but a few things worth flagging first, Ram.</b>",
-          "<b>1. Doctor SMEDA's actual state</b>",
-          "I just live-checked \u2014 Medical-SMEDA (port 18809, aka \"Doctor SMEDA\" internally, PER-012) is currently <b>frozen</b> \u2014 not in launchctl, port not responding. It went into effective freeze after the FMGE exam on 28 June, pending a decision on whether to push toward NEET-PG/USMLE/GPAT.",
-          "<b>2. What Doctor SMEDA actually is, today</b>",
-          "It's an exam-prep instance \u2014 trained on Harr...",
-          "[22:31 IST] RAM: We will do next week. Scope out this project. Which ProjHad is Doc in? Make two more linked ProjHads one for me and one for Garima for Google FitBit Air integration and monitoring by Doc. And search GitHub and net in general for FitBit Air monitoring via OpenClaw or similar agents, I am sure many would be doing it. Prepare a report and put in the ProjHad then",
-          "[22:32 IST] HADERACH: Now let me research GitHub and the web for Fitbit Air / Google Health API monitoring via OpenClaw or similar AI agents.",
-          "[22:33 IST] HADERACH: Now let me write the research report first (canonical copy in PER-017, linked from PER-018):",
-          "[22:39 IST] HADERACH: Good, that works now. Let me write the full report.",
-          "[22:41 IST] HADERACH: Let me build the report content properly now.",
-          "[22:42 IST] HADERACH: Good, confirmed the pattern works. Now writing the full report content.",
-          "[22:43 IST] HADERACH: Good \u2014 the tool works when both params are present. Now let me build the actual research report file with full content.",
-          "[22:46 IST] HADERACH: Good, multi-line works. The earlier failures were calls missing the content param. Let me write the full report now.",
-          "[22:47 IST] HADERACH: I'll use exec with a heredoc to write this large report instead, since the write tool call seems to be dropping content in this turn.",
-          "[22:48 IST] HADERACH: Good, exec works fine. Let me write the research report using exec with a Python heredoc to avoid the write tool issue.",
-          "[22:49 IST] HADERACH: Good \u2014 works when content comes right after the opening tag. Now let me write the full report content.",
-          "[22:52 IST] HADERACH: I'll use exec/Python to reliably write the full report given the write tool's inconsistent behavior with large content this turn.",
-          "[22:54 IST] HADERACH: Good, that works. Now let me write the report using a Python script via exec to avoid any issue with the write tool for large content.",
-          "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 38 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 48 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "rolling_7day": [
           "- [09:41 IST] Kubera unfrozen; Martin API schema gap (VIX/MCX never ingested) confirmed.",
@@ -1699,7 +1661,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.48,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2347,8 +2309,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 45191,
-      "rss_gb": 0.44,
-      "cpu": 0.4,
+      "rss_gb": 0.45,
+      "cpu": 3.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2502,6 +2464,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1785177548872,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2542,15 +2513,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1785166207730,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1785091152646,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2614,9 +2576,6 @@
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-07-20 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-07-21 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2637,12 +2596,12 @@
           "---",
           "## 2026-07-27 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-07-28 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "## 2026-07-22 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-07-22",
           "- # Daily Memory \u2014 2026-07-22",
           "## Session: BOBCARD OneCard MITC Study & Competitive Analysis (21 Jul evening \u2192 22 Jul 01:55)",
@@ -2678,6 +2637,9 @@
           "- Heartbeat checks throughout quiet hours (00:55\u201306:55 IST) \u2014 context stable, email scans skipped per protocol",
           "- Active hours resumed at 07:00 IST",
           "## 2026-07-27 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---",
+          "## 2026-07-28 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---"
         ]
