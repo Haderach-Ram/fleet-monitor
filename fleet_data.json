@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-27 09:02:52 IST",
-  "generated_epoch": 1785123172,
+  "generated_ist": "2026-07-27 09:07:58 IST",
+  "generated_epoch": 1785123478,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.82 / 2.69 / 2.54",
+    "load": "1.81 / 2.22 / 2.37",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.11,
-      "cpu": 0.4,
+      "rss_gb": 1.15,
+      "cpu": 1.2,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,37 @@
       ],
       "crons": [
         {
+          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
+          "enabled": true,
+          "sched": "0 9 * * *",
+          "last_ts": 1785123389850,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785122428482,
+          "last_ts": 1785123389849,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
+          "enabled": true,
+          "sched": "0 9 * * *",
+          "last_ts": 1785123389849,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785122428482,
+          "last_ts": 1785123389849,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +700,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785122428481,
+          "last_ts": 1785123389848,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1785123389848,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -922,15 +949,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1785068033240,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 13:00 IST",
           "enabled": true,
           "sched": "0 13 * * *",
@@ -1066,15 +1084,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": null,
-          "last_status": null,
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-051 Ranking Report quarterly refresh reminder",
           "enabled": true,
           "sched": "0 9 6 9 *",
@@ -1082,15 +1091,6 @@
           "last_status": null,
           "model": "(no LLM)",
           "kind": "systemEvent"
-        },
-        {
-          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": null,
-          "last_status": null,
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
         },
         {
           "name": "MusApp self-directed listening session",
@@ -1518,36 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 07:30 IST \u2014 session empty for 259 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[07:34 IST] RAM: ??",
-          "[07:36 IST] HADERACH: Good, applied the banner to the Monk consolidation cron. Now let me check the HAD-003 reading cron more closely \u2014 it already has the banner but is timing out at model-call-started/tool-execution-started, which is a different issue (probably a stuck epub or heavy read). Let me check reading-digest.md queue status and the transcript for what's actually going on there.",
-          "[07:37 IST] HADERACH: I see the overnight failure trail, Ram \u2014 let me sort through it and finish what was left hanging from last night's Fitbit Air work.",
-          "[07:38 IST] HADERACH: Now let me build everything \u2014 the research report, PROJECT.md/STATUS.md/NOTES.md for both ProjHads, and update the index files.",
-          "[07:41 IST] HADERACH: Good, tool calls work fine now. Let me write the research report content properly.",
-          "[07:41 IST] HADERACH: Report's written cleanly. Now let's build the PROJECT.md/STATUS.md/NOTES.md for both PER-017 and PER-018, and update the category/index files.",
-          "[07:42 IST] HADERACH: Now PER-018 for Garima, mirrored but distinct.",
-          "[07:43 IST] HADERACH: Now let me clean up the stray scratch file and update the PER category index + master PROJECTS.md.",
-          "[07:43 IST] HADERACH: All four files clean on both sides. Now update PER.md category index and the master PROJECTS.md.",
-          "[07:43 IST] HADERACH: Now let's write today's daily log entry and commit everything.",
-          "[07:44 IST] HADERACH: Good morning, Ram. I've picked up where things were left hanging overnight and tidied up the mess in that screenshot.",
-          "<b>Fitbit Air ProjHads \u2014 done</b>",
-          "Confirmed: Doctor SMEDA is <b>PER-012</b> (Medical SMEDA) \u2014 currently frozen since the FMGE exam wrapped 28 June.",
-          "<ul>",
-          "<li>Built out full <b>PER-017</b> (your Fitbit Air integration) and <b>PER-018</b> (Garima's) \u2014 PROJECT.md, STATUS.md, NOTES.md for both. Last night only empty folders existed; the research file itself was 0 bytes (a write-...",
-          "[07:44 IST] HADERACH: Good morning, Ram. I've picked up where things were left hanging overnight and tidied up the mess in that screenshot.",
-          "<b>Fitbit Air ProjHads \u2014 done</b>",
-          "Confirmed: Doctor SMEDA is <b>PER-012</b> (Medical SMEDA) \u2014 currently frozen since the FMGE exam wrapped 28 June.",
-          "<ul>",
-          "<li>Built out full <b>PER-017</b> (your Fitbit Air integration) and <b>PER-018</b> (Garima's) \u2014 PROJECT.md, STATUS.md, NOTES.md for both. Last night only empty folders existed; the research file itself was 0 bytes (a write-...",
-          "[07:49 IST] HADERACH: Applied. Now let's clean up the Monk job's error state note and log everything.",
-          "[07:50 IST] HADERACH: Right, dug into it properly rather than just flagging it.",
-          "<b>HAD-003 Reading cron \u2014 diagnosed and hardened</b>",
-          "The reading really has been stuck since 23 July \u2014 Section 78 of ~124 in Robots and Empire, exactly where the digest left it. Not a false alarm.",
-          "<ul>",
-          "<li>Tested the epub conversion directly: it completes cleanly in under 8 seconds. Not a slow-file problem.</li>",
-          "<li>Looking at the four failures: two stalled at \"model-call-started\" (the model itself never responded within 15 minutes ...",
-          "[07:50 IST] HADERACH: Right, dug into it properly rather than just flagging it.",
-          "<b>HAD-003 Reading cron \u2014 diagnosed and hardened</b>",
           "The reading really has been stuck since 23 July \u2014 Section 78 of ~124 in Robots and Empire, exactly where the digest left it. Not a false alarm.",
           "<ul>",
           "<li>Tested the epub conversion directly: it completes cleanly in under 8 seconds. Not a slow-file problem.</li>",
@@ -1557,7 +1527,37 @@
           "\ud83e\udd9e Digest live: https://github.com/Haderach-Ram/openclaw-radar/issues/91 \u00b7 Most active: OpenClaw (15 new issues) \u00b7 draCuLAW traffic (7d): 4 PV \u00b7 Top page: /newsletter/2026/07/22/newsletter-013.html",
           "\ud83d\udc26 Draft tweet (reply \"send it\" to post):",
           "OpenClaw logged 15 new issues today vs only 10 merged PRs \u2014 backlog's outrunning the fix rate again. Full pulse: https://github.com/Haderach-Ram/openclaw-radar/issues/91",
-          "--- [TRANSCRIPT GAP: 08:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 08:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[08:54 IST] RAM: How is session start context now?",
+          "[08:54 IST] HADERACH: <b>Session mode?</b>",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "[08:54 IST] HADERACH: <b>Session mode?</b>",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "[08:55 IST] RAM: X",
+          "[08:59 IST] HADERACH: Good news, Ram \u2014 the fix from yesterday's HAD-055 Workstream 1 is holding.",
+          "<b>Live numbers (checked just now)</b>",
+          "The 7 auto-injected bootstrap files total <b>135,979 bytes</b> \u2014 comfortably under the <code>bootstrapTotalMaxChars</code> cap of 150,000. No silent truncation happening.",
+          "<ul>",
+          "<li>AGENTS.md \u2014 51,814B</li>",
+          "<li>MEMORY.md \u2014 39,934B (down from 65,239B pre-restructure)</li>",
+          "<li>HEARTBEAT.md \u2014 19,780B</li>",
+          "<li>TOOLS.md \u2014 17,823B</li>",
+          "<li>SOUL.md \u2014 3,592B</li>",
+          "<li>USER.md \u2014 2,310B</li>...",
+          "[08:59 IST] HADERACH: Good news, Ram \u2014 the fix from yesterday's HAD-055 Workstream 1 is holding.",
+          "<b>Live numbers (checked just now)</b>",
+          "The 7 auto-injected bootstrap files total <b>135,979 bytes</b> \u2014 comfortably under the <code>bootstrapTotalMaxChars</code> cap of 150,000. No silent truncation happening.",
+          "<ul>",
+          "<li>AGENTS.md \u2014 51,814B</li>",
+          "<li>MEMORY.md \u2014 39,934B (down from 65,239B pre-restructure)</li>",
+          "<li>HEARTBEAT.md \u2014 19,780B</li>",
+          "<li>TOOLS.md \u2014 17,823B</li>",
+          "<li>SOUL.md \u2014 3,592B</li>",
+          "<li>USER.md \u2014 2,310B</li>..."
         ],
         "yesterday": [
           "<b>What reviewers like</b>",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 27276,
-      "rss_gb": 0.47,
-      "cpu": 0.9,
+      "rss_gb": 0.48,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1724,19 +1724,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1785122407787,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1785123311791,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1785119716118,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1785122407787,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 45191,
       "rss_gb": 0.46,
-      "cpu": 1.2,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,6 +2536,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785123247498,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785123247497,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
@@ -2549,24 +2567,6 @@
           "enabled": true,
           "sched": "*/30 6-23 * * *",
           "last_ts": 1785123006820,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785112447567,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785112447567,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2601,15 +2601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[04:55 IST] PURL: HEARTBEAT_OK",
-          "[05:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[05:55 IST] PURL: HEARTBEAT_OK",
-          "[06:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[06:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger run complete** \u2014 Monday 6:00 AM",
-          "- **Main session:** 8 new messages",
-          "- **Telegram direct (Gari):** 0 new messages",
-          "- **Klub K group:** 0 new messages",
-          "- **Total:** 10 messages processed",
           "- **File updated:** `transcript-2026-07-27.md`",
           "- **Bookmark saved:** \u2713",
           "All quiet overnight. Ready for the day. \ud83e\uddf6",
@@ -2640,7 +2631,16 @@
           "[07:55 IST] PURL: Gari, it's Monday \u2014 time for the **weekly bulletin**. Want me to pull the security sweep, skills usage, and cost summary?",
           "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[08:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[08:55 IST] PURL: HEARTBEAT_OK"
+          "[08:55 IST] PURL: HEARTBEAT_OK",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger ran successfully.**",
+          "- **Sessions checked:** 3 (main + Telegram direct + Klub K group)",
+          "- **New messages found:** 2 in main session",
+          "- **Bookmark updated:** Yes",
+          "- **Output file:** `transcript-2026-07-27.md`",
+          "The main session picked up 2 new messages and the transcript for today (July 27th) has been updated.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger...",
@@ -3649,7 +3649,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.3,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3809,7 +3809,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3839,7 +3839,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 1.0,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
