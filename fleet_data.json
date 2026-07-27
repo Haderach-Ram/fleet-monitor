@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-27 09:28:24 IST",
-  "generated_epoch": 1785124704,
+  "generated_ist": "2026-07-27 09:33:30 IST",
+  "generated_epoch": 1785125010,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.93 / 3.12 / 2.96",
+    "load": "2.45 / 2.71 / 2.80",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.12,
-      "cpu": 0.5,
+      "rss_gb": 1.29,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
-          "name": "SAK-008 trendlyne.db \u2014 filing_catalogue Weekly Refresh",
+          "name": "Chet & Monk \u2014 Weekly Memory Self-Audit (Mon 09:30)",
           "enabled": true,
-          "sched": "20 9 * * 1",
-          "last_ts": 1785124602313,
+          "sched": "30 9 * * 1",
+          "last_ts": 1785124994253,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785124994241,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +682,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785124457708,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785124457708,
+          "last_ts": 1785124994240,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +691,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785124457707,
+          "last_ts": 1785124994240,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-052 resume reminder",
+          "enabled": true,
+          "sched": "30 9 * * *",
+          "last_ts": 1785124994240,
+          "last_status": "ok",
+          "model": "(no LLM)",
+          "kind": "systemEvent"
+        },
+        {
+          "name": "SAK-008 trendlyne.db \u2014 filing_catalogue Weekly Refresh",
+          "enabled": true,
+          "sched": "20 9 * * 1",
+          "last_ts": 1785124602313,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -994,15 +1012,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "HAD-052 resume reminder",
-          "enabled": true,
-          "sched": "30 9 * * *",
-          "last_ts": 1785038430044,
-          "last_status": "ok",
-          "model": "(no LLM)",
-          "kind": "systemEvent"
-        },
-        {
           "name": "GEN-002 Memory Link-Graph weekly refresh",
           "enabled": true,
           "sched": "0 4 * * 0",
@@ -1080,15 +1089,6 @@
           "sched": "30 7 10 7 *",
           "last_ts": 1783649039491,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet & Monk \u2014 Weekly Memory Self-Audit (Mon 09:30)",
-          "enabled": true,
-          "sched": "30 9 * * 1",
-          "last_ts": null,
-          "last_status": null,
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
@@ -1518,19 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>SOUL.md \u2014 3,592B</li>",
-          "<li>USER.md \u2014 2,310B</li>",
-          "<li>IDENTITY.md \u2014 726B</li>",
-          "</ul>",
-          "Sum: 51,814 + 39,934 + 19,780 + 17,823 + 3,592 + 2,310 + 726 = <b>135,979</b>. Comfortably under the cap, no truncation.",
-          "[09:08 IST] RAM: So what context% does this lead to?",
-          "[09:08 IST] HADERACH: <b>Two different percentages here, Ram \u2014 worth separating:</b>",
-          "<b>1. Against the bootstrap-file cap</b> (the 150,000-byte ceiling we've been tracking): 135,979 / 150,000 = <b>90.6%</b> of that cap. That's the number that matters for \"is anything getting silently truncated\" \u2014 no, comfortably inside it.",
-          "<b>2. Actual live context window right now, this session</b> (just checked): <b>165k/200k tokens = 82%</b>.",
-          "That 82% is <i>not</i> a fresh-session-start number though \u2014 it's inflated by every...",
-          "[09:08 IST] HADERACH: <b>Two different percentages here, Ram \u2014 worth separating:</b>",
-          "<b>1. Against the bootstrap-file cap</b> (the 150,000-byte ceiling we've been tracking): 135,979 / 150,000 = <b>90.6%</b> of that cap. That's the number that matters for \"is anything getting silently truncated\" \u2014 no, comfortably inside it.",
-          "<b>2. Actual live context window right now, this session</b> (just checked): <b>165k/200k tokens = 82%</b>.",
           "That 82% is <i>not</i> a fresh-session-start number though \u2014 it's inflated by every...",
           "[09:09 IST] RAM: Are you still doing that 2 am check on RBI website for new NBFC directions?",
           "[09:09 IST] HADERACH: Yes, Ram \u2014 the RBI Watcher is alive and well.",
@@ -1557,7 +1544,20 @@
           "<b>SCL-002 Trendlyne Weekly Refresh \u2014 actually COMPLETE</b>",
           "The \"kill signal\" reported at 09:14 was a false alarm \u2014 the log shows the script kept running straight through and finished cleanly at <b>09:16:00 IST</b>, about 90 seconds after the incomplete-status message fired. All 8 remaining companies processed successfully:",
           "<ul>",
-          "<li>GICHSGFIN, REPCOHOME, BAJAJHFL, HDBFS, LTF, TATACAP, SBICARD, SA..."
+          "<li>GICHSGFIN, REPCOHOME, BAJAJHFL, HDBFS, LTF, TATACAP, SBICARD, SA...",
+          "[09:26 IST] HADERACH: Perfect! The filing catalogue refresh completed successfully. Here's the summary:",
+          "**trendlyne.db Filing Catalogue Weekly Refresh - Complete**",
+          "**Rows Inserted: 31 new filings**",
+          "- Presentations: 15 new",
+          "- Transcripts: 4 new  ",
+          "- Results: 2 new",
+          "**Peer Processing: 36/37 successful**",
+          "- **1 API Error:** JMFINANCIL (unexpected response format)",
+          "**Catalogue Stats:**",
+          "- Total filings in database: 5,594",
+          "- Date range: 2021-01-05 to 2026-07-25",
+          "- Top peer: CANFINHOME (465 total filings)",
+          "All new filings s..."
         ],
         "yesterday": [
           "<b>What reviewers like</b>",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.49,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2381,8 +2381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 45191,
-      "rss_gb": 0.46,
-      "cpu": 0.4,
+      "rss_gb": 0.45,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2536,6 +2536,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1785124803886,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2557,15 +2566,6 @@
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1785123006820,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
           "last_ts": 1785123006820,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
@@ -2601,11 +2601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **File updated:** `transcript-2026-07-27.md`",
-          "- **Bookmark saved:** \u2713",
-          "All quiet overnight. Ready for the day. \ud83e\uddf6",
-          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
-          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you now.",
           "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Transcript logger complete. ",
           "**Status:**",
@@ -2640,7 +2635,12 @@
           "- **Output file:** `transcript-2026-07-27.md`",
           "The main session picked up 2 new messages and the transcript for today (July 27th) has been updated.",
           "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done \u2713 Transcript logger ran successfully. Processed 4 messages total, no new additions to fetch. Bookmark not set (already current).",
+          "**Output:** `transcript-2026-07-27.md`",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger.",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K transcript logger completed.** No new messages detected across all sessions. All bookmarks current."
         ],
         "yesterday": [
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger...",
@@ -3648,8 +3648,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.3,
-      "cpu": 3.0,
+      "rss_gb": 0.37,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3686,7 +3686,10 @@
           "    {",
           "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
           "      \"ur...",
-          "[08:31 IST] CHET: File path confirmed: /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-27.md | 26 lines, first line \"# Daily Brief \u2014 2026-07-27\" | Changed since yesterday: RBI track fully turns over (Credit Facilities Directions 2025 + RBI publications PDF in, ET rate-norms piece re-enters) and AI track turns over (LangChain/GPT Researcher Deep Agents + PRO-LONG programmatic memory in, vLLM/Neura Market out, Microsoft Harness holds 6th day) while SCL stays static for a 15th consecutive day."
+          "[08:31 IST] CHET: File path confirmed: /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-07-27.md | 26 lines, first line \"# Daily Brief \u2014 2026-07-27\" | Changed since yesterday: RBI track fully turns over (Credit Facilities Directions 2025 + RBI publications PDF in, ET rate-norms piece re-enters) and AI track turns over (LangChain/GPT Researcher Deep Agents + PRO-LONG programmatic memory in, vLLM/Neura Market out, Microsoft Harness holds 6th day) while SCL stays static for a 15th consecutive day.",
+          "[09:30 IST]",
+          "HADERACH\u2192CHET: Weekly Memory Self-Audit 2026-07-27 \u2014 5-question retrieval test via memory_retrieve.py.",
+          "CHET: All 5 queries executed via memory_retrieve.py only. Q5 passed (model/scope clean domain-file hit). Q1 partial (wrong target \u2014 surfaced prior self-audit meta, now recursing on itself). Q3 partial (capped, estimate 30-35+ tasks, escalating each week). Q2 failed (63 days stale, no temporal pre-computation ran \u2014 worst yet, gap growing ~1wk/audit). Q4 failed (correct date-window pre-computation but zero usable in-window hits \u2014 5th consecutive occurrence of same bug). Self-audit written to output/self-audit-2026-07-27.md (141 lines). Score: 1/5 correct, 2/5 partial, 2/5 failed. Flagged to Haderach: Q2/Q4 temporal retrieval defect is recurring/unfixed across 5+ weeks, now recommending scheduled engine fix rather than continued flagging."
         ],
         "yesterday": [
           "# Chet Transcript \u2014 2026-07-26",
@@ -3809,7 +3812,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3839,7 +3842,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
