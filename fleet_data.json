@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-27 18:30:12 IST",
-  "generated_epoch": 1785157212,
+  "generated_ist": "2026-07-27 18:35:18 IST",
+  "generated_epoch": 1785157518,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.20 / 2.55 / 2.73",
+    "load": "2.36 / 2.43 / 2.61",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 83430,
-      "rss_gb": 1.14,
-      "cpu": 7.9,
+      "rss_gb": 1.06,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785156630598,
+          "last_ts": 1785157260816,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785156630598,
+          "last_ts": 1785157260816,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785156630597,
+          "last_ts": 1785157260815,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Martin \u2014 Daily FX Rates Update",
+          "enabled": true,
+          "sched": "30 18 * * 1-5",
+          "last_ts": 1785157260815,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1091,15 +1100,6 @@
           "last_status": "ok",
           "model": "(no LLM)",
           "kind": "systemEvent"
-        },
-        {
-          "name": "Martin \u2014 Daily FX Rates Update",
-          "enabled": true,
-          "sched": "30 18 * * 1-5",
-          "last_ts": 1784898052155,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
         },
         {
           "name": "ProjHad Weekly Briefing \u2014 Prepare (Friday)",
@@ -1518,7 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:30 IST] HADERACH: Clean \u2014 syntax valid, zero remaining references to the old `place_order.py`/`PLACE_ORDER`/`Token:`. Now let's dry-run it to confirm it still runs end-to-end without touching the broker (dry-run mode skips staging entirely per the existing code, but let's verify).",
           "[17:31 IST] HADERACH: The dry-run completed cleanly and exited before the wrapper's 55s timer \u2014 today's macro gate is SKIP, so the engine exited before ever reaching the staging step, which is expected/correct behavior (no legs to stage means `stage_spread_orders`/`llm_interface.py propose` was never called). That's exactly the safe path. Let me directly unit-test the new `stage_spread_orders()` function in isolation with a fake leg, to actually exercise the new propose-call code path without depending on live mar...",
           "[17:31 IST] HADERACH: The updated `stage_spread_orders()` correctly calls through to `llm_interface.py propose` and captures real proposal_ids. Now cleaning up these two test proposals (reject, never confirm) and confirming zero broker contact.",
           "[17:32 IST] HADERACH: All four test proposals across this session (2 from build verification, 2 from Day 7 testing) are REJECTED, zero EXECUTED. Now let's check for any other stray `place_order.py` references worth cleaning up (scripts/comments), then update ProjHad files.",
@@ -1557,7 +1556,8 @@
           "<li>Add both bots: <code>@ram_haderach_bot</code> and <code>@Kubera_Ram_Bot</code></li>",
           "<li>Name it (e.g. \"Kubera Desk\")</li>",
           "<li...",
-          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 37 min AND no transcript writes for 17 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 37 min AND no transcript writes for 17 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 18:30 IST \u2014 session empty for 47 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<b>What reviewers like</b>",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.5,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1947,8 +1947,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 54657,
-      "rss_gb": 0.61,
-      "cpu": 1.0,
+      "rss_gb": 0.62,
+      "cpu": 0.4,
       "crons_total": 22,
       "crons_enabled": 21,
       "skills_count": 1,
@@ -2347,8 +2347,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 45191,
-      "rss_gb": 0.49,
-      "cpu": 1.3,
+      "rss_gb": 0.46,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3615,7 +3615,7 @@
       "frozen_reason": null,
       "pid": 28301,
       "rss_gb": 0.31,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3788,7 +3788,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1202,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
