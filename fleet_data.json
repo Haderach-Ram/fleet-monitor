@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-28 09:04:09 IST",
-  "generated_epoch": 1785209649,
+  "generated_ist": "2026-07-28 09:09:17 IST",
+  "generated_epoch": 1785209957,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.33 / 2.48 / 2.35",
+    "load": "2.91 / 2.71 / 2.47",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,9 +35,9 @@
       "frozen_reason": null,
       "pid": 83430,
       "rss_gb": 1.07,
-      "cpu": 0.5,
-      "crons_total": 95,
-      "crons_enabled": 61,
+      "cpu": 0.4,
+      "crons_total": 94,
+      "crons_enabled": 60,
       "skills_count": 61,
       "channels": [
         "telegram",
@@ -661,19 +661,28 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785208859068,
+          "sched": "0 9 * * *",
+          "last_ts": 1785209836755,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
+          "enabled": true,
+          "sched": "0 9 * * *",
+          "last_ts": 1785209836754,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785208830876,
+          "last_ts": 1785209836754,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785208830875,
+          "last_ts": 1785209836753,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1785209836753,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +709,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785208830875,
+          "last_ts": 1785209836752,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785208859068,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -931,15 +958,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1785154436498,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
@@ -1048,24 +1066,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1785123389850,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1785123389849,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ProjHad Briefing \u2014 Deliver (Mon 08:30 IST)",
           "enabled": true,
           "sched": "30 8 * * 1",
@@ -1145,15 +1145,6 @@
           "last_status": null,
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Wiki Diagnostic Review",
-          "enabled": true,
-          "sched": "one-shot",
-          "last_ts": null,
-          "last_status": null,
-          "model": "(no LLM)",
-          "kind": "systemEvent"
         },
         {
           "name": "Radar Letter \u2014 Weekly newsletter + private briefing",
@@ -1518,16 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2501\u2501\u2501 AGENTS \u2501\u2501\u2501",
-          "\ud83d\udfe2 CAIO 18800 UP",
-          "\ud83d\udfe2 Ravindra 18801 UP",
-          "\ud83d\udfe2 Keshav 18808 UP",
-          "\ud83d\udfe2 Avalora (Ashwin) 18804 UP",
-          "\ud83d\udfe2 Heda 18813 UP",
-          "\ud83d\udfe2 CA-SMEDA-I 18793 UP",
-          "\ud83d\udfe2 Seneca 18814 UP",
-          "\u2501\u2501\u2501 FROZEN \u2501\u2501\u2501",
-          "\ud83e\uddca Legal-SMEDA 18797 FROZEN",
           "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
           "\u26a0\ufe0f **Seneca** rolling-28day.md stale (174.9h old, 452L) \u2014 midnight cron may have failed",
           "\u26a0\ufe0f **Seneca** rolling-7day.md stale (174.9h ...",
@@ -1557,7 +1538,17 @@
           "The digest script itself ran fine at 07:46 IST and filed GitHub issue #92 as normal. The cron's first pass timed out at the 5-minute mark waiting on the model call (not a script bug), and a retry then choked on a...",
           "[08:46 IST] HADERACH: Ah \u2014 that \"?\" was in reply to the bhavcopy message, but I suspect what's actually puzzling you is why the Ecosystem Digest never showed up this morning (two error pings at 07:50/07:53, then silence). Here's what happened and the actual digest, pulled directly:",
           "<b>What went wrong</b>",
-          "The digest script itself ran fine at 07:46 IST and filed GitHub issue #92 as normal. The cron's first pass timed out at the 5-minute mark waiting on the model call (not a script bug), and a retry then choked on a..."
+          "The digest script itself ran fine at 07:46 IST and filed GitHub issue #92 as normal. The cron's first pass timed out at the 5-minute mark waiting on the model call (not a script bug), and a retry then choked on a...",
+          "[08:53 IST] RAM: Send it",
+          "[08:53 IST] HADERACH: Ram approved posting. Sending the draft tweet now.",
+          "[08:55 IST] HADERACH: Posted. \u2705",
+          "<b>Tweet sent from @HaderachRam (08:55 IST):</b>",
+          "\"IronClaw quietly racked up 15 new issues today while everyone's watching OpenClaw's star count climb past 384k. The undercurrent stories are always more interesting. Full digest: dracu.law/013\"",
+          "Logged to `skills/twitacc/session/post_log.md` per the audit trail rule. Still have the Ecosystem Digest cron timeout/tools fix pending whenever you want me to tackle it \u2014 same treatment as Seneca's crons this morning.",
+          "[08:55 IST] HADERACH: Posted. \u2705",
+          "<b>Tweet sent from @HaderachRam (08:55 IST):</b>",
+          "\"IronClaw quietly racked up 15 new issues today while everyone's watching OpenClaw's star count climb past 384k. The undercurrent stories are always more interesting. Full digest: dracu.law/013\"",
+          "Logged to `skills/twitacc/session/post_log.md` per the audit trail rule. Still have the Ecosystem Digest cron timeout/tools fix pending whenever you want me to tackle it \u2014 same treatment as Seneca's crons this morning."
         ],
         "yesterday": [
           "</ul>",
@@ -1699,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 27276,
       "rss_gb": 0.52,
-      "cpu": 1.9,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1724,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1785208807903,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1785209712120,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1785206112729,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1785208807903,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2347,8 +2338,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 45191,
-      "rss_gb": 0.5,
-      "cpu": 1.4,
+      "rss_gb": 0.47,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3614,8 +3605,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 28301,
-      "rss_gb": 0.31,
-      "cpu": 0.3,
+      "rss_gb": 0.3,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3790,7 +3781,7 @@
       "frozen_reason": null,
       "pid": 1207,
       "rss_gb": 0.22,
-      "cpu": 0.9,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
