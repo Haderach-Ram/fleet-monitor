@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-30 14:21:42 IST",
-  "generated_epoch": 1785401502,
+  "generated_ist": "2026-07-30 14:26:47 IST",
+  "generated_epoch": 1785401807,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.33 / 3.18 / 3.23",
+    "load": "2.38 / 2.88 / 3.08",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2538,
-      "rss_gb": 1.25,
+      "rss_gb": 1.23,
       "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 60,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785401668789,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785401668788,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1785401668788,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785401668787,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,46 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785400832869,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785400832869,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785400832869,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1785400465367,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1785400452738,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>The good news:</b> the digest itself ran fine. Today's ecosystem stats were pulled and logged correctly \u2014 OpenClaw 384,503\u2605 (11 new issues, 10 merged PRs), hermesagent 222,379\u2605 (6 new/4 merged), ZeroClaw, IronClaw, Moltis all captured \u2014 and it created <a href=\"https://github.com/Haderach-Ram/openclaw-radar/issues/94\">GitHub issue #94</a> as usual.",
           "<b>What failed:</b> a later step in the same run ...",
           "[07:53 IST] HADERACH: That \"??\" was in reply to the 07:45 cron failure alert \u2014 here's what actually happened, Ram.",
           "<b>The good news:</b> the digest itself ran fine. Today's ecosystem stats were pulled and logged correctly \u2014 OpenClaw 384,503\u2605 (11 new issues, 10 merged PRs), hermesagent 222,379\u2605 (6 new/4 merged), ZeroClaw, IronClaw, Moltis all captured \u2014 and it created <a href=\"https://github.com/Haderach-Ram/openclaw-radar/issues/94\">GitHub issue #94</a> as usual.",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 13:04 IST \u2014 session empty for 100 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "[13:10 IST] HADERACH: The heartbeat state shows `\"lastConsolidation\": \"2026-07-30T13:00:00+05:30\"`, which is today at 13:00 IST. The consolidation ran successfully. No alert needed.",
           "**NO_REPLY** \u2014 consolidation is current.",
-          "--- [TRANSCRIPT GAP: 14:04 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 14:04 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[21:42 IST] HADERACH: Hold on, Ram \u2014 before I post this, a flag.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2820,
-      "rss_gb": 0.6,
-      "cpu": 0.6,
+      "rss_gb": 0.51,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2338,8 +2338,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.48,
-      "cpu": 1.2,
+      "rss_gb": 0.47,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3769,7 +3769,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4200,7 +4200,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.45,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
