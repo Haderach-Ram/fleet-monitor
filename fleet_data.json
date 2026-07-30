@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-07-31 00:03:23 IST",
-  "generated_epoch": 1785436403,
+  "generated_ist": "2026-07-31 00:08:29 IST",
+  "generated_epoch": 1785436709,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.88 / 2.77 / 2.58",
+    "load": "2.81 / 3.01 / 2.75",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2538,
-      "rss_gb": 1.17,
+      "rss_gb": 1.25,
       "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 60,
@@ -661,6 +661,78 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1785436687466,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1785436687466,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785436687465,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785436687465,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1785436687464,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1785436687464,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1785436461935,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1785436461934,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -733,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1785432951032,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -760,48 +823,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785425669354,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785425669354,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1785425619003,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1785424518902,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1785421956018,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -967,24 +994,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1785360867911,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1785360821502,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1009,15 +1018,6 @@
           "last_ts": 1785357921577,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1785350364279,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1509,6 +1509,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-31",
+          "# Self-healing rotation from transcript-2026-07-30.md at 00:08 IST"
+        ],
+        "yesterday": [
           "--- [TRANSCRIPT GAP: 17:44 IST \u2014 session empty for 260 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 18:04 IST \u2014 session empty for 280 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 296 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1550,56 +1554,7 @@
           "[23:05 IST] HADERACH: All steps complete. This was a silent nightly consolidation run \u2014 no reply needed per instructions.",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
-        "yesterday": [
-          "[21:42 IST] HADERACH: Hold on, Ram \u2014 before I post this, a flag.",
-          "That \"Weekly intel\" digest contains a claim that directly contradicts a fact we verified and logged in memory: it says <i>\"Bedrock prompt caching is currently broken (cache hits = 0)... switch to direct Anthropic API\"</i> \u2014 but the Sonnet 5 Bedrock caching bug was fixed on 5 Jul 2026 and live-verified at 61\u201388% cache hit rate in production. That's not a stale note, it's the opposite of what the digest claims, and it's happening right in our own setu...",
-          "[21:43 IST] HADERACH: Hold on, Ram \u2014 before I post this, a flag.",
-          "That \"Weekly intel\" digest contains a claim that directly contradicts a fact we verified and logged in memory: it says <i>\"Bedrock prompt caching is currently broken (cache hits = 0)... switch to direct Anthropic API\"</i> \u2014 but the Sonnet 5 Bedrock caching bug was fixed on 5 Jul 2026 and live-verified at 61\u201388% cache hit rate in production. That's not a stale note, it's the opposite of what the digest claims, and it's happening right in our own setu...",
-          "[21:43 IST] RAM: Check the cron failures. Also yesterday the power went off and you were down since about 16:30 hourse yesterday. Please check yourself, your crons etc and rectify any gaps",
-          "[21:44 IST] HADERACH: Confirmed: the boot time is **Tue 28 Jul 21:02:51 IST** \u2014 matching a power outage window of roughly 16:30\u201321:00 IST yesterday (~4.5 hours down). Let me now do a full post-outage health sweep across the fleet, crons, and known gap-prone spots.",
-          "[21:45 IST] HADERACH: Good \u2014 those 6 (Kubera, Herbie, 4 SMEDAs) are intentionally launchctl-disabled per standing decisions, not an outage casualty. Now checking for actual outage-caused gaps: missed cron runs, stale heartbeat state, and the specific job errors from tonight.",
-          "[21:46 IST] HADERACH: Now checking the job that produced it. That was NOT a hallucination-in-the-void \u2014 it's a real cron (**Radar Letter \u2014 Weekly newsletter + private briefing**, job `7559859b`), but it ran on **Haiku 4.5** and appears to have fabricated details, including the factually wrong Bedrock-caching claim.",
-          "[21:46 IST] HADERACH: This is the real finding: the outage caused a **broader cron scheduling gap**, not just a Bedrock-caching hallucination issue. This job's schedule is Wed 01:30 IST, but it fired at 21:38 IST tonight instead \u2014 nearly 20 hours late. Let me check the cron-rearm mechanism and other scheduled jobs for the same pattern.",
-          "[21:46 IST] HADERACH: I need to flag \u2014 that command printed a BWS access token in raw output (from the cron-rearm plist env vars). I will not repeat or display that value; noting only that it exists on disk in that plist per normal config. Let me check for the broader missed-schedule pattern.",
-          "[21:47 IST] HADERACH: /tmp was wiped by the reboot, so cron-rearm logs from before boot are gone \u2014 expected on a power-loss reboot. Let's verify cron-rearm actually did its job at boot (20:14 IST, matching boot time 21:02... wait, that's before boot).",
-          "[21:47 IST] HADERACH: Confirmed: system booted at Tue 28 Jul 21:02:51 IST \u2014 matches your power-off report (down since ~16:30). Let's now find every cron job that was scheduled to fire during that outage window (16:30\u201321:03 IST, 28 Jul) and check whether it silently skipped rather than caught up or alerted.",
-          "[21:48 IST] HADERACH: This is the real finding \u2014 the machine rebooted at 21:02 IST on 28 Jul, but the OpenClaw gateway process itself did not come up until **20:11 IST on 29 Jul** \u2014 almost 23 hours later. That's the actual outage window, much longer than the reboot alone. Let me check why the LaunchAgent didn't auto-start at boot.",
-          "[21:48 IST] HADERACH: This confirms it precisely: the gateway process started at **24 Jul 16:39** and ran until the power outage, then did not come back up until **29 Jul 20:11** \u2014 a gap of roughly 5 days on the log, but the actual outage (via `pmset`/boot time) was only from ~28 Jul 16:30 to 28 Jul 21:03 (reboot). So there's a discrepancy: the machine rebooted at 21:03 on the 28th, but the gateway itself didn't start until 20:11 the next day. Let me check what happened between reboot and gateway start.",
-          "[21:49 IST] HADERACH: 182 chars, well under limit. Good.",
-          "\ud83e\udd9e Digest live: https://github.com/Haderach-Ram/openclaw-radar/issues/93 \u00b7 Most active: hermesagent (15 new issues) \u00b7 draCuLAW traffic (7d): 4 PV \u00b7 Top page: Newsletter #013 (The Chinese Open-Source Offensive)",
-          "\ud83d\udc26 Draft tweet (reply \"send it\" to post):",
-          "hermesagent just added 723 stars and 15 new issues in a day \u2014 quietly the one to watch in the OpenClaw ecosystem right now. \ud83d\udc40 https://github.com/Haderach-Ram/openclaw-radar/issues/93",
-          "[21:49 IST] HADERACH: Found the actual root cause \u2014 and it's bigger than the outage itself. The reboot happened at 21:02 IST on the 28th (power restored), but the **GUI console session didn't log in until 20:10 IST on the 29th** \u2014 almost 23 hours later. Since all OpenClaw LaunchAgents run in the `gui/$UID` launchd domain, they cannot start until someone (or auto-login) logs into that session. Let me check auto-login config.",
-          "[21:50 IST] HADERACH: This is the real root cause, and it's bigger than the couple of failed crons \u2014 it's a full **~27-hour outage window**, not 4.5 hours. Let me verify exactly what that failed delivery-recovery entry was, and confirm there's no other silently-lost cron.",
-          "[21:51 IST] HADERACH: Hitting the known transient tool glitch (exec returning empty). Let me retry.",
-          "[21:52 IST] HADERACH: This is the known transient exec glitch recurring. Let me pause and retry after a moment rather than push through blindly.",
-          "[21:52 IST] HADERACH: Multiple tool types affected now, not just exec. Let me wait longer before retrying.",
-          "[21:53 IST] HADERACH: All tools are returning empty right now \u2014 this matches the previously-documented transient glitch pattern. I'll wait a bit longer before retrying rather than spamming calls.",
-          "[21:54 IST] HADERACH: Given the extended tool outage, let me report findings so far directly rather than continuing to spin on retries.",
-          "Ram \u2014 I have enough to give you a solid interim report now; tool calls are returning empty across exec/cron/memory (the transient glitch from the earlier session, recurring and now lasting longer than before). I'll keep retrying in the background, but here's what I found before it hit:",
-          "<b>What actually happened (confirmed via boot logs, not the \"16:30\u201321:00, 4.5h\" figure I gave ...",
-          "[21:55 IST] HADERACH: Tools remain non-responsive. Let me try a different tool type to see if the issue is exec-specific or global.",
-          "[21:55 IST] HADERACH: That returned an actual error object rather than empty \u2014 progress. Let me retry exec.",
-          "[21:55 IST] HADERACH: Given the sustained tool outage (well beyond the usual transient blip), I'll pause the deeper cron-gap audit rather than keep spinning on empty retries.",
-          "<b>Status recap, Ram:</b>",
-          "Confirmed root cause of yesterday's gap: power came back and the machine rebooted at <b>28 Jul 21:02 IST</b>, but the GUI login session \u2014 which all OpenClaw agents depend on to start \u2014 didn't come back until <b>29 Jul 20:10 IST</b>. So the real fleet-wide outage was ~23 hours, not the 4.5 hours I first estimated fr...",
-          "[21:56 IST] HADERACH: Given the sustained tool outage (well beyond the usual transient blip), I'll pause the deeper cron-gap audit rather than keep spinning on empty retries.",
-          "<b>Status recap, Ram:</b>",
-          "Confirmed root cause of yesterday's gap: power came back and the machine rebooted at <b>28 Jul 21:02 IST</b>, but the GUI login session \u2014 which all OpenClaw agents depend on to start \u2014 didn't come back until <b>29 Jul 20:10 IST</b>. So the real fleet-wide outage was ~23 hours, not the 4.5 hours I first estimated fr...",
-          "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:01 IST \u2014 session empty for 61 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:05 IST] HADERACH: Consolidation complete \u2014 no new activity to promote (idle day, already caught up at 21:04 IST run); tag index rebuilt, bookmark and heartbeat-state updated. NO_REPLY.",
-          "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
         "rolling_7day": [
-          "- [07:16 IST] Consolidation watchdog (`c2d2cde5`) + nightly consolidation (`7150af15`) both found silently failed overnight; manual re-run completed, fallback set to Sonnet 5 + failureAlert added.",
-          "- [09:07 IST] Martin relay morning auto-route gap fixed (`MORNING_END` widened 9am\u219210am).",
-          "- [18:20\u201319:27 IST] Kubera cost ($24/day OpenRouter burn) + web-search (missing MCP block) + reliability architecture reviewed via Bajaj Council; proposal doc to PER-003, decision parked for weekend; Kubera re-frozen (7th cycle in <3 weeks).",
-          "- [23:00 IST] SCL-011/SCM-002 RBI ED Show-Cause reply drafted and sent to Ram (SCN_Reply_Draft_v1_24Jul2026.docx); SCM-002 ProjHad opened + indexed.",
-          "## 2026-07-25 \u2014 SCL-016 PIL Matters Created, Jonas/M2 Fleet Haiku Migration, apply_patch Bug Root-Caused",
-          "- [12:00\u201315:38 IST] SCL PIL defence note finalized with hyperlinked citations; new ProjHad SCL-016 (PIL Matters) created; IHC/Indiabulls exchange filings sourced.",
-          "- [15:45\u201316:09 IST] Legal-SMEDA unfrozen, tasked with affidavit fact-check (stake % overstatement flagged: \u20b98,850 Cr claimed vs \u20b95,652 Cr received).",
           "- [16:11\u201319:35 IST] Purl audit delivered; Jonas (M2) 23 crons + CAIO/Ravindra/Keshav/Seneca (M2) mostly migrated to Bedrock Haiku 4.5; allowlist gap caught and fixed; HAD-034 updated.",
           "- [20:55\u201323:47 IST] apply_patch/edit cron failures diagnosed as banner-discipline gap (fixed on CAIO/Seneca); separate tool-layer stall root-caused to open GitHub issue #102268 (no fix yet, logged to dead-ends.md); Seneca nightly-consolidation bug fixed.",
           "--- [Midnight run OK \u2014 2026-07-25 \u2014 rolling-7day updated] ---",
@@ -1632,21 +1587,16 @@
           "- [21:42\u201321:43 IST] Flagged and corrected a factual error in a Radar digest (Bedrock-caching claim) before/after posting.",
           "- [21:43\u201321:54 IST] Corrected the 28 Jul power-outage root cause from ~4.5h to ~23h (GUI-domain gateway couldn't restart until console login at 29 Jul 20:10 IST); found one casualty cron (Radar Letter, ~20h late).",
           "- [21:52\u201323:50 IST] Tool-glitch window then a quiet session with repeated TRANSCRIPT GAP flags (22:30\u201323:50 IST) \u2014 flagged for follow-up; nightly consolidation still ran clean.",
-          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---"
+          "## 2026-07-30 \u2014 GitHub Issues Reviewed; Steipete Merges Confirmed; NPS & HDFC-MSRDC Q&A; Recurring Session-Gap Pattern",
+          "- [07:18\u201307:39 IST] GitHub issues review (both accounts): 4 still open; confirmed Steipete closed several directly incl. #99305 (Sonnet 5 Bedrock prompt-caching, merged #98254) citing Haderach's own production evidence; version check: OpenClaw 2026.7.1-2 latest stable vs Haderach's held 2026.6.11.",
+          "- [08:30\u201309:05 IST] NSE bhavcopy refresh clean; Daily Brief delivered (Sammaan/RBI static, LangChain Deep Agents v0.7 the one genuine turnover).",
+          "- [11:17\u201311:18 IST] Answered NPS withdrawal-conditions question, sourced from PFRDA regulations.",
+          "- [21:08\u201321:09 IST] Answered HDFC Bank\u2013MSRDC controversy questions (\u20b945cr disguised sweetener vs. smaller actual deposit against \u20b920,000+cr original offer).",
+          "- Recurring pattern continued: numerous TRANSCRIPT GAP flags through the day, no zombie lock; nightly consolidation completed cleanly at 23:05 IST.",
+          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [15:52\u201321:17 IST] HAD-055 Workstream 1 (Memory File Hygiene) executed with Ram's approval: MEMORY.md 65,239B\u219239,934B, bootstrap total 160,243B\u2192134,938B (now under 150K cap); Workstream 3 condensed dead-ends.md 85,728B\u219270,825B \u2014 nothing lost, both archived and pushed.",
-          "- [22:22\u201323:02 IST] Coffee machine comparison delivered; Fitbit Air reviewed and two linked ProjHads (PER-017/PER-018) opened for future Doctor SMEDA vitals integration \u2014 scaffolding incomplete.",
-          "--- [Midnight run OK \u2014 2026-07-27 \u2014 entry written for 2026-07-26] ---",
-          "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---",
-          "## 2026-07-27 \u2014 PER-017/018 Fitbit Air ProjHads Completed; HAD-003 Cron Hardened; Kubera Core Rebuilt End-to-End",
-          "*Major events in sequence:*",
-          "- [07:34 IST] PER-017 (Ram)/PER-018 (Garima) Fitbit Air ProjHads completed: research report written, PROJECT/STATUS/NOTES built, index files updated. Key finding: legacy Fitbit Web API sunsets Sept 2026, everything moves to Google Health API v4. Monk consolidation cron (eb9e23c6) fixed \u2014 was missing the mandatory apply_patch/edit ban banner.",
-          "- [07:48 IST] HAD-003 Reading cron root-caused: 4 consecutive timeouts confirmed real (stuck at Section 78/124 since 23 Jul) \u2014 two stalled at model-call-started (Bedrock-side), two at tool-execution-started (hung side-quest tool call). Cron hardened: pinned conversion command, capped read chunks, dropped optional music/GEB side-quests, capped tool calls to ~10.",
-          "- [12:56 IST] PER-003 Kubera: reviewed chronic order-execution failures (8.7% clean success, 62% stuck in limbo, 108+ orphaned tokens) \u2014 root cause architectural, not competence. Ram approved building `kubera_core`, a deterministic Python broker service with a UUID-invariant trade-gate; Kubera's LLM role shrinks to propose/research only. Ram chose Option B: Kubera stays alive as research voice via a future 3-way Telegram group once kubera_core is live; unfroze Kubera ahead of the build.",
-          "- [13:04 IST] Consolidation: RBI Watcher 23rd clean run; Daily Brief delivered; Trendlyne + NSE XBRL weekly refreshes clean; 6 open GitHub issues reviewed with updates posted (#87318, #102268, #93139).",
-          "- [23:00 IST] kubera_core rebuild completed end-to-end same day: Day 1-2 (AngelOneClient broker module + SQLite position store, live-tested), Day 3-4 (UUID-invariant trade-gate with atomic claim-then-act; Haderach caught a real bug \u2014 test suite was deleting the production DB via shared DB_PATH, fixed and reverified), Day 5-6 (llm_interface.py CLI propose/confirm/reject/pending/positions + TELEGRAM_BRIDGE.md + SOUL.md rule 0b upgraded honor-system \u2192 code-enforced gate).",
-          "- [23:00 IST] Day 7: audited live Kubera cron table (22 jobs, 21 enabled) \u2014 corrected earlier claim that many crons fire broker orders; all enabled crons are actually read-only except pot3_auto.py, migrated from retired place_order.py to llm_interface.py propose.",
           "- [18:58 IST] Ram instructed freeze of Kubera post-rebuild \u2014 confirmed frozen (launchctl bootout+disable, port 18798 unreachable); ProjHad updated across all four files.",
           "- [23:02 IST] OpenClaw iOS app update (v2026.7.21 + Gateway 2026.7.2) summarised for Ram: background session restart fix, offline-data-reset/chat-DB isolation fix, Apple-related fixes.",
           "--- [Midnight run OK \u2014 2026-07-28 \u2014 entry written for 2026-07-27] ---",
@@ -1674,7 +1624,19 @@
           "- [21:52\u201321:56 IST] Investigation interrupted by a sustained transient tool-glitch window (exec/cron/memory all returning empty, same pattern as 28 Jul) \u2014 paused rather than spammed retries, reported interim findings directly to Ram.",
           "- [22:00\u201323:50 IST] Session went quiet post-glitch: repeated auto-checkpoint bookmarks with zero new messages from 22:00 IST onward, plus explicit TRANSCRIPT GAP flags at 22:30, 22:50, 23:01, and 23:50 IST (session empty 40-60+ min each time, no zombie lock) \u2014 consistent with a possible gateway/session issue rather than genuine idle time.",
           "- [23:01/23:05 IST] Nightly consolidation completed cleanly despite the quiet period; separately, a consolidation watchdog alert had earlier flagged the 13:00 IST consolidation as >24h overdue \u2014 noted for scheduler review.",
-          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---"
+          "## 2026-07-30 \u2014 GitHub Issues Reviewed; Steipete Merges Confirmed; NPS & HDFC-MSRDC Q&A; Recurring Session-Gap Pattern Continues",
+          "- [02:00 IST] RBI Watcher heartbeat clean \u2014 no new Master Directions or NBFC/HFC circulars.",
+          "- [07:18\u201307:39 IST] Ram requested a GitHub issues review (both accounts): 4 still open (incl. #93140 apply_patch/write outside-sandbox, needing maintainer security decision); confirmed Steipete closed several directly, including #99305 (Sonnet 5 Bedrock prompt-caching fix, merged via #98254 to `main`) citing Haderach's own production verification as closing evidence \u2014 framed as 3 reports translated into merged commits, a meaningfully higher bar than routine bug filing.",
+          "- [07:39 IST] Version check: latest stable OpenClaw is 2026.7.1-2; Haderach remains on 2026.6.11 (one minor behind) per Ram's deliberate hold, with the 3 previously-flagged blocking issues re-verified live (one, #112395, still open as of 29 Jul).",
+          "- [07:45\u201307:53 IST] Ecosystem Digest cron: core digest ran clean (stats pulled, GitHub issue #94 created) but a later step in the same run failed \u2014 flagged to Ram on his \"??\" follow-up.",
+          "- [08:30 IST] NSE bhavcopy refresh clean \u2014 Equity 3,446 rows, F&O 31,284 rows (29 Jul session), market.db updated.",
+          "- [09:05 IST] Daily Brief delivered \u2014 Sammaan/RBI web presence static; one genuine AI-ecosystem turnover (LangChain \"Deep Agents v0.7\").",
+          "- [11:17\u201311:18 IST] Answered Ram's question on NPS withdrawal conditions in India, sourced directly from PFRDA regulations (last amended 16 Dec 2025 + 13 Jul 2026 SLW-provider amendment).",
+          "- [13:00\u201313:10 IST] Midday consolidation completed clean and verified current.",
+          "- [21:08\u201321:09 IST] Answered Ram's questions on the HDFC Bank\u2013MSRDC controversy: \u20b945 crore disguised \"differential interest\" sweetener (FY24/FY25) vs. the much smaller actual deposit placed against an original \u20b920,000+ crore offer.",
+          "- Recurring pattern continued: numerous TRANSCRIPT GAP flags across the day (06:03\u201323:50 IST, session empty 30\u2013460+ min at points) with no zombie lock \u2014 consistent with the ongoing possible gateway/session issue noted on 28\u201329 Jul; nightly consolidation still completed cleanly at 23:05 IST.",
+          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---"
         ]
       }
     },
@@ -1689,8 +1651,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2820,
-      "rss_gb": 0.44,
-      "cpu": 0.6,
+      "rss_gb": 0.45,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1714,6 +1676,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1785436586093,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
@@ -1796,15 +1767,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1785350186527,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1842,7 +1804,6 @@
           "# Self-healing rotation from transcript-2026-07-29.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-06-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-25 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-26 \u2014 no new content] ---",
@@ -1881,10 +1842,10 @@
           "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-28 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-29 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "--- [Midnight run OK \u2014 2026-06-13 \u2014 no new content] ---",
           "- No sessions initiated on this date (Giskard standby; cron-triggered fleet monitoring ran normally).",
           "---",
           "- No sessions initiated on this date (Giskard standby; cron-triggered fleet monitoring ran normally).",
@@ -1923,7 +1884,8 @@
           "--- [Midnight run OK \u2014 2026-07-27 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-28 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-29 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---"
         ]
       }
     },
@@ -2338,8 +2300,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.42,
-      "cpu": 0.9,
+      "rss_gb": 0.41,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2493,6 +2455,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785436449260,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785436449260,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2506,24 +2486,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1785429010489,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785425647764,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785425647763,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2558,6 +2520,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-07-31",
+          "# Self-healing rotation from transcript-2026-07-30.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[19:55 IST] PURL: HEARTBEAT_OK",
           "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
@@ -2595,48 +2561,6 @@
           "[21:55 IST] PURL: HEARTBEAT_OK",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation. Let me start by reading today's daily log and then processing the memory files.",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Daily log doesn't exist for today. Proceeding to step 8 (final bookmark write, which is unconditional):",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[22:55 IST] PURL: HEARTBEAT_OK"
-        ],
-        "yesterday": [
-          "[20:13 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K Transcript Logger completed successfully.**",
-          "- No new messages to process across all sessions",
-          "- Bookmark state unchanged",
-          "- All sessions processed",
-          "No further action needed.",
-          "[20:13 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary update for Purl. Let me start by gathering the content and then running the Python script.",
-          "[20:13 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Today's daily log is missing and the group transcript has no real activity (only rotation/checkpoint markers). I'll run the `--no-activity` variant for both personal and group rolling summaries.",
-          "[20:14 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: \u2713 **VERIFIED**",
-          "- Personal rolling summaries: rolling-7day (658B), rolling-28day (3190B), rolling-180day (4336B) \u2014 all OK",
-          "- Group rolling summaries: group-rolling-7day (624B), group-rolling-28day (1537B) \u2014 all OK",
-          "- No files are 0 bytes; both calls completed successfully.",
-          "NO_REPLY",
-          "[20:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[20:55 IST] PURL: HEARTBEAT_OK",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2713 **Transcript logger ran successfully** at 9:00 PM IST.",
-          "**Summary:**",
-          "- **Main session:** 2 new messages",
-          "- **Gari's direct:** 0 new messages  ",
-          "- **Klub K group:** 0 new messages",
-          "- **Output file:** `transcript-2026-07-29.md`",
-          "- **Bookmark saved:** Yes",
-          "All sessions scanned and transcript updated. Ready for the next cycle. \ud83e\uddf6",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Transcript logger complete. No new messages across the three channels (main session, Gari's direct Telegram chat, or Klub K group). The existing transcript file for today (July 29) has been refreshed and is ready. \ud83e\uddf6",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger script.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K transcript logger completed successfully.**",
-          "- No new messages to process across all sessions",
-          "- No bookmarks needed",
-          "- All three transcript files (transcript, gari-transcript, group-transcript) are up to date",
-          "Silent maintenance complete.",
-          "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[21:55 IST] PURL: HEARTBEAT_OK",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll run the nightly memory consolidation silently. Let me execute the workflow.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now appending the final bookmark to today's transcript file (step 8):",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
           "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[22:55 IST] PURL: HEARTBEAT_OK"
@@ -3606,7 +3530,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3769,7 +3693,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.23,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3799,7 +3723,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 2.8,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4199,8 +4123,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.37,
-      "cpu": 7.0,
+      "rss_gb": 0.4,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
