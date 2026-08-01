@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-01 14:02:03 IST",
-  "generated_epoch": 1785573123,
+  "generated_ist": "2026-08-01 14:07:09 IST",
+  "generated_epoch": 1785573429,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.65 / 3.21 / 3.21",
+    "load": "3.46 / 3.34 / 3.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2538,
-      "rss_gb": 1.25,
-      "cpu": 0.1,
+      "rss_gb": 1.22,
+      "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,19 +661,28 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785572428243,
+          "sched": "0 * * * *",
+          "last_ts": 1785573243889,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785572428243,
+          "last_ts": 1785573233108,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1785573233108,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785572428243,
+          "last_ts": 1785573233108,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785573233107,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -697,28 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1785572035060,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
           "last_ts": 1785570037879,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1785569697780,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- Equity: 3,440 rows",
           "- F&O: 30,456 rows",
           "- Status: Clean ingest to market.db",
           "Saturday morning \u2014 no further action needed.",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 12:43 IST \u2014 session empty for 179 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 13:03 IST \u2014 session empty for 199 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "[13:10 IST] HADERACH: \u2705 **Consolidation OK.** The 13:00 consolidation ran successfully today (2026-08-01T13:00:00+05:30). Memory was also written at 13:03. All systems nominal.",
-          "**NO_REPLY** \u2014 no alert needed."
+          "**NO_REPLY** \u2014 no alert needed.",
+          "--- [TRANSCRIPT GAP: 14:03 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<li>Reconstructed rolling-7day.md and rolling-28day.md from Seneca's intact daily logs \u2014 nothing was actually lost, only the nightly promotion step had failed</li>",
@@ -1715,6 +1715,15 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1785573309802,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
@@ -1739,15 +1748,6 @@
           "last_ts": 1785570630654,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
-          "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1785569709770,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -2339,7 +2339,7 @@
       "frozen_reason": null,
       "pid": 2542,
       "rss_gb": 0.43,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3606,7 +3606,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3769,7 +3769,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3799,7 +3799,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4199,8 +4199,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.37,
-      "cpu": 0.6,
+      "rss_gb": 0.41,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
