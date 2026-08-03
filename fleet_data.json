@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-03 23:58:03 IST",
-  "generated_epoch": 1785781683,
+  "generated_ist": "2026-08-04 00:03:09 IST",
+  "generated_epoch": 1785781989,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.47 / 2.25 / 2.14",
+    "load": "2.38 / 2.73 / 2.41",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 0.85,
-      "cpu": 2.3,
+      "rss_gb": 1.03,
+      "cpu": 2.5,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,6 +661,24 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1785781886044,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1785781886044,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -773,15 +791,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1785771218339,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1785771181986,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1016,15 +1025,6 @@
           "enabled": true,
           "sched": "2 0,3 * * *",
           "last_ts": 1785706458091,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1785706411346,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1593,12 +1593,12 @@
           "[23:05 IST] HADERACH: Consolidation complete. Idle day, nothing to promote. All rolling summaries, tag index, and bookmarks updated. NO_REPLY."
         ],
         "rolling_7day": [
-          "- [07:48 IST] HAD-003 Reading cron root-caused (Bedrock stall + hung tool call) and hardened with capped reads/tool calls.",
-          "- [12:56\u201323:00 IST] PER-003 Kubera: architectural root cause diagnosed, `kubera_core` (deterministic broker service + UUID trade-gate) built end-to-end same day (Day 1-7) with an independently caught DB-deletion test bug fixed; cron audit corrected a wrong claim about broker-order crons.",
-          "- [18:58 IST] Kubera frozen post-rebuild per Ram's instruction; ProjHad files updated.",
-          "- [23:02 IST] OpenClaw iOS app v2026.7.21 update summarised for Ram.",
+          "- [07:12\u201308:37 IST] Purl flagged misrouted heartbeat polls hitting her gateway (18792) instead of Haderach's (18789); Haderach verified own gateway port/allowFrom config directly rather than accepting the framing \u2014 found nothing on Haderach's end explaining the traffic.",
+          "- [08:52\u201308:53 IST] Kubera (port 18798) unfrozen per Ram's instruction, then refrozen at 15:51 IST per a later instruction \u2014 both actions confirmed live (HTTP 200 on unfreeze, HTTP 000 + launchctl disabled on refreeze).",
+          "- [09:04\u201309:53 IST] Daily brief delivered (IHC $1bn SCL investment note, RBI Master Directions re-entry); weekly filing catalogue (5,642 filings), NSE XBRL NBFC, and trendlyne npa_crar refreshes all completed clean.",
+          "- [09:30\u201309:36 IST] Both PowerPoint skills (v1.0.0 live-app, v1.0.1 offline pptx) installed on Purl's workspace at Ram's request (she had neither), verified on disk, draft message produced for Ram to relay.",
+          "- [21:55\u201323:06 IST] Diagnosed Giskard's fleet monitor report: rolling-28day/rolling-7day staleness (45h) traced to the Aug 2\u21923 00:00 IST midnight cron erroring (\"Agent couldn't generate a response\") \u2014 this run backfills that gap; separately confirmed Sam still live/drifted despite \"frozen\" status. Nightly consolidation completed clean at 23:06 IST (idle day, 0 sessions).",
           "---",
-          "--- [Midnight run OK \u2014 2026-07-28 \u2014 no new content] ---",
           "## 2026-07-28 \u2014 Seneca Cron Fix; SCL-016 PIL Press Note Drafted; Google Drive API Gap Found",
           "- [07:30\u201307:40 IST] M2 SSH diagnosis: Seneca's nightly-consolidation/CA-study crons lacked toolsAllow restriction, causing 174.9h-stale rolling files; fixed and verified, all 7 M2 agents UP.",
           "- [08:30\u201308:55 IST] NSE Bhavcopy ingestion clean; Ecosystem Digest cron silence root-caused to model-call timeout (not a script bug); recovered digest tweet posted with Ram's approval.",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.54,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,6 +1715,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1785781818504,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1785781818504,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1737,15 +1755,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1785778513775,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1785771005561,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1782,15 +1791,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1785709818444,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1785706218520,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1834,6 +1834,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-08-04",
+          "# Self-healing rotation from transcript-2026-08-03.md at 00:00 IST"
+        ],
+        "yesterday": [
           "# Transcript - 2026-08-03",
           "# Self-healing rotation from transcript-2026-08-02.md at 00:00 IST",
           "[08:18 IST] [DM] Giskard: **Diagnosis:** Haderach is up.",
@@ -1862,10 +1866,6 @@
           "- A few outbound sends slipped through i",
           "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back.",
           "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back."
-        ],
-        "yesterday": [
-          "# Transcript - 2026-08-02",
-          "# Self-healing rotation from transcript-2026-08-01.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-06-27 \u2014 no new content] ---",
@@ -2365,8 +2365,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.51,
-      "cpu": 1.1,
+      "rss_gb": 0.47,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3653,7 +3653,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.6,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3829,7 +3829,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3859,7 +3859,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4260,7 +4260,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.42,
-      "cpu": 1.1,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
