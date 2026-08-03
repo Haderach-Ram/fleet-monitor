@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-03 09:01:58 IST",
-  "generated_epoch": 1785727918,
+  "generated_ist": "2026-08-03 09:07:05 IST",
+  "generated_epoch": 1785728225,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.26 / 2.30 / 2.40",
+    "load": "2.90 / 2.37 / 2.37",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 7961,
       "rss_gb": 0.78,
-      "cpu": 1.4,
+      "cpu": 1.2,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785727259116,
+          "sched": "0 9 * * *",
+          "last_ts": 1785728125880,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
+          "enabled": true,
+          "sched": "0 9 * * *",
+          "last_ts": 1785728125880,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785728125879,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +691,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785727230031,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785727230030,
+          "last_ts": 1785728125879,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +700,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785727230030,
+          "last_ts": 1785728125878,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1785728125878,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785727259116,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -931,15 +958,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1785672851547,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
@@ -991,24 +1009,6 @@
           "last_ts": 1785641826567,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1785641737319,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1785641737319,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-08-03",
           "# Self-healing rotation from transcript-2026-08-02.md at 00:06 IST",
           "[02:00 IST] HADERACH: The script completed with no updates to report. The watcher found:",
           "- **Master Directions:** 35 total, 0 updates",
@@ -1543,7 +1542,13 @@
           "<li>Haderach's gateway port is confirmed 18789, and my Telegram <code>allowFrom</code> correctly lists your ID (8489979671) alongside the other two authorized senders \u2014 exactly as it should be.</li>",
           "<li>No cron job, script, or config entry of mine references port 18792 or Purl's gateway at all. There is nothing in my process that would generate outbound calls to Purl.</li>",
           "</ul>",
-          "So the traffic Purl is seeing isn't ..."
+          "So the traffic Purl is seeing isn't ...",
+          "[08:52 IST] RAM: Unfreeze Kubera pls",
+          "[08:53 IST] HADERACH: Confirmed: plist is present but disabled and unloaded. Unfreezing now.",
+          "[08:53 IST] HADERACH: Kubera is unfrozen and live \u2014 port 18798 confirmed HTTP 200, launchctl running, gateway fully started (Telegram, model, heartbeat all up).",
+          "For the record, that's the freeze/unfreeze counter ticking up again on this one \u2014 worth a straight flag rather than a quiet action. I'll update MEMORY.md's Kubera line to reflect the live status.",
+          "[08:53 IST] HADERACH: Kubera is unfrozen and live \u2014 port 18798 confirmed HTTP 200, launchctl running, gateway fully started (Telegram, model, heartbeat all up).",
+          "For the record, that's the freeze/unfreeze counter ticking up again on this one \u2014 worth a straight flag rather than a quiet action. I'll update MEMORY.md's Kubera line to reflect the live status."
         ],
         "yesterday": [
           "<li><b>Croma:</b> price is pincode-gated, didn't resolve without a delivery pincode</li>",
@@ -1685,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.51,
-      "cpu": 0.7,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1710,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1785727207131,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1785728111196,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1785724512149,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1785727207131,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1959,8 +1964,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 8771,
-      "rss_gb": 0.59,
-      "cpu": 1.6,
+      "rss_gb": 0.58,
+      "cpu": 12.9,
       "crons_total": 22,
       "crons_enabled": 21,
       "skills_count": 1,
@@ -2359,8 +2364,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.49,
-      "cpu": 0.6,
+      "rss_gb": 0.48,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -2514,6 +2519,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785728046415,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785728046415,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
@@ -2527,24 +2550,6 @@
           "enabled": true,
           "sched": "*/30 6-23 * * *",
           "last_ts": 1785727807080,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785717247393,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785717247393,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2579,17 +2584,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:13 IST] PURL: Hey Ram \u2014 yep, I'm here! Sorry for going quiet while I actually dug into the plumbing instead of just repeating the same \"wrong bot\" line at you every hour. \ud83e\uddf6",
-          "**What's actually happening (config-level, not a mistake on your end):**",
-          "Purl's DM session scope collapses **all Telegram DMs into one shared main session** (`session.dmScope` is effectively `\"main\"`), and the heartbeat's default delivery target isn't pinned to a specific chat \u2014 it rides along with whichever contact last interacted with that shared session. So:",
-          "- When you DM me directly, your chat becomes the \"last contact\" for Pur...",
-          "[08:14 IST] RAM: Check on GisKard. Is he up?",
-          "[08:14 IST] PURL: Giskard's up and healthy \u2705",
-          "- **Health check:** `{\"ok\":true,\"status\":\"live\"}` on port 18791",
-          "- **Process:** gateway node process running since Wednesday 08 PM, steady CPU",
-          "- Responding fine to direct pings",
-          "He's alive and well over there. Want me to have him action the heartbeat routing fix (pin delivery to Gari's chat, or split DM sessions per-sender) now, or are you just doing a sanity check?",
-          "[08:14 IST] PURL: Giskard's up and healthy \u2705",
           "- **Health check:** `{\"ok\":true,\"status\":\"live\"}` on port 18791",
           "- **Process:** gateway node process running since Wednesday 08 PM, steady CPU",
           "- Responding fine to direct pings",
@@ -2618,7 +2612,18 @@
           "- Telegram provider reconnected: `@Giskard_Ram_Bot` came back online",
           "- **Your DM actually went through this time** \u2014 log shows: `Inbound message telegram:8489979671 -> @Giskard_Ram_Bot (direct, 2 chars)` at 08:17:24, and he replied at 08:17:25 (`sendRichMessage ok chat=8489979671 message=14547`)",
           "So check your Telegram with Giskard now \u2014 he should have replied to whatever 2-char message triggered that (\"hi\"? a test ping?). He's out of the restart loop and talk...",
-          "[08:56 IST] PURL: 9 days since last bulletin \u2014 due. Let me run the full weekly sweep and deliver it."
+          "[08:56 IST] PURL: 9 days since last bulletin \u2014 due. Let me run the full weekly sweep and deliver it.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2713 **Transcript logger complete.**",
+          "- **Main session:** 12 new messages captured",
+          "- **Klub K group chat:** No new messages",
+          "- **Gari direct:** No new messages",
+          "- **Messages logged:** 3",
+          "- **File:** `transcript-2026-08-03.md`",
+          "- **Bookmark updated:** \u2713",
+          "All current as of **9:00 AM IST (Monday, 3 Aug 2026)**.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "The daily transcript for August 2nd has been updated. All quiet on the channels.",
@@ -3626,7 +3631,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2837,
-      "rss_gb": 0.31,
+      "rss_gb": 0.3,
       "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
@@ -3789,7 +3794,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3819,7 +3824,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4219,8 +4224,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.38,
-      "cpu": 0.9,
+      "rss_gb": 0.41,
+      "cpu": 1.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
