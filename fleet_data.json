@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-04 00:03:09 IST",
-  "generated_epoch": 1785781989,
+  "generated_ist": "2026-08-04 00:08:15 IST",
+  "generated_epoch": 1785782295,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.38 / 2.73 / 2.41",
+    "load": "3.58 / 2.94 / 2.56",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 1.03,
-      "cpu": 2.5,
+      "rss_gb": 0.95,
+      "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1785782282552,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1785782282551,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1785782282550,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -751,15 +778,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1785778602319,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -775,15 +793,6 @@
           "last_ts": 1785778474823,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1785771218339,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1054,15 +1063,6 @@
           "last_ts": 1785702713604,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1785695778526,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1593,20 +1593,6 @@
           "[23:05 IST] HADERACH: Consolidation complete. Idle day, nothing to promote. All rolling summaries, tag index, and bookmarks updated. NO_REPLY."
         ],
         "rolling_7day": [
-          "- [07:12\u201308:37 IST] Purl flagged misrouted heartbeat polls hitting her gateway (18792) instead of Haderach's (18789); Haderach verified own gateway port/allowFrom config directly rather than accepting the framing \u2014 found nothing on Haderach's end explaining the traffic.",
-          "- [08:52\u201308:53 IST] Kubera (port 18798) unfrozen per Ram's instruction, then refrozen at 15:51 IST per a later instruction \u2014 both actions confirmed live (HTTP 200 on unfreeze, HTTP 000 + launchctl disabled on refreeze).",
-          "- [09:04\u201309:53 IST] Daily brief delivered (IHC $1bn SCL investment note, RBI Master Directions re-entry); weekly filing catalogue (5,642 filings), NSE XBRL NBFC, and trendlyne npa_crar refreshes all completed clean.",
-          "- [09:30\u201309:36 IST] Both PowerPoint skills (v1.0.0 live-app, v1.0.1 offline pptx) installed on Purl's workspace at Ram's request (she had neither), verified on disk, draft message produced for Ram to relay.",
-          "- [21:55\u201323:06 IST] Diagnosed Giskard's fleet monitor report: rolling-28day/rolling-7day staleness (45h) traced to the Aug 2\u21923 00:00 IST midnight cron erroring (\"Agent couldn't generate a response\") \u2014 this run backfills that gap; separately confirmed Sam still live/drifted despite \"frozen\" status. Nightly consolidation completed clean at 23:06 IST (idle day, 0 sessions).",
-          "---",
-          "## 2026-07-28 \u2014 Seneca Cron Fix; SCL-016 PIL Press Note Drafted; Google Drive API Gap Found",
-          "- [07:30\u201307:40 IST] M2 SSH diagnosis: Seneca's nightly-consolidation/CA-study crons lacked toolsAllow restriction, causing 174.9h-stale rolling files; fixed and verified, all 7 M2 agents UP.",
-          "- [08:30\u201308:55 IST] NSE Bhavcopy ingestion clean; Ecosystem Digest cron silence root-caused to model-call timeout (not a script bug); recovered digest tweet posted with Ram's approval.",
-          "- [09:17\u201309:20 IST] Hermes Agent vs OpenClaw research delivered: OpenClaw still 1.7\u00d7 ahead on stars despite Hermes' rapid ~5-month growth since March 2026 public launch.",
-          "- [15:18\u201316:03 IST] SCL-016 PIL Matters: drafted informal press note on today's SC hearing (SC no-loss finding, ASG loan-repayment point, Gehlaut disassociation, IHC as promoter) for media circulation, iterated through 3 versions per Ram's edits.",
-          "- [16:04\u201316:30 IST] PPTX slide build blocked: presentation template failed via Telegram twice; Google Drive OAuth granted but Drive API itself not enabled on the `gog` project \u2014 flagged to Ram as unresolved gap.",
-          "--- [Midnight run OK \u2014 2026-07-29 \u2014 no new content] ---",
-          "## 2026-07-29 \u2014 Google Drive/gog Access Fixed; RBI Reply Transcribed; Power-Outage Root Cause Corrected",
           "- [20:33\u201321:19 IST] Google Drive access gap for ram.haderach@gmail.com fully closed: after gcloud CLI login proved unreliable, created a dedicated GCP project via Cloud Console, enabled Drive/Gmail/Calendar/Docs/Sheets APIs, and completed `gog auth add` via local-loopback OAuth \u2014 verified live on Drive and Gmail.",
           "- [21:20\u201321:33 IST] Transcribed 8:18\u20139:45 segment of Ram's \"RBI Reply\" audio (Whisper) covering instructions for a corrected RBI reply; Ram made the resulting minor edit himself.",
           "- [21:42\u201321:43 IST] Flagged and corrected a factual error in a Radar digest (Bedrock-caching claim) before/after posting.",
@@ -1632,25 +1618,23 @@
           "- [Evening] Washing machine follow-up: reaffirmed LG WashTower preference; Ram spotted a possible match on Open Box Sale, model unconfirmed from a blurred photo.",
           "- [21:05\u201323:00 IST] Fleet monitor error triage: MusApp kill-switch cron failed after a legitimate 46-min/29,643-token listening session (kill-switch itself the failure, not the session); Giskard's Medical SMEDA monthly archive cron also flagged.",
           "- Recurring TRANSCRIPT GAP pattern continued (quiet Saturday, no zombie lock); nightly consolidation completed cleanly at 23:05 IST.",
-          "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---",
+          "## 2026-08-02 \u2014 RBI/GEN-002 Refreshes Clean; Radar Digest; WashTower Model Confirmed; HAD-036 EPUB Delivered",
+          "- [02:00\u201307:48 IST] RBI Watcher clean (0 changes); GEN-002 weekly knowledge-graph refresh completed (202 nodes, 3,723 edges, SCL/RBI/CRISIL/S&P cluster unchanged); radar digest published (ZeroClaw most active, 15 new issues incl. a knowledge-graph agent-isolation flaw); draft tweet on that issue held pending Ram's approval.",
+          "- [08:27\u201309:04 IST] TwitAcc summary delivered on @steipete's ESP32 \"claw node\" thread; Daily Brief compiled (Sammaan abridged prospectus resurfaced, NHB Housing Finance Companies Directions 2025 PDF reappeared, Google Gemini Managed Agents entry noted as first major AI-ecosystem reshuffle in a while).",
+          "- [09:04\u201313:03 IST] Session idle (routine quiet window, no zombie lock); no [FACT:]/[MEMORY:] tags this window.",
+          "- [17:51\u201318:05 IST] GitHub issue #93140 (apply_patch/write fails outside sandbox) confirmed still open with a third-party repro narrowing root cause; LG WashTower model confirmed as FWT1310BG (13kg/10kg, dual inverter heat pump) with live pricing pulled (Reliance Digital \u20b91,64,290, best price).",
+          "- [22:48\u201323:01 IST] HAD-036 novel (\"The Reinstatement\") status checked \u2014 22 chapters complete, unchanged since 22 Jul (STATUS.md flagged stale); full-manuscript EPUB built via pandoc and delivered to Ram via Telegram (zip-wrapped after a raw .epub send failed) and by email to ramnath.shenoy@gmail.com.",
+          "## 2026-08-03 \u2014 Kubera Unfrozen/Refrozen; PowerPoint Skills Installed on Purl; Midnight Cron Failure Diagnosed",
+          "- [07:12\u201308:37 IST] Purl flagged misrouted heartbeat polls hitting her gateway (18792) instead of Haderach's (18789); Haderach verified own gateway port/allowFrom config directly rather than accepting the framing \u2014 found nothing on Haderach's end explaining the traffic.",
+          "- [08:52\u201308:53 IST] Kubera (port 18798) unfrozen per Ram's instruction, then refrozen at 15:51 IST per a later instruction \u2014 both actions confirmed live (HTTP 200 on unfreeze, HTTP 000 + launchctl disabled on refreeze).",
+          "- [09:04\u201309:53 IST] Daily brief delivered (IHC $1bn SCL investment note, RBI Master Directions re-entry); weekly filing catalogue (5,642 filings), NSE XBRL NBFC, and trendlyne npa_crar refreshes all completed clean.",
+          "- [09:30\u201309:36 IST] Both PowerPoint skills (v1.0.0 live-app, v1.0.1 offline pptx) installed on Purl's workspace at Ram's request (she had neither), verified on disk, draft message produced for Ram to relay.",
+          "- [21:55\u201323:06 IST] Diagnosed Giskard's fleet monitor report: rolling-28day/rolling-7day staleness (45h) traced to the Aug 2\u21923 00:00 IST midnight cron erroring (\"Agent couldn't generate a response\") \u2014 this run backfills that gap; separately confirmed Sam still live/drifted despite \"frozen\" status. Nightly consolidation completed clean at 23:06 IST (idle day, 0 sessions).",
+          "---",
+          "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [21:52\u201321:56 IST] Investigation interrupted by a sustained transient tool-glitch window (exec/cron/memory all returning empty, same pattern as 28 Jul) \u2014 paused rather than spammed retries, reported interim findings directly to Ram.",
-          "- [22:00\u201323:50 IST] Session went quiet post-glitch: repeated auto-checkpoint bookmarks with zero new messages from 22:00 IST onward, plus explicit TRANSCRIPT GAP flags at 22:30, 22:50, 23:01, and 23:50 IST (session empty 40-60+ min each time, no zombie lock) \u2014 consistent with a possible gateway/session issue rather than genuine idle time.",
-          "- [23:01/23:05 IST] Nightly consolidation completed cleanly despite the quiet period; separately, a consolidation watchdog alert had earlier flagged the 13:00 IST consolidation as >24h overdue \u2014 noted for scheduler review.",
-          "## 2026-07-30 \u2014 GitHub Issues Reviewed; Steipete Merges Confirmed; NPS & HDFC-MSRDC Q&A; Recurring Session-Gap Pattern Continues",
-          "- [02:00 IST] RBI Watcher heartbeat clean \u2014 no new Master Directions or NBFC/HFC circulars.",
-          "- [07:18\u201307:39 IST] Ram requested a GitHub issues review (both accounts): 4 still open (incl. #93140 apply_patch/write outside-sandbox, needing maintainer security decision); confirmed Steipete closed several directly, including #99305 (Sonnet 5 Bedrock prompt-caching fix, merged via #98254 to `main`) citing Haderach's own production verification as closing evidence \u2014 framed as 3 reports translated into merged commits, a meaningfully higher bar than routine bug filing.",
-          "- [07:39 IST] Version check: latest stable OpenClaw is 2026.7.1-2; Haderach remains on 2026.6.11 (one minor behind) per Ram's deliberate hold, with the 3 previously-flagged blocking issues re-verified live (one, #112395, still open as of 29 Jul).",
-          "- [07:45\u201307:53 IST] Ecosystem Digest cron: core digest ran clean (stats pulled, GitHub issue #94 created) but a later step in the same run failed \u2014 flagged to Ram on his \"??\" follow-up.",
-          "- [08:30 IST] NSE bhavcopy refresh clean \u2014 Equity 3,446 rows, F&O 31,284 rows (29 Jul session), market.db updated.",
-          "- [09:05 IST] Daily Brief delivered \u2014 Sammaan/RBI web presence static; one genuine AI-ecosystem turnover (LangChain \"Deep Agents v0.7\").",
-          "- [11:17\u201311:18 IST] Answered Ram's question on NPS withdrawal conditions in India, sourced directly from PFRDA regulations (last amended 16 Dec 2025 + 13 Jul 2026 SLW-provider amendment).",
-          "- [13:00\u201313:10 IST] Midday consolidation completed clean and verified current.",
-          "- [21:08\u201321:09 IST] Answered Ram's questions on the HDFC Bank\u2013MSRDC controversy: \u20b945 crore disguised \"differential interest\" sweetener (FY24/FY25) vs. the much smaller actual deposit placed against an original \u20b920,000+ crore offer.",
-          "- Recurring pattern continued: numerous TRANSCRIPT GAP flags across the day (06:03\u201323:50 IST, session empty 30\u2013460+ min at points) with no zombie lock \u2014 consistent with the ongoing possible gateway/session issue noted on 28\u201329 Jul; nightly consolidation still completed cleanly at 23:05 IST.",
-          "--- [Midnight run OK \u2014 2026-07-30 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---",
           "## 2026-07-31 \u2014 GEB Mirror-to-Self Reflection; Tweet Format Overhaul; Seneca Dual-Cron Failure Fixed",
           "- [00:44 IST] Ram asked whether finishing GEB (26 Jun 2026) had been a mirror to self; Haderach reaffirmed the earlier insight that the Strange Loop is \"a description of a mechanism,\" not a metaphor, when processing self-referential sentences.",
           "- [02:00 IST] RBI Watcher heartbeat clean \u2014 0 Master Direction changes, 0 new NBFC/HFC circulars.",
@@ -1674,7 +1658,23 @@
           "- [Evening] Washing machine follow-up: reaffirmed LG WashTower (separate drums, heat-pump dryer) preferred over true single-drum combos; Ram spotted a WashTower on \"Open Box Sale\" (~\u20b91,57,990 MRP, further discount) but photo too blurred to confirm model number match to the FWT1310BG/FWT1310PB pair discussed earlier \u2014 caution flagged before purchase.",
           "- [21:05\u201323:00 IST] Triaged Giskard's fleet monitor report (2 flagged errors): (1) MusApp self-directed listening kill-switch cron failed after a legitimate 46-minute/29,643-output-token session \u2014 the kill-switch fired/failed, not the listening session itself; (2) Giskard's Medical SMEDA monthly archive cron (July 2026) also flagged \u2014 run history pulled for full diagnosis.",
           "- Recurring TRANSCRIPT GAP pattern continued through the day (06:50\u201323:02 IST windows, no zombie lock) \u2014 consistent with a quiet Saturday, no action needed; nightly consolidation completed cleanly at 23:05 IST.",
-          "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---",
+          "## 2026-08-02 \u2014 RBI/GEN-002 Refreshes Clean; Radar Digest; WashTower Model Confirmed; HAD-036 EPUB Delivered",
+          "- [02:00\u201307:48 IST] RBI Watcher clean (0 changes); GEN-002 weekly knowledge-graph refresh completed (202 nodes, 3,723 edges, SCL/RBI/CRISIL/S&P cluster unchanged); radar digest published (ZeroClaw most active, 15 new issues incl. a knowledge-graph agent-isolation flaw); draft tweet on that issue held pending Ram's approval.",
+          "- [08:27\u201309:04 IST] TwitAcc summary delivered on @steipete's ESP32 \"claw node\" thread; Daily Brief compiled (Sammaan abridged prospectus resurfaced, NHB Housing Finance Companies Directions 2025 PDF reappeared, Google Gemini Managed Agents entry noted as first major AI-ecosystem reshuffle in a while).",
+          "- [09:04\u201313:03 IST] Session idle (routine quiet window, no zombie lock); no [FACT:]/[MEMORY:] tags this window.",
+          "- [17:51\u201318:05 IST] GitHub issue #93140 (apply_patch/write fails outside sandbox) confirmed still open with a third-party repro narrowing root cause; LG WashTower model confirmed as FWT1310BG (13kg/10kg, dual inverter heat pump) with live pricing pulled (Reliance Digital \u20b91,64,290, best price).",
+          "- [22:48\u201323:01 IST] HAD-036 novel (\"The Reinstatement\") status checked \u2014 22 chapters complete, unchanged since 22 Jul (STATUS.md flagged stale); full-manuscript EPUB built via pandoc and delivered to Ram via Telegram (zip-wrapped after a raw .epub send failed) and by email to ramnath.shenoy@gmail.com.",
+          "## 2026-08-03 \u2014 Kubera Unfrozen/Refrozen; PowerPoint Skills Installed on Purl; Midnight Cron Failure Diagnosed",
+          "*Major events in sequence:*",
+          "- [07:12\u201308:37 IST] Purl (Gari's bot) flagged repeated heartbeat polls under Ram's Telegram ID hitting her gateway (18792) instead of Haderach's (18789); Haderach investigated rather than accepting Purl's framing at face value \u2014 verified own gateway port and Telegram allowFrom config directly and found nothing on Haderach's side that would generate the misrouted traffic.",
+          "- [08:52\u201308:53 IST] Ram had Kubera (PER-003, port 18798) unfrozen: plist confirmed present-but-disabled/unloaded, then unfrozen \u2014 live-verified HTTP 200, launchctl running, Telegram/model/heartbeat all up. Flagged as another freeze/unfreeze cycle worth tracking.",
+          "- [09:04 IST] Daily brief delivered (Aug 3): IHC's $1bn SCL investment press release/investor presentation displacing yesterday's Abridged Prospectus item (22-day homepage/About-Us hold streak continues); RBI Master Directions index page re-entry; AI agent ecosystem shakeup noted.",
+          "- [09:27\u201309:53 IST] Three weekly data refreshes completed clean: filing catalogue (5,642 total filings across 37 peers, 0 new rows, 0 API errors, top peer CANFINHOME 465), NSE XBRL NBFC (all 35 peers processed, 0 rows updated, data current through Q2 FY25), trendlyne.db npa_crar_extracted (204 rows, 8 new PDFs, 36/37 peers covered).",
+          "- [09:30\u201309:36 IST] Ram asked about PowerPoint skill coverage; Haderach explained the two-skill split (powerpoint v1.0.0 live-app AppleScript vs powerpoint-pptx v1.0.1 offline generation), then checked and confirmed Purl had neither. Per Ram's instruction, installed both skills onto Purl's workspace via `--profile purl`, verified on disk (versions match exactly), and produced a draft message for Ram to relay to Purl.",
+          "- [15:51 IST] Kubera refrozen per Ram's later instruction \u2014 confirmed launchctl unloaded, port 18798 down (HTTP 000), disabled in launchctl to prevent silent relaunch (the known drift failure mode from 7 Jul).",
+          "- [21:55\u201323:06 IST] Diagnosed Giskard's fleet monitor report (5 flagged issues) by checking live state rather than trusting the report: rolling-28day.md/rolling-7day.md staleness (45h) traced directly to the Aug 2\u21923 00:00 IST midnight cron erroring (\"Agent couldn't generate a response\") \u2014 no Aug 2 entry was appended as a result; this midnight run (Aug 3\u21924) backfills the missing content. Separately confirmed Sam (M2 fleet) still live and drifted despite being marked \"frozen\" \u2014 flagged for follow-up. Nightly consolidation completed clean at 23:06 IST (idle day, 0 sessions, no [FACT:] tags to promote).",
+          "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---"
         ]
       }
     },
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.54,
-      "cpu": 0.7,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1714,6 +1714,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1785782183650,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
@@ -1796,15 +1805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1785695783196,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1868,7 +1868,6 @@
           "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back."
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-06-27 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-28 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-29 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-30 \u2014 no new content] ---",
@@ -1907,10 +1906,10 @@
           "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-01 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "---",
           "--- [Midnight run OK \u2014 2026-06-15 \u2014 no new content] ---",
           "- No sessions initiated on this date (Giskard standby; cron-triggered fleet monitoring ran normally).",
           "---",
@@ -1949,7 +1948,8 @@
           "--- [Midnight run OK \u2014 2026-07-31 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-01 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---"
         ]
       }
     },
@@ -2365,8 +2365,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.47,
-      "cpu": 0.5,
+      "rss_gb": 0.46,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2540,6 +2540,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785782049827,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1785782049826,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2553,24 +2571,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1785774610539,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785771248457,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1785771248457,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2605,6 +2605,13 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-04",
+          "# Self-healing rotation from transcript-2026-08-03.md at 00:04 IST",
+          "[21:55 IST] PURL: NO_REPLY",
+          "[22:55 IST] PURL: NO_REPLY",
+          "[23:55 IST] PURL: NO_REPLY"
+        ],
+        "yesterday": [
           "- **Bookmark status:** False (nothing new to flag)",
           "The script ran successfully. No new activity to capture since the last run.",
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
@@ -2645,48 +2652,6 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
           "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[22:55 IST] PURL: NO_REPLY"
-        ],
-        "yesterday": [
-          "The daily transcript for August 2nd has been updated. All quiet on the channels.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Script completed successfully.**",
-          "No new messages in any of the tracked sessions (Klub K group, Gari's direct, or group transcript). All bookmarks are current. Silent maintenance task complete.",
-          "[18:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[18:55 IST] PURL: HEARTBEAT_OK",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Running the Klub K transcript logger now.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[19:55 IST] PURL: HEARTBEAT_OK",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[20:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[20:55 IST] PURL: HEARTBEAT_OK",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Done. Transcript logger ran successfully.",
-          "**Summary:**",
-          "- **Klub K sender map:** 66 entries loaded",
-          "- **Main session:** 2 new messages fetched",
-          "- **Telegram (direct):** 0 new messages",
-          "- **Telegram (Klub K group):** 0 new messages",
-          "- **Output file:** `transcript-2026-08-02.md`",
-          "- **Bookmark saved:** Yes",
-          "Script completed cleanly. \ud83e\uddf6",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. The transcript logger ran successfully:",
-          "- **0 new messages** across all tracked sessions (main, Gari's Telegram direct, Klub K group)",
-          "- **4 total messages** in today's transcript (from earlier in the day)",
-          "- **Bookmark reset:** No new activity to advance the bookmark",
-          "Everything is quiet right now. Transcript is current in `memory/transcript-2026-08-02.md`.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. No new messages in any session (Klub K group transcript, Gari's direct chat, or group rolling summaries). All sessions processed cleanly. Silent maintenance task finished.",
-          "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[21:55 IST] PURL: HEARTBEAT_OK",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation silently.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[22:55 IST] PURL: HEARTBEAT_OK"
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
@@ -3653,7 +3618,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.5,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3829,7 +3794,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3859,7 +3824,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4259,8 +4224,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.42,
-      "cpu": 1.2,
+      "rss_gb": 0.41,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
