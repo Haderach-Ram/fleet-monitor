@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-03 08:46:40 IST",
-  "generated_epoch": 1785727000,
+  "generated_ist": "2026-08-03 08:51:46 IST",
+  "generated_epoch": 1785727306,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.37 / 1.95 / 2.79",
+    "load": "1.91 / 2.13 / 2.64",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 0.66,
-      "cpu": 0.5,
+      "rss_gb": 0.83,
+      "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785726631926,
+          "sched": "every 30m",
+          "last_ts": 1785727259116,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785726631926,
+          "last_ts": 1785727230031,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785727230030,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785726631925,
+          "last_ts": 1785727230030,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -713,15 +722,6 @@
           "last_status": "ok",
           "model": "(no LLM)",
           "kind": "systemEvent"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785725459867,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
         },
         {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
@@ -1684,8 +1684,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.5,
-      "cpu": 0.3,
+      "rss_gb": 0.52,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1713,7 +1713,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1785725407606,
+          "last_ts": 1785727207131,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1842,7 +1842,21 @@
           "- Process uptime: 4d 12h, no restarts, no crash",
           "- No \"reply session initialization conflicted\" or session-lock errors in today's log (the pattern from 25 Jul is absent)",
           "- No inbound Telegram messages to `@ram_haderach_bot` today \u2014 you haven't messaged it directly, so silence there is expected, not a symptom",
-          "- Only issues on record are the pre-existing cron errors already flagged in fleet monitor (Midnight Cron rotation, MusApp ki"
+          "- Only issues on record are the pre-existing cron errors already flagged in fleet monitor (Midnight Cron rotation, MusApp ki",
+          "[08:35 IST] [DM] Giskard: **Diagnosis:** Confirmed \u2014 Haderach's Telegram channel is stuck in a restart loop.",
+          "**Evidence** (`~/Library/Logs/openclaw/gateway-purl.log`, the actual stdout for PID 2538 / port 18789):",
+          "- `06:43:55` \u2014 Telegram auto-restart attempts (1/10, 2/10) began",
+          "- `06:46:24` \u2014 health-monitor restart, reason: **disconnected**",
+          "- From `06:46` onward, health-monitor has fired **restarting (reason: stopped)** every ~10\u201315 min continuously, still ongoing as of `08:31:24`",
+          "- A few outbound sends slipped through i",
+          "[08:35 IST] [DM] Giskard: **Diagnosis:** Confirmed \u2014 Haderach's Telegram channel is stuck in a restart loop.",
+          "**Evidence** (`~/Library/Logs/openclaw/gateway-purl.log`, the actual stdout for PID 2538 / port 18789):",
+          "- `06:43:55` \u2014 Telegram auto-restart attempts (1/10, 2/10) began",
+          "- `06:46:24` \u2014 health-monitor restart, reason: **disconnected**",
+          "- From `06:46` onward, health-monitor has fired **restarting (reason: stopped)** every ~10\u201315 min continuously, still ongoing as of `08:31:24`",
+          "- A few outbound sends slipped through i",
+          "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back.",
+          "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back."
         ],
         "yesterday": [
           "# Transcript - 2026-08-02",
@@ -2346,7 +2360,7 @@
       "frozen_reason": null,
       "pid": 2542,
       "rss_gb": 0.48,
-      "cpu": 1.5,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 14,
@@ -3613,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3775,7 +3789,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4205,8 +4219,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.42,
-      "cpu": 0.9,
+      "rss_gb": 0.38,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
