@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-03 22:26:05 IST",
-  "generated_epoch": 1785776165,
+  "generated_ist": "2026-08-03 22:31:11 IST",
+  "generated_epoch": 1785776471,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.46 / 2.51 / 2.43",
+    "load": "2.32 / 2.32 / 2.35",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 7961,
       "rss_gb": 1.01,
-      "cpu": 0.5,
+      "cpu": 1.6,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1785776117381,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785776432962,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785775832060,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785775832059,
+          "last_ts": 1785776432962,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785775832059,
+          "last_ts": 1785776432961,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1785776117381,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:10 IST] HADERACH: \u2705 Consolidation status OK. The `lastConsolidation` timestamp shows **2026-08-03T13:00:00+05:30**, which is today at 1:00 PM IST (just 10 minutes ago). The consolidation ran successfully.",
           "**No alert needed** \u2014 the 13:00 consolidation completed as scheduled.",
           "--- [TRANSCRIPT GAP: 14:03 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:23 IST \u2014 session empty for 59 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1548,7 +1547,8 @@
           "<b>3. Midnight Cron error</b> \u2014...",
           "[21:57 IST] HADERACH: Diagnosed all five issues by checking live state rather than trusting the report at face value. Here's what's actually going on:",
           "<b>1 & 2. Rolling-28day.md / rolling-7day.md stale (45h)</b> \u2014 Directly caused by #3 below. Confirmed on disk: both files last written Aug 2, 00:07 IST (the successful Aug 1\u21922 midnight run). The next midnight run (Aug 2\u21923, 00:00 IST) errored, so no Aug 2 entry got appended \u2014 these two alerts are a symptom, not a separate root cause.",
-          "<b>3. Midnight Cron error</b> \u2014..."
+          "<b>3. Midnight Cron error</b> \u2014...",
+          "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<li><b>Croma:</b> price is pincode-gated, didn't resolve without a delivery pincode</li>",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.55,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2365,8 +2365,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.49,
-      "cpu": 0.6,
+      "rss_gb": 0.48,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2540,19 +2540,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1785774610539,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1785776404072,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1785774610538,
+          "sched": "0 22 * * *",
+          "last_ts": 1785774610539,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2605,9 +2605,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Transcript logger complete.**",
-          "- **Sessions checked:** 3 (main, Gari direct, Klub K group)",
           "- **New messages:** 0 across all sessions",
           "- **Output:** `transcript-2026-08-03.md` (3 msgs total, no new ones)",
           "- **Bookmark status:** False (nothing new to flag)",
@@ -2644,7 +2641,10 @@
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Completed. No new messages across all monitored sessions (Klub K group, Gari transcript, group transcript). All bookmarks current.",
           "[21:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[21:55 IST] PURL: NO_REPLY"
+          "[21:55 IST] PURL: NO_REPLY",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll run the nightly memory consolidation. Let me process this step by step.",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Daily log doesn't exist for today. Executing final step (memory transcript bookmark):",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY"
         ],
         "yesterday": [
           "The daily transcript for August 2nd has been updated. All quiet on the channels.",
@@ -3653,7 +3653,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3829,7 +3829,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3859,7 +3859,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4260,7 +4260,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.41,
-      "cpu": 1.4,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
