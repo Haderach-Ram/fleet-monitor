@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-04 23:55:42 IST",
-  "generated_epoch": 1785867942,
+  "generated_ist": "2026-08-05 00:00:49 IST",
+  "generated_epoch": 1785868249,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.02 / 3.15 / 3.43",
+    "load": "11.07 / 5.60 / 4.28",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 1.08,
-      "cpu": 1.3,
+      "rss_gb": 1.05,
+      "cpu": 1.1,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -1689,7 +1689,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.57,
+      "rss_gb": 0.64,
       "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -1715,6 +1715,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1785868218821,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1785868218821,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1737,15 +1755,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1785864912258,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1785857406832,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1782,15 +1791,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1785796218936,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1785792618518,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1834,40 +1834,14 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-08-05",
+          "# Self-healing rotation from transcript-2026-08-04.md at 00:00 IST"
+        ],
+        "yesterday": [
           "# Transcript - 2026-08-04",
           "# Self-healing rotation from transcript-2026-08-03.md at 00:00 IST",
           "[10:27 IST] [DM] Giskard: Haderach: up. Health endpoint 200 OK.",
           "[10:27 IST] [DM] Giskard: Haderach: up. Health endpoint 200 OK."
-        ],
-        "yesterday": [
-          "# Transcript - 2026-08-03",
-          "# Self-healing rotation from transcript-2026-08-02.md at 00:00 IST",
-          "[08:18 IST] [DM] Giskard: **Diagnosis:** Haderach is up.",
-          "- Health endpoint (18789): **200**",
-          "- Process uptime: 4d 12h, no restarts, no crash",
-          "- No \"reply session initialization conflicted\" or session-lock errors in today's log (the pattern from 25 Jul is absent)",
-          "- No inbound Telegram messages to `@ram_haderach_bot` today \u2014 you haven't messaged it directly, so silence there is expected, not a symptom",
-          "- Only issues on record are the pre-existing cron errors already flagged in fleet monitor (Midnight Cron rotation, MusApp ki",
-          "[08:19 IST] [DM] Giskard: **Diagnosis:** Haderach is up.",
-          "- Health endpoint (18789): **200**",
-          "- Process uptime: 4d 12h, no restarts, no crash",
-          "- No \"reply session initialization conflicted\" or session-lock errors in today's log (the pattern from 25 Jul is absent)",
-          "- No inbound Telegram messages to `@ram_haderach_bot` today \u2014 you haven't messaged it directly, so silence there is expected, not a symptom",
-          "- Only issues on record are the pre-existing cron errors already flagged in fleet monitor (Midnight Cron rotation, MusApp ki",
-          "[08:35 IST] [DM] Giskard: **Diagnosis:** Confirmed \u2014 Haderach's Telegram channel is stuck in a restart loop.",
-          "**Evidence** (`~/Library/Logs/openclaw/gateway-purl.log`, the actual stdout for PID 2538 / port 18789):",
-          "- `06:43:55` \u2014 Telegram auto-restart attempts (1/10, 2/10) began",
-          "- `06:46:24` \u2014 health-monitor restart, reason: **disconnected**",
-          "- From `06:46` onward, health-monitor has fired **restarting (reason: stopped)** every ~10\u201315 min continuously, still ongoing as of `08:31:24`",
-          "- A few outbound sends slipped through i",
-          "[08:35 IST] [DM] Giskard: **Diagnosis:** Confirmed \u2014 Haderach's Telegram channel is stuck in a restart loop.",
-          "**Evidence** (`~/Library/Logs/openclaw/gateway-purl.log`, the actual stdout for PID 2538 / port 18789):",
-          "- `06:43:55` \u2014 Telegram auto-restart attempts (1/10, 2/10) began",
-          "- `06:46:24` \u2014 health-monitor restart, reason: **disconnected**",
-          "- From `06:46` onward, health-monitor has fired **restarting (reason: stopped)** every ~10\u201315 min continuously, still ongoing as of `08:31:24`",
-          "- A few outbound sends slipped through i",
-          "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back.",
-          "[08:36 IST] [DM] Giskard: Fixed. Kickstart restarted PID 2538 \u2192 new PID 7961, gateway ready in ~1s, Telegram provider (@ram_haderach_bot) came up clean and immediately processed your queued message + sent a reply (message 81781) at 08:35:56. No BWS 429s were involved, no errors on restart. Haderach is back."
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-06-28 \u2014 no new content] ---",
@@ -2367,8 +2341,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.52,
-      "cpu": 0.8,
+      "rss_gb": 0.53,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3655,7 +3629,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3832,7 +3806,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3862,7 +3836,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4262,8 +4236,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.38,
-      "cpu": 0.5,
+      "rss_gb": 0.39,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
