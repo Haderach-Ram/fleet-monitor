@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-05 23:18:59 IST",
-  "generated_epoch": 1785952139,
+  "generated_ist": "2026-08-05 23:24:05 IST",
+  "generated_epoch": 1785952445,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.02 / 4.46 / 4.44",
+    "load": "3.67 / 4.21 / 4.35",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 1.1,
-      "cpu": 0.1,
+      "rss_gb": 1.06,
+      "cpu": 5.9,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1785951667757,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1785952231169,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785951667757,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1785951667756,
+          "last_ts": 1785952231169,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785951667750,
+          "last_ts": 1785952231168,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
+          "last_ts": 1785951667757,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "ClawSweeper (their triage bot) posted a fresh review. Summary of its verdict:",
           "<ul>",
           "<li>The <b>migration bug</b> (legacy JSON \u2192 SQLite silently losing jobs) is <b>already fixed on main</b> \u2014 Doctor now detects and imports legacy jobs...",
           "[19:21 IST] HADERACH: Yes \u2014 there's fresh movement today, in fact just a few hours ago. Here's the state of play on #90378:",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:50 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 143 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:05 IST] HADERACH: Nightly consolidation complete for Monk \u2014 idle day, 0 sessions, no FACT tags to promote, all rolling files (7/28/180-day) updated, tag index rebuilt (80 days total), heartbeat-state synced."
+          "[23:05 IST] HADERACH: Nightly consolidation complete for Monk \u2014 idle day, 0 sessions, no FACT tags to promote, all rolling files (7/28/180-day) updated, tag index rebuilt (80 days total), heartbeat-state synced.",
+          "[23:11 IST] HADERACH: \u26a0\ufe0f 23:00 consolidation may have failed \u2014 lastConsolidation shows 2026-08-05T13:00:00+05:30 (1:00 PM today). The 11:00 PM consolidation does not appear to have updated the state. Check cron logs."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 11:43 IST \u2014 session empty for 33 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.55,
+      "cpu": 0.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1714,6 +1714,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-consolidation-23",
+          "enabled": true,
+          "sched": "20 23 * * *",
+          "last_ts": 1785952232792,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
@@ -1793,15 +1802,6 @@
           "last_ts": 1785867008612,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-23",
-          "enabled": true,
-          "sched": "20 23 * * *",
-          "last_ts": 1785865826935,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -2342,7 +2342,7 @@
       "frozen_reason": null,
       "pid": 2542,
       "rss_gb": 0.56,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3629,7 +3629,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3792,7 +3792,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3822,7 +3822,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4223,7 +4223,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.39,
-      "cpu": 0.3,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
