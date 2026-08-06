@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-06 12:21:14 IST",
-  "generated_epoch": 1785999074,
+  "generated_ist": "2026-08-06 12:26:22 IST",
+  "generated_epoch": 1785999382,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "8.97 / 6.53 / 5.99",
+    "load": "5.64 / 5.38 / 5.58",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,19 +661,28 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785998457420,
+          "last_ts": 1785999235069,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785998457420,
+          "last_ts": 1785999235068,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1785999235068,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1785998457419,
+          "last_ts": 1785999235067,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -728,15 +737,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1785998099867,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1785998045928,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,15 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Yesterday's (Tuesday, 5 Aug) trading data is now in market.db.",
-          "[08:32 IST] HADERACH: I'll dig into each of these properly rather than guessing. Let me pull the actual cron records and system state first.",
-          "[08:42 IST] RAM: ?",
-          "[08:43 IST] HADERACH: Right, sorted through the actual data \u2014 cron histories, live system stats, and the frozen-agent states. Apologies for the noisy tool-failure notifications landing in chat; here's the actual diagnosis.",
-          "<b>1. Midnight Cron \u2014 Transcript/Rolling Summaries</b>",
-          "Root cause: this is a <b>known recurring dead-end</b>, not new. The rolling-7day/28day logs show the same failure signature on the nights of Aug 2\u21923 and Aug 4\u21925: the run dies with \"Agent couldn't generate a response\" (stopReason: length) \u2014 ...",
-          "[08:44 IST] HADERACH: Right, sorted through the actual data \u2014 cron histories, live system stats, and the frozen-agent states. Apologies for the noisy tool-failure notifications landing in chat; here's the actual diagnosis.",
-          "<b>1. Midnight Cron \u2014 Transcript/Rolling Summaries</b>",
-          "Root cause: this is a <b>known recurring dead-end</b>, not new. The rolling-7day/28day logs show the same failure signature on the nights of Aug 2\u21923 and Aug 4\u21925: the run dies with \"Agent couldn't generate a response\" (stopReason: length) \u2014 ...",
           "[08:49 IST] RAM: Yes, check",
           "[08:50 IST] HADERACH: Ran the manual test \u2014 verdict is in, and it clarifies things nicely.",
           "<b>The script itself is fine.</b> Looking at <code>ecosystem_digest_log.md</code> and the state file: today's run (07:46 IST) completed successfully \u2014 fetched all 5 repos, posted <a href=\"https://github.com/Haderach-Ram/openclaw-radar/issues/102\">GitHub issue #102</a>, saved state. The dedup guard confirms it: re-running it manually just now, it correctly recognized \"already ran today\" and skipped. So the actual work \u2014 GitH...",
@@ -1548,7 +1539,16 @@
           "<b>Today's actual \"movement\"</b> is a fresh comment (LordOfDarkOWL, 06 Aug, a few hours ago) reopening the question in substance, though not the ticket itself: they're now...",
           "[11:52 IST] HADERACH: Pulled the full thread. Here's the state of play on #93139:",
           "<b>The issue is now CLOSED</b> \u2014 but that happened back on 29 Jul (steipete-oai, OpenClaw maintainer), not today. They ran the actual fix candidate against current main, got 138/138 regression tests passing across write/exec/heredoc paths, and closed it as fixed.",
-          "<b>Today's actual \"movement\"</b> is a fresh comment (LordOfDarkOWL, 06 Aug, a few hours ago) reopening the question in substance, though not the ticket itself: they're now..."
+          "<b>Today's actual \"movement\"</b> is a fresh comment (LordOfDarkOWL, 06 Aug, a few hours ago) reopening the question in substance, though not the ticket itself: they're now...",
+          "[12:17 IST] RAM: Are the issues closed? Especially with your rolling files etc",
+          "[12:21 IST] HADERACH: Good question \u2014 let me be precise, because \"closed\" isn't the same as \"not actively wrong right now.\"",
+          "<b>1. Midnight Cron / rolling files \u2014 data is fine, the cron itself is not fixed</b>",
+          "Checked directly: <code>rolling-7day.md</code> and <code>rolling-28day.md</code> both have a complete Aug 5 entry and end with the correct \"Midnight run OK \u2014 2026-08-05\" marker. So there's <b>no live gap right now</b> \u2014 nothing to backfill this morning.",
+          "But here's the actual mechanism, and it's a little con...",
+          "[12:22 IST] HADERACH: Good question \u2014 let me be precise, because \"closed\" isn't the same as \"not actively wrong right now.\"",
+          "<b>1. Midnight Cron / rolling files \u2014 data is fine, the cron itself is not fixed</b>",
+          "Checked directly: <code>rolling-7day.md</code> and <code>rolling-28day.md</code> both have a complete Aug 5 entry and end with the correct \"Midnight run OK \u2014 2026-08-05\" marker. So there's <b>no live gap right now</b> \u2014 nothing to backfill this morning.",
+          "But here's the actual mechanism, and it's a little con..."
         ],
         "yesterday": [
           "<ul>",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.61,
-      "cpu": 1.0,
+      "rss_gb": 0.49,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2340,7 +2340,7 @@
       "frozen_reason": null,
       "pid": 2542,
       "rss_gb": 0.59,
-      "cpu": 1.0,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.5,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3790,7 +3790,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4221,7 +4221,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.42,
-      "cpu": 0.8,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
