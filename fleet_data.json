@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-07 00:06:05 IST",
-  "generated_epoch": 1786041365,
+  "generated_ist": "2026-08-07 00:11:12 IST",
+  "generated_epoch": 1786041672,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.45 / 5.70 / 5.34",
+    "load": "6.09 / 5.82 / 5.49",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 1.22,
-      "cpu": 3.1,
+      "rss_gb": 1.16,
+      "cpu": 2.0,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,6 +661,60 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1786041366596,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1786041366596,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1786041366595,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1786041366595,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1786041366594,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1786041366594,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
@@ -751,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1786037833038,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -778,39 +823,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1786030434223,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1786030434223,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1786029294557,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1786026750174,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -976,15 +994,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1785965739522,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1009,15 +1018,6 @@
           "last_ts": 1785961935040,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1785955136937,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1677,6 +1677,15 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1786041389169,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -1758,15 +1767,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1785954984232,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1804,7 +1804,6 @@
           "# Self-healing rotation from transcript-2026-08-05.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-06-30 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-01 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-02 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-03 \u2014 no new content] ---",
@@ -1843,10 +1842,10 @@
           "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-05 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-06 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-06 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-07 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "---",
           "- No sessions initiated on this date (Giskard standby; cron-triggered fleet monitoring ran normally).",
           "---",
           "--- [Midnight run OK \u2014 2026-06-17 \u2014 no new content] ---",
@@ -1885,7 +1884,8 @@
           "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-05 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-06 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-06 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-07 \u2014 no new content] ---"
         ]
       }
     },
@@ -2301,8 +2301,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2542,
-      "rss_gb": 0.61,
-      "cpu": 0.9,
+      "rss_gb": 0.6,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2476,6 +2476,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1786041546733,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2516,15 +2525,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1786030209876,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1785955147198,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2601,9 +2601,6 @@
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-07-30 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-07-31 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2624,12 +2621,12 @@
           "---",
           "## 2026-08-06 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-08-07 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "## 2026-07-28 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "## 2026-07-29 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "## 2026-07-30 \u2014 No agent activity",
           "- No sessions initiated on this date.",
@@ -2666,7 +2663,10 @@
           "- 3. **Config backup:** Done (05 Aug)",
           "- 4. **GitHub push:** Will execute",
           "- Email escalation to BOBCard senior mgmt: **2 drafts completed** (formal + crisp versions)",
-          "- CSITE research: **N. Suganandh (CGM CSITE)** identified \u2014 route via Sanjay Kumar (BOBCard SSM)"
+          "- CSITE research: **N. Suganandh (CGM CSITE)** identified \u2014 route via Sanjay Kumar (BOBCard SSM)",
+          "## 2026-08-07 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---"
         ]
       }
     },
@@ -3564,7 +3564,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3727,7 +3727,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3757,7 +3757,7 @@
       "frozen_reason": null,
       "pid": 2535,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4157,8 +4157,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.47,
-      "cpu": 1.2,
+      "rss_gb": 0.42,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
