@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-06 12:46:45 IST",
-  "generated_epoch": 1786000605,
+  "generated_ist": "2026-08-06 12:51:50 IST",
+  "generated_epoch": 1786000910,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.93 / 5.32 / 5.41",
+    "load": "4.63 / 5.16 / 5.33",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7961,
-      "rss_gb": 1.05,
-      "cpu": 2.1,
+      "rss_gb": 1.1,
+      "cpu": 0.1,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,19 +661,28 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786000464130,
+          "last_ts": 1786000831933,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786000464129,
+          "last_ts": 1786000831933,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786000831932,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -683,15 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1786000464129,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786000464128,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,15 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:58 IST] HADERACH: Sent. NO_REPLY",
-          "[08:58 IST] HADERACH: Sent.",
-          "--- [TRANSCRIPT GAP: 09:45 IST \u2014 session empty for 41 min AND no transcript writes for 22 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 10:04 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 10:24 IST \u2014 session empty for 80 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 10:45 IST \u2014 session empty for 100 min AND no transcript writes for 15 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:04 IST \u2014 session empty for 120 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:24 IST \u2014 session empty for 140 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 11:42 IST \u2014 session empty for 158 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
           "[11:51 IST] RAM: Check, there is some movement on your GitHub issue #93139",
           "[11:52 IST] HADERACH: Pulled the full thread. Here's the state of play on #93139:",
           "<b>The issue is now CLOSED</b> \u2014 but that happened back on 29 Jul (steipete-oai, OpenClaw maintainer), not today. They ran the actual fix candidate against current main, got 138/138 regression tests passing across write/exec/heredoc paths, and closed it as fixed.",
@@ -1548,7 +1539,16 @@
           "<b>#2 \u2014 Ecosystem Digest:</b> rewritten so the script run + log-tail read happen in one shell command, GoatCounter fetch is its own single self-contained exec call, timeout bum...",
           "[12:41 IST] HADERACH: Both applied. Here's the state:",
           "<b>#1 \u2014 Midnight Cron:</b> rewritten to a single Python script per exec call (all read/check/append/prune logic for the three rolling files done internally in one script, no chained list/search tool calls), git push kept as a separate follow-up call. Will run next tonight at 00:00 IST.",
-          "<b>#2 \u2014 Ecosystem Digest:</b> rewritten so the script run + log-tail read happen in one shell command, GoatCounter fetch is its own single self-contained exec call, timeout bum..."
+          "<b>#2 \u2014 Ecosystem Digest:</b> rewritten so the script run + log-tail read happen in one shell command, GoatCounter fetch is its own single self-contained exec call, timeout bum...",
+          "[12:47 IST] RAM: You have access to SCL's past earnings updates and call transcripts?",
+          "[12:47 IST] HADERACH: **Session mode?**",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "[12:48 IST] HADERACH: **Session mode?**",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)"
         ],
         "yesterday": [
           "<ul>",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.5,
-      "cpu": 0.5,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1785999006561,
+          "last_ts": 1786000806409,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2340,7 +2340,7 @@
       "frozen_reason": null,
       "pid": 2542,
       "rss_gb": 0.58,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3790,7 +3790,7 @@
       "frozen_reason": null,
       "pid": 2540,
       "rss_gb": 0.24,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4220,8 +4220,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.42,
-      "cpu": 0.7,
+      "rss_gb": 0.41,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
