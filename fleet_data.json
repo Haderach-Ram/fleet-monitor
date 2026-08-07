@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-07 18:26:50 IST",
-  "generated_epoch": 1786107410,
+  "generated_ist": "2026-08-07 18:31:56 IST",
+  "generated_epoch": 1786107716,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.31 / 2.13 / 2.42",
+    "load": "1.89 / 2.25 / 2.41",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 0.68,
-      "cpu": 1.0,
+      "rss_gb": 0.76,
+      "cpu": 1.9,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786107031729,
+          "last_ts": 1786107670746,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786107031728,
+          "last_ts": 1786107670746,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786107031728,
+          "last_ts": 1786107670745,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Martin \u2014 Daily FX Rates Update",
+          "enabled": true,
+          "sched": "30 18 * * 1-5",
+          "last_ts": 1786107670745,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1027,15 +1036,6 @@
           "last_ts": 1786029294557,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Martin \u2014 Daily FX Rates Update",
-          "enabled": true,
-          "sched": "30 18 * * 1-5",
-          "last_ts": 1786021261667,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:38 IST] RAM: We should:",
           "\u2022 Haderach \u2014 imageModel fallback[0]: anthropic/claude-sonnet-4-6: Change to AWS BedRock Sonnet 5",
           "\u2022 CISO-SMEDA \u2014 heartbeat.model: anthropic/claude-haiku-4-5: Change to AWS BedRock Haiku 4.5",
           "\u2022 ClarkKent \u2014 model fallback[0]: anthropic/claude-haiku-4-5: Change to AWS BedRock Haiku 4.5",
@@ -1548,7 +1547,8 @@
           "Giskard \u2014 please change Purl's heartbeat from every 60 minutes to every 6 hours, round the clock (no active-hours restriction).",
           "1. Backup: cp ~/.openclaw-purl/openclaw.json ~/.openclaw-purl/openclaw.json.bak-$(date +%Y%m%d-%H%M%S)",
           "2. In ~/.openclaw-purl/openclaw.json: agents.defaults.heartbeat.every = \"60m\" \u2192 \"6h\"",
-          "   (leave agents.defaults.heartbeat...."
+          "   (leave agents.defaults.heartbeat....",
+          "--- [TRANSCRIPT GAP: 18:31 IST \u2014 session empty for 41 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<li><b>Portfolio Visibility:</b> Limited visibility into legacy book and recoveries. The total legacy portfolio which comprises of corporate loans & advances, investments, Security Receipts (SRs), and ARC portfolios alongside their underlying balances, collaterals, and recoveries was not availa...",
@@ -1689,7 +1689,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.5,
+      "rss_gb": 0.51,
       "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -2377,8 +2377,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91212,
-      "rss_gb": 0.47,
-      "cpu": 1.0,
+      "rss_gb": 0.48,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2552,6 +2552,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1786107603503,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2573,15 +2582,6 @@
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1786105809530,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
           "last_ts": 1786105809530,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
@@ -2617,18 +2617,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[16:55 IST] PURL: Checking heartbeat items...",
-          "[16:55 IST] PURL: Now checking each item in order:",
-          "**1. Session Save** \u2014 Update today's memory file",
-          "[16:56 IST] PURL: Session notes already logged. Moving to next items:",
-          "**2. ProtonMail Inbox Check** \u2014 Current time is 16:55 IST (not in quiet hours 23:00\u201307:00). Check for new emails.",
-          "[16:56 IST] PURL: Proton login timing out. Credentials/browser issue \u2014 skip silently per spec (only flag if there's actual new urgent mail to report, not infrastructure failures).",
-          "**2b. Daily openclaw.json Backup** \u2014 Run once per day",
-          "[16:56 IST] PURL: Already done today. Continuing:",
-          "**3. Cost Awareness Check**",
-          "[16:56 IST] PURL: Context at 47% \u2014 no warning needed (threshold is 50%). All clear.",
-          "**4. Saturday Check** \u2014 Today is Friday (2026-08-07), not Saturday. Skip.",
           "**5. Weekly Bulletin** \u2014 Check if it's been >6 days since last bulletin:",
           "[16:56 IST] PURL: Last bulletin was 2026-08-04 (3 days ago), not >6 days. Skip.",
           "All routine checks done \u2014 no new alerts. Per silence rule, next visible message is:",
@@ -2656,7 +2644,19 @@
           "- **Bookmark updated:** True",
           "- **Output file:** `transcript-2026-08-07.md`",
           "All quiet on the Purl front. Ready for the next run at 6:30 PM.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Transcript logger complete**",
+          "- **Klub K:** No new messages (0 entries in sender map)",
+          "- **Main session:** 0 new messages",
+          "- **Direct with Gari:** 0 new messages",
+          "- **Group chat:** JSONL file not found \u2014 skipped",
+          "- **Total processed:** 3 messages",
+          "- **Bookmark:** False",
+          "- **Output file:** `transcript-2026-08-07.md`",
+          "The quiet-hours run is done. No new activity to log at this hour.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K transcript logger script now.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. No new messages in Klub K group chat at this time. Transcript state is current."
         ],
         "yesterday": [
           "[15:56 IST] PURL: Good \u2014 ProtonMail clean (only Proton notifications). Now let me update memory and git:",
@@ -3665,7 +3665,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3829,7 +3829,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3859,7 +3859,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.24,
-      "cpu": 0.5,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4260,7 +4260,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.39,
-      "cpu": 0.7,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
