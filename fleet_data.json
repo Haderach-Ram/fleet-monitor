@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-07 22:47:28 IST",
-  "generated_epoch": 1786123048,
+  "generated_ist": "2026-08-07 22:52:34 IST",
+  "generated_epoch": 1786123354,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.39 / 2.31 / 2.12",
+    "load": "1.63 / 1.99 / 2.04",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 0.75,
-      "cpu": 0.7,
+      "rss_gb": 0.77,
+      "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786122921112,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786123237634,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786122631061,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786122631061,
+          "last_ts": 1786123237633,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786122631060,
+          "last_ts": 1786123237633,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786122921112,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1510,7 +1510,6 @@
       "transcripts": {
         "recent": [
           "[17:42 IST] HADERACH: Yes \u2014 round the clock. The `heartbeat` block only has `every: \"60m\"` and a model; there's no `activeHours`, `quietHours`, or window restriction set for Purl, unlike some other fleet agents (e.g. Kubera/Giskard, which have documented 10-min-during-day + 3h-quiet patterns). So Purl fires every 60 minutes, 24/7.",
-          "[17:42 IST] HADERACH: Yes \u2014 round the clock. The `heartbeat` block only has `every: \"60m\"` and a model; there's no `activeHours`, `quietHours`, or window restriction set for Purl, unlike some other fleet agents (e.g. Kubera/Giskard, which have documented 10-min-during-day + 3h-quiet patterns). So Purl fires every 60 minutes, 24/7.",
           "[17:46 IST] RAM: Make it every 2 hours from 8 am to 8 pm. Then every 6 hours. So heartbeats at:",
           "8 am, 10 am, 12 noon, 2 pm, 4 pm, 6 pm, 8 pm, 2 am",
           "[17:46 IST] HADERACH: Purl's heartbeat config only supports a single uniform interval (`every`) plus an optional single active-hours window that pauses/skips heartbeats outside it \u2014 there's no built-in way to run one cadence in a window and a different cadence outside it. To hit your exact 8 fixed times, the clean way is to disable Purl's native interval heartbeat and replace it with a cron job on Purl's own gateway using an explicit multi-hour cron expression \u2014 same trigger effect, exact times, no drift.",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 21:30 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 21:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:00 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 22:50 IST \u2014 session empty for 160 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "<li><b>Portfolio Visibility:</b> Limited visibility into legacy book and recoveries. The total legacy portfolio which comprises of corporate loans & advances, investments, Security Receipts (SRs), and ARC portfolios alongside their underlying balances, collaterals, and recoveries was not availa...",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.51,
-      "cpu": 0.7,
+      "rss_gb": 0.52,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2378,7 +2378,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.5,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3664,8 +3664,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2837,
-      "rss_gb": 0.3,
-      "cpu": 0.3,
+      "rss_gb": 0.31,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3829,7 +3829,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3859,7 +3859,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.25,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
