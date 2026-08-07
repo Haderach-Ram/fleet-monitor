@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-07 23:07:53 IST",
-  "generated_epoch": 1786124273,
+  "generated_ist": "2026-08-07 23:12:59 IST",
+  "generated_epoch": 1786124579,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.01 / 2.14 / 2.09",
+    "load": "2.63 / 2.42 / 2.22",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 0.84,
-      "cpu": 0.3,
+      "rss_gb": 0.74,
+      "cpu": 2.0,
       "crons_total": 94,
       "crons_enabled": 60,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
+          "last_ts": 1786124441710,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786124441709,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786124441709,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786124441708,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Consolidation \u2014 23:05 IST (v2)",
           "enabled": true,
           "sched": "5 23 * * *",
@@ -688,39 +724,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786124093584,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1786124093584,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786124093584,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786124093583,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1036,15 +1045,6 @@
           "last_ts": 1786040112246,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
-          "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1786038043293,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:46 IST] RAM: Make it every 2 hours from 8 am to 8 pm. Then every 6 hours. So heartbeats at:",
           "8 am, 10 am, 12 noon, 2 pm, 4 pm, 6 pm, 8 pm, 2 am",
           "[17:46 IST] HADERACH: Purl's heartbeat config only supports a single uniform interval (`every`) plus an optional single active-hours window that pauses/skips heartbeats outside it \u2014 there's no built-in way to run one cadence in a window and a different cadence outside it. To hit your exact 8 fixed times, the clean way is to disable Purl's native interval heartbeat and replace it with a cron job on Purl's own gateway using an explicit multi-hour cron expression \u2014 same trigger effect, exact times, no drift.",
           "Since t...",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 22:00 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:50 IST \u2014 session empty for 160 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 172 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 172 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
+          "[23:07 IST] HADERACH: Consolidation complete \u2014 idle day, no facts to promote, rolling summaries and tag index updated, bookmark written."
         ],
         "yesterday": [
           "<li><b>Portfolio Visibility:</b> Limited visibility into legacy book and recoveries. The total legacy portfolio which comprises of corporate loans & advances, investments, Security Receipts (SRs), and ARC portfolios alongside their underlying balances, collaterals, and recoveries was not availa...",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.52,
-      "cpu": 0.8,
+      "cpu": 1.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2377,8 +2377,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91212,
-      "rss_gb": 0.5,
-      "cpu": 1.5,
+      "rss_gb": 0.49,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -4259,8 +4259,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.43,
-      "cpu": 0.3,
+      "rss_gb": 0.39,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
