@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-08 14:22:51 IST",
-  "generated_epoch": 1786179171,
+  "generated_ist": "2026-08-08 14:27:57 IST",
+  "generated_epoch": 1786179477,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.22 / 4.51 / 4.15",
+    "load": "3.11 / 3.90 / 3.99",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.21,
-      "cpu": 0.4,
+      "rss_gb": 1.22,
+      "cpu": 0.1,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786178430082,
+          "sched": "every 30m",
+          "last_ts": 1786179341193,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786178430081,
+          "last_ts": 1786179221867,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786179221867,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786178430081,
+          "last_ts": 1786179221866,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1786179221866,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,24 +710,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1786178091633,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786178079435,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786177528439,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:14 IST] HADERACH: Found the actual output location. Let me kill this broad search and check the recent files directly.",
           "[10:15 IST] HADERACH: Short answer: <b>no, not really</b> \u2014 and it's been quietly broken for a while.",
           "<b>What's actually been happening</b>",
           "<ul>",
@@ -1548,7 +1547,8 @@
           "The 13:00 consolidation cron ran fine and wrote today's log entry correctly. But it never updates its own \"last ran\" timestamp in the state file, so the 13:10 watchdog looked at yesterday's stale timestamp and sent you a spurious \"consolidation may have failed\" alert \u2014 which arrived as an unsupported rich-message placeholder rat...",
           "[13:42 IST] HADERACH: That's sorted, Ram. Nothing was actually lost \u2014 the \"?\" was a reply to a false-alarm watchdog message that your Telegram client couldn't render.",
           "<b>What happened</b>",
-          "The 13:00 consolidation cron ran fine and wrote today's log entry correctly. But it never updates its own \"last ran\" timestamp in the state file, so the 13:10 watchdog looked at yesterday's stale timestamp and sent you a spurious \"consolidation may have failed\" alert \u2014 which arrived as an unsupported rich-message placeholder rat..."
+          "The 13:00 consolidation cron ran fine and wrote today's log entry correctly. But it never updates its own \"last ran\" timestamp in the state file, so the 13:10 watchdog looked at yesterday's stale timestamp and sent you a spurious \"consolidation may have failed\" alert \u2014 which arrived as an unsupported rich-message placeholder rat...",
+          "--- [TRANSCRIPT GAP: 14:23 IST \u2014 session empty for 40 min AND no transcript writes for 19 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "Since t...",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.52,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2382,7 +2382,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.52,
-      "cpu": 1.0,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3669,7 +3669,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.5,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4265,7 +4265,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.39,
-      "cpu": 0.5,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
