@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-08 17:47:25 IST",
-  "generated_epoch": 1786191445,
+  "generated_ist": "2026-08-08 17:52:32 IST",
+  "generated_epoch": 1786191752,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.24 / 4.13 / 4.01",
+    "load": "2.51 / 2.93 / 3.47",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.2,
-      "cpu": 0.3,
+      "rss_gb": 1.3,
+      "cpu": 0.1,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786191260597,
+          "last_ts": 1786191630658,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786191260597,
+          "last_ts": 1786191630657,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786191260596,
+          "last_ts": 1786191630657,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1718,7 +1718,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1786189806705,
+          "last_ts": 1786191606707,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1839,7 +1839,15 @@
           "[08:27 IST] [DM] Giskard: **Diagnosis \u2014 Monthly Archive cron (job `80ee81ba`), run 2026-08-01 06:00 IST:**",
           "Root cause: `sessions_spawn` hit its per-session cap \u2014 **\"max active children for this session (7/5)\"** \u2014 after firing off subagents for all 7 available slots. It yielded, waiting for those 7 to finish so it could spawn the 8th (Medical SMEDA). The error message you see (`\"...compiling the July 2026 monthly memory archive for the agent Medical SMEDA...\"`) is that stalled, never-spawned 8th subagent \u2014 the run never",
           "[08:27 IST] [DM] Giskard: **Diagnosis \u2014 Monthly Archive cron (job `80ee81ba`), run 2026-08-01 06:00 IST:**",
-          "Root cause: `sessions_spawn` hit its per-session cap \u2014 **\"max active children for this session (7/5)\"** \u2014 after firing off subagents for all 7 available slots. It yielded, waiting for those 7 to finish so it could spawn the 8th (Medical SMEDA). The error message you see (`\"...compiling the July 2026 monthly memory archive for the agent Medical SMEDA...\"`) is that stalled, never-spawned 8th subagent \u2014 the run never"
+          "Root cause: `sessions_spawn` hit its per-session cap \u2014 **\"max active children for this session (7/5)\"** \u2014 after firing off subagents for all 7 available slots. It yielded, waiting for those 7 to finish so it could spawn the 8th (Medical SMEDA). The error message you see (`\"...compiling the July 2026 monthly memory archive for the agent Medical SMEDA...\"`) is that stalled, never-spawned 8th subagent \u2014 the run never",
+          "[17:23 IST] [DM] Giskard: **Status: unchanged since 08:27 IST diagnosis \u2014 the error is still open. It's now showing up in every hourly Fleet Monitor report because nobody has cleared or fixed it.**",
+          "**Root cause (job `80ee81ba`, \"Monthly Archive \u2014 All Agents\"):**",
+          "`sessions_spawn` capped concurrent children at 5 (job spawned 7, hit \"max active children 7/5\"), yielded to wait for those 7, then died before spawning the 8th (Medical SMEDA). That's the stuck `lastError` you keep seeing.",
+          "**Why it's still flagging 11+ hours la",
+          "[17:23 IST] [DM] Giskard: **Status: unchanged since 08:27 IST diagnosis \u2014 the error is still open. It's now showing up in every hourly Fleet Monitor report because nobody has cleared or fixed it.**",
+          "**Root cause (job `80ee81ba`, \"Monthly Archive \u2014 All Agents\"):**",
+          "`sessions_spawn` capped concurrent children at 5 (job spawned 7, hit \"max active children 7/5\"), yielded to wait for those 7, then died before spawning the 8th (Medical SMEDA). That's the stuck `lastError` you keep seeing.",
+          "**Why it's still flagging 11+ hours la"
         ],
         "yesterday": [
           "# Transcript - 2026-08-07",
@@ -2382,7 +2390,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.52,
-      "cpu": 1.0,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3669,7 +3677,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3842,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.3,
-      "cpu": 1.2,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3872,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4265,7 +4273,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.39,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
