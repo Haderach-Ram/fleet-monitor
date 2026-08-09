@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-09 05:57:24 IST",
-  "generated_epoch": 1786235244,
+  "generated_ist": "2026-08-09 06:02:32 IST",
+  "generated_epoch": 1786235552,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.32 / 3.21 / 3.36",
+    "load": "4.16 / 3.81 / 3.57",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.37,
-      "cpu": 0.3,
+      "rss_gb": 1.41,
+      "cpu": 0.5,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -2316,7 +2316,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.57,
-      "cpu": 1.5,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2490,6 +2490,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1786235406575,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1786235406574,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2517,28 +2535,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1786212003605,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1786206615127,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1786203009119,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2559,7 +2559,32 @@
           "# Self-healing rotation from transcript-2026-08-08.md at 00:04 IST",
           "[01:55 IST] PURL: Performing routine heartbeat checks silently...",
           "[01:56 IST] PURL: Inbox clean \u2014 no new email since 07 Aug 09:41 (the FPL doc that's already been processed). Now updating memory and continuing heartbeat tasks.",
-          "[01:56 IST] PURL: Git not initialized in workspace \u2014 noted, no action needed for this heartbeat."
+          "[01:56 IST] PURL: Git not initialized in workspace \u2014 noted, no action needed for this heartbeat.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary update. Let me start by gathering the content from today's files.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Both files indicate no real activity today:",
+          "- Daily log: missing (no session activity)",
+          "- Group transcript: only rotation header, no conversation",
+          "I'll run both rolling summary updates with `--no-activity` flags:",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: \u2705 **Verification complete:**",
+          "- Personal rolling files: all OK (7day: 658 B, 28day: 3601 B, 180day: 4503 B)",
+          "- Group rolling files: all OK (7day: 624 B, 28day: 2129 B)",
+          "- No files at 0 bytes; no errors",
+          "NO_REPLY",
+          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[01:55 IST] PURL: Performing routine heartbeat checks silently...",
+          "[01:56 IST] PURL: Inbox clean \u2014 no new email since 07 Aug 09:41 (the FPL doc that's already been processed). Now updating memory and continuing heartbeat tasks.",
+          "[01:56 IST] PURL: Git not initialized in workspace \u2014 noted, no action needed for this heartbeat.",
+          "[01:56 IST] PURL: All routine checks complete \u2014 no alerts, inbox clean, memory updated.",
+          "HEARTBEAT_OK",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: The transcript logger is running in night throttle mode. Since it's 3:04 AM (within the 00:00\u201306:00 quiet window), the script skipped the update to avoid overhead during low-activity hours. ",
+          "The next capture will resume during active hours (06:00\u201323:00) when the 10-minute interval logger kicks in. \u2728",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. The Klub K transcript logger ran successfully:",
+          "- Main transcript: 3 new messages appended",
+          "- Gari transcript: no new messages",
+          "- Group transcript: session file not accessible at this moment (expected during low-activity hours)",
+          "The system has recorded bookmarks for the active transcripts. All sessions processed. \u2713"
         ],
         "yesterday": [
           "[19:56 IST] PURL: Now checking daily state and executing heartbeat tasks:",
@@ -3568,7 +3593,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3733,7 +3758,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.3,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4164,7 +4189,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.39,
-      "cpu": 1.2,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
