@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-10 19:30:17 IST",
-  "generated_epoch": 1786370417,
+  "generated_ist": "2026-08-10 19:35:23 IST",
+  "generated_epoch": 1786370723,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "11.77 / 8.84 / 8.47",
+    "load": "6.18 / 7.30 / 7.86",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.41,
-      "cpu": 0.1,
+      "rss_gb": 1.27,
+      "cpu": 0.5,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,28 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786370184330,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786369829261,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786369829261,
+          "last_ts": 1786370431873,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +673,25 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786369829261,
+          "last_ts": 1786370431873,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786370431872,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786370184330,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 17:44 IST \u2014 session empty for 261 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:03 IST \u2014 session empty for 280 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 297 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:30 IST \u2014 session empty for 307 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
-          "[19:04 IST] RAM: Why is Jonas on M2 saying this? Pls SSH in and fix",
-          "[19:10 IST] HADERACH: Restarted clean, and health is now `200`.",
           "[19:10 IST] HADERACH: Restart went clean \u2014 process 93624 running, gateway ready, provider pre-warmed, no crash on boot.",
           "[19:10 IST] RAM: What was the issue?",
           "[19:11 IST] HADERACH: Good, staying healthy 20s post-restart with no fresh error logging. Now let me confirm with a live prompt to Jonas.",
@@ -1548,7 +1542,13 @@
           "[19:17 IST] HADERACH: Yes \u2014 this one we actually *had* solved, Ram, and I should have led with that instead of re-diagnosing from scratch.",
           "We hit this exact tool-failure signature ourselves on **25 Jul 2026 (~22:45\u201322:50 IST)**: exec/read/message all intermittently returning empty (\"Tool ran without output or errors\") for several minutes, self-recovering, no crash, health checks green throughout \u2014 precisely what Jonas described to you. We root-caused it that night and logged it to `dead-ends.md`.",
           "**What it actua...",
-          "[19:18 IST] RAM: Any new stable versions of OpenClaw?"
+          "[19:18 IST] RAM: Any new stable versions of OpenClaw?",
+          "[19:20 IST] HADERACH: Checked directly against GitHub, Ram \u2014 here's where things actually stand.",
+          "**npm `latest` is now `2026.7.1-2`** (unchanged from what we already knew \u2014 that's the version whose blocking bug you approved a hold against). No new stable release since. There's also an `extended-stable` tag at `2026.6.34` \u2014 a same-major-line bump within 6.x that doesn't touch the 7.x migration path at all, if you ever wanted a smaller, lower-risk update without crossing into 7.x.",
+          "**Why the hold should stay in pla...",
+          "[19:20 IST] HADERACH: Checked directly against GitHub, Ram \u2014 here's where things actually stand.",
+          "**npm `latest` is now `2026.7.1-2`** (unchanged from what we already knew \u2014 that's the version whose blocking bug you approved a hold against). No new stable release since. There's also an `extended-stable` tag at `2026.6.34` \u2014 a same-major-line bump within 6.x that doesn't touch the 7.x migration path at all, if you ever wanted a smaller, lower-risk update without crossing into 7.x.",
+          "**Why the hold should stay in pla..."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 10:23 IST \u2014 session empty for 53 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.52,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2339,8 +2339,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91212,
-      "rss_gb": 0.47,
-      "cpu": 2.0,
+      "rss_gb": 0.44,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3828,7 +3828,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4228,7 +4228,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.37,
+      "rss_gb": 0.5,
       "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
