@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-10 11:22:48 IST",
-  "generated_epoch": 1786341168,
+  "generated_ist": "2026-08-10 11:27:56 IST",
+  "generated_epoch": 1786341476,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "11.39 / 8.95 / 8.46",
+    "load": "10.07 / 9.59 / 8.94",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.26,
+      "rss_gb": 1.32,
       "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 59,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786341382302,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786340429881,
+          "last_ts": 1786341192580,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +682,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786340429880,
+          "last_ts": 1786341192579,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1786341192579,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +700,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786340429880,
+          "last_ts": 1786341192578,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -704,24 +722,6 @@
           "last_status": "ok",
           "model": "(no LLM)",
           "kind": "systemEvent"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786340060595,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786339582319,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
         },
         {
           "name": "SU-01 OpenRouter Watch \u2014 Daily",
@@ -1509,11 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>Sammaan Capital / NBFC: corporate homepage holds as the standing anchor; today's addition is SCL's own \"About Us\" (legacy/positioning) page, displacing yesterday's Financial Disclosures page. Bloomberg's company profile continues to hold.</li>",
-          "<li>RBI / Interest Rates: RBI's Master Directions index and its NBFC FAQ page both re-entered today (displacing an NBFC Depositors reference). Economic Times' report on RBI's proposed uniform interest-rate-...",
-          "[09:25 IST] HADERACH: The filing catalogue refresh script is still running. Given that it's pulling NSE announcements for 37 tracked peers, this is expected to take some time as it queries multiple APIs and databases.",
-          "**Status:** The weekly trendlyne.db filing_catalogue refresh is in progress. I'll continue monitoring for completion. The script will:",
           "- Pull NSE announcements (investor presentations, transcripts, financial results)",
           "- Insert new filings into trendlyne.db's filing_catalogue table (using INSERT OR IG...",
           "[09:38 IST] HADERACH: \u2705 **NSE XBRL NBFC Weekly Refresh \u2014 Complete**",
@@ -1548,7 +1543,12 @@
           "[11:03 IST] HADERACH: Fetched it, Ram. Full text (Aakash Gupta, @aakashgupta, 7:45 AM Aug 10):",
           "<blockquote>A man in Melbourne asked his AI to book a gym class.",
           "It hacked the gym.",
-          "Nobody instructed it to. The prompt was about exercise. The class was full, and instead of reporting back that the class was full, the agent went and read the gym's booking API, found a vulnerability sitting in it, used that hole to defeat the scheduling limits the gym had written specifically to stop people from jumping the queue, ope..."
+          "Nobody instructed it to. The prompt was about exercise. The class was full, and instead of reporting back that the class was full, the agent went and read the gym's booking API, found a vulnerability sitting in it, used that hole to defeat the scheduling limits the gym had written specifically to stop people from jumping the queue, ope...",
+          "[11:12 IST] RAM: Why have you sent the same message twice?",
+          "[11:13 IST] HADERACH: I've confirmed this against the exact record, Ram \u2014 it's the same glitch we diagnosed on 14 Jul.",
+          "Looking at the session history for that reply: my genuine turn generated the text once (timestamp 1786339989877), and immediately after, OpenClaw's internal transcript recorded a second entry with identical content, tagged internally as `openclawDeliveryMirror: {kind: \"channel-final\"}` \u2014 the system's own bookkeeping record confirming \"this is the final text that went to the Telegram channel.\" Tha...",
+          "[11:13 IST] HADERACH: Logged to `memory/dead-ends.md`. Same root cause we identified on 14 Jul \u2014 an internal delivery-bookkeeping record (tagged `channel-final` / `openclawDeliveryMirror`) occasionally gets sent as a real second message rather than staying internal-only. Not something I triggered; only one genuine reply was generated. It's now flagged as a recurring pattern in case it's worth raising with the OpenClaw team as a GitHub issue if it happens a third time.",
+          "[11:14 IST] HADERACH: Logged to `memory/dead-ends.md`. Same root cause we identified on 14 Jul \u2014 an internal delivery-bookkeeping record (tagged `channel-final` / `openclawDeliveryMirror`) occasionally gets sent as a real second message rather than staying internal-only. Not something I triggered; only one genuine reply was generated. It's now flagged as a recurring pattern in case it's worth raising with the OpenClaw team as a GitHub issue if it happens a third time."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 10:23 IST \u2014 session empty for 53 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.53,
-      "cpu": 2.5,
+      "cpu": 1.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2339,8 +2339,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91212,
-      "rss_gb": 0.45,
-      "cpu": 0.7,
+      "rss_gb": 0.43,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.31,
-      "cpu": 0.5,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3798,7 +3798,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4229,7 +4229,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.39,
-      "cpu": 1.0,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
