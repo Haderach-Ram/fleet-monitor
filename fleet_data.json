@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-11 23:09:39 IST",
-  "generated_epoch": 1786469979,
+  "generated_ist": "2026-08-11 23:14:45 IST",
+  "generated_epoch": 1786470285,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.52 / 7.70 / 7.60",
+    "load": "7.18 / 8.01 / 7.85",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.42,
+      "rss_gb": 1.26,
       "cpu": 0.2,
       "crons_total": 94,
       "crons_enabled": 59,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
+          "last_ts": 1786470059920,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786470059919,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786470059919,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786470059918,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Memory Consolidation (via Haderach)",
           "enabled": true,
           "sched": "3 23 * * *",
@@ -697,39 +733,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786469790854,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript & Memory Consolidation",
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1786469790853,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786469790853,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786469790853,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1000,15 +1009,6 @@
           "last_ts": 1786385715423,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
-          "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1786383646342,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1509,13 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "type: subagent task",
-          "task: Research task: compile detailed, well-sourced facts for a comparison table (continuing a prior research pass that got cut off). For EACH of t...",
-          "[21:20 IST] HADERACH: Now compiling all the researched data and building the Excel table.",
-          "[21:25 IST] HADERACH: Now let me write the actual build script.",
-          "[21:31 IST] HADERACH: Let me use apply_patch instead to avoid this tool issue.",
-          "[21:32 IST] HADERACH: Good, apply_patch works within the workspace. Let me build the full script there.",
-          "[21:36 IST] HADERACH: Good, that works now. Let me write the full build script with all the researched data.",
           "[21:40 IST] HADERACH: There's an intermittent bug dropping the content parameter. Let me use apply_patch instead, which has been reliable.",
           "[21:42 IST] HADERACH: Good, apply_patch is working reliably. Let me write the full script using it.",
           "[21:45 IST] HADERACH: Let me try again with the full script content, being careful with the patch format this time.",
@@ -1548,7 +1541,14 @@
           "[22:01 IST] HADERACH: Sent, Ram \u2014 v2 is in your Output folder too. Let me know if you want any wording, figures, or row order adjusted.",
           "[22:02 IST] HADERACH: Sent, Ram \u2014 v2 is in your Output folder too. Let me know if you want any wording, figures, or row order adjusted.",
           "--- [TRANSCRIPT GAP: 22:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 53 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 53 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "[23:09 IST] HADERACH: Consolidation complete. Summary (idle day, per NO_REPLY \u2014 but noting internally):",
+          "- No `[FACT:]` tags found in the unprocessed tail (Aug 10\u201311 idle days, 0 sessions) \u2014 nothing to promote to tech/people/decisions/projects/MEMORY.md",
+          "- Rolling-7day.md: pruned Aug 4, appended Aug 11",
+          "- Rolling-28day.md: appended Aug 10, pruned Jul 14",
+          "- Rolling-180day.md: appended Aug 10 (within window, no pruning needed)",
+          "- Tag index rebuilt (v26): 86 days total, 2 files updated",
+          "- MEMORY_WRITE bookmark inserted in..."
         ],
         "yesterday": [
           "[19:17 IST] HADERACH: Yes \u2014 this one we actually *had* solved, Ram, and I should have led with that instead of re-diagnosing from scratch.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.51,
-      "cpu": 0.6,
+      "rss_gb": 0.5,
+      "cpu": 0.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2339,8 +2339,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 91212,
-      "rss_gb": 0.43,
-      "cpu": 0.7,
+      "rss_gb": 0.44,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3802,7 +3802,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3832,7 +3832,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.2,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4233,7 +4233,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.37,
-      "cpu": 0.8,
+      "cpu": 8.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
