@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-11 07:57:47 IST",
-  "generated_epoch": 1786415267,
+  "generated_ist": "2026-08-11 08:02:56 IST",
+  "generated_epoch": 1786415576,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.30 / 7.71 / 8.06",
+    "load": "8.34 / 7.77 / 7.94",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 90689,
       "rss_gb": 1.39,
-      "cpu": 0.7,
+      "cpu": 3.4,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786415200482,
+          "sched": "0 */4 * * *",
+          "last_ts": 1786415571908,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786414829250,
+          "sched": "0 * * * *",
+          "last_ts": 1786415481841,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786414829250,
+          "last_ts": 1786415431893,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786415431892,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +700,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786414829249,
+          "last_ts": 1786415431892,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786415200482,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -710,15 +728,6 @@
           "enabled": true,
           "sched": "30 7 * * *",
           "last_ts": 1786413642964,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1786411893900,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -764,15 +773,6 @@
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1786408332706,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1786401164759,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1517,7 +1517,20 @@
           "--- [TRANSCRIPT GAP: 07:01 IST \u2014 session empty for 471 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 07:30 IST \u2014 session empty for 500 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "[07:47 IST] HADERACH: Found it: site is `openclaw-radar.goatcounter.com`, not `draculaw.goatcounter.com`.",
-          "227 chars, under 260. Good."
+          "227 chars, under 260. Good.",
+          "[07:55 IST] RAM: ?",
+          "[07:58 IST] HADERACH: Ah \u2014 that \"?\" makes sense. This morning's Ecosystem Digest cron (07:45 IST) misfired: instead of delivering the formatted digest+tweet, it sent only a leaked fragment of its own internal reasoning \u2014 \"227 chars, under 260. Good.\" \u2014 with none of the actual content. My apologies for the noise.",
+          "Here's what it should have said, reconstructed from the run log + a live GoatCounter pull just now:",
+          "<b>Today's digest (11 Aug)</b>",
+          "<ul>",
+          "<li>OpenClaw: 385,828 stars, 12 new / 10 merged PRs</li>",
+          "<li>hermes...",
+          "[07:58 IST] HADERACH: Ah \u2014 that \"?\" makes sense. This morning's Ecosystem Digest cron (07:45 IST) misfired: instead of delivering the formatted digest+tweet, it sent only a leaked fragment of its own internal reasoning \u2014 \"227 chars, under 260. Good.\" \u2014 with none of the actual content. My apologies for the noise.",
+          "Here's what it should have said, reconstructed from the run log + a live GoatCounter pull just now:",
+          "<b>Today's digest (11 Aug)</b>",
+          "<ul>",
+          "<li>OpenClaw: 385,828 stars, 12 new / 10 merged PRs</li>",
+          "<li>hermes..."
         ],
         "yesterday": [
           "[19:17 IST] HADERACH: Yes \u2014 this one we actually *had* solved, Ram, and I should have led with that instead of re-diagnosing from scratch.",
@@ -1658,8 +1671,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.53,
-      "cpu": 1.0,
+      "rss_gb": 0.52,
+      "cpu": 1.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2309,7 +2322,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.44,
-      "cpu": 0.9,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2483,19 +2496,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1786413604056,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1786415406803,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1786411807015,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1786415406803,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2548,18 +2561,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **Personal rolling files:** 7-day (658B), 28-day (4416B), 180-day (5237B) \u2014 all OK",
-          "- **Group rolling files:** 7-day (624B), 28-day (2159B) \u2014 all OK",
-          "All files have content and no zero-byte conditions detected.",
-          "NO_REPLY",
-          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[01:55 IST] PURL: Let me check the heartbeat state file:",
-          "[01:55 IST] PURL: Now let me check ProtonMail and update memory:",
-          "[01:56 IST] PURL: ProtonMail inbox unchanged \u2014 last seen email is still the \"Fwd:\" from Gari on 7 Aug. No new unread messages.",
-          "Let me update today's memory file:",
-          "[01:56 IST] PURL: HEARTBEAT_OK",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: The script ran and skipped\u2014it's currently 03:04 AM IST, which is within the **night throttle window** (00:00\u201306:00). The logger is configured to skip during quiet hours to avoid unnecessary processing during low-activity periods.",
           "**Next run:** The 3h quiet schedule will fire again at 06:00 AM IST (when morning activity resumes), or you can force a run manually if needed.",
           "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
           "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. Transcript logger finished:",
@@ -2587,7 +2588,19 @@
           "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages in Klub K group chat, no updates needed. System is maintaining state correctly.",
           "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: The script has completed successfully. No new messages were appended (the group chat transcript is up to date), and bookmarks are set for the next run.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[07:55 IST] PURL: Running heartbeat checks silently...",
+          "[07:55 IST] PURL: Checking ProtonMail and session state...",
+          "[07:55 IST] PURL: Updating memory file with yesterday's session work...",
+          "[07:55 IST] PURL: Now updating today's memory with yesterday's session work...",
+          "[07:56 IST] PURL: Updating heartbeat state and finishing...",
+          "[07:56 IST] PURL: HEARTBEAT_OK",
+          "[07:55 IST] PURL: Running heartbeat checks silently...",
+          "[07:55 IST] PURL: Checking ProtonMail and session state...",
+          "[07:55 IST] PURL: Updating memory file with yesterday's session work...",
+          "[07:55 IST] PURL: Now updating today's memory with yesterday's session work...",
+          "[07:56 IST] PURL: Updating heartbeat state and finishing..."
         ],
         "yesterday": [
           "- **No new messages** across main session, Gari's direct Telegram, or Klub K group",
@@ -3596,7 +3609,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.28,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3749,7 +3762,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4179,8 +4192,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.38,
-      "cpu": 1.3,
+      "rss_gb": 0.39,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
