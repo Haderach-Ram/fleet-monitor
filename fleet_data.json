@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-11 21:27:28 IST",
-  "generated_epoch": 1786463848,
+  "generated_ist": "2026-08-11 21:32:34 IST",
+  "generated_epoch": 1786464154,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.88 / 7.80 / 7.91",
+    "load": "8.46 / 7.95 / 7.94",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.4,
-      "cpu": 0.1,
+      "rss_gb": 1.36,
+      "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,19 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786463787890,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786463436084,
+          "last_ts": 1786464041386,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786463436084,
+          "last_ts": 1786464041386,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786463436083,
+          "last_ts": 1786464041385,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786463787890,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,8 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "On the total-row question, your \"Ok\" just echoes the question back rather than picking one \u2014 could you confirm: <b>include</b> a Total row at the bottom with \u20b92.75L Cr defaulted / \u20b91.08L Cr recovered / \u20b91.67L Cr net loss, or <b>leave it as a footnote</b> instead? Either works, just want the right call rather than guess.",
-          "Standing by for the SCL image on the 10th-r...",
           "[21:00 IST] RAM: [User sent media without caption]",
           "[21:00 IST] HADERACH: Excellent \u2014 this is exactly what I needed for the SCL row, Ram. Extracting it:",
           "<b>SCL box (from your image)</b>",
@@ -1548,7 +1546,9 @@
           "session_key: agent:main:subagent:7a38b21a-e2a5-4402-baab-4e57b0271dc6",
           "session_id: f1bf83ec-6a12-4cc8-9f09-75b1529653a2",
           "type: subagent task",
-          "task: Research task: compile detailed, well-sourced facts for a comparison table (continuing a prior research pass that got cut off). For EACH of t..."
+          "task: Research task: compile detailed, well-sourced facts for a comparison table (continuing a prior research pass that got cut off). For EACH of t...",
+          "[21:20 IST] HADERACH: Now compiling all the researched data and building the Excel table.",
+          "[21:25 IST] HADERACH: Now let me write the actual build script."
         ],
         "yesterday": [
           "[19:17 IST] HADERACH: Yes \u2014 this one we actually *had* solved, Ram, and I should have led with that instead of re-diagnosing from scratch.",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.49,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2340,7 +2340,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.43,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2514,6 +2514,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1786464004132,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2535,15 +2544,6 @@
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1786462208203,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
           "last_ts": 1786462208203,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
@@ -2579,18 +2579,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
-          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. No new messages to log across any sessions. All transcripts up to date. \u2713",
-          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Transcript logger completed. No new messages to log across main sessions and Telegram direct chats. The Klub K group chat JSONL file wasn't found (expected if the group chat transcript system hasn't been set up yet). Bookmark saved for next run at `transcript-2026-08-11.md`.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Transcript logger complete.**",
           "- Klub K sender map: 0 entries",
           "- Main session: 0 new messages",
           "- Direct Telegram (Gari): 0 new messages  ",
@@ -2618,7 +2606,19 @@
           "All quiet on the transcript front. \ud83d\udcdd",
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: The script ran successfully. No new messages were appended to the transcripts (normal for a maintenance run). The group transcript session file is currently not present, which is expected if the group chat hasn't been active recently.",
-          "HEARTBEAT_OK"
+          "HEARTBEAT_OK",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. The transcript logger ran successfully:",
+          "- **Klub K sender map:** 0 entries",
+          "- **Main session:** 0 new messages",
+          "- **Garima's Telegram (direct):** 0 new messages  ",
+          "- **Klub K group:** JSONL not found (skipping)",
+          "- **Result:** 4 messages processed, bookmark not updated",
+          "- **File:** `transcript-2026-08-11.md`",
+          "Nothing new to log at this time. The system is ready for the next scheduled run.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. ",
+          "**Status:** No new messages in any tracked sessions. Group transcript session not yet initialised (expected for this time window). Maintenance task finished cleanly."
         ],
         "yesterday": [
           "- **No new messages** across main session, Gari's direct Telegram, or Klub K group",
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3802,7 +3802,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3832,7 +3832,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.2,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4233,7 +4233,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.37,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
