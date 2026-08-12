@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-12 17:21:25 IST",
-  "generated_epoch": 1786535485,
+  "generated_ist": "2026-08-12 17:28:00 IST",
+  "generated_epoch": 1786535880,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.58 / 9.24 / 9.43",
+    "load": "7.77 / 8.80 / 9.20",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786535327524,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786535706203,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786534830346,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786534830345,
+          "last_ts": 1786535706203,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786534830345,
+          "last_ts": 1786535706202,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1786535706202,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786535327524,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,15 +711,6 @@
           "sched": "0 * * * *",
           "last_ts": 1786534447073,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786534434894,
-          "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:03 IST] HADERACH: Good, that worked. Now let me write the transcript file with the full content.",
-          "[15:04 IST] HADERACH: The write tool seems to have trouble with very large content blocks in this turn. Let me use exec with a Python heredoc instead.",
-          "[15:06 IST] HADERACH: Good, that worked in isolation. Let me write the transcript file to disk using a Python script executed via exec, reading content from a base64-encoded string to avoid heredoc escaping issues.",
-          "[15:07 IST] HADERACH: It looks like large content blocks trigger a validation issue. Let me write the file via exec using base64 encoding to sidestep this.",
-          "[15:08 IST] HADERACH: That worked well via exec heredoc. Let me continue building the file in parts.",
-          "[15:08 IST] HADERACH: Now assemble the full transcript and move it into place.",
           "[15:09 IST] HADERACH: Now let's also save a full page-by-page verbatim transcript (from the earlier extraction) for completeness, mirror the summary PDF to Desktop, and clean up temp files.",
           "[15:09 IST] HADERACH: Both files are correctly saved. Now let's update STATUS.md and NOTES.md for SCL-016.",
           "[15:09 IST] HADERACH: Now let's also update the Key Files section to reference the new EOW report.",
@@ -1548,7 +1542,13 @@
           "--- [TRANSCRIPT GAP: 16:44 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 17:03 IST \u2014 session empty for 79 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "[17:09 IST] RAM: <media:document> [file_id:BQACAgUAAxkBAAEBQgJqfFtrJwMttxj2QrAGfcpPegaGDgACQR8AAqce6Vevvq9Ij-lqBT0E]",
-          "Let this be the first slide. Make a second slide of the EOW Status Report. Brief bullet points of summary of the status report. And verbatim quote Point 3 second para (except the last sentence), and the table in point 13 with a brief explanatory line. Send back the pptx once done"
+          "Let this be the first slide. Make a second slide of the EOW Status Report. Brief bullet points of summary of the status report. And verbatim quote Point 3 second para (except the last sentence), and the table in point 13 with a brief explanatory line. Send back the pptx once done",
+          "[17:17 IST] HADERACH: The pptx attachment appears as a raw file_id reference without inline content \u2014 it may not have been auto-downloaded yet. Let me check the docs on inbound media handling.",
+          "[17:19 IST] HADERACH: No live gateway log accessible here. It's likely the pptx is still being downloaded/fetched by the runtime \u2014 the file_id in the transcript suggests it was received but the actual binary might land shortly, or my search is missing it. Let me check again, waiting slightly longer.",
+          "[17:21 IST] HADERACH: Ram, I can see you sent a PowerPoint file, but only a file reference came through \u2014 the actual attachment content didn't land in my context (there was a brief gateway hiccup logged around that time, 17:03\u201317:09 IST, which may be why). I don't have anything to open it from.",
+          "Could you resend the pptx? Once it comes through properly I'll build slide 2 exactly as specified \u2014 brief bullet-point summary, the verbatim quote from Point 3's second paragraph (excluding its last sentence), and the Poin...",
+          "[17:21 IST] HADERACH: Ram, I can see you sent a PowerPoint file, but only a file reference came through \u2014 the actual attachment content didn't land in my context (there was a brief gateway hiccup logged around that time, 17:03\u201317:09 IST, which may be why). I don't have anything to open it from.",
+          "Could you resend the pptx? Once it comes through properly I'll build slide 2 exactly as specified \u2014 brief bullet-point summary, the verbatim quote from Point 3's second paragraph (excluding its last sentence), and the Poin..."
         ],
         "yesterday": [
           "[21:45 IST] HADERACH: Let me try again with the full script content, being careful with the patch format this time.",
@@ -3798,9 +3798,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": 90911,
-      "rss_gb": 0.22,
-      "cpu": 0.3,
+      "pid": null,
+      "rss_gb": null,
+      "cpu": null,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3828,9 +3828,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": 90817,
-      "rss_gb": 0.2,
-      "cpu": 0.3,
+      "pid": null,
+      "rss_gb": null,
+      "cpu": null,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4229,9 +4229,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": 2563,
-      "rss_gb": 0.37,
-      "cpu": 0.7,
+      "pid": null,
+      "rss_gb": null,
+      "cpu": null,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
