@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-13 17:20:38 IST",
-  "generated_epoch": 1786621838,
+  "generated_ist": "2026-08-13 17:25:45 IST",
+  "generated_epoch": 1786622145,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.71 / 8.76 / 9.33",
+    "load": "8.99 / 9.11 / 9.36",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -33,9 +33,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 90689,
+      "rss_gb": 1.25,
+      "cpu": 9.6,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,19 +661,28 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786621232300,
+          "last_ts": 1786622101587,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786621232300,
+          "last_ts": 1786622101586,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1786622101586,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786621232299,
+          "last_ts": 1786622101584,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1786620841473,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786620829723,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 15:04 IST \u2014 session empty for 54 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "[15:22 IST] RAM: [Telegram Ram Shenoy id:8489979671 +1h Thu 2026-08-13 15:22:00 GMT+5:30] Ram Shenoy: Analyse this. Why is GisKard and CA SMEDA (which CA SMEDA is this?) appearing here? We had removed them from direct Anthropic",
-          "<file name=\"claude_api_cost_2026_08_01_to_2026_08_13---c54967cf-3d74-4714-8b5e-0e846a7c1f16.csv\" mime=\"text/csv\">",
-          "<<<EXTERNAL_UNTRUSTED_CONTENT id=\"37f36a760fd8f294\">>>",
-          "Source: External",
-          "---",
           "usage_date_utc,model,workspace,api_key,usage_type,context_window,token_type,cost_usd,list_pric...",
           "[15:32 IST] HADERACH: Good \u2014 Giskard on M4 confirms no direct-Anthropic key wired at all (only AWS creds). So Giskard's own gateway calls can't be hitting direct Anthropic. Let me check ca-smeda-ii's plist similarly, and dig into what the \"CA_SMEDA\" workspace_key value in the CSV actually is \u2014 it's likely a hardcoded API key tied to a script, not the gateway config.",
           "[15:38 IST] HADERACH: Good \u2014 Giskard on M4 confirms no direct-Anthropic key wired at all (only AWS creds). So Giskard's own gateway calls can't be hitting direct Anthropic. Let me check ca-smeda-ii's plist similarly, and dig into what the \"CA_SMEDA\" workspace_key value in the CSV actually is \u2014 it's likely a hardcoded API key tied to a script, not the gateway config.",
@@ -1548,7 +1542,13 @@
           "[17:04 IST] HADERACH: No source markdown/HTML found \u2014 only the PDF exists, and it wasn't built from a script I can locate quickly. I'll rebuild the table directly from the PDF content + today's live RBI confirmation, using the PDF house standard.",
           "[17:05 IST] HADERACH: Per house rule, PDF builds go through a subagent. Let me delegate this with full content and the regulatory update.",
           "[17:08 IST] HADERACH: Building the updated table now, Ram \u2014 factoring in the 24 June 2026 amendment (single \u20b91,00,000 crore threshold replacing the parametric scoring model, plus the Government-NBFC and State guarantee changes). I'll send the PDF the moment it's ready.",
-          "[17:08 IST] HADERACH: Building the updated table now, Ram \u2014 factoring in the 24 June 2026 amendment (single \u20b91,00,000 crore threshold replacing the parametric scoring model, plus the Government-NBFC and State guarantee changes). I'll send the PDF the moment it's ready."
+          "[17:08 IST] HADERACH: Building the updated table now, Ram \u2014 factoring in the 24 June 2026 amendment (single \u20b91,00,000 crore threshold replacing the parametric scoring model, plus the Government-NBFC and State guarantee changes). I'll send the PDF the moment it's ready.",
+          "[17:12 IST] RAM: Done?",
+          "[17:12 IST] HADERACH: Still running, Ram \u2014 about 4 minutes in, still building. I'll send it to you the moment it lands.",
+          "[17:12 IST] HADERACH: Still running, Ram \u2014 about 4 minutes in, still building. I'll send it to you the moment it lands.",
+          "[17:15 IST] RAM: Done?",
+          "[17:15 IST] HADERACH: Not yet, Ram \u2014 7.5 minutes in, still running (WeasyPrint builds with the full quality-gate checks take a few minutes). I'll ping you the moment it's out.",
+          "[17:16 IST] HADERACH: Not yet, Ram \u2014 7.5 minutes in, still running (WeasyPrint builds with the full quality-gate checks take a few minutes). I'll ping you the moment it's out."
         ],
         "yesterday": [
           "[18:39 IST] HADERACH: Found it, Ram \u2014 and you were right to flag it.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.55,
-      "cpu": 0.8,
+      "rss_gb": 0.49,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2346,7 +2346,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.43,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3632,8 +3632,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2837,
-      "rss_gb": 0.29,
-      "cpu": 0.4,
+      "rss_gb": 0.28,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3796,7 +3796,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3826,7 +3826,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
