@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-13 09:22:47 IST",
-  "generated_epoch": 1786593167,
+  "generated_ist": "2026-08-13 09:29:44 IST",
+  "generated_epoch": 1786593584,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "16.93 / 14.57 / 12.50",
+    "load": "7.93 / 9.94 / 10.96",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786593194574,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786592444207,
+          "last_ts": 1786593169266,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +682,25 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786592444207,
+          "last_ts": 1786593169266,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786593169265,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1786593169265,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -683,15 +710,6 @@
           "enabled": true,
           "sched": "10 9 * * *",
           "last_ts": 1786592444206,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786592444205,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -748,24 +766,6 @@
           "last_ts": 1786592123004,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786592123003,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786591258551,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1532,7 +1532,19 @@
           "[09:05 IST] RAM: [User sent media without caption]",
           "[09:06 IST] HADERACH: I don't see an attachment on your \"Transcribe this pls\" message, Ram \u2014 no audio, image, or file came through with it. Could you resend the voice note/audio (or forward it) and I'll transcribe it straight away?",
           "[09:06 IST] HADERACH: I don't see an attachment on your \"Transcribe this pls\" message, Ram \u2014 no audio, image, or file came through with it. Could you resend the voice note/audio (or forward it) and I'll transcribe it straight away?",
-          "[09:07 IST] HADERACH: Found it. Transcribing now."
+          "[09:07 IST] HADERACH: Found it. Transcribing now.",
+          "[09:13 IST] HADERACH: It's a ~20-minute clip \u2014 that's why the medium model choked. Retrying with a faster model.",
+          "[09:14 IST] HADERACH: Progressing at a decent rate \u2014 about 22% done. I'll let it run and check back.",
+          "[09:15 IST] HADERACH: Should complete in a few more minutes. Continuing to monitor.",
+          "[09:17 IST] HADERACH: Complete. Let me grab the transcript.",
+          "[09:18 IST] HADERACH: Here's the transcription, Ram:",
+          "<b>Transcript \u2014 13 Aug 2026, 09:05 IST (~20 min, English)</b>",
+          "Big picture on the turning update, just see if we can add in the disbursement the following \u2014 let's see what comes out of it if we can tweak between mean, median, mode, weighted average \u2014 average ticket size of disbursement.",
+          "Second, I see personal loans of 99 crores but I think these guys acquired some pools \u2014 where are those reflecting? \"This is where the other loans are.\" Those personal loans are...",
+          "[09:18 IST] HADERACH: Here's the transcription, Ram:",
+          "<b>Transcript \u2014 13 Aug 2026, 09:05 IST (~20 min, English)</b>",
+          "Big picture on the turning update, just see if we can add in the disbursement the following \u2014 let's see what comes out of it if we can tweak between mean, median, mode, weighted average \u2014 average ticket size of disbursement.",
+          "Second, I see personal loans of 99 crores but I think these guys acquired some pools \u2014 where are those reflecting? \"This is where the other loans are.\" Those personal loans are..."
         ],
         "yesterday": [
           "[18:39 IST] HADERACH: Found it, Ram \u2014 and you were right to flag it.",
