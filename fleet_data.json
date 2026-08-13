@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-13 11:02:46 IST",
-  "generated_epoch": 1786599166,
+  "generated_ist": "2026-08-13 11:07:53 IST",
+  "generated_epoch": 1786599473,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "11.24 / 9.93 / 9.37",
+    "load": "8.22 / 9.32 / 9.28",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.22,
-      "cpu": 0.9,
+      "rss_gb": 1.2,
+      "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786598640887,
+          "sched": "0 * * * *",
+          "last_ts": 1786599206877,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,25 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786598431483,
+          "last_ts": 1786599196001,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
+          "name": "Monk Comparison Cadence",
+          "enabled": true,
+          "sched": "0 11 */3 * *",
+          "last_ts": 1786599196001,
+          "last_status": "ok",
+          "model": "(no LLM)",
+          "kind": "systemEvent"
+        },
+        {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786598431483,
+          "last_ts": 1786599196001,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +700,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786598431482,
+          "last_ts": 1786599196000,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -700,16 +709,16 @@
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786597984143,
+          "last_ts": 1786599196000,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1786595619083,
+          "sched": "every 30m",
+          "last_ts": 1786598640887,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1028,15 +1037,6 @@
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
-        },
-        {
-          "name": "Monk Comparison Cadence",
-          "enabled": true,
-          "sched": "0 11 */3 * *",
-          "last_ts": 1786340060595,
-          "last_status": "ok",
-          "model": "(no LLM)",
-          "kind": "systemEvent"
         },
         {
           "name": "SAK-008 trendlyne.db \u2014 npa_crar_extracted Weekly Refresh",
@@ -1509,13 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\ud83d\udc26 Draft tweet (reply \"send it\" to post):",
-          "Today's OpenClaw digest: that 91-comment \"silent reply failures\" issue is still not dead. Meanwhile IronClaw shipped 2 releases in a day. https://github.com/Haderach-Ram/openclaw-radar/issues/109",
-          "[08:30 IST] HADERACH: \u2705 **NSE Bhavcopy Refresh \u2014 Completed**",
-          "**Date:** Tuesday 12 Aug 2026 (market closed yesterday Wed 13 Aug)",
-          "- **Equity:** 3,480 rows",
-          "- **F&O:** 34,546 rows",
-          "- **Status:** Both ingested cleanly into market.db",
           "--- [TRANSCRIPT GAP: 09:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "[09:05 IST] RAM: [User sent media without caption]",
           "[09:06 IST] HADERACH: I don't see an attachment on your \"Transcribe this pls\" message, Ram \u2014 no audio, image, or file came through with it. Could you resend the voice note/audio (or forward it) and I'll transcribe it straight away?",
@@ -1548,7 +1541,14 @@
           "<ul>",
           "<li><b>Gateway itself: healthy.</b> Port 18793 returns HTTP 200, launchd shows state=running, no crash loop.</li>",
           "<li><b>Two cron jobs DID time out</b> around 09:06 and 09:09 IST today \u2014 model calls to <code>amazon-bedrock/global.anthropic.clau...",
-          "--- [TRANSCRIPT GAP: 10:42 IST \u2014 session empty for 33 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 10:42 IST \u2014 session empty for 33 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
+          "[11:00 IST] RAM: Is BDO a part of the big 6 audit firms",
+          "[11:00 IST] HADERACH: Yes \u2014 BDO is one of the \"Big Six.\" The term extends the Big Four (Deloitte, PwC, EY, KPMG) by adding the next two largest global networks: <b>BDO</b> and <b>Grant Thornton</b>.",
+          "So the Big Six = Deloitte, PwC, EY, KPMG, BDO, Grant Thornton.",
+          "That lines up with this morning's transcript too \u2014 the reference to \"video and GT and Deloitte\" constituting \"the big six\" was almost certainly EY (\"video\" is likely a mis-transcription of \"EY,\" phonetically close) + Grant Thornton + Deloitte, with BDO, P...",
+          "[11:00 IST] HADERACH: Yes \u2014 BDO is one of the \"Big Six.\" The term extends the Big Four (Deloitte, PwC, EY, KPMG) by adding the next two largest global networks: <b>BDO</b> and <b>Grant Thornton</b>.",
+          "So the Big Six = Deloitte, PwC, EY, KPMG, BDO, Grant Thornton.",
+          "That lines up with this morning's transcript too \u2014 the reference to \"video and GT and Deloitte\" constituting \"the big six\" was almost certainly EY (\"video\" is likely a mis-transcription of \"EY,\" phonetically close) + Grant Thornton + Deloitte, with BDO, P..."
         ],
         "yesterday": [
           "[18:39 IST] HADERACH: Found it, Ram \u2014 and you were right to flag it.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.51,
-      "cpu": 1.6,
+      "rss_gb": 0.52,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,19 +1715,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1786598408372,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1786599310965,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1786595814311,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1786598408372,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2346,7 +2346,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.44,
-      "cpu": 0.8,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3633,7 +3633,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3796,7 +3796,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3826,7 +3826,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.21,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4226,8 +4226,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.37,
-      "cpu": 0.7,
+      "rss_gb": 0.4,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
