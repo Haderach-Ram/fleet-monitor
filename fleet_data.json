@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-14 15:06:02 IST",
-  "generated_epoch": 1786700162,
+  "generated_ist": "2026-08-14 15:11:08 IST",
+  "generated_epoch": 1786700468,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.48 / 8.04 / 8.43",
+    "load": "9.82 / 8.54 / 8.50",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.25,
+      "rss_gb": 1.26,
       "cpu": 0.4,
       "crons_total": 94,
       "crons_enabled": 59,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786700427725,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786700427724,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786700427724,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -688,37 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786700042821,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1786700042821,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786700042821,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786700042820,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:42 IST] HADERACH: No historical AUM figures for FY20\u2013FY23 in memory files. Let me check the local reference data and pull from public filings if needed.",
-          "[14:42 IST] HADERACH: I have the annual reports on the SSD. Let me pull AUM from FY20",
-          "[14:42 IST] HADERACH: \u2699\ufe0f Agent was aborted.",
-          "[14:42 IST] RAM: I will give",
-          "[14:42 IST] HADERACH: I've stopped \u2014 waiting for what you want to add or change.",
-          "[14:42 IST] HADERACH: I've stopped \u2014 waiting for what you want to add or change.",
           "[14:46 IST] RAM: FY23: 67,020",
           "FY22: 72,211",
           "FY21: 80,714",
@@ -1548,7 +1542,13 @@
           "I also noticed a couple of sentence fragments in your edited version (looks like some words got deleted along with t...",
           "[15:02 IST] RAM: I have made changes in track change mode and also inserted a comment. Pls check properly",
           "[15:02 IST] HADERACH: This is the same file (I already read it) \u2014 it has track changes embedded. Let me extract those properly, including any additional comment beyond the one I caught.",
-          "[15:03 IST] HADERACH: Let me reconstruct the full paragraph text with all track changes applied in order."
+          "[15:03 IST] HADERACH: Let me reconstruct the full paragraph text with all track changes applied in order.",
+          "[15:03 IST] HADERACH: Now I have it properly \u2014 my earlier read (via python-docx) mangled the track-changed text into broken fragments because it didn't apply insertions/deletions correctly. Here's what your tracked-changes actually say once properly reconstructed:",
+          "<b>Your accepted text (paragraph 3):</b>",
+          "\"Through the course of the last several years, the Company was in a phase of consolidation and working through collections and a planned run-down of a part of its legacy book. Resultantly, AUM was on a steady dec...",
+          "[15:04 IST] HADERACH: Now I have it properly \u2014 my earlier read (via python-docx) mangled the track-changed text into broken fragments because it didn't apply insertions/deletions correctly. Here's what your tracked-changes actually say once properly reconstructed:",
+          "<b>Your accepted text (paragraph 3):</b>",
+          "\"Through the course of the last several years, the Company was in a phase of consolidation and working through collections and a planned run-down of a part of its legacy book. Resultantly, AUM was on a steady dec..."
         ],
         "yesterday": [
           "[16:59 IST] HADERACH: Found it \u2014 <b>NBFC_ML_vs_UL_Comparison_27May2026_v2.pdf</b> (Middle Layer vs Upper Layer comparison, 27 May 2026), sitting in Output. Let me confirm it's the right one before sending.",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.57,
-      "cpu": 0.5,
+      "rss_gb": 0.52,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2340,7 +2340,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.44,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3788,7 +3788,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4218,8 +4218,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.49,
-      "cpu": 0.8,
+      "rss_gb": 0.38,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
