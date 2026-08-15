@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-16 00:04:55 IST",
-  "generated_epoch": 1786818895,
+  "generated_ist": "2026-08-16 00:12:35 IST",
+  "generated_epoch": 1786819355,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "12.62 / 10.47 / 10.20",
+    "load": "9.52 / 9.69 / 9.87",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,6 +661,78 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1786819064482,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1786819064482,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1786819064481,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1786819064481,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1786819064481,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1786819064480,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1786818818369,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1786818818368,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -733,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1786815481283,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -760,48 +823,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1786808113933,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1786808113933,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1786808037677,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1786806930182,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1786804370313,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -958,24 +985,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1786743228523,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1786743158458,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1007,15 +1016,6 @@
           "enabled": true,
           "sched": "0 1 * * 3,6",
           "last_ts": 1786736324937,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1786732630494,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1509,6 +1509,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-16",
+          "# Self-healing rotation from transcript-2026-08-15.md at 00:07 IST"
+        ],
+        "yesterday": [
           "[16:37 IST] RAM: We are uploading our earnings update again on the exchanges with the balance sheet we want to say in the accompanying letter that based on best disclosure and governance practices and based on stakeholder feedback we are uploading the EU along with balance sheet numbers. Please draft this para/line for me pls",
           "[16:37 IST] HADERACH: Here's a draft paragraph for the covering letter, Ram:",
           "<b>Draft paragraph:</b>",
@@ -1549,48 +1553,6 @@
           "<ul>",
           "<li><b>Ambience:</b> Consistently the top-praised element \u2014 warm wooden interiors, coastal/backwater-inspired d\u00e9cor, calm and elegant, good for dates/family dinners/celebrations. One reviewer scored it 5/5 on ambience specificall...",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
-        "yesterday": [
-          "<li>Who signs it, and how it actually re...",
-          "--- [TRANSCRIPT GAP: 16:04 IST \u2014 session empty for 40 min AND no transcript writes for 21 min. No zombie lock. Possible gateway issue.] ---",
-          "[16:14 IST] RAM: This is the draft I have ppicked. Can you weave in here that our mention of disbursal growth was to the growth of on-balance sheet retail disbursals:",
-          "Dear Sir,",
-          "Thank you for writing in. We take shareholder communication seriously and would like to respond to the points you have raised.",
-          "Through the course of the last several years, the Company was in a phase of consolidation and working through collections and a planned run-down of a part of its legacy book. Resultantly, AUM was on a stead...",
-          "[16:14 IST] HADERACH: Good catch \u2014 that's actually the load-bearing clarification here, since it directly answers why total disbursement (\u20b93,875 Cr) looks flat while the 50\u201360% growth claim stands. Here's the reply with that woven in (added to paragraph 3, where it lands most naturally):",
-          "---",
-          "<b>Dear Sir,</b>",
-          "Thank you for writing in. We take shareholder communication seriously and would like to respond to the points you have raised.",
-          "Through the course of the last several years, the Company was in a phase of co...",
-          "[16:15 IST] HADERACH: Good catch \u2014 that's actually the load-bearing clarification here, since it directly answers why total disbursement (\u20b93,875 Cr) looks flat while the 50\u201360% growth claim stands. Here's the reply with that woven in (added to paragraph 3, where it lands most naturally):",
-          "---",
-          "<b>Dear Sir,</b>",
-          "Thank you for writing in. We take shareholder communication seriously and would like to respond to the points you have raised.",
-          "Through the course of the last several years, the Company was in a phase of co...",
-          "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 39 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:24 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:44 IST \u2014 session empty for 80 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:04 IST \u2014 session empty for 100 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:30 IST \u2014 session empty for 126 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:10 IST \u2014 session empty for 166 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 176 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[20:01 IST] HADERACH: **SAK-008 Phase 2 \u2014 Friday WSS Update Complete**",
-          "\u2705 **Backfill Results:**",
-          "- **Forex rows ingested:** 0",
-          "- **Call money rows ingested:** 0",
-          "- **Status:** All existing editions up to June 2026 already in database; no new data rows to ingest",
-          "\ud83d\udcca **Current Data Summary:**",
-          "- **Latest Forex Reserve:** $696,656 Mn (2026-06-06)",
-          "- **Latest Call Money Rate:** 2026-05-15 (4.6-5.3%, WAR 5.21%)",
-          "- **Editions in DB:** 16 forex editions (Jan 2025\u2013Jun 2026), 17 call money editions (Nov 2024\u2013May 2026)",
-          "\ud83d\udd0d **New Ed...",
-          "--- [TRANSCRIPT GAP: 21:02 IST \u2014 session empty for 52 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 150 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 173 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:07 IST] HADERACH: All consolidation steps completed successfully (idle day, nothing to promote to domain/MEMORY files). NO_REPLY."
         ],
         "rolling_7day": [
           "- [07:43 IST] RAM: [Telegram Ram Shenoy id:8489979671 +9h Mon 2026-08-10 07:43:16 GMT+5:30] Ram Shenoy: Pls check this. This is showing the same data everyday",
@@ -1635,17 +1597,6 @@
           "- 23:00 IST consolidation (this run) completed; tag index rebuilt (v26); rolling-7/28/180-day summaries updated."
         ],
         "rolling_28day": [
-          "- [02:16 IST] HADERACH: Good, that worked this time. Now let's extract the top posts.",
-          "- [02:21 IST] HADERACH: All updates complete. Session done within budget (~9 tool calls, no stalls).",
-          "- [06:34 IST] RAM: Check our data etc to see when Sameer resigned from SCL's board",
-          "- [06:35 IST] HADERACH: Confirmed \u2014 good, well-sourced data.",
-          "- [07:48 IST] HADERACH: Good, 191 chars \u2014 well under 260. Now composing the final reply.",
-          "- [08:30 IST] HADERACH: \u2705 **NSE Market Bhavcopy Refresh \u2014 Complete**",
-          "- Date:** August 11, 2026 (yesterday's close; script correctly backtracked over overnight)",
-          "- Results:**",
-          "- Equity:** 3,483 rows \u2713",
-          "- F&O:** 34,028 rows \u2713",
-          "--- [Midnight run OK \u2014 2026-08-13 \u2014 no new content] ---",
           "## 2026-08-13",
           "- [ROTATION: 00:05 IST \u2014 Self-healing date rotation. New file: transcript-2026-08-13.md] ---",
           "- [TRANSCRIPT GAP: 03:02 IST \u2014 session empty for 230 min AND no transcript writes for 177 min. No zombie lock. Possible gateway issue.] ---",
@@ -1674,7 +1625,18 @@
           "- SCM mail archive pipeline confirmed healthy (17 emails archived, no backlog).",
           "- Phone-call audio (Gagan/Ram retail-wholesale disbursal mix) transcribed via Whisper.",
           "- SCL shareholder reply to Q1FY27 disbursement-growth query drafted and finalized (Word doc, AUM/own-book QoQ data woven in).",
-          "- SAK-008 Phase 2 Friday WSS backfill: 0 new rows (data already current)."
+          "- SAK-008 Phase 2 Friday WSS backfill: 0 new rows (data already current).",
+          "## 2026-08-15",
+          "- [01:08 IST] HADERACH: I hit a wall partway through tonight's session, Ram, and it's worth flagging plainly rather than papering over.",
+          "- **What happened:** I completed Step 1 (Reddit research) successfully \u2014 r/Jazz and r/LetsTalkMusic for this week. But partway through Step 2, every too",
+          "- [07:50 IST] HADERACH: 193 chars, good. Now finalize the reply.",
+          "- \ud83e\udd9e Digest live: https://github.com/Haderach-Ram/openclaw-radar/issues/111 \u00b7 Most active: IronClaw (15 new issues) \u00b7 draCuLAW traffic (7d): 2 PV \u00b7 Top p",
+          "- \ud83d\udc26 Draft tweet (reply \"send it\" to post):",
+          "- IronClaw blew past everyone today \u2014 15 new issues in 24h, more than OpenClaw, hermesagent, and ZeroClaw combined-ish. Ecosystem digest: https://github",
+          "- [08:32 IST] HADERACH: \u2705 **NSE Bhavcopy Ingested**",
+          "- **2026-08-14 (Friday, last trading day before Independence Day):**",
+          "- - **Equity:** 3,464 rows",
+          "- - **F&O:** 35,089 rows"
         ]
       }
     },
@@ -1714,6 +1676,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1786818987800,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
@@ -1796,15 +1767,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1786732588852,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1842,7 +1804,6 @@
           "# Self-healing rotation from transcript-2026-08-14.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-07-09 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-10 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-11 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-12 \u2014 no new content] ---",
@@ -1881,10 +1842,10 @@
           "--- [Midnight run OK \u2014 2026-08-12 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-13 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-14 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-15 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-15 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "--- [Midnight run OK \u2014 2026-06-20 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-21 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-22 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-23 \u2014 no new content] ---",
@@ -1923,6 +1884,7 @@
           "--- [Midnight run OK \u2014 2026-08-12 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-13 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-14 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-15 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-15 \u2014 no new content] ---"
         ]
       }
@@ -2514,6 +2476,33 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1786819148699,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1786818847889,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1786818847889,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2532,37 +2521,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1786808048336,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1786808048336,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1786807806970,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1786732748244,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2579,6 +2541,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-16",
+          "# Self-healing rotation from transcript-2026-08-15.md at 00:04 IST"
+        ],
+        "yesterday": [
           "- **Direct Telegram (Gari):** 0 new messages",
           "- **Main agent:** 4 messages processed",
           "- **File saved:** `transcript-2026-08-15.md`",
@@ -2620,53 +2586,8 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation for Purl.",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY"
         ],
-        "yesterday": [
-          "Datasunrise is being used as a DAM monitoring tool for the OneCard database hosted under the Bobcard infrastructure. The DAM alert logs are being captured in AWS CloudWatch. The Bobcard team is currently in discussion with the SIEM vendor to integrate these logs into the SIEM solution for alert investigation by the SOC team.",
-          "---",
-          "Note, Gari \u2014 this reads like sensitive infra/security content (DAM monitoring, SIEM, SOC investigation setup). Per our read-o",
-          "[19:56 IST] PURL: Here's the extracted text, verbatim:",
-          "---",
-          "Datasunrise is being used as a DAM monitoring tool for the OneCard database hosted under the Bobcard infrastructure. The DAM alert logs are being captured in AWS CloudWatch. The Bobcard team is currently in discussion with the SIEM vendor to integrate these logs into the SIEM solution for alert investigation by the SOC team.",
-          "---",
-          "Note, Gari \u2014 this reads like sensitive infra/security content (DAM monitoring, SIEM, SOC investigation setup). Per our read-o",
-          "[19:55 IST] PURL: Let me check heartbeat items and save session context.",
-          "[19:55 IST] PURL: Now let me save session context and check if anything needs attention.",
-          "[19:56 IST] RAM: Extract the text pls as is",
-          "[19:56 IST] PURL: Here's the extracted text, verbatim:",
-          "---",
-          "Datasunrise is being used as a DAM monitoring tool for the OneCard database hosted under the Bobcard infrastructure. The DAM alert logs are being captured in AWS CloudWatch. The Bobcard team is currently in discussion with the SIEM vendor to integrate these logs into the SIEM solution for alert investigation by the SOC team.",
-          "---",
-          "Note, Gari \u2014 this reads like sensitive infra/security content (DAM monitoring, SIEM, SOC investigation setup). Per our read-only rule for external/forwarded content: this is just an extraction, not something I'm acting on....",
-          "[19:56 IST] PURL: Here's the extracted text, verbatim:",
-          "---",
-          "Datasunrise is being used as a DAM monitoring tool for the OneCard database hosted under the Bobcard infrastructure. The DAM alert logs are being captured in AWS CloudWatch. The Bobcard team is currently in discussion with the SIEM vendor to integrate these logs into the SIEM solution for alert investigation by the SOC team.",
-          "---",
-          "Note, Gari \u2014 this reads like sensitive infra/security content (DAM monitoring, SIEM, SOC investigation setup). Per our read-only rule for external/forwarded content: this is just an extraction, not something I'm acting on....",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: **Transcript logger completed.** \u2713",
-          "No new messages across main session, Gari's direct chat, or Klub K group \u2014 everything is up to date. Next check in ~2.6 hours (at your default 30-min interval).",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Transcript logger completed**",
-          "- **Messages processed:** 3",
-          "- **File:** `transcript-2026-08-14.md`",
-          "- **Status:** No new messages in Klub K group (JSONL not found \u2014 expected during quiet hours)",
-          "- **Bookmark updated:** False",
-          "The cron is running on schedule during quiet hours (00:00\u201306:00). Next active-hour run will capture Klub K group activity at 10-minute intervals.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Script completed. No new Klub K messages to log. All clear.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation. Let me start by checking today's daily log and then proceed with the consolidation steps.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Let me check for today's date file:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now I'll execute the consolidation process:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now executing the final step \u2014 appending bookmark to today's transcript:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY"
-        ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-08-08 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-08-09 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2687,12 +2608,12 @@
           "---",
           "## 2026-08-15 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-08-16 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "## 2026-08-11 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-08-11",
           "- # Daily Memory \u2014 2026-08-11 (Tuesday)",
           "- ## Session Work (Mon 10 Aug, 16:00\u201317:00 IST)",
@@ -2729,7 +2650,10 @@
           "- No sessions initiated on this date.",
           "---",
           "## 2026-08-15",
-          "- [Consolidation entry for 2026-08-15]"
+          "- [Consolidation entry for 2026-08-15]",
+          "## 2026-08-16 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---"
         ]
       }
     },
