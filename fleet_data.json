@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-15 09:30:52 IST",
-  "generated_epoch": 1786766452,
+  "generated_ist": "2026-08-15 09:37:02 IST",
+  "generated_epoch": 1786766822,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.15 / 8.95 / 8.52",
+    "load": "7.81 / 8.44 / 8.46",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786766429590,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786766429590,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786766429589,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-052 resume reminder",
+          "enabled": true,
+          "sched": "30 9 * * *",
+          "last_ts": 1786766429589,
+          "last_status": "ok",
+          "model": "(no LLM)",
+          "kind": "systemEvent"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,37 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786766093013,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786766093012,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1786766093012,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786766093011,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1037,15 +1046,6 @@
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
-        },
-        {
-          "name": "HAD-052 resume reminder",
-          "enabled": true,
-          "sched": "30 9 * * *",
-          "last_ts": 1786680187639,
-          "last_status": "ok",
-          "model": "(no LLM)",
-          "kind": "systemEvent"
         },
         {
           "name": "Monk Comparison Cadence",
@@ -1509,8 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:41 IST] HADERACH: This is Peter Sarnak's piece in the AMS <i>Notices</i>, titled <b>\"The AlphaZero Test\" for Mathematics</b>. Quick summary:",
-          "<b>The setup</b>",
           "Sarnak (a number theorist at Princeton/IAS, also a former semi-professional chess player) frames his views on AI and mathematics through discussions with his students Jacob Tsimerman and Akshay Venkatesh, who pushed him to take AI seriously after it started performing well on Olympiad-style problems.",
           "<b>The chess analogy</b>",
           "He contrasts two AI approach...",
@@ -1548,7 +1546,9 @@
           "[09:24 IST] HADERACH: No new stable release \u2014 npm's `latest` is still <code>2026.7.1-2</code>, unchanged since we last checked (10 Aug). What has moved:",
           "<b>#107074</b> (Homebrew Cellar/stale-package on macOS update) \u2014 <b>now CLOSED</b> (29 Jul). That's one of the three we were tracking, resolved.",
           "<b>#112395</b> (migration preflight blocks gateway, 6.11\u21927.1) \u2014 still OPEN, but with real progress: a reporter's separate blocker on the same issue was confirmed fixed as of <code>2026.7.2-beta.7</code>, and an automate...",
-          "[09:24 IST] RAM: Ok"
+          "[09:24 IST] RAM: Ok",
+          "[09:24 IST] HADERACH: Noted, Ram. Hold stays in place \u2014 I'll flag if #112395 or #110490 close, or if anything on #122321 looks like it could affect us before then.",
+          "[09:24 IST] HADERACH: Noted, Ram. Hold stays in place \u2014 I'll flag if #112395 or #110490 close, or if anything on #122321 looks like it could affect us before then."
         ],
         "yesterday": [
           "<li>Who signs it, and how it actually re...",
@@ -3786,9 +3786,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": 90911,
-      "rss_gb": 0.22,
-      "cpu": 0.1,
+      "pid": null,
+      "rss_gb": null,
+      "cpu": null,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.21,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4218,8 +4218,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.38,
-      "cpu": 0.6,
+      "rss_gb": 0.41,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
