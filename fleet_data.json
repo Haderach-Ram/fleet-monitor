@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-15 09:01:21 IST",
-  "generated_epoch": 1786764681,
+  "generated_ist": "2026-08-15 09:08:05 IST",
+  "generated_epoch": 1786765085,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.91 / 6.77 / 6.98",
+    "load": "9.56 / 8.41 / 7.69",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786764346002,
+          "sched": "0 9 * * *",
+          "last_ts": 1786764968564,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
+          "enabled": true,
+          "sched": "0 9 * * *",
+          "last_ts": 1786764968563,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786764968563,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +691,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786764029528,
+          "last_ts": 1786764968562,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786764029528,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1786764968562,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +709,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786764029527,
+          "last_ts": 1786764968561,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786764346002,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -967,15 +994,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1786709668478,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
@@ -1027,24 +1045,6 @@
           "last_ts": 1786678725291,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1786678577378,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1786678577378,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1714,19 +1714,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1786764007762,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1786764939635,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1786761312686,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1786764007762,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2513,28 +2513,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1786762804011,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1786761005816,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1786754046546,
+          "last_ts": 1786764846695,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2543,7 +2525,25 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1786754046545,
+          "last_ts": 1786764846694,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1786764607313,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1786764607312,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2578,16 +2578,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **8 new messages** from main session (`agent:main:main`)",
-          "- **0 new messages** from your direct Telegram",
-          "- Klub K group chat JSONL not found \u2014 will be available when group transcript is initiated",
-          "- **Bookmark saved** \u2192 next run will continue from here",
-          "- **File:** `transcript-2026-08-15.md`",
-          "The quiet-hours logger is working as expected. Next automated run in 3 hours.",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully.",
-          "**Status:**",
-          "- Transcript updated: 1 message appended",
           "- Gari transcript: no new messages",
           "- Group transcript: session file not found (expected in quiet hours with low activity)",
           "- Bookmarks saved",
@@ -2617,7 +2607,17 @@
           "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[07:55 IST] PURL: HEARTBEAT_OK",
-          "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger completed.**",
+          "- **Timestamp:** Saturday, 9:00 AM IST (08:15 UTC)",
+          "- **Messages processed:** 0 new messages across main session, Gari's Telegram DM, and group chats",
+          "- **File updated:** `transcript-2026-08-15.md` (bookmark saved)",
+          "- **Status:** All sessions up to date",
+          "The logger is running on schedule and will fire again in 30 minutes.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Script completed successfully. No new messages to append to the transcripts at this time, and bookmarks are current.",
+          "HEARTBEAT_OK"
         ],
         "yesterday": [
           "Datasunrise is being used as a DAM monitoring tool for the OneCard database hosted under the Bobcard infrastructure. The DAM alert logs are being captured in AWS CloudWatch. The Bobcard team is currently in discussion with the SIEM vendor to integrate these logs into the SIEM solution for alert investigation by the SOC team.",
@@ -3815,9 +3815,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 90817,
+      "rss_gb": 0.21,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4216,9 +4216,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 2563,
+      "rss_gb": 0.4,
+      "cpu": 5.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
