@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-16 18:26:13 IST",
-  "generated_epoch": 1786884973,
+  "generated_ist": "2026-08-16 18:31:20 IST",
+  "generated_epoch": 1786885280,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.07 / 4.34 / 4.26",
+    "load": "3.94 / 4.23 / 4.24",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.3,
+      "rss_gb": 1.31,
       "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 59,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1786884957346,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1786885230285,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786884628915,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1786884628914,
+          "last_ts": 1786885230285,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1786884628914,
+          "last_ts": 1786885230284,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1786884957346,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,12 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Filter basket dose sizes:</b>",
-          "<ul>",
-          "<li><b>Single (1 CUP) basket:</b> ~8\u201310g of coffee \u2014 about 2 level scoops if using pre-ground</li>",
-          "<li><b>Double (2 CUP) basket:</b> ~15\u201318g of coffee \u2014 about 3 level scoops of pre-ground, or 4 scoops if using freshly ground beans</li>",
-          "</ul>",
-          "Both come in two styles \u2014 ...",
           "[11:18 IST] HADERACH: That's the Breville BES870XL Barista Express \u2014 confirmed as your model from our earlier chats (26 July/15 Aug). Straight from the official manual:",
           "<b>Portafilter:</b> 54mm stainless steel",
           "<b>Filter basket dose sizes:</b>",
@@ -1548,7 +1542,13 @@
           "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
           "\ud83d\udd34 _Consolidation cron [haderach: SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)]_ \u2014 1 consecutive error(s): \u26a0\ufe0f \ud83e\uddf0 Process: `fresh-atlas` failed",
           "\ud83d\udd34 _Consolidation cron [haderach: SCL Media Monitor \u2014 Every 3h (RSS + Twitter)]_ \u2014 1 consecutive error(s): \u26a0\ufe0f \u2709\ufe0f Message failed",
-          "\ud83d\udd34 _Consolidation cron [giskard: Monthly Archive \u2014 All Agents (1st of month 06:00 IST)]_ \u2014..."
+          "\ud83d\udd34 _Consolidation cron [giskard: Monthly Archive \u2014 All Agents (1st of month 06:00 IST)]_ \u2014...",
+          "[18:22 IST] HADERACH: Checked both, Ram. Both are known, low-severity patterns \u2014 no data loss, no action needed beyond a small prompt fix I can queue if you'd like.",
+          "<b>1. SCL Media Monitor \u2014 \"Message failed\"</b>",
+          "The cron model tried to send the alert with <code>target: \"ramnath.shenoy@gmail.com\"</code> \u2014 invalid for Telegram (needs a chat ID). That call errored, which is what triggered the diagnostic flag. It immediately self-corrected on the next line, resent with <code>target: \"8489979671\"</code>, and that succ...",
+          "[18:22 IST] HADERACH: Checked both, Ram. Both are known, low-severity patterns \u2014 no data loss, no action needed beyond a small prompt fix I can queue if you'd like.",
+          "<b>1. SCL Media Monitor \u2014 \"Message failed\"</b>",
+          "The cron model tried to send the alert with <code>target: \"ramnath.shenoy@gmail.com\"</code> \u2014 invalid for Telegram (needs a chat ID). That call errored, which is what triggered the diagnostic flag. It immediately self-corrected on the next line, resent with <code>target: \"8489979671\"</code>, and that succ..."
         ],
         "yesterday": [
           "[16:37 IST] RAM: We are uploading our earnings update again on the exchanges with the balance sheet we want to say in the accompanying letter that based on best disclosure and governance practices and based on stakeholder feedback we are uploading the EU along with balance sheet numbers. Please draft this para/line for me pls",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.5,
-      "cpu": 1.1,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2340,7 +2340,7 @@
       "frozen_reason": null,
       "pid": 91212,
       "rss_gb": 0.47,
-      "cpu": 1.2,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2514,6 +2514,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1786885204381,
+          "last_status": "ok",
+          "model": "anthropic/claude-haiku-4-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2536,15 +2545,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1786883407579,
-          "last_status": "ok",
-          "model": "anthropic/claude-haiku-4-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1786883407578,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
@@ -2579,15 +2579,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:56 IST] PURL: **Weekly Summary**",
-          "This week was lean and focused:",
-          "\u2705 **Bank Engagement Governance** \u2014 Built a Word doc capturing the 5 key tenets (FI Leads own bank relationships, EPT owns process/audit/data), resolved 5 queries with clear demarcation logic, and clarified that EPT is your internal product team.",
-          "\u2705 **Cost efficiency** \u2014 Haiku-powered heartbeats cost ~$0.01/week. Session is 2 days old, 27% context used.",
-          "\u2705 **Routines steady** \u2014 Transcripts logging every 30 min (active) / 3 hours (quiet), daily config backups, 24-hour email checks all running silently.",
-          "Next check-in: 23 Aug (same time).",
-          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[15:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[15:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \u2705 **Transcript logger completed.** ",
           "- 0 new messages across all channels (main, direct Telegram with Gari, and group chat)",
           "- Bookmark updated",
           "- File: `transcript-2026-08-16.md`",
@@ -2618,7 +2609,16 @@
           "- **Direct Telegram (Gari):** 0 new messages",
           "- **File created:** `transcript-2026-08-16.md` (bookmark updated)",
           "Everything is quiet right now. The logger is working and will pick up messages as they arrive.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
+          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script for you.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Done. The transcript logger completed successfully:",
+          "- **Klub K group:** JSONL not found (session not available at the moment)",
+          "- **Direct chats:** 0 new messages on main and Telegram direct",
+          "- **Total new messages:** 3",
+          "- **Output file:** `transcript-2026-08-16.md`",
+          "Everything logged and bookmarked. \u2713",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages detected in Klub K transcript session. All processing finished cleanly."
         ],
         "yesterday": [
           "- **Direct Telegram (Gari):** 0 new messages",
@@ -3627,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.3,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3786,7 +3786,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4216,8 +4216,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.37,
-      "cpu": 0.3,
+      "rss_gb": 0.38,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
