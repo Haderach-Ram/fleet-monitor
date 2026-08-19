@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-19 13:27:26 IST",
-  "generated_epoch": 1787126246,
+  "generated_ist": "2026-08-19 13:32:33 IST",
+  "generated_epoch": 1787126553,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "13.78 / 13.06 / 12.40",
+    "load": "13.48 / 13.38 / 12.78",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.55,
-      "cpu": 0.9,
+      "rss_gb": 1.54,
+      "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787126426664,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787126014283,
+          "last_ts": 1787126426663,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787126426663,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -674,24 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1787126014283,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787126014283,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787126014282,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,14 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Fallback 1: <code>anthropic/claude-haiku-4-5</code></li>",
-          "<li>Fallback 2: <code>anthropic/claude-sonnet-4-6</code></li>",
-          "</ul>",
-          "All direct Anthropic, not Bedrock/OpenRouter.",
-          "<b>Crons (6, all enabled, all currently pinned to Haiku 4.5, none of Purl's Sonnet-5 default)</b>",
-          "<ul>",
-          "<li><b>Transcript Logger, 06:00-00:00</b> \u2014 every 30 min, <code>*...",
-          "[13:02 IST] HADERACH: All checked live against Purl's own gateway \u2014 port 18792, confirmed healthy.",
           "<b>Model</b>",
           "<ul>",
           "<li>Primary: <code>anthropic/claude-sonnet-5</code></li>",
@@ -1548,7 +1540,15 @@
           "---",
           "Giskard \u2014 please update Purl's config (`~/.openclaw-purl/openclaw.json`) to wire up Amazon Bedrock as Purl's model provider, using the same AWS credential chain Haderach already uses (no new key needed \u2014 Purl inherits `~/.aws/credentials` `[default]` profile, region `us-east-1`, since it runs as the same OS user on the same machine).",
           "**Standard procedure:**",
-          "1. `cp ~/.openclaw-purl/openclaw.json ~/.openclaw-purl/openclaw.json.ba..."
+          "1. `cp ~/.openclaw-purl/openclaw.json ~/.openclaw-purl/openclaw.json.ba...",
+          "[13:27 IST] RAM: G has done his bit. Check pls and proceed with anything you have to do",
+          "[13:27 IST] HADERACH: Config looks correctly applied and Purl's gateway is up and restarted. Now installing the Bedrock plugin package and verifying it actually resolves before touching the crons.",
+          "[13:27 IST] HADERACH: Confirmed exact package name needed. Installing it now.",
+          "[13:28 IST] HADERACH: Installed cleanly. Now restarting Purl's gateway to load the plugin, then verifying it's actually live.",
+          "[13:28 IST] HADERACH: Gateway restarted cleanly and healthy. Now let's confirm the plugin actually loaded (no warnings) and that Bedrock model calls really work end-to-end.",
+          "[13:28 IST] HADERACH: Bedrock plugin now shows \"enabled\" with no config warnings \u2014 clean load. Let's force-run one of Purl's crons with the new Haiku model to prove it actually resolves through Bedrock rather than silently falling back.",
+          "[13:28 IST] HADERACH: I'll update the crons to the new Bedrock model first, then force-run one to verify it actually resolves through Bedrock.",
+          "[13:29 IST] HADERACH: Now updating all 6 Purl crons to the Bedrock Haiku model:"
         ],
         "yesterday": [
           "[17:09 IST] HADERACH: A few options, Ram \u2014 pick whichever register suits the release:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.49,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2365,7 +2365,7 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": 97547,
+      "pid": 98418,
       "rss_gb": 0.37,
       "cpu": 0.7,
       "crons_total": 7,
@@ -2541,18 +2541,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1787124605872,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787126406538,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 6-21 * * *",
           "last_ts": 1787124605872,
           "last_status": "ok",
           "model": "anthropic/claude-haiku-4-5",
@@ -2606,7 +2606,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- **0 new messages** across all sessions (main, Gari's DM, Klub K group)",
           "- **Bookmark updated:** Ready for next run in 30 minutes",
           "- **Log file:** `transcript-2026-08-19.md`",
           "All quiet on the channels. See you at 9:30 AM.",
@@ -2645,7 +2644,8 @@
           "- No new messages across all session transcripts (Klub K group, Gari personal, Purl personal)",
           "- Bookmarks unchanged",
           "- All sessions processed cleanly",
-          "Silent maintenance confirmed. Standing by."
+          "Silent maintenance confirmed. Standing by.",
+          "[13:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK"
         ],
         "yesterday": [
           "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3817,7 +3817,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.5,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
