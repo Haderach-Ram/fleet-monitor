@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-19 20:39:07 IST",
-  "generated_epoch": 1787152147,
+  "generated_ist": "2026-08-19 20:44:21 IST",
+  "generated_epoch": 1787152461,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "14.40 / 13.62 / 13.20",
+    "load": "15.31 / 14.05 / 13.43",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.49,
-      "cpu": 0.4,
+      "rss_gb": 1.56,
+      "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,28 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1787152033807,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787151629950,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787151629949,
+          "last_ts": 1787152230539,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +673,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787151629948,
+          "last_ts": 1787152230539,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787152230539,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1787152033807,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:30 IST] HADERACH: Confirmed root cause on Avalora(Ashwin) \u2014 this is the known \"Cron File-Edit Rule\" failure mode: an isolated cron run tried to use the `edit` tool on a file, and long-context isolated cron runs get memory-mismatch failures with `apply_patch`/`edit`. The cron prompt doesn't ban those tools explicitly, so the agent picked `edit` and it failed. Let's check runs history and the CA-SMEDA issue in parallel.",
           "[17:30 IST] HADERACH: Confirmed \u2014 this is a recurring intermittent pattern (errored Aug 15, 16, 19; ok Aug 17, 18), exactly matching Haderach's own documented \"Cron File-Edit Rule\" dead end: isolated cron runs where the agent is free to choose `edit`/`apply_patch` on a file periodically fail due to remembered-content mismatch in long-context isolated runs. Now checking CA-SMEDA-I.",
           "[17:31 IST] HADERACH: Let's dig into why this cron broke around mid-August after working reliably through July. Checking disk space, Python environment, and exec/process health.",
           "[17:34 IST] HADERACH: This is very informative \u2014 the actual task **succeeded** (tracker sent, summary delivered, confirmed `messageId: 3264/3265` both `ok:true`), but the cron's final status shows `error` because an earlier background `exec` command hung and had to be killed mid-run, and that termination got captured as the run's \"last error\" diagnostic \u2014 a false-positive failure classification, not an actual task failure. Let's find what hung.",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:30 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 20:30 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 20:40 IST \u2014 session empty for 150 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[17:09 IST] HADERACH: A few options, Ram \u2014 pick whichever register suits the release:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 6940,
       "rss_gb": 0.53,
-      "cpu": 1.2,
+      "cpu": 1.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2366,8 +2366,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 98736,
-      "rss_gb": 0.52,
-      "cpu": 1.6,
+      "rss_gb": 0.53,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.9,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3847,7 +3847,7 @@
       "frozen_reason": null,
       "pid": 90817,
       "rss_gb": 0.21,
-      "cpu": 0.9,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4248,7 +4248,7 @@
       "frozen_reason": null,
       "pid": 2563,
       "rss_gb": 0.38,
-      "cpu": 0.9,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
