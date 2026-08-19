@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-19 20:28:50 IST",
-  "generated_epoch": 1787151530,
+  "generated_ist": "2026-08-19 20:33:58 IST",
+  "generated_epoch": 1787151838,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "12.27 / 12.35 / 12.70",
+    "load": "12.93 / 12.96 / 12.88",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 90689,
-      "rss_gb": 1.47,
-      "cpu": 0.3,
+      "rss_gb": 1.49,
+      "cpu": 0.7,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787151629950,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787151029916,
+          "last_ts": 1787151629949,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +682,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787151029916,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787151029916,
+          "last_ts": 1787151629948,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,7 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[17:30 IST] HADERACH: Found the correct job id \u2014 `424a19c5-3edd-45c7-bdd1-4eb3a5b3e706`. Let's inspect it and its runs.",
           "[17:30 IST] HADERACH: Confirmed root cause on Avalora(Ashwin) \u2014 this is the known \"Cron File-Edit Rule\" failure mode: an isolated cron run tried to use the `edit` tool on a file, and long-context isolated cron runs get memory-mismatch failures with `apply_patch`/`edit`. The cron prompt doesn't ban those tools explicitly, so the agent picked `edit` and it failed. Let's check runs history and the CA-SMEDA issue in parallel.",
           "[17:30 IST] HADERACH: Confirmed \u2014 this is a recurring intermittent pattern (errored Aug 15, 16, 19; ok Aug 17, 18), exactly matching Haderach's own documented \"Cron File-Edit Rule\" dead end: isolated cron runs where the agent is free to choose `edit`/`apply_patch` on a file periodically fail due to remembered-content mismatch in long-context isolated runs. Now checking CA-SMEDA-I.",
           "[17:31 IST] HADERACH: Let's dig into why this cron broke around mid-August after working reliably through July. Checking disk space, Python environment, and exec/process health.",
@@ -1548,7 +1547,8 @@
           "--- [TRANSCRIPT GAP: 19:10 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 20:30 IST \u2014 session empty for 140 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[17:09 IST] HADERACH: A few options, Ram \u2014 pick whichever register suits the release:",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 6940,
-      "rss_gb": 0.52,
-      "cpu": 0.7,
+      "rss_gb": 0.53,
+      "cpu": 1.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2366,8 +2366,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 98736,
-      "rss_gb": 0.52,
-      "cpu": 1.2,
+      "rss_gb": 0.53,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2541,19 +2541,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1787149814841,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787151608924,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1787149814840,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1787149814841,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2606,9 +2606,6 @@
       ],
       "transcripts": {
         "recent": [
-          "> 9 months of AOP, 3 months of SOP\u2026",
-          "> 365 days a year, and every single one of them is an **Oops**. \ud83e\udd23",
-          "**Or lean into the corporate-speak angle:**",
           "> Ankit's job title should just be \"Chief Op-erating Officer\" \u2014 9 months AOP, 3 months SOP, 12 months of pure Oops. \ud83e\udd23",
           "**Tightest one-liner (if you want it snappier for a chat):**",
           "> Ankit doesn't work \u2014 he just Op's. AOP, SOP, and 365 days of stra...",
@@ -2645,7 +2642,10 @@
           "[20:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[19:55 IST] PURL: Let me check the heartbeat state file:",
           "[19:55 IST] PURL: Now let me update today's memory and run checks:",
-          "[19:55 IST] PURL: Let me update the heartbeat state and memory:"
+          "[19:55 IST] PURL: Let me update the heartbeat state and memory:",
+          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
+          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[20:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now."
         ],
         "yesterday": [
           "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 2837,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3817,7 +3817,7 @@
       "frozen_reason": null,
       "pid": 90911,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4247,7 +4247,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2563,
-      "rss_gb": 0.38,
+      "rss_gb": 0.39,
       "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
