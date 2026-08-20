@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-20 21:27:40 IST",
-  "generated_epoch": 1787241460,
+  "generated_ist": "2026-08-20 21:32:47 IST",
+  "generated_epoch": 1787241767,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.56 / 5.39 / 5.75",
+    "load": "5.08 / 5.05 / 5.46",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 0.96,
-      "cpu": 0.8,
+      "rss_gb": 0.97,
+      "cpu": 1.5,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787241030926,
+          "last_ts": 1787241630970,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787241030925,
+          "last_ts": 1787241630969,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787241030925,
+          "last_ts": 1787241630969,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,19 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 16:23 IST \u2014 session empty for 180 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 16:44 IST \u2014 session empty for 200 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 220 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:23 IST \u2014 session empty for 240 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:44 IST \u2014 session empty for 261 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:04 IST \u2014 session empty for 280 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 297 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:31 IST \u2014 session empty for 308 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:50 IST \u2014 session empty for 327 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:00 IST \u2014 session empty for 337 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 357 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 377 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[20:26 IST] RAM: In India what is the personal taxation for liquid schemes of mutual funds",
           "[20:27 IST] HADERACH: Here's the current position for FY 2026-27 (AY 2027-28), no changes in Budget 2026:",
           "<b>Liquid funds are \"Specified Mutual Funds\"</b> under Section 76 of the Income-tax Act, 2025 (the successor provision to the old Section 50AA) \u2014 funds investing more than 65% in debt/money-market instruments. Liquid funds (91-day paper, T-bills, CPs, CDs) sit comfortably inside that definition.",
           "<b>Units acquired on or after 1 April 2023</b> (the vast majority of anyone's current holdings by now):",
@@ -1548,7 +1535,20 @@
           "[20:59 IST] HADERACH: Good \u2014 building the actual test now rather than another design doc. Let me run the graph side and the",
           "[21:07 IST] RAM: ?",
           "[21:07 IST] HADERACH: Apologies for that dropout, Ram \u2014 nothing was actually executed yet, so no cleanup needed. Let me build and run the probe test now, properly this time.",
-          "[21:17 IST] RAM: ?"
+          "[21:17 IST] RAM: ?",
+          "[21:23 IST] HADERACH: Test's built and run. Straight result, Ram \u2014 not the comfortable one:",
+          "<b>The graph loses, 15/16 to 7/16, against plain flat search.</b>",
+          "I ran 8 probes (things I \"should already know\") through both `memory_search` (flat) and `graph_query.py` (GEN-002), scored 0/1/2 each on correctness. Two distinct failure modes, not one:",
+          "<b>1. Coverage gap \u2014 the graph is structurally blind to anything outside its hand-coded entity dictionary.</b> Kubera and Herbie aren't in its PEOPLE/ORGS lists (only Samm...",
+          "[21:23 IST] HADERACH: Test's built and run. Straight result, Ram \u2014 not the comfortable one:",
+          "<b>The graph loses, 15/16 to 7/16, against plain flat search.</b>",
+          "I ran 8 probes (things I \"should already know\") through both `memory_search` (flat) and `graph_query.py` (GEN-002), scored 0/1/2 each on correctness. Two distinct failure modes, not one:",
+          "<b>1. Coverage gap \u2014 the graph is structurally blind to anything outside its hand-coded entity dictionary.</b> Kubera and Herbie aren't in its PEOPLE/ORGS lists (only Samm...",
+          "[21:28 IST] RAM: So we are worse off than earlier?",
+          "[21:28 IST] HADERACH: No, Ram \u2014 not worse off. Let me be precise about what actually changed versus what didn't.",
+          "<b>Nothing was removed or degraded.</b> `memory_search` (flat) is exactly what it always was \u2014 same tool, same corpus, same behaviour. I used it to answer your first HAD-054 question tonight, and it worked fine, same as it always has. GEN-002 sits alongside it as an additional, optional lookup path. It was never wired in as a replacement, so its underperformance doesn't cost you anything on the retriev...",
+          "[21:28 IST] HADERACH: No, Ram \u2014 not worse off. Let me be precise about what actually changed versus what didn't.",
+          "<b>Nothing was removed or degraded.</b> `memory_search` (flat) is exactly what it always was \u2014 same tool, same corpus, same behaviour. I used it to answer your first HAD-054 question tonight, and it worked fine, same as it always has. GEN-002 sits alongside it as an additional, optional lookup path. It was never wired in as a replacement, so its underperformance doesn't cost you anything on the retriev..."
         ],
         "yesterday": [
           "[23:17 IST] HADERACH: Ram, I've been through both the primary exchange-filing trail (BSE/NSE + Sammaan's own downloads mirror) and today's press coverage. Yes \u2014 SCL has made repeated formal exchange disclosures on the PIL, going back to 2024. Here's the chronology with links where I hold the primary document:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 887,
       "rss_gb": 0.57,
-      "cpu": 0.9,
+      "cpu": 5.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2373,7 +2373,7 @@
       "frozen_reason": null,
       "pid": 870,
       "rss_gb": 0.52,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2547,6 +2547,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787241607327,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2569,15 +2578,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1787239816587,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1787239816586,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2612,9 +2612,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[14:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[15:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[15:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
@@ -2651,7 +2648,10 @@
           "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you."
+          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed. No new messages across any tracked sessions. All logs current.",
+          "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now."
         ],
         "yesterday": [
           "**Tightest one-liner (if you want it snappier for a chat):**",
@@ -3660,7 +3660,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.4,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4252,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.46,
-      "cpu": 1.0,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
