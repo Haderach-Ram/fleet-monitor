@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-20 21:07:04 IST",
-  "generated_epoch": 1787240224,
+  "generated_ist": "2026-08-20 21:12:15 IST",
+  "generated_epoch": 1787240535,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.86 / 6.68 / 6.20",
+    "load": "9.34 / 7.06 / 6.40",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 0.98,
-      "cpu": 1.4,
+      "rss_gb": 1.03,
+      "cpu": 1.3,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787240431308,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787240431307,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787240431307,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -688,37 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787240035923,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787240035923,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1787240035922,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787240035921,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,8 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 15:24 IST \u2014 session empty for 120 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 15:44 IST \u2014 session empty for 140 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 16:03 IST \u2014 session empty for 159 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 16:23 IST \u2014 session empty for 180 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 16:44 IST \u2014 session empty for 200 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1548,7 +1546,9 @@
           "[20:57 IST] HADERACH: Fair challenge, Ram \u2014 and no, I hadn't actually done that check. Let me give you the honest state rather than a comfortable one.",
           "<b>Is the pipeline \"working\"?</b> Mechanically, yes. GEN-002 (which absorbed HAD-048) runs on a weekly Sunday 04:00 IST cron, read-only over MEMORY.md/decisions.md/tech.md/people.md/projects.md/dead-ends.md. Latest run (16 Aug): 204 nodes, 3,777 edges. `graph_query.py` works for ad-hoc lookups (tested live on \"Gagan Banga\" \u2192 correctly surfaced SCL/RBI/HAD-032/SFL/y...",
           "[20:59 IST] RAM: Ok. Do it",
-          "[20:59 IST] HADERACH: Good \u2014 building the actual test now rather than another design doc. Let me run the graph side and the"
+          "[20:59 IST] HADERACH: Good \u2014 building the actual test now rather than another design doc. Let me run the graph side and the",
+          "[21:07 IST] RAM: ?",
+          "[21:07 IST] HADERACH: Apologies for that dropout, Ram \u2014 nothing was actually executed yet, so no cleanup needed. Let me build and run the probe test now, properly this time."
         ],
         "yesterday": [
           "[23:17 IST] HADERACH: Ram, I've been through both the primary exchange-filing trail (BSE/NSE + Sammaan's own downloads mirror) and today's press coverage. Yes \u2014 SCL has made repeated formal exchange disclosures on the PIL, going back to 2024. Here's the chronology with links where I hold the primary document:",
@@ -1690,7 +1690,7 @@
       "frozen_reason": null,
       "pid": 887,
       "rss_gb": 0.57,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2373,7 +2373,7 @@
       "frozen_reason": null,
       "pid": 870,
       "rss_gb": 0.52,
-      "cpu": 0.9,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3660,7 +3660,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.4,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,8 +4251,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.46,
-      "cpu": 1.1,
+      "rss_gb": 0.45,
+      "cpu": 1.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
