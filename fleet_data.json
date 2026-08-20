@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-20 23:56:09 IST",
-  "generated_epoch": 1787250369,
+  "generated_ist": "2026-08-21 00:01:16 IST",
+  "generated_epoch": 1787250676,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.25 / 5.64 / 5.33",
+    "load": "5.41 / 5.30 / 5.23",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 0.98,
-      "cpu": 0.6,
+      "rss_gb": 0.99,
+      "cpu": 2.0,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.55,
-      "cpu": 0.3,
+      "rss_gb": 0.61,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1715,6 +1715,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1787250619243,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1787250619243,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1737,15 +1755,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1787247311088,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1787239807135,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1782,15 +1791,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1787178620731,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1787175019433,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1834,6 +1834,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-08-21",
+          "# Self-healing rotation from transcript-2026-08-20.md at 00:00 IST"
+        ],
+        "yesterday": [
           "# Transcript - 2026-08-20",
           "# Self-healing rotation from transcript-2026-08-19.md at 00:00 IST",
           "[09:45 IST] [DM] Giskard: Let me look at the raw range around line 48741 for the specific Medical SMEDA subagent failure detail.",
@@ -1842,37 +1846,6 @@
           "**Root cause: transient Bedrock DNS failure, fleet-wide, not Purl-specific.**",
           "- `getaddrinfo ENOTFOUND bedrock-runtime.us-east-1.amazonaws.com` \u2014 this is DNS resolution failing, not an auth/model-ID rejection. Not \"stuck pending request\" as such \u2014 clean DNS failure, immediate.",
           "- Window: ~21"
-        ],
-        "yesterday": [
-          "# Transcript - 2026-08-19",
-          "# Self-healing rotation from transcript-2026-08-18.md at 00:00 IST",
-          "[13:17 IST] [DM] Giskard: Good, everything checks out. AWS default profile exists, config structure is clear. Now let me execute the standard procedure.",
-          "**Step 1 \u2014 Backup**",
-          "[13:17 IST] [DM] Giskard: **Step 2 \u2014 Targeted merge edit** (preserving existing keys, adding new ones)",
-          "[13:18 IST] [DM] Giskard: Merge applied correctly \u2014 existing entries preserved (opus-4-8, bare haiku-4-5 kept), no clobbering. Now validate.",
-          "**Step 3 \u2014 Validate**",
-          "[13:18 IST] [DM] Giskard: Env var override is taking priority over `--profile`. Let me override explicitly.",
-          "[13:18 IST] [DM] Giskard: Config valid \u2014 the only warning is expected (plugin not yet installed; Ram said he'd handle that step himself via CLI).",
-          "**Step 4 \u2014 Restart Purl**",
-          "[13:18 IST] [DM] Giskard: Purl responded HTTP 200 after restart \u2014 it's up.",
-          "[13:18 IST] [DM] Giskard: Restart succeeded \u2014 gateway is ready, agent model correctly picked up as `amazon-bedrock/global.anthropic.claude-sonnet-5`, all channels started. No errors beyond the expected plugin-not-installed warning.",
-          "**Step 5 \u2014 Copy snapshot**",
-          "[13:19 IST] [DM] Giskard: Purl's config updated. Report:",
-          "**Diagnosis:** N/A \u2014 this was a planned config change, not a fault.",
-          "**Applied:**",
-          "1. Backup: `openclaw.json.bak-20260819-131757`",
-          "2. Merged (not overwritten) \u2014 preserved Purl's existing plugin entries, existing bedrock models (opus-4-8, bare haiku-4-5), and other blocks:",
-          "   - `plugins.entries.amazon-bedrock.enabled = true`",
-          "   - `auth.profiles[\"amazon-bedrock:default\"]` = aws-sdk mode",
-          "   - `models.providers.amazon-bedrock.models[]` \u2014 added dated Haiku ID (`...202510",
-          "[13:19 IST] [DM] Giskard: Purl's config updated. Report:",
-          "**Diagnosis:** N/A \u2014 this was a planned config change, not a fault.",
-          "**Applied:**",
-          "1. Backup: `openclaw.json.bak-20260819-131757`",
-          "2. Merged (not overwritten) \u2014 preserved Purl's existing plugin entries, existing bedrock models (opus-4-8, bare haiku-4-5), and other blocks:",
-          "   - `plugins.entries.amazon-bedrock.enabled = true`",
-          "   - `auth.profiles[\"amazon-bedrock:default\"]` = aws-sdk mode",
-          "   - `models.providers.amazon-bedrock.models[]` \u2014 added dated Haiku ID (`...202510"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-07-14 \u2014 no new content] ---",
@@ -2373,7 +2346,7 @@
       "frozen_reason": null,
       "pid": 870,
       "rss_gb": 0.52,
-      "cpu": 1.6,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3851,7 +3824,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4225,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.43,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
