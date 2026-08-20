@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-20 12:29:22 IST",
-  "generated_epoch": 1787209162,
+  "generated_ist": "2026-08-20 12:34:29 IST",
+  "generated_epoch": 1787209469,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.93 / 5.94 / 5.78",
+    "load": "6.12 / 5.47 / 5.56",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.01,
-      "cpu": 1.5,
+      "rss_gb": 0.83,
+      "cpu": 1.1,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787208893670,
+          "last_ts": 1787209228724,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787208893669,
+          "last_ts": 1787209228723,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787209228723,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -683,15 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1787208893669,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787208893668,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1509,15 +1509,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Draft message for Giskard:</b>",
-          "---",
-          "Giskard \u2014 two items from this morning's fleet monitor report need action on your side (I can't dispatch cross-gateway from Haderach to trigger or fix these):",
-          "<b>1. Purl \u2014 nightly consolidation broken, 4 nights running</b>",
-          "Purl's \"Nightly Memory Consolidation (22:00 IST)\" cron has failed 4 consecutive nights with:",
-          "<code>FallbackSummaryError: All models failed (2): amazon...",
-          "[09:43 IST] RAM: What is this and what is presently on your reading list?",
-          "[09:43 IST] HADERACH: Let me check the current state of those two force-runs, and pull the reading list.",
-          "[09:43 IST] HADERACH: Two things here \u2014 the backfill status, and the reading list.",
           "<b>Backfill results (the message you're replying to)</b>",
           "Of the four I force-ran, two succeeded and two failed with a new, different error:",
           "<ul><li>\u2705 <b>Chet Transcript &amp; Memory Consolidation</b> \u2014 completed clean</li><li>\u2705 <b>Group Consolidation v2</b> \u2014 completed clean</li><li>\u274c <b>Monk Memory Consolidation</b> \u2014 failed: \"isolated agent setup timed out before runner start\"</li><li>\u274c <b>HAD-003 Reading</b> \u2014 same error</li><...",
@@ -1548,7 +1539,16 @@
           "--- [TRANSCRIPT GAP: 11:22 IST \u2014 session empty for 58 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 11:44 IST \u2014 session empty for 80 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 12:03 IST \u2014 session empty for 99 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 12:24 IST \u2014 session empty for 120 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 12:24 IST \u2014 session empty for 120 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
+          "[12:29 IST] RAM: Where is the \u2018Gagan mentions\u2019 bit from?",
+          "[12:29 IST] HADERACH: That \"Gagan Banga mentions\" line comes from Step 2 of the <b>SCL Media Monitor \u2014 Every 3h</b> cron job (job ID <code>c8b384e8</code>, runs every 3 hours via TwitAcc on isolated sessions).",
+          "The job's payload runs two separate Twitter searches:",
+          "<ol><li><code>\"Sammaan Capital OR SammaanCapital OR SCL NBFC\"</code> \u2014 the company search</li><li><code>\"Gagan Banga\"</code> \u2014 a dedicated second search, specifically for mentions of Gagan by name</li></ol>",
+          "The instruction to the isolated agent is: only...",
+          "[12:29 IST] HADERACH: That \"Gagan Banga mentions\" line comes from Step 2 of the <b>SCL Media Monitor \u2014 Every 3h</b> cron job (job ID <code>c8b384e8</code>, runs every 3 hours via TwitAcc on isolated sessions).",
+          "The job's payload runs two separate Twitter searches:",
+          "<ol><li><code>\"Sammaan Capital OR SammaanCapital OR SCL NBFC\"</code> \u2014 the company search</li><li><code>\"Gagan Banga\"</code> \u2014 a dedicated second search, specifically for mentions of Gagan by name</li></ol>",
+          "The instruction to the isolated agent is: only..."
         ],
         "yesterday": [
           "[23:17 IST] HADERACH: Ram, I've been through both the primary exchange-filing trail (BSE/NSE + Sammaan's own downloads mirror) and today's press coverage. Yes \u2014 SCL has made repeated formal exchange disclosures on the PIL, going back to 2024. Here's the chronology with links where I hold the primary document:",
@@ -1689,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.56,
-      "cpu": 0.7,
+      "rss_gb": 0.57,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2373,7 +2373,7 @@
       "frozen_reason": null,
       "pid": 870,
       "rss_gb": 0.49,
-      "cpu": 0.3,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2547,6 +2547,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787209207495,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2568,15 +2577,6 @@
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1787207413558,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
           "last_ts": 1787207413558,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2612,9 +2612,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
-          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
           "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
           "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. All transcript files checked \u2014 no new messages to process across all sessions (Klub K, Gari, main). No bookmarks updated. Silent maintenance task confirmed.",
           "[06:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
@@ -2651,7 +2648,10 @@
           "[12:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now."
+          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: **Task complete.** Script ran successfully. No new messages in any transcript sessions; all sessions processed cleanly. Bookmarks remain unchanged.",
+          "[12:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now..."
         ],
         "yesterday": [
           "**Tightest one-liner (if you want it snappier for a chat):**",
@@ -3660,7 +3660,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.4,
-      "cpu": 0.1,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.5,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,8 +4251,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.42,
-      "cpu": 0.6,
+      "rss_gb": 0.43,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
