@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-24 15:42:16 IST",
-  "generated_epoch": 1787566336,
+  "generated_ist": "2026-08-24 15:47:24 IST",
+  "generated_epoch": 1787566644,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.38 / 3.43 / 3.33",
+    "load": "3.71 / 3.99 / 3.64",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 866,
       "rss_gb": 1.23,
-      "cpu": 2.5,
+      "cpu": 3.0,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -664,7 +664,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787565629055,
+          "last_ts": 1787566490281,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1787566490281,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +682,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787565629055,
+          "last_ts": 1787566490281,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787565629054,
+          "last_ts": 1787566490280,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1787565394240,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1787565283742,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,9 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "Once you pick, I'll dig up exactly what file we were on and where it stood.",
           "[14:59 IST] HADERACH: **Session mode?**",
           "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
           "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
@@ -1557,7 +1554,10 @@
           "<b>New sheet added: \"Full Board Rosters\"</b> \u2014 full board of directors for all 20 companies, 190 director rows total, in your requested format: Company | Name | Position | Category, with the company name merged across its own block of directors.",
           "A few things worth flagging while I was in there:",
           "<ul>",
-          "<li><b>Shriram Finance</b> \u2014 the sourced data actually named <b>Jugal Kishore Mohapatra</b> as Chairman and <b>Parag Sharma</b> as MD&CE..."
+          "<li><b>Shriram Finance</b> \u2014 the sourced data actually named <b>Jugal Kishore Mohapatra</b> as Chairman and <b>Parag Sharma</b> as MD&CE...",
+          "[15:39 IST] RAM: You made this file in the last session. Your main sheet and board of directors sheet does not match for a few. Shriram Finance has 12 directors. Check this file thoroughly. Check board of directors from company websites.",
+          "[15:43 IST] HADERACH: I've found several concrete discrepancies already (Shriram Finance is the big one you flagged, plus a few others). Let me verify the remaining companies in parallel via subagents to keep this efficient, then rebuild the corrected file.",
+          "[15:44 IST] HADERACH: Found a major structural error too: the roster for row 19 pulled Piramal Enterprises Ltd's board (the listed parent) instead of Piramal Capital & Housing Finance Ltd (the actual NBFC-UL entity in the summary row) \u2014 different companies entirely. Let me verify the remaining companies via subagents."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 10:23 IST \u2014 session empty for 154 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 887,
       "rss_gb": 0.55,
-      "cpu": 0.5,
+      "cpu": 1.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2366,7 +2366,7 @@
       "frozen_reason": null,
       "pid": 99930,
       "rss_gb": 0.55,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3653,7 +3653,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.39,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3850,7 +3850,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,7 +4251,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.46,
-      "cpu": 0.4,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
