@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-24 23:02:08 IST",
-  "generated_epoch": 1787592728,
+  "generated_ist": "2026-08-24 23:07:14 IST",
+  "generated_epoch": 1787593034,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.49 / 2.56 / 2.30",
+    "load": "1.93 / 2.07 / 2.14",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 866,
       "rss_gb": 1.23,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,37 +661,55 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1787592372282,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787592967239,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787592031186,
+          "sched": "0 23 * * *",
+          "last_ts": 1787592967239,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787592031186,
+          "last_ts": 1787592967239,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript & Memory Consolidation",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1787592967238,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787592031185,
+          "last_ts": 1787592967238,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1787592372282,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1034,24 +1052,6 @@
           "enabled": true,
           "sched": "3 23 * * *",
           "last_ts": 1787506533412,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1787506397946,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript & Memory Consolidation",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1787506397944,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1518,7 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:09 IST] HADERACH: Under RBI's Scale Based Regulation (SBR) framework, there are actually <b>four</b> layers, not three \u2014 though the fourth (Top Layer) is designed to stay empty, which is probably why it gets colloquially dropped and people refer to \"the three layers.\" Here's the full picture, and where Jio fits.",
           "<b>The Four NBFC Layers (RBI Scale Based Regulation, 2025 Directions)</b>",
           "<table>",
           "<tr><th>Layer</th><th>Who's in it</th></tr>",
@@ -1557,7 +1556,8 @@
           "<b>What I found:</b> The SSH path to M2 is blocked, but not by anything on the M2 side or by the Bedrock issue itself \u2014 <b>Tailscale on this Mac mini (Haderach's own M4) is logged out.</b> That's a local auth/session issue on this machine, unrelated to what CAIO reported.",
           "I tried `tailscale up` to restore it, but it needs a one-time browser re-authentication (it gave me a login link), and I couldn'...",
           "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 93 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 10:23 IST \u2014 session empty for 154 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1727,7 +1727,7 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
           "sched": "5 6-23 * * *",
-          "last_ts": 1787589311570,
+          "last_ts": 1787592910769,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -3657,7 +3657,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.36,
-      "cpu": 0.2,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3727,15 +3727,6 @@
           "Changed since yesterday: SCL fully static for a 4th day (homepage 42nd consecutive day); RBI turns fully static (all three items hold over unchanged, first no-change day for that track this week); AI Agent Ecosystem partially refreshes with MarkTechPost's NOOA re-entering, displacing 36kr's DeepSeek weekly-updates report, while Arcee NAC a..."
         ],
         "rolling_7day": [
-          "- Q2 temporal staleness now 84 days (worst yet, growing ~7 days/week); Q4 pre-computation correct but zero in-window hits (7th consecutive occurrence, indexing/scoring bug not date-math bug); Q1/Q3 recursion \u2014 self-audit outputs continue to out-compete primary source documents (6+ week stable failure mode); Q3 estimate revised to 40-45+ total tasks",
-          "- Flagged to Haderach: Q2/Q4 defect unfixed 8+ weeks; recommend excluding self-audit outputs from retrieval index or scheduling an engine fix for temporal windowing",
-          "- 68 heartbeat checkpoints (06:03-22:50 IST), all silent",
-          "- No [FACT:] tags in transcript; no domain file promotions required",
-          "- Nightly consolidation running 23:00 IST (this run)",
-          "## 2026-08-18 \u2014 Daily Brief Produced",
-          "- 08:31 IST: Daily Brief 2026-08-18 produced (news-brief-2026-08-18.md); pre-fetched Exa research data used; verified by read-back, 21 lines, no placeholders, first line matches format",
-          "- Changed since yesterday: SCL turns over after one static day (Financial Info page re-enters, homepage 37th day); RBI fully resets with new Business Standard + ToI stories; AI track partially refreshes as The Register's DeepSeek harness piece re-enters, displacing MarkTechPost's NOOA coverage",
-          "- 67 heartbeat checkpoints (08:31-22:50 IST), all silent",
           "- No [FACT:] tags in transcript; no domain file promotions required",
           "- Nightly consolidation running 23:00 IST (this run)",
           "## 2026-08-19 \u2014 Daily Brief Produced",
@@ -3765,6 +3756,15 @@
           "- 08:30 IST: Daily Brief 2026-08-23 produced (news-brief-2026-08-23.md); pre-fetched Exa research data used; verified by read-back, 21 lines, no placeholders, first line matches expected format",
           "- Changed since yesterday: SCL fully static for a 4th day (homepage 42nd consecutive day); RBI turns fully static (all three items hold over unchanged, first no-change day for that track this week); AI Agent Ecosystem partially refreshes with MarkTechPost's NOOA re-entering, displacing 36kr's DeepSeek weekly-updates report",
           "- ~90+ heartbeat checkpoints (08:31-22:50 IST), all silent",
+          "- No [FACT:] tags in transcript; no domain file promotions required",
+          "- Nightly consolidation running 23:00 IST (this run)",
+          "## 2026-08-24 \u2014 Daily Brief + Weekly Memory Self-Audit",
+          "- 08:31 IST: Daily Brief 2026-08-24 produced (news-brief-2026-08-24.md); pre-fetched Exa research data used; verified by read-back",
+          "- Changed since yesterday: SCL fully static for a 5th day (homepage now 43rd consecutive day, Bloomberg profile + Financial Info page unchanged); RBI fully static for a 2nd day (official press release, Business Standard external-benchmark-optional story, Vinod Kothari FAQ PDF all repeat); AI Agent Ecosystem partially refreshes (TechCrunch's Nvidia harness-not-model piece enters fresh, displacing Arcee AI's NAC; InfoQ Harness-GA + MarkTechPost NOOA hold over)",
+          "- Weekly Memory Self-Audit (self-audit-2026-08-24.md): 1/5 correct (Q5), 2/5 partial (Q1, Q3), 2/5 failed (Q2, Q4) \u2014 identical distribution to every audit since 2026-06-29 (9 consecutive weeks now)",
+          "- Q2 temporal staleness now 91 days (worst yet, +7 from last week); Q4 pre-computation correct window but zero in-window hits (9th consecutive occurrence, indexing/scoring bug); Q1/Q3 recursion \u2014 self-audit outputs continue to out-compete primary source documents; Q3 estimate revised to 50-55+ total tasks",
+          "- Flagged to Haderach: Q2/Q4 defect unfixed 9+ weeks; recommend excluding self-audit outputs from retrieval index or scheduling an engine fix for temporal windowing",
+          "- 71 heartbeat checkpoints (06:03-22:50 IST approx), all silent",
           "- No [FACT:] tags in transcript; no domain file promotions required",
           "- Nightly consolidation running 23:00 IST (this run)"
         ],
@@ -3824,7 +3824,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3854,7 +3854,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4255,7 +4255,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.46,
-      "cpu": 0.6,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
