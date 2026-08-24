@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-24 07:00:07 IST",
-  "generated_epoch": 1787535007,
+  "generated_ist": "2026-08-24 07:05:14 IST",
+  "generated_epoch": 1787535314,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.94 / 7.08 / 6.98",
+    "load": "8.12 / 7.71 / 7.28",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.38,
-      "cpu": 0.4,
+      "rss_gb": 1.3,
+      "cpu": 0.3,
       "crons_total": 94,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787534426684,
+          "sched": "0 * * * *",
+          "last_ts": 1787535086022,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,25 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787534426683,
+          "last_ts": 1787535075096,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Daily AWS Bedrock Cost Report \u2014 7am IST",
+          "enabled": true,
+          "sched": "0 7 * * *",
+          "last_ts": 1787535075096,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787535075096,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +700,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787534426683,
+          "last_ts": 1787535075095,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -710,15 +728,6 @@
           "enabled": true,
           "sched": "2 6-23/10 * * *",
           "last_ts": 1787531805868,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1787531805865,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -980,15 +989,6 @@
           "enabled": true,
           "sched": "30 7 * * *",
           "last_ts": 1787450437323,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Daily AWS Bedrock Cost Report \u2014 7am IST",
-          "enabled": true,
-          "sched": "0 7 * * *",
-          "last_ts": 1787448684774,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1533,7 +1533,22 @@
           "[06:47 IST] HADERACH: Checked. Two things going on:",
           "<b>1. The alert's \"&gt;48h\" figure is misleading</b> \u2014 heartbeat-state.json shows <code>lastMemoryWrite = 2026-08-23T13:03 IST</code>, which is only ~17.5 hours before the 06:05 IST snapshot, not &gt;48h. The fleet monitor is likely mis-measuring this (possibly scanning only today's freshly-rotated transcript file, which naturally has zero bookmarks yet, and defaulting to a large placeholder instead of checking the prior day's file or the state JSON).",
           "<b>2. But...",
-          "[06:49 IST] RAM: Check pls. This is a surprising failure!"
+          "[06:49 IST] RAM: Check pls. This is a surprising failure!",
+          "[06:50 IST] HADERACH: Dug into this properly \u2014 found two distinct real bugs, not one. Here's the full picture:",
+          "<b>Bug 1 \u2014 the 23:00 consolidation job never updates heartbeat-state.json (structural gap)</b>",
+          "Comparing the two cron job prompts directly:",
+          "\u2022 <b>13:00 IST job</b> has an explicit <b>Step 8b \u2014 \"MANDATORY, ALWAYS RUN\"</b>: update <code>heartbeat-state.json</code>'s <code>lastConsolidation</code>/<code>lastMemoryWrite</code> to now, even on the NO_REPLY/empty-tail path. Its own prompt text literally says: ...",
+          "[06:55 IST] RAM: ?",
+          "[06:57 IST] HADERACH: Apologies \u2014 that reply cut off mid-stream. Here's the complete picture, now with both job configs verified directly.",
+          "<b>Confirmed: two distinct real bugs</b>",
+          "<b>Bug 1 \u2014 23:00 job never touches heartbeat-state.json (structural, has existed since job creation)</b>",
+          "Pulled both job prompts side by side:",
+          "\u2022 13:00 job has an explicit <b>Step 8b, \"MANDATORY, ALWAYS RUN (even on NO_REPLY / empty-tail path)\"</b>, which updates <code>lastConsolidation</code>/<code>lastMemoryWrite</code> in heartbeat-s...",
+          "[06:58 IST] HADERACH: Apologies \u2014 that reply cut off mid-stream. Here's the complete picture, now with both job configs verified directly.",
+          "<b>Confirmed: two distinct real bugs</b>",
+          "<b>Bug 1 \u2014 23:00 job never touches heartbeat-state.json (structural, has existed since job creation)</b>",
+          "Pulled both job prompts side by side:",
+          "\u2022 13:00 job has an explicit <b>Step 8b, \"MANDATORY, ALWAYS RUN (even on NO_REPLY / empty-tail path)\"</b>, which updates <code>lastConsolidation</code>/<code>lastMemoryWrite</code> in heartbeat-s..."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 10:23 IST \u2014 session empty for 154 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1674,8 +1689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.55,
-      "cpu": 1.6,
+      "rss_gb": 0.57,
+      "cpu": 17.2,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2324,8 +2339,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 870,
-      "rss_gb": 0.58,
-      "cpu": 55.4,
+      "rss_gb": 0.52,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2499,10 +2514,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1787535012163,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1787533209119,
+          "last_ts": 1787535012162,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2521,15 +2545,6 @@
           "enabled": true,
           "sched": "4 */3 * * *",
           "last_ts": 1787531657719,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1787531418307,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -3610,8 +3625,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 869,
-      "rss_gb": 0.39,
-      "cpu": 0.4,
+      "rss_gb": 0.38,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3752,7 +3767,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3782,7 +3797,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4182,8 +4197,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.43,
-      "cpu": 0.6,
+      "rss_gb": 0.52,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
