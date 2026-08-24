@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-24 13:28:45 IST",
-  "generated_epoch": 1787558325,
+  "generated_ist": "2026-08-24 13:33:53 IST",
+  "generated_epoch": 1787558633,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.93 / 2.09 / 2.15",
+    "load": "2.61 / 2.33 / 2.25",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.15,
-      "cpu": 0.3,
+      "rss_gb": 1.19,
+      "cpu": 1.0,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787558424792,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787558424791,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787558424791,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,37 +697,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787558059519,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1787558059519,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787558059519,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787558059518,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,7 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "type: subagent task",
           "task: Research board composition and standalone balance sheet size for these 4 NBFCs/HFCs, using their LATEST available Annual Report (FY2024-25, o...",
           "[12:50 IST] HADERACH: All five subagent batches crashed the same way (hit the output-length ceiling mid-research, never wrote a final table) \u2014 a systemic issue, not something a retry with the same approach will fix. I do have substantial raw data sitting in the tool-call results though. Let me pull the last two batches' histories, then synthesize everything myself directly rather than re-spawning subagents.",
           "[12:54 IST] HADERACH: Let me check the status of all dispatched subagents, since two batches already crashed silently.",
@@ -1557,7 +1556,8 @@
           "Names of executive directors (with their executive position MD/CEO etc)",
           "Ensure all the AAA, AA+ and Up...",
           "[13:21 IST] HADERACH: Found the working files. Let me check progress saved so far.",
-          "[13:22 IST] HADERACH: I have the working files with 8 companies already researched. Let me continue the research directly for the remaining companies, batching web searches efficiently."
+          "[13:22 IST] HADERACH: I have the working files with 8 companies already researched. Let me continue the research directly for the remaining companies, batching web searches efficiently.",
+          "[13:29 IST] HADERACH: No prior NBFC-UL layer data captured. Let me search for the latest RBI list."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 10:23 IST \u2014 session empty for 154 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 887,
       "rss_gb": 0.58,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2365,8 +2365,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.53,
-      "cpu": 0.8,
+      "rss_gb": 0.54,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2540,19 +2540,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1787556612525,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787558407424,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1787556612524,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1787556612525,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2605,8 +2605,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[10:38 IST] DM_USER: Pls send here",
           "[10:38 IST] PURL: Here you go, Gari \ud83e\uddf6",
           "MEDIA:/Users/ram_macmini/.openclaw-purl/media/inbound/Tracker_Pilot---e9e10bb9-2f57-4556-a8fd-2cec4a7627ec.xlsx",
           "[10:48 IST] GROUP-Ram: @Purl_Garima_Bot from H:",
@@ -2644,7 +2642,9 @@
           "- **Group rolling summaries:** Up to date",
           "All sessions processed. No updates needed.",
           "[12:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[13:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
+          "[13:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
+          "[13:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[13:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
         ],
         "yesterday": [
           "[17:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
@@ -3653,7 +3653,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.39,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3850,7 +3850,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,7 +4251,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.43,
-      "cpu": 0.9,
+      "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
