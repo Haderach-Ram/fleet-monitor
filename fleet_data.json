@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-25 13:20:40 IST",
-  "generated_epoch": 1787644240,
+  "generated_ist": "2026-08-25 13:25:46 IST",
+  "generated_epoch": 1787644546,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.63 / 2.71 / 2.84",
+    "load": "3.07 / 2.85 / 2.85",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.28,
-      "cpu": 0.4,
+      "rss_gb": 1.33,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1787643638590,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787644494636,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787643638590,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787643638589,
+          "last_ts": 1787644494636,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787643638589,
+          "last_ts": 1787644494635,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1787644494635,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
+          "last_ts": 1787643638590,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "last_ts": 1787643353405,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1787643353404,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1518,12 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "</ul>",
-          "So Tailscale and SSH to the M2 are both solid. Separately: the iPhone node, Mac mini node pairing, and WhatsApp link are still not connected in OpenClaw...",
-          "[12:23 IST] RAM: SSH into the M2 and check this pls:",
-          "**Issue: Intermittent tool/model-call failures on Bedrock Sonnet-5, M2 fleet (24 Aug 2026, ~14:20\u201314:56 IST)**",
-          "**Symptom:** Two agents on the M2 fleet \u2014 Seneca (port 18814) and Agastya-CAIO (port 18800) \u2014 independently hit tool-execution failures within the same ~35-minute window while running normal user turns (no config change, no deploy, no restart preceding it).",
-          "**What actually failed:**",
           "1. **Seneca** \u2014 while answering an RBI/NBFC research query, pd...",
           "[12:23 IST] HADERACH: Good, timestamps are IST with offset. Now let me grep both logs for the specific window.",
           "[12:24 IST] HADERACH: Let me report findings \u2014 I have the actual gateway log evidence now.",
@@ -1557,7 +1551,13 @@
           "<b>1. Add web search + fetch provider to both `~/.openclaw-seneca/openclaw.json` and `~/.opencl...",
           "[13:07 IST] HADERACH: Good \u2014 these agents can already resolve any BWS secret by ID via `source: exec`, same pattern used fleet-wide (e.g. Chet's `openrouter/x-ai/grok-4.5` fallback). So Haderach's own Exa key works here too, no new secret needed.",
           "Here's the exact patch to make \u2014 for both Seneca and CAIO \u2014 with backup/validate/restart steps, per the Config Safety rule. Please relay this to Giskard (or run it yourself):",
-          "<b>1. Add web search + fetch provider to both `~/.openclaw-seneca/openclaw.json` and `~/.opencl..."
+          "<b>1. Add web search + fetch provider to both `~/.openclaw-seneca/openclaw.json` and `~/.opencl...",
+          "[13:10 IST] HADERACH: \u2705 **Consolidation OK**",
+          "The 13:00 consolidation ran successfully. `lastConsolidation` shows **2026-08-25T13:04:00+05:30** \u2014 completed at 13:04 IST today, just 6 minutes after the scheduled time.",
+          "No alert needed. Everything is healthy.",
+          "[13:11 IST] RAM: You please do this fix as an exception",
+          "[13:13 IST] HADERACH: I hear you, and I know that's frustrating given how close we are to a fix \u2014 but I have to hold this line even under an explicit exception request. This isn't a judgment call I get to waive myself: the Config Safety rule in AGENTS.md is written as an absolute (\"NEVER edit openclaw.json yourself. Ever... No exceptions\"), specifically because some tool paths render secrets as redacted placeholder text, and writing that back destroys the real value and crashes the gateway. There's no \"just this o...",
+          "[13:13 IST] HADERACH: I hear you, and I know that's frustrating given how close we are to a fix \u2014 but I have to hold this line even under an explicit exception request. This isn't a judgment call I get to waive myself: the Config Safety rule in AGENTS.md is written as an absolute (\"NEVER edit openclaw.json yourself. Ever... No exceptions\"), specifically because some tool paths render secrets as redacted placeholder text, and writing that back destroys the real value and crashes the gateway. There's no \"just this o..."
         ],
         "yesterday": [
           "<table>",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.61,
-      "cpu": 0.8,
+      "rss_gb": 0.55,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2370,7 +2370,7 @@
       "frozen_reason": null,
       "pid": 99930,
       "rss_gb": 0.57,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -4258,8 +4258,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.46,
-      "cpu": 0.6,
+      "rss_gb": 0.45,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
