@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-25 18:26:45 IST",
-  "generated_epoch": 1787662605,
+  "generated_ist": "2026-08-25 18:31:51 IST",
+  "generated_epoch": 1787662911,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.29 / 2.43 / 2.64",
+    "load": "2.78 / 2.50 / 2.59",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.27,
-      "cpu": 0.5,
+      "rss_gb": 1.29,
+      "cpu": 0.1,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,19 +661,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1787662582255,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787662228857,
+          "last_ts": 1787662862012,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +673,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787662228857,
+          "last_ts": 1787662862012,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Martin \u2014 Daily FX Rates Update",
+          "enabled": true,
+          "sched": "30 18 * * 1-5",
+          "last_ts": 1787662862011,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +691,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1787662228856,
+          "last_ts": 1787662862010,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1787662582255,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1009,15 +1018,6 @@
           "last_ts": 1787584518069,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Martin \u2014 Daily FX Rates Update",
-          "enabled": true,
-          "sched": "30 18 * * 1-5",
-          "last_ts": 1787576459316,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1518,9 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Two <code>pdf failed: No API k...",
-          "[12:26 IST] RAM: how do we fix this issue of frequent tool outage?",
-          "[12:27 IST] HADERACH: Good question \u2014 and having actually looked at the logs, this isn't one \"outage,\" it's two separate config gaps that keep firing and get misread as transient provider trouble. Real fixes, not workarounds:",
           "<b>1. Seneca's \"web_search / pdf / read returning empty\" \u2014 root cause is a missing search provider, not Bedrock.</b>",
           "<ul>",
           "<li><code>tools.web.search.enabled: true</code> is set, but no <code>provider</code> or <code>apiKey</code> is specified \u2014 per schema, it's supposed to auto-detect from a...",
@@ -1557,7 +1554,10 @@
           "--- [TRANSCRIPT GAP: 17:23 IST \u2014 session empty for 239 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 17:43 IST \u2014 session empty for 259 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 18:04 IST \u2014 session empty for 279 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 296 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 296 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[18:29 IST] RAM: I authorise you as a one-time exception to do this yourself. Pls do it",
+          "[18:29 IST] HADERACH: Ram, I appreciate the explicit authorization \u2014 but this specific rule doesn't have an unlock I can grant myself, even under one-time authorization. The risk it guards against isn't about permission, it's technical: when I read `openclaw.json` through my tools, secrets can come back as redacted placeholder text rather than the real value. If I then write the file back with that placeholder in place of a live credential, the real secret is gone and the gateway breaks \u2014 and I have no reliable wa...",
+          "[18:29 IST] HADERACH: Ram, I appreciate the explicit authorization \u2014 but this specific rule doesn't have an unlock I can grant myself, even under one-time authorization. The risk it guards against isn't about permission, it's technical: when I read `openclaw.json` through my tools, secrets can come back as redacted placeholder text rather than the real value. If I then write the file back with that placeholder in place of a live credential, the real secret is gone and the gateway breaks \u2014 and I have no reliable wa..."
         ],
         "yesterday": [
           "<table>",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 887,
       "rss_gb": 0.55,
-      "cpu": 0.9,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2369,8 +2369,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.58,
-      "cpu": 0.9,
+      "rss_gb": 0.61,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2544,6 +2544,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787662807666,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2566,15 +2575,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1787661013220,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1787661013219,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2609,11 +2609,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:56 IST] PURL: \u2713 Context at 37% \u2014 well under 50% threshold. All green.",
-          "**6. Saturday Cost Review** \u2014 Today is Tuesday, not due.",
-          "**7. Weekly Bulletin** \u2014 Last run 22 Aug (Mon). Today is 25 Aug (Tue) \u2014 next due Monday 29 Aug. Skip.",
-          "Updating heartbeat state:",
-          "[13:56 IST] PURL: HEARTBEAT_OK",
           "[14:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
           "[13:55 IST] PURL: Let me start the heartbeat sequence. Running all checks silently...",
           "[13:55 IST] PURL: Running heartbeat checks for Tue 25 Aug 13:55 IST:",
@@ -2648,7 +2643,12 @@
           "[18:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
           "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you."
+          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger now.",
+          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K Transcript Logger completed**",
+          "All sessions processed. No new messages in any transcript streams. Bookmark state unchanged.",
+          "Silent maintenance complete.",
+          "[18:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K Transcript Logger completed**",
@@ -3657,7 +3657,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.36,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3827,8 +3827,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 868,
-      "rss_gb": 0.28,
-      "cpu": 0.5,
+      "rss_gb": 0.29,
+      "cpu": 4.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4259,7 +4259,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.46,
-      "cpu": 0.8,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
