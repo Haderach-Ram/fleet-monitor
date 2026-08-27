@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-28 00:04:48 IST",
-  "generated_epoch": 1787855688,
+  "generated_ist": "2026-08-28 00:09:57 IST",
+  "generated_epoch": 1787855997,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.15 / 2.88 / 2.53",
+    "load": "2.04 / 2.34 / 2.39",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.37,
-      "cpu": 0.9,
+      "rss_gb": 1.4,
+      "cpu": 0.2,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,69 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1787855975277,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1787855779508,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1787855779508,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1787855779507,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1787855779507,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1787855779507,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1787855779506,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
@@ -715,15 +778,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1787854159698,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 23:10 IST",
           "enabled": true,
           "sched": "10 23 * * *",
@@ -751,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1787852342979,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -778,39 +823,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1787844902755,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1787844902754,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1787843676772,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1787841175272,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -967,15 +985,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1787780084262,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1000,15 +1009,6 @@
           "last_ts": 1787776471288,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1787769349436,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1518,6 +1518,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-28",
+          "# Self-healing rotation from transcript-2026-08-27.md at 00:06 IST"
+        ],
+        "yesterday": [
           "--- [TRANSCRIPT GAP: 19:10 IST \u2014 session empty for 167 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 177 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 197 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1559,56 +1563,7 @@
           "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 133 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "[23:09 IST] HADERACH: All 9 steps completed cleanly. Nightly Monk consolidation \u2014 no reply needed per NO_REPLY directive."
         ],
-        "yesterday": [
-          "[21:49 IST] RAM: Can you check and let me know of large foreign investments in Indian non-banks since March 2025, includinf announced/proposed investments?",
-          "[21:50 IST] HADERACH: Ram, here's the picture on foreign capital into Indian NBFCs (non-banks) since March 2025 \u2014 it's been the busiest 18 months this sector has seen, roughly $8\u20139 billion in disclosed foreign equity across seven deals, plus separate DFI debt lines.",
-          "<b>Completed / RBI-cleared deals</b>",
-          "<b>1. MUFG (Japan) \u2192 Shriram Finance</b> \u2014 the big one. \u20b939,617 cr (~$4.45bn) primary capital for a 20% stake via preferential allotment at \u20b9840.83/share, announced Dec 2025. Largest single FDI in Indian financial...",
-          "[21:50 IST] HADERACH: Ram, here's the picture on foreign capital into Indian NBFCs (non-banks) since March 2025 \u2014 it's been the busiest 18 months this sector has seen, roughly $8\u20139 billion in disclosed foreign equity across seven deals, plus separate DFI debt lines.",
-          "<b>Completed / RBI-cleared deals</b>",
-          "<b>1. MUFG (Japan) \u2192 Shriram Finance</b> \u2014 the big one. \u20b939,617 cr (~$4.45bn) primary capital for a 20% stake via preferential allotment at \u20b9840.83/share, announced Dec 2025. Largest single FDI in Indian financial...",
-          "[22:02 IST] RAM: Can you fill out update this table?",
-          "[22:04 IST] HADERACH: Found it. Let me read the spreadsheet.",
-          "[22:08 IST] RAM: ?",
-          "[22:09 IST] HADERACH: Now I have all the research needed. Let me write the completed data into the spreadsheet.",
-          "[22:11 IST] HADERACH: Apologies, Ram \u2014 that error was a hiccup mid-tool-call; nothing was corrupted. I have all the rating research I need now. Let me fill in the table.",
-          "[22:12 IST] HADERACH: All rows populated. The table now has, for each deal:",
-          "<b>Investor as Promoter</b> and <b>Credit Rating Before/After</b> filled in, plus two Close Date corrections:",
-          "<ul>",
-          "<li><b>Aditya Birla Housing</b> \u2014 Close Date added: 17-Apr-2026 (preferential allotment to Indriya/Advent completed)</li>",
-          "<li><b>Manappuram Finance</b> \u2014 Close Date corrected: 21-Apr-2026 (full completion incl. open offer + control effective), not 27-Mar-2026 which was only the earlier preferential-issue tranche</li>",
-          "</ul>",
-          "K...",
-          "[22:12 IST] HADERACH: Other_Investments_in_NBFCs---6cc92ce8-ca4b-4f42-b390-ee54dc47039d.xlsx",
-          "[22:12 IST] HADERACH: NO_REPLY",
-          "[22:12 IST] HADERACH: Apologies, Ram \u2014 that error was a hiccup mid-tool-call; nothing was corrupted. I have all the rating research I need now. Let me fill in the table.",
-          "[22:12 IST] HADERACH: All rows populated. The table now has, for each deal:",
-          "<b>Investor as Promoter</b> and <b>Credit Rating Before/After</b> filled in, plus two Close Date corrections:",
-          "<ul>",
-          "<li><b>Aditya Birla Housing</b> \u2014 Close Date added: 17-Apr-2026 (preferential allotment to Indriya/Advent completed)</li>",
-          "<li><b>Manappuram Finance</b> \u2014 Close Date corrected: 21-Apr-2026 (full completion incl. open offer + control effective), not 27-Mar-2026 which was only the earlier preferential-issue tranche</li>",
-          "</ul>",
-          "K...",
-          "[22:18 IST] RAM: Send me the file here pls",
-          "[22:18 IST] HADERACH: Other_Investments_in_NBFCs---6cc92ce8-ca4b-4f42-b390-ee54dc47039d.xlsx",
-          "[22:18 IST] HADERACH: Sent, Ram.",
-          "[22:19 IST] HADERACH: Sent, Ram.",
-          "[22:24 IST] RAM: Where is MUFG - Shriram, BoA - Jio? Update file and send pls. Was there anything of IIFL?",
-          "[22:25 IST] HADERACH: Both added. Now sending the updated file.",
-          "[22:25 IST] HADERACH: Other_Investments_in_NBFCs---6cc92ce8-ca4b-4f42-b390-ee54dc47039d.xlsx",
-          "[22:25 IST] HADERACH: Sent, Ram \u2014 both MUFG-Shriram and BofA-Jio Credit are now in the sheet, and I've flagged the two IIFL deals with a question on whether you want the Fairfax/IIFL Capital one added as well.",
-          "[22:26 IST] HADERACH: Sent, Ram \u2014 both MUFG-Shriram and BofA-Jio Credit are now in the sheet, and I've flagged the two IIFL deals with a question on whether you want the Fairfax/IIFL Capital one added as well.",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:07 IST] HADERACH: All consolidation steps complete. NO_REPLY."
-        ],
         "rolling_7day": [
-          "## 2026-08-21",
-          "- [02:00 IST] HADERACH: Summary file is empty. The script ran successfully but found no new updates.",
-          "- [07:48 IST] HADERACH: \ud83e\udd9e Digest live: https://haderach-ram.github.io/openclaw-radar/2026/08/21/daily-digest.html \u00b7 Most active: IronClaw (15 new issues) \u00b7 draCuLAW traffic (7d): 1 PV \u00b7 Top page: /openclaw-radar",
-          "- [08:06 IST] RAM: Diagnose the issues pls:",
-          "- [08:08 IST] HADERACH: Diagnosis on the 08:05 fleet monitor issues:",
-          "- [08:08 IST] HADERACH: NO_REPLY",
-          "--- [Midnight run OK \u2014 2026-08-22 \u2014 no new content] ---",
           "## 2026-08-22",
           "- [08:30 IST] HADERACH: \u2713 **NSE bhavcopy ingestion successful** \u2014 2026-08-21 data (Friday's closing, being ingested Saturday morning as expected per market calendar).",
           "- [08:56 IST] RAM: Check the issues pertaining to you:",
@@ -1641,21 +1596,16 @@
           "- [08:25 IST] HADERACH: Now let me QA it visually by rendering to an image.",
           "- --- [BOOKMARK: 10:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 09:43 IST] ---",
           "- --- [BOOKMARK: 18:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 17:50 IST] ---",
-          "- [22:08 IST] RAM: ?"
+          "- [22:08 IST] RAM: ?",
+          "## 2026-08-27",
+          "- [07:53 IST] Fairfax/IIFL Capital row added to NBFC investments tracker and sent to Ram.",
+          "- [11:49-12:42 IST] Bond-issuance slide: rating converted to step function, share price to smooth curve, final version sent.",
+          "- [13:25-13:40 IST] IHC Avenir comfort letter \u2014 non-binding exception clause drafted for IHC.",
+          "- [15:43-16:23 IST] RBI CCO/Internal Audit board-reporting clauses researched and quoted verbatim.",
+          "- [20:39-20:45 IST] Investor Ind AS 109 fair-value accounting Q&A drafted and tightened.",
+          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [07:47] OpenClaw Radar daily digest published; draft tweet composed (OpenClaw led with 12 new issues vs ecosystem).",
-          "- [13:10] 13:00 consolidation check passed (ran 13:03, 3 min after schedule).",
-          "- [23:05] Nightly consolidation: idle day, 0 sessions, no facts to promote; rolling-7day rotated (Aug17-23), rolling-28day updated (dropped Jul25, added Aug22), rolling-180day appended Aug22, tag index rebuilt (98 days).",
-          "- Persistent pattern throughout the day: repeated TRANSCRIPT GAP entries (session empty + no writes, ~10-14 min each) between bookmarks \u2014 mostly idle/quiet day with no Ram interaction.",
-          "--- [Midnight run OK \u2014 2026-08-23 \u2014 no new content] ---",
-          "## 2026-08-24",
-          "- [02:00 IST] HADERACH: File missing \u2014 no updates detected. All clear.",
-          "- --- [BOOKMARK: 03:04 IST \u2014 Auto-checkpoint. Msgs: 1. Seq: 0. Last memory write: 23:50 IST] ---",
-          "- --- [BOOKMARK: 06:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 03:04 IST] ---",
-          "- [06:23 IST] RAM: What is the third issue?:",
-          "- [06:23 IST] HADERACH: The third issue listed is:",
-          "- [06:23 IST] HADERACH: The third issue listed is:",
           "- --- [BOOKMARK: 06:30 IST \u2014 Auto-checkpoint. Msgs: 3. Seq: 0. Last memory write: 06:10 IST] ---",
           "- --- [BOOKMARK: 06:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:30 IST] ---",
           "- [06:46 IST] RAM: Check",
@@ -1683,7 +1633,19 @@
           "- --- [BOOKMARK: 17:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 16:50 IST] ---",
           "- [20:53 IST] RAM: Tell me in one sentence the key performance area for CFO of an NBFC",
           "- [21:50 IST] HADERACH: Ram, here's the picture on foreign capital into Indian NBFCs (non-banks) since March 2025 \u2014 it's been the busiest 18 months this sector has seen, roughly $8\u20139 billion in disclosed foreign equity across seven deals, plus separate DFI debt lines.",
-          "- [22:12 IST] HADERACH: All rows populated. The table now has, for each deal:"
+          "- [22:12 IST] HADERACH: All rows populated. The table now has, for each deal:",
+          "## 2026-08-27",
+          "- [07:53 IST] Added Fairfax/IIFL Capital row (\u20b92,000cr preferential issue, stake 30.5%\u219251%, CRISIL AA-/Watch Positive) to Other_Investments_in_NBFCs.xlsx and sent to Ram.",
+          "- [08:30 IST] NSE Bhavcopy ingest OK \u2014 34,840 rows (equity 3,653 + F&O 31,187) for 26 Aug 2026 loaded to market.db.",
+          "- [09:04 IST] Daily Brief compiled and sent (Sammaan homepage streak, RBI rate-framework FAQ tracking, etc.).",
+          "- [11:23-11:38 IST] Helped Ram troubleshoot Excel-for-Mac Indian lakhs digit-grouping \u2014 concluded no clean Excel-only fix exists on Mac without touching macOS Region; offered Terminal AppleLocale override as reversible workaround.",
+          "- [11:49-12:42 IST] Bond-issuance slide: digested original template, built INR/USD versions, converted rating series to proper step function (AA\u2192AA+\u2192AAA), made share price a smooth continuous curve, fixed FX typo, sent final slide.",
+          "- [13:25-13:40 IST] Recapped IHC Avenir comfort/support letter status (at IHC legal, awaiting response to returned vR4 draft); drafted and progressively tightened a non-binding \"exception clause\" justification sentence for IHC.",
+          "- [15:43-16:23 IST] Researched and quoted verbatim RBI Directions (RBI/DoS/2026-27/460, dated 31 Jul 2026) confirming CCO and Internal Audit function may report to Board/Board sub-committee.",
+          "- [20:39-20:45 IST] Drafted and tightened investor Q&A explaining why fair value accounting applies to the investment book (SPPI + business-model tests under Ind AS 109), distinct from amortised-cost loan book.",
+          "- [13:04 IST] Midday memory consolidation completed cleanly.",
+          "- [23:04 IST] Night memory consolidation completed cleanly; all deliverables logged, git pushed.",
+          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---"
         ]
       }
     },
@@ -1698,7 +1660,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.55,
+      "rss_gb": 0.56,
       "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -1723,6 +1685,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1787855784004,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
@@ -1805,15 +1776,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1787769387195,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1851,7 +1813,6 @@
           "# Self-healing rotation from transcript-2026-08-26.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-07-21 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-22 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
@@ -1890,10 +1851,10 @@
           "--- [Midnight run OK \u2014 2026-08-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-25 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-26 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [08:52 IST] Fixed daily log creation cron job (payload Step 2 crash)",
           "- Added os.path.exists() check before read tool invocation",
           "- Backup taken: openclaw.sqlite.bak-cronfix-20260723-085220",
           "- Confirmed via cron get; no user-facing impact",
@@ -1932,7 +1893,8 @@
           "--- [Midnight run OK \u2014 2026-08-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-25 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-26 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
         ]
       }
     },
@@ -2348,8 +2310,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.73,
-      "cpu": 1.5,
+      "rss_gb": 0.71,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2523,6 +2485,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1787855952713,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2563,15 +2534,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1787844612071,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1787769552707,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2635,9 +2597,6 @@
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-08-20 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-08-21 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2658,12 +2617,12 @@
           "---",
           "## 2026-08-27 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-08-28 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "- - Afternoon check",
-          "- - All systems routine",
-          "- - ProtonMail: timeout (Deckard persistent issue)",
           "## 2026-08-24 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2700,7 +2659,10 @@
           "- - **BobCard email draft:** Completed strongly-worded email to Ashish, Raman, Nitin, Anurag re: FY27 projections file missing FPL payout line item",
           "- - Fixed typos: \"dont\" \u2192 \"don't\", \"chalnnges\" \u2192 \"challenges\", \"work\" \u2192 \"works\"",
           "- - Corrected idiom: \"At the expense of repetition\" \u2192 \"At the risk of repetition\"",
-          "- - Email ready for send once recipients field populated with actual email addresses"
+          "- - Email ready for send once recipients field populated with actual email addresses",
+          "## 2026-08-28 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---"
         ]
       }
     },
@@ -3598,7 +3560,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.35,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3760,8 +3722,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 868,
-      "rss_gb": 0.28,
-      "cpu": 0.6,
+      "rss_gb": 0.29,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3791,7 +3753,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4191,8 +4153,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.55,
-      "cpu": 1.5,
+      "rss_gb": 0.46,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
