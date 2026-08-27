@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-27 06:00:13 IST",
-  "generated_epoch": 1787790613,
+  "generated_ist": "2026-08-27 06:05:18 IST",
+  "generated_epoch": 1787790918,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.25 / 4.32 / 4.30",
+    "load": "3.68 / 4.19 / 4.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.55,
-      "cpu": 97.8,
+      "rss_gb": 1.5,
+      "cpu": 0.2,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787790834294,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787790834294,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1787790834293,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1787790834293,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -715,15 +751,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1787779959716,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -766,33 +793,6 @@
           "last_ts": 1787769349436,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787768427677,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787768427676,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1787768427676,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1520,7 +1520,8 @@
         "recent": [
           "# Transcript \u2014 2026-08-27",
           "# Self-healing rotation from transcript-2026-08-26.md at 00:05 IST",
-          "[02:04 IST] HADERACH: All updates completed successfully within budget. Session done."
+          "[02:04 IST] HADERACH: All updates completed successfully within budget. Session done.",
+          "--- [TRANSCRIPT GAP: 06:03 IST \u2014 session empty for 179 min AND no transcript writes for 179 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[21:49 IST] RAM: Can you check and let me know of large foreign investments in Indian non-banks since March 2025, includinf announced/proposed investments?",
@@ -1661,8 +1662,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.57,
-      "cpu": 0.4,
+      "rss_gb": 0.61,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1686,6 +1687,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1787790912351,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Fleet Memory Health Check \u2014 Daily 04:00 IST",
           "enabled": true,
@@ -1738,15 +1748,6 @@
           "last_ts": 1787766642725,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
-          "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1787765711156,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -2311,8 +2312,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.73,
-      "cpu": 19.3,
+      "rss_gb": 0.72,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2489,7 +2490,7 @@
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1787780055287,
+          "last_ts": 1787790853033,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2498,7 +2499,25 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1787780055286,
+          "last_ts": 1787790853033,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1787790613398,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1787790613398,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2513,28 +2532,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1787767208660,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1787761827178,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1787758214277,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2577,7 +2578,10 @@
           "- Gari transcript: 0 new messages, bookmark updated",
           "- Group transcript: 0 new messages, bookmark updated",
           "All sessions processed. Memory files updated.",
-          "[06:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[06:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Running the Klub K group transcript logger...",
+          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[19:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
@@ -3586,7 +3590,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.36,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3607,6 +3611,9 @@
       ],
       "transcripts": {
         "recent": [
+          "# Chet Transcript \u2014 2026-08-27"
+        ],
+        "yesterday": [
           "# Chet Transcript \u2014 2026-08-26",
           "[08:31 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-08-26.",
           "MANDATORY STARTUP:",
@@ -3626,30 +3633,6 @@
           "[08:31 IST] CHET: 21 lines confirmed. Now appending the transcript bookmark.",
           "[08:31 IST] CHET: File path confirmed: /Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-08-26.md | 21 lines, read-back verified (matches expected format, no placeholders).",
           "Changed since yesterday: all three tracks turn over today \u2014 SCL breaks its 6-day static streak (About Us + Screener.in profile enter fresh), RBI breaks its 3-day streak (ABP Live + ET BFSI enter fresh, Kothari FAQ holds), and the AI Agent Ecosystem fully resets (IBM Granite 4.2, Laude's Headlong harness, Forbes' Nvidia AVO..."
-        ],
-        "yesterday": [
-          "# Chet Transcript \u2014 2026-08-25",
-          "[08:31 IST]",
-          "HADERACH\u2192CHET: Daily Brief 2026-08-25 \u2014 produce from pre-fetched Exa data, write to output/news-brief-2026-08-25.md",
-          "CHET: Written, verified by read-back (21 lines, no placeholders, first line matches format). SCL 6th static day (homepage 44th consecutive day), RBI 3rd static day, AI track partially refreshes (Arcee AI NAC re-enters, displacing MarkTechPost NOOA).",
-          "[08:31 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-08-25.",
-          "MANDATORY STARTUP:",
-          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
-          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
-          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
-          "{",
-          "  \"scl\": [",
-          "    {",
-          "      \"title\": \"Sammaan Capital\",",
-          "      \"url\": \"https://www.sammaancapital.com/\",",
-          "      \"snippet\": \"\"",
-          "    },",
-          "    {",
-          "      \"title\": \"Sammaan Capital Ltd - Company Profile and News - Bloomberg Market...",
-          "[08:31 IST] CHET: 21 lines confirmed. Now append the transcript bookmark.",
-          "[08:31 IST] CHET: File written and verified: `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-08-25.md` \u2014 21 lines.",
-          "Changed since yesterday: SCL holds fully static for a 6th day (homepage now 44 consecutive days), RBI holds fully static for a 3rd day, and the AI Agent Ecosystem track partially refreshes as Arcee AI's NAC re-enters, displacing MarkTechPost's NOOA coverage.",
-          "Transcript bookmark appended."
         ],
         "rolling_7day": [
           "- No [FACT:] tags in transcript; no domain file promotions required",
@@ -3748,8 +3731,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 868,
-      "rss_gb": 0.28,
-      "cpu": 0.3,
+      "rss_gb": 0.29,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3779,7 +3762,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4179,8 +4162,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.43,
-      "cpu": 0.6,
+      "rss_gb": 0.55,
+      "cpu": 1.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
