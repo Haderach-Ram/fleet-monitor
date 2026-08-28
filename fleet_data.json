@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-29 00:04:30 IST",
-  "generated_epoch": 1787942070,
+  "generated_ist": "2026-08-29 00:09:36 IST",
+  "generated_epoch": 1787942376,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.81 / 2.53 / 2.54",
+    "load": "2.18 / 2.63 / 2.62",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 866,
       "rss_gb": 1.34,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,87 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1787942368971,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1787942243089,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1787942243089,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1787942243088,
+          "last_status": "error",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1787942243088,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1787942243085,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1787942243084,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1787942082683,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1787942082683,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -697,15 +778,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1787940560283,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 23:10 IST",
           "enabled": true,
           "sched": "10 23 * * *",
@@ -733,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1787938637098,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -760,48 +823,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1787931341872,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1787931341871,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1787931263450,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1787930119000,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1787927599820,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -985,24 +1012,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1787866545477,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1787866481940,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1027,15 +1036,6 @@
           "last_ts": 1787862754929,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1787855779508,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1518,6 +1518,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-29",
+          "# Self-healing rotation from transcript-2026-08-28.md at 00:07 IST"
+        ],
+        "yesterday": [
           "[15:15 IST] HADERACH: Yes \u2014 <b>onedrive.live.com</b> (personal) or <b>portal.office.com</b> \u2192 OneDrive tile (if it's a work/Sammaan M365 account) gets you straight to the files via browser, no local sync client involved at all. Log in with whichever account owns that OneDrive, and every file is right there, fully up to date, since the web view reads directly from the cloud rather than waiting on a local sync engine.",
           "<b>On the slow-syncing laptop itself</b>, a few things worth checking, roughly in order of likely ...",
           "[15:15 IST] HADERACH: Yes \u2014 <b>onedrive.live.com</b> (personal) or <b>portal.office.com</b> \u2192 OneDrive tile (if it's a work/Sammaan M365 account) gets you straight to the files via browser, no local sync client involved at all. Log in with whichever account owns that OneDrive, and every file is right there, fully up to date, since the web view reads directly from the cloud rather than waiting on a local sync engine.",
@@ -1559,52 +1563,7 @@
           "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 172 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
           "[23:07 IST] HADERACH: Nightly consolidation complete \u2014 idle day, no facts to promote, rolling files rotated, tag index rebuilt (103 days), bookmark and heartbeat state written. NO_REPLY."
         ],
-        "yesterday": [
-          "--- [TRANSCRIPT GAP: 19:10 IST \u2014 session empty for 167 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 177 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 197 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 207 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:10 IST \u2014 session empty for 227 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 237 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:30 IST \u2014 session empty for 247 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[20:39 IST] RAM: This is our revenue reporting format. I have a question from an investor which I will post next. Dig into your accounting knowledge and Ind AS and the net to answer it",
-          "[20:39 IST] HADERACH: Noted the format, Ram \u2014 Interest Income, Fees & Commission, Net gain on FV changes, and Net gain on derecognition (securitisation/assignment gain-on-sale) under Ind AS 109. Standing by for the investor's question.",
-          "[20:39 IST] HADERACH: Noted the format, Ram \u2014 Interest Income, Fees & Commission, Net gain on FV changes, and Net gain on derecognition (securitisation/assignment gain-on-sale) under Ind AS 109. Standing by for the investor's question.",
-          "[20:39 IST] RAM: Fair value accounting: why is fair valuation applied to the investment book? The loan book I understand, but the investment book is surprising. Anything that we should note ?",
-          "[20:42 IST] RAM: Pls draw up a reply to this",
-          "[20:42 IST] HADERACH: <b>Short answer:</b> Ind AS 109 classification doesn't hinge on \"loan vs investment\" as a label \u2014 it hinges on two tests applied instrument-by-instrument: the <b>SPPI test</b> (are cash flows Solely Payments of Principal and Interest \u2014 i.e. a plain vanilla lending arrangement) and the <b>business model test</b> (hold-to-collect vs hold-to-collect-and-sell vs other/trading). Most of the loan book cleanly passes both, so it sits at amortised cost using EIR. Most of the investment book fails one...",
-          "[20:43 IST] HADERACH: <b>Short answer:</b> Ind AS 109 classification doesn't hinge on \"loan vs investment\" as a label \u2014 it hinges on two tests applied instrument-by-instrument: the <b>SPPI test</b> (are cash flows Solely Payments of Principal and Interest \u2014 i.e. a plain vanilla lending arrangement) and the <b>business model test</b> (hold-to-collect vs hold-to-collect-and-sell vs other/trading). Most of the loan book cleanly passes both, so it sits at amortised cost using EIR. Most of the investment book fails one...",
-          "[20:43 IST] HADERACH: <b>Draft reply for the investor:</b>",
-          "Thank you for the question.",
-          "Under Ind AS 109, classification as amortised cost versus fair value is determined by the nature of an instrument's cash flows and the business model under which it is held \u2014 not by whether the asset happens to be labelled a \"loan\" or an \"investment\".",
-          "Our loan book is originated and held to collect fixed principal and interest cash flows, so it qualifies for amortised cost accounting, with interest recognised on an EIR basis ...",
-          "[20:44 IST] HADERACH: <b>Draft reply for the investor:</b>",
-          "Thank you for the question.",
-          "Under Ind AS 109, classification as amortised cost versus fair value is determined by the nature of an instrument's cash flows and the business model under which it is held \u2014 not by whether the asset happens to be labelled a \"loan\" or an \"investment\".",
-          "Our loan book is originated and held to collect fixed principal and interest cash flows, so it qualifies for amortised cost accounting, with interest recognised on an EIR basis ...",
-          "[20:45 IST] RAM: Can you make it more crisp pls",
-          "[20:45 IST] HADERACH: <b>Draft reply for the investor (tighter version):</b>",
-          "Thank you for the question.",
-          "Under Ind AS 109, classification hinges on the nature of an instrument's cash flows and how it's managed \u2014 not on the \"loan\" vs \"investment\" label.",
-          "Our loan book is held to collect fixed principal and interest, so it sits at amortised cost, with interest on an EIR basis and credit risk captured through ECL provisioning.",
-          "The investment book largely fails that test: mutual fund/AIF units track NAV rather than...",
-          "[20:45 IST] HADERACH: <b>Draft reply for the investor (tighter version):</b>",
-          "Thank you for the question.",
-          "Under Ind AS 109, classification hinges on the nature of an instrument's cash flows and how it's managed \u2014 not on the \"loan\" vs \"investment\" label.",
-          "Our loan book is held to collect fixed principal and interest, so it sits at amortised cost, with interest on an EIR basis and credit risk captured through ECL provisioning.",
-          "The investment book largely fails that test: mutual fund/AIF units track NAV rather than...",
-          "--- [TRANSCRIPT GAP: 21:20 IST \u2014 session empty for 30 min AND no transcript writes for 16 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:50 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 133 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:09 IST] HADERACH: All 9 steps completed cleanly. Nightly Monk consolidation \u2014 no reply needed per NO_REPLY directive."
-        ],
         "rolling_7day": [
-          "## 2026-08-22",
-          "- [08:30 IST] HADERACH: \u2713 **NSE bhavcopy ingestion successful** \u2014 2026-08-21 data (Friday's closing, being ingested Saturday morning as expected per market calendar).",
-          "- [08:56 IST] RAM: Check the issues pertaining to you:",
           "- [08:56 IST] HADERACH: Ram, ran a check on the four flagged items. All four are single-occurrence errors (consecutive count = 1), so none crosses the alert threshold on their own \u2014 but here's the substance on each:",
           "- [08:57 IST] HADERACH: Ram, ran a check on the four flagged items. All four are single-occurrence errors (consecutive count = 1), so none crosses the alert threshold on their own \u2014 but here's the substance on each:",
           "- [10:14 IST] RAM: Is there some SEBI study on F&O investor gains and losses?",
@@ -1641,12 +1600,12 @@
           "- [13:25-13:40 IST] IHC Avenir comfort letter \u2014 non-binding exception clause drafted for IHC.",
           "- [15:43-16:23 IST] RBI CCO/Internal Audit board-reporting clauses researched and quoted verbatim.",
           "- [20:39-20:45 IST] Investor Ind AS 109 fair-value accounting Q&A drafted and tightened.",
-          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
+          "## 2026-08-28",
+          "- # Transcript \u2014 2026-08-28 # Self-healing rotation from transcript-2026-08-27.md at 00:06 IST   --- [ROTATION: 00:06 IST \u2014 Self-healing date rotation. New file: transcript-2026-08-28.md] ---   --- [TRANSCRIPT GAP: 03:05 IST \u2014 session empty for 235 min AND no transcript writes for 179 min. No zombie l",
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- --- [BOOKMARK: 06:30 IST \u2014 Auto-checkpoint. Msgs: 3. Seq: 0. Last memory write: 06:10 IST] ---",
-          "- --- [BOOKMARK: 06:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:30 IST] ---",
-          "- [06:46 IST] RAM: Check",
           "- [06:46 IST] HADERACH: Checked. Two things going on:",
           "--- [Midnight run OK \u2014 2026-08-24] ---",
           "## 2026-08-25",
@@ -1683,7 +1642,10 @@
           "- [20:39-20:45 IST] Drafted and tightened investor Q&A explaining why fair value accounting applies to the investment book (SPPI + business-model tests under Ind AS 109), distinct from amortised-cost loan book.",
           "- [13:04 IST] Midday memory consolidation completed cleanly.",
           "- [23:04 IST] Night memory consolidation completed cleanly; all deliverables logged, git pushed.",
-          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
+          "## 2026-08-28",
+          "- # Transcript \u2014 2026-08-28 # Self-healing rotation from transcript-2026-08-27.md at 00:06 IST   --- [ROTATION: 00:06 IST \u2014 Self-healing date rotation. New file: transcript-2026-08-28.md] ---   --- [TRANSCRIPT GAP: 03:05 IST \u2014 session empty for 235 min AND no transcript writes for 179 min. No zombie l",
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
         ]
       }
     },
@@ -1698,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.55,
-      "cpu": 0.4,
+      "rss_gb": 0.56,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1723,6 +1685,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1787942187130,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
@@ -1805,15 +1776,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1787855784004,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1851,7 +1813,6 @@
           "# Self-healing rotation from transcript-2026-08-27.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-07-22 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
@@ -1890,10 +1851,10 @@
           "--- [Midnight run OK \u2014 2026-08-25 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-26 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- Added os.path.exists() check before read tool invocation",
           "- Backup taken: openclaw.sqlite.bak-cronfix-20260723-085220",
           "- Confirmed via cron get; no user-facing impact",
           "---",
@@ -1932,7 +1893,8 @@
           "--- [Midnight run OK \u2014 2026-08-25 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-26 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---"
         ]
       }
     },
@@ -2348,8 +2310,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.74,
-      "cpu": 0.6,
+      "rss_gb": 0.71,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2523,6 +2485,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1787942352430,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2563,15 +2534,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1787931013399,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1787855952713,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2635,9 +2597,6 @@
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-08-21 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-08-22 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2658,12 +2617,12 @@
           "---",
           "## 2026-08-28 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-08-29 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "## 2026-08-24 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-08-24",
           "# 24 Aug 2026 \u2014 Daily Memory",
           "## Turn 1: Heartbeat (Mon 01:55 IST)",
@@ -2699,6 +2658,9 @@
           "- - Corrected idiom: \"At the expense of repetition\" \u2192 \"At the risk of repetition\"",
           "- - Email ready for send once recipients field populated with actual email addresses",
           "## 2026-08-28 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---",
+          "## 2026-08-29 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---"
         ]
@@ -3597,8 +3559,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 869,
-      "rss_gb": 0.44,
-      "cpu": 0.3,
+      "rss_gb": 0.43,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3769,7 +3731,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4199,8 +4161,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.45,
-      "cpu": 6.6,
+      "rss_gb": 0.46,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
