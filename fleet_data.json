@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-30 00:03:29 IST",
-  "generated_epoch": 1788028409,
+  "generated_ist": "2026-08-30 00:08:36 IST",
+  "generated_epoch": 1788028716,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.54 / 3.81 / 3.84",
+    "load": "4.26 / 4.14 / 4.01",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.33,
-      "cpu": 0.2,
+      "rss_gb": 1.31,
+      "cpu": 0.1,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,78 @@
       ],
       "crons": [
         {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1788028571098,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1788028571098,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1788028571098,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1788028571097,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1788028571097,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1788028571096,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1788028414489,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1788028414488,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -733,15 +805,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1788025010968,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -760,48 +823,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1788017685972,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1788017685971,
-          "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1788017630139,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1788016478010,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1788013943285,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -958,24 +985,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1787952809391,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1787952741451,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1007,15 +1016,6 @@
           "enabled": true,
           "sched": "0 1 * * 3,6",
           "last_ts": 1787947718205,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1787942243089,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1518,6 +1518,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-30",
+          "# Self-healing rotation from transcript-2026-08-29.md at 00:06 IST"
+        ],
+        "yesterday": [
           "[22:35 IST] HADERACH: Ram, useful confirmation from the press search: the Union Bank note tracks \u2014 ET reports today (29 Aug) that <b>Union Bank of India, Canara Bank, and LIC Housing Finance are formally filing NCLAT appeals</b> against the NCLT order, alongside HDFC Bank (which was separately reported \"mulling\" the same on 27 Aug). Also worth knowing: <b>Draft 1 is essentially already public</b> \u2014 it's near-verbatim what Samm",
           "[22:40 IST] RAM: ?",
           "[22:41 IST] HADERACH: Apologies, Ram \u2014 that reply got cut off mid-stream. Here's where things stand and the draft, complete.",
@@ -1559,56 +1563,7 @@
           "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 37 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 47 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
-        "yesterday": [
-          "[15:15 IST] HADERACH: Yes \u2014 <b>onedrive.live.com</b> (personal) or <b>portal.office.com</b> \u2192 OneDrive tile (if it's a work/Sammaan M365 account) gets you straight to the files via browser, no local sync client involved at all. Log in with whichever account owns that OneDrive, and every file is right there, fully up to date, since the web view reads directly from the cloud rather than waiting on a local sync engine.",
-          "<b>On the slow-syncing laptop itself</b>, a few things worth checking, roughly in order of likely ...",
-          "[15:15 IST] HADERACH: Yes \u2014 <b>onedrive.live.com</b> (personal) or <b>portal.office.com</b> \u2192 OneDrive tile (if it's a work/Sammaan M365 account) gets you straight to the files via browser, no local sync client involved at all. Log in with whichever account owns that OneDrive, and every file is right there, fully up to date, since the web view reads directly from the cloud rather than waiting on a local sync engine.",
-          "<b>On the slow-syncing laptop itself</b>, a few things worth checking, roughly in order of likely ...",
-          "--- [TRANSCRIPT GAP: 16:03 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 16:23 IST \u2014 session empty for 59 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 16:43 IST \u2014 session empty for 79 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[16:50 IST] RAM: Make something along these lines:",
-          "We have to say the valuation exercise - recoverability, security, timing etc was conducted across all balance sheet assets and an overall number agreed which was then split between provisions where could and other assets both loans and investments were fair valued to create and capture the necessary buffers",
-          "[16:50 IST] HADERACH: <b>Suggested language:</b>",
-          "\"The valuation exercise itself was conducted holistically across all balance sheet assets, assessing recoverability, underlying security, and expected timing of resolution in each case. This produced an overall quantum of required buffer, which was then apportioned between the two available mechanisms: provisions, where the accounting treatment permitted a direct provision to be created and held, and fair valuation, applied to loans and investments where that was t...",
-          "[16:51 IST] HADERACH: <b>Suggested language:</b>",
-          "\"The valuation exercise itself was conducted holistically across all balance sheet assets, assessing recoverability, underlying security, and expected timing of resolution in each case. This produced an overall quantum of required buffer, which was then apportioned between the two available mechanisms: provisions, where the accounting treatment permitted a direct provision to be created and held, and fair valuation, applied to loans and investments where that was t...",
-          "--- [TRANSCRIPT GAP: 17:44 IST \u2014 session empty for 41 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:06 IST \u2014 session empty for 63 min AND no transcript writes for 16 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:20 IST \u2014 session empty for 77 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:31 IST \u2014 session empty for 88 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:10 IST \u2014 session empty for 127 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:20 IST \u2014 session empty for 137 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 157 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 167 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "[20:02 IST] HADERACH: ## \ud83d\udcca **SAK-008 Phase 2 \u2014 Friday WSS Update Complete**",
-          "**Backfill Results (as of Friday, Aug 28, 2026 @ 20:01 IST):**",
-          "\u2705 **Rows Ingested:**",
-          "- **Forex Reserves**: 25 new rows (Jul 2026 edition)",
-          "- **Call Money**: 69 new rows (Jul 2026 edition)",
-          "- **Total**: 94 rows processed",
-          "\ud83d\udcc8 **Latest Data:**",
-          "- **Latest Forex Reserve**: $699,736 Mn (as of Jul 04, 2026)",
-          "- **Latest Call Money Rate**: 4.2-5.4% WAR 5.29 (as of Jun 15, 2026)",
-          "\ud83d\udd0d **Edition Scan Results:**",
-          "- \u2705 Scanned base IDs from 24100-24400",
-          "- \u2705 No ...",
-          "--- [TRANSCRIPT GAP: 21:04 IST \u2014 session empty for 54 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:30 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:50 IST \u2014 session empty for 100 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 120 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 130 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 172 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:07 IST] HADERACH: Nightly consolidation complete \u2014 idle day, no facts to promote, rolling files rotated, tag index rebuilt (103 days), bookmark and heartbeat state written. NO_REPLY."
-        ],
         "rolling_7day": [
-          "- [08:56 IST] HADERACH: Ram, ran a check on the four flagged items. All four are single-occurrence errors (consecutive count = 1), so none crosses the alert threshold on their own \u2014 but here's the substance on each:",
-          "- [08:57 IST] HADERACH: Ram, ran a check on the four flagged items. All four are single-occurrence errors (consecutive count = 1), so none crosses the alert threshold on their own \u2014 but here's the substance on each:",
-          "- [10:14 IST] RAM: Is there some SEBI study on F&O investor gains and losses?",
-          "## 2026-08-23",
-          "- [04:00] GEN-002 weekly refresh: 204 nodes, 3789 edges; top-connected SCL/RBI/CRISIL/SCL-006/SFL.",
-          "- [07:47] OpenClaw Radar digest live; draft tweet on OpenClaw's issue-volume lead.",
-          "- [13:10] 13:00 consolidation check passed.",
           "- [23:05] Nightly consolidation: idle day, 0 sessions, rolling files rotated/updated normally.",
           "- Day characterised by repeated TRANSCRIPT GAP bookmarks (idle gateway periods) with no Ram interaction.",
           "--- [Midnight run OK \u2014 2026-08-23 \u2014 no new content] ---",
@@ -1641,21 +1596,16 @@
           "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
           "## 2026-08-28",
           "- # Transcript \u2014 2026-08-28 # Self-healing rotation from transcript-2026-08-27.md at 00:06 IST   --- [ROTATION: 00:06 IST \u2014 Self-healing date rotation. New file: transcript-2026-08-28.md] ---   --- [TRANSCRIPT GAP: 03:05 IST \u2014 session empty for 235 min AND no transcript writes for 179 min. No zombie l",
-          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---",
+          "## 2026-08-29",
+          "- [22:31-23:02 IST] Major workstream: SCL press release drafting re: Zee/Subhash Chandra recovery \u2014 talking points, two competing team drafts, and a Union Bank of India (UK) media statement (Union Bank/Canara Bank/LIC Housing Finance appealing NCLT order to NCLAT) flagged as a sensitive, contested angle.",
+          "- Press research (ET/Mint, 26-29 Aug): NCLT approved Chandra's personal repayment plan (\u20b96.5cr vs \u20b922,006.57cr admitted claims, \"99.97% haircut\"), 80.81% creditor support; several dissenting creditors appealing to NCLAT.",
+          "- Confirmed SCL/IHFL already gave a near-identical official statement to Mint (28 Aug); full draft press release produced and delivered to Ram for review, not sent externally \u2014 deliberately excludes other creditors' appeals and Chandra's disputed claim-quantum.",
+          "- Daily Brief 29 Aug delivered \u2014 Sammaan recovery (\u20b91,050cr vs \u20b9950cr disbursed), RBI interest-rate framework coverage, AI agent ecosystem items.",
+          "- Market bhavcopy ingest completed for 28 Aug; RBI NBFC Governance Directions query answered (CRO reporting lines to RMC/Board).",
+          "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [06:46 IST] HADERACH: Checked. Two things going on:",
-          "--- [Midnight run OK \u2014 2026-08-24] ---",
-          "## 2026-08-25",
-          "- --- [ROTATION: 00:05 IST \u2014 Self-healing date rotation. New file: transcript-2026-08-25.md] ---",
-          "- --- [TRANSCRIPT GAP: 03:03 IST \u2014 session empty for 233 min AND no transcript writes for 179 min. No zombie lock. Possible gateway issue.] ---",
-          "- --- [TRANSCRIPT GAP: 06:03 IST \u2014 session empty for 413 min AND no transcript writes for 180 min. No zombie lock. Possible gateway issue.] ---",
-          "- --- [BOOKMARK: 06:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 23:50 IST] ---",
-          "- --- [TRANSCRIPT GAP: 06:20 IST \u2014 session empty for 430 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "- --- [BOOKMARK: 06:30 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:10 IST] ---",
-          "- --- [BOOKMARK: 06:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:30 IST] ---",
-          "- --- [BOOKMARK: 06:50 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:40 IST] ---",
-          "- --- [TRANSCRIPT GAP: 07:01 IST \u2014 session empty for 471 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
           "- --- [BOOKMARK: 07:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:50 IST] ---",
           "--- [Midnight run OK \u2014 2026-08-25 \u2014 no new content] ---",
           "## 2026-08-26",
@@ -1683,7 +1633,19 @@
           "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
           "## 2026-08-28",
           "- # Transcript \u2014 2026-08-28 # Self-healing rotation from transcript-2026-08-27.md at 00:06 IST   --- [ROTATION: 00:06 IST \u2014 Self-healing date rotation. New file: transcript-2026-08-28.md] ---   --- [TRANSCRIPT GAP: 03:05 IST \u2014 session empty for 235 min AND no transcript writes for 179 min. No zombie l",
-          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---",
+          "## 2026-08-29",
+          "- [22:31 IST] Ram gave talking points for an SCL press release on the Zee/Subhash Chandra recovery; explicit instruction not to draft until further material + go-ahead given.",
+          "- [22:33 IST] Team supplied two competing draft statements; new facts folded in (personal insolvency filed Feb 2022, settlements with borrower companies in 2023, recovery via pledged-share sales + SARFAESI + post-IBC-admission recoveries).",
+          "- [22:34 IST] Ram shared a Union Bank of India (UK) media statement \u2014 Union Bank, Canara Bank, LIC Housing Finance rejected the NCLT resolution plan and are appealing to NCLAT \u2014 flagged as a sensitive, live/contested angle.",
+          "- [22:34-22:40 IST] Ram said \"check press + make a draft now\" \u2014 press research compiled (ET/Mint, 26-29 Aug): NCLT approved a \u20b96.5cr repayment plan vs \u20b922,006.57cr admitted claims (\"99.97% haircut\"), 80.81% creditor support by value; dissenters (HDFC Bank, Axis Bank, Canara Bank, RBL Bank, Union Bank of India, LIC Housing Finance) appealing to NCLAT.",
+          "- Confirmed SCL/IHFL already gave a near-identical official statement to Mint (28 Aug) \u2014 the team's Draft 1 was essentially already public.",
+          "- Full 7-paragraph draft press release produced, iteratively edited per Ram's feedback, condensed to ~7 sentences by 23:02 IST, and delivered to Ram for review \u2014 not sent externally.",
+          "- Caveats flagged on the draft: deliberately excludes other creditors' NCLAT appeals and does not engage with Chandra's disputed claim-quantum dispute.",
+          "- Daily digest run: ZeroClaw most active framework (12 new issues); draCuLAW traffic 9 PV/7d.",
+          "- Market bhavcopy ingest completed for 28 Aug (Equity 3,612 rows, F&O 29,852 rows) into market.db.",
+          "- Ram queried RBI NBFC Governance Directions (RBI/DOR/2025-26/344) on CRO reporting lines \u2014 RMC reports to Board per Chapter III Para 9, verbatim provisions extracted.",
+          "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---"
         ]
       }
     },
@@ -1698,8 +1660,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.6,
-      "cpu": 0.6,
+      "rss_gb": 0.58,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1723,6 +1685,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1788028584898,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
@@ -1805,15 +1776,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1787942187130,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1853,7 +1815,6 @@
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-07-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-25 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-07-26 \u2014 no new content] ---",
@@ -1890,10 +1851,10 @@
           "--- [Midnight run OK \u2014 2026-08-26 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- Backup taken: openclaw.sqlite.bak-cronfix-20260723-085220",
           "- Confirmed via cron get; no user-facing impact",
           "---",
           "--- [Midnight run OK \u2014 2026-07-24 \u2014 no new content] ---",
@@ -1932,6 +1893,7 @@
           "--- [Midnight run OK \u2014 2026-08-26 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-27 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-28 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-29 \u2014 no new content] ---"
         ]
       }
@@ -2349,7 +2311,7 @@
       "frozen_reason": null,
       "pid": 99930,
       "rss_gb": 0.69,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2523,6 +2485,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1788028451021,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1788028451021,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2536,24 +2516,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1788021021402,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1788017651944,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1788017651944,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2588,6 +2550,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-08-30",
+          "# Self-healing rotation from transcript-2026-08-29.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
@@ -2628,48 +2594,6 @@
           "[22:32 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
           "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
-        ],
-        "yesterday": [
-          "[18:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[19:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[19:55 IST] PURL: Checking heartbeat items...",
-          "[19:55 IST] PURL: Config backup already done today. Attempting ProtonMail inbox check with timeout.",
-          "[19:56 IST] PURL: ProtonMail script confirms: browser navigation timeout. This is a connectivity or page-load issue with Proton's site. Checking session status and updating state.",
-          "[19:56 IST] PURL: ---",
-          "**Heartbeat summary:**",
-          "- Context: 23% (healthy)",
-          "- Cost: minimal",
-          "- ProtonMail: Site not loading in time (Page.goto timeout). Inbox check inconclusive.",
-          "HEARTBEAT_OK",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[19:55 IST] PURL: Checking heartbeat items...",
-          "[19:55 IST] PURL: Config backup already done today. Attempting ProtonMail inbox check with timeout.",
-          "[19:56 IST] PURL: ProtonMail script confirms: browser navigation timeout. This is a connectivity or page-load issue with Proton's site. Checking session status and updating state.",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[20:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script for you.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Script completed successfully.**",
-          "- All three transcript sources checked (transcript, gari-transcript, group-transcript)",
-          "- No new messages detected in any session",
-          "- Bookmarks remain unchanged",
-          "- Process: 0 issues",
-          "Next scheduled run: In 3 hours (scheduled quiet hours, 00:00\u201306:00 IST).",
-          "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation routine. Let me start by checking today's daily log and then proceed with the consolidation steps.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Daily log doesn't exist. Proceeding to final step (unconditional bookmark write):",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
@@ -3636,7 +3560,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.44,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3810,7 +3734,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4240,8 +4164,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 895,
-      "rss_gb": 0.44,
-      "cpu": 1.1,
+      "rss_gb": 0.47,
+      "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
