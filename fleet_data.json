@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-30 14:02:31 IST",
-  "generated_epoch": 1788078751,
+  "generated_ist": "2026-08-30 14:07:37 IST",
+  "generated_epoch": 1788079057,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.55 / 3.66 / 3.65",
+    "load": "3.52 / 3.99 / 3.85",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 866,
-      "rss_gb": 1.37,
+      "rss_gb": 1.35,
       "cpu": 0.4,
       "crons_total": 95,
       "crons_enabled": 59,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1788078819779,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788078026400,
+          "last_ts": 1788078810773,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,8 +682,17 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788078026400,
+          "last_ts": 1788078810773,
           "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788078810772,
+          "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
@@ -682,7 +700,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788078026399,
+          "last_ts": 1788078810770,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -697,28 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788077432586,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
           "last_ts": 1788075635663,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1788075255877,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,7 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
           "Once you pick, I'll get straight onto the Fed rate question, Ram.",
           "[10:16 IST] HADERACH: **Session mode?**",
           "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
@@ -1557,7 +1556,8 @@
           "- **lastConsolidation**: 2026-08-30T13:02:00+05:30 (2 minutes after target)",
           "- **Status**: Fresh (just ran ~8 minutes ago, well within the 2-hour window)",
           "- **Today's date match**: \u2713 2026-08-30 confirmed",
-          "No alert needed."
+          "No alert needed.",
+          "--- [TRANSCRIPT GAP: 14:03 IST \u2014 session empty for 43 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[22:35 IST] HADERACH: Ram, useful confirmation from the press search: the Union Bank note tracks \u2014 ET reports today (29 Aug) that <b>Union Bank of India, Canara Bank, and LIC Housing Finance are formally filing NCLAT appeals</b> against the NCLT order, alongside HDFC Bank (which was separately reported \"mulling\" the same on 27 Aug). Also worth knowing: <b>Draft 1 is essentially already public</b> \u2014 it's near-verbatim what Samm",
@@ -1699,7 +1699,7 @@
       "frozen_reason": null,
       "pid": 887,
       "rss_gb": 0.59,
-      "cpu": 1.8,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1723,6 +1723,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788078908837,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
@@ -1748,15 +1757,6 @@
           "last_ts": 1788076224733,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
-          "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788075309287,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -2348,8 +2348,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.68,
-      "cpu": 2.1,
+      "rss_gb": 0.69,
+      "cpu": 1.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3636,7 +3636,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.43,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3811,7 +3811,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3841,7 +3841,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4242,7 +4242,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.47,
-      "cpu": 0.5,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
