@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-31 18:47:09 IST",
-  "generated_epoch": 1788182229,
+  "generated_ist": "2026-08-31 18:52:17 IST",
+  "generated_epoch": 1788182537,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.02 / 2.39 / 2.53",
+    "load": "1.50 / 1.99 / 2.31",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7172,
-      "rss_gb": 0.85,
-      "cpu": 0.4,
+      "rss_gb": 0.96,
+      "cpu": 1.2,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788181854118,
+          "last_ts": 1788182462653,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788181854118,
+          "last_ts": 1788182462652,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788181854117,
+          "last_ts": 1788182462652,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788182342128,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "30 18 * * 1-5",
           "last_ts": 1788181272728,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788180544147,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,12 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li><b>What it proposed:</b> change OpenClaw's `DEFAULT_PROVIDER`/`DEFAULT_MODEL` from Anthropic/claude-opus-4-6 to Hanzo/zen4, and fix a hardcoded Anthropic fallback in model resolution.</li>",
-          "<li><b>Why it w...",
-          "[17:11 IST] HADERACH: No memory hits and nothing in our tracked issue list \u2014 this doesn't appear to be one of ours. Here's what GitHub actually shows for it:",
-          "<b>#31017 is a PR, not an open issue</b> \u2014 \"Switch default provider from anthropic to hanzo with zen4 model.\" It's <b>closed</b>, and not merged.",
-          "<ul>",
           "<li><b>What it proposed:</b> change OpenClaw's `DEFAULT_PROVIDER`/`DEFAULT_MODEL` from Anthropic/claude-opus-4-6 to Hanzo/zen4, and fix a hardcoded Anthropic fallback in model resolution.</li>",
           "<li><b>Why it w...",
           "[17:40 IST] RAM: [User sent media without caption]",
@@ -1557,7 +1551,13 @@
           "[17:50 IST] HADERACH: Posted \u2014 comment is live on <b>#31017</b>: <a href=\"https://github.com/telegramdesktop/tdesktop/issues/31017#issuecomment-5478257694\">https://github.com/telegramdesktop/tdesktop/issues/31017#issuecomment-5478257694</a>",
           "Confirmed as the original filer, tied it to dev-aly3n's #31209 root-cause analysis, and offered to test against a fix since we can reproduce on demand. I'll add both #31017 and #31209 to the weekly GitHub issues sweep so we catch any maintainer response without you having to a...",
           "[18:37 IST] RAM: Any key to-dos from your capability improvement perspective? Can you do a ecosystem check, see other implementations etc and tell me if you need new skills loaded etc",
-          "[18:40 IST] HADERACH: This is a low-cost config warning, not urgent \u2014 noting it for the report rather than fixing it now (config change, needs Ram/Giskard per Config Safety rule). Let me pull together the ecosystem/version picture."
+          "[18:40 IST] HADERACH: This is a low-cost config warning, not urgent \u2014 noting it for the report rather than fixing it now (config change, needs Ram/Giskard per Config Safety rule). Let me pull together the ecosystem/version picture.",
+          "[18:40 IST] HADERACH: Good \u2014 I did a live ecosystem check rather than answer from memory. Here's what I found.",
+          "<b>OpenClaw version \u2014 we're behind, but that's a standing hold, not new news</b>",
+          "We're on <b>v2026.6.11</b>. Current npm `latest` is <b>2026.8.1</b> (there's also an `extended-stable` at 2026.6.34, and a `beta` at 2026.9.1-beta.1). MEMORY.md's hold on 2026.7.1 is stale-worded \u2014 the actual latest has moved two full minor versions past it. I checked our upgrade-blocking issues live rather than trust memory...",
+          "[18:41 IST] HADERACH: Good \u2014 I did a live ecosystem check rather than answer from memory. Here's what I found.",
+          "<b>OpenClaw version \u2014 we're behind, but that's a standing hold, not new news</b>",
+          "We're on <b>v2026.6.11</b>. Current npm `latest` is <b>2026.8.1</b> (there's also an `extended-stable` at 2026.6.34, and a `beta` at 2026.9.1-beta.1). MEMORY.md's hold on 2026.7.1 is stale-worded \u2014 the actual latest has moved two full minor versions past it. I checked our upgrade-blocking issues live rather than trust memory..."
         ],
         "yesterday": [
           "**Gagan Banga (6 results):**",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.61,
-      "cpu": 7.9,
+      "rss_gb": 0.62,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1727,7 +1727,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1788180606464,
+          "last_ts": 1788182418474,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2386,8 +2386,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99930,
-      "rss_gb": 0.68,
-      "cpu": 1.3,
+      "rss_gb": 0.67,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3674,7 +3674,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.45,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.7,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3894,7 +3894,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4295,7 +4295,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.48,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
