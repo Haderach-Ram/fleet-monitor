@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-08-31 17:20:03 IST",
-  "generated_epoch": 1788177003,
+  "generated_ist": "2026-08-31 17:25:10 IST",
+  "generated_epoch": 1788177310,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.33 / 2.85 / 2.89",
+    "load": "2.06 / 2.60 / 2.77",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 7172,
-      "rss_gb": 0.87,
-      "cpu": 12.4,
+      "rss_gb": 0.89,
+      "cpu": 1.9,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788177273577,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788177273577,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788177273576,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788177273576,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,46 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788176425574,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788176425573,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788176425573,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1788176088443,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788176078227,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,17 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:47 IST] HADERACH: Confirmed \u2014 that lines up with everything I found. <b>Exa_API_Key</b> in BWS is already the correct, matching key (the \"Haderach_M4Fleet\" one from your dashboard), and it's live and working now that the top-up has landed. Nothing further needed on the Exa side \u2014 no new secret, no Giskard involvement required there.",
-          "Only open item is the separate native `tools.web.search` provider gap (Tavily recommendation) \u2014 let me know if you want that relayed to Giskard, otherwise I'll treat this as close...",
-          "[15:47 IST] RAM: Send me the draft for G. I will paste to hium",
-          "[15:47 IST] HADERACH: Here's the draft, output only, for you to paste to Giskard:",
-          "---",
-          "Giskard \u2014 please fix native `web_search` on Haderach using the existing Tavily key (Option A, confirmed by Ram):",
-          "<b>Problem:</b> `tools.web.search` has no provider configured (only `tools.web.fetch.provider: \"firecrawl\"` is set). Native `web_search` tool is non-functional as a result.",
-          "<b>Fix:</b>",
-          "1. Backup first:",
-          "```",
-          "cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak-$(date +%Y%m%d-%H%M%S)",
           "```",
           "2. Install the Tavily pl...",
           "[15:48 IST] HADERACH: Here's the draft, output only, for you to paste to Giskard:",
@@ -1557,7 +1546,18 @@
           "I just ran a real `web_search` query (\"India business news today top headline\") directly in this session \u2014 provider correctly shows as `tavily`, results came back current (dated Aug 29-31, 2026), no errors. That's the in-agent confirmation Giskard asked for.",
           "Nice clean writeup from him too \u2014 appreciated that he caught the truncated-BWS-ID gotcha before declaring done rather than after. Current state: native `web_search` (Tavily) and...",
           "--- [TRANSCRIPT GAP: 16:43 IST \u2014 session empty for 33 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 54 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 54 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
+          "[17:10 IST] RAM: What is the update on GitHub issue Issue #31017?",
+          "[17:11 IST] HADERACH: No memory hits and nothing in our tracked issue list \u2014 this doesn't appear to be one of ours. Here's what GitHub actually shows for it:",
+          "<b>#31017 is a PR, not an open issue</b> \u2014 \"Switch default provider from anthropic to hanzo with zen4 model.\" It's <b>closed</b>, and not merged.",
+          "<ul>",
+          "<li><b>What it proposed:</b> change OpenClaw's `DEFAULT_PROVIDER`/`DEFAULT_MODEL` from Anthropic/claude-opus-4-6 to Hanzo/zen4, and fix a hardcoded Anthropic fallback in model resolution.</li>",
+          "<li><b>Why it w...",
+          "[17:11 IST] HADERACH: No memory hits and nothing in our tracked issue list \u2014 this doesn't appear to be one of ours. Here's what GitHub actually shows for it:",
+          "<b>#31017 is a PR, not an open issue</b> \u2014 \"Switch default provider from anthropic to hanzo with zen4 model.\" It's <b>closed</b>, and not merged.",
+          "<ul>",
+          "<li><b>What it proposed:</b> change OpenClaw's `DEFAULT_PROVIDER`/`DEFAULT_MODEL` from Anthropic/claude-opus-4-6 to Hanzo/zen4, and fix a hardcoded Anthropic fallback in model resolution.</li>",
+          "<li><b>Why it w..."
         ],
         "yesterday": [
           "**Gagan Banga (6 results):**",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 887,
-      "rss_gb": 0.62,
-      "cpu": 0.1,
+      "rss_gb": 0.6,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1724,19 +1724,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788176111373,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1788177014600,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1788175205574,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788176111373,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2387,7 +2387,7 @@
       "frozen_reason": null,
       "pid": 99930,
       "rss_gb": 0.67,
-      "cpu": 0.6,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3674,7 +3674,7 @@
       "frozen_reason": null,
       "pid": 869,
       "rss_gb": 0.45,
-      "cpu": 2.6,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 868,
       "rss_gb": 0.29,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3894,7 +3894,7 @@
       "frozen_reason": null,
       "pid": 863,
       "rss_gb": 0.25,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4295,7 +4295,7 @@
       "frozen_reason": null,
       "pid": 895,
       "rss_gb": 0.48,
-      "cpu": 0.1,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
