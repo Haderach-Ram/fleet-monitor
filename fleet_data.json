@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-01 10:19:43 IST",
-  "generated_epoch": 1788238183,
+  "generated_ist": "2026-09-01 10:24:53 IST",
+  "generated_epoch": 1788238493,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.02 / 5.52 / 7.22",
+    "load": "5.64 / 5.95 / 6.91",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 0.97,
-      "cpu": 1.0,
+      "rss_gb": 1.11,
+      "cpu": 0.9,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788238418229,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788237626197,
+          "last_ts": 1788238364360,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788238364360,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +691,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788237626197,
+          "last_ts": 1788238364360,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +700,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788237626196,
+          "last_ts": 1788238364359,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -701,24 +719,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1788237247648,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788237247641,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788236617703,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,7 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Take our own #93139 bug as the clean example. We diagnosed the root cause ourselves, wrote the actual fix, and it's running live in our dist file right now (per tech.md's \"Local Patch\" entry). Someone else (a contributor called <code>louria</code>) later opened PR #95982 attempting a fix for the same issue upstream \u2014 I just checked, and it was closed...",
           "[09:12 IST] HADERACH: Confirmed the last piece: no fork exists either. Straight answer:",
           "<b>Why we don't contribute code \u2014 capability isn't the gap, workflow is.</b>",
           "Take our own #93139 bug as the clean example. We diagnosed the root cause ourselves, wrote the actual fix, and it's running live in our dist file right now (per tech.md's \"Local Patch\" entry). Someone else (a contributor called <code>louria</code>) later opened PR #95982 attempting a fix for the same issue upstream \u2014 I just checked, and it was closed...",
@@ -1557,7 +1556,8 @@
           "<b>Live status check across all filed issues:</b>",
           "<ul>",
           "<li><b>#93140</b> (apply_patch fails on sandboxed bind-mount / outside-workspace paths) \u2014 <b>still OPEN, unfixed, our own issue</b>. Two other users independently confirmed since (ours, plus a detailed root-cause writeup from BottaniCals pinpointing the exact bad line and offering to test a PR). ClawSweeper says \"maintainer decision needed\" on the security bo...",
-          "[10:06 IST] RAM: Go ahead"
+          "[10:06 IST] RAM: Go ahead",
+          "[10:10 IST] HADERACH: Fork is in place and cloned. Let's set up upstream tracking and look at the current source for the #93140 bug (apply_patch rejecting authorized bind-mount paths)."
         ],
         "yesterday": [
           "[18:37 IST] RAM: Any key to-dos from your capability improvement perspective? Can you do a ecosystem check, see other implementations etc and tell me if you need new skills loaded etc",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.55,
-      "cpu": 1.0,
+      "rss_gb": 0.56,
+      "cpu": 8.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1724,19 +1724,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788237311593,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1788238205530,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1788236406151,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788237311593,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2387,7 +2387,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.51,
-      "cpu": 1.9,
+      "cpu": 2.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3636,8 +3636,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1576,
-      "rss_gb": 0.4,
-      "cpu": 0.4,
+      "rss_gb": 0.41,
+      "cpu": 4.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3852,7 +3852,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4253,7 +4253,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 1.7,
+      "cpu": 1.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
