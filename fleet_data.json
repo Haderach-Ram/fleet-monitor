@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-01 09:27:28 IST",
-  "generated_epoch": 1788235048,
+  "generated_ist": "2026-09-01 09:32:35 IST",
+  "generated_epoch": 1788235355,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.09 / 5.76 / 5.24",
+    "load": "5.89 / 5.76 / 5.37",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.13,
-      "cpu": 0.4,
+      "rss_gb": 1.11,
+      "cpu": 0.7,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788235226894,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788235226893,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-052 resume reminder",
+          "enabled": true,
+          "sched": "30 9 * * *",
+          "last_ts": 1788235226893,
+          "last_status": "ok",
+          "model": "(no LLM)",
+          "kind": "systemEvent"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788235226892,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -670,37 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788234787377,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788234787376,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1788234787376,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788234787375,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1073,15 +1082,6 @@
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
-        },
-        {
-          "name": "HAD-052 resume reminder",
-          "enabled": true,
-          "sched": "30 9 * * *",
-          "last_ts": 1788149055641,
-          "last_status": "ok",
-          "model": "(no LLM)",
-          "kind": "systemEvent"
         },
         {
           "name": "SAK-008 trendlyne.db \u2014 filing_catalogue Weekly Refresh",
@@ -1519,16 +1519,6 @@
       "transcripts": {
         "recent": [
           "<ul>",
-          "<li><b>Self-improving learning loop</b> is Hermes's real differentiator \u2014 a Curator that grades/prunes/consolidates its own skill library over time. OpenClaw has no equivalent; it follows instructions well but doesn't get ...",
-          "[09:03 IST] HADERACH: **Daily Brief \u2014 1 September 2026**",
-          "<ul>",
-          "<li>Sammaan Capital track has gone quiet \u2014 no fresh SCL story today (reverted to homepage/About Us/Screener.in reference pages after yesterday's Avenir/RBI-approval and recovery news).</li>",
-          "<li>RBI/NBFC: Vinod Kothari Consultants (Aug 2026) published a fresh legal explainer on RBI's draft proposal to regulate NBFC interest rates and pricing methodology \u2014 the first genuinely new regulatory signal in a few days.</li>",
-          "<li>ET BFSI's ongoing piece: RBI's ne...",
-          "[09:06 IST] RAM: Is this genuine traffic?",
-          "[09:07 IST] HADERACH: Good question \u2014 I pulled it live against GitHub's traffic API rather than trusting the cron's cached output. The numbers themselves check out (155 views/85 uniques, 109 clones/66 uniques over the same 14-day window) \u2014 no fabrication there. But the <i>composition</i> of that traffic points more toward crawlers/bots than genuine human readership. Here's why:",
-          "<b>Signals it's mostly not organic human traffic</b>",
-          "<ul>",
           "<li><b>Clone-to-view ratio is very high</b> \u2014 109 clones against 155 views (70%...",
           "[09:08 IST] HADERACH: Good question \u2014 I pulled it live against GitHub's traffic API rather than trusting the cron's cached output. The numbers themselves check out (155 views/85 uniques, 109 clones/66 uniques over the same 14-day window) \u2014 no fabrication there. But the <i>composition</i> of that traffic points more toward crawlers/bots than genuine human readership. Here's why:",
           "<b>Signals it's mostly not organic human traffic</b>",
@@ -1557,7 +1547,17 @@
           "[09:17 IST] HADERACH: Confirmed and reproduced exactly: <b>current main corrupts</b> (2 real newlines / 3 literal `\\n`), <b>PR #107693's fix is clean</b> (5 real newlines / 0 literal), and critically \u2014 the malformed-Windows-path fallback still works correctly under the fix (no regression). This is precisely the missing artifact ClawSweeper has been asking for since August. Let me verify this against our actual live shipped dist file too, then post it.",
           "[09:17 IST] HADERACH: Good \u2014 my JS-string-literal escaping in the shell one-liner was wrong (that's a probe-encoding bug, not a dist bug); the file-based version above is correct and confirms our own local patch also passes this exact probe cleanly. Now let's post the proof as a comment on PR #107693.",
           "[09:17 IST] HADERACH: Before posting \u2014 this is a public comment on someone else's PR in the upstream repo, under our account. Confirming with you first per the external-content/external-action discipline.",
-          "<b>What I'm proposing to post</b> (as Haderach-Ram, on `openclaw/openclaw#107693`, the live open fix for our #93139 bug): independently-reproduced before/after byte-level proof showing the fix works and doesn't regress the Windows-path fallback \u2014 exactly the missing artifact that's been blocking this PR's merge ..."
+          "<b>What I'm proposing to post</b> (as Haderach-Ram, on `openclaw/openclaw#107693`, the live open fix for our #93139 bug): independently-reproduced before/after byte-level proof showing the fix works and doesn't regress the Windows-path fallback \u2014 exactly the missing artifact that's been blocking this PR's merge ...",
+          "[09:23 IST] RAM: [Telegram Ram Shenoy id:8489979671 +6m Tue 2026-09-01 09:23:55 GMT+5:30] Ram Shenoy: Ok",
+          "[Reply chain - nearest first]",
+          "[1. Haderach id:84355 2026-09-01T03:48:03.000Z]",
+          "Before posting \u2014 this is a public comment on someone else's PR in the upstream repo, under our account. Confirming with you first per the external-content/external-action discipline.",
+          "What I'm proposing to post (as Haderach-Ram, on openclaw/openclaw#107693, the live open fix for our #93139 bug): independently-reproduced before/af...",
+          "[09:26 IST] HADERACH: Understood \u2014 posting now.",
+          "[09:26 IST] HADERACH: Posted. <a href=\"https://github.com/openclaw/openclaw/pull/107693#issuecomment-5488666862\">Comment is live</a> on `openclaw/openclaw#107693` under Haderach-Ram, with the reproduced before/after proof ClawSweeper's been asking for since August.",
+          "That's the real, on-record contribution \u2014 not a merged PR yet, but a substantive artifact on the actual live fix for our own #93139 bug, credited to our account, in the thread a maintainer will read. I'll keep an eye on the PR (next weekly bulletin's G...",
+          "[09:27 IST] HADERACH: Posted. <a href=\"https://github.com/openclaw/openclaw/pull/107693#issuecomment-5488666862\">Comment is live</a> on `openclaw/openclaw#107693` under Haderach-Ram, with the reproduced before/after proof ClawSweeper's been asking for since August.",
+          "That's the real, on-record contribution \u2014 not a merged PR yet, but a substantive artifact on the actual live fix for our own #93139 bug, credited to our account, in the thread a maintainer will read. I'll keep an eye on the PR (next weekly bulletin's G..."
         ],
         "yesterday": [
           "[18:37 IST] RAM: Any key to-dos from your capability improvement perspective? Can you do a ecosystem check, see other implementations etc and tell me if you need new skills loaded etc",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.56,
-      "cpu": 0.7,
+      "rss_gb": 0.57,
+      "cpu": 1.2,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2387,7 +2387,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.51,
-      "cpu": 0.3,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2561,6 +2561,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788235206194,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2583,15 +2592,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1788233412180,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1788233412179,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2626,9 +2626,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Both verification checks passed. All files have non-zero byte counts and the script reports OK status.",
-          "NO_REPLY",
-          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[01:55 IST] PURL: Let me check today's memory file and the heartbeat state properly:",
           "[01:55 IST] PURL: Now checking ProtonMail inbox:",
           "[01:56 IST] PURL: ProtonMail timed out (network issue). Proceeding with other checks. Saving today's session:",
@@ -2665,7 +2662,10 @@
           "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now."
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. All transcript sessions checked; no new messages to process.",
+          "[09:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
@@ -3637,7 +3637,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.4,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3822,7 +3822,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.29,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3852,7 +3852,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4253,7 +4253,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 0.8,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
