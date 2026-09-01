@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-01 12:49:03 IST",
-  "generated_epoch": 1788247143,
+  "generated_ist": "2026-09-01 12:54:10 IST",
+  "generated_epoch": 1788247450,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.11 / 6.18 / 6.37",
+    "load": "4.45 / 5.59 / 6.09",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.12,
-      "cpu": 0.6,
+      "rss_gb": 1.11,
+      "cpu": 0.4,
       "crons_total": 95,
       "crons_enabled": 59,
       "skills_count": 61,
@@ -664,7 +664,25 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788246766291,
+          "last_ts": 1788247226891,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788247226891,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788247226890,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -674,24 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1788246766291,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788246766291,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788246766290,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1518,9 +1518,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:20 IST] HADERACH: Now let's select SAMMAAN entities and submit, or better, just submit with blank issuer to get all issuances in the date range.",
-          "[12:20 IST] HADERACH: Good \u2014 the filter works and returned real EBP data. Given the full universe is huge (7,690+ serial entries across all issuers), let me pull SCL/SFL specifically as the meaningful test case for Jan\u2013Jun 2026.",
-          "[12:22 IST] HADERACH: Only 4 rows for SCL, no pagination \u2014 that's the complete set. Now let's check SFL too.",
           "[12:22 IST] HADERACH: Confirmed working end-to-end. Here's the test result:",
           "<b>Test successful \u2014 pulled live BSE-EBP data for Jan\u2013Jun 2026.</b>",
           "Filtered by Allotment Date 01/01/2026\u201330/06/2026, BSE EBP Used = Yes:",
@@ -1557,7 +1554,10 @@
           "[12:40 IST] HADERACH: Built and verified. Let's quickly sanity-check the file opens correctly and spot-check a few rows before sending.",
           "[12:40 IST] HADERACH: Confirmed working, well-formatted, 492 rows, 167 issuers, \u20b91,47,506 Cr total raised. Sending the file.",
           "[12:40 IST] HADERACH: Full dump pulled directly from BSE's own JSON API (no more page-scraping needed) \u2014 <b>492 primary bond issuances, Jan\u2013Jun 2026, all issuers, 167 unique names, \u20b91,47,506 Cr total raised.</b>",
-          "Two tabs: full detail (issuer, ISIN, coupon/yield, tenor, rating, QIB/non-QIB bidding split, PM/KID doc links, etc.) and a summary by issuer sorted by amount raised. Top raisers in the window: Bajaj Housing Finance (10 issuances, \u20b910,955 Cr), JSW Kalinga Steel (\u20b99,500 Cr), NaBFID (\u20b99,000 Cr), REC (\u20b98,330 ..."
+          "Two tabs: full detail (issuer, ISIN, coupon/yield, tenor, rating, QIB/non-QIB bidding split, PM/KID doc links, etc.) and a summary by issuer sorted by amount raised. Top raisers in the window: Bajaj Housing Finance (10 issuances, \u20b910,955 Cr), JSW Kalinga Steel (\u20b99,500 Cr), NaBFID (\u20b99,000 Cr), REC (\u20b98,330 ...",
+          "[12:44 IST] RAM: Can we get industry type also in this? Or at least make the NBFCs",
+          "[12:47 IST] HADERACH: Write tool seems to be misbehaving right now. Let me build the industry-mapping script via exec heredoc instead.",
+          "[12:48 IST] HADERACH: Good, exec is fine now. Let me build the industry classification and re-generate the Excel with a full JSON payload embedded in the command (avoiding the write tool for now)."
         ],
         "yesterday": [
           "[18:37 IST] RAM: Any key to-dos from your capability improvement perspective? Can you do a ecosystem check, see other implementations etc and tell me if you need new skills loaded etc",
@@ -1698,8 +1698,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.57,
-      "cpu": 0.8,
+      "rss_gb": 0.58,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1727,7 +1727,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1788245405769,
+          "last_ts": 1788247204873,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2386,8 +2386,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.51,
-      "cpu": 0.7,
+      "rss_gb": 0.52,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3637,7 +3637,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.41,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3822,7 +3822,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3852,7 +3852,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
