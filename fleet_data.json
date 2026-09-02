@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-02 08:59:22 IST",
-  "generated_epoch": 1788319762,
+  "generated_ist": "2026-09-02 09:04:29 IST",
+  "generated_epoch": 1788320069,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.95 / 4.32 / 4.48",
+    "load": "4.32 / 4.67 / 4.62",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.27,
-      "cpu": 0.1,
+      "rss_gb": 1.29,
+      "cpu": 0.4,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,15 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788319787839,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -688,9 +697,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SAK-008 bonds.db \u2014 Daily BSE EBP Bond Issuance Refresh",
+          "name": "SAK-008 bonds.db \u2014 Weekly BSE EBP Bond Issuance Refresh",
           "enabled": true,
-          "sched": "45 8 * * 2-6",
+          "sched": "45 8 * * 2",
           "last_ts": 1788318912100,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -719,15 +728,6 @@
           "enabled": true,
           "sched": "30 8 * * 2-6",
           "last_ts": 1788318126020,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788317985845,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,9 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Final reply:**",
-          "\ud83e\udd9e Digest live: https://haderach-ram.github.io/openclaw-radar/digest/daily/2026/09/02/daily-digest.html \u00b7 Most active: IronClaw (10 new issues) \u00b7 draCuLAW traffic (7d): 9 PV \u00b7 Top page: /openclaw-radar",
-          "\ud83d\udc26 Draft tweet (reply \"send it\" to post):",
           "IronClaw is on fire today \u2014 10 new issues, 9 merged PRs in 24h, more than any other framework we track. Full digest: https://haderach-ram.github.io/openclaw-radar/digest/daily/2026/09/02/daily-digest.html",
           "[08:01 IST] RAM: TwitAcc skill needs fixing?",
           "[08:02 IST] HADERACH: Found it. Root cause: `fetch_tweet()` scrolls the page 3\u00d7 (4500px) *before* extracting content, and X's timeline is virtualized \u2014 React unmounts tweets once they scroll out of the viewport. So by the time the extraction JS runs, the main tweet (and anything above the current scroll position) has been unmounted from the DOM, leaving only nearby replies. That's why the screenshot showed the real tweet fine, but the extractor came back with only reply noise.",
@@ -1575,7 +1572,10 @@
           "[08:45 IST] HADERACH: \u2705 **bonds.db Daily Refresh (02 Sep 2026)**",
           "- **EBP Ingest:** 385 rows upserted (FY2026-27)",
           "- **CIN Match:** 1 new issuer matched (NBFC/ARC classification) \u2192 3212 bond_issuances rows updated",
-          "Both runs clean. Database current."
+          "Both runs clean. Database current.",
+          "[08:56 IST] RAM: Can you refresh bonds.db once a week i stead of daily?",
+          "[08:59 IST] HADERACH: Done, Ram. Changed from daily (Tue\u2013Sat 08:45 IST) to weekly \u2014 now fires once, Tuesday 08:45 IST, next run 8 Sep. Same two scripts, same idempotent-upsert logic, just less often.",
+          "[08:59 IST] HADERACH: Done, Ram. Changed from daily (Tue\u2013Sat 08:45 IST) to weekly \u2014 now fires once, Tuesday 08:45 IST, next run 8 Sep. Same two scripts, same idempotent-upsert logic, just less often."
         ],
         "yesterday": [
           "[22:15 IST] RAM: Approve what upgrade?",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.6,
-      "cpu": 0.5,
+      "rss_gb": 0.58,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2404,8 +2404,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.54,
-      "cpu": 1.5,
+      "rss_gb": 0.6,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2579,28 +2579,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1788318006233,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1788316211409,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1788309253250,
+          "last_ts": 1788320052717,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2609,7 +2591,25 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1788309253249,
+          "last_ts": 1788320052717,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1788319813359,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788319813358,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2644,9 +2644,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- Bookmarks updated",
-          "- No errors",
-          "Maintenance task done.",
           "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary update. Let me start by gathering the content from today's files.",
           "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: The daily log for today (2026-09-02) is missing, and the group transcript has no real conversation (just rotation/bookmark markers). Both indicate no real activity for the day.",
           "I'll now call the rolling summary update script for both personal and group, with the `--no-activity` flag:",
@@ -2683,7 +2680,10 @@
           "[08:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
           "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Running the Klub K group transcript logger...",
           "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[08:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
+          "[08:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now."
         ],
         "yesterday": [
           "[15:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -3676,7 +3676,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.4,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3844,7 +3844,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.29,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3874,7 +3874,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
