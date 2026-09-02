@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-02 20:47:33 IST",
-  "generated_epoch": 1788362253,
+  "generated_ist": "2026-09-02 20:52:40 IST",
+  "generated_epoch": 1788362560,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.77 / 6.30 / 6.12",
+    "load": "5.80 / 5.93 / 5.98",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.34,
+      "rss_gb": 1.32,
       "cpu": 0.4,
       "crons_total": 97,
       "crons_enabled": 61,
@@ -661,28 +661,19 @@
       ],
       "crons": [
         {
-          "name": "MusApp \u2014 Reddit jazz + music reading",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "every 1440m",
-          "last_ts": 1788362064114,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788362423808,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788361828315,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788361828315,
+          "last_ts": 1788362423807,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,9 +682,18 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788361828314,
+          "last_ts": 1788362423807,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "MusApp \u2014 Reddit jazz + music reading",
+          "enabled": true,
+          "sched": "every 1440m",
+          "last_ts": 1788362064114,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1536,13 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[19:58 IST] HADERACH: Still running, actively burning CPU (74.9%), not stuck on a lock. Let's continue waiting.",
-          "[19:58 IST] HADERACH: Doctor complete. Now restart Keshav via launchd.",
-          "[19:59 IST] HADERACH: Empty health response, same crash-loop pattern. Let's check log and try the same fix as Sandip (explicit env vars in foreground to reveal real error, config-path already set).",
-          "[19:59 IST] HADERACH: A different provider reference \u2014 \"duckduckgo\" plugin, not \"gemini\". Let's find where it's configured.",
-          "[19:59 IST] HADERACH: Now restart Keshav.",
-          "[20:00 IST] HADERACH: Keshav is live. Let's check log, plugin version, cron count, Telegram.",
-          "[20:00 IST] HADERACH: Concerning: gateway log shows only 4 plugins loaded (anthropic, google, memory-core, telegram) \u2014 amazon-bedrock is missing, yet the agent model is set to a Bedrock model. Let's check.",
           "[20:00 IST] HADERACH: Same pattern \u2014 stale plugin needs updating. Check for dangling symlink first, then update.",
           "[20:00 IST] HADERACH: Same dangling symlink pattern again. Remove and update.",
           "[20:00 IST] HADERACH: Plugin updated. Now restart Keshav's gateway.",
@@ -1575,7 +1568,14 @@
           "[20:34 IST] HADERACH: Good, capability accepted. Now restart cleanly.",
           "[20:34 IST] HADERACH: Process running for 38s. Let's wait a bit more and check.",
           "[20:37 IST] HADERACH: Found it \u2014 this instance uses a nested config store (`~/.openclaw-agastya-heda/.openclaw/openclaw.json`, resolved via `HOME` in the plist) which differs from the flat store I was editing via `--profile`. Let me fix it in the actual runtime location.",
-          "[20:39 IST] HADERACH: Good, stopped cleanly. Now retry the plugin update/registry refresh with the correct HOME env."
+          "[20:39 IST] HADERACH: Good, stopped cleanly. Now retry the plugin update/registry refresh with the correct HOME env.",
+          "[20:43 IST] HADERACH: This is taking a while \u2014 matches transcript pattern noted earlier (\"doctor genuinely still running\", \"burning CPU\"). Let me check if it's actually working.",
+          "[20:43 IST] HADERACH: It's hung (0% CPU, no time growth) \u2014 likely a lock wait. Let me kill it and try `openclaw doctor` instead, which worked for other agents.",
+          "[20:43 IST] HADERACH: All clean now. Let me try the plugin update fresh with the correct env.",
+          "[20:44 IST] HADERACH: That worked this time (previous hang was likely a stale lock from the earlier interrupted run). Now let's retry the plugin update.",
+          "[20:46 IST] HADERACH: Extraction happened but npm install of dependencies didn't complete before timeout. Let me retry with more time.",
+          "[20:47 IST] HADERACH: Still running (npm install taking longer than 45s, as expected \u2014 earlier successful update also took a while). Let's wait more.",
+          "[20:49 IST] HADERACH: Actively working (0.9% CPU, growing elapsed). Let's give it more time."
         ],
         "yesterday": [
           "[22:15 IST] RAM: Approve what upgrade?",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.6,
-      "cpu": 0.9,
+      "rss_gb": 0.59,
+      "cpu": 1.2,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2404,8 +2404,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.49,
-      "cpu": 1.6,
+      "rss_gb": 0.5,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3676,7 +3676,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.38,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3844,7 +3844,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.29,
-      "cpu": 0.8,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4275,7 +4275,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
