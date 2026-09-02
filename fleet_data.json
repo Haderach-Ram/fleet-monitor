@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-02 20:16:45 IST",
-  "generated_epoch": 1788360405,
+  "generated_ist": "2026-09-02 20:21:53 IST",
+  "generated_epoch": 1788360713,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "8.12 / 7.05 / 6.72",
+    "load": "6.60 / 6.48 / 6.52",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.33,
-      "cpu": 0.2,
+      "rss_gb": 1.48,
+      "cpu": 0.5,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788360628628,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788360025782,
+          "last_ts": 1788360628627,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +682,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788360025782,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788360025782,
+          "last_ts": 1788360628627,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,12 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[19:51 IST] HADERACH: Progress \u2014 setting `OPENCLAW_CONFIG_PATH` explicitly (matching the plist) resolved the \"missing gateway.mode\" confusion; it's now hitting a legacy workspace migration requirement, same as Seneca/Jonas hit. Let's run doctor with the full matching env.",
-          "[19:51 IST] HADERACH: Doctor updated the correct flat config this time. Now let's restart with the same explicit env vars.",
-          "[19:51 IST] HADERACH: Sandip is up and healthy \u2014 gateway ready, Telegram polling immediately, no manual channel restart needed. Now let's check the amazon-bedrock plugin version and cron sanity, then bring it up under launchd properly.",
-          "[19:52 IST] HADERACH: Same as before \u2014 needs the plugin update. Let's check for the dangling-symlink issue first (item 7 lesson), then update.",
-          "[19:52 IST] HADERACH: Confirmed dangling symlink, same as Ravindra. Removing it before running the plugin update.",
-          "[19:52 IST] HADERACH: Plugin updated. Now let's stop the foreground process (if lingering) and start it properly via launchd.",
           "[19:52 IST] HADERACH: Nothing running. Let's confirm launchd config env matches, then bootstrap.",
           "[19:52 IST] HADERACH: Not loaded. Bootstrap it.",
           "[19:53 IST] HADERACH: Sandip is live under launchd. Let's verify plugins, Telegram, and cron count.",
@@ -1575,7 +1569,13 @@
           "[20:07 IST] HADERACH: Both plugins updated. Restart CAIO's gateway.",
           "[20:08 IST] HADERACH: CAIO fully healthy \u2014 6 plugins loaded (amazon-bedrock 8.2, discord 8.2), both Telegram and Discord channels live. CAIO complete. Now Heda (port 18813), the last remaining agent.",
           "[20:08 IST] HADERACH: Clean config. Backup, check symlink, stop, doctor-fix.",
-          "[20:08 IST] HADERACH: Dangling symlink present as expected. Removing it now before doctor/plugin steps."
+          "[20:08 IST] HADERACH: Dangling symlink present as expected. Removing it now before doctor/plugin steps.",
+          "[20:10 IST] HADERACH: Sleeping state (Ss), low CPU \u2014 may be stuck. Let's wait a bit more before concluding it's hung.",
+          "[20:11 IST] HADERACH: Doctor complete. Now update the plugin and restart.",
+          "[20:11 IST] HADERACH: The amazon-bedrock plugin has vanished from the list entirely \u2014 the earlier failed update seems to have corrupted its registration. Let's check the underlying npm project directory and config state.",
+          "[20:11 IST] HADERACH: The new \"generation\" dir is empty \u2014 the install attempt failed and left an empty artifact. Let's clean it up and retry the plugin update.",
+          "[20:12 IST] HADERACH: `plugins registry` \u2014 let's rebuild it.",
+          "[20:12 IST] HADERACH: Registry refreshed but amazon-bedrock still not \"installed\". Let's try a full reinstall instead of update."
         ],
         "yesterday": [
           "[22:15 IST] RAM: Approve what upgrade?",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.57,
-      "cpu": 0.9,
+      "rss_gb": 0.7,
+      "cpu": 1.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2405,7 +2405,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.5,
-      "cpu": 0.9,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3676,7 +3676,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.38,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3844,7 +3844,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3874,7 +3874,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4275,7 +4275,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
