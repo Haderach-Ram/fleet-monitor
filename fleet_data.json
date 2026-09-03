@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-03 16:28:10 IST",
-  "generated_epoch": 1788433090,
+  "generated_ist": "2026-09-03 16:33:18 IST",
+  "generated_epoch": 1788433398,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.67 / 8.84 / 8.63",
+    "load": "8.50 / 8.63 / 8.60",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -33,9 +33,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 1573,
+      "rss_gb": 1.47,
+      "cpu": 0.5,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,16 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788432831660,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788432831660,
+          "last_ts": 1788433224488,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +673,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788432831659,
+          "last_ts": 1788433224488,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788433224488,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788433191170,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -719,15 +728,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1788431735617,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788431393627,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,9 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:26 IST] RAM: Presently, all users are on DM as well as a group chat",
-          "[15:26 IST] HADERACH: That's useful context and it does soften the calculus a bit \u2014 but doesn't remove the issue.",
-          "The group chat and the DM channel are architecturally separate in OpenClaw (docs confirm: \"Group chats: Isolated per group\" \u2014 Jonas's group session is already its own isolated thing, unaffected by any of this). The bug is specifically about the <b>DM channel</b> \u2014 those 12 people also messaging Jonas 1:1, expecting a private thread, but all landing in one shared backend session regardless.",
           "Given ever...",
           "[15:27 IST] HADERACH: That's useful context and it does soften the calculus a bit \u2014 but doesn't remove the issue.",
           "The group chat and the DM channel are architecturally separate in OpenClaw (docs confirm: \"Group chats: Isolated per group\" \u2014 Jonas's group session is already its own isolated thing, unaffected by any of this). The bug is specifically about the <b>DM channel</b> \u2014 those 12 people also messaging Jonas 1:1, expecting a private thread, but all landing in one shared backend session regardless.",
@@ -1575,7 +1572,10 @@
           "[16:17 IST] HADERACH: I'll pick up the open item \u2014 digging into the secrets-resolution root cause on CAIO/Ravindra/Heda, since that was the pending decision point and no reply has come through yet. Let me investigate rather than sit idle.",
           "[16:20 IST] HADERACH: This talks to the live gateway. Let's try it.",
           "[16:21 IST] HADERACH: Reload succeeded with 2 warnings (likely the exec provider needing a live check). Let's confirm the degraded state clears \u2014 wait a cycle and check logs.",
-          "[16:22 IST] HADERACH: Found the likely root cause. Let me verify and then apply the same fix to Ravindra and Heda, and confirm."
+          "[16:22 IST] HADERACH: Found the likely root cause. Let me verify and then apply the same fix to Ravindra and Heda, and confirm.",
+          "[16:26 IST] HADERACH: Now let's wait a couple minutes and check whether the periodic error stops recurring on the next scheduled cycle (CAIO/Ravindra fire every 30 min on the :00/:30 mark).",
+          "[16:27 IST] HADERACH: It's still in the sleep 600. Let me wait for it to finish.",
+          "[16:28 IST] HADERACH: Let me use this waiting time productively \u2014 verify Heda's fix and check on the pending secrets warnings while the CAIO/Ravindra sleep completes."
         ],
         "yesterday": [
           "<li><b>Grok 4.3</b> \u2014 GA on Bedrock 17 Jun 2026 (1M context, bedrock-mantle endpoint)</li>",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.57,
-      "cpu": 0.4,
+      "rss_gb": 0.58,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2366,7 +2366,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.56,
+      "rss_gb": 0.55,
       "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2541,18 +2541,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1788431410891,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788433206513,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 6-21 * * *",
           "last_ts": 1788431410891,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2606,7 +2606,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-09-03",
           "## 11:51 AM IST \u2014 Harsh Patni (NPCI) Farewell Email",
           "- Harsh moving to his next chapter",
           "- Introducing Anubha Shrivastava as new Relationship Manager",
@@ -2644,7 +2643,9 @@
           "- State files updated",
           "- Ready for next cycle",
           "[15:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[16:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
+          "[16:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
+          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now."
         ],
         "yesterday": [
           "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages in any tracked sessions. All transcripts current.",
@@ -3653,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.38,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3819,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3848,7 +3849,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4249,7 +4250,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.48,
-      "cpu": 0.4,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
