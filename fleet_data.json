@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-03 21:09:26 IST",
-  "generated_epoch": 1788449966,
+  "generated_ist": "2026-09-03 21:14:34 IST",
+  "generated_epoch": 1788450274,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "8.17 / 8.07 / 8.18",
+    "load": "8.42 / 8.07 / 8.12",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.28,
-      "cpu": 0.3,
+      "rss_gb": 1.26,
+      "cpu": 0.4,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788450026572,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788450026572,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788450026571,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Twitter Watcher \u2014 Every 3h",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -688,37 +715,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788449589003,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1788449589003,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788449589003,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788449589002,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,16 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**\ud83d\udcca Important \u2014 Rating Agency & Financial Media:**",
-          "- **MarketPing (Financial data source)** \u2014 \"42 high-impact credit rating upgrades in 30 days to 29 Aug 2026... Sammaan Capital to BWR AAA.\"",
-          "- **The Wealth Secrets** \u2014 \"Sammaan Capital: Board Will Review Debt Issue Approval for Tier I and Tier II Capital on Sep 7\" (scheduled event)",
-          "**\ud83d\udcf0 Journalism:**",
-          "- **Scroll.in (New...",
-          "[18:35 IST] RAM: Was this resolved?",
-          "[18:36 IST] HADERACH: Yes \u2014 resolved and confirmed stable. Here's the final picture, root cause and all:",
-          "<b>CAIO + Ravindra (secrets provider degraded)</b>",
-          "Root cause: <code>/opt/homebrew/bin/python3</code> is a symlink into the Python Cellar, and the M2 build's exec-secret-provider validator (<code>assertSecureExecCommandPath</code>) rejects symlink command paths outright \u2014 no config flag to bypass it on this build. Every so often the resolver call would hit that rejection and throw <code>SECRETS_PROVIDER_DEGRAD...",
-          "[18:36 IST] HADERACH: Yes \u2014 resolved and confirmed stable. Here's the final picture, root cause and all:",
           "<b>CAIO + Ravindra (secrets provider degraded)</b>",
           "Root cause: <code>/opt/homebrew/bin/python3</code> is a symlink into the Python Cellar, and the M2 build's exec-secret-provider validator (<code>assertSecureExecCommandPath</code>) rejects symlink command paths outright \u2014 no config flag to bypass it on this build. Every so often the resolver call would hit that rejection and throw <code>SECRETS_PROVIDER_DEGRAD...",
           "[18:57 IST] RAM: Let\u2019s monitor M2 for a few more days before we update M4",
@@ -1575,7 +1565,17 @@
           "[20:23 IST] HADERACH: Diagnosed both. Good news \u2014 neither is a real functional failure; both are the substantive work completing successfully, followed by a trailing self-referential tool call failing and getting misreported as the run's terminal status.",
           "<b>1. SAK-008 trendlyne.db filing_catalogue Weekly Refresh (1 consecutive error)</b>",
           "The refresh script actually ran fine on schedule (31 Aug, 09:23\u201309:26 IST) and wrote a fresh <code>filing_catalogue_summary.json</code> at 09:25:52 \u2014 timestamp lands squarely in...",
-          "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "[21:03 IST] HADERACH: **SCL Media Monitor \u2014 21:03 IST (3 Sep 2026)**",
+          "**RSS:** No new articles.",
+          "**Twitter findings:**",
+          "\ud83d\udd39 **Ventura Securities Research Report** (2h ago)",
+          "- User: Prabhu Sharma (@PrabhuS34644543)",
+          "- Content: Research report on Sammaan Capital with Buy recommendation, target \u20b9377, upside 148%",
+          "- **Relevance:** Research house recommendation \u2014 track for investor relations context",
+          "\ud83d\udd39 **The Wealth Secrets \u2014 Board Review Alert** (2 Sep)",
+          "- User: The Wealth Secrets (@Aiwealthsecrets)",
+          "- Content: \"Sammaan Capit..."
         ],
         "yesterday": [
           "<li><b>Grok 4.3</b> \u2014 GA on Bedrock 17 Jun 2026 (1M context, bedrock-mantle endpoint)</li>",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.55,
-      "cpu": 1.0,
+      "rss_gb": 0.56,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2366,8 +2366,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.52,
-      "cpu": 0.9,
+      "rss_gb": 0.53,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3818,8 +3818,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1575,
-      "rss_gb": 0.29,
-      "cpu": 0.6,
+      "rss_gb": 0.28,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4250,7 +4250,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.46,
-      "cpu": 1.2,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
