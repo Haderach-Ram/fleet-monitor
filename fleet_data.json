@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-04 14:29:15 IST",
-  "generated_epoch": 1788512355,
+  "generated_ist": "2026-09-04 14:34:23 IST",
+  "generated_epoch": 1788512663,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.05 / 10.04 / 9.75",
+    "load": "10.11 / 10.03 / 9.81",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.39,
+      "rss_gb": 1.46,
       "cpu": 0.1,
       "crons_total": 97,
       "crons_enabled": 61,
@@ -661,10 +661,37 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788512441290,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788512036350,
+          "last_ts": 1788512441289,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788512441288,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788512400067,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -679,37 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788512036350,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788512036349,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1788510849162,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788510604453,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,13 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "1. Where did that screenshot come fro...",
-          "[12:39 IST] HADERACH: Good \u2014 restored and consolidated. Now, back to you, Ram:",
-          "That's a confirmed hit. Your voter record:",
-          "<b>Ramnath Radha Krishna Alewoor</b> \u2014 Age 47, Male, EPIC No. <b>ROL4113643</b>, AC 177 (Vandre West), Part 199, Serial 1132, Ward 101, Booth 24, booth address St Joseph Road, Vandre (West), Mumbai 400050.",
-          "Note: registered under \"Alewoor,\" not \"Shenoy\" \u2014 worth knowing if you ever need to match documents by name.",
-          "Two questions to close out Garima's side:",
-          "1. Where did that screenshot come fro...",
           "[12:39 IST] HADERACH: Both confirmed, Ram. That's exactly the same household row.",
           "<b>Garima Ramnath Arora</b> \u2014 Age 40, Female, EPIC No. <b>ROL4113650</b>, AC 177 (Vandre West), Part 199, Serial 1133, Ward 101, Booth 24, same booth (Mumbai Public School, Pali Chimbai Manpa Shala), booth address St Joseph Road, Vandre West, Mumbai 400050.",
           "Both of you are on the roll, same part (199), consecutive serials (1132/1133) \u2014 confirms you're listed together as a household. No Form 6 action needed.",
@@ -1575,7 +1568,14 @@
           "- **Status**: \u2705 Current and within the acceptable window",
           "No alert needed. The consolidation completed 7 minutes ago as expected.",
           "--- [TRANSCRIPT GAP: 14:03 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 14:23 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 14:23 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
+          "[14:26 IST] RAM: Diagnose the issue in G\u2019s fleet monitoring report pls:",
+          "\ud83d\udda5\ufe0f _Fleet Monitor \u2014 14:05 IST 04 Sep_",
+          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
+          "\ud83d\udd34 _Consolidation cron [haderach: SAK-008 trendlyne.db \u2014 filing_catalogue Weekly Refresh]_ \u2014 1 consecutive error(s): \u26a0\ufe0f \u23f0 Cron: `trendlyne-filing-refresh-monitor` failed",
+          "\u2501\u2501\u2501 FROZEN \u2501\u2501\u2501",
+          "\u23f8 Kubera [18798] \u2014 frozen 2026-06-29 \u2014 Intentionally frozen \u2014 portfolio manager parked pending reactivation. No transcript checks, no cron-freeze alerts.",
+          "\u23f8 CISO-SMEDA [18794] \u2014 frozen 2026-06-29 \u2014 Inte..."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1717,7 +1717,7 @@
       "frozen_reason": null,
       "pid": 1591,
       "rss_gb": 0.54,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.51,
-      "cpu": 0.6,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2541,18 +2541,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1788510610278,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788512439600,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 6-21 * * *",
           "last_ts": 1788510610278,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2606,8 +2606,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Checking ProtonMail inbox:",
-          "[07:56 IST] PURL: Process still initializing. Let me wait and check once more:",
           "[07:56 IST] PURL: ProtonMail check timed out. Skipping to memory update and state refresh:",
           "[07:56 IST] PURL: Now updating the daily log and heartbeat state:",
           "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Running the Klub K group transcript logger...",
@@ -2645,7 +2643,9 @@
           "[13:55 IST] PURL: I'll run through the checks silently.",
           "[13:55 IST] PURL: Now let me check ProtonMail and update the state:",
           "[13:56 IST] PURL: ProtonMail check is running. Let me update heartbeat state and wait for it:",
-          "[13:56 IST] PURL: Good. ProtonMail inbox is clear \u2014 only promotional emails and old forwarded items. Now let me update heartbeat state:"
+          "[13:56 IST] PURL: Good. ProtonMail inbox is clear \u2014 only promotional emails and old forwarded items. Now let me update heartbeat state:",
+          "[14:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[14:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[13:56 IST] PURL: Session saved. ProtonMail check running in background \u2014 no new emails detected yet (still checking). All systems nominal.",
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4248,8 +4248,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.45,
-      "cpu": 0.4,
+      "rss_gb": 0.46,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
