@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-04 23:38:03 IST",
-  "generated_epoch": 1788545283,
+  "generated_ist": "2026-09-04 23:43:10 IST",
+  "generated_epoch": 1788545590,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.93 / 9.51 / 9.54",
+    "load": "10.27 / 9.71 / 9.60",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.42,
-      "cpu": 0.4,
+      "rss_gb": 1.35,
+      "cpu": 0.5,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788544826168,
+          "last_ts": 1788545428957,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788544826168,
+          "last_ts": 1788545428956,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788544826167,
+          "last_ts": 1788545428956,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,7 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Agastya-Keshav</li>",
           "<li>Agastya-Ravindra</li>",
           "<li>CA-SMEDA</li>",
           "<li>Seneca</li>",
@@ -1575,7 +1574,8 @@
           "[22:44 IST] HADERACH: Good \u2014 all 7 have the SQLite store. Now let me check exact upgrade timestamp and session-key config per agent to plan the fix + backfill precisely.",
           "[22:46 IST] HADERACH: All backed up. Now let me check the exact SQLite path and agent-sqlite location naming to confirm consistent across all 7 (seneca had a nested `.openclaw-seneca/agents` old path \u2014 need to confirm SQLite path pattern is uniform).",
           "[22:46 IST] HADERACH: Good, all uniform path. Now let's design the new script. I'll write one canonical SQLite-based `transcript_update.py` template, parameterize per agent (label, session keys, sender names), and deploy.",
-          "[23:09 IST] HADERACH: Nightly consolidation for Monk complete \u2014 idle day, 0 sessions, no facts to promote. Rolling files (7/28/180-day) updated, tag index rebuilt (110 days), transcript bookmarked, heartbeat-state updated. Silent per instructions \u2014 no further action needed."
+          "[23:09 IST] HADERACH: Nightly consolidation for Monk complete \u2014 idle day, 0 sessions, no facts to promote. Rolling files (7/28/180-day) updated, tag index rebuilt (110 days), transcript bookmarked, heartbeat-state updated. Silent per instructions \u2014 no further action needed.",
+          "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1716,7 +1716,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.56,
+      "rss_gb": 0.55,
       "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -1741,6 +1741,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "giskard-watchdog-23",
+          "enabled": true,
+          "sched": "40 23 * * *",
+          "last_ts": 1788545406670,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "giskard-consolidation-23",
           "enabled": true,
@@ -1818,15 +1827,6 @@
           "enabled": true,
           "sched": "5 0 * * *",
           "last_ts": 1788460585904,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-watchdog-23",
-          "enabled": true,
-          "sched": "40 23 * * *",
-          "last_ts": 1788459006391,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2366,8 +2366,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.58,
-      "cpu": 0.6,
+      "rss_gb": 0.57,
+      "cpu": 0.8,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.8,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3848,7 +3848,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4249,7 +4249,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 2.3,
+      "cpu": 1.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
