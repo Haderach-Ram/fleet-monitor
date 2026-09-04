@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-04 16:57:53 IST",
-  "generated_epoch": 1788521273,
+  "generated_ist": "2026-09-04 17:03:00 IST",
+  "generated_epoch": 1788521580,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.11 / 9.37 / 9.61",
+    "load": "11.21 / 10.49 / 10.01",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.42,
-      "cpu": 0.3,
+      "rss_gb": 1.51,
+      "cpu": 141.3,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,28 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788520825933,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788520825932,
+          "last_ts": 1788521575004,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788520825931,
+          "last_ts": 1788521575004,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +682,16 @@
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788520432298,
+          "last_ts": 1788521575003,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788521574993,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -700,7 +700,7 @@
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
-          "last_ts": 1788519619283,
+          "last_ts": 1788521384345,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,9 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u23f8 Kubera [18798] \u2014 frozen 2026-06-29 \u2014 Intentionally frozen \u2014 portfolio manager parked pending reactivation. No transcript checks, no cron-freeze alerts.",
-          "\u23f8 CISO-SMEDA [18794] \u2014 frozen 2026-06-29 \u2014 Inte...",
-          "--- [TRANSCRIPT GAP: 15:04 IST \u2014 session empty for 34 min AND no transcript writes for 21 min. No zombie lock. Possible gateway issue.] ---",
           "[15:04 IST] HADERACH: **SCL Media Monitor \u2014 15:04 IST, 4 Sep 2026**",
           "\u2713 **Important findings:**",
           "**Twitter \u2014 Positive:**",
@@ -1575,7 +1572,10 @@
           "<b>1. 19:25\u201319:51 IST</b> \u2014 OpenClaw upgraded <b>2026.5.28 \u2192 2026.8.2</b> (ran via <code>openclaw doctor</code>, config auto-migrated). Model was still Sonnet 4.6 primary at this point.",
           "<b>2. 20:15 IST</b> (24 minutes later, same sitting) \u2014 primary model switched from <code>amazon-bedrock/global.anthropic.claude-sonnet-4-6</code> to <code>amazon-bedrock/...",
           "[16:42 IST] RAM: But why is Sandip having this issue and not other agents? Pls investigate thoroughly",
-          "[16:48 IST] HADERACH: That's a real difference. Let me check versions across all M2 agents and M4 for comparison."
+          "[16:48 IST] HADERACH: That's a real difference. Let me check versions across all M2 agents and M4 for comparison.",
+          "[16:51 IST] HADERACH: This is the key finding. Let me verify by checking what tool call Sandip was actually making when it got truncated, and cross-check against the one M2 agent that has zero errors despite no override (Ravindra) vs. Keshav which has an explicit override.",
+          "[16:56 IST] HADERACH: That's a real difference. Let me check versions across all M2 agents and M4 for comparison.",
+          "[16:56 IST] HADERACH: This is the key finding. Let me verify by checking what tool call Sandip was actually making when it got truncated, and cross-check against the one M2 agent that has zero errors despite no override (Ravindra) vs. Keshav which has an explicit override."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.55,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.52,
-      "cpu": 2.1,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2541,19 +2541,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1788519608039,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1788521412590,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1788517811115,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788521412589,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2606,7 +2606,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[10:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
           "[11:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
@@ -2645,7 +2644,8 @@
           "[15:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you."
+          "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
+          "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[13:56 IST] PURL: Session saved. ProtonMail check running in background \u2014 no new emails detected yet (still checking). All systems nominal.",
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3847,8 +3847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1570,
-      "rss_gb": 0.25,
-      "cpu": 0.4,
+      "rss_gb": 0.26,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4249,7 +4249,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 1.2,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
