@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-04 21:29:52 IST",
-  "generated_epoch": 1788537592,
+  "generated_ist": "2026-09-04 21:35:01 IST",
+  "generated_epoch": 1788537901,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.48 / 9.51 / 9.47",
+    "load": "8.90 / 8.93 / 9.20",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.42,
-      "cpu": 0.9,
+      "rss_gb": 1.44,
+      "cpu": 0.3,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -664,7 +664,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788537026046,
+          "last_ts": 1788537625343,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788537026045,
+          "last_ts": 1788537625342,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788537026045,
+          "last_ts": 1788537625342,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788537596684,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -719,15 +728,6 @@
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
           "last_ts": 1788535983895,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788535785653,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,8 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:01 IST] HADERACH: **SAK-008 Phase 2 \u2014 Friday WSS Update Complete**",
-          "**Report Summary:**",
           "- **Backfill Results:** 0 new forex rows, 0 new call money rows ingested",
           "- **Latest Forex Reserve:** $699,736 Mn (as of 2026-07-04)",
           "- **Latest Call Money Rates:** 4.2-5.4% range (2026-06-15, WAR 5.29%)",
@@ -1575,7 +1573,9 @@
           "1. **Sandeep Vig** (Markets analyst, 6h ago) \u2014 **Turnaround story article** flagging SCL as \"worth watching\" with focus on IHC capital infusion and phase change.",
           "2. **Abhishek Jain / Arihant Research** (8h ago) \u2014 **Positive sales note** with CAR 20.1%, AA+ rating, favorable valuation commentary. CMP \u20b9154.",
           "3. **FinTrekk Capital** (5h ago) \u2014 Portfolio update: exited QUESS/BLUSPRING, **added Sammaan Capital as new position**.",
-          "4..."
+          "4...",
+          "[21:25 IST] RAM: Is this fixed?",
+          "[21:29 IST] HADERACH: Found the actual root cause \u2014 and it's different from what I thought. Session <code>e2f4583a</code> (the persistent Telegram conversation) was created on <b>1 Sept 2026</b> \u2014 days before any patch. The <code>reset</code> event at 20:31 IST does <i>not</i> create a new session id; it just clears conversation turns within the same session. Let me confirm how OpenClaw maps a Telegram conversation to a session id, so I can force a genuinely new session (not just a reset) to pick up the patched SO..."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.54,
-      "cpu": 0.4,
+      "rss_gb": 0.55,
+      "cpu": 5.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.57,
-      "cpu": 0.7,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2541,6 +2541,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788537606450,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2563,15 +2572,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1788535813277,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1788535813276,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -4248,8 +4248,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.44,
-      "cpu": 0.6,
+      "rss_gb": 0.56,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
