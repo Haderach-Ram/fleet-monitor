@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-04 13:22:38 IST",
-  "generated_epoch": 1788508358,
+  "generated_ist": "2026-09-04 13:27:45 IST",
+  "generated_epoch": 1788508665,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "8.97 / 9.42 / 9.95",
+    "load": "9.54 / 9.53 / 9.84",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.35,
-      "cpu": 0.4,
+      "rss_gb": 1.39,
+      "cpu": 0.3,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,37 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788508431861,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788507636436,
+          "last_ts": 1788508431860,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788508431860,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788508431859,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -674,24 +701,6 @@
           "enabled": true,
           "sched": "10 13 * * *",
           "last_ts": 1788507636436,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788507636436,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788507636435,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "last_ts": 1788507359093,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788507359085,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1536,10 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:38 IST] HADERACH: I accidentally overwrote the earlier notes in today's file with `write` instead of appending. Let me restore the full history.",
-          "[12:39 IST] HADERACH: Good \u2014 restored and consolidated. Now, back to you, Ram:",
-          "That's a confirmed hit. Your voter record:",
-          "<b>Ramnath Radha Krishna Alewoor</b> \u2014 Age 47, Male, EPIC No. <b>ROL4113643</b>, AC 177 (Vandre West), Part 199, Serial 1132, Ward 101, Booth 24, booth address St Joseph Road, Vandre (West), Mumbai 400050.",
           "Note: registered under \"Alewoor,\" not \"Shenoy\" \u2014 worth knowing if you ever need to match documents by name.",
           "Two questions to close out Garima's side:",
           "1. Where did that screenshot come fro...",
@@ -1575,7 +1571,11 @@
           "Ram, a frank assessment: the ECI electoral search portal (electoralsearch.eci.gov.in) is actively blocking automated submissions \u2014 it resets the captcha on every failed attempt and the session token expir...",
           "[12:52 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; timeout)",
           "[12:52 IST] HADERACH: The site is in a loop \u2014 each submission triggers \"Captcha Not Verified\" and immediately resets with a new captcha. The problem isn't my reading of the captcha text; the site appears to be aggressively rate-limiting or its captcha session token is invalidating before the submit goes through.",
-          "Ram, a frank assessment: the ECI electoral search portal (electoralsearch.eci.gov.in) is actively blocking automated submissions \u2014 it resets the captcha on every failed attempt and the session token expir..."
+          "Ram, a frank assessment: the ECI electoral search portal (electoralsearch.eci.gov.in) is actively blocking automated submissions \u2014 it resets the captcha on every failed attempt and the session token expir...",
+          "[13:10 IST] HADERACH: The consolidation watchdog confirms that the 13:00 consolidation **ran successfully**:",
+          "- **lastConsolidation**: 2026-09-04T13:03:00+05:30 (today at 1:03 PM)",
+          "- **Status**: \u2705 Current and within the acceptable window",
+          "No alert needed. The consolidation completed 7 minutes ago as expected."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.58,
-      "cpu": 1.6,
+      "rss_gb": 0.53,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.51,
-      "cpu": 1.0,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3847,8 +3847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1570,
-      "rss_gb": 0.26,
-      "cpu": 0.6,
+      "rss_gb": 0.25,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4249,7 +4249,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.46,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
