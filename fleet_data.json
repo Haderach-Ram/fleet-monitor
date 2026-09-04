@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-04 22:26:17 IST",
-  "generated_epoch": 1788540977,
+  "generated_ist": "2026-09-04 22:31:25 IST",
+  "generated_epoch": 1788541285,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.15 / 9.17 / 9.05",
+    "load": "8.60 / 9.23 / 9.15",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.43,
-      "cpu": 1.0,
+      "rss_gb": 1.48,
+      "cpu": 0.7,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788540627128,
+          "last_ts": 1788541243247,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788540627128,
+          "last_ts": 1788541243246,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788540627127,
+          "last_ts": 1788541243246,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788541203698,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -692,15 +701,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1788539479839,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788539385861,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,7 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:53 IST] RAM: Yes. Pls check the other M2 agents. Should you also put this in your OpenClaw update ProjHad as something to watch out for?",
           "[21:53 IST] HADERACH: All 7 have the patch on disk (as expected \u2014 this matches Sandip's earlier state). Now checking each one's live session_id creation time vs the patch time (18:55 IST) to find which ones are stale.",
           "[21:54 IST] HADERACH: All 6 confirmed stale (Legal-SMEDA DB path differs \u2014 checking separately). Every one's `agent:main:main` session predates the 18:55 IST patch, exactly like Sandip. Restarting the same fix (CLI `/new`) on each now.",
           "[21:55 IST] HADERACH: 6 of 7 fixed successfully. Legal-SMEDA failed with a gateway-side error (unrelated to auth) \u2014 let me check what's going on there.",
@@ -1575,7 +1574,8 @@
           "[22:19 IST] HADERACH: Confirmed \u2014 SSH'd into the M2 and checked directly against the running gateway (SQLite `cron_jobs` table, live process state, and today's transcript file itself), not just config.",
           "<b>Transcript recording \u2014 running, cleanly</b>",
           "Yes, it's active. The frequency is <b>every 30 minutes, 06:00\u201323:00 IST</b>, plus a quiet 3-hour cadence overnight (00:00\u201306:00). Live cron state confirms the last run was at <b>16:30 IST today</b>, exactly on schedule, zero consecutive errors.",
-          "One wrinkle worth flagg..."
+          "One wrinkle worth flagg...",
+          "[22:25 IST] RAM: This is wrong. Both Ashwin and I have interacted with the agent. Pls check what is wrong. And does this issue exist with other M2 DAs"
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
@@ -1717,7 +1717,7 @@
       "frozen_reason": null,
       "pid": 1591,
       "rss_gb": 0.54,
-      "cpu": 0.8,
+      "cpu": 1.2,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.57,
-      "cpu": 0.9,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2541,18 +2541,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1788539416449,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788541206283,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 22 * * *",
           "last_ts": 1788539416449,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3818,7 +3818,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4249,7 +4249,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
