@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-05 13:09:03 IST",
-  "generated_epoch": 1788593943,
+  "generated_ist": "2026-09-05 13:14:10 IST",
+  "generated_epoch": 1788594250,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "12.07 / 11.68 / 11.37",
+    "load": "9.71 / 11.35 / 11.39",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.39,
-      "cpu": 7.0,
+      "rss_gb": 1.45,
+      "cpu": 26.9,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
+          "last_ts": 1788594035324,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788594035323,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788594035323,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788594035322,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -676,33 +712,6 @@
           "last_ts": 1788593775590,
           "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788593775588,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788593775588,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788593775587,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1034,15 +1043,6 @@
           "enabled": true,
           "sched": "0 18 * * 5",
           "last_ts": 1788525211105,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
-          "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1788507636436,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,9 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:04 IST] HADERACH: There's the transcript logger cron already. Let's inspect and run it to force session creation, then verify.",
-          "[12:05 IST] HADERACH: **SCL Media Monitor \u2014 12:05 IST, 5 Sep 2026**",
-          "**RSS:** No new articles.",
           "**Twitter \u2014 Key Updates:**",
           "**Sammaan Capital coverage (flagged as important):**",
           "- **FinTrekk Capital** (20h ago): Added Sammaan Capital as a new position in their #FCSS Special Situation Strategy \u2014 after exiting QUESS (2x) and BLUSPRING (3x from lows). **Action:** Capital inflow signal from a recognized strategy fund.",
@@ -1575,7 +1572,10 @@
           "[12:56 IST] RAM: Yes pls",
           "[12:56 IST] HADERACH: Crons re-enabled and gateway restarted cleanly. Now let's force a real Telegram-routed turn through Legal-SMEDA to confirm the SQLite transcript actually captures it.",
           "[13:00 IST] HADERACH: Found the actual root cause \u2014 much bigger than a script issue. Legal-SMEDA's launchd plist has `HOME=/Users/ram_macmini` (the bare shared home), not `/Users/ram_macmini/.openclaw-legal-smeda` like every correctly-configured M2 agent (Keshav, Ravindra). This is the exact same bug class documented in dead-ends.md (Keshav media-files-to-wrong-directory bug). It means Legal-SMEDA's session/agent SQLite data has been writing into the **shared main gateway's** directory (`~/.openclaw/agents/main/.....",
-          "[13:02 IST] HADERACH: The process restarted but is still pointing at the wrong directory \u2014 that's because `launchctl kickstart -k` restarts the job using the **already-loaded** plist definition; it doesn't reload the plist file itself. I need to unload/reload it."
+          "[13:02 IST] HADERACH: The process restarted but is still pointing at the wrong directory \u2014 that's because `launchctl kickstart -k` restarts the job using the **already-loaded** plist definition; it doesn't reload the plist file itself. I need to unload/reload it.",
+          "[13:04 IST] HADERACH: Good, doctor fixed it in the right place. Now restart the gateway cleanly.",
+          "[13:06 IST] HADERACH: Plugin installed. Now bootstrap the service.",
+          "[13:07 IST] HADERACH: This ran but let me confirm the workspace migration was actually addressed and check the gateway now."
         ],
         "yesterday": [
           "<li>Agastya-Ravindra</li>",
@@ -1716,7 +1716,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.55,
+      "rss_gb": 0.56,
       "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
@@ -2366,8 +2366,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.58,
-      "cpu": 0.9,
+      "rss_gb": 0.57,
+      "cpu": 3.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.8,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,8 +4251,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.47,
-      "cpu": 0.8,
+      "rss_gb": 0.46,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
