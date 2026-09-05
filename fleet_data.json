@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-05 12:23:01 IST",
-  "generated_epoch": 1788591181,
+  "generated_ist": "2026-09-05 12:28:08 IST",
+  "generated_epoch": 1788591488,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "11.89 / 11.27 / 11.14",
+    "load": "14.00 / 11.75 / 11.33",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.38,
-      "cpu": 0.3,
+      "rss_gb": 1.32,
+      "cpu": 0.4,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,19 +661,19 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788590424210,
+          "last_ts": 1788591240787,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788590424209,
+          "last_ts": 1788591240787,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788590424209,
+          "last_ts": 1788591240786,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788591240786,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -719,15 +728,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1788590208890,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788590072760,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,10 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[11:28 IST] HADERACH: Legal-SMEDA's SQLite hasn't been touched since 1 Jul \u2014 matches memory's record that it was deliberately frozen back then, not a live incident. Since the gateway process is down, I won't touch its cron config, but I'll bring its script file up to date on disk (low-risk, no live process to disrupt) so it's ready if it's ever revived.",
-          "[11:28 IST] HADERACH: No pre-built fixed script exists for Legal-SMEDA, and since it's been frozen since before the 2 Sep SQLite migration, I can't safely test a swap against it without reviving the gateway first \u2014 that's outside what you asked me to check today. I'll leave it as a flagged item rather than deploy something untested against a stopped service.",
-          "Here's the final state, Ram:",
-          "<b>Issue 2 (SOUL.md carve-out) \u2014 DONE, all 8 agents</b>",
           "Pushed the same large-block carve-out already proven on Sandip to the o...",
           "[11:28 IST] HADERACH: No pre-built fixed script exists for Legal-SMEDA, and since it's been frozen since before the 2 Sep SQLite migration, I can't safely test a swap against it without reviving the gateway first \u2014 that's outside what you asked me to check today. I'll leave it as a flagged item rather than deploy something untested against a stopped service.",
           "Here's the final state, Ram:",
@@ -1575,7 +1571,11 @@
           "[12:08 IST] HADERACH: Good \u2014 restarted clean, no crash loop this time (config was already valid so no doctor-fix cycles needed). Let's verify Telegram channel came up automatically this time, then re-run the transcript cron.",
           "[12:08 IST] HADERACH: Telegram auto-started this time (breaker recovered \u2014 no crash on this restart). Now let's re-run the transcript cron.",
           "[12:08 IST] HADERACH: It ran without erroring this time. Now check whether the SQLite agent database now exists (since a real turn just happened) and verify the transcript.",
-          "[12:09 IST] HADERACH: Confirmed \u2014 exactly the silent-failure pattern from the report. This old script reads from `sessions.json`/JSONL (which is stale/orphaned now under v2026.8.2) and reports \"0 new msgs\" without erroring. Now deploy the proper SQLite-based script."
+          "[12:09 IST] HADERACH: Confirmed \u2014 exactly the silent-failure pattern from the report. This old script reads from `sessions.json`/JSONL (which is stale/orphaned now under v2026.8.2) and reports \"0 new msgs\" without erroring. Now deploy the proper SQLite-based script.",
+          "[12:10 IST] HADERACH: Real agent turn executed. Now check for the SQLite agent database.",
+          "[12:13 IST] HADERACH: That matches structure. The db just may not have been created yet because my test used the CLI's `openclaw agent` command (a different runtime path than gateway-served sessions), which might use its own workspace-relative embedded session, not the gateway's per-agent SQLite. Let me trigger a real conversation via Telegram-style call through the gateway itself, or just check if there's a delay/lazy creation.",
+          "[12:14 IST] HADERACH: Now let's generate a real Telegram-routed turn so the SQLite agent DB actually gets created, then test.",
+          "[12:17 IST] HADERACH: Found it \u2014 `gateway call` is defaulting to the wrong local instance despite the env vars. Let me pass `--port` explicitly."
         ],
         "yesterday": [
           "<li>Agastya-Ravindra</li>",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.56,
-      "cpu": 1.2,
+      "rss_gb": 0.54,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.56,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4252,7 +4252,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.46,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
