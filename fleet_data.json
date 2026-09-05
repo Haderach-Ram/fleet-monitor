@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-05 13:19:17 IST",
-  "generated_epoch": 1788594557,
+  "generated_ist": "2026-09-05 13:24:24 IST",
+  "generated_epoch": 1788594864,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.29 / 11.37 / 11.44",
+    "load": "12.50 / 11.94 / 11.65",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1573,
-      "rss_gb": 1.28,
-      "cpu": 0.3,
+      "rss_gb": 1.54,
+      "cpu": 0.2,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1788594035324,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788594836982,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,16 +673,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788594035323,
+          "last_ts": 1788594836981,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788594035323,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788594836981,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +691,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788594035322,
+          "last_ts": 1788594836980,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
+          "last_ts": 1788594035324,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "last_ts": 1788593775590,
           "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788593775587,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1536,19 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Twitter \u2014 Key Updates:**",
-          "**Sammaan Capital coverage (flagged as important):**",
-          "- **FinTrekk Capital** (20h ago): Added Sammaan Capital as a new position in their #FCSS Special Situation Strategy \u2014 after exiting QUESS (2x) and BLUSPRING (3x from lows). **Action:** Capital inflow signal from a recognized strategy fund.",
-          "- **Sandeep Vig / @MarketsWithVig** (21h ago): \"Sammaan Capital Limited: A turnaround story worth watc...",
-          "[12:05 IST] HADERACH: Confirmed \u2014 this is exactly the same silent-failure mode Sandip's report warned about: the old JSONL script is still installed, still running \"successfully\" but reading a stale/empty format, silently reporting 0 messages instead of erroring. Let's deploy the SQLite-based script and backfill.",
-          "[12:06 IST] HADERACH: That confirms the crash log stopped after 12:01:09 \u2014 clean since. No SQLite agent-database exists yet because this agent never had a real conversation turn happen against the new store after the gateway came back up. Let's force one now by running the cron and check what gets created.",
-          "[12:06 IST] HADERACH: Found a third, previously undiscovered bug \u2014 a model-policy mismatch blocking crons. Let me check its scope.",
-          "[12:07 IST] HADERACH: Found a third, previously-undiscovered bug \u2014 Legal-SMEDA's `modelPolicy.allow` only permits Sonnet 4.6, but three of its four crons (including the transcript logger, nightly consolidation, and midnight summary) specify Nova Lite/Pro. This has been silently failing all of them. Every other M2 agent has an allow-list matching its actual usage. Fixing this via direct remote JSON edit (the established M2 pattern, not the local-tool redaction path).",
-          "[12:07 IST] HADERACH: Config changed on disk \u2014 needs a gateway restart to take effect.",
-          "[12:08 IST] HADERACH: Good \u2014 restarted clean, no crash loop this time (config was already valid so no doctor-fix cycles needed). Let's verify Telegram channel came up automatically this time, then re-run the transcript cron.",
-          "[12:08 IST] HADERACH: Telegram auto-started this time (breaker recovered \u2014 no crash on this restart). Now let's re-run the transcript cron.",
-          "[12:08 IST] HADERACH: It ran without erroring this time. Now check whether the SQLite agent database now exists (since a real turn just happened) and verify the transcript.",
-          "[12:09 IST] HADERACH: Confirmed \u2014 exactly the silent-failure pattern from the report. This old script reads from `sessions.json`/JSONL (which is stale/orphaned now under v2026.8.2) and reports \"0 new msgs\" without erroring. Now deploy the proper SQLite-based script.",
           "[12:10 IST] HADERACH: Real agent turn executed. Now check for the SQLite agent database.",
           "[12:13 IST] HADERACH: That matches structure. The db just may not have been created yet because my test used the CLI's `openclaw agent` command (a different runtime path than gateway-served sessions), which might use its own workspace-relative embedded session, not the gateway's per-agent SQLite. Let me trigger a real conversation via Telegram-style call through the gateway itself, or just check if there's a delay/lazy creation.",
           "[12:14 IST] HADERACH: Now let's generate a real Telegram-routed turn so the SQLite agent DB actually gets created, then test.",
@@ -1575,7 +1562,20 @@
           "[13:02 IST] HADERACH: The process restarted but is still pointing at the wrong directory \u2014 that's because `launchctl kickstart -k` restarts the job using the **already-loaded** plist definition; it doesn't reload the plist file itself. I need to unload/reload it.",
           "[13:04 IST] HADERACH: Good, doctor fixed it in the right place. Now restart the gateway cleanly.",
           "[13:06 IST] HADERACH: Plugin installed. Now bootstrap the service.",
-          "[13:07 IST] HADERACH: This ran but let me confirm the workspace migration was actually addressed and check the gateway now."
+          "[13:07 IST] HADERACH: This ran but let me confirm the workspace migration was actually addressed and check the gateway now.",
+          "[13:10 IST] HADERACH: The consolidation status is **healthy**. The `lastConsolidation` timestamp shows `2026-09-05T13:03:00+05:30`, which is today (Saturday, September 5th, 2026) at 1:03 PM IST \u2014 just 7 minutes before this watchdog check at 1:10 PM IST.",
+          "**NO_REPLY** \u2014 Consolidation ran on schedule. \u2713",
+          "[13:13 IST] HADERACH: I've hit a known OpenClaw tool-result-budget bug (GitHub #102268, documented in our dead-ends.md) \u2014 a large diagnostic dump earlier saturated the aggregate tool-result budget, so exec calls are now silently returning empty. Let me try SSH once more; if it's also empty, I'll stop hammering retries per the documented workaround.",
+          "[13:13 IST] HADERACH: Confirmed \u2014 this is the documented tool-result-budget saturation bug (GitHub #102268), not a real SSH/network failure. Every exec call is now coming back empty regardless of what it runs. Per our own dead-ends.md workaround, I should stop retrying here rather than burn more calls against a saturated budget.",
+          "<b>Status before the tooling died:</b>",
+          "<ul>",
+          "<li>Legal-SMEDA's 4 crons re-enabled \u2713 (were enabled=0, now 1)</li>",
+          "<li><b>Root cause found:</b> Legal-SMEDA's launchd plist had <code>HOME=/Us...",
+          "[13:14 IST] HADERACH: Confirmed \u2014 this is the documented tool-result-budget saturation bug (GitHub #102268), not a real SSH/network failure. Every exec call is now coming back empty regardless of what it runs. Per our own dead-ends.md workaround, I should stop retrying here rather than burn more calls against a saturated budget.",
+          "<b>Status before the tooling died:</b>",
+          "<ul>",
+          "<li>Legal-SMEDA's 4 crons re-enabled \u2713 (were enabled=0, now 1)</li>",
+          "<li><b>Root cause found:</b> Legal-SMEDA's launchd plist had <code>HOME=/Us..."
         ],
         "yesterday": [
           "<li>Agastya-Ravindra</li>",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.55,
-      "cpu": 0.6,
+      "rss_gb": 0.56,
+      "cpu": 1.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1742,19 +1742,28 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "giskard-consolidation-13",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788593709651,
+          "sched": "20 13 * * *",
+          "last_ts": 1788594631140,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1788592806306,
+          "last_ts": 1788594631139,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788593709651,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1820,15 +1829,6 @@
           "last_ts": 1788509406773,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-13",
-          "enabled": true,
-          "sched": "20 13 * * *",
-          "last_ts": 1788508237058,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.35,
-      "cpu": 0.1,
+      "cpu": 0.8,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3851,7 +3851,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4251,8 +4251,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.47,
-      "cpu": 0.8,
+      "rss_gb": 0.46,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
