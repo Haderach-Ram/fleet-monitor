@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-06 10:09:43 IST",
-  "generated_epoch": 1788669583,
+  "generated_ist": "2026-09-06 10:14:50 IST",
+  "generated_epoch": 1788669890,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.24 / 2.63 / 2.74",
+    "load": "2.53 / 2.54 / 2.65",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.01,
-      "cpu": 0.6,
+      "rss_gb": 1.11,
+      "cpu": 0.4,
       "crons_total": 97,
       "crons_enabled": 61,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788669621037,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788669621037,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788669621037,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -670,37 +697,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788669236726,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SU-01 OpenRouter Watch \u2014 Daily",
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1788669236726,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788669236726,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788669236725,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1536,10 +1536,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Would Claude Code on Ch...",
-          "[09:10 IST] RAM: Ok. File it on GitHub?",
-          "[09:10 IST] HADERACH: Good news \u2014 this is already filed. Issue <b>#53408</b>: \"[Bug]: Write/exec tool parameters silently dropped after long conversations (content/command missing)\" \u2014 opened 5 Sep 2026, matches exactly what I hit last night.",
-          "[09:10 IST] HADERACH: Held off filing a new one \u2014 found the exact bug already tracked as <b>issue #53408</b> (open since 24 Mar 2026, actively discussed, last comment from a maintainer just yesterday). Rather than file a duplicate, I added our specific repro as a corroborating comment under Haderach-Ram.",
           "[09:10 IST] HADERACH: Done \u2014 comment posted: <https://github.com/openclaw/openclaw/issues/53408#issuecomment-5556683165>",
           "Rather than open a duplicate, I added our repro as corroboration on the existing tracked issue (<b>#53408</b>, open since 24 Mar, active discussion with maintainer comments as recently as yesterday). Our case is useful data for them because it's:",
           "<ul>",
@@ -1575,7 +1571,11 @@
           "<li><b>M4 fleet (us \u2014 Hade...",
           "[10:02 IST] RAM: Pls run sonnet 4.6 on 047b",
           "[10:03 IST] HADERACH: Found it \u2014 it lives under HAD-047B-model-test-upkeep, not the original HAD-047 folder.",
-          "[10:03 IST] HADERACH: Confirmed model alias exists (`sonnet` \u2192 Sonnet 4.6). Kicking off the full run now \u2014 this will take a while (28 tasks), so I'll background it and check in when done rather than block here."
+          "[10:03 IST] HADERACH: Confirmed model alias exists (`sonnet` \u2192 Sonnet 4.6). Kicking off the full run now \u2014 this will take a while (28 tasks), so I'll background it and check in when done rather than block here.",
+          "[10:03 IST] HADERACH: Run is live and progressing (task 1/28 scored 68.0%). Based on precedent (~13 min for 26 tasks on Grok), full 28-task run should land around 14-16 minutes. I'll check back periodically rather than block.",
+          "[10:04 IST] HADERACH: Progressing well (2/28 done, 68% and 92%). This will take a few more minutes for all 28 tasks \u2014 I'll continue checking periodically. Meanwhile, quick note on your Kill-Switch Rule: this is a short, well-bounded run (~15 min based on precedent), well under the 30-min threshold, so no kill-switch cron needed.",
+          "[10:05 IST] HADERACH: Good progress \u2014 8/9 tasks scored, mostly high (92-100%), one lower at 68% (T-CR-01). ~2:14 elapsed, roughly on pace for the ~14-16 min estimate. Continuing to monitor.",
+          "[10:08 IST] HADERACH: Good progress, 16/28 done, mostly strong (90-100%), two lower ones: T-CR-01 (68%), T-TECH-03 (64%). About halfway through elapsed time. Continuing."
         ],
         "yesterday": [
           "[23:06 IST] HADERACH: grok-4.5 checkpointed (6 of 8). Continuing \u2014 grok-4.3 and kimi-k3/gpt-5.5 remain.",
@@ -1716,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.56,
-      "cpu": 0.6,
+      "rss_gb": 0.57,
+      "cpu": 0.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2367,7 +2367,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.57,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3654,7 +3654,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.36,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3820,7 +3820,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3850,7 +3850,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
