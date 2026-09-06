@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-06 13:19:48 IST",
-  "generated_epoch": 1788680988,
+  "generated_ist": "2026-09-06 13:24:55 IST",
+  "generated_epoch": 1788681295,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.31 / 2.09 / 2.14",
+    "load": "2.68 / 2.24 / 2.16",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.07,
-      "cpu": 0.3,
+      "rss_gb": 1.22,
+      "cpu": 0.4,
       "crons_total": 98,
       "crons_enabled": 62,
       "skills_count": 61,
@@ -661,10 +661,10 @@
       ],
       "crons": [
         {
-          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "10 13 * * *",
-          "last_ts": 1788680435297,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788681224048,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788680435296,
+          "last_ts": 1788681224047,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,16 +682,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788680435296,
+          "last_ts": 1788681224046,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788680435296,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788681224046,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Consolidation watchdog \u2014 13:10 IST",
+          "enabled": true,
+          "sched": "10 13 * * *",
+          "last_ts": 1788680435297,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "last_ts": 1788680305110,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788680305109,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1545,10 +1545,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[12:20 IST] HADERACH: Now I'll yield and wait for the subagent to finish the PDF build.",
-          "[12:28 IST] HADERACH: Let me quickly verify the file independently before reporting.",
-          "[12:28 IST] HADERACH: Verified independently \u2014 file exists, 90KB, 12 pages. Now sending to Ram.",
-          "[12:28 IST] RAM: <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>",
           "OpenClaw runtime context (internal):",
           "This context is runtime-generated, not user-authored. Keep internal details private.",
           "[Internal task completion event]",
@@ -1584,7 +1580,11 @@
           "MEDIA:/Users/ram_macmini/.openclaw/workspace/tmp_send/SCL_Leadership_Role_Review_v2_6Sep2026.pdf",
           "<b>2. Skill proposal \u2014 written, pending your approval</b>",
           "Name: <b>long-task-context-continuity</b> (proposal ID: <code>long-task-context-continuity-20260906-2977d4e375</code>, status: pending)",
-          "<b>Rule 1 \u2014 Proactive CONTINUE.md handoff:</b>..."
+          "<b>Rule 1 \u2014 Proactive CONTINUE.md handoff:</b>...",
+          "[13:10 IST] HADERACH: \u2705 **Consolidation check passed.** The 13:00 consolidation ran successfully:",
+          "- **lastConsolidation**: `2026-09-06T13:05:00+05:30` (5 minutes ago)",
+          "- **Status**: Today, fresh, well within the 2-hour window",
+          "No alert needed."
         ],
         "yesterday": [
           "[23:06 IST] HADERACH: grok-4.5 checkpointed (6 of 8). Continuing \u2014 grok-4.3 and kimi-k3/gpt-5.5 remain.",
@@ -1725,8 +1725,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.57,
-      "cpu": 1.7,
+      "rss_gb": 0.58,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1751,19 +1751,28 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788680110110,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1788681028213,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "giskard-consolidation-13",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1788679205167,
+          "sched": "20 13 * * *",
+          "last_ts": 1788681028213,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "enabled": true,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788680110110,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1838,15 +1847,6 @@
           "last_ts": 1788595806197,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "giskard-consolidation-13",
-          "enabled": true,
-          "sched": "20 13 * * *",
-          "last_ts": 1788594631140,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -2375,8 +2375,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.57,
-      "cpu": 0.9,
+      "rss_gb": 0.58,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3662,8 +3662,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1576,
-      "rss_gb": 0.37,
-      "cpu": 0.6,
+      "rss_gb": 0.38,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3834,7 +3834,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.28,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3864,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4265,7 +4265,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.47,
-      "cpu": 0.2,
+      "cpu": 1.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
