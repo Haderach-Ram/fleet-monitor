@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-07 03:03:56 IST",
-  "generated_epoch": 1788730436,
+  "generated_ist": "2026-09-07 03:09:03 IST",
+  "generated_epoch": 1788730743,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.97 / 1.73 / 1.48",
+    "load": "0.97 / 1.54 / 1.49",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.27,
+      "rss_gb": 1.09,
       "cpu": 0.3,
       "crons_total": 98,
       "crons_enabled": 62,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1788730468804,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1788730468804,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1788730468804,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1788730468803,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -697,15 +733,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1788726778394,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-003 Reading \u2014 02:00 IST",
           "enabled": true,
           "sched": "0 2 * * *",
@@ -724,15 +751,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1788719767513,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
           "enabled": true,
           "sched": "0 0 * * *",
@@ -742,27 +760,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1788719767512,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
-          "last_ts": 1788719767511,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
           "last_ts": 1788719767511,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -1545,8 +1545,46 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-09-07",
-          "# Self-healing rotation from transcript-2026-09-06.md at 00:06 IST"
+          "[00:11 IST] HADERACH: The `plugins.allow` list I set earlier doesn't include the new mem0 plugin. Let's add it.",
+          "[00:11 IST] HADERACH: It's already there \u2014 it just needed a restart. Let's restart and retry the mem0 init command.",
+          "[00:11 IST] HADERACH: Both memory-core and mem0 show \"enabled\" \u2014 but only one can occupy the exclusive slot. Let's check current slot state and run the CLI init command.",
+          "[00:11 IST] HADERACH: The wizard uses `--oss-llm-url` for LLM url, not embedder url directly via flag name overlap issue \u2014 let's check flag parsing for `--oss-llm-url` vs `--oss-embedder-url`.",
+          "[00:11 IST] HADERACH: Good, this is `openclaw mem0 init` as a plugin CLI subcommand \u2014 the top-level `openclaw --help` didn't show it because it's registered via the plugin's `commandAliases`, which likely requires the CLI to load plugin config. Let's try that exact syntax.",
+          "[00:12 IST] HADERACH: No hard errors. Plugin CLI aliases apparently require a running gateway process, or command registration happens dynamically at load. Let's just configure it directly via config file since we know the exact schema from `openclaw.plugin.json`.",
+          "[00:12 IST] HADERACH: That warning confirms exactly what we want to verify: mem0's config exists but the `memory` slot is still `memory-core`, so nothing is switched yet. Now let's flip the slot and restart.",
+          "[00:13 IST] HADERACH: Clean validation. Now restart Amaryl's gateway.",
+          "[00:13 IST] HADERACH: mem0-openclaw-mem0 is now active in the memory slot (memory-core is gone from the plugin list). The auto-recall/capture hook is blocked pending `allowConversationAccess` \u2014 that's fine, expected, since we want deliberate probe-test control anyway, not automatic capture during this evaluation. Let's confirm memory tools are actually available and test them.",
+          "[00:13 IST] HADERACH: All 8 mem0 tools registered correctly. Now let's test an actual add + search round trip to confirm the Ollama/Qdrant pipeline actually works end to end (not just config-valid).",
+          "[00:13 IST] HADERACH: Add worked. Now test search/recall.",
+          "[00:14 IST] HADERACH: Found a real bug. Let's dig into why \u2014 this is exactly the kind of evidence the probe test needs.",
+          "[00:18 IST] HADERACH: This changes everything \u2014 the error isn't from mem0's platform-vs-OSS provider split, it's likely deeper inside mem0ai's own Qdrant wrapper calling `this.client.search()` on a Qdrant client library that renamed that method. Let me verify.",
+          "[00:19 IST] HADERACH: This is exactly it \u2014 this is the Qdrant vector store wrapper inside `mem0ai`, and it calls `this.client.search(...)` on the `@qdrant/js-client-rest` library instance. Let's check that library's actual version and API.",
+          "[00:19 IST] HADERACH: Confirmed: this is a real breaking-change bug \u2014 `@qdrant/js-client-rest` v1.19.0 removed the `.search()` method (replaced by `.query()`), but `mem0ai`'s Qdrant adapter still calls `.search()`. npm resolved 1.19.0 because it satisfies mem0ai's loose `^1.18.0` peer range. Let's pin it back and confirm the fix works, purely within Amaryl's isolated node_modules.",
+          "[00:19 IST] HADERACH: It's hoisted at the top level of the plugin's own project dir, fully isolated. Let's replace it with 1.18.0.",
+          "[00:20 IST] HADERACH: Now restart the gateway and re-test the search.",
+          "[00:20 IST] HADERACH: Good \u2014 search works now, though Amaryl's own diagnosis was wrong (it wasn't transient; I found and fixed a real dependency-version bug: `@qdrant/js-client-rest` v1.19.0 removed `.search()`, mem0ai still calls it). Let me correct that in the record and continue running the actual 16-probe test.",
+          "[00:20 IST] HADERACH: Now let's run the actual 16-probe test against Mem0. First let's build up the same 8 GEN-002 probes (the report only ran 8, called \"16-probe\" loosely in project docs \u2014 let's check).",
+          "[00:21 IST] HADERACH: Good \u2014 that clarifies the \"16\" is scoring-scale (8 probes \u00d7 2 max points), not 16 distinct probes. Let me note that and set up a fair test: Mem0 starts empty, so I need to feed it the same facts flat-search already has access to, then test recall.",
+          "[00:21 IST] HADERACH: Now let's task Amaryl directly to run the controlled probe test \u2014 this is exactly its job.",
+          "[00:22 IST] HADERACH: Still running Ollama-backed extraction which can be slow. Let's keep polling.",
+          "[00:23 IST] HADERACH: Let's check the gateway logs in parallel to see progress while waiting.",
+          "[00:23 IST] HADERACH: All 8 memory_add calls succeeded (P1-P8 stored). Now it's presumably doing the search-and-score pass. Let's continue polling.",
+          "[00:25 IST] HADERACH: No new log lines since the last add at 00:23:14 \u2014 it's been over 2 minutes with the agent still \"running\" but no tool activity logged. It might be doing the search+scoring pass now (searches don't always log as loudly), or it could be stuck. Let's give it a bit more time given Ollama can be slow for extraction on qwen2.5:14b.",
+          "[00:25 IST] HADERACH: Excellent \u2014 completed cleanly. Let's read the full report file it produced.",
+          "[00:25 IST] HADERACH: This is a genuinely rigorous, well-caveated result. Let me update HAD-054's STATUS.md with this and then move on to the Zep/Graphiti side, since Ram wants the full comparison.",
+          "[00:25 IST] HADERACH: Now let's proceed to Zep/Graphiti before writing this update, since Ram will want the full picture. Let's install the Gralkor (Graphiti+FalkorDB) plugin on Amaryl.",
+          "[00:25 IST] HADERACH: redis is available via brew, but this is going to be a significant infra chain (Redis + FalkorDB module + a bundled Python FastAPI server via uv). Given the README noted this plugin's install requires `--dangerously-force-unsafe-install` due to a security scanner flag, let's inspect that carefully before installing.",
+          "[00:25 IST] HADERACH: `falkordblite` bundles the FalkorDB module as a pip-installable wheel \u2014 good, no separate Redis/Docker needed. Let's check `main.py` for what it listens on and any suspicious network behavior.",
+          "[00:27 IST] HADERACH: This is a real, legitimate finding worth logging \u2014 `@gralkor/openclaw` incorrectly lists the full `openclaw` npm package as both a `dependencies` and `peerDependencies` entry, which makes npm install a nested copy of the entire host CLI/gateway inside the plugin's own directory. OpenClaw's own security scanner correctly caught and blocked this. Let's check whether the alternative package has the same issue.",
+          "[00:27 IST] HADERACH: Same packaging bug in the alternative package too \u2014 same author/lineage. Both Graphiti/Gralkor candidates on npm carry this issue. Let's document this clearly rather than force past the security scanner (which would be exactly the kind of \"override the safeguard because it's inconvenient\" move the security rules warn against).",
+          "[00:29 IST] HADERACH: Now let's update HAD-054's STATUS.md with the full picture and report to Ram.",
+          "[03:04 IST] HADERACH: **SCL Media Monitor \u2014 03:03 IST, 7 Sep 2026**",
+          "**RSS:** No new articles.",
+          "**Twitter \u2014 Notable findings:**",
+          "1. **Stock Movement (4h ago):** Sammaan Capital listed in NIFTY 500 weekly top gainers at **+8.6%** (Hello Market). Context: general market strength (NIACL +23.4%, IFCI +12.7%).",
+          "2. **Analyst Coverage (Yesterday, Sep 4):**",
+          "   - **Sandeep Vig** (@MarketsWithVig) \u2014 Turnaround narrative piece. Notes IHC's Rs 8,850 Cr commitment and phase shift.",
+          "   - **Abhishek Jain** (@abhishekcjain) \u2014 Arih..."
         ],
         "yesterday": [
           "[23:24 IST] RAM: It\u2019s been a few days since you drew up this plan. Why don\u2019t you check the net, GitHub, consult Bajaj Council on this again and draw up version 2 of this plan? Also, do you want to upgrade the model for this work, need Claude codex etc? Draw up a proper plan considering all this pls",
@@ -1687,8 +1725,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.58,
-      "cpu": 1.3,
+      "rss_gb": 0.59,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2338,7 +2376,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.6,
-      "cpu": 0.9,
+      "cpu": 3.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2512,19 +2550,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1788719951180,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1788719651031,
+          "last_ts": 1788730450684,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2533,7 +2562,16 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1788719651031,
+          "last_ts": 1788730450683,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1788719951180,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2578,7 +2616,20 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-09-07",
-          "# Self-healing rotation from transcript-2026-09-06.md at 00:04 IST"
+          "# Self-healing rotation from transcript-2026-09-06.md at 00:04 IST",
+          "[00:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K transcript logger script now.",
+          "[00:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. No new messages in any session (0 msgs appended to all three transcripts). Bookmarks updated. All sessions processed.",
+          "Task complete. Silent mode confirmed.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary update for Purl. Let me start by gathering the required content and running the update scripts.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: The daily log for today (2026-09-07) doesn't exist, and the group transcript has no real conversation content. Both indicate no activity. I'll run the update scripts with the `--no-activity` flag.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: \u2713 **Verification complete.** Both scripts executed successfully:",
+          "- Personal rolling summaries (7/28/180-day): OK, all files have content (658 / 3083 / 1731 bytes)",
+          "- Group rolling summaries (7/28-day): OK, both files have content (624 / 2262 bytes)",
+          "No errors. All trims executed safely.",
+          "NO_REPLY",
+          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[01:55 IST] PURL: HEARTBEAT_OK",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now."
         ],
         "yesterday": [
           "This context is runtime-generated, not user-authored.",
@@ -3586,8 +3637,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1576,
-      "rss_gb": 0.37,
-      "cpu": 0.6,
+      "rss_gb": 0.38,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3757,8 +3808,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1575,
-      "rss_gb": 0.28,
-      "cpu": 0.1,
+      "rss_gb": 0.29,
+      "cpu": 2.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4188,8 +4239,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.44,
-      "cpu": 0.8,
+      "rss_gb": 0.47,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
