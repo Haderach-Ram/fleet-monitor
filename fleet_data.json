@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-07 21:58:30 IST",
-  "generated_epoch": 1788798510,
+  "generated_ist": "2026-09-07 22:03:38 IST",
+  "generated_epoch": 1788798818,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.65 / 6.39 / 6.31",
+    "load": "5.96 / 6.38 / 6.37",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.48,
-      "cpu": 0.4,
+      "rss_gb": 1.44,
+      "cpu": 0.3,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 61,
@@ -661,10 +661,19 @@
       ],
       "crons": [
         {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1788798679651,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788798031051,
+          "last_ts": 1788798627420,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +682,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788798031051,
+          "last_ts": 1788798627420,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +691,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788798031050,
+          "last_ts": 1788798627419,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -710,15 +719,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1788795364390,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1788795364389,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1554,16 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
-          "<li>CA SMEDA II: unfrozen, live-verified, port 18796 responding</li>",
-          "<li>PDF extracted into 15 section chunks (Company Reports, Statutory/Board's Report, MD&A, BRSR, Corp Gov, 4\u00d7 Consolidated Financials, 5\u00d7 Standalone Financials) \u2014 each kept small enough to avoid any single session maxing out on tokens</li>",
-          "<li>Now building the orchestration plan and dispatching the actual analysis work</li>",
-          "</ul>",
-          "Continuing now \u2014 will not message again until the r...",
-          "[21:46 IST] RAM: Good night",
-          "[21:46 IST] HADERACH: Now let's dispatch the subagents. I'll batch them to keep concurrency reasonable \u2014 starting with the 6 non-financial sections, then the 9 financials chunks.",
-          "[21:47 IST] HADERACH: 5 subagents dispatched (company-reports, boards-report, mdna, brsr, corp-gov). Now dispatching the 9 financials chunks in the same batch style.",
-          "[21:48 IST] HADERACH: Hit the concurrency limit (5 active children max). I'll yield now and wait for this first batch to complete before dispatching the financials batch.",
           "[21:48 IST] HADERACH: Hit the concurrency limit (5 active children max). I'll yield now and wait for this first batch to complete before dispatching the financials batch.",
           "[21:48 IST] HADERACH: Good night, Ram. Work continues in the background \u2014 I'll have the full report ready when you wake up.",
           "[21:48 IST] HADERACH: Good night, Ram. Work continues in the background \u2014 I'll have the full report ready when you wake up.",
@@ -1593,7 +1583,17 @@
           "session_key: agent:main:subagent:5e5cf987-a54b-4da0-a086-fadc946f4441",
           "session_id: 95047508-7d3b-440a-aa9d-03c62a31242b",
           "type: subagent task",
-          "task: You are analysing a section of Sammaan Capital Limited's (SCL) draft FY2025-26 Annual Report for Ram Shenoy (Head of Analytics at SCL). Read ..."
+          "task: You are analysing a section of Sammaan Capital Limited's (SCL) draft FY2025-26 Annual Report for Ram Shenoy (Head of Analytics at SCL). Read ...",
+          "[21:50 IST] HADERACH: All right \u2014 I've caught a real problem. Every subagent so far is failing silently: they're burning their entire output budget on internal reasoning before ever writing the findings file (the same \"stopReason: length\" spiral flagged in my memory as a known failure mode with dense financial/regulatory documents). Zero files have been written despite \"done\" status. I need to fix the approach before this wastes the whole night's token budget.",
+          "[21:50 IST] HADERACH: All right \u2014 I've caught a real problem. Every subagent so far is failing silently: they're burning their entire output budget on internal reasoning before ever writing the findings file (the same \"stopReason: length\" spiral flagged in my memory as a known failure mode with dense financial/regulatory documents). Zero files have been written despite \"done\" status. I need to fix the approach before this wastes the whole night's token budget.",
+          "[21:50 IST] HADERACH: 5 tool call(s) made without visible output.",
+          "[21:51 IST] HADERACH: **Task complete.** Findings written to:",
+          "`projects/SCL-019-annual-report-fy2526/analysis/company-reports/findings.md`",
+          "---",
+          "**Summary of what was found across the 5 categories:**",
+          "**1. Numbers cross-check (23 figures checked):**",
+          "- Most figures match internal records \u2014 \u20b98,850 Cr total, \u20b95,652 Cr Tranche 1, \u20b93,198 Cr balance, 28.41% initial stake, \u20b918,991 Cr net worth, 2.7x gearing all consistent",
+          "- **Key flag:** Post-conversion stake stated as **~41.24%** in both letters, but internal records (s..."
         ],
         "yesterday": [
           "[23:24 IST] RAM: It\u2019s been a few days since you drew up this plan. Why don\u2019t you check the net, GitHub, consult Bajaj Council on this again and draw up version 2 of this plan? Also, do you want to upgrade the model for this work, need Claude codex etc? Draw up a proper plan considering all this pls",
@@ -2385,7 +2385,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.59,
-      "cpu": 0.9,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2559,10 +2559,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1788798617780,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1788796806261,
+          "last_ts": 1788798617780,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2599,15 +2608,6 @@
           "enabled": true,
           "sched": "9 0 * * *",
           "last_ts": 1788719951180,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1788712224351,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2790,7 +2790,7 @@
       "frozen_reason": null,
       "pid": 71693,
       "rss_gb": 0.47,
-      "cpu": 0.5,
+      "cpu": 1.2,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3581,8 +3581,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1576,
-      "rss_gb": 0.33,
-      "cpu": 0.4,
+      "rss_gb": 0.32,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3770,7 +3770,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3800,7 +3800,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.22,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4201,7 +4201,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.38,
-      "cpu": 1.4,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
