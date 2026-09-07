@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-07 14:46:47 IST",
-  "generated_epoch": 1788772607,
+  "generated_ist": "2026-09-07 14:51:53 IST",
+  "generated_epoch": 1788772913,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "8.03 / 9.87 / 9.54",
+    "load": "6.22 / 8.51 / 9.06",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.14,
-      "cpu": 0.6,
-      "crons_total": 99,
-      "crons_enabled": 63,
+      "rss_gb": 1.28,
+      "cpu": 0.3,
+      "crons_total": 100,
+      "crons_enabled": 64,
       "skills_count": 61,
       "channels": [
         "telegram",
@@ -661,10 +661,28 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788772826296,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788772435085,
+          "last_ts": 1788772826295,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788772826294,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -674,24 +692,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1788772435085,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788772435085,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788772435084,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1210,6 +1210,15 @@
           "kind": "agentTurn"
         },
         {
+          "name": "Kill-switch: Niyogin whisper transcription",
+          "enabled": true,
+          "sched": "one-shot",
+          "last_ts": null,
+          "last_status": null,
+          "model": "(no LLM)",
+          "kind": "systemEvent"
+        },
+        {
           "name": "SAK-008 bonds.db \u2014 Monthly RBI Register Refresh + Full CIN Rematch",
           "enabled": true,
           "sched": "30 4 1 * *",
@@ -1554,17 +1563,6 @@
       ],
       "transcripts": {
         "recent": [
-          "On \"you have to maintain good track of all we do there\" \u2014 noted as a standing discipline, not just for today: any time ad-hoc SCL work ...",
-          "[14:18 IST] RAM: How to I invoke/refer to it?",
-          "[14:18 IST] HADERACH: <b>Just say \"SCL-TEMP\" or describe it naturally</b> \u2014 either works:",
-          "<ul>",
-          "<li><b>By name:</b> \"log this under SCL-TEMP\" or \"add to SCL-TEMP\"</li>",
-          "<li><b>By description:</b> any one-off SCL ask without its own ProjHad number \u2014 I'll route it there automatically per the ProjHad Reading Sequence (AGENTS.md), since it now shows up as a row in <code>projects/_categories/SCL.md</code></li>",
-          "</ul>",
-          "You don't need to remember the exact file path (<code>projects/SCL-TEMP/LOG.md</code>) \u2014 \"SCL-TEMP\" as a...",
-          "[14:18 IST] HADERACH: <b>Just say \"SCL-TEMP\" or describe it naturally</b> \u2014 either works:",
-          "<ul>",
-          "<li><b>By name:</b> \"log this under SCL-TEMP\" or \"add to SCL-TEMP\"</li>",
           "<li><b>By description:</b> any one-off SCL ask without its own ProjHad number \u2014 I'll route it there automatically per the ProjHad Reading Sequence (AGENTS.md), since it now shows up as a row in <code>projects/_categories/SCL.md</code></li>",
           "</ul>",
           "You don't need to remember the exact file path (<code>projects/SCL-TEMP/LOG.md</code>) \u2014 \"SCL-TEMP\" as a...",
@@ -1593,7 +1591,18 @@
           "[14:42 IST] HADERACH: Both whisper attempts got killed (likely memory pressure). Let me try a lighter model and check what's happening.",
           "[14:42 IST] HADERACH: Interesting \u2014 both processes are actually still alive and running in the background (the process tool lost tracking, but the underlying whisper jobs kept going). Let me clean up the duplicate and let one finish.",
           "[14:42 IST] HADERACH: The \"small\" model transcription is still running (24 minutes CPU time already, using ~274% CPU across cores). This is taking longer than expected for a 9-minute clip. Let me keep monitoring.",
-          "[14:43 IST] HADERACH: Still going \u2014 27 minutes CPU time on a 9-minute clip is unusually slow, but it's making progress (memory dropped from 2.48GB to 1.85GB RSS, suggesting active processing, not stuck). I'll keep waiting."
+          "[14:43 IST] HADERACH: Still going \u2014 27 minutes CPU time on a 9-minute clip is unusually slow, but it's making progress (memory dropped from 2.48GB to 1.85GB RSS, suggesting active processing, not stuck). I'll keep waiting.",
+          "[14:45 IST] HADERACH: Still processing \u2014 this is taking longer than typical, but it's still active (not stuck/hung). Continuing to wait.",
+          "[14:47 IST] HADERACH: Still running at 37 min CPU time \u2014 well beyond the usual 2\u00d7 kill-switch estimate for a task like this. Let me set a proper kill-switch and keep monitoring rather than open-ended polling.",
+          "[14:47 IST] HADERACH: Ram \u2014 a quick status update while the transcription runs in the background:",
+          "The local Whisper transcription of your voice note (9m15s audio) is still processing \u2014 it's running longer than typical (37+ minutes CPU time so far), likely due to system load. It's still active, not stuck, but I've set a kill-switch check for ~15 minutes from now in case it hangs. I'll report back with the transcript and PR-edit discussion as soon as it completes.",
+          "[14:47 IST] HADERACH: Ram \u2014 a quick status update while the transcription runs in the background:",
+          "The local Whisper transcription of your voice note (9m15s audio) is still processing \u2014 it's running longer than typical (37+ minutes CPU time so far), likely due to system load. It's still active, not stuck, but I've set a kill-switch check for ~15 minutes from now in case it hangs. I'll report back with the transcript and PR-edit discussion as soon as it completes.",
+          "[14:48 IST] RAM: Pls cehck what's happening",
+          "[14:49 IST] HADERACH: Checked it directly \u2014 here's the actual state:",
+          "<b>Diagnosis:</b> It's not stuck. Real elapsed time is ~17 minutes (the \"40+ min\" I quoted earlier was CPU-time across cores, not wall-clock \u2014 misleading, apologies). It's actively running at ~267% CPU, in \"R\" (running) state, RSS memory still fluctuating normally. The machine's load average is high (8.89) \u2014 Chrome tabs and other processes are competing for CPU, which is slowing this down more than usual for a 9-minute clip on the \"small\" Whispe...",
+          "[14:49 IST] HADERACH: Checked it directly \u2014 here's the actual state:",
+          "<b>Diagnosis:</b> It's not stuck. Real elapsed time is ~17 minutes (the \"40+ min\" I quoted earlier was CPU-time across cores, not wall-clock \u2014 misleading, apologies). It's actively running at ~267% CPU, in \"R\" (running) state, RSS memory still fluctuating normally. The machine's load average is high (8.89) \u2014 Chrome tabs and other processes are competing for CPU, which is slowing this down more than usual for a 9-minute clip on the \"small\" Whispe..."
         ],
         "yesterday": [
           "[23:24 IST] RAM: It\u2019s been a few days since you drew up this plan. Why don\u2019t you check the net, GitHub, consult Bajaj Council on this again and draw up version 2 of this plan? Also, do you want to upgrade the model for this work, need Claude codex etc? Draw up a proper plan considering all this pls",
@@ -1734,8 +1743,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.48,
-      "cpu": 0.7,
+      "rss_gb": 0.55,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1763,7 +1772,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1788771005212,
+          "last_ts": 1788772805094,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2384,8 +2393,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.52,
-      "cpu": 0.6,
+      "rss_gb": 0.51,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3672,7 +3681,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.33,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3860,7 +3869,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3890,7 +3899,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.22,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4290,8 +4299,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.41,
-      "cpu": 0.6,
+      "rss_gb": 0.38,
+      "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
