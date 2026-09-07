@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-07 17:06:11 IST",
-  "generated_epoch": 1788780971,
+  "generated_ist": "2026-09-07 17:11:27 IST",
+  "generated_epoch": 1788781287,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.39 / 7.49 / 7.02",
+    "load": "10.06 / 8.33 / 7.44",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.36,
-      "cpu": 0.9,
+      "rss_gb": 1.41,
+      "cpu": 0.4,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 61,
@@ -661,6 +661,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788781228696,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788781228696,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788781228695,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788781054971,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -670,46 +706,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788780851775,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788780851774,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1788780851774,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788780851773,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788779241344,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1554,14 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:04 IST] HADERACH: I can see real Hindi content is coming through now via the OpenAI API \u2014 much better than the local run. (Also noting: that last command's output included a credential string in the process list I retrieved \u2014 I will not repeat it and am flagging this internally so it's never surfaced in chat, per the hard rule on credentials.)",
-          "Let me kill the stalled local Whisper job (no longer needed) and get the complete API transcript.",
-          "[16:05 IST] HADERACH: Full transcript is in and looks complete (ends naturally). Now reading it fully and pulling out the actionable content per your instruction.",
-          "[16:05 IST] HADERACH: Got a clean, workable transcript via the API. Here's what came through (Hindi/Hinglish call between what sounds like you, Sachin, and possibly others \u2014 quality is good, though ASR still stumbles on a few technical terms):",
-          "<b>Clear, actionable PR edit identified:</b>",
-          "<ul>",
-          "<li><b>Timeline change:</b> The current PR draft says the facility will be \"deployed over the next 12\u201324 months.\" The call explicitly instructs: <i>\"12-24 mahine ki jagah, aap 24-36 mahine kar dena\"</i> \u2014 change it to <b>24\u2013...",
-          "[16:05 IST] HADERACH: Got a clean, workable transcript via the API. Here's what came through (Hindi/Hinglish call between what sounds like you, Sachin, and possibly others \u2014 quality is good, though ASR still stumbles on a few technical terms):",
           "<b>Clear, actionable PR edit identified:</b>",
           "<ul>",
           "<li><b>Timeline change:</b> The current PR draft says the facility will be \"deployed over the next 12\u201324 months.\" The call explicitly instructs: <i>\"12-24 mahine ki jagah, aap 24-36 mahine kar dena\"</i> \u2014 change it to <b>24\u2013...",
@@ -1593,7 +1585,15 @@
           "<b>Draft PR \u2014 track changes applied, per your 16:38 instructions</b>",
           "<ul>",
           "<li><b>Timeline:</b> 12\u201324 months \u2192 24\u201336 months, wherever it appeared (subheading, body para, Rajpal quote)</li>",
-          "<li><b>Structure reframed away from \"Secures Credit Facility\":</b> Headline, subheading, and opening body para now describe smaller-ticket loans + periodic portfolio buyouts gradually building/rotating a \u20b9500 Cr portfolio \u2014 ..."
+          "<li><b>Structure reframed away from \"Secures Credit Facility\":</b> Headline, subheading, and opening body para now describe smaller-ticket loans + periodic portfolio buyouts gradually building/rotating a \u20b9500 Cr portfolio \u2014 ...",
+          "[17:06 IST] HADERACH: I have the two most recent call transcripts (Q1FY27 and Q4FY26). Let me pull the digital lending / partnership commentary from both.",
+          "[17:07 IST] HADERACH: Good \u2014 found genuine source material. Sammaan's actual earnings-call language centers on: \"asset-light strategy,\" \"co-lending and direct assignment arrangements,\" \"digital and AI transformation,\" \"last-mile credit,\" \"underserved\" segments, and \"cross-sell.\" Let me refine Gagan's quote with this authentic voice and redeliver.",
+          "[17:07 IST] HADERACH: All 7 edits validated again. Repackaging the docx.",
+          "[17:08 IST] HADERACH: Now updating the SCL-TEMP log with this refinement before delivering.",
+          "[17:08 IST] HADERACH: Good catch \u2014 I should have gone to the earnings calls first rather than relying on a garbled ASR pass. Refined and redelivered.",
+          "<b>Gagan Banga's quote \u2014 now grounded in his own recent on-record language</b>",
+          "Pulled from Sammaan's Q1FY27 (13 Aug) and Q4FY26 (20 May) earnings calls \u2014 genuine phrasing he's used: \"asset-light strategy,\" \"co-lending and direct assignment arrangements,\" \"digital and AI transformation,\" \"last-mile credit,\" \"underserved\" segments, \"cross-sell.\" The quote now reads:",
+          "..."
         ],
         "yesterday": [
           "[23:24 IST] RAM: It\u2019s been a few days since you drew up this plan. Why don\u2019t you check the net, GitHub, consult Bajaj Council on this again and draw up version 2 of this plan? Also, do you want to upgrade the model for this work, need Claude codex etc? Draw up a proper plan considering all this pls",
@@ -1734,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.55,
-      "cpu": 0.4,
+      "rss_gb": 0.5,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1760,19 +1760,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1788780004786,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788780951464,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788777311287,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1788780004786,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2384,8 +2384,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1577,
-      "rss_gb": 0.58,
-      "cpu": 0.2,
+      "rss_gb": 0.57,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3860,7 +3860,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3890,7 +3890,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4290,8 +4290,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.51,
-      "cpu": 0.3,
+      "rss_gb": 0.41,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
