@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-07 15:48:20 IST",
-  "generated_epoch": 1788776300,
+  "generated_ist": "2026-09-07 15:53:27 IST",
+  "generated_epoch": 1788776607,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "10.34 / 10.10 / 8.65",
+    "load": "9.87 / 9.63 / 8.84",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.24,
-      "cpu": 0.5,
-      "crons_total": 100,
-      "crons_enabled": 64,
+      "rss_gb": 1.23,
+      "cpu": 0.3,
+      "crons_total": 99,
+      "crons_enabled": 63,
       "skills_count": 61,
       "channels": [
         "telegram",
@@ -664,7 +664,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788776062639,
+          "last_ts": 1788776432904,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -673,7 +673,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788776062639,
+          "last_ts": 1788776432904,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +682,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788776062638,
+          "last_ts": 1788776432903,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1210,15 +1210,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Kill-switch: Niyogin whisper retry (Hindi, medium)",
-          "enabled": true,
-          "sched": "one-shot",
-          "last_ts": null,
-          "last_status": null,
-          "model": "(no LLM)",
-          "kind": "systemEvent"
-        },
-        {
           "name": "SAK-008 bonds.db \u2014 Monthly RBI Register Refresh + Full CIN Rematch",
           "enabled": true,
           "sched": "30 4 1 * *",
@@ -1563,14 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Headline: Niyogin secures a credit facility of up to Rs. 500 Cr from Sammaan Capital</li>",
-          "<li>Structure: co-lending + on-balance-sheet financing, deployed over 12\u201324 months</li>",
-          "<li>Body sections: \"Technology at the Core of the Partnership,\" \"Institutional Capital Behind a Proven Model\"</li>",
-          "<li><b>Management Commentary</b> \u2014 currently blank, needs fill...",
-          "[14:26 IST] HADERACH: The voice note hasn't landed in the inbound folder yet \u2014 the Niyogin docx is still the most recent file. I'll wait for it to arrive; go ahead and send it whenever ready (or let me know if it was already sent and I should look again).",
-          "[14:26 IST] HADERACH: The voice note hasn't landed in the inbound folder yet \u2014 the Niyogin docx is still the most recent file. I'll wait for it to arrive; go ahead and send it whenever ready (or let me know if it was already sent and I should look again).",
-          "[14:26 IST] HADERACH: Got it \u2014 transcribing now, this may take a minute or two.",
-          "[14:28 IST] HADERACH: Still transcribing \u2014 this is a fairly long voice note. I'll keep checking in the background.",
           "[14:31 IST] HADERACH: The process got killed partway (likely memory pressure from the medium model on a 9-minute file). Retrying with a lighter, faster model.",
           "[14:35 IST] HADERACH: Still transcribing \u2014 a ~9-minute recording takes a while on the local model. Continuing to monitor.",
           "[14:38 IST] HADERACH: Still running at 6 minutes. This local transcription is slow \u2014 I'll keep monitoring in the background.",
@@ -1602,7 +1585,15 @@
           "[15:34 IST] HADERACH: I also cancelled the earlier stale kill-switch cron since it already fired (harmless, deleteAfterRun). Quick status:",
           "<b>What happened:</b> The first transcript completed at 14:50, but I hadn't checked back until you flagged it now. Reading it, it turned out to be <b>unusable</b> \u2014 the call is in Hindi/Hinglish, and Whisper defaulted to English mode, producing garbled text mixed with random unrelated English words. A few fragments hint at real content (something about Amit Raspal being a shar...",
           "[15:34 IST] HADERACH: I also cancelled the earlier stale kill-switch cron since it already fired (harmless, deleteAfterRun). Quick status:",
-          "<b>What happened:</b> The first transcript completed at 14:50, but I hadn't checked back until you flagged it now. Reading it, it turned out to be <b>unusable</b> \u2014 the call is in Hindi/Hinglish, and Whisper defaulted to English mode, producing garbled text mixed with random unrelated English words. A few fragments hint at real content (something about Amit Raspal being a shar..."
+          "<b>What happened:</b> The first transcript completed at 14:50, but I hadn't checked back until you flagged it now. Reading it, it turned out to be <b>unusable</b> \u2014 the call is in Hindi/Hinglish, and Whisper defaulted to English mode, producing garbled text mixed with random unrelated English words. A few fragments hint at real content (something about Amit Raspal being a shar...",
+          "[15:44 IST] RAM: Progress?",
+          "[15:44 IST] HADERACH: Still running \u2014 10 minutes elapsed wall-clock, actively using ~397% CPU (multi-core), memory growing normally. No output yet since it's the medium model doing Hindi transcription, which is heavier than the failed English attempt. Not stuck \u2014 just genuinely mid-processing.",
+          "[15:44 IST] HADERACH: Progress check \u2014 it's still running, not stuck:",
+          "<b>Status:</b> 10 minutes elapsed, actively processing on CPU (confirmed via log \u2014 it's running FP32 on CPU since Apple Silicon GPU acceleration isn't wired up for this Whisper install, which is why it's slower than ideal). Memory and CPU usage both look like genuine active work, not a hang.",
+          "<b>Why slower this time:</b> the medium model (used for accuracy) is heavier than the \"small\" model from the first failed attempt, plus Hindi transcriptio...",
+          "[15:45 IST] HADERACH: Progress check \u2014 it's still running, not stuck:",
+          "<b>Status:</b> 10 minutes elapsed, actively processing on CPU (confirmed via log \u2014 it's running FP32 on CPU since Apple Silicon GPU acceleration isn't wired up for this Whisper install, which is why it's slower than ideal). Memory and CPU usage both look like genuine active work, not a hang.",
+          "<b>Why slower this time:</b> the medium model (used for accuracy) is heavier than the \"small\" model from the first failed attempt, plus Hindi transcriptio..."
         ],
         "yesterday": [
           "[23:24 IST] RAM: It\u2019s been a few days since you drew up this plan. Why don\u2019t you check the net, GitHub, consult Bajaj Council on this again and draw up version 2 of this plan? Also, do you want to upgrade the model for this work, need Claude codex etc? Draw up a proper plan considering all this pls",
@@ -1743,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.49,
-      "cpu": 0.3,
+      "rss_gb": 0.5,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1772,7 +1763,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1788774605117,
+          "last_ts": 1788776405993,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2394,7 +2385,7 @@
       "frozen_reason": null,
       "pid": 1577,
       "rss_gb": 0.58,
-      "cpu": 0.8,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -3681,7 +3672,7 @@
       "frozen_reason": null,
       "pid": 1576,
       "rss_gb": 0.33,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3869,7 +3860,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3899,7 +3890,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.22,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4300,7 +4291,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.41,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
