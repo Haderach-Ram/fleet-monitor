@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-08 12:06:37 IST",
-  "generated_epoch": 1788849397,
+  "generated_ist": "2026-09-08 12:11:45 IST",
+  "generated_epoch": 1788849705,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.93 / 4.33 / 3.68",
+    "load": "3.51 / 3.48 / 3.45",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.63,
-      "cpu": 0.4,
+      "rss_gb": 1.55,
+      "cpu": 0.2,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 61,
@@ -661,6 +661,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788849625065,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788849625065,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788849625064,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Twitter Watcher \u2014 Every 3h",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -692,33 +719,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1788849378555,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788849286357,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788849286357,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788849286356,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1554,13 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>Driver process: still alive</b> (PID 5588, same as before, untouched since 9:27 AM) \u2014 good, nothing crashed.",
-          "<b>But two things regressed while locked, both self-inflicted by prior fixes not persisting:</b>",
-          "<ol>",
-          "<li>The \"Restore pages?\" infobar is <b>back</b> \u2014 same dialog I dismissed ea...",
-          "[11:08 IST] RAM: Go ahead",
-          "[11:08 IST] HADERACH: FIFO keep-alive restarted. Now dismiss the \"Restore pages?\" dialog again.",
-          "[11:09 IST] HADERACH: That's stale/old output again. Let's wait a bit more for the fresh command to land.",
           "[11:09 IST] HADERACH: Nothing new appearing \u2014 the FIFO restart may not have re-triggered the pipe read. Let me check the process state and re-send.",
           "[11:09 IST] HADERACH: Keep-alive is running. Let's confirm the write actually reached the FIFO by checking driver_err.log for activity, and resend.",
           "[11:09 IST] HADERACH: No output growth at all \u2014 the driver isn't receiving anything now. Let's check if run_test.py itself is still reading stdin properly, or if it hung.",
@@ -1593,7 +1586,14 @@
           "<li><b>...",
           "[11:30 IST] RAM: Done?",
           "[11:30 IST] HADERACH: Yes \u2014 done. HAD-044-deckard's STATUS.md is updated and saved to disk with the full resume-session findings (unlock confirmed, dialog re-dismissed via the more reliable AXButton method, FIFO writer restarted, Blocked section cleared since we're no longer technically stuck). Confirmed by reading the file back after the edit.",
-          "Everything's parked cleanly \u2014 nothing pending on my end. Ping me whenever you want to pick it back up."
+          "Everything's parked cleanly \u2014 nothing pending on my end. Ping me whenever you want to pick it back up.",
+          "[12:05 IST] HADERACH: **SCL Media Alert \u2014 12:05 IST, Tuesday 8 Sep 2026**",
+          "<b>RSS Monitor:</b> No new SCL articles.",
+          "<b>Twitter \u2014 Key Findings:</b>",
+          "<u>Important</u> \u2014 Fresh authorization & market reaction:",
+          "\u2022 **Sammaan Capital Board approved** raising up to \u20b925,000 crore via NCDs/bonds (Cofacto's take: this is significant because SCL's loan book has actually been shrinking while management targets ~40% AUM growth \u2014 timing + strategy mismatch flagged by market analysts)",
+          "\u2022 AGM scheduled for **30 September 2026**",
+          "<u..."
         ],
         "yesterday": [
           "[23:05 IST] HADERACH: Understood \u2014 sleep well, Ram. Here's where things stand and what happens overnight:",
@@ -1734,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1591,
-      "rss_gb": 0.57,
-      "cpu": 0.8,
+      "rss_gb": 0.52,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2406,7 +2406,7 @@
       "frozen_reason": null,
       "pid": 5265,
       "rss_gb": 0.47,
-      "cpu": 1.0,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2802,8 +2802,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 71693,
-      "rss_gb": 0.41,
-      "cpu": 0.9,
+      "rss_gb": 0.51,
+      "cpu": 0.4,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2830,7 +2830,7 @@
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "10 */3 * * *",
-          "last_ts": 1788838807197,
+          "last_ts": 1788849607298,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3588,7 +3588,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 99095,
-      "rss_gb": 0.45,
+      "rss_gb": 0.44,
       "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
@@ -3791,7 +3791,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.24,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3821,7 +3821,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.22,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4222,7 +4222,7 @@
       "frozen_reason": null,
       "pid": 1597,
       "rss_gb": 0.41,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
