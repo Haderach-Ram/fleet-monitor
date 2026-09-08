@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-08 23:09:11 IST",
-  "generated_epoch": 1788889151,
+  "generated_ist": "2026-09-08 23:14:18 IST",
+  "generated_epoch": 1788889458,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.07 / 4.01 / 3.97",
+    "load": "3.33 / 3.82 / 3.91",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20049,
-      "rss_gb": 1.7,
-      "cpu": 0.3,
+      "rss_gb": 1.66,
+      "cpu": 1.4,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 61,
@@ -661,21 +661,75 @@
       ],
       "crons": [
         {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
+          "name": "Consolidation watchdog \u2014 23:10 IST",
           "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1788889034522,
+          "sched": "10 23 * * *",
+          "last_ts": 1788889243060,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788889243059,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788889034522,
+          "last_ts": 1788889243059,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1788889243058,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Monk \u2014 Memory Consolidation (via Haderach)",
+          "enabled": true,
+          "sched": "3 23 * * *",
+          "last_ts": 1788889205693,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Consolidation \u2014 23:05 IST (v2)",
+          "enabled": true,
+          "sched": "5 23 * * *",
+          "last_ts": 1788889205692,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1788889205692,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Haderach Consolidation \u2014 23:00 IST",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1788889034522,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -688,37 +742,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788889034521,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1788889034521,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1788887710506,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1788885080155,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -998,33 +1025,6 @@
           "enabled": true,
           "sched": "45 23 * * *",
           "last_ts": 1788804912787,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
-          "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1788802841224,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Monk \u2014 Memory Consolidation (via Haderach)",
-          "enabled": true,
-          "sched": "3 23 * * *",
-          "last_ts": 1788802607570,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Consolidation \u2014 23:05 IST (v2)",
-          "enabled": true,
-          "sched": "5 23 * * *",
-          "last_ts": 1788802607569,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1554,17 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<...",
-          "[22:29 IST] RAM: Let\u2019s wait a few days. Do you also advise updating M2 to this version?",
-          "[22:29 IST] HADERACH: For consistency, I'd say hold M2 at 2026.8.2 for now too rather than push it to 9.3.",
-          "A few reasons:",
-          "<b>M2 already sits on a version we never explicitly approved.</b> It drifted there on its own (per MEMORY.md, verified 5 Sep) \u2014 worth a mental flag that M2's update discipline has been looser than M4's, not a reason to compound it by adding another unreviewed jump.",
-          "<b>Same wait-a-few-days logic applies.</b> 2026.9.3 is one day old as of this message \u2014 the \"updates recover cleanly\" claim in t...",
-          "[22:30 IST] HADERACH: For consistency, I'd say hold M2 at 2026.8.2 for now too rather than push it to 9.3.",
-          "A few reasons:",
-          "<b>M2 already sits on a version we never explicitly approved.</b> It drifted there on its own (per MEMORY.md, verified 5 Sep) \u2014 worth a mental flag that M2's update discipline has been looser than M4's, not a reason to compound it by adding another unreviewed jump.",
-          "<b>Same wait-a-few-days logic applies.</b> 2026.9.3 is one day old as of this message \u2014 the \"updates recover cleanly\" claim in t...",
-          "[22:31 IST] RAM: It didn\u2019t drift. You updated M2 after explicit approval from me. Pls check",
           "[22:31 IST] HADERACH: Confirmed \u2014 I was wrong. Ram, my apologies for the sloppy claim.",
           "The M2 upgrade to v2026.8.2 was <b>not</b> a drift. It was a fully planned, explicitly approved fleet upgrade on 2 Sep 2026 (HAD-049 ProjHad): you named Seneca as the pilot agent (\"Seneca to be pilot agent\"), I flagged that Seneca wasn't the low-risk choice the plan intended and you overrode that (\"We will go with Seneca\"), and after Phase 0/1 pre-checks you gave an explicit \"Go ahead\" at 17:55 IST before Phase 2 executed. All ...",
           "[22:32 IST] HADERACH: Fixed in MEMORY.md.",
@@ -1593,7 +1582,18 @@
           "The mechanism causing this \u2014 `internal-runtime-context.ts`, a `&lt;&lt;&lt;BEGIN_OPENCLAW_INTERNAL_CONTEXT&gt;&gt;&gt;` wrapper OpenClaw attaches to carry runtime metadata to the model \u2014 was <b>introduced in the 2026.8.1 \"OpenClaw 2.0\" release</b>. M2 was on v2026.6.11 before the 2 Sep upgrade, which predates this mechanism entirely \u2014...",
           "[23:02 IST] HADERACH: Ram \u2014 confirmed. This is a real, currently open upstream issue, and the timeline lines up exactly with the M2 update.",
           "<b>1. Timeline confirms your instinct</b>",
-          "The mechanism causing this \u2014 `internal-runtime-context.ts`, a `&lt;&lt;&lt;BEGIN_OPENCLAW_INTERNAL_CONTEXT&gt;&gt;&gt;` wrapper OpenClaw attaches to carry runtime metadata to the model \u2014 was <b>introduced in the 2026.8.1 \"OpenClaw 2.0\" release</b>. M2 was on v2026.6.11 before the 2 Sep upgrade, which predates this mechanism entirely \u2014..."
+          "The mechanism causing this \u2014 `internal-runtime-context.ts`, a `&lt;&lt;&lt;BEGIN_OPENCLAW_INTERNAL_CONTEXT&gt;&gt;&gt;` wrapper OpenClaw attaches to carry runtime metadata to the model \u2014 was <b>introduced in the 2026.8.1 \"OpenClaw 2.0\" release</b>. M2 was on v2026.6.11 before the 2 Sep upgrade, which predates this mechanism entirely \u2014...",
+          "[23:04 IST] RAM: Do it",
+          "[23:07 IST] HADERACH: Now confirm and log to tech.md:",
+          "[23:07 IST] HADERACH: Confirmed and clean. Now log to tech.md on Haderach's side per the plan.",
+          "[23:07 IST] HADERACH: Now I'll append a new tech.md entry documenting today's confirmed finding and fix.",
+          "[23:08 IST] HADERACH: Done, Ram. Both pieces are in:",
+          "<b>1. Jonas's AGENTS.md (M2)</b> \u2014 added a \"Prompt-Injection False-Positive Guard\" section right after the scope-boundary block, verified live on disk. It states the metadata envelopes are legitimate, and forces a verbatim-quote check before Jonas is allowed to claim it's spotted an injection \u2014 directly blocks the confabulation pattern it showed today.",
+          "<b>2. tech.md</b> \u2014 logged the full finding: confirmed timeline (mechanism introduced in 2026.8.1, M2 didn't ...",
+          "[23:08 IST] HADERACH: Done, Ram. Both pieces are in:",
+          "<b>1. Jonas's AGENTS.md (M2)</b> \u2014 added a \"Prompt-Injection False-Positive Guard\" section right after the scope-boundary block, verified live on disk. It states the metadata envelopes are legitimate, and forces a verbatim-quote check before Jonas is allowed to claim it's spotted an injection \u2014 directly blocks the confabulation pattern it showed today.",
+          "<b>2. tech.md</b> \u2014 logged the full finding: confirmed timeline (mechanism introduced in 2026.8.1, M2 didn't ...",
+          "[23:10 IST] HADERACH: Nightly consolidation complete. Idle day \u2014 no new content to promote (no `[FACT:]` tags, 0 sessions). Rolling files updated (7-day/28-day/180-day, including two missing entries backfilled), tag index rebuilt (114 days), MEMORY_WRITE bookmark inserted, heartbeat-state.json updated."
         ],
         "yesterday": [
           "[23:05 IST] HADERACH: Understood \u2014 sleep well, Ram. Here's where things stand and what happens overnight:",
@@ -1735,7 +1735,7 @@
       "frozen_reason": null,
       "pid": 1591,
       "rss_gb": 0.55,
-      "cpu": 1.3,
+      "cpu": 0.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2423,7 +2423,7 @@
       "frozen_reason": null,
       "pid": 16295,
       "rss_gb": 0.7,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 16,
@@ -2831,7 +2831,7 @@
       "frozen_reason": null,
       "pid": 71693,
       "rss_gb": 0.44,
-      "cpu": 1.4,
+      "cpu": 1.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3623,7 +3623,7 @@
       "frozen_reason": null,
       "pid": 99095,
       "rss_gb": 0.42,
-      "cpu": 0.8,
+      "cpu": 0.5,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3825,7 +3825,7 @@
       "frozen_reason": null,
       "pid": 1575,
       "rss_gb": 0.24,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3855,7 +3855,7 @@
       "frozen_reason": null,
       "pid": 1570,
       "rss_gb": 0.22,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4255,8 +4255,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1597,
-      "rss_gb": 0.42,
-      "cpu": 1.1,
+      "rss_gb": 0.38,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
