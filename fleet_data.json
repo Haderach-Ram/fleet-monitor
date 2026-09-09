@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-09 09:00:49 IST",
-  "generated_epoch": 1788924649,
+  "generated_ist": "2026-09-09 09:08:03 IST",
+  "generated_epoch": 1788925083,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.96 / 2.43 / 2.70",
+    "load": "3.93 / 3.72 / 3.26",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,19 +661,37 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1788924367960,
+          "sched": "0 9 * * *",
+          "last_ts": 1788924925558,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
+          "enabled": true,
+          "sched": "0 9 * * *",
+          "last_ts": 1788924925558,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788924026939,
+          "last_ts": 1788924925557,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1788924925557,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -682,7 +700,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788924026939,
+          "last_ts": 1788924925557,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +709,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788924026938,
+          "last_ts": 1788924925556,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1788924367960,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -949,15 +976,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1788869644355,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Consolidation watchdog \u2014 13:10 IST",
           "enabled": true,
           "sched": "10 13 * * *",
@@ -1018,24 +1036,6 @@
           "last_ts": 1788838625978,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Morning Briefing + TODO Report \u2014 Daily 09:00 IST",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1788838506747,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Daily Brief \u2014 Haderach Synthesis (09:00 IST)",
-          "enabled": true,
-          "sched": "0 9 * * *",
-          "last_ts": 1788838506746,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1554,36 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:22 IST] HADERACH: Confirmed atomic \u2014 neither edit applied. Let me redo both correctly.",
-          "[08:23 IST] HADERACH: Now the fallback message wording fix (unreachable-in-practice \"No tweets found\" line):",
-          "[08:23 IST] HADERACH: Now verify syntax and re-run the dry-run test to confirm everything still behaves correctly.",
-          "[08:23 IST] HADERACH: All good \u2014 real state still untouched (was a dry run on a copy), migration path works, and the fresh-state path correctly reports 12 genuinely-new tweets rather than misfiring the empty-list migration path. Let me confirm the real state file is still unmodified and update STATUS.md.",
-          "[08:24 IST] HADERACH: Done, Ram. Chet's Claude Code (via ACP, `agentId: \"claude\"`) did a genuine read-only review \u2014 completed clean, no files touched.",
-          "<b>Verdict: fix is correct and safe, no blocking issues.</b> It found 3 minor polish items, all applied:",
-          "<ul>",
-          "<li>Empty-state first-run took the migration branch unnecessarily (harmless, but sloppy) \u2014 now checks <code>and raw_seen</code> before migrating</li>",
-          "<li>The genuinely-unreachable \"No tweets found in the last 7 days\" fallback wording was misleading if it ev...",
-          "[08:24 IST] HADERACH: Done, Ram. Chet's Claude Code (via ACP, `agentId: \"claude\"`) did a genuine read-only review \u2014 completed clean, no files touched.",
-          "<b>Verdict: fix is correct and safe, no blocking issues.</b> It found 3 minor polish items, all applied:",
-          "<ul>",
-          "<li>Empty-state first-run took the migration branch unnecessarily (harmless, but sloppy) \u2014 now checks <code>and raw_seen</code> before migrating</li>",
-          "<li>The genuinely-unreachable \"No tweets found in the last 7 days\" fallback wording was misleading if it ev...",
-          "[08:29 IST] RAM: Do you want Chet\u2019s Claude Code (let\u2019s call this CCC) to review any other code of yours?",
-          "[08:30 IST] HADERACH: \u2713 **NSE Market Bhavcopy \u2014 9 Sep 2026 Ingestion Complete**",
-          "Successfully ingested yesterday's trading data (9 Sep is a Wednesday; market closed yesterday 8 Sep due to market holiday confirmation \u2014 script correctly skipped back and ingested 8 Sep bhavcopy):",
-          "- **Equity:** 3,652 rows",
-          "- **F&O:** 32,958 rows",
-          "- **Date range:** 2026-09-08 to 2026-09-08",
-          "market.db updated. No errors.",
-          "[08:30 IST] HADERACH: Good question \u2014 yes, there's an obvious immediate candidate, plus a couple of higher-stakes ones worth flagging.",
-          "<b>1. Same bug pattern, other fetchers in ecosystem_digest.py (highest priority \u2014 direct follow-up)</b>",
-          "I just checked: <code>fetch_x_openclaw</code>, <code>fetch_reddit</code>, <code>fetch_github_discussions</code>, and <code>fetch_discord</code> all use the exact same unbounded-<code>seen_ids</code>-set pattern that just caused today's @steipete bug. They're lower-risk because t...",
-          "[08:31 IST] HADERACH: Good question \u2014 yes, there's an obvious immediate candidate, plus a couple of higher-stakes ones worth flagging.",
-          "<b>1. Same bug pattern, other fetchers in ecosystem_digest.py (highest priority \u2014 direct follow-up)</b>",
-          "I just checked: <code>fetch_x_openclaw</code>, <code>fetch_reddit</code>, <code>fetch_github_discussions</code>, and <code>fetch_discord</code> all use the exact same unbounded-<code>seen_ids</code>-set pattern that just caused today's @steipete bug. They're lower-risk because t...",
-          "[08:34 IST] RAM: Check 1 and 3",
-          "[08:35 IST] HADERACH: Good \u2014 both are compact files. Let me kick off the CCC review for both #1 (the four other fetchers) and #3 (mail pipeline) in one go.",
-          "[08:35 IST] HADERACH: Good, the fix is already committed (clean working tree). Now let me spawn the CCC review.",
           "[08:35 IST] HADERACH: Kicked off \u2014 this one has more surface area (5 files, ~1650 lines combined) so it'll take longer than the last review. I'll check in shortly.",
           "[08:39 IST] HADERACH: Still running \u2014 this two-area review is taking longer than the single-function one (expected, larger scope). Let me keep waiting.",
           "[08:45 IST] HADERACH: Good progress \u2014 that's the bulk of it, and it surfaced a real critical finding (mail_ingest.py index race condition, and a potential data-leak-adjacent flag in mail_classify.py that got cut off). Let me get the tail end.",
@@ -1593,7 +1563,37 @@
           "Every one of <code>fetch_x_openclaw</code>, <code>fetch_reddit</code>, <code>fetch_github_discussions</code>, <code>fetch_discord_openclaw</code> has the exact unbounded-<code>seen_ids</code> + no-latest-item-fallback pattern that caused today's steipete bug. Discord's case is the worst of the four \u2014 it doesn't even capture timestamps, so it ca...",
           "[08:49 IST] HADERACH: All findings are in. Here's the consolidated picture, Ram:",
           "<b>AREA 1 \u2014 ecosystem_digest.py: confirmed, same bug class in all 4 remaining fetchers</b>",
-          "Every one of <code>fetch_x_openclaw</code>, <code>fetch_reddit</code>, <code>fetch_github_discussions</code>, <code>fetch_discord_openclaw</code> has the exact unbounded-<code>seen_ids</code> + no-latest-item-fallback pattern that caused today's steipete bug. Discord's case is the worst of the four \u2014 it doesn't even capture timestamps, so it ca..."
+          "Every one of <code>fetch_x_openclaw</code>, <code>fetch_reddit</code>, <code>fetch_github_discussions</code>, <code>fetch_discord_openclaw</code> has the exact unbounded-<code>seen_ids</code> + no-latest-item-fallback pattern that caused today's steipete bug. Discord's case is the worst of the four \u2014 it doesn't even capture timestamps, so it ca...",
+          "[08:53 IST] RAM: Do now pls",
+          "[08:54 IST] HADERACH: Now let's also address the crash-between-append-and-save robustness and verify syntax + a dry run.",
+          "[08:54 IST] HADERACH: Now let's close the crash-mid-run gap by persisting the index incrementally rather than only at the end:",
+          "[08:54 IST] HADERACH: Now let's fix the keyword/embedding truncation-length mismatch in mail_classify.py, and check syntax on both files:",
+          "[08:54 IST] HADERACH: This is read-only/idempotent per the review \u2014 safe to touch. Fix the truncation mismatch (500 vs body_chars, default 600) and add JSON-parse error handling:",
+          "[08:54 IST] HADERACH: Now syntax-check both mail files and run a safe dry-run of the ingest logic against the real index (without executing AppleScript/writes):",
+          "[08:55 IST] HADERACH: Both properties verified. Now check the atomic `save_index` write behaves correctly and doesn't corrupt on real invocation, and confirm real index/state untouched:",
+          "[08:55 IST] HADERACH: Real index untouched, both new behaviors verified. Now let's do a quick sanity test of mail_classify.py's error handling for malformed JSON, without touching real mail:",
+          "[08:55 IST] HADERACH: All fixes verified working. Now let's fix the ecosystem_digest.py fetchers, starting with the highest-severity one (Discord) down to the simpler ones.",
+          "[08:57 IST] HADERACH: Now update all the call sites for Discord's new 3-tuple return:",
+          "[08:57 IST] HADERACH: Now find and update the `build_digest` signature and call, and the `build_telegram_summary` call, and the fallback display logic:",
+          "[08:58 IST] HADERACH: Now update the `has_community` check and the main() call site with `discord_latest` and `x_steipete_latest`:",
+          "[08:58 IST] HADERACH: That's fine as-is (community section still shows when other sources have data). Now the main() call site:",
+          "[08:58 IST] HADERACH: Now let's syntax-check and move to fetch_x_openclaw, fetch_reddit, fetch_github_discussions. Let's view each in full.",
+          "[08:58 IST] HADERACH: Now let's fix `fetch_x_openclaw` (prune + latest_tweet fallback, same pattern as steipete):",
+          "[08:59 IST] HADERACH: Now fetch_reddit \u2014 needs per-subreddit pruning and latest-post fallback, plus fixing the first-run score-threshold permanent-skip bug CCC flagged:",
+          "[08:59 IST] HADERACH: Now fetch_github_discussions:",
+          "[09:00 IST] HADERACH: Now update all call sites for the changed return signatures of fetch_x_openclaw, fetch_reddit, fetch_github_discussions:",
+          "[09:00 IST] HADERACH: Now let's check build_digest's rendering of reddit/discussions/x sections to add fallback messaging consistently, and thread through the new `_latest` values:",
+          "[09:00 IST] HADERACH: This is lower priority (these accounts are high-velocity) but for consistency and correctness, let's add the fallback messaging. First update signature and main() call, then the render logic.",
+          "[09:01 IST] HADERACH: Now let's also improve the reddit \"No new posts\" fallback for the LocalLLaMA/singularity section using `reddit_latest`:",
+          "[09:01 IST] HADERACH: Also update the r/openclaw fallback in Community Pulse to use reddit_latest:",
+          "[09:02 IST] HADERACH: Now let's update the main() call site to pass `reddit_latest`:",
+          "[09:02 IST] HADERACH: Now let's do a full syntax check and dry-run test of all four fetchers against the real state file (read-only, no state mutation saved):",
+          "[09:02 IST] HADERACH: This function takes `_data` lists directly (just for counting), unaffected by the `_latest` additions \u2014 no change needed there. Good. Now do the dry-run test against the real state, without saving:",
+          "[09:02 IST] HADERACH: Good, migration + latest_tweet fallback both work correctly. Now test discussions and reddit (network calls, will take longer):",
+          "[09:03 IST] HADERACH: That's expected \u2014 GitHub Discussions is disabled on that repo (per the existing comment), so it legitimately returns empty every time; not a regression. Let's confirm reddit and discord fetchers too, then verify the real state file is untouched.",
+          "[09:03 IST] HADERACH: Untouched (dry-run copies only). Now test the reddit fetcher (uses Deckard browser, could be slow) and discord fetcher (should short-circuit if no session file):",
+          "[09:03 IST] HADERACH: Good \u2014 no Discord session, so that fetcher will hit the early-return path. Let's test that:",
+          "[09:03 IST] HADERACH: Correct early-return behavior, 3-tuple unpacks fine. Now let's test reddit \u2014 this hits Deckard/browser and could be slow, so background it with a reasonable timeout."
         ],
         "yesterday": [
           "Amaryl is real and is in HAD-054's STATUS.md \u2014 I read that section myself earlier tonight. Quoting it directly:",
@@ -1760,19 +1760,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1788924005205,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1788924914495,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1788921346609,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1788924005205,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2597,28 +2597,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1788922805883,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1788921012187,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1788914053297,
+          "last_ts": 1788924851189,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2627,7 +2609,25 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1788914053297,
+          "last_ts": 1788924851189,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1788924612642,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1788924612641,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2662,9 +2662,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Now let me check the daily log and transcripts:",
-          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Both the daily log (2026-09-09.md) is missing and both transcripts are minimal (just rotation headers, no real activity). This is a genuinely quiet day. Let me run the rolling summary update with --no-activity for both personal and group:",
-          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: \u2713 **Verification complete:**",
           "- Personal rolling files: OK (7-day: 991 bytes, 28-day: 4371 bytes, 180-day: 2345 bytes)",
           "- Group rolling files: OK (7-day: 624 bytes, 28-day: 2262 bytes)",
           "- No mismatches detected",
@@ -2701,7 +2698,10 @@
           "[07:55 IST] PURL: Running heartbeat checks silently...",
           "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
           "[08:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[08:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now."
+          "[08:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
+          "[09:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "OpenClaw runtime context (internal):",
@@ -3876,9 +3876,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 1570,
+      "rss_gb": 0.22,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4277,9 +4277,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 1597,
+      "rss_gb": 0.42,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
