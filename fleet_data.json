@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-09 23:00:54 IST",
-  "generated_epoch": 1788975054,
+  "generated_ist": "2026-09-09 23:12:02 IST",
+  "generated_epoch": 1788975722,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.76 / 3.56 / 3.59",
+    "load": "3.56 / 3.66 / 3.64",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -661,28 +661,46 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788974426059,
+          "last_ts": 1788975337931,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Haderach Consolidation \u2014 23:00 IST",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1788975337931,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788974426052,
+          "last_ts": 1788975337931,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript & Memory Consolidation",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1788975337930,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1788974426052,
+          "last_ts": 1788975337930,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -691,7 +709,7 @@
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
-          "last_ts": 1788972985628,
+          "last_ts": 1788974761675,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1016,24 +1034,6 @@
           "enabled": true,
           "sched": "5 23 * * *",
           "last_ts": 1788889205692,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1788889034522,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript & Memory Consolidation",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1788889034521,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1554,7 +1554,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:46 IST] RAM: Consider this file. You made this the other day. Take this in, I will give you more inputs",
           "[21:46 IST] HADERACH: Understood, Ram \u2014 I've read the NRC Minutes Review (vR2) in full and have it fresh in context: the 29-meeting chronology table (4 Jul 2014 \u2013 8 Feb 2022) and the \"what the minutes establish\" table for Ashwini Kumar, Gagan Banga, Sachin Chaudhary, and Sameer Gehlaut (Ajit Mittal doesn't appear in this NRC table, though he does show up in the meeting-by-meeting record for remuneration/re-appointment items).",
           "Noted for when you bring in more inputs:",
           "- Ashwini Kumar's strongest quote is the 17 Jul...",
@@ -1593,7 +1592,8 @@
           "<b>Findings, as sourced directly from the two agendas:</b>",
           "<ul>",
           "<li><b>Sameer Gehlaut</b> \u2014 both agendas, three ye...",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 63 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "Amaryl is real and is in HAD-054's STATUS.md \u2014 I read that section myself earlier tonight. Quoting it directly:",
@@ -1763,7 +1763,7 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
           "sched": "5 6-23 * * *",
-          "last_ts": 1788971713177,
+          "last_ts": 1788975435204,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2600,7 +2600,7 @@
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1788973207706,
+          "last_ts": 1788975006335,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2662,7 +2662,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[20:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[19:55 IST] PURL: Let me check what today's date is and create the memory file:",
           "[19:55 IST] PURL: Now let me check heartbeat state and run the checks:",
           "[19:56 IST] PURL: Let me kill it and run checks manually:",
@@ -2701,7 +2700,8 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now consolidating to rolling memory files:",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Final step \u2014 append bookmark to today's transcript:",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
         ],
         "yesterday": [
           "OpenClaw runtime context (internal):",
@@ -2855,6 +2855,15 @@
       ],
       "crons": [
         {
+          "name": "ca_smeda_ii-consolidation-23",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1788975044381,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "CA SMEDA-II \u2014 Nightly Memory Consolidation",
           "enabled": true,
           "sched": "30 22 * * *",
@@ -2895,15 +2904,6 @@
           "enabled": true,
           "sched": "15 0 * * *",
           "last_ts": 1788893199309,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ca_smeda_ii-consolidation-23",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1788888644863,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3756,14 +3756,6 @@
           "- **Changed since yesterday:** SCL stays fully static (3rd/4th day, no fresh corporate item); RBI/NBFC partially turns over (ET BFSI holds over 2nd day, Vinod Kothari FAQ PDF re-enters); AI Agent Ecosystem fully resets (Reuters Astra holds 4th day, LangChain/LaunchDarkly exit, Anthropic Agent Skills repo and AutoAgent self-opt..."
         ],
         "rolling_7day": [
-          "- 68 heartbeat checkpoints (08:31-22:50 IST), all silent",
-          "- No [FACT:] tags in transcript; no domain file promotions required",
-          "- Nightly consolidation running 23:00 IST (this run)",
-          "## 2026-09-03 \u2014 Daily Brief Produced",
-          "- 08:31 IST: Daily Brief 2026-09-03 produced (news-brief-2026-09-03.md); pre-fetched Exa research data returned real titles/URLs for all 3 tracks (3rd consecutive day with no snippets); bullets sourced from headline text only; verified by read-back, 24 lines, 345 words, first line matches expected format, no placeholders",
-          "- Changed since yesterday: SCL reverts to generic reference pages (Screener.in re-enters), RBI/NBFC fully static for a 3rd straight day, AI Agent Ecosystem partially turns over (Swarms v15 \"Akira\" enters fresh, Nous Hermes Pantheon and Microsoft Agent Lightning exit)",
-          "- ~52 heartbeat checkpoints (06:04-22:50 IST), all silent",
-          "- No [FACT:] tags in transcript; no domain file promotions required",
           "- Nightly consolidation running 23:00 IST (this run)",
           "## 2026-09-04 \u2014 Daily Brief Produced",
           "- 08:31 IST: Daily Brief 2026-09-04 produced (news-brief-2026-09-04.md); pre-fetched Exa research data used; verified by read-back, 24 lines, 373 words, no placeholders",
@@ -3795,14 +3787,17 @@
           "- Changed since yesterday: SCL stays fully static (3rd/4th day); RBI/NBFC partially turns over (ET BFSI holds 2nd day, Vinod Kothari FAQ PDF re-enters); AI Agent Ecosystem fully resets (Reuters Astra holds 4th day, LangChain/LaunchDarkly exit, Anthropic Agent Skills repo + AutoAgent enter)",
           "- 07:52-08:15 IST: Haderach ran `/acp doctor` 8 times in a row \u2014 identical result each time: acpx backend/plugin healthy (adapters resolve, plugin pinned version fine), but both Claude and Codex ACP agents blocked on auth (no ANTHROPIC_API_KEY/keychain credential for Claude, no CODEX_API_KEY/OPENAI_API_KEY/~/.codex/auth.json for Codex). A live smoke-test spawn (sessions_spawn runtime=acp agentId=claude) also failed in ~1.4s with the same AcpRuntimeError: Authentication required. Chet flagged the repetition and declined to keep re-running an unchanged check without a signal that auth had been fixed",
           "- No [FACT:] tags in transcript this run; no domain file promotions required beyond the ACP auth gap note (\u2192 MEMORY.md Known Issues)",
+          "- Nightly consolidation running 23:00 IST (this run)",
+          "## 2026-09-09 \u2014 Daily Brief + ACP Claude Code Read-Only Review (2 areas)",
+          "- 08:31 IST: Daily Brief 2026-09-09 produced (news-brief-2026-09-09.md); pre-fetched Exa data used; verified by read-back, 24 lines, 364 words, no placeholders, all URLs match provided data",
+          "- Changed since yesterday: SCL turns over after 3-4 static days (Screener.in exits, Product Portfolio page enters); RBI/NBFC fully static for the first time this week; AI Agent Ecosystem fully resets around Meta's cross-app agent and Supermemory's Learner-1",
+          "- 08:35-08:48 IST: Haderach dispatched a read-only ACP Claude Code review (two areas, no writes): (1) ecosystem_digest.py's 4 fetcher functions (fetch_x_openclaw, fetch_reddit, fetch_github_discussions, fetch_discord_openclaw) \u2014 found unbounded seen_ids-set growth with no pruning across all four fetchers; (2) HAD-052 mail_ingest.py/mail_classify.py \u2014 found data-handling issues incl. raw email subject/body sent to local Ollama embedding call, and inconsistent truncation lengths between keyword-extraction blob (600 chars) and embedding blob (500 chars) risking missed keywords near the cutoff",
+          "- Multiple ACP session completion events arrived truncated mid-sentence; Chet worked around by re-querying sessions_history, spawning fresh follow-up ACP sessions for missing tails, and cross-checking against completion-event text before compiling the full verbatim report for Haderach \u2014 no fabricated content, truncation flagged honestly each time it occurred",
+          "- Full report delivered to Haderach by ~08:48 IST; remainder of the day silent (68+ heartbeat checkpoints, 08:50-22:50 IST)",
+          "- No [FACT:] tags in transcript; no domain file promotions required (findings are on Haderach's own project scripts, not Chet's stack)",
           "- Nightly consolidation running 23:00 IST (this run)"
         ],
         "rolling_28day": [
-          "## 2026-08-31 \u2014 Daily Brief + Weekly Memory Self-Audit",
-          "- Daily Brief 2026-08-31 produced; pre-fetched Exa research data failed again (402, 4th consecutive day) \u2014 sourced live via browser-based Bing News scrape; SCL turns over to fresh corporate news (Avenir Investment/RBI acquisition approval, \u20b91,050cr recovery, FIR clarification) displacing Zee/NCLT story",
-          "- Weekly Memory Self-Audit: 1/5 correct, 2/5 partial, 2/5 failed \u2014 identical distribution for 10th consecutive week; Q2 staleness now 98 days (worst yet); Q4 defect unfixed 10th consecutive occurrence; flagged to Haderach and promoted to MEMORY.md Known Issues",
-          "- [FACT:tech:normal] logged: Exa/Parallel 402 outage now 4th consecutive day; Bing News fallback confirmed reliable",
-          "- Full-day silent heartbeat; nightly consolidation running 23:00 IST",
           "## 2026-09-01 \u2014 Daily Brief Produced",
           "- Daily Brief 2026-09-01 produced; pre-fetched Exa research data returned real titles/URLs for all 3 tracks (breaking 4-day 402 outage) but with no content snippets \u2014 bullets sourced from headline text only",
           "- SCL reverted to generic reference pages from yesterday's fresh corporate news; RBI/NBFC track held over its rate-framework narrative, added fresh Vinod Kothari Consultants legal analysis",
@@ -3837,7 +3832,12 @@
           "- Daily Brief 2026-09-08 produced; pre-fetched Exa data used; verified by read-back, 24 lines, 362 words, no placeholders",
           "- SCL stays fully static (3rd/4th day); RBI/NBFC partially turns over (ET BFSI holds 2nd day, Kothari FAQ PDF re-enters); AI Agent Ecosystem fully resets",
           "- Haderach ran `/acp doctor` 8\u00d7 (07:52-08:15 IST) with identical unchanged result: acpx backend healthy, both Claude and Codex ACP agents blocked on missing auth credentials; live smoke-test spawn also failed with AcpRuntimeError: Authentication required",
-          "- No domain promotions beyond ACP auth gap note; nightly consolidation running 23:00 IST"
+          "- No domain promotions beyond ACP auth gap note; nightly consolidation running 23:00 IST",
+          "## 2026-09-09 \u2014 Daily Brief + ACP Claude Code Read-Only Review",
+          "- Daily Brief 2026-09-09 produced; SCL turns over (Product Portfolio page enters), RBI/NBFC fully static for first time this week, AI Agent Ecosystem resets (Meta cross-app agent, Supermemory Learner-1)",
+          "- Read-only ACP Claude Code review (2 areas, no writes): ecosystem_digest.py fetchers (unbounded seen_ids growth, no pruning, all 4 fetchers) + HAD-052 mail pipeline (raw subject/body sent to local Ollama embedding, inconsistent 500 vs 600 char truncation between keyword/embedding blobs)",
+          "- Multiple ACP completion events truncated mid-sentence; worked around via session re-queries and fresh follow-up spawns, full verbatim report compiled and delivered honestly (no fabrication)",
+          "- Full-day silent heartbeat after 08:48 IST; nightly consolidation running 23:00 IST"
         ]
       }
     },
