@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-10 22:00:06 IST",
-  "generated_epoch": 1789057806,
+  "generated_ist": "2026-09-10 22:05:18 IST",
+  "generated_epoch": 1789058118,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.19 / 3.26 / 3.42",
+    "load": "3.81 / 3.32 / 3.36",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 909,
       "rss_gb": 1.0,
-      "cpu": 0.6,
+      "cpu": 14.9,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 63,
@@ -681,6 +681,42 @@
       ],
       "crons": [
         {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1789057879196,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789057829300,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789057829299,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789057829299,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -690,46 +726,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789057225225,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789057225225,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789057225224,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Twitter Watcher \u2014 Every 3h",
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1789054578039,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1789054578038,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1574,8 +1574,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[21:09 IST] HADERACH: Good, batch 2a landed cleanly. This is turning up real architectural mess \u2014 multiple redundant/dead implementations of the same parsers. Continuing to batch 2b (remaining 6 files).",
-          "[21:10 IST] HADERACH: Full batch 2b captured cleanly. Continuing to batch 3 (RBI gap-fill/one-off variants) and batch 4 (BSE/NSE filings).",
           "[21:12 IST] HADERACH: Taking a while \u2014 let me check if it's still alive and making progress rather than stuck.",
           "[21:13 IST] HADERACH: Still running, only 2m23s in \u2014 normal. Continuing to wait.",
           "[21:16 IST] HADERACH: 5m22s is longer than any prior successful batch (all completed in ~30s-1min). Let me continue waiting a bit given the 600s timeout, but this is worth watching.",
@@ -1613,7 +1611,9 @@
           "Busy session, mostly M2/Jonas firefighting plus a Martin warehouse audit. Here's the shape of it:",
           "<b>1. Jonas (M2) \u2014 three real fixes landed</b>",
           "<ul>",
-          "<li>Your cron stagger restart broke Jonas's gateway (stale <code>/etc/hosts</code> Bitwarden pin \u2192 TLS failure on boot creds). Fixed by falling back to <code>~/.aws/credentials</code> when <code>bws</code> fails. Root <code>/etc/hosts</code> fix still needs your sudo \u2014 you said Tuesday ..."
+          "<li>Your cron stagger restart broke Jonas's gateway (stale <code>/etc/hosts</code> Bitwarden pin \u2192 TLS failure on boot creds). Fixed by falling back to <code>~/.aws/credentials</code> when <code>bws</code> fails. Root <code>/etc/hosts</code> fix still needs your sudo \u2014 you said Tuesday ...",
+          "[21:54 IST] RAM: Complete the full review with CCC first",
+          "[21:57 IST] HADERACH: Good \u2014 found the pipeline location. Let me check STATUS/PROJECT files for context and confirm scope of \"complete the full review with CCC first.\""
         ],
         "yesterday": [
           "[21:46 IST] HADERACH: Understood, Ram \u2014 I've read the NRC Minutes Review (vR2) in full and have it fresh in context: the 29-meeting chronology table (4 Jul 2014 \u2013 8 Feb 2022) and the \"what the minutes establish\" table for Ashwini Kumar, Gagan Banga, Sachin Chaudhary, and Sameer Gehlaut (Ajit Mittal doesn't appear in this NRC table, though he does show up in the meeting-by-meeting record for remuneration/re-appointment items).",
@@ -1754,8 +1754,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.51,
-      "cpu": 3.2,
+      "rss_gb": 0.54,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1783,7 +1783,7 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
           "sched": "5 6-23 * * *",
-          "last_ts": 1789054512124,
+          "last_ts": 1789058109630,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2415,7 +2415,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.48,
-      "cpu": 0.4,
+      "cpu": 6.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2609,10 +2609,19 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "enabled": true,
+          "sched": "0 22 * * *",
+          "last_ts": 1789057818802,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1789056005550,
+          "last_ts": 1789057818802,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2649,15 +2658,6 @@
           "enabled": true,
           "sched": "9 0 * * *",
           "last_ts": 1788979154738,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
-          "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1788971428401,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2788,16 +2788,6 @@
           "---"
         ],
         "rolling_28day": [
-          "- ### Morning",
-          "- - 12:42 IST: Extracted regulatory compliance text from OneCard billing query document (Queries 2-3 from RBI/SEBI response doc about billing statements and cycle flexibility)",
-          "- ### Heartbeat (19:55 IST)",
-          "- - ProtonMail check initiated",
-          "- - Session cost review completed",
-          "## 2026-09-06 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
-          "## 2026-09-06",
-          "- Nightly consolidation: ProtonMail Deckard startup in progress",
           "- Session health nominal",
           "## 2026-09-07 \u2014 OneCard/BOBCARD MoM + WhatsApp note + email draft (backfilled 08 Sep 2026)",
           "- Polished/reframed a WhatsApp thank-you note to BOBCARD leadership re: Pune visit",
@@ -2827,7 +2817,17 @@
           "- ProtonMail stale (>24h); weekly bulletin due refresh",
           "## 2026-09-10 \u2014 No agent activity",
           "- No sessions initiated on this date.",
-          "---"
+          "---",
+          "## 2026-09-10",
+          "# 2026-09-10 \u2014 Thursday",
+          "## Image Work with Gari",
+          "- **09:10 IST**: Gari asked to touch up the wooden mask idol with paint colour",
+          "  - Generated freshly painted version with deepened maroon, brightened green/gold on crown",
+          "- **10:59 IST**: Asked for other colour options",
+          "  - Generated 4-panel mockup: Indigo & Gold, Terracotta & Turquoise, Charcoal & Gold Leaf, Saffron & Green",
+          "- **11:07 IST**: Requested all 4 colour options as grid",
+          "- **11:14 IST**: Sent Tanjore painting (Varaha deity) + wall photo",
+          "- **11:14 IST**: Asked to hang painting on wall mockup"
         ]
       }
     },
@@ -2843,7 +2843,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.48,
-      "cpu": 0.4,
+      "cpu": 1.0,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3906,7 +3906,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.25,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4306,7 +4306,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 936,
-      "rss_gb": 0.45,
+      "rss_gb": 0.54,
       "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
