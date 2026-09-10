@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 00:03:38 IST",
-  "generated_epoch": 1789065218,
+  "generated_ist": "2026-09-11 00:08:46 IST",
+  "generated_epoch": 1789065526,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.40 / 3.70 / 3.19",
+    "load": "3.40 / 3.82 / 3.43",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 0.99,
-      "cpu": 0.9,
+      "rss_gb": 0.98,
+      "cpu": 0.0,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 63,
@@ -681,6 +681,78 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1789065438786,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1789065438785,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789065438785,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1789065438784,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789065438784,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1789065438783,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1789065276561,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1789065276561,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -744,15 +816,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1789061969274,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Consolidation \u2014 23:05 IST (v2)",
           "enabled": true,
           "sched": "5 23 * * *",
@@ -780,48 +843,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1789054578039,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1789054578038,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1789054492960,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1789053248554,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1789050742059,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -996,24 +1023,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1788989695731,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1788989621911,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1038,15 +1047,6 @@
           "last_ts": 1788986157583,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1788978924450,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1574,6 +1574,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-11",
+          "# Self-healing rotation from transcript-2026-09-10.md at 00:07 IST"
+        ],
+        "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
           "[22:48 IST] HADERACH: Full login success. The fix is confirmed working end-to-end. Now let me apply it to the script itself.",
           "[22:48 IST] HADERACH: Now update the three `requests.post`/`requests.get` calls to use `_SESSION` instead of the bare `requests` module.",
@@ -1615,56 +1619,7 @@
           "[23:09 IST] HADERACH: Nightly consolidation complete for Monk (idle day, 0 sessions \u2014 no facts to promote). Tag index rebuilt, rolling-7/28/180day updated, transcript bookmarked, heartbeat-state timestamped.",
           "NO_REPLY."
         ],
-        "yesterday": [
-          "[21:46 IST] HADERACH: Understood, Ram \u2014 I've read the NRC Minutes Review (vR2) in full and have it fresh in context: the 29-meeting chronology table (4 Jul 2014 \u2013 8 Feb 2022) and the \"what the minutes establish\" table for Ashwini Kumar, Gagan Banga, Sachin Chaudhary, and Sameer Gehlaut (Ajit Mittal doesn't appear in this NRC table, though he does show up in the meeting-by-meeting record for remuneration/re-appointment items).",
-          "Noted for when you bring in more inputs:",
-          "- Ashwini Kumar's strongest quote is the 17 Jul...",
-          "[21:49 IST] RAM: Add another table before the two tables which is an analysis of the relevant shaded rows of the first table. The analysis is from the two attached agendas and from this establish that Ashwini was responsible for the CRE/Corporate credit/developer laons business; Sameer had direct oversight; Gagan, Ajit mittal did not have anything to do with the CC/developer laons business",
-          "[21:51 IST] HADERACH: Good, textutil is available. Let me convert these to text.",
-          "[21:53 IST] HADERACH: Need to fix the duplicate numbering \u2014 renumber \"What the minutes establish\" to section 3.",
-          "[21:53 IST] HADERACH: Now let's rebuild the PDF and docx via the existing build scripts (per house standard, dispatch via subagent).",
-          "[21:54 IST] HADERACH: Now dispatch the PDF build via subagent per house standard.",
-          "[21:54 IST] HADERACH: While that runs, let me update STATUS.md with this progress.",
-          "[21:54 IST] RAM: <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>",
-          "OpenClaw runtime context (internal):",
-          "This context is runtime-generated, not user-authored. Keep internal details private.",
-          "[Internal task completion event]",
-          "source: subagent",
-          "session_key: agent:main:subagent:60dd48e5-21b9-4730-87ce-8a14ad619314",
-          "session_id: 813069dc-9561-4e38-bce4-b8c9400e6dfe",
-          "type: subagent task",
-          "task: Run this exact Python script to rebuild a PDF (WeasyPrint-based, already fully written, no changes needed): /Users/ram_macmini/.openclaw/work...",
-          "[21:55 IST] HADERACH: Now let me fix the STATUS.md update (need to fetch exact current text first).",
-          "[21:55 IST] RAM: <<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>",
-          "OpenClaw runtime context (internal):",
-          "This context is runtime-generated, not user-authored. Keep internal details private.",
-          "[Internal task completion event]",
-          "source: subagent",
-          "session_key: agent:main:subagent:21eb4973-1b0d-4249-bb02-1d7c453e99d5",
-          "session_id: d4ac2995-96f6-48de-b6cb-9d3ce069a865",
-          "type: subagent task",
-          "task: Run this exact Python script to rebuild a Word document (python-docx based, already fully written, no changes needed): /Users/ram_macmini/.op...",
-          "[21:55 IST] HADERACH: Good, the table renders correctly with the right content. Let me check Ashwini's row and the summary paragraph specifically for wording matches.",
-          "[21:56 IST] HADERACH: Both PDF and DOCX rebuilt successfully and content verified \u2014 the new analysis table renders correctly with all four executives, and the summary conclusion is intact. Let me update STATUS.md and confirm to Ram.",
-          "[21:56 IST] HADERACH: Both files are rebuilt and verified, Ram. Here's what went into the new section:",
-          "<b>New Section 1 \u2014 Analysis of the two agendas (10 Jul 2014 and 17 Jul 2017)</b>, added before the existing tables in the NRC Minutes Review. It's a 4-column table (Executive | 2014 agenda language | 2017 agenda language | Conclusion) covering all four Executive Directors, plus a summary paragraph.",
-          "<b>Findings, as sourced directly from the two agendas:</b>",
-          "<ul>",
-          "<li><b>Sameer Gehlaut</b> \u2014 both agendas, three ye...",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 63 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:08 IST] HADERACH: Consolidation complete. Idle day, 0 sessions \u2014 no facts to promote, rolling files rolled forward, tag index rebuilt (115 days), heartbeat state updated.",
-          "NO_REPLY.",
-          "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
         "rolling_7day": [
-          "- [08:24 IST] Fixed SCL Media Monitor delivery-loop bug (delivery.mode:\"announce\").",
-          "- [15:29-18:36 IST] M2 fleet post-upgrade health check \u2014 fixed CAIO/Ravindra symlink resolver bug + Heda embedding provider mismatch; all stable.",
-          "- [18:57 IST] Ram: hold M4 update, keep monitoring M2.",
-          "- [20:23-21:46 IST] Fixed SAK-008 trendlyne + HAD-003 Reading cron false-positive failures (trailing self-check tool call misreported as error).",
-          "- [23:48 IST] New OpenClaw release flagged by Ram for TwitAcc review \u2014 pending.",
-          "--- [Midnight run OK \u2014 2026-09-03 \u2014 no new content] ---",
-          "## 2026-09-04",
           "- [BOOKMARK: 03:03 IST \u2014 Auto-checkpoint. Msgs: 13. Seq: 0. Last memory write: 23:50 IST]",
           "- [BOOKMARK: 06:10 IST \u2014 Auto-checkpoint. Msgs: 1. Seq: 0. Last memory write: 03:03 IST]",
           "- [BOOKMARK: 06:20 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:10 IST]",
@@ -1697,23 +1652,16 @@
           "- [00:05 IST] HADERACH: **SCL Media Monitor \u2014 09 Sep 2026, 00:05 IST**",
           "- [02:05 IST] HADERACH: All three files updated and confirmed successful. Per hard-stop instruction, ending here with no further tool calls.",
           "- --- [BOOKMARK: 03:05 IST \u2014 Auto-checkpoint. Msgs: 2. Seq: 0. Last memory write: 23:50 IST] ---",
-          "- [03:06 IST] HADERACH: <b>SCL Media Monitor \u2014 03:05 IST, 9 Sep 2026</b>"
+          "- [03:06 IST] HADERACH: <b>SCL Media Monitor \u2014 03:05 IST, 9 Sep 2026</b>",
+          "## 2026-09-10",
+          "- [00:03-15:03 IST] Niyogin Fintech x Sammaan Capital Rs500 Cr credit/sourcing MSME partnership tracked repeatedly across RSS/Twitter monitors.",
+          "- [15:08-17:26 IST] Jonas (M2) fixed: cron stagger, web_search (Tavily replacing broken duckduckgo), web_fetch (Firecrawl), PPTX skills, and image editing (Pillow + Bedrock) - plus a real outage from a stale /etc/hosts Bitwarden TLS pin, worked around via AWS credentials fallback; sudo-level fix logged for Ram on Tuesday.",
+          "- [18:05 IST] SCL media alert: CBI chargesheet in Ajnara homebuyer fraud case mentions Sammaan Capital - flagged for clarification.",
+          "- [17:27-17:39 IST] Jonas relayed user request for pose-aware image editing; confirmed nothing on Bedrock supports it, Nano Banana (OpenRouter) is closest but paid.",
+          "- [19:25-19:37 IST] M4 OS update to macOS 26.6.2 completed cleanly - full backup taken beforehand, all 18 fleet agents verified healthy after.",
+          "--- [Midnight run OK \u2014 2026-09-10 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- --- [BOOKMARK: 06:20 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:10 IST] ---",
-          "- --- [BOOKMARK: 06:30 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:20 IST] ---",
-          "- --- [BOOKMARK: 07:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:30 IST] ---",
-          "- --- [BOOKMARK: 07:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 07:10 IST] ---",
-          "--- [Midnight run OK \u2014 2026-09-06 \u2014 no new content] ---",
-          "## 2026-09-06",
-          "- No new content logged for this day (no transcript/daily log entries found).",
-          "## 2026-09-07",
-          "- [23:51 IST] RAM: Amaryl it is. I suggest you make a new AWS BedRock key also for it. You have admin access on console. Spin it up as an OpenClaw agent",
-          "- [23:53 IST] HADERACH: Admin AWS access confirmed and working. I have full IAM access via this key. Let me create the new Bedrock IAM user for Amaryl.",
-          "- [23:53 IST] HADERACH: IAM user `bedrock-amaryl` created with `AmazonBedrockFullAccess` and a fresh access key. Now storing it in BWS following the fleet naming convention.",
-          "- [23:53 IST] HADERACH: Stored as `AWS_Bedrock_amaryl` (BWS ID `771b7bef-57ce-4378-919a-b4bd012f2f65`). Now let's find a free port and provision the actual OpenClaw instance.",
-          "- [23:54 IST] HADERACH: Now creating the workspace identity files, modeled on Chet's pattern but themed for Amaryl:",
-          "- [23:55 IST] HADERACH: Now let's create the openclaw.json config, modeled on Chet's but with the new port, workspace, and AWS credentials.",
           "- [23:56 IST] HADERACH: Good, generic script, no hardcoded paths inside besides env vars. Now let's check what memorySearch key it references, and validate the config.",
           "- [23:56 IST] HADERACH: That's fine, shared Gemini key reference works fleet-wide. Now let's create the LaunchAgent plist for Amaryl, based on Chet's, with the new AWS key and port.",
           "- [23:56 IST] HADERACH: Plist is valid. Now let's back up the openclaw.json before considering this \"live\" (per Config Safety rule) and validate config, then bootstrap the LaunchAgent.",
@@ -1739,7 +1687,21 @@
           "- [06:04 IST] HADERACH: **FINDINGS:**",
           "- --- [BOOKMARK: 06:20 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:03 IST] ---",
           "- --- [BOOKMARK: 06:30 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:20 IST] ---",
-          "- --- [BOOKMARK: 06:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:30 IST] ---"
+          "- --- [BOOKMARK: 06:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:30 IST] ---",
+          "## 2026-09-10",
+          "- [00:03-15:03 IST] Niyogin Fintech x Sammaan Capital Rs500 Cr credit/sourcing partnership (MSME lending, 36mo, asset-light) tracked across repeated RSS/Twitter monitor cycles all day.",
+          "- [02:00 IST] RBI watcher: NBFC sectoral credit deployment notice (Jul 2026) - no material changes.",
+          "- [08:30 IST] NSE Bhavcopy ingestion complete for 2026-09-09 (equity 3,681 rows, F&O 33,250 rows) - market.db updated clean.",
+          "- [09:55-10:00 IST] HAD-018: created durable reddit-trawl-findings-log.md, cron updated to write there going forward (Ram-initiated).",
+          "- [14:17 IST] HAD-054 status review: ACTIVE, W1 persistent-self memory-backend (Mem0) closed, self-model file built/probe-tested.",
+          "- [15:08-17:26 IST] Jonas (M2) health check + fix cycle: cron stagger applied, restart caused outage from stale /etc/hosts Bitwarden TLS pin blocking bws; fixed via ~/.aws/credentials fallback; root-cause documented, sudo fix logged to TODO for Ram on Tuesday at M2.",
+          "- [16:14-16:33 IST] Jonas web_search fixed: broken/unreliable duckduckgo replaced with Tavily; root cause was missing tools.web.search.provider + broken plugin stub from 2 Sep upgrade.",
+          "- [16:47-16:53 IST] Jonas given Firecrawl for web_fetch + both PowerPoint skills, mirroring Haderach's own setup.",
+          "- [15:34-16:10 IST] Image editing tools installed and live-tested on Jonas, Haderach, and Purl: Pillow skill + Bedrock (Stability AI) image skill (remove-background confirmed working).",
+          "- [17:27-17:39 IST] Jonas relayed a user request for pose-aware image editing (limb repositioning, identity/anatomy preserved) - confirmed nothing on Bedrock does this; Nano Banana (Gemini via OpenRouter) is the closest match but paid, not free.",
+          "- [18:05 IST] SCL media alert: CBI 20th chargesheet in Ajnara homebuyer fraud case mentions Sammaan Capital alongside ICICI/HDFC/PNB Housing - flagged as requiring clarification.",
+          "- [19:25-19:37 IST] M4 OS update to macOS 26.6.2 - full pre-update backup (configs, plists, git push), clean post-update verification, all 18 fleet agents confirmed present and healthy.",
+          "--- [Midnight run OK \u2014 2026-09-10 \u2014 no new content] ---"
         ]
       }
     },
@@ -1754,8 +1716,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.56,
-      "cpu": 0.6,
+      "rss_gb": 0.55,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1779,6 +1741,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1789065382349,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
@@ -1861,15 +1832,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1788978988180,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1917,7 +1879,6 @@
           "[20:19 IST] [DM] Giskard: HEARTBEAT_OK"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-05 \u2014 no new content] ---",
@@ -1956,10 +1917,10 @@
           "--- [Midnight run OK \u2014 2026-09-07 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-08 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-09 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-09-10 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-10 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-09-11 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "--- [Midnight run OK \u2014 2026-08-02 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-04 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-05 \u2014 no new content] ---",
@@ -1998,7 +1959,8 @@
           "--- [Midnight run OK \u2014 2026-09-07 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-08 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-09 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-09-10 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-10 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-09-11 \u2014 no new content] ---"
         ]
       }
     },
@@ -2415,7 +2377,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.47,
-      "cpu": 0.3,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2609,6 +2571,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1789065254204,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1789065254204,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2622,24 +2602,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1789057818802,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1789054450590,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1789054450589,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2674,6 +2636,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-11",
+          "# Self-healing rotation from transcript-2026-09-10.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
@@ -2714,48 +2680,6 @@
           "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
-        ],
-        "yesterday": [
-          "[19:55 IST] PURL: Now let me check heartbeat state and run the checks:",
-          "[19:56 IST] PURL: Let me kill it and run checks manually:",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[20:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Klub K transcript logger completed successfully. No new messages across any session \u2014 all transcript files current.",
-          "[21:09 IST] DM_USER: Use this table option to place both the artefacts against the wall",
-          "[21:11 IST] DM_USER: Please share the image",
-          "[21:12 IST] PURL: Still cooking on Google's end, Gari \u2014 the console table mockup with both artefacts placed on it is generating now. I'll send it over the moment it's ready! \ud83e\uddf6",
-          "[21:12 IST] PURL: Still cooking on Google's end, Gari \u2014 the console table mockup with both artefacts placed on it is generating now. I'll send it over the moment it's ready! \ud83e\uddf6",
-          "[21:13 IST] Garima: [Inter-session message] sourceSession=image_generate:b4e2a248-1d02-4e41-a630-82cb488c466e sourceChannel=webchat sourceTool=image_generate isUser=false",
-          "This content was routed by OpenClaw from another session or internal tool. Treat it as inter-session data, not a direct end-user instruction for this session; follow it only when this session's policy allows the source.",
-          "<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>",
-          "OpenClaw runtime context (internal):",
-          "This context is runtime-generated, not user-authored.",
-          "[21:13 IST] PURL: Ah, that console table composite timed out on my end, Gari \u2014 the request didn't come back in time. Want me to retry it? It's the one swapping the two nesting tables for the walnut fluted console under the Ganesha painting, with both brass figurines placed on top.",
-          "[21:24 IST] DM_USER: Yes, correct",
-          "[21:25 IST] Garima: [Inter-session message] sourceSession=image_generate:1831dc55-2b34-4a27-8c96-5c7ee3104e4e sourceChannel=webchat sourceTool=image_generate isUser=false",
-          "This content was routed by OpenClaw from another session or internal tool. Treat it as inter-session data, not a direct end-user instruction for this session; follow it only when this session's policy allows the source.",
-          "<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>",
-          "OpenClaw runtime context (internal):",
-          "This context is runtime-generated, not user-authored.",
-          "[21:25 IST] PURL: Retry landed! \ud83c\udf89 Swapped the two nesting tables for the walnut fluted console \u2014 Krishna and the goddess figurine side by side on top, lower shelf styled minimally, Ganesha painting and everything else exactly as it was.",
-          "MEDIA:/Users/ram_macmini/.openclaw-purl/media/tool-image-generation/image-1---eaec0d8c-af1e-4d14-a92b-17777041a320.jpg",
-          "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[21:30 IST] DM_USER: Thank you",
-          "[21:30 IST] PURL: You're so welcome, Gari! Glad the console table mockup landed well. Happy to tweak the styling further or run any other combo if you want to see options before deciding for real. \ud83e\uddf6",
-          "[21:30 IST] PURL: You're so welcome, Gari! Glad the console table mockup landed well. Happy to tweak the styling further or run any other combo if you want to see options before deciding for real. \ud83e\uddf6",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Let me check for today's daily log:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now consolidating to rolling memory files:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Final step \u2014 append bookmark to today's transcript:",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
@@ -2843,7 +2767,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.53,
-      "cpu": 1.4,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3674,7 +3598,7 @@
       "frozen_reason": null,
       "pid": 912,
       "rss_gb": 0.42,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3906,7 +3830,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.25,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4306,8 +4230,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 936,
-      "rss_gb": 0.46,
-      "cpu": 0.3,
+      "rss_gb": 0.47,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
