@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-10 22:26:13 IST",
-  "generated_epoch": 1789059373,
+  "generated_ist": "2026-09-10 22:31:25 IST",
+  "generated_epoch": 1789059685,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.93 / 3.35 / 3.43",
+    "load": "4.80 / 3.60 / 3.47",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.0,
-      "cpu": 0.1,
+      "rss_gb": 1.04,
+      "cpu": 0.6,
       "crons_total": 99,
       "crons_enabled": 63,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789059034847,
+          "last_ts": 1789059628756,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789059034846,
+          "last_ts": 1789059628755,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789059034846,
+          "last_ts": 1789059628755,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789059382194,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1789057879196,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789057564138,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1574,7 +1574,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ul>",
           "<li>Your cron stagger restart broke Jonas's gateway (stale <code>/etc/hosts</code> Bitwarden pin \u2192 TLS failure on boot creds). Fixed by falling back to <code>~/.aws/credentials</code> when <code>bws</code> fails. Root <code>/etc/hosts</code> fix still needs your sudo \u2014 you said Tuesday ...",
           "[21:49 IST] HADERACH: <b>Previous session tail \u2014 10 Sep, 14:17 to 21:40 IST</b>",
           "Busy session, mostly M2/Jonas firefighting plus a Martin warehouse audit. Here's the shape of it:",
@@ -1613,7 +1612,8 @@
           "<ul>",
           "<li>Plaintext Trendlyne password removed from <code>trendlyne_ingest.py</code> and <code>trendlyne_ingest_deckard.py</code>. Both now pull credentials at runtime from the BWS secret <code>Trendlyne_LogIn</code> (already existed, just wasn't wired up). Live-tested \u2014 confirmed both scripts load the correct username and a password of the correct length without ever printing it. Both compile clean.</li>",
           "</ul>",
-          "<b>Dead code..."
+          "<b>Dead code...",
+          "[22:29 IST] RAM: Check recency of data of Martin\u2019s SAK-008. Does anything need to be updated? Why the lag if any?"
         ],
         "yesterday": [
           "[21:46 IST] HADERACH: Understood, Ram \u2014 I've read the NRC Minutes Review (vR2) in full and have it fresh in context: the 29-meeting chronology table (4 Jul 2014 \u2013 8 Feb 2022) and the \"what the minutes establish\" table for Ashwini Kumar, Gagan Banga, Sachin Chaudhary, and Sameer Gehlaut (Ajit Mittal doesn't appear in this NRC table, though he does show up in the meeting-by-meeting record for remuneration/re-appointment items).",
@@ -2414,8 +2414,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 913,
-      "rss_gb": 0.47,
-      "cpu": 1.1,
+      "rss_gb": 0.5,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2609,18 +2609,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 22 * * *",
-          "last_ts": 1789057818802,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789059606309,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Nightly Memory Consolidation (22:00 IST)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 22 * * *",
           "last_ts": 1789057818802,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2674,9 +2674,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger now.",
-          "[15:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Script completed successfully.** No new messages in any of the tracked sessions (main, Gari's direct, or Klub K group). All transcripts and state files are current.",
-          "[15:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2713,7 +2710,10 @@
           "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed. No new messages in any of the tracked sessions (Klub K group, Gari transcript, group transcript). All bookmarks remain current.",
           "Silent maintenance complete.",
           "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running transcript logger now...",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
+          "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation now.",
+          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
+          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[19:55 IST] PURL: Now let me check heartbeat state and run the checks:",
@@ -2842,8 +2842,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.51,
-      "cpu": 0.9,
+      "rss_gb": 0.58,
+      "cpu": 1.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3876,7 +3876,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.28,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4307,7 +4307,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.45,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
