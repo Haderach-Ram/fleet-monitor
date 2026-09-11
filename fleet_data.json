@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 07:50:25 IST",
-  "generated_epoch": 1789093225,
+  "generated_ist": "2026-09-11 07:55:31 IST",
+  "generated_epoch": 1789093531,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.11 / 4.73 / 4.44",
+    "load": "4.17 / 4.66 / 4.52",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.04,
-      "cpu": 67.4,
+      "rss_gb": 1.05,
+      "cpu": 0.1,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789092627567,
+          "last_ts": 1789093279412,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789092627567,
+          "last_ts": 1789093279412,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,9 +702,18 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789092627566,
+          "last_ts": 1789093279411,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Ecosystem Digest \u2014 07:45 IST daily",
+          "enabled": true,
+          "sched": "45 7 * * *",
+          "last_ts": 1789093250600,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1038,15 +1047,6 @@
           "last_ts": 1789009307624,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Ecosystem Digest \u2014 07:45 IST daily",
-          "enabled": true,
-          "sched": "45 7 * * *",
-          "last_ts": 1789006719211,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1583,11 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:10 IST] HADERACH: The task shows \"succeeded\" but the log file's last entry is from the initial baseline check (07:08 IST), no new run afterward. Let me check the actual file diff and DB state directly to verify what really happened \u2014 not trust the summary alone.",
-          "[07:10 IST] HADERACH: The file was actually modified (597 lines now vs 503 before, with new `discover_new_editions` function). Let me check the test results and git diff more carefully, and check the DB for new data.",
-          "[07:10 IST] HADERACH: Good, the fix is real and looks reasonable. Not a git repo tracking this file though. Let's check the DB and log for the actual test run results.",
-          "[07:10 IST] HADERACH: Fix looks correctly implemented and additive as instructed. Now let's check if it was actually run live (test) and what the outcome was \u2014 check DB directly.",
-          "[07:11 IST] HADERACH: The fix is verified working. Let me also check that second parallel ACP task, and quickly check the WSS Friday cron will pick this up automatically.",
           "[07:11 IST] HADERACH: Fix verified live: `wss_forex_reserves` now through 2026-08-01 (+30 rows) and `wss_call_money` now through 2026-07-15 (+69 rows). The script also correctly determined RBI hasn't published a Sep 2026 edition yet (3 consecutive probe misses) \u2014 no fabrication. Now let me also wire the second half of the proposal: scheduling `mpc_downloader.py`.",
           "[07:11 IST] HADERACH: Now update the SAK-008 STATUS.md with today's work, per AGENTS.md convention.",
           "[07:12 IST] HADERACH: Fix is done, live-tested, and verified independently \u2014 plus the related MPC scheduling gap closed and STATUS.md updated. Here's the rundown:",
@@ -1622,7 +1617,12 @@
           "[07:33 IST] HADERACH: Good question \u2014 let me be precise, because there are two different scripts in play and it's easy to conflate them.",
           "<b>Where Phase 3 actually stands right now:</b>",
           "<ul>",
-          "<li><b>Money Stock Measures (M1-M4) parser</b> \u2014 built last night (10 Sep), Chet found the real offset (15, not 16 as first guessed), Haderach wrote the actual <code>ingest_money_supply()</code> function and verified it against the DB directly. <b>But</b> \u2014 <code>wss_money_supply</code> is still frozen at 15 rows through 22 M..."
+          "<li><b>Money Stock Measures (M1-M4) parser</b> \u2014 built last night (10 Sep), Chet found the real offset (15, not 16 as first guessed), Haderach wrote the actual <code>ingest_money_supply()</code> function and verified it against the DB directly. <b>But</b> \u2014 <code>wss_money_supply</code> is still frozen at 15 rows through 22 M...",
+          "[07:42 IST] RAM: Go ahead",
+          "[07:50 IST] HADERACH: 222 chars, under 260. Good.",
+          "**\ud83e\udd9e Digest live: https://haderach-ram.github.io/openclaw-radar/digest/daily/2026/09/11/daily-digest.html \u00b7 Most active: ZeroClaw (15 new issues) \u00b7 draCuLAW traffic (7d): 1 PV \u00b7 Top page: /openclaw-radar/digest/daily/2026/09/09/daily-digest.html**",
+          "**\ud83d\udc26 Draft tweet (reply \"send it\" to post):**",
+          "ZeroClaw is on fire again \u2014 15 new issues today, third straight day as the busiest repo out there. Ship fast or break fast, I guess. \ud83e\udd9e https://haderach-ram.github.io/openclaw-..."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.61,
-      "cpu": 0.3,
+      "rss_gb": 0.58,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2424,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.5,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2847,7 +2847,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.53,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3896,7 +3896,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
