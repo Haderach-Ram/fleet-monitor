@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 07:29:55 IST",
-  "generated_epoch": 1789091995,
+  "generated_ist": "2026-09-11 07:35:01 IST",
+  "generated_epoch": 1789092301,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.79 / 3.78 / 3.75",
+    "load": "4.95 / 4.17 / 3.90",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.07,
-      "cpu": 0.2,
+      "rss_gb": 0.97,
+      "cpu": 0.0,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -681,10 +681,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789091787559,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789092033161,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,16 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789091424777,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789091424760,
+          "last_ts": 1789092033161,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +702,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789091424760,
+          "last_ts": 1789092033160,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-052 Wiki Lint",
+          "enabled": true,
+          "sched": "30 7 * * *",
+          "last_ts": 1789092033160,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789091787559,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1038,15 +1047,6 @@
           "last_ts": 1789006719211,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "HAD-052 Wiki Lint",
-          "enabled": true,
-          "sched": "30 7 * * *",
-          "last_ts": 1789005632111,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1583,18 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Daily call money rates (PDF-parsed) \u2014 431 rows, through <b>15 Jun 2026</b></li>",
-          "<li>WSS money supply \u2014 15 rows, through <b>22 May 2026</b></li>",
-          "<li>WSS govt securities \u2014 0 rows (ta...",
-          "[06:45 IST] HADERACH: <b>SAK-008 Data Warehouse \u2014 full inventory, live-queried just now (all 8 DBs, not from memory)</b>",
-          "<b>rbi.db</b>",
-          "<ul>",
-          "<li>MPC policy rates \u2014 67 rows, through <b>4 Jun 2026</b></li>",
-          "<li>WSS forex reserves \u2014 486 rows, through <b>4 Jul 2026</b></li>",
-          "<li>WSS call money \u2014 1,179 rows, through <b>15 Jun 2026</b></li>",
-          "<li>Daily call money rates (PDF-parsed) \u2014 431 rows, through <b>15 Jun 2026</b></li>",
-          "<li>WSS money supply \u2014 15 rows, through <b>22 May 2026</b></li>",
-          "<li>WSS govt securities \u2014 0 rows (ta...",
           "[06:50 IST] RAM: Isn\u2019t a lot of the RBI data old? Why has it not been refreshed?",
           "[06:50 IST] HADERACH: <b>Checked live \u2014 two different root causes, not one:</b>",
           "<b>1. Forex reserves + call money (rbi.db) \u2014 cron IS running weekly, but it's silently stuck</b>",
@@ -1622,7 +1610,19 @@
           "Dispatched to Chet's Claude Code (via ACP) with a strict read-modify-test brief. It added a <code>discover_new_editions()</code> function to <code>rbi_section_finder.py</code> that forward-probes past the last known RBI bulletin edition (same technique as the sibling scraper), instead of being capped at a hardcoded \"J...",
           "[07:12 IST] HADERACH: Fix is done, live-tested, and verified independently \u2014 plus the related MPC scheduling gap closed and STATUS.md updated. Here's the rundown:",
           "<b>CCC fix \u2014 done and verified</b>",
-          "Dispatched to Chet's Claude Code (via ACP) with a strict read-modify-test brief. It added a <code>discover_new_editions()</code> function to <code>rbi_section_finder.py</code> that forward-probes past the last known RBI bulletin edition (same technique as the sibling scraper), instead of being capped at a hardcoded \"J..."
+          "Dispatched to Chet's Claude Code (via ACP) with a strict read-modify-test brief. It added a <code>discover_new_editions()</code> function to <code>rbi_section_finder.py</code> that forward-probes past the last known RBI bulletin edition (same technique as the sibling scraper), instead of being capped at a hardcoded \"J...",
+          "[07:27 IST] RAM: Check transcript tail of previous session and discuss pls",
+          "[07:27 IST] HADERACH: **Session mode?**",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "Once you pick, I'll proceed straight into the previous session's transcript tail and we can discuss.",
+          "[07:27 IST] HADERACH: **Session mode?**",
+          "<b>S</b> \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "Once you pick, I'll proceed straight into the previous session's transcript tail and we can discuss.",
+          "[07:29 IST] RAM: X"
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.57,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2618,19 +2618,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789090210241,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789092006100,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1789090210240,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1789090210241,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2715,7 +2715,9 @@
           "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
           "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Klub K transcript logger completed successfully. No new messages across any session (main transcript, Gari transcript, or group transcript). All bookmarks remain current.",
           "[06:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
+          "[07:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
+          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[07:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2844,7 +2846,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.53,
+      "rss_gb": 0.54,
       "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
@@ -3689,8 +3691,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 912,
-      "rss_gb": 0.43,
-      "cpu": 0.3,
+      "rss_gb": 0.44,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3864,7 +3866,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3894,7 +3896,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4294,8 +4296,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 936,
-      "rss_gb": 0.48,
-      "cpu": 0.6,
+      "rss_gb": 0.57,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
