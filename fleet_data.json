@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 12:27:43 IST",
-  "generated_epoch": 1789109863,
+  "generated_ist": "2026-09-11 12:32:50 IST",
+  "generated_epoch": 1789110170,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "8.99 / 8.53 / 8.33",
+    "load": "7.17 / 7.73 / 8.00",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.27,
-      "cpu": 0.1,
+      "rss_gb": 1.36,
+      "cpu": 0.2,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -681,19 +681,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789109776225,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789109595944,
+          "last_ts": 1789110026263,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789109595944,
+          "last_ts": 1789110026263,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789109595943,
+          "last_ts": 1789110026262,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789109776225,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1583,14 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<li><b>wiki/macro.md</b> \u2014 full rewrite: added the ...",
-          "[12:00 IST] HADERACH: All ProjHad files updated with the actual verified state, not just a status echo. Here's what changed:",
-          "<b>Files updated</b>",
-          "<ul>",
-          "<li><b>STATUS.md</b> (SAK-008) \u2014 replaced the \"in progress, kill-switch armed\" entry with the real completion record: what got built, the 2026-only scope decision, storage/cost notes, and moved the historical backfill + a newly-surfaced WPI/IIP lag into <b>Next</b> as open items (not swept under the CPI fix).</li>",
-          "<li><b>wiki/macro.md</b> \u2014 full rewrite: added the ...",
-          "[12:02 IST] RAM: Put on ToDo",
-          "[12:05 IST] HADERACH: **\u26a0\ufe0f IMPORTANT \u2014 Multiple Significant Developments Found:**",
           "**RSS:** No new articles.",
           "**Twitter \u2014 Critical Items Flagged:**",
           "1. **CBI Chargesheet (High Priority \u2014 Regulatory/Media)** \u2014 3 major news wires (ANI, UNI, IANS) reporting CBI filing chargesheet yesterday (Sept 10) against **Ajnara India Limited, 15 public servants, and citing SCL** in connection with alleged homebuyer fraud involving ICICI Bank, HDFC Bank, PNB Housing Finance, and **Sammaan Capital Limited**. Filed as the CBI's 20t...",
@@ -1622,7 +1614,15 @@
           "Note: this is ahead of what MEMORY.md/STATUS.md currently say (367 rows, through 13 Mar 2026) \u2014 the table has clearly been refreshed since those notes were last written, and I hadn't caught that drift. I'll fold this correction into the next domain-file pa...",
           "[12:14 IST] RAM: Can we have a fool-proof code that updates all this data periodically? Think this over. Take help of CCC for any code",
           "[12:16 IST] HADERACH: Found it. Let me wait for the full command to finish and inspect that ingestion directory structure.",
-          "[12:18 IST] HADERACH: Good, `ingest_cpi_2024()` is properly wired into `main()`. Let me check the full main() to confirm the incremental path and the `--full` flag behavior."
+          "[12:18 IST] HADERACH: Good, `ingest_cpi_2024()` is properly wired into `main()`. Let me check the full main() to confirm the incremental path and the `--full` flag behavior.",
+          "[12:26 IST] HADERACH: I need to flag something important: my earlier claim (from the last turn) that WPI/IIP were \"lagging\" was based on a flawed query (alphabetical month sort, not chronological). Let me verify definitively before designing anything.",
+          "[12:26 IST] HADERACH: I need to correct something important first: my earlier claim that IIP was \"stuck at June 2026\" was based on a query bug (alphabetical month sort, not chronological). Live-verified just now: IIP actually has July 2026 data already \u2014 it's <b>not</b> lagging. WPI's DB does stop at April 2026, but that <b>matches what MoSPI's live endpoint itself returns</b> \u2014 so that's not an ingestion bug either, though it's worth checking if WPI got a similar rebase to CPI.",
+          "[12:27 IST] HADERACH: This is an important find \u2014 WPI has genuinely rebased too, same as CPI: MoSPI moved WPI from base 2011-12 to base 2022-23, effective release from May 2026 data (June 2026 release). Let me check if there's a parallel new endpoint.",
+          "[12:29 IST] HADERACH: Found it. Let me wait for the full command to finish and inspect that ingestion directory structure.",
+          "[12:29 IST] HADERACH: Good, `ingest_cpi_2024()` is properly wired into `main()`. Let me check the full main() to confirm the incremental path and the `--full` flag behavior.",
+          "[12:29 IST] HADERACH: I need to flag something important: my earlier claim (from the last turn) that WPI/IIP were \"lagging\" was based on a flawed query (alphabetical month sort, not chronological). Let me verify definitively before designing anything.",
+          "[12:29 IST] HADERACH: I need to correct something important first: my earlier claim that IIP was \"stuck at June 2026\" was based on a query bug (alphabetical month sort, not chronological). Live-verified just now: IIP actually has July 2026 data already \u2014 it's <b>not</b> lagging. WPI's DB does stop at April 2026, but that <b>matches what MoSPI's live endpoint itself returns</b> \u2014 so that's not an ingestion bug either, though it's worth checking if WPI got a similar rebase to CPI.",
+          "[12:29 IST] HADERACH: This is an important find \u2014 WPI has genuinely rebased too, same as CPI: MoSPI moved WPI from base 2011-12 to base 2022-23, effective release from May 2026 data (June 2026 release). Let me check if there's a parallel new endpoint."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.55,
-      "cpu": 0.9,
+      "rss_gb": 0.56,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2424,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.48,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2618,6 +2618,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789110007311,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2640,15 +2649,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1789108211080,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1789108211079,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2683,13 +2683,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Klub K transcript logger completed successfully. No new messages across any session (main transcript, Gari transcript, or group transcript). All bookmarks remain current.",
-          "[06:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[07:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
           "[07:55 IST] PURL: Let me check today's date and the state file:",
           "[07:56 IST] PURL: Now checking ProtonMail and performing heartbeat checks:",
@@ -2722,7 +2715,14 @@
           "[12:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you."
+          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K transcript logger completed successfully.**",
+          "- No new messages in any tracked sessions (Gari, group, or transcript channels)",
+          "- No bookmarks needed",
+          "- All sessions processed cleanly",
+          "Task done. Logging off.",
+          "[12:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
         ],
         "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2851,8 +2851,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.47,
-      "cpu": 1.2,
+      "rss_gb": 0.48,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -4330,7 +4330,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.44,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
