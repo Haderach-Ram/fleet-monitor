@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 23:49:22 IST",
-  "generated_epoch": 1789150762,
+  "generated_ist": "2026-09-11 23:54:48 IST",
+  "generated_epoch": 1789151088,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.42 / 7.02 / 7.23",
+    "load": "7.06 / 6.79 / 7.02",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -681,19 +681,10 @@
       ],
       "crons": [
         {
-          "name": "HAD-042 Daily Diary Page Generator",
-          "enabled": true,
-          "sched": "45 23 * * *",
-          "last_ts": 1789150531904,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
           "name": "HAD-047 completion watcher \u2014 DeepSeek V4.1 Flash + Grok 4.6 full runs",
           "enabled": true,
           "sched": "every 10m",
-          "last_ts": 1789150456536,
+          "last_ts": 1789151039940,
           "last_status": "ok",
           "model": "(agent default)",
           "kind": "agentTurn"
@@ -702,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789150225698,
+          "last_ts": 1789150827064,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +702,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789150225697,
+          "last_ts": 1789150827063,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -720,9 +711,18 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789150225697,
+          "last_ts": 1789150827063,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "HAD-042 Daily Diary Page Generator",
+          "enabled": true,
+          "sched": "45 23 * * *",
+          "last_ts": 1789150531904,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1628,11 +1628,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[23:30 IST] HADERACH: <b>Grok 4.6 (Bedrock) launched</b> \u2014 PID 87068, log: <code>grok46_full_run_11sep.log</code>, full 43-task HAD-047 suite.",
-          "Status of all three runs now:",
-          "<ul>",
-          "<li><b>Claude Sonnet 5</b> (Bedrock) \u2014 DONE, 91.2% (reported above)</li>",
-          "<li><b>DeepSeek V4.1 Flash</b> (OpenRouter) \u2014 in progress, at 10/43</li>",
           "<li><b>Grok 4.6</b> (Bedrock) \u2014 just started, running now</li>",
           "</ul>",
           "Kill-switch set for Grok 4.6 at 00:00 IST (~30 min out \u2014 generous given Bedrock frontier-model latency); it'll auto-report ...",
@@ -1667,7 +1662,12 @@
           "I've added a self-checking cron (every 10 min) that will:",
           "<ul>",
           "<li>Wait until both remaining runs finish or their kill-switches fire</li>",
-          "<li>Pull real results from each JSON output (or honestly flag any run as incomplete/killed, no fabricated s..."
+          "<li>Pull real results from each JSON output (or honestly flag any run as incomplete/killed, no fabricated s...",
+          "[23:44 IST] HADERACH: Current time is 23:44 IST \u2014 well before the 03:00 safety cutoff. DeepSeek (PID 86387) is still running at task ~21/43. Grok 4.6 (PID 87068) has exited with a TimeoutError crash at task 15/43.",
+          "**Status summary for this tick:**",
+          "- DeepSeek: still running (21/43 tasks done, no \"Results saved\" yet) \u2192 wait",
+          "- Grok 4.6: DONE \u2014 crashed at T-TECH-03 (task 15/43) with a TimeoutError, no results file \u2192 INCOMPLETE",
+          "Since DeepSeek is still running, I'll exit cleanly this tick and let the next 10-minute ti..."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -2895,9 +2895,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 937,
+      "rss_gb": 0.46,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3744,9 +3744,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 912,
+      "rss_gb": 0.42,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3955,9 +3955,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 911,
+      "rss_gb": 0.28,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3985,9 +3985,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 906,
+      "rss_gb": 0.25,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4386,9 +4386,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 936,
+      "rss_gb": 0.42,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
