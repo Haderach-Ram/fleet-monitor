@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-12 00:00:42 IST",
-  "generated_epoch": 1789151442,
+  "generated_ist": "2026-09-12 00:05:49 IST",
+  "generated_epoch": 1789151749,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.83 / 6.70 / 6.89",
+    "load": "8.79 / 7.71 / 7.30",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -33,9 +33,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 909,
+      "rss_gb": 1.81,
+      "cpu": 0.2,
       "crons_total": 105,
       "crons_enabled": 69,
       "skills_count": 63,
@@ -681,6 +681,78 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1789151723711,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1789151723710,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789151723710,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789151723710,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1789151723709,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1789151723709,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1789151529510,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1789151529509,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -753,15 +825,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1789148420147,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Consolidation \u2014 23:05 IST (v2)",
           "enabled": true,
           "sched": "5 23 * * *",
@@ -789,48 +852,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1789140834808,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1789140834807,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1789140771223,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "MusApp \u2014 Reddit jazz + music reading",
           "enabled": true,
           "sched": "every 1440m",
           "last_ts": 1789139657310,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1789137162009,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1014,24 +1041,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1789076133184,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1789076065461,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1055,15 +1064,6 @@
           "sched": "0 2 * * *",
           "last_ts": 1789072331682,
           "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1789065438785,
-          "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
@@ -1628,6 +1628,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-12",
+          "# Self-healing rotation from transcript-2026-09-11.md at 00:05 IST"
+        ],
+        "yesterday": [
           "<li><b>Grok 4.6</b> (Bedrock) \u2014 just started, running now</li>",
           "</ul>",
           "Kill-switch set for Grok 4.6 at 00:00 IST (~30 min out \u2014 generous given Bedrock frontier-model latency); it'll auto-report ...",
@@ -1668,48 +1672,6 @@
           "- DeepSeek: still running (21/43 tasks done, no \"Results saved\" yet) \u2192 wait",
           "- Grok 4.6: DONE \u2014 crashed at T-TECH-03 (task 15/43) with a TimeoutError, no results file \u2192 INCOMPLETE",
           "Since DeepSeek is still running, I'll exit cleanly this tick and let the next 10-minute ti..."
-        ],
-        "yesterday": [
-          "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
-          "[22:48 IST] HADERACH: Full login success. The fix is confirmed working end-to-end. Now let me apply it to the script itself.",
-          "[22:48 IST] HADERACH: Now update the three `requests.post`/`requests.get` calls to use `_SESSION` instead of the bare `requests` module.",
-          "[22:49 IST] HADERACH: Now verify it compiles and do a live smoke test (login + one small fetch) before running the full ingest.",
-          "[22:49 IST] HADERACH: Full pipeline confirmed working end-to-end \u2014 login, token, authenticated GET, real data. Now let's run the full monthly refresh to actually catch macro.db up.",
-          "[22:49 IST] HADERACH: SSD is mounted. Running the full ingest in background (this took ~34 min last time based on the log timestamps).",
-          "[22:49 IST] HADERACH: Set a kill-switch cron per house rule \u2014 estimated ~35 min, so kill-switch at 2\u00d7 = 70 min.",
-          "[22:49 IST] HADERACH: Kill-switch set for 70 min out (23:59 IST). Now let's monitor progress in the meantime.",
-          "[22:50 IST] HADERACH: This is fine \u2014 the ingest itself runs as a separate detached nohup process (PID 19648), independent of this shell wrapper. Let me check the actual log file directly instead.",
-          "[22:50 IST] HADERACH: Process already crashed \u2014 new API-side change (page limit lowered to 200, was previously accepting larger page sizes). Let me remove the kill-switch since the job's already dead, then fix the pagination limit.",
-          "[22:50 IST] HADERACH: The page-size cap dropped from 5000\u2192200 (new MoSPI-side restriction), making a full 14-year re-ingest of CPI group data (413k rows/year) impractically slow at ~6s/request \u00d7 2068 pages/year. Let me check timing more carefully and design a sensible incremental fix rather than a slow full backfill every run.",
-          "[22:51 IST] HADERACH: The right fix here isn't just the TLS/SSL bug \u2014 the underlying architecture (re-pulling all 14 years of history every month) is now broken by MoSPI's new 200-row page cap. Since 2013\u20132024 data never changes, the sensible fix is: default to incremental (current + previous year only), with a `--full` flag for occasional full backfill.",
-          "[22:51 IST] HADERACH: Also update the module docstring to note the 200-row page cap and the incremental/full modes.",
-          "[22:51 IST] HADERACH: Need to add `import sys` \u2014 check if it's already imported.",
-          "[22:51 IST] HADERACH: Already imported. Now compile and run the incremental refresh live.",
-          "[22:53 IST] HADERACH: The process is actually still running (PID 19871) \u2014 it's just that the exec tool's background sessions got tangled. Let's just run this properly in the foreground with an appropriate timeout, since this is now a much smaller incremental job.",
-          "[22:54 IST] HADERACH: Output buffering \u2014 Python's stdout is block-buffered when redirected to a file, so I won't see live output. Let me just wait for the process to complete.",
-          "[22:56 IST] HADERACH: Still running after 3+ minutes but log is buffered so no visibility. Let's wait longer.",
-          "[22:58 IST] HADERACH: Let me check if the API supports narrower filtering (e.g., by month) to avoid pulling all 413k rows/year when we only need the latest months.",
-          "[22:58 IST] HADERACH: MoSPI's 200-row cap is now universal across all four endpoints (confirmed), and it makes even a single current-year CPI-group pull take ~30 min (2,068 pages). Since historical years are static (already fully loaded from the 6 Jul full run through 2026), I'll narrow the incremental default to current-year-only, and bump the cron timeout accordingly.",
-          "[22:59 IST] HADERACH: Now run it live, unbuffered, in background so I can monitor progress.",
-          "[22:59 IST] HADERACH: Set a fresh kill-switch: expected ~35 min for current-year-only, so 70 min out.",
-          "[22:59 IST] HADERACH: Now let me update the cron job's `timeoutSeconds` (currently 900s = 15min, need more for the ~30min run) and update the message to reflect the fix.",
-          "[23:00 IST] HADERACH: Good, cron job updated. Now let's monitor the current running ingest.",
-          "[23:00 IST] HADERACH: Running, unbuffered log confirms it started. Let's continue waiting \u2014 this will take ~25-35 minutes given the page cap.",
-          "[23:01 IST] HADERACH: I'll let this run in the background and check on it periodically while doing other useful work in the meantime.",
-          "[23:02 IST] HADERACH: Still running, no progress line yet since CPI group is the first (slowest) job at ~2068 pages. Let me let it run and check back later rather than tie up this turn with blocking waits. I'll yield now with a status update and set a check-back reminder.",
-          "[23:02 IST] HADERACH: Good \u2014 that duplicates the kill-switch's function though. Let me remove this redundant one and keep just the kill-switch (which already covers reporting).",
-          "[23:02 IST] HADERACH: Ram, quick status while this runs in the background:",
-          "<b>MoSPI TLS fix \u2014 confirmed working end-to-end</b>",
-          "<ul>",
-          "<li>Root cause was exactly as suspected: MoSPI's server now rejects the TLS handshake under modern OpenSSL defaults (<code>UNSAFE_LEGACY_RENEGOTIATION_DISABLED</code>). Applied the <code>ssl.OP_LEGACY_SERVER_CONNECT</code> workaround on the requests session \u2014 live-tested login + authenticated data fetch, both succeed cleanly now.</li>",
-          "<li><b>Found a second, newer problem while testin...",
-          "[23:03 IST] HADERACH: Ram, quick status while this runs in the background:",
-          "<b>MoSPI TLS fix \u2014 confirmed working end-to-end</b>",
-          "<ul>",
-          "<li>Root cause was exactly as suspected: MoSPI's server now rejects the TLS handshake under modern OpenSSL defaults (<code>UNSAFE_LEGACY_RENEGOTIATION_DISABLED</code>). Applied the <code>ssl.OP_LEGACY_SERVER_CONNECT</code> workaround on the requests session \u2014 live-tested login + authenticated data fetch, both succeed cleanly now.</li>",
-          "<li><b>Found a second, newer problem while testin...",
-          "[23:09 IST] HADERACH: Nightly consolidation complete for Monk (idle day, 0 sessions \u2014 no facts to promote). Tag index rebuilt, rolling-7/28/180day updated, transcript bookmarked, heartbeat-state timestamped.",
-          "NO_REPLY."
         ],
         "rolling_7day": [
           "- [BOOKMARK: 03:03 IST \u2014 Auto-checkpoint. Msgs: 13. Seq: 0. Last memory write: 23:50 IST]",
@@ -1807,9 +1769,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 1380,
+      "rss_gb": 0.54,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1834,6 +1796,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1789151428677,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1789151428676,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1856,15 +1836,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1789148108649,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1789140605372,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1901,15 +1872,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1789079415245,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1789075823540,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1953,22 +1915,12 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-09-11",
-          "# Self-healing rotation from transcript-2026-09-10.md at 00:00 IST"
+          "# Transcript - 2026-09-12",
+          "# Self-healing rotation from transcript-2026-09-11.md at 00:00 IST"
         ],
         "yesterday": [
-          "# Transcript - 2026-09-10",
-          "# Self-healing rotation from transcript-2026-09-09.md at 00:01 IST",
-          "[20:18 IST] [DM] Giskard: That grep against my earlier cron output leaked into a background process. Let me kill it and check the process log more precisely.",
-          "[20:18 IST] [DM] Giskard: **Root cause: transient exec failure, not a script bug.**",
-          "- 19:05 IST run: cron job invoked `fleet_monitor.py` via exec, background process (`faint-prairie`) errored out after 156s \u2014 the process tool itself returned a failure, which the agent turn then reported as the error.",
-          "- I just re-ran the script directly: clean exit, `EXIT_CODE:0`, all checks OK in ~2s. Script logic is fine \u2014 this wasn't a code fault.",
-          "- Same window (18:05\u201319:08 IST) had visible stress: Haderach at 98% context (195.6k/200k",
-          "[20:19 IST] [DM] Giskard: **Root cause: transient exec failure, not a script bug.**",
-          "- 19:05 IST run: cron job invoked `fleet_monitor.py` via exec, background process (`faint-prairie`) errored out after 156s \u2014 the process tool itself returned a failure, which the agent turn then reported as the error.",
-          "- I just re-ran the script directly: clean exit, `EXIT_CODE:0`, all checks OK in ~2s. Script logic is fine \u2014 this wasn't a code fault.",
-          "- Same window (18:05\u201319:08 IST) had visible stress: Haderach at 98% context (195.6k/200k",
-          "[20:19 IST] [DM] Giskard: HEARTBEAT_OK"
+          "# Transcript - 2026-09-11",
+          "# Self-healing rotation from transcript-2026-09-10.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-08-03 \u2014 no new content] ---",
@@ -2467,9 +2419,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 913,
+      "rss_gb": 0.5,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2663,6 +2615,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1789151651711,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1789151651710,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2676,24 +2646,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1789144222590,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1789140853074,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1789140853074,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2728,6 +2680,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-12",
+          "# Self-healing rotation from transcript-2026-09-11.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
@@ -2768,48 +2724,6 @@
           "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
           "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
-        ],
-        "yesterday": [
-          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[17:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
-          "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K Transcript Logger completed successfully.**",
-          "All three transcript sessions processed:",
-          "- `transcript` \u2014 no new messages",
-          "- `gari-transcript` \u2014 no new messages  ",
-          "- `group-transcript` \u2014 no new messages",
-          "No bookmarks needed. Silent maintenance task finished. \ud83e\uddf6",
-          "[18:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[19:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[19:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[19:55 IST] PURL: HEARTBEAT_OK",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
-          "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[20:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed. No new messages in any of the tracked sessions (Klub K group, Gari transcript, group transcript). All bookmarks remain current.",
-          "Silent maintenance complete.",
-          "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running transcript logger now...",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
@@ -2895,9 +2809,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 937,
+      "rss_gb": 0.46,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3744,9 +3658,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 912,
+      "rss_gb": 0.42,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3955,9 +3869,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 911,
+      "rss_gb": 0.28,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3985,9 +3899,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 906,
+      "rss_gb": 0.25,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4386,9 +4300,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 936,
+      "rss_gb": 0.55,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
