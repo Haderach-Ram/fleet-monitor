@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 09:43:33 IST",
-  "generated_epoch": 1789100013,
+  "generated_ist": "2026-09-11 09:48:39 IST",
+  "generated_epoch": 1789100319,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.97 / 8.87 / 7.14",
+    "load": "6.98 / 8.00 / 7.27",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 909,
       "rss_gb": 1.24,
-      "cpu": 0.1,
+      "cpu": 4.0,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789099836197,
+          "last_ts": 1789100076459,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,25 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789099836197,
+          "last_ts": 1789100076459,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789100076458,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789100076458,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -705,15 +723,6 @@
           "last_ts": 1789099836197,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789099836196,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -730,15 +739,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1789098986322,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789098823575,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1583,13 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "- `wss_govt_securities`: 0 \u2192 170 rows, now current through 25 ...",
-          "[09:09 IST] HADERACH: **ALERT \u2014 CRITICAL NEWS FLAGGED**",
-          "Two major regulatory/governance developments found on Twitter:",
-          "**1. CBI Chargesheet \u2014 Ajnara / SCL Connection (REGULATORY \u2014 yesterday)**",
-          "- **Agencies:** ANI, UNI, IANS (all credible news wire services)",
-          "- **Content:** CBI has filed chargesheet in homebuyer fraud case against Ajnara India Limited, its promoters/directors, and 15 public servants linked to ICICI Bank, HDFC Bank, PNB Housing Finance, and **Sammaan Capital Limited**",
-          "- **Timestamp:** 10 Sep 2026, ...",
           "[09:20 IST] RAM: SEBI MF NAV also seems dated",
           "[09:22 IST] HADERACH: Let me check that live rather than going on memory.",
           "[09:23 IST] HADERACH: Good catch \u2014 let me dig into why the NAV ingestion is reporting \"OK\" but pulling 0 rows.",
@@ -1622,7 +1615,14 @@
           "[09:28 IST] HADERACH: I made an editing error just now \u2014 accidentally deleted the \"## Blocked\" header when merging text. Let me fix that immediately.",
           "[09:28 IST] HADERACH: Good, fixed. Now let me add the actual sebi.db NAV fix entry to STATUS.md properly, and update the daily log.",
           "[09:28 IST] HADERACH: Fixed, verified, and documented. Reporting to Ram.",
-          "[09:29 IST] RAM: RBI Forex reserves also does not seem to be updated"
+          "[09:29 IST] RAM: RBI Forex reserves also does not seem to be updated",
+          "[09:30 IST] HADERACH: Let me check this properly \u2014 investigating whether RBI has actually published anything newer, or if the edition-discovery mechanism from yesterday's fix is missing recent editions.",
+          "[09:33 IST] HADERACH: Good \u2014 this is actively re-processing already-in-DB months plus discovering \"Aug 2026\" edition again (base=24365, which matches what CCC found last night). Let's let it finish and see if it finds anything beyond Aug 2026.",
+          "[09:33 IST] HADERACH: It finished but forex is still capped at Aug 1. Let me check what happened specifically with the Aug 2026 forex ingestion in the log \u2014 and check current DB state.",
+          "[09:37 IST] HADERACH: Found the real issue. Let me check the date parsing logic against this table layout more carefully \u2014 the \"Aug.01\" column might be a 2025 reference, not the actual latest 2026 date.",
+          "[09:40 IST] HADERACH: Found the real bug \u2014 confirmed with data. Let me check the other ingest functions for a similar pattern before fixing.",
+          "[09:41 IST] HADERACH: Found the actual bug \u2014 and it's worse than \"not updated,\" it's mislabeled. The forex table has a two-year header (2025 spans 1 column, 2026 spans 6 columns via `colspan=\"6\"`), but the parser guesses years from month-decrease sequencing, which misfires on the very first column and wrongly tags last year's Aug 1, 2025 data as \"2026-08-01\" \u2014 creating a fake \"newest\" date that's actually 13-month-old data. The genuinely latest real data (31 Jul 2026) is already correctly in the DB; RBI just hasn'...",
+          "[09:42 IST] HADERACH: This confirms the exact structure. Now let's write the fix."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1764,7 +1764,7 @@
       "frozen_reason": null,
       "pid": 1380,
       "rss_gb": 0.57,
-      "cpu": 1.0,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2424,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.49,
-      "cpu": 0.9,
+      "cpu": 0.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2851,8 +2851,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.53,
-      "cpu": 0.9,
+      "rss_gb": 0.5,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3899,7 +3899,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3929,7 +3929,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4330,7 +4330,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.48,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
