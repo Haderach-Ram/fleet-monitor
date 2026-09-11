@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 17:42:09 IST",
-  "generated_epoch": 1789128729,
+  "generated_ist": "2026-09-11 17:47:16 IST",
+  "generated_epoch": 1789129036,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.86 / 7.58 / 7.49",
+    "load": "7.75 / 7.87 / 7.69",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.52,
+      "rss_gb": 1.47,
       "cpu": 0.2,
       "crons_total": 101,
       "crons_enabled": 65,
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789128026430,
+          "last_ts": 1789128835763,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789128026430,
+          "last_ts": 1789128835763,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789128026429,
+          "last_ts": 1789128835762,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789128835762,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1789127776430,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789127636633,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:33 IST] HADERACH: All 44 months backfilled cleanly, zero failures. Let's verify data integrity across a couple of spot-check months and confirm growth rate sanity.",
           "[16:33 IST] HADERACH: There's a data quality issue \u2014 March months show outstanding_cr as NULL with the value seemingly in the wrong column. Let me investigate the raw March file structure.",
           "[16:34 IST] HADERACH: Retry with a small delay.",
           "[16:34 IST] HADERACH: I found the issue \u2014 March editions (fiscal year-end reports) have a different column layout (single \"Variation\" group instead of separate YoY/FY groups), so my hardcoded column indices (7, 9) don't apply and outstanding_cr picked up the wrong value. Let me fix this dynamically.",
@@ -1631,7 +1630,8 @@
           "Found the data had already been built earlier today (backfilled Dec 2022 \u2192 Jul 2026, 44 months, ~3,828 rows across two new tables \u2014 <code>sdbc_statement1</code> major sectors, <code>sdbc_statement2</code> industry detail \u2014 this is the more current monthly press-release series, distinct from the annual Handbook table you asked about earlier). What was missing was the recurring cron, which I've now put ...",
           "[16:51 IST] HADERACH: All done, Ram. Summary:",
           "<b>SAK-008 checked, monthly cron wired for RBI Sectoral Credit</b>",
-          "Found the data had already been built earlier today (backfilled Dec 2022 \u2192 Jul 2026, 44 months, ~3,828 rows across two new tables \u2014 <code>sdbc_statement1</code> major sectors, <code>sdbc_statement2</code> industry detail \u2014 this is the more current monthly press-release series, distinct from the annual Handbook table you asked about earlier). What was missing was the recurring cron, which I've now put ..."
+          "Found the data had already been built earlier today (backfilled Dec 2022 \u2192 Jul 2026, 44 months, ~3,828 rows across two new tables \u2014 <code>sdbc_statement1</code> major sectors, <code>sdbc_statement2</code> industry detail \u2014 this is the more current monthly press-release series, distinct from the annual Handbook table you asked about earlier). What was missing was the recurring cron, which I've now put ...",
+          "--- [TRANSCRIPT GAP: 17:43 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1380,
       "rss_gb": 0.56,
-      "cpu": 0.4,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2432,8 +2432,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 913,
-      "rss_gb": 0.49,
-      "cpu": 0.3,
+      "rss_gb": 0.5,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2860,8 +2860,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.58,
-      "cpu": 0.6,
+      "rss_gb": 0.48,
+      "cpu": 0.9,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3920,7 +3920,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.27,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4351,7 +4351,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
