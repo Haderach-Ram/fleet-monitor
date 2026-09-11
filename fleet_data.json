@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 14:41:07 IST",
-  "generated_epoch": 1789117867,
+  "generated_ist": "2026-09-11 14:46:14 IST",
+  "generated_epoch": 1789118174,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "9.87 / 8.25 / 7.65",
+    "load": "7.30 / 8.09 / 7.77",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.33,
-      "cpu": 4.1,
-      "crons_total": 101,
-      "crons_enabled": 65,
+      "rss_gb": 1.38,
+      "cpu": 0.3,
+      "crons_total": 100,
+      "crons_enabled": 64,
       "skills_count": 63,
       "channels": [
         "telegram",
@@ -681,19 +681,19 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789117227957,
+          "last_ts": 1789118066926,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789117227956,
+          "last_ts": 1789118066926,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789117227956,
+          "last_ts": 1789118066925,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789118066925,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,15 +721,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1789116974861,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789116860433,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1230,15 +1230,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "SAK-008 DQ Audit Dispatch \u2014 Kill-Switch",
-          "enabled": true,
-          "sched": "one-shot",
-          "last_ts": null,
-          "last_status": null,
-          "model": "(no LLM)",
-          "kind": "systemEvent"
-        },
-        {
           "name": "SAK-008 MPC Policy Rates Monthly Refresh",
           "enabled": true,
           "sched": "0 21 1 * *",
@@ -1592,7 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<ol>",
           "<li><b>Config correction pass</b> \u2014 5 tables (bond_issuances, equity_bhavcopy, fo_bhavcopy, mpc_policy_rates, residex_composite) have wrong column names in the new audit config, causing cosmetic false-alarm FAILs. Quick fix.</li>",
           "<li><b>Redundant-cron review</b> \u2014 now that the audit layer is live, check the ~15 existing ing...",
           "[14:16 IST] HADERACH: That's genuinely my last message, not a glitch \u2014 I was asking whether you want me to go ahead with the two remaining follow-ups from today's data-quality audit work:",
@@ -1631,7 +1621,8 @@
           "<li>Weighted average: 5.24%</li>",
           "</ul>",
           "That's <b>58 days old</b> as of today (11 Sep) \u2014 still inside the audit's 60-day staleness threshold (barely), so it PASSed in this morning's re-run, but it's worth a heads-up: it's close to tipping into a FAIL on the next run if the source hasn't been refreshed since. Ingestion is via the Friday WSS download cron (`9d326f31`, runs weekly) \u2014 wor...",
-          "[14:28 IST] RAM: Check pls"
+          "[14:28 IST] RAM: Check pls",
+          "[14:41 IST] RAM: In SAK-008 what is the last data point for the CPI data?"
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1773,7 +1764,7 @@
       "frozen_reason": null,
       "pid": 1380,
       "rss_gb": 0.56,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2432,8 +2423,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 913,
-      "rss_gb": 0.5,
-      "cpu": 0.9,
+      "rss_gb": 0.49,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2860,8 +2851,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.58,
-      "cpu": 0.1,
+      "rss_gb": 0.49,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -4348,7 +4339,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.46,
-      "cpu": 0.9,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
