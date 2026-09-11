@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 10:09:10 IST",
-  "generated_epoch": 1789101550,
+  "generated_ist": "2026-09-11 10:14:18 IST",
+  "generated_epoch": 1789101858,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.44 / 7.57 / 7.69",
+    "load": "9.01 / 7.78 / 7.71",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.24,
-      "cpu": 4.6,
+      "rss_gb": 1.23,
+      "cpu": 0.3,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789101625498,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789101625497,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789101625497,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -694,33 +721,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1789101290442,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789101290441,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789101290441,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789101290440,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1583,9 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:27 IST] HADERACH: Now let's validate syntax and test-run against both the archived (broken-format) file and a fresh live fetch before touching the DB.",
-          "[09:27 IST] HADERACH: Fix parses correctly (14,314 rows recovered from the Sep 1 file alone). Let me confirm backward compatibility with the old 6-field format, then run the real ingest script live to backfill.",
-          "[09:27 IST] HADERACH: Backward-compatible confirmed. Now running the real script live to backfill today's actual NAV data into the DB.",
           "[09:28 IST] HADERACH: Fixed live, 14,361 NAV rows upserted for today. Now let me verify directly against the DB before reporting.",
           "[09:28 IST] HADERACH: Confirmed live and clean \u2014 8,576 schemes now current for 10 Sep 2026 (only 8,576 of 14,361 landed exactly on 10-Sep since it's a rolling latest-day pull with some funds reporting off-cycle; the rest are near-dates like 9 Sep). This is real, not stale. Now update STATUS.md and wire in a monitoring safeguard so this doesn't silently recur.",
           "[09:28 IST] HADERACH: Cron updated with the sanity-check guardrail. Now update STATUS.md and the daily log.",
@@ -1622,7 +1619,10 @@
           "2. **RBI Forex Reserves** \u2014 a year-header parsing bug (guessing years from month sequencing instead of reading the actual colspan) mislabeled a 13-month-old reference column as \"latest,\" making genuinely current data look frozen....",
           "[09:53 IST] HADERACH: Both issues resolved and documented. Summary of this session's findings:",
           "1. **SEBI MF NAV** \u2014 AMFI changed their file format (added Plan/Option fields), breaking a fixed-column parser and silently dropping every row while reporting \"OK\". Fixed, backfilled, verified.",
-          "2. **RBI Forex Reserves** \u2014 a year-header parsing bug (guessing years from month sequencing instead of reading the actual colspan) mislabeled a 13-month-old reference column as \"latest,\" making genuinely current data look frozen...."
+          "2. **RBI Forex Reserves** \u2014 a year-header parsing bug (guessing years from month sequencing instead of reading the actual colspan) mislabeled a 13-month-old reference column as \"latest,\" making genuinely current data look frozen....",
+          "[10:07 IST] RAM: Check CPI. Is it last updated up till Sep 2025?",
+          "[10:09 IST] HADERACH: Let me check if MoSPI has actually published anything for 2026, or if this is a real gap on MoSPI's side (unlike RBI/AMFI which had their own bugs).",
+          "[10:09 IST] HADERACH: This is a real finding worth investigating further \u2014 the live MoSPI API itself returned December 2025 as the latest data even when I explicitly asked for Year=2026. Let me check if there's a newer series parameter (India was expected to rebase CPI around this time) before concluding this is a genuine MoSPI-side gap."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.57,
-      "cpu": 2.4,
+      "rss_gb": 0.58,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2423,8 +2423,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 913,
-      "rss_gb": 0.48,
-      "cpu": 0.4,
+      "rss_gb": 0.49,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2851,8 +2851,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.51,
-      "cpu": 0.3,
+      "rss_gb": 0.53,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3899,7 +3899,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4330,7 +4330,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.45,
-      "cpu": 0.3,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
