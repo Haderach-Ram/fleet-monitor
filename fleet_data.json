@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 10:29:41 IST",
-  "generated_epoch": 1789102781,
+  "generated_ist": "2026-09-11 10:34:48 IST",
+  "generated_epoch": 1789103088,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "6.07 / 7.40 / 7.73",
+    "load": "6.43 / 6.99 / 7.46",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 909,
       "rss_gb": 1.26,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789102824434,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789102824434,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789102824434,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -690,37 +717,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789102446967,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789102446966,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1789102446966,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789102446965,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1583,15 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:33 IST] HADERACH: It finished but forex is still capped at Aug 1. Let me check what happened specifically with the Aug 2026 forex ingestion in the log \u2014 and check current DB state.",
-          "[09:37 IST] HADERACH: Found the real issue. Let me check the date parsing logic against this table layout more carefully \u2014 the \"Aug.01\" column might be a 2025 reference, not the actual latest 2026 date.",
-          "[09:40 IST] HADERACH: Found the real bug \u2014 confirmed with data. Let me check the other ingest functions for a similar pattern before fixing.",
-          "[09:41 IST] HADERACH: Found the actual bug \u2014 and it's worse than \"not updated,\" it's mislabeled. The forex table has a two-year header (2025 spans 1 column, 2026 spans 6 columns via `colspan=\"6\"`), but the parser guesses years from month-decrease sequencing, which misfires on the very first column and wrongly tags last year's Aug 1, 2025 data as \"2026-08-01\" \u2014 creating a fake \"newest\" date that's actually 13-month-old data. The genuinely latest real data (31 Jul 2026) is already correctly in the DB; RBI just hasn'...",
-          "[09:42 IST] HADERACH: This confirms the exact structure. Now let's write the fix.",
-          "[09:48 IST] RAM: ?",
-          "[09:49 IST] HADERACH: Apologies \u2014 that was mid-diagnosis, a transient generation hiccup on my end, not a lost result. Here's where things stand: the RBI forex data isn't actually stale, but I found a real bug that made it look worse than it is. Let me finish the fix now.",
-          "[09:49 IST] HADERACH: Now let me write the fix using colspan-aware year parsing.",
-          "[09:50 IST] HADERACH: Now validate and test the fix before touching the DB.",
           "[09:50 IST] HADERACH: The fix works correctly \u2014 Aug 1 is now correctly tagged 2025, and the real latest date is 31 Jul 2026 (RBI just hasn't published a September edition yet). Now let's clean up the corrupted DB rows and run the real ingest.",
           "[09:50 IST] HADERACH: Confirmed \u2014 identical values, pure duplicate mislabeling. Safe to delete the corrupted 2026-08-01 rows.",
           "[09:50 IST] HADERACH: Good. Now let's re-run the full backfill with the fixed parser to confirm nothing else got mis-tagged, and check other tables (govt_securities, money_stock) that might share similar year-header logic.",
@@ -1622,7 +1613,16 @@
           "<b>What happened:</b> MoSPI rebased India's CPI series from 2012=100 to <b>2024=100</b> sometime around Feb 2026, and retired the old API endpoint our ingestor calls (<code>/api/cpi/getCPIIndex</code>) in favour of a new one. The old endpoint is still technically live and still returns \"success\" \u2014 but it's frozen serving only the legacy 2012-base series, which itself stopped being updated...",
           "[10:15 IST] HADERACH: Now let me update STATUS.md with this finding while awaiting Ram's decision.",
           "[10:15 IST] HADERACH: Reported to Ram with the real finding and awaiting his decision on whether to proceed with the CPI ingestor rebuild now or scope it first. STATUS.md and the daily log are updated.",
-          "[10:15 IST] HADERACH: Reported to Ram with the real finding and awaiting his decision on whether to proceed with the CPI ingestor rebuild now or scope it first. STATUS.md and the daily log are updated."
+          "[10:15 IST] HADERACH: Reported to Ram with the real finding and awaiting his decision on whether to proceed with the CPI ingestor rebuild now or scope it first. STATUS.md and the daily log are updated.",
+          "[10:27 IST] RAM: Check transcript tail of previous session and discuss",
+          "[10:28 IST] HADERACH: **Session mode?**",
+          "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "**X** \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
+          "[10:28 IST] HADERACH: **Session mode?**",
+          "**S** \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
+          "**C** \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
+          "**X** \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)"
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.57,
-      "cpu": 0.3,
+      "rss_gb": 0.58,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2424,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.49,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2618,19 +2618,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789101010476,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789102805883,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1789101010475,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1789101010476,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2683,8 +2683,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\u2705 Group rolling summaries: all files **OK**, no 0-byte files",
-          "\u2705 No mismatch detected (transcript was genuinely quiet)",
           "**STEP 5:**",
           "NO_REPLY",
           "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
@@ -2722,7 +2720,9 @@
           "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Klub K transcript logger completed.**",
           "No new messages in any session. All transcripts current. Script exited cleanly.",
           "[09:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[10:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now."
+          "[10:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
+          "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[10:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2852,7 +2852,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.53,
-      "cpu": 0.9,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3697,7 +3697,7 @@
       "frozen_reason": null,
       "pid": 912,
       "rss_gb": 0.45,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4329,8 +4329,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 936,
-      "rss_gb": 0.45,
-      "cpu": 0.3,
+      "rss_gb": 0.57,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
