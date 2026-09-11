@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 07:09:28 IST",
-  "generated_epoch": 1789090768,
+  "generated_ist": "2026-09-11 07:14:35 IST",
+  "generated_epoch": 1789091075,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.56 / 3.66 / 3.64",
+    "load": "3.57 / 3.71 / 3.68",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 0.98,
+      "rss_gb": 1.0,
       "cpu": 0.1,
-      "crons_total": 99,
-      "crons_enabled": 63,
+      "crons_total": 100,
+      "crons_enabled": 64,
       "skills_count": 63,
       "channels": [
         "telegram",
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789090827377,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789090827376,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789090827376,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -690,37 +717,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789090270165,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Daily AWS Bedrock Cost Report \u2014 7am IST",
           "enabled": true,
           "sched": "0 7 * * *",
           "last_ts": 1789090270165,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789090270165,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789090270164,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1230,6 +1230,15 @@
           "kind": "agentTurn"
         },
         {
+          "name": "SAK-008 MPC Policy Rates Monthly Refresh",
+          "enabled": true,
+          "sched": "0 21 1 * *",
+          "last_ts": null,
+          "last_status": null,
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SAK-008 bonds.db \u2014 Monthly RBI Register Refresh + Full CIN Rematch",
           "enabled": true,
           "sched": "30 4 1 * *",
@@ -1574,13 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "<b>C</b> \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
-          "<b>X</b> \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "[06:35 IST] RAM: X",
-          "[06:42 IST] HADERACH: <b>CCC work on SAK-008, yesterday (10 Sep) \u2014 both threads, checked live against files/DB, not just memory:</b>",
-          "<b>1. The CCC code review (Chet's Claude Code, dispatched ~20:00 IST)</b>",
-          "<ul>",
-          "<li>Ram asked whether to point CCC at all of Martin's data-pulling code. Chet's Claude Code was sent to review all 26 Python files in the SAK-008 pipeline.</li>",
           "<li>CCC hit its turn-length limit twice partway through and never finished shipping a fix \u2014 Haderach took over, reviewed the remaining files dire...",
           "[06:43 IST] HADERACH: <b>CCC work on SAK-008, yesterday (10 Sep) \u2014 both threads, checked live against files/DB, not just memory:</b>",
           "<b>1. The CCC code review (Chet's Claude Code, dispatched ~20:00 IST)</b>",
@@ -1613,7 +1615,14 @@
           "[06:51 IST] HADERACH: <b>Checked live \u2014 two different root causes, not one:</b>",
           "<b>1. Forex reserves + call money (rbi.db) \u2014 cron IS running weekly, but it's silently stuck</b>",
           "The Friday WSS cron (<code>9d326f31</code>, fires every Friday 20:00 IST) has run cleanly every week with zero errors \u2014 last run 4 Sep, next run tonight. But looking at the actual run history, it's reported <b>\"0 new rows, no new edition found\" for six straight weeks</b> (31 Jul \u2192 4 Sep), while genuinely stuck at the <b>Jul 2026 edition</...",
-          "[06:53 IST] RAM: Use CCC to fix. Test then pls"
+          "[06:53 IST] RAM: Use CCC to fix. Test then pls",
+          "[06:59 IST] RAM: ?",
+          "[07:04 IST] HADERACH: I'll dispatch the fix to Chet's Claude Code (CCC) for the `rbi_section_finder.py` edition-discovery bug, and in parallel wire up the missing `mpc_downloader.py` cron myself (that's a config task, not a code fix).",
+          "[07:05 IST] HADERACH: Dispatched to CCC (Chet's Claude Code) in the background. Let it run and poll.",
+          "[07:06 IST] HADERACH: These are old failed tasks. Let me check the most recent ACP task (my dispatch).",
+          "[07:06 IST] HADERACH: Good \u2014 two ACP tasks are actively running right now (my dispatch). Let me poll for completion.",
+          "[07:08 IST] HADERACH: Still running. Let me check the log file for real-time progress from the CCC process itself.",
+          "[07:08 IST] HADERACH: This looks like CCC's pre-fix baseline check (confirming current DB state before editing). Let it continue and poll again in a bit."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1754,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.56,
-      "cpu": 0.7,
+      "rss_gb": 0.57,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2415,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.5,
-      "cpu": 0.7,
+      "cpu": 1.1,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2835,8 +2844,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.54,
-      "cpu": 0.6,
+      "rss_gb": 0.53,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3680,8 +3689,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 912,
-      "rss_gb": 0.48,
-      "cpu": 0.1,
+      "rss_gb": 0.43,
+      "cpu": 0.4,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3702,7 +3711,18 @@
       ],
       "transcripts": {
         "recent": [
-          "# Chet Transcript \u2014 2026-09-11"
+          "# Chet Transcript \u2014 2026-09-11",
+          "[07:04 IST] HADERACH\u2192CHET: Use your Claude Code (ACP, agentId: \"claude\") to fix and test a real bug in the SAK-008 RBI ingest pipeline. This is a live production script feeding Haderach's data warehouse \u2014 read-modify-test discipline required, no guessing.",
+          "FILE: /Users/ram_macmini/.openclaw-martin/workspace/data/rbi_section_finder.py",
+          "DB: /Volumes/RamMiniSSD1/Haderach/SAK-008 Data Warehouse/Data/db/rbi.db (confirm the SSD is mounted first \u2014 if not mounted, stop and report rather than failing silently)",
+          "LOG: /Users/ram_ma...",
+          "[07:05 IST] CHET: All prerequisites confirmed: SSD mounted, DB exists, target files exist. Now spawning Claude Code via ACP to do the actual fix + live test.",
+          "[07:05 IST] CHET: The Claude Code ACP task is running in the background. I'll wait for its completion event.",
+          "[07:05 IST] CHET: The Claude Code ACP task is running in the background. I'll wait for its completion event.",
+          "[07:09 IST] CHET: Verified independently \u2014 mpc_downloader.py (Apr 30) and wss_scraper.py (Sep 10, prior to this task) untouched; only rbi_section_finder.py modified (Sep 11 07:06). DB counts and log confirm real ingestion.",
+          "**Task complete.** Claude Code (ACP) fixed and live-tested SAK-008's RBI ingest pipeline:",
+          "**Code change** (`rbi_section_finder.py`, additive only):",
+          "- New `discover_new_editions()` function (line 383) \u2014 forward-probes from the highest `EDITION_BASES` id in ~67-ID steps, checking `BS_ViewBul..."
         ],
         "yesterday": [
           "- ASP.NET postback form-state (`__VIEWSTATE`/`__EVENTVALIDATION`) scraped via regex, not a proper parser \u2014 brittle to markup changes",
@@ -4275,7 +4295,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.48,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
