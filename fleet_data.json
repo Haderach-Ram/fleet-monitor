@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 08:36:28 IST",
-  "generated_epoch": 1789095988,
+  "generated_ist": "2026-09-11 08:41:35 IST",
+  "generated_epoch": 1789096295,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.43 / 3.67 / 4.00",
+    "load": "3.72 / 3.72 / 3.92",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.03,
-      "cpu": 0.1,
+      "rss_gb": 1.09,
+      "cpu": 0.0,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789096226120,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789096226120,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789096226119,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Daily Brief (08:33 IST)",
           "enabled": true,
           "sched": "33 8 * * *",
@@ -699,37 +726,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789095740606,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "NSE Market Bhavcopy Daily Refresh (market.db)",
           "enabled": true,
           "sched": "30 8 * * 2-6",
           "last_ts": 1789095740606,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789095740606,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789095740605,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.57,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2433,7 +2433,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.49,
-      "cpu": 0.7,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2860,7 +2860,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.51,
+      "rss_gb": 0.63,
       "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
@@ -3727,9 +3727,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Chet Transcript \u2014 2026-09-11",
-          "[07:04 IST] HADERACH\u2192CHET: Use your Claude Code (ACP, agentId: \"claude\") to fix and test a real bug in the SAK-008 RBI ingest pipeline. This is a live production script feeding Haderach's data warehouse \u2014 read-modify-test discipline required, no guessing.",
-          "FILE: /Users/ram_macmini/.openclaw-martin/workspace/data/rbi_section_finder.py",
           "DB: /Volumes/RamMiniSSD1/Haderach/SAK-008 Data Warehouse/Data/db/rbi.db (confirm the SSD is mounted first \u2014 if not mounted, stop and report rather than failing silently)",
           "LOG: /Users/ram_ma...",
           "[07:05 IST] CHET: All prerequisites confirmed: SSD mounted, DB exists, target files exist. Now spawning Claude Code via ACP to do the actual fix + live test.",
@@ -3748,7 +3745,28 @@
           "[08:13 IST] CHET: Good \u2014 `SECTION_OFFSETS` only ever existed in `wss_scraper.py` (untouched, no logic changes), confirming the constraint was respected since `rbi_section_finder.py` never had that constant to begin with. All verification checks pass.",
           "**SAK-008 Phase 3 complete \u2014 independently verified against the live DB (not trusting Claude's stdout alone).**",
           "**Changes made:**",
-          "- `rbi_section_finder.py`: +154 lines (696\u2192850). Added `TARGET_SECTIONS[\"money_stock\"]` and `TARGET_SECTIONS[\"govt_securities\"]` tit..."
+          "- `rbi_section_finder.py`: +154 lines (696\u2192850). Added `TARGET_SECTIONS[\"money_stock\"]` and `TARGET_SECTIONS[\"govt_securities\"]` tit...",
+          "[08:30 IST] HADERACH\u2192CHET: Chet \u2014 Daily Brief 2026-09-11.",
+          "MANDATORY STARTUP:",
+          "1. Read /Users/ram_macmini/.openclaw-chet/workspace/MEMORY.md",
+          "2. Read /Users/ram_macmini/.openclaw-chet/workspace/memory/rolling-7day.md",
+          "RESEARCH DATA (pre-fetched via Exa \u2014 use this directly, no additional web searches needed):",
+          "{",
+          "  \"scl\": [",
+          "    {",
+          "      \"title\": \"Sammaan Capital\",",
+          "      \"url\": \"https://www.sammaancapital.com/\",",
+          "      \"snippet\": \"\"",
+          "    },",
+          "    {",
+          "      \"title\": \"About Us - Sammaan Capital, Legacy in Housing Finance\",",
+          "      \"ur...",
+          "[08:31 IST] CHET: Now writing the brief per the exact format, comparing against yesterday's content to determine what's genuinely new.",
+          "[08:31 IST] CHET: I caught an error on re-read: the Google ADK for Kotlin URL is identical to yesterday's \u2014 it's a hold-over, not a fresh distinct entry. Correcting before reporting.",
+          "[08:31 IST] CHET: Now let's do the verification gate \u2014 read back first/last lines, confirm line count and word count.",
+          "[08:32 IST] CHET: Now appending the required memory-write bookmark for the daily brief.",
+          "[08:32 IST] CHET: **File confirmed:** `/Users/ram_macmini/.openclaw-chet/workspace/output/news-brief-2026-09-11.md` \u2014 24 lines, 353 words, no placeholders (verified by read-back + grep).",
+          "**Changed since yesterday (one-line):** SCL fully turns over around a fresh Abridged Prospectus entry; RBI/NBFC partially resets (Draft Directions page enters, Kothari blog holds a 2nd day, ET BFSI exits after 4 days); AI Agent Ecosystem partially turns over as OpenAI's new Agents API enters while Databricks/vLLM exit and Goo..."
         ],
         "yesterday": [
           "- ASP.NET postback form-state (`__VIEWSTATE`/`__EVENTVALIDATION`) scraped via regex, not a proper parser \u2014 brittle to markup changes",
@@ -3890,7 +3908,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3920,7 +3938,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
