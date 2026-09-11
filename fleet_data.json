@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 09:23:04 IST",
-  "generated_epoch": 1789098784,
+  "generated_ist": "2026-09-11 09:28:12 IST",
+  "generated_epoch": 1789099092,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.11 / 5.66 / 4.90",
+    "load": "5.37 / 5.34 / 4.97",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.17,
-      "cpu": 0.5,
+      "rss_gb": 1.2,
+      "cpu": 0.2,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -681,10 +681,19 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789098986322,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789098082640,
+          "last_ts": 1789098823576,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +702,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789098082640,
+          "last_ts": 1789098823576,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +711,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789098082639,
+          "last_ts": 1789098823575,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789098823575,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -768,24 +786,6 @@
           "last_ts": 1789097910834,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789097910833,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789097174849,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1583,9 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[08:00 IST] HADERACH: Good, it's actively running \u2014 currently reading files and checking DB schema/row counts before making changes. This is exactly the disciplined start we asked for. Let me report status to Ram now, since this will take a while, and continue monitoring.",
-          "[08:00 IST] HADERACH: Dispatched \u2014 CCC (via Chet's ACP/Claude Code) is live on it now.",
-          "<b>Brief sent:</b> consolidate <code>ingest_money_supply()</code> into <code>rbi_section_finder.py</code> (the script with the working forward-discovery + live Friday cron), retire <code>wss_scraper.py</code>'s scheduling role, then discover the section offset and build a new Government Securities parser writing into the existing (currently empty) <code>wss_govt_securities</code> table.",
           "<b>Current progress</b> (checked live vi...",
           "[08:00 IST] HADERACH: NO_REPLY",
           "[08:00 IST] HADERACH: Good \u2014 found it. The ACP/acpx plugin lives on **Chet's gateway** (port 18810), not Haderach's. That's why my direct `sessions_spawn(runtime:\"acp\")` call failed validation \u2014 Haderach's gateway has no acpx plugin installed. Chet's config: `acp.backend=\"acpx\"`, `defaultAgent=\"claude\"`, `allowedAgents=[\"claude\",\"codex\"]`. So the real dispatch path is: Haderach \u2192 Chet (via CLI) \u2192 Chet spawns Claude Code ACP internally. Confirmed Chet's gateway is live. Dispatching now.",
@@ -1622,7 +1619,10 @@
           "**1. CBI Chargesheet \u2014 Ajnara / SCL Connection (REGULATORY \u2014 yesterday)**",
           "- **Agencies:** ANI, UNI, IANS (all credible news wire services)",
           "- **Content:** CBI has filed chargesheet in homebuyer fraud case against Ajnara India Limited, its promoters/directors, and 15 public servants linked to ICICI Bank, HDFC Bank, PNB Housing Finance, and **Sammaan Capital Limited**",
-          "- **Timestamp:** 10 Sep 2026, ..."
+          "- **Timestamp:** 10 Sep 2026, ...",
+          "[09:20 IST] RAM: SEBI MF NAV also seems dated",
+          "[09:22 IST] HADERACH: Let me check that live rather than going on memory.",
+          "[09:23 IST] HADERACH: Good catch \u2014 let me dig into why the NAV ingestion is reporting \"OK\" but pulling 0 rows."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1763,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.56,
-      "cpu": 0.8,
+      "rss_gb": 0.57,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2424,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.49,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2852,7 +2852,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.53,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3697,7 +3697,7 @@
       "frozen_reason": null,
       "pid": 912,
       "rss_gb": 0.45,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3899,7 +3899,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3929,7 +3929,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4330,7 +4330,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.48,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
