@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 10:19:25 IST",
-  "generated_epoch": 1789102165,
+  "generated_ist": "2026-09-11 10:24:34 IST",
+  "generated_epoch": 1789102474,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.67 / 7.58 / 7.61",
+    "load": "9.18 / 8.90 / 8.20",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.4,
-      "cpu": 0.3,
+      "rss_gb": 1.43,
+      "cpu": 0.2,
       "crons_total": 100,
       "crons_enabled": 64,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789101625498,
+          "last_ts": 1789102446967,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789101625497,
+          "last_ts": 1789102446966,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789102446966,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +711,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789101625497,
+          "last_ts": 1789102446965,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -721,15 +730,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1789101290442,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789101290440,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1583,16 +1583,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:28 IST] HADERACH: Fixed live, 14,361 NAV rows upserted for today. Now let me verify directly against the DB before reporting.",
-          "[09:28 IST] HADERACH: Confirmed live and clean \u2014 8,576 schemes now current for 10 Sep 2026 (only 8,576 of 14,361 landed exactly on 10-Sep since it's a rolling latest-day pull with some funds reporting off-cycle; the rest are near-dates like 9 Sep). This is real, not stale. Now update STATUS.md and wire in a monitoring safeguard so this doesn't silently recur.",
-          "[09:28 IST] HADERACH: Cron updated with the sanity-check guardrail. Now update STATUS.md and the daily log.",
-          "[09:28 IST] HADERACH: I need to check whether I accidentally deleted the \"## Blocked\" header \u2014 let me verify.",
-          "[09:28 IST] HADERACH: I made an editing error just now \u2014 accidentally deleted the \"## Blocked\" header when merging text. Let me fix that immediately.",
-          "[09:28 IST] HADERACH: Good, fixed. Now let me add the actual sebi.db NAV fix entry to STATUS.md properly, and update the daily log.",
-          "[09:28 IST] HADERACH: Fixed, verified, and documented. Reporting to Ram.",
-          "[09:29 IST] RAM: RBI Forex reserves also does not seem to be updated",
-          "[09:30 IST] HADERACH: Let me check this properly \u2014 investigating whether RBI has actually published anything newer, or if the edition-discovery mechanism from yesterday's fix is missing recent editions.",
-          "[09:33 IST] HADERACH: Good \u2014 this is actively re-processing already-in-DB months plus discovering \"Aug 2026\" edition again (base=24365, which matches what CCC found last night). Let's let it finish and see if it finds anything beyond Aug 2026.",
           "[09:33 IST] HADERACH: It finished but forex is still capped at Aug 1. Let me check what happened specifically with the Aug 2026 forex ingestion in the log \u2014 and check current DB state.",
           "[09:37 IST] HADERACH: Found the real issue. Let me check the date parsing logic against this table layout more carefully \u2014 the \"Aug.01\" column might be a 2025 reference, not the actual latest 2026 date.",
           "[09:40 IST] HADERACH: Found the real bug \u2014 confirmed with data. Let me check the other ingest functions for a similar pattern before fixing.",
@@ -1622,7 +1612,17 @@
           "2. **RBI Forex Reserves** \u2014 a year-header parsing bug (guessing years from month sequencing instead of reading the actual colspan) mislabeled a 13-month-old reference column as \"latest,\" making genuinely current data look frozen....",
           "[10:07 IST] RAM: Check CPI. Is it last updated up till Sep 2025?",
           "[10:09 IST] HADERACH: Let me check if MoSPI has actually published anything for 2026, or if this is a real gap on MoSPI's side (unlike RBI/AMFI which had their own bugs).",
-          "[10:09 IST] HADERACH: This is a real finding worth investigating further \u2014 the live MoSPI API itself returned December 2025 as the latest data even when I explicitly asked for Year=2026. Let me check if there's a newer series parameter (India was expected to rebase CPI around this time) before concluding this is a genuine MoSPI-side gap."
+          "[10:09 IST] HADERACH: This is a real finding worth investigating further \u2014 the live MoSPI API itself returned December 2025 as the latest data even when I explicitly asked for Year=2026. Let me check if there's a newer series parameter (India was expected to rebase CPI around this time) before concluding this is a genuine MoSPI-side gap.",
+          "[10:12 IST] HADERACH: This is a genuinely different situation from this morning's two bugs \u2014 not a parsing error, but MoSPI switched CPI to a new base year (2024=100) in 2026, and our old API endpoint may simply be the legacy 2012-base series that stopped updating. Let me check the newer esankhyiki portal.",
+          "[10:13 IST] HADERACH: Confirmed. Let me check the API tab to find the correct new endpoint for the 2024-base series.",
+          "[10:13 IST] HADERACH: Found the new endpoint: **`/api/cpi/getCPIData`** \u2014 a \"Unified CPI and Inflation API for all base years.\" This replaced `getCPIIndex`. Let's expand it to see params.",
+          "[10:14 IST] HADERACH: This is different from this morning's two bugs \u2014 a bigger, real architectural issue. Let me quickly check whether WPI/IIP have the same problem before reporting.",
+          "[10:14 IST] HADERACH: This is a different, larger issue than this morning's two \u2014 not a parsing bug, but a genuine MoSPI architecture change. Let me report clearly to Ram now with the real answer to his question.",
+          "[10:15 IST] HADERACH: Yes \u2014 CPI is genuinely stuck, and this one isn't a bug in our code, it's a bigger change on MoSPI's end.",
+          "<b>What happened:</b> MoSPI rebased India's CPI series from 2012=100 to <b>2024=100</b> sometime around Feb 2026, and retired the old API endpoint our ingestor calls (<code>/api/cpi/getCPIIndex</code>) in favour of a new one. The old endpoint is still technically live and still returns \"success\" \u2014 but it's frozen serving only the legacy 2012-base series, which itself stopped being updated...",
+          "[10:15 IST] HADERACH: Now let me update STATUS.md with this finding while awaiting Ram's decision.",
+          "[10:15 IST] HADERACH: Reported to Ram with the real finding and awaiting his decision on whether to proceed with the CPI ingestor rebuild now or scope it first. STATUS.md and the daily log are updated.",
+          "[10:15 IST] HADERACH: Reported to Ram with the real finding and awaiting his decision on whether to proceed with the CPI ingestor rebuild now or scope it first. STATUS.md and the daily log are updated."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1764,7 +1764,7 @@
       "frozen_reason": null,
       "pid": 1380,
       "rss_gb": 0.57,
-      "cpu": 0.5,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1789,19 +1789,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1789101309495,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1789102204651,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1789100405011,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1789101309495,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2424,7 +2424,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.49,
-      "cpu": 0.3,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -3697,7 +3697,7 @@
       "frozen_reason": null,
       "pid": 912,
       "rss_gb": 0.45,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3899,7 +3899,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4330,7 +4330,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.45,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
