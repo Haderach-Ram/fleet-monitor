@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 23:25:55 IST",
-  "generated_epoch": 1789149355,
+  "generated_ist": "2026-09-11 23:32:02 IST",
+  "generated_epoch": 1789149722,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.07 / 7.34 / 7.27",
+    "load": "8.54 / 7.96 / 7.54",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -36,8 +36,8 @@
       "pid": null,
       "rss_gb": null,
       "cpu": null,
-      "crons_total": 103,
-      "crons_enabled": 67,
+      "crons_total": 104,
+      "crons_enabled": 68,
       "skills_count": 63,
       "channels": [
         "telegram",
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789149026244,
+          "last_ts": 1789149623527,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789149026244,
+          "last_ts": 1789149623527,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789149026243,
+          "last_ts": 1789149623526,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789149376000,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -759,15 +768,6 @@
           "last_ts": 1789148252507,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789147562507,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1239,6 +1239,15 @@
           "kind": "agentTurn"
         },
         {
+          "name": "Kill-switch: HAD-047 Grok 4.6 full run",
+          "enabled": true,
+          "sched": "one-shot",
+          "last_ts": null,
+          "last_status": null,
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Kill-switch: HAD-047 Sonnet 5 full run",
           "enabled": true,
           "sched": "one-shot",
@@ -1610,46 +1619,46 @@
       ],
       "transcripts": {
         "recent": [
-          "<li>Memory (QS3) \u2014 5</li>",
-          "<li>Evidentiary Calibration (Domain 7) \u2014 8</li>",
-          "<li>Routine-Drift Verification Lapse (Domain ...",
-          "[23:10 IST] HADERACH: Consolidation complete. All steps done via `exec`/Python `open()` per the tool constraint \u2014 no `apply_patch`/`edit` used. NO_REPLY as instructed.",
-          "[23:11 IST] RAM: Run it against the full suite of tasks. Then run AWS BedRock Sonnet 5 against the same full suite HAD-047",
-          "[23:12 IST] HADERACH: New model wired in and confirmed in the CLI list. Now smoke-testing with a single task before committing to the full 43-task run (house practice, per the Kimi K3 precedent).",
-          "[23:13 IST] HADERACH: Smoke test clean: 92.0% score, 173 in / 8,000 out tokens (hit the 8000 output cap \u2014 this model reasons verbosely for even a short task, worth noting). Cost per task \u2248 negligible input + 8000\u00d7$0.60/M \u2248 $0.0048/task off-peak. For the full 43-task suite that's roughly $0.20 if every task saturates the cap similarly \u2014 higher than my earlier estimate since verbosity ran to the ceiling. Proceeding with the full run now.",
-          "[23:14 IST] HADERACH: Both runs launched in the background. Setting the required kill-switch crons now (per house rule for any background process >30 min).",
-          "[23:14 IST] HADERACH: Both benchmark runs are live in the background against the full 43-task HAD-047 suite:",
+          "<li>Tokens: 9,474 in / 33,080 out</li>",
+          "</ul>",
+          "<b>Domain breakdown:</b>",
           "<ul>",
-          "<li><b>DeepSeek V4.1 Flash</b> (OpenRouter) \u2014 PID 86387, log: <code>deepseek_v41flash_full_run.log</code>. Smoke test came back clean (92.0% on T-CR-01), though it saturated the 8,000-token output cap on that one task \u2014 worth watching in the full results, since capped output could mean truncated answers on longer tasks, not just verbosity.</li>",
-          "<li><b>Claude Sonnet 5</b> (Bedrock) \u2014 PID 86403, log: <c...",
-          "[23:14 IST] HADERACH: Both benchmark runs are live in the background against the full 43-task HAD-047 suite:",
+          "<li>Agentic Judgment & Safety \u2014 100.0%</li>",
+          "<li>Regulatory & Legal \u2014 96.0%</li>",
+          "<li>CA / Actuarial \u2014 93.3%</li>",
+          "<li>Routine-Drift Verification Lapse \u2014 92.7%</li>",
+          "<l...",
+          "[23:25 IST] HADERACH: <b>Sonnet 5 (Bedrock) \u2014 DONE.</b> Full 43-task run finished, results saved.",
           "<ul>",
-          "<li><b>DeepSeek V4.1 Flash</b> (OpenRouter) \u2014 PID 86387, log: <code>deepseek_v41flash_full_run.log</code>. Smoke test came back clean (92.0% on T-CR-01), though it saturated the 8,000-token output cap on that one task \u2014 worth watching in the full results, since capped output could mean truncated answers on longer tasks, not just verbosity.</li>",
-          "<li><b>Claude Sonnet 5</b> (Bedrock) \u2014 PID 86403, log: <c...",
-          "[23:18 IST] RAM: https://x.com/openclaw/status/2098449762119020926?s=46",
-          "TwitAcc and discuss",
-          "[23:19 IST] HADERACH: <b>@openclaw tweet \u2014 v2026.9.4 release announcement</b>",
-          "<blockquote>\ud83e\udd9e OpenClaw v2026.9.4 is out, thank you to all 293 contributors!",
-          "\ud83e\udde9 Find your next plugin or skill",
-          "\ud83e\udde0 Turn old chats into skills. You steer.",
-          "\ud83c\udfa8 GPT Image 2.5 joins the canvas",
-          "\u2601\ufe0f More cloud controls",
-          "\ud83d\udcac Answer right in the terminal",
-          "Go teach that lobster a trick.</blockquote>",
-          "<b>What this actually is, headline by headline:</b>",
+          "<li><b>Average score: 91.2%</b></li>",
+          "<li>Errors: 6/43 (mostly HTTP 503 \"Bedrock is unable to process your request\" \u2014 transient capacity errors, not model quality issues)</li>",
+          "<li>Tokens: 9,474 in / 33,080 out</li>",
+          "</ul>",
+          "<b>Domain breakdown:</b>",
           "<ul>",
-          "<li><b>Plugin/skill discovery</b> \u2014 a built-in browse/search surface for finding plugins and skill...",
-          "[23:20 IST] HADERACH: <b>@openclaw tweet \u2014 v2026.9.4 release announcement</b>",
-          "<blockquote>\ud83e\udd9e OpenClaw v2026.9.4 is out, thank you to all 293 contributors!",
-          "\ud83e\udde9 Find your next plugin or skill",
-          "\ud83e\udde0 Turn old chats into skills. You steer.",
-          "\ud83c\udfa8 GPT Image 2.5 joins the canvas",
-          "\u2601\ufe0f More cloud controls",
-          "\ud83d\udcac Answer right in the terminal",
-          "Go teach that lobster a trick.</blockquote>",
-          "<b>What this actually is, headline by headline:</b>",
+          "<li>Agentic Judgment & Safety \u2014 100.0%</li>",
+          "<li>Regulatory & Legal \u2014 96.0%</li>",
+          "<li>CA / Actuarial \u2014 93.3%</li>",
+          "<li>Routine-Drift Verification Lapse \u2014 92.7%</li>",
+          "<l...",
+          "[23:26 IST] RAM: Which is the latest from model we have on bedrock?",
+          "[23:27 IST] RAM: I meant grok model",
+          "[23:27 IST] HADERACH: <b>Latest model we have wired into the Bedrock lane (HAD-047 <code>MODELS</code> dict, alias <code>grok-4.6-bedrock</code>)</b>",
           "<ul>",
-          "<li><b>Plugin/skill discovery</b> \u2014 a built-in browse/search surface for finding plugins and skill..."
+          "<li><b>Grok 4.6 (Bedrock)</b> \u2014 <code>global.xai.grok-4.6</code> \u2014 launched on Bedrock <b>18\u201319 Aug 2026</b>, the most recent addition by launch date among everything currently in our benchmark suite.</li>",
+          "</ul>",
+          "<b>For context, launch dates of the other Bedrock models in our dict, newest to oldest:</b>",
+          "<ul>",
+          "<li>Grok 4.6 \u2014 18 Aug 2026</li>",
+          "<li>Claude Sonnet 5 \u2014...",
+          "[23:27 IST] HADERACH: <b>Latest model we have wired into the Bedrock lane (HAD-047 <code>MODELS</code> dict, alias <code>grok-4.6-bedrock</code>)</b>",
+          "<ul>",
+          "<li><b>Grok 4.6 (Bedrock)</b> \u2014 <code>global.xai.grok-4.6</code> \u2014 launched on Bedrock <b>18\u201319 Aug 2026</b>, the most recent addition by launch date among everything currently in our benchmark suite.</li>",
+          "</ul>",
+          "<b>For context, launch dates of the other Bedrock models in our dict, newest to oldest:</b>",
+          "<ul>",
+          "<li>Grok 4.6 \u2014 18 Aug 2026</li>",
+          "<li>Claude Sonnet 5 \u2014..."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -2648,7 +2657,7 @@
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1789147805402,
+          "last_ts": 1789149606137,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2710,7 +2719,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
@@ -2749,7 +2757,8 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation process silently.",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
           "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
         ],
         "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
