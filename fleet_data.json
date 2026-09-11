@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 17:47:16 IST",
-  "generated_epoch": 1789129036,
+  "generated_ist": "2026-09-11 17:52:22 IST",
+  "generated_epoch": 1789129342,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "7.75 / 7.87 / 7.69",
+    "load": "6.25 / 6.85 / 7.26",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.47,
-      "cpu": 0.2,
+      "rss_gb": 1.6,
+      "cpu": 25.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,19 +681,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789128835763,
+          "last_ts": 1789129226554,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789128835763,
+          "last_ts": 1789129226553,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789128835762,
+          "last_ts": 1789129226553,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,11 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:33 IST] HADERACH: There's a data quality issue \u2014 March months show outstanding_cr as NULL with the value seemingly in the wrong column. Let me investigate the raw March file structure.",
-          "[16:34 IST] HADERACH: Retry with a small delay.",
-          "[16:34 IST] HADERACH: I found the issue \u2014 March editions (fiscal year-end reports) have a different column layout (single \"Variation\" group instead of separate YoY/FY groups), so my hardcoded column indices (7, 9) don't apply and outstanding_cr picked up the wrong value. Let me fix this dynamically.",
-          "[16:35 IST] HADERACH: Now fix the code that consumes yoy_col/fy_col to handle None gracefully:",
-          "[16:35 IST] HADERACH: Now let's also verify `header_row_idx` detection works for these fiscal-year-end sheets (group header row is row 2, with group starting at col 4 \"Variation\"). Let's check the outstanding_val guard logic too, and re-test.",
           "[16:36 IST] HADERACH: Found the actual bug: `re.match` isn't anchored at the end, so variation column headers like `\"4.Apr,2025 / 5.Apr,2024\"` also match the date pattern (since they start with a valid date), polluting the `outstanding_cols` list. Let me anchor the regex properly.",
           "[16:36 IST] HADERACH: Now let me fix the regex anchoring throughout to require full-string date matches (no trailing content):",
           "[16:36 IST] HADERACH: Also fix `find_xlsx_url`'s and `parse_as_on_date`'s regex usage \u2014 those use `re.match` for the date pattern too, but in that context matching a prefix is fine since it's a standalone cell. Let's re-test with the fix.",
@@ -1631,7 +1626,12 @@
           "[16:51 IST] HADERACH: All done, Ram. Summary:",
           "<b>SAK-008 checked, monthly cron wired for RBI Sectoral Credit</b>",
           "Found the data had already been built earlier today (backfilled Dec 2022 \u2192 Jul 2026, 44 months, ~3,828 rows across two new tables \u2014 <code>sdbc_statement1</code> major sectors, <code>sdbc_statement2</code> industry detail \u2014 this is the more current monthly press-release series, distinct from the annual Handbook table you asked about earlier). What was missing was the recurring cron, which I've now put ...",
-          "--- [TRANSCRIPT GAP: 17:43 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 17:43 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
+          "[17:43 IST] RAM: Which chat were the credentials printed on? Here on telegram?",
+          "[17:44 IST] HADERACH: Yes \u2014 same chat, this Telegram direct conversation with you. It happened in this main session, just before you asked me to check SAK-008 (the transcript shows it right at 16:43 IST, immediately preceding your 16:48 IST message).",
+          "The credentials (AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, BWS_ACCESS_TOKEN) came from a `plutil -p` dump of Martin's launchd plist, run while I was investigating how to restart Martin's API service. The full values landed in the tool output within this conversation'...",
+          "[17:44 IST] HADERACH: Yes \u2014 same chat, this Telegram direct conversation with you. It happened in this main session, just before you asked me to check SAK-008 (the transcript shows it right at 16:43 IST, immediately preceding your 16:48 IST message).",
+          "The credentials (AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, BWS_ACCESS_TOKEN) came from a `plutil -p` dump of Martin's launchd plist, run while I was investigating how to restart Martin's API service. The full values landed in the tool output within this conversation'..."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.56,
-      "cpu": 1.0,
+      "rss_gb": 0.57,
+      "cpu": 0.2,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1801,7 +1801,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1789127404902,
+          "last_ts": 1789129204532,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2433,7 +2433,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.5,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2861,7 +2861,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.48,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3709,7 +3709,7 @@
       "frozen_reason": null,
       "pid": 912,
       "rss_gb": 0.45,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3950,7 +3950,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.25,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4351,7 +4351,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.47,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
