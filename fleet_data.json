@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-11 07:55:31 IST",
-  "generated_epoch": 1789093531,
+  "generated_ist": "2026-09-11 08:00:38 IST",
+  "generated_epoch": 1789093838,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.17 / 4.66 / 4.52",
+    "load": "7.16 / 5.07 / 4.68",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,10 +34,10 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 909,
-      "rss_gb": 1.05,
-      "cpu": 0.1,
-      "crons_total": 100,
-      "crons_enabled": 64,
+      "rss_gb": 1.19,
+      "cpu": 0.3,
+      "crons_total": 101,
+      "crons_enabled": 65,
       "skills_count": 63,
       "channels": [
         "telegram",
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789093279412,
+          "last_ts": 1789093825942,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789093279412,
+          "last_ts": 1789093825942,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789093279411,
+          "last_ts": 1789093825941,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789093571994,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -721,15 +730,6 @@
           "enabled": true,
           "sched": "30 7 * * *",
           "last_ts": 1789092033160,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789091787559,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1230,6 +1230,15 @@
           "kind": "agentTurn"
         },
         {
+          "name": "Kill-switch: CCC Phase 3 dispatch (SAK-008)",
+          "enabled": true,
+          "sched": "one-shot",
+          "last_ts": null,
+          "last_status": null,
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SAK-008 MPC Policy Rates Monthly Refresh",
           "enabled": true,
           "sched": "0 21 1 * *",
@@ -1583,11 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:11 IST] HADERACH: Fix verified live: `wss_forex_reserves` now through 2026-08-01 (+30 rows) and `wss_call_money` now through 2026-07-15 (+69 rows). The script also correctly determined RBI hasn't published a Sep 2026 edition yet (3 consecutive probe misses) \u2014 no fabrication. Now let me also wire the second half of the proposal: scheduling `mpc_downloader.py`.",
-          "[07:11 IST] HADERACH: Now update the SAK-008 STATUS.md with today's work, per AGENTS.md convention.",
-          "[07:12 IST] HADERACH: Fix is done, live-tested, and verified independently \u2014 plus the related MPC scheduling gap closed and STATUS.md updated. Here's the rundown:",
-          "<b>CCC fix \u2014 done and verified</b>",
-          "Dispatched to Chet's Claude Code (via ACP) with a strict read-modify-test brief. It added a <code>discover_new_editions()</code> function to <code>rbi_section_finder.py</code> that forward-probes past the last known RBI bulletin edition (same technique as the sibling scraper), instead of being capped at a hardcoded \"J...",
           "[07:12 IST] HADERACH: Fix is done, live-tested, and verified independently \u2014 plus the related MPC scheduling gap closed and STATUS.md updated. Here's the rundown:",
           "<b>CCC fix \u2014 done and verified</b>",
           "Dispatched to Chet's Claude Code (via ACP) with a strict read-modify-test brief. It added a <code>discover_new_editions()</code> function to <code>rbi_section_finder.py</code> that forward-probes past the last known RBI bulletin edition (same technique as the sibling scraper), instead of being capped at a hardcoded \"J...",
@@ -1622,7 +1626,12 @@
           "[07:50 IST] HADERACH: 222 chars, under 260. Good.",
           "**\ud83e\udd9e Digest live: https://haderach-ram.github.io/openclaw-radar/digest/daily/2026/09/11/daily-digest.html \u00b7 Most active: ZeroClaw (15 new issues) \u00b7 draCuLAW traffic (7d): 1 PV \u00b7 Top page: /openclaw-radar/digest/daily/2026/09/09/daily-digest.html**",
           "**\ud83d\udc26 Draft tweet (reply \"send it\" to post):**",
-          "ZeroClaw is on fire again \u2014 15 new issues today, third straight day as the busiest repo out there. Ship fast or break fast, I guess. \ud83e\udd9e https://haderach-ram.github.io/openclaw-..."
+          "ZeroClaw is on fire again \u2014 15 new issues today, third straight day as the busiest repo out there. Ship fast or break fast, I guess. \ud83e\udd9e https://haderach-ram.github.io/openclaw-...",
+          "[07:51 IST] HADERACH: Good \u2014 same DB, same raw archive. Now let me dispatch the consolidation + Government Securities build to Chet's Claude Code via ACP, with the same live-verify discipline as this morning's fix.",
+          "[07:57 IST] HADERACH: Good \u2014 found it. The ACP/acpx plugin lives on **Chet's gateway** (port 18810), not Haderach's. That's why my direct `sessions_spawn(runtime:\"acp\")` call failed validation \u2014 Haderach's gateway has no acpx plugin installed. Chet's config: `acp.backend=\"acpx\"`, `defaultAgent=\"claude\"`, `allowedAgents=[\"claude\",\"codex\"]`. So the real dispatch path is: Haderach \u2192 Chet (via CLI) \u2192 Chet spawns Claude Code ACP internally. Confirmed Chet's gateway is live. Dispatching now.",
+          "[07:58 IST] HADERACH: Dispatched to Chet, who's spawning Claude Code via ACP now. This is a heavier task than this morning's fix (consolidation + new parser + live testing), so I'll set a kill-switch and check back.",
+          "[07:58 IST] HADERACH: Kill-switch set for 09:00 IST (60 min out, 2\u00d7 my ~30-min estimate). Now let me poll progress.",
+          "[07:59 IST] HADERACH: The task is live \u2014 \"I'll approach this methodically: read both scripts first, then consolidate, build...\" \u2014 4 running tasks under session `7c0d0c7a`. Let me check the actual live progress via the ACP session detail."
         ],
         "yesterday": [
           "[22:48 IST] HADERACH: The fix works \u2014 reaches the endpoint cleanly (401 is just wrong test creds, not SSL failure). Now let's test with real credentials.",
@@ -1763,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1380,
-      "rss_gb": 0.58,
-      "cpu": 1.1,
+      "rss_gb": 0.57,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2423,8 +2432,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 913,
-      "rss_gb": 0.5,
-      "cpu": 0.4,
+      "rss_gb": 0.56,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2618,19 +2627,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1789092006100,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1789093809501,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789090210241,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789093809501,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2683,12 +2692,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-09-11",
-          "# Self-healing rotation from transcript-2026-09-10.md at 00:04 IST",
-          "[00:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
-          "[00:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 **Klub K Transcript Logger completed successfully.**",
-          "- All sessions processed",
-          "- 0 messages appended (no new activity since last run)",
           "- Bookmarks updated",
           "- Silent maintenance complete",
           "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: I'll execute the midnight rolling summary update for today (September 11, 2026).",
@@ -2717,7 +2720,18 @@
           "[06:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[07:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
           "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[07:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[07:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[07:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[07:55 IST] PURL: Let me check today's date and the state file:",
+          "[07:56 IST] PURL: Now checking ProtonMail and performing heartbeat checks:",
+          "[07:56 IST] PURL: Let me run the checks directly and update state:",
+          "[07:56 IST] PURL: Git not yet configured. Let me update session save and state:",
+          "[07:56 IST] PURL: HEARTBEAT_OK",
+          "[08:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
+          "[07:55 IST] PURL: Let me check today's date and the state file:",
+          "[07:56 IST] PURL: Now checking ProtonMail and performing heartbeat checks:",
+          "[07:56 IST] PURL: Let me run the checks directly and update state:",
+          "[07:56 IST] PURL: Git not yet configured. Let me update session save and state:"
         ],
         "yesterday": [
           "[16:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2847,7 +2861,7 @@
       "frozen_reason": null,
       "pid": 937,
       "rss_gb": 0.53,
-      "cpu": 0.7,
+      "cpu": 0.2,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3691,7 +3705,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 912,
-      "rss_gb": 0.44,
+      "rss_gb": 0.45,
       "cpu": 0.1,
       "crons_total": 1,
       "crons_enabled": 0,
@@ -3724,7 +3738,12 @@
           "[07:09 IST] CHET: Verified independently \u2014 mpc_downloader.py (Apr 30) and wss_scraper.py (Sep 10, prior to this task) untouched; only rbi_section_finder.py modified (Sep 11 07:06). DB counts and log confirm real ingestion.",
           "**Task complete.** Claude Code (ACP) fixed and live-tested SAK-008's RBI ingest pipeline:",
           "**Code change** (`rbi_section_finder.py`, additive only):",
-          "- New `discover_new_editions()` function (line 383) \u2014 forward-probes from the highest `EDITION_BASES` id in ~67-ID steps, checking `BS_ViewBul..."
+          "- New `discover_new_editions()` function (line 383) \u2014 forward-probes from the highest `EDITION_BASES` id in ~67-ID steps, checking `BS_ViewBul...",
+          "[07:57 IST] HADERACH\u2192CHET: You are Chet. Dispatch this task to Claude Code via your ACP integration (sessions_spawn with runtime=\"acp\", agentId=\"claude\", mode=\"run\") and report back the result once it completes. Use a strict read-modify-test discipline for the Claude Code brief below \u2014 no destructive/non-additive edits, live-verify against the DB after, do not trust a \"succeeded\" status alone.",
+          "TASK FOR CLAUDE CODE (SAK-008 Phase 3 \u2014 RBI WSS data pipeline consolidation + Govt Securities parser):",
+          "Workspace: /Users/ram_...",
+          "[07:58 IST] CHET: Dispatched. This is a bigger task (two-parser consolidation + new govt securities parser), so it'll take longer than this morning's fix. Waiting for completion.",
+          "[07:58 IST] CHET: Dispatched. This is a bigger task (two-parser consolidation + new govt securities parser), so it'll take longer than this morning's fix. Waiting for completion."
         ],
         "yesterday": [
           "- ASP.NET postback form-state (`__VIEWSTATE`/`__EVENTVALIDATION`) scraped via regex, not a proper parser \u2014 brittle to markup changes",
@@ -3866,7 +3885,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
