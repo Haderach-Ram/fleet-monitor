@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-12 11:23:06 IST",
-  "generated_epoch": 1789192386,
+  "generated_ist": "2026-09-12 11:28:12 IST",
+  "generated_epoch": 1789192692,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.79 / 3.33 / 3.34",
+    "load": "3.05 / 3.24 / 3.29",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -33,9 +33,9 @@
       "frozen": false,
       "paused_date": null,
       "frozen_reason": null,
-      "pid": null,
-      "rss_gb": null,
-      "cpu": null,
+      "pid": 909,
+      "rss_gb": 1.3,
+      "cpu": 0.2,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,19 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789192632495,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789191624514,
+          "last_ts": 1789192432303,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +702,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789191624514,
+          "last_ts": 1789192432303,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +711,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789191624513,
+          "last_ts": 1789192432302,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789192432302,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -712,24 +730,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1789191224351,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789191214530,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789190829523,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,9 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:27 IST] HADERACH: Good catch on the ask \u2014 no need for a sub-agent, this is a well-scoped data task I can verify directly and carefully. Let me redo the sort with the tiering you want (AAA block by market cap, then AA+ block by market cap, Sammaan last), and cross-check every row against company name before sending anything.",
-          "[10:28 IST] HADERACH: Verification confirms every row's company label matches its data exactly. Now let's render it to be doubly sure visually before sending.",
-          "[10:28 IST] HADERACH: This matches exactly what was requested \u2014 15 AAA companies sorted by market cap descending (Bajaj Finance $70.1Bn \u2192 Can Fin Homes $1.1Bn), followed by 3 AA+ companies sorted by market cap descending, with Sammaan Capital pinned at the bottom. Let me confirm slides 2 and 3 are unaffected.",
           "[10:29 IST] HADERACH: I only rebuilt Slide 1 in this script \u2014 Slide 2 in v6 reverted to the original unsorted order since I started fresh from `work.pptx`. Let me add the Slide 2 sort back in and rebuild both together.",
           "[10:29 IST] HADERACH: Every row's data matches its label on both slides. Now render to visually confirm before sending.",
           "[10:30 IST] HADERACH: Both slides check out. Cleaning up and sending.",
@@ -1631,7 +1628,10 @@
           "<ul>",
           "<li><b>Point 1:</b> \"Larger banks are awaiting 3\u20134 quarters of consistent profit declarations before increasing exposure\"</li>",
           "<li><b>Point 2:</b> \"Large FCNR inflows, leveraged up to 14x on a thin depositor base, have led several banks to simultaneously hit asset targets while extending loans against this leverage\"</li>",
-          "<li><b>Point 3:</b> \"Developments in the Supreme Court matter have prompted RBI to query ..."
+          "<li><b>Point 3:</b> \"Developments in the Supreme Court matter have prompted RBI to query ...",
+          "[11:17 IST] RAM: Search the net and understand the background of this point and then make a point to explain to an outsider: Banks have met Large FCNR inflows have been leveraged (upro 14x) on a thin depositor slice; resulting in a situation that many banks have simultaneously hit asset targets while raising FCNR loans on the leverage provided to depositors",
+          "[11:17 IST] HADERACH: <b>Background (for context):</b> In June 2026, RBI opened a special FCNR(B) window offering to absorb currency-hedging costs on fresh 3\u20135 year NRI dollar deposits, letting banks pay depositors 6\u20137% (vs. the usual lower FCNR rates). This triggered a rush of NRI deposits \u2014 reportedly $50\u201370Bn+ by end-August. RBI then allowed banks to extend loans (via liens/SBLCs) against these very deposits, letting depositors borrow up to roughly 9\u201319x their deposit value to reinvest for enhanced returns. The...",
+          "[11:18 IST] HADERACH: <b>Background (for context):</b> In June 2026, RBI opened a special FCNR(B) window offering to absorb currency-hedging costs on fresh 3\u20135 year NRI dollar deposits, letting banks pay depositors 6\u20137% (vs. the usual lower FCNR rates). This triggered a rush of NRI deposits \u2014 reportedly $50\u201370Bn+ by end-August. RBI then allowed banks to extend loans (via liens/SBLCs) against these very deposits, letting depositors borrow up to roughly 9\u201319x their deposit value to reinvest for enhanced returns. The..."
         ],
         "yesterday": [
           "<li><b>Grok 4.6</b> (Bedrock) \u2014 just started, running now</li>",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1380,
       "rss_gb": 0.53,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2425,7 +2425,7 @@
       "frozen_reason": null,
       "pid": 913,
       "rss_gb": 0.47,
-      "cpu": 1.3,
+      "cpu": 0.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2852,8 +2852,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 937,
-      "rss_gb": 0.46,
-      "cpu": 1.6,
+      "rss_gb": 0.47,
+      "cpu": 0.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3911,7 +3911,7 @@
       "frozen_reason": null,
       "pid": 911,
       "rss_gb": 0.28,
-      "cpu": 0.8,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3941,7 +3941,7 @@
       "frozen_reason": null,
       "pid": 906,
       "rss_gb": 0.25,
-      "cpu": 1.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4342,7 +4342,7 @@
       "frozen_reason": null,
       "pid": 936,
       "rss_gb": 0.43,
-      "cpu": 0.9,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
