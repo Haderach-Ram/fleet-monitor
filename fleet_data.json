@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-14 02:59:12 IST",
-  "generated_epoch": 1789334952,
+  "generated_ist": "2026-09-14 03:04:20 IST",
+  "generated_epoch": 1789335260,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.99 / 2.27 / 2.41",
+    "load": "3.50 / 2.83 / 2.61",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1227,
-      "rss_gb": 1.11,
-      "cpu": 1.6,
+      "rss_gb": 1.16,
+      "cpu": 1.8,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,24 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1789335206417,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1789335206417,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -766,24 +784,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1789324539613,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1789324405591,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1789324405591,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1734,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1245,
-      "rss_gb": 0.55,
-      "cpu": 0.4,
+      "rss_gb": 0.56,
+      "cpu": 1.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1760,19 +1760,10 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1789324589150,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
           "sched": "0 0,3 * * *",
-          "last_ts": 1789324212971,
+          "last_ts": 1789335014196,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1781,7 +1772,16 @@
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
           "sched": "0 21,0,3 * * *",
-          "last_ts": 1789324212971,
+          "last_ts": 1789335014196,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1789324589150,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1880,7 +1880,15 @@
       "transcripts": {
         "recent": [
           "# Transcript - 2026-09-14",
-          "# Self-healing rotation from transcript-2026-09-13.md at 00:00 IST"
+          "# Self-healing rotation from transcript-2026-09-13.md at 00:00 IST",
+          "[21:09 IST] [DM] Giskard: Good, machine actually rebooted at 20:50 IST today \u2014 that's the real restart point (not the 5am outage itself, but presumably the Mac stayed down until Ram powered it back on this evening). Let me check today's log for errors since that boot.",
+          "[21:10 IST] [DM] Giskard: This confirms consistency with the expected fleet state. Everything checks out \u2014 power came back, Mac rebooted cleanly at 20:50 IST, gateway processes came up fine, and the frozen agents remain correctly frozen (disabled, not loaded), exactly as intended before the outage.",
+          "[21:10 IST] [DM] Giskard: All 12 crons enabled and healthy \u2014 matches the fleet monitor report (Giskard: 12 active). Everything is consistent post-reboot.",
+          "[21:10 IST] [DM] Giskard: NO_REPLY",
+          "[21:10 IST] [DM] Giskard: Good, machine actually rebooted at 20:50 IST today \u2014 that's the real restart point (not the 5am outage itself, but presumably the Mac stayed down until Ram powered it back on this evening). Let me check today's log for errors since that boot.",
+          "[21:10 IST] [DM] Giskard: This confirms consistency with the expected fleet state. Everything checks out \u2014 power came back, Mac rebooted cleanly at 20:50 IST, gateway processes came up fine, and the frozen agents remain correctly frozen (disabled, not loaded), exactly as intended before the outage.",
+          "[21:10 IST] [DM] Giskard: All 12 crons enabled and healthy \u2014 matches the fleet monitor report (Giskard: 12 active). Everything is consistent post-reboot.",
+          "[21:10 IST] [DM] Giskard: HEARTBEAT_OK"
         ],
         "yesterday": [
           "# Transcript - 2026-09-13",
@@ -2384,8 +2392,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1231,
-      "rss_gb": 0.51,
-      "cpu": 0.9,
+      "rss_gb": 0.54,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2579,19 +2587,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1789324764151,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1789324451359,
+          "last_ts": 1789335251812,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2600,7 +2599,16 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1789324451359,
+          "last_ts": 1789335251812,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1789324764151,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2644,8 +2652,46 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-09-14",
-          "# Self-healing rotation from transcript-2026-09-13.md at 00:04 IST"
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Both transcripts show only rotation/checkpoint markers with no actual activity (0 messages). The daily log is missing. This is a genuinely quiet day. Let me now run the rolling summary updates:",
+          "**STEP 2 \u2014 Personal rolling summary:**",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: **STEP 3 \u2014 Group rolling summary:**",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: **STEP 4 \u2014 Verification:**",
+          "Both rolling summary calls completed successfully:",
+          "- Personal: 7-day (991 B), 28-day (2780 B), 180-day (2418 B) \u2014 all have content \u2713",
+          "- Group: 7-day (624 B), 28-day (2262 B) \u2014 all have content \u2713",
+          "- No 0-byte files, no errors, no safety fallback triggered \u2713",
+          "**STEP 5 \u2014 Silent exit:**",
+          "No mismatch alert needed. Genuinely quiet day (no daily log, transcripts show only rotation markers with 0 messages).",
+          "NO_REPLY",
+          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[01:56 IST] PURL: Monday heartbeat \u2014 weekly bulletin is due (last one was Sep 10, more than 6 days ago). Running checks:",
+          "**1. Memory snapshot:**",
+          "[01:56 IST] PURL: **2. ProtonMail inbox check:**",
+          "[01:56 IST] PURL: ProtonMail check is running slow again. Let me check skills usage and security, then update state:",
+          "**3. Security sweep:**",
+          "[01:56 IST] PURL: 18 skills installed. **Context check:**",
+          "[01:56 IST] PURL: Context at 23% \u2014 good. Now update heartbeat state:",
+          "[01:56 IST] PURL: **\ud83d\udccb Weekly Bulletin \u2014 Week of Sep 8\u201314**",
+          "**Security Sweep:**",
+          "\u2705 Skills: 18 installed, all accounted for",
+          "\u2705 Context: 23% (healthy)",
+          "\u2705 Gateway uptime: 4h 55m (recent restart)",
+          "\u2705 Session: 4d 15h (stable)",
+          "**Skills Usage This Week:**",
+          "- `image_generate` \u2014 4 calls (Tanjore painting mockups, console table styling)",
+          "- `image` \u2014 2 calls (image analysis)",
+          "- `sessions_history` \u2014 1 call",
+          "- `session_status` \u2014 2 calls",
+          "**Recent Work:**",
+          "- Image enhancement & styling (idol paint touch-ups, colour options, wall mockup",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
+          "[01:56 IST] PURL: Monday heartbeat \u2014 weekly bulletin is due (last one was Sep 10, more than 6 days ago). Running checks:",
+          "**1. Memory snapshot:**",
+          "[01:56 IST] PURL: **2. ProtonMail inbox check:**",
+          "[01:56 IST] PURL: ProtonMail check is running slow again. Let me check skills usage and security, then update state:",
+          "**3. Security sweep:**",
+          "[01:56 IST] PURL: 18 skills installed. **Context check:**",
+          "[01:56 IST] PURL: Context at 23% \u2014 good. Now update heartbeat state:"
         ],
         "yesterday": [
           "- **Rishi Kapoor** \u2014 son of Raj Kapoor, from the famous Kapoor acting dynasty (Prithviraj \u2192 Raj \u2192 Rishi \u2192 Ranbir line).",
@@ -2775,7 +2821,7 @@
       "frozen_reason": null,
       "pid": 1253,
       "rss_gb": 0.52,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3633,7 +3679,7 @@
       "frozen_reason": null,
       "pid": 1230,
       "rss_gb": 0.39,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3811,7 +3857,7 @@
       "frozen_reason": null,
       "pid": 1229,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3841,7 +3887,7 @@
       "frozen_reason": null,
       "pid": 1224,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
