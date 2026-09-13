@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-14 03:04:20 IST",
-  "generated_epoch": 1789335260,
+  "generated_ist": "2026-09-14 03:09:27 IST",
+  "generated_epoch": 1789335567,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.50 / 2.83 / 2.61",
+    "load": "2.40 / 2.62 / 2.59",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1227,
-      "rss_gb": 1.16,
-      "cpu": 1.8,
+      "rss_gb": 1.23,
+      "cpu": 1.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,51 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789335499526,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789335278134,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1789335278134,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789335278134,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1789335278133,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -705,24 +750,6 @@
           "last_ts": 1789334113465,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789333688647,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1789331599825,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -753,36 +780,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1789324539614,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1789324539614,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
-          "last_ts": 1789324539613,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
           "last_ts": 1789324539613,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -1593,7 +1593,20 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-09-14",
-          "# Self-healing rotation from transcript-2026-09-13.md at 00:05 IST"
+          "# Self-healing rotation from transcript-2026-09-13.md at 00:05 IST",
+          "[02:00 IST] HADERACH: Summary file not present. Script ran successfully with no regulatory updates detected.",
+          "**HEARTBEAT_OK**",
+          "- RBI Master Directions: 35 directions checked, no updates",
+          "- NBFC/HFC Circulars: 6 keywords across pages monitored, no new items",
+          "- Status: clean run, no changes to report",
+          "- Next check: 02:00 IST tomorrow",
+          "[03:04 IST] HADERACH: **SCL Media Monitor Alert \u2014 03:03 IST (Sept 14, 2026)**",
+          "**RSS Monitor:** No new articles.",
+          "**Twitter Findings:**",
+          "**Sammaan Capital mentions (7 tweets):**",
+          "- \u2713 **Candle Street** (Sep 12, 15:23): **\"Sammaan Capital Raises \u20b9775 Cr\"** \u2014 NCDs via private placement. [RELEVANT: capital raise tracking]",
+          "- **Stocks Sena** (Sep 11, 07:24): **\"Sammaan Capital Ltd approves demerger of Finserve Limited under NCLT order\"** [RELEVANT: demerger/structural news]",
+          "- Stocks Sena (Sep 11, 07:36): NCD allotment \u20b97..."
         ],
         "yesterday": [
           "[22:32 IST] RAM: M2 is on .8.",
@@ -1734,8 +1747,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1245,
-      "rss_gb": 0.56,
-      "cpu": 1.3,
+      "rss_gb": 0.57,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2392,8 +2405,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1231,
-      "rss_gb": 0.54,
-      "cpu": 1.2,
+      "rss_gb": 0.51,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2821,7 +2834,7 @@
       "frozen_reason": null,
       "pid": 1253,
       "rss_gb": 0.52,
-      "cpu": 0.4,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3679,7 +3692,7 @@
       "frozen_reason": null,
       "pid": 1230,
       "rss_gb": 0.39,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3857,7 +3870,7 @@
       "frozen_reason": null,
       "pid": 1229,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3887,7 +3900,7 @@
       "frozen_reason": null,
       "pid": 1224,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4288,7 +4301,7 @@
       "frozen_reason": null,
       "pid": 1252,
       "rss_gb": 0.47,
-      "cpu": 0.9,
+      "cpu": 1.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
