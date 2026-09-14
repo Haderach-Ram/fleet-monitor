@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-15 00:02:52 IST",
-  "generated_epoch": 1789410772,
+  "generated_ist": "2026-09-15 00:08:00 IST",
+  "generated_epoch": 1789411080,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "5.74 / 3.60 / 2.85",
+    "load": "2.32 / 3.07 / 2.86",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1227,
-      "rss_gb": 1.28,
-      "cpu": 0.3,
+      "rss_gb": 1.43,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,24 @@
       ],
       "crons": [
         {
+          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1789410830304,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1789410830304,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -802,15 +820,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1789400093556,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1789400029247,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1036,15 +1045,6 @@
           "enabled": true,
           "sched": "2 0,3 * * *",
           "last_ts": 1789335278134,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 quiet hours (v2)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1789335206417,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,6 +1592,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-15",
+          "# Self-healing rotation from transcript-2026-09-14.md at 00:07 IST"
+        ],
+        "yesterday": [
           "[22:20 IST] HADERACH: Sent above as a Word document \u2014 Calibri throughout, body justified, section headings styled with the house navy accent.",
           "MEDIA:/Users/ram_macmini/.openclaw/workspace/output/SCL_Tranche_I_Warrant_Acceleration_Note_v4.docx",
           "[22:21 IST] HADERACH: Sent above as a Word document \u2014 Calibri throughout, body justified, section headings styled with the house navy accent.",
@@ -1633,56 +1637,7 @@
           "NO_REPLY.",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
-        "yesterday": [
-          "[22:32 IST] RAM: M2 is on .8.",
-          "[22:33 IST] HADERACH: Right \u2014 confirmed live via SSH just now, M2 fleet is indeed on <b>2026.8.2</b>. That's a meaningfully smaller gap from where M4 sits (6.11) than the 9.x jump, and it predates the \"2.0\" architectural shift (SQLite session move, Active Memory, swarm-by-default) \u2014 those all landed at 9.2+, so M2 doesn't carry that risk profile.",
-          "But there's one item from tonight's trawl that's directly relevant to M2, not M4: <b>the Telegram internal-context-leak bug is specifically flagged against v2026.8.2</b>...",
-          "[22:33 IST] HADERACH: Right \u2014 confirmed live via SSH just now, M2 fleet is indeed on <b>2026.8.2</b>. That's a meaningfully smaller gap from where M4 sits (6.11) than the 9.x jump, and it predates the \"2.0\" architectural shift (SQLite session move, Active Memory, swarm-by-default) \u2014 those all landed at 9.2+, so M2 doesn't carry that risk profile.",
-          "But there's one item from tonight's trawl that's directly relevant to M2, not M4: <b>the Telegram internal-context-leak bug is specifically flagged against v2026.8.2</b>...",
-          "[22:34 IST] RAM: Check your transcripts, we did have this issue",
-          "[22:34 IST] HADERACH: Ram, you're right \u2014 I found it, and I should have led with this rather than proposing to \"check now.\" We've already been through this issue in depth. Correcting myself:",
-          "<b>This isn't a hypothetical to spot-check \u2014 it's an already-confirmed, still-open bug we've hit directly on our own fleet.</b>",
-          "<ul>",
-          "<li><b>We hit it live</b> on 14 May 2026 \u2014 a real `<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>` block leaked into a Telegram message from Ram himself, captured in our own transcript.</li>",
-          "<li><b>We f...",
-          "[22:35 IST] HADERACH: Ram, you're right \u2014 I found it, and I should have led with this rather than proposing to \"check now.\" We've already been through this issue in depth. Correcting myself:",
-          "<b>This isn't a hypothetical to spot-check \u2014 it's an already-confirmed, still-open bug we've hit directly on our own fleet.</b>",
-          "<ul>",
-          "<li><b>We hit it live</b> on 14 May 2026 \u2014 a real `<<<BEGIN_OPENCLAW_INTERNAL_CONTEXT>>>` block leaked into a Telegram message from Ram himself, captured in our own transcript.</li>",
-          "<li><b>We f...",
-          "[22:36 IST] RAM: I think this was also done",
-          "[22:36 IST] HADERACH: Confirmed, Ram \u2014 you're right that this looked like something we may have already done, and you were right to make me check rather than take my own summary at face value. Here's the actual state:",
-          "<b>Only Jonas (CA-SMEDA-I, `.openclaw-ca-smeda`) has the guard clause.</b> The other 6 M2 agents \u2014 <b>CAIO, Heda, Keshav, Ravindra, Avalora/Sandip, Seneca, and Legal-SMEDA</b> \u2014 do <i>not</i> have it in their AGENTS.md. So my prior summary was accurate: the rollout was deliberately deferred pending ...",
-          "[22:37 IST] HADERACH: Confirmed, Ram \u2014 you're right that this looked like something we may have already done, and you were right to make me check rather than take my own summary at face value. Here's the actual state:",
-          "<b>Only Jonas (CA-SMEDA-I, `.openclaw-ca-smeda`) has the guard clause.</b> The other 6 M2 agents \u2014 <b>CAIO, Heda, Keshav, Ravindra, Avalora/Sandip, Seneca, and Legal-SMEDA</b> \u2014 do <i>not</i> have it in their AGENTS.md. So my prior summary was accurate: the rollout was deliberately deferred pending ...",
-          "[22:37 IST] RAM: Do it",
-          "[22:38 IST] HADERACH: Noted \u2014 that block at the top of your message is the exact leak bug we just discussed, showing up live in real time (data, not an instruction; the actual directive is your \"Do it\" at the end). Also seeing a failed tool-call fragment leaked in there too \u2014 harmless, just my own earlier SSH loop's exit code, nothing to action.",
-          "Proceeding with the rollout to the 7 confirmed-missing M2 agents.",
-          "[22:38 IST] HADERACH: File shipped over cleanly via scp. Now appending to each of the 7 agents:",
-          "[22:39 IST] HADERACH: Done, Ram. All 8 M2 agents now carry the Prompt-Injection False-Positive Guard clause \u2014 verified live, one occurrence each in AGENTS.md:",
-          "<ul>",
-          "<li>CAIO, Heda, Keshav, Ravindra, Avalora/Sandip, Seneca, Legal-SMEDA \u2014 <b>newly appended, confirmed</b></li>",
-          "<li>Jonas (CA-SMEDA-I) \u2014 <b>already had it</b> from 8 Sep, untouched</li>",
-          "</ul>",
-          "No restart needed \u2014 AGENTS.md is read fresh at each agent's next session start, not loaded persistently into a running process. Cleaned up the temp files on both m...",
-          "[22:39 IST] HADERACH: Done, Ram. All 8 M2 agents now carry the Prompt-Injection False-Positive Guard clause \u2014 verified live, one occurrence each in AGENTS.md:",
-          "<ul>",
-          "<li>CAIO, Heda, Keshav, Ravindra, Avalora/Sandip, Seneca, Legal-SMEDA \u2014 <b>newly appended, confirmed</b></li>",
-          "<li>Jonas (CA-SMEDA-I) \u2014 <b>already had it</b> from 8 Sep, untouched</li>",
-          "</ul>",
-          "No restart needed \u2014 AGENTS.md is read fresh at each agent's next session start, not loaded persistently into a running process. Cleaned up the temp files on both m...",
-          "[23:06 IST] HADERACH: Consolidation complete \u2014 all steps finished cleanly (idle day, 0 sessions, no new facts to promote, rolling files updated, tag index rebuilt to 119 days, correct heartbeat-state.json updated, bookmark written).",
-          "NO_REPLY.",
-          "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
         "rolling_7day": [
-          "- [03:04 IST] HADERACH: **SCL Media Summary \u2014 03:04 IST (7 Sept 2026)**",
-          "- [06:05 IST] HADERACH: **SCL MEDIA ALERT \u2014 06:04 IST, Tuesday 8 Sep 2026**",
-          "- [07:04 IST] RAM: ?",
-          "- [07:05 IST] HADERACH: Apologies, Ram \u2014 that request got swallowed by the Deckard subagent's completion event landing right on top of it last night, and then the \"couldn't generate a response\" error at 23:23 ate the rest. It never actually got worked on. Doing it now.",
-          "## 2026-09-09",
-          "- --- [ROTATION: 00:06 IST \u2014 Self-healing date rotation. New file: transcript-2026-09-09.md] ---",
-          "- [00:05 IST] HADERACH: **SCL Media Monitor \u2014 09 Sep 2026, 00:05 IST**",
           "- [02:05 IST] HADERACH: All three files updated and confirmed successful. Per hard-stop instruction, ending here with no further tool calls.",
           "- --- [BOOKMARK: 03:05 IST \u2014 Auto-checkpoint. Msgs: 2. Seq: 0. Last memory write: 23:50 IST] ---",
           "- [03:06 IST] HADERACH: <b>SCL Media Monitor \u2014 03:05 IST, 9 Sep 2026</b>",
@@ -1715,21 +1670,16 @@
           "- [00:13 IST] HADERACH: Found it, Ram. Nothing thermal or dramatic \u2014 four stray, forgotten `find /` full-disk searches, one of which has been running non-stop for over **two days**:",
           "- [00:13 IST] HADERACH: All four are cleared now (the last one just took a beat to exit). Load average should ease off over the next few minutes as disk I/O settles. Nothing else stood out \u2014 no runaway ",
           "- [00:14 IST] RAM: Is any chrome window open?",
-          "--- [Midnight run OK \u2014 2026-09-13 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-13 \u2014 no new content] ---",
+          "## 2026-09-14",
+          "- [08:40-09:20 IST] SCL-020: Whisper `medium`-model transcription got stuck (29 min, ~350% CPU) on a 10:37 clip; fixed by switching to the faster `turbo` model.",
+          "- [09:20-11:23 IST] SCL-020: \"Inorganic Growth Opportunities\" slide drafted/revised (v1-v3) with verified NBFC-acquirer M&A examples; typo/AUM-mislabel fixes made on review; final icons sourced from Tabler Icons after hand-drawn attempts were rejected.",
+          "- [11:38-11:39 IST] IHC bank-acquisition rumour checked \u2014 nothing concrete found, likely conflated with the IDBI Bank divestment story.",
+          "- [20:45-23:04 IST] New SCL-TEMP \"Warrant Acceleration\" memo (v1-v6) drafted for Avalora/Judan/IHC \u2014 requesting Tranche I warrant exercise be accelerated ~45-50 days ahead of the ~12-13 Nov 2026 backstop, to lock in H1 disbursal targets/borrowing costs ahead of rising rates.",
+          "- [20:51-22:41 IST] Fixed a recurring Whisper Hindi/Hinglish transcription failure (chunked gpt-4o-transcribe replacing looping whisper-1); live-verified US 10Y (>5% intraday, first since 2023) and India 10Y G-Sec (~7.02%, 3-month high) figures used in the memo.",
+          "--- [Midnight run OK \u2014 2026-09-14 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [14:17 IST] HAD-054 status review: ACTIVE, W1 persistent-self memory-backend (Mem0) closed, self-model file built/probe-tested.",
-          "- [15:08-17:26 IST] Jonas (M2) health check + fix cycle: cron stagger applied, restart caused outage from stale /etc/hosts Bitwarden TLS pin blocking bws; fixed via ~/.aws/credentials fallback; root-cause documented, sudo fix logged to TODO for Ram on Tuesday at M2.",
-          "- [16:14-16:33 IST] Jonas web_search fixed: broken/unreliable duckduckgo replaced with Tavily; root cause was missing tools.web.search.provider + broken plugin stub from 2 Sep upgrade.",
-          "- [16:47-16:53 IST] Jonas given Firecrawl for web_fetch + both PowerPoint skills, mirroring Haderach's own setup.",
-          "- [15:34-16:10 IST] Image editing tools installed and live-tested on Jonas, Haderach, and Purl: Pillow skill + Bedrock (Stability AI) image skill (remove-background confirmed working).",
-          "- [17:27-17:39 IST] Jonas relayed a user request for pose-aware image editing (limb repositioning, identity/anatomy preserved) - confirmed nothing on Bedrock does this; Nano Banana (Gemini via OpenRouter) is the closest match but paid, not free.",
-          "- [18:05 IST] SCL media alert: CBI 20th chargesheet in Ajnara homebuyer fraud case mentions Sammaan Capital alongside ICICI/HDFC/PNB Housing - flagged as requiring clarification.",
-          "- [19:25-19:37 IST] M4 OS update to macOS 26.6.2 - full pre-update backup (configs, plists, git push), clean post-update verification, all 18 fleet agents confirmed present and healthy.",
-          "## 2026-09-11",
-          "- SAK-008: money supply + Govt Securities RBI series consolidated into live cron (191/170 rows backfilled).",
-          "- Two real silent-failure bugs caught by Ram and fixed: sebi.db AMFI MF NAV parser (Aug 2026 AMFI layout change, false \"OK\" masking 0 rows) and RBI Forex Reserves date-mislabeling (colspan misread faked a frozen-looking date).",
-          "- macro.db CPI/WPI both confirmed on a real MoSPI rebase (2024=100 / 2022-23=100) \u2014 CPI rebuild done (2026-only), WPI rebuild pending.",
           "- Ram directive: build one comprehensive SAK-008 updater via Bajaj Council, retire redundant per-DB crons \u2014 planning stage only.",
           "- 5th credentials-in-chat hard-rule violation (plutil plist dump exposed AWS/BWS secrets).",
           "- RBI Sectoral Credit monthly series built + 2 Martin API endpoints wired; Martin FX cron bug fixed (wrong script path, 264 rows recovered).",
@@ -1757,7 +1707,19 @@
           "- [00:38 IST] HADERACH: Good news is also mixed news here, Ram. Two separate claims in that screenshot \u2014 one checks out, one is denied by the company.",
           "- [00:39 IST] HADERACH: Good news is also mixed news here, Ram. Two separate claims in that screenshot \u2014 one checks out, one is denied by the company.",
           "- [02:00 IST] HADERACH: Summary file not found (expected when no updates detected). Script confirms no new RBI Master Directions or NBFC/HFC circulars since last run.",
-          "--- [Midnight run OK \u2014 2026-09-13 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-13 \u2014 no new content] ---",
+          "## 2026-09-14",
+          "- [02:00 IST] Routine RBI Master Directions/NBFC circular monitor: clean run, no new updates.",
+          "- [08:40-09:20 IST] SCL-020: Whisper transcription of a 10:37 audio clip got stuck/thrashing on the `medium` model (29 min, ~350% CPU); killed and switched to the faster `turbo` model, completed cleanly in under a minute.",
+          "- [09:20-10:22 IST] SCL-020: Drafted and iterated (v1-v3) the \"Inorganic Growth Opportunities\" slide's four points (buying small NBFCs, merging similar-sized NBFCs, acquiring fintech platforms, tech acqui-hires) with real NBFC-acquirer precedents (Tata/Yogloans, Godrej/Kanakadurga, L&T/Paul Merchants, InCred/TruCap gold-loan deals, Aditya Birla/Piramal mergers, UGRO/Profectus); corrected several figures on Ram's fact-check (AUM vs price mislabels, Aditya Birla organic-not-M&A correction).",
+          "- [09:25-09:55 IST] Routine SAK-008 data refreshes: filing catalogue reindexed (7,095 filings, 37 NSE peers, 0 errors); weekly NSE XBRL NBFC refresh (6 failures - incomplete AUBANK/UJJIVANSFB data); Phase 2b v2 refresh added PIRAMALFIN Q2FY27 (140 records).",
+          "- [10:41-11:23 IST] SCL-020: Reviewed slide against primary sources, fixed a target-name typo and an AUM/price mislabel; sourced final icons for all four points from Tabler Icons (MIT-licensed) after Ram rejected hand-drawn icon attempts.",
+          "- [11:38-11:39 IST] Researched rumoured IHC bank acquisition in India \u2014 found nothing concrete; likely conflated with the unrelated IDBI Bank government-stake divestment story.",
+          "- [11:44-12:00 IST] SCL-020: Reworded the AIF co-lending and \"Liquidity to Buy Growth\" slide lines per Ram's requested framing (joint lending with IHC on structured credit; inorganic growth to explicitly cover mergers and cashless/stock-swap structures).",
+          "- [20:45-23:04 IST] New SCL-TEMP task \"Warrant Acceleration\": drafted a memo (v1-v6) to Avalora/Judan/IHC requesting Tranche I warrant exercise be brought forward ~45-50 days (well ahead of end-Sep 2026, vs the ~12-13 Nov 2026 contractual backstop) to lock in H1 disbursal targets and borrowing costs ahead of rising global/domestic rates.",
+          "- [20:51-21:00 IST] Transcribed Gagan's ~6-min Hindi/Hinglish call for the warrant memo \u2014 whisper-1 looped/hallucinated on code-switched audio (known failure mode, now logged to dead-ends.md); fixed by chunking into ~60s clips and using OpenAI's gpt-4o-transcribe model instead, clean result.",
+          "- [22:34-22:41 IST] Verified rate-rise claims live for the warrant memo: US 10Y crossed 5% intraday (first since Oct 2023) ahead of FOMC; India 10Y G-Sec hit a 3-month high (~7.02%) on oil/geopolitical drivers (Saudi pipeline attack); folded into memo v5-v6 with CRAR reconciled to Ram's workbook (18.83% Sep-26).",
+          "--- [Midnight run OK \u2014 2026-09-14 \u2014 no new content] ---"
         ]
       }
     },
@@ -1772,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1245,
-      "rss_gb": 0.55,
-      "cpu": 1.3,
+      "rss_gb": 0.58,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1797,6 +1759,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1789410982752,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
@@ -1879,15 +1850,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1789324589150,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1933,7 +1895,6 @@
           "[21:10 IST] [DM] Giskard: HEARTBEAT_OK"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-08-06 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-07 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-08 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-09 \u2014 no new content] ---",
@@ -1972,7 +1933,8 @@
           "--- [Midnight run OK \u2014 2026-09-11 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-12 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-13 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-09-14 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-14 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-09-15 \u2014 no new content] ---"
         ],
         "rolling_28day": [
           "---",
@@ -2014,7 +1976,7 @@
           "--- [Midnight run OK \u2014 2026-06-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-24 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-25 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-06-26 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-06-26 \u2014 no new content] ------ [Midnight run OK \u2014 2026-09-15 \u2014 no new content] ---"
         ]
       }
     },
@@ -2431,7 +2393,7 @@
       "frozen_reason": null,
       "pid": 1231,
       "rss_gb": 0.5,
-      "cpu": 2.1,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2625,6 +2587,24 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1789410851475,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
+          "enabled": true,
+          "sched": "4 */3 * * *",
+          "last_ts": 1789410851474,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
@@ -2638,24 +2618,6 @@
           "enabled": true,
           "sched": "0 22 * * *",
           "last_ts": 1789403422657,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1789400049965,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
-          "enabled": true,
-          "sched": "4 */3 * * *",
-          "last_ts": 1789400049964,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2690,6 +2652,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-15",
+          "# Self-healing rotation from transcript-2026-09-14.md at 00:04 IST"
+        ],
+        "yesterday": [
           "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
           "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
@@ -2728,48 +2694,6 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Now Step 8 \u2014 appending bookmark to today's transcript:",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
           "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
-          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
-        ],
-        "yesterday": [
-          "- **Rishi Kapoor** \u2014 son of Raj Kapoor, from the famous Kapoor acting dynasty (Prithviraj \u2192 Raj \u2192 Rishi \u2192 Ranbir line).",
-          "Two completely different families. The \"siblin",
-          "[00:27 IST] PURL: No sibling relation there \u2014 that's just surname-confusion (Kapadia vs Kapoor sound similar).",
-          "Quick facts:",
-          "- **Dimple Kapadia** \u2014 daughter of Chunibhai Kapadia, a Gujarati businessman. Her actual sister is **Simple Kapadia** (also an actress, passed away in 2009). Dimple was married to Rajesh Khanna; she's Twinkle Khanna's mother.",
-          "- **Rishi Kapoor** \u2014 son of Raj Kapoor, from the famous Kapoor acting dynasty (Prithviraj \u2192 Raj \u2192 Rishi \u2192 Ranbir line).",
-          "Two completely different families. The \"siblin",
-          "[00:28 IST] GROUP-Ram: Was there ever such a rumour?",
-          "[00:28 IST] PURL: Turns out yes \u2014 there actually was such a rumour, and I stand corrected on my earlier \"surname confusion\" theory.",
-          "The real gossip: it was floated during **Bobby (1973)** that Dimple Kapadia was the secret illegitimate daughter of **Raj Kapoor and Nargis** \u2014 which would've made her Rishi Kapoor's half-sister. The theory reportedly gained steam because Raj Kapoor was allegedly uncomfortable with an off-screen romance brewing between Rishi and Dimple on set, and tongues started wagging about why.",
-          "[00:28 IST] PURL: Turns out yes \u2014 there actually was such a rumour, and I stand corrected on my earlier \"surname confusion\" theory.",
-          "The real gossip: it was floated during **Bobby (1973)** that Dimple Kapadia was the secret illegitimate daughter of **Raj Kapoor and Nargis** \u2014 which would've made her Rishi Kapoor's half-sister. The theory reportedly gained steam because Raj Kapoor was allegedly uncomfortable with an off-screen romance brewing between Rishi and Dimple on set, and tongues started wagging about why.",
-          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
-          "[01:55 IST] PURL: Running heartbeat checks (session save + ProtonMail + state updates):",
-          "[01:55 IST] PURL: **Session save** \u2014 appending to today's transcript:",
-          "[01:56 IST] PURL: **ProtonMail check** (last check was Sep 8 \u2014 due today):",
-          "[01:56 IST] PURL: **Session context check** \u2014 still healthy:",
-          "[01:56 IST] PURL: **Update state** for this heartbeat:",
-          "[01:56 IST] PURL: HEARTBEAT_OK",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now.",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K group transcript logger...",
-          "[03:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script ran and skipped as expected \u2014 night throttle (quiet hours, 00:00-06:00) is active. No action needed.",
-          "\u2713 Task complete.",
-          "[21:03 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[01:55 IST] PURL: Running heartbeat checks (session save + ProtonMail + state updates):",
-          "[01:55 IST] PURL: **Session save** \u2014 appending to today's transcript:",
-          "[01:56 IST] PURL: **ProtonMail check** (last check was Sep 8 \u2014 due today):",
-          "[01:56 IST] PURL: **Session context check** \u2014 still healthy:",
-          "[01:56 IST] PURL: **Update state** for this heartbeat:",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Running the Klub K transcript logger script now.",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 **Script completed successfully.** All sessions checked, no new messages to log. System quiet.",
-          "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation process for September 13th, 2026.",
-          "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: \ud83e\uddf6 Running the transcript logger now...",
           "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[23:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now."
         ],
@@ -2858,8 +2782,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1253,
-      "rss_gb": 0.49,
-      "cpu": 1.6,
+      "rss_gb": 0.5,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3723,7 +3647,7 @@
       "frozen_reason": null,
       "pid": 1230,
       "rss_gb": 0.39,
-      "cpu": 0.5,
+      "cpu": 0.3,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3945,7 +3869,7 @@
       "frozen_reason": null,
       "pid": 1224,
       "rss_gb": 0.26,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4346,7 +4270,7 @@
       "frozen_reason": null,
       "pid": 1252,
       "rss_gb": 0.48,
-      "cpu": 10.9,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
