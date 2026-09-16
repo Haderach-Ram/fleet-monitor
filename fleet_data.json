@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-16 23:57:08 IST",
-  "generated_epoch": 1789583228,
+  "generated_ist": "2026-09-17 00:02:16 IST",
+  "generated_epoch": 1789583536,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.78 / 1.89 / 1.89",
+    "load": "3.12 / 2.50 / 2.14",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.1,
-      "cpu": 0.3,
+      "rss_gb": 1.2,
+      "cpu": 3.8,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.57,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1798,6 +1798,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1789583414516,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1789583414515,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1820,15 +1838,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1789580109917,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1789572606327,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1858,15 +1867,6 @@
           "last_ts": 1789545074858,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1789526803466,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1917,6 +1917,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-09-17",
+          "# Self-healing rotation from transcript-2026-09-16.md at 00:00 IST"
+        ],
+        "yesterday": [
           "# Transcript - 2026-09-16",
           "# Self-healing rotation from transcript-2026-09-15.md at 08:15 IST",
           "[10:48 IST] [DM] Giskard: No BWS 429 stress currently. Let me check the Midnight Rolling Summary cron job details and run history, plus the Haderach consolidation cron issues mentioned.",
@@ -1943,10 +1947,6 @@
           "Root cause: this morning's 08:16 IST Midnight Rolling Summary cron (delayed from midnight by the reboot) replied `NO_REPLY` **without calling exec at all** \u2014 skipped its mandatory Step 1 file-touch. That's why `rolling-7day.md`/`rolling-28day.md` sat frozen since Sep 15 00:06 even though the cron \"ran successfully.\"",
           "- Manually appended today's marker to both files \u2014 mtimes now current (0.0h old).",
           "- A"
-        ],
-        "yesterday": [
-          "# Transcript - 2026-09-15",
-          "# Self-healing rotation from transcript-2026-09-14.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-08-08 \u2014 no new content] ---",
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.72,
-      "cpu": 0.3,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2872,7 +2872,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.53,
-      "cpu": 0.7,
+      "cpu": 0.9,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3732,8 +3732,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1404,
-      "rss_gb": 0.38,
-      "cpu": 0.5,
+      "rss_gb": 0.39,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3912,7 +3912,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3942,7 +3942,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4343,7 +4343,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.5,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
