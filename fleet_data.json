@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-16 11:59:42 IST",
-  "generated_epoch": 1789540182,
+  "generated_ist": "2026-09-16 12:04:51 IST",
+  "generated_epoch": 1789540491,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.51 / 2.76 / 3.14",
+    "load": "5.34 / 4.17 / 3.63",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.24,
-      "cpu": 0.3,
+      "rss_gb": 1.31,
+      "cpu": 9.2,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789539625676,
+          "last_ts": 1789540453354,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789539625676,
+          "last_ts": 1789540453354,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789539625675,
+          "last_ts": 1789540453353,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +711,7 @@
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789539286754,
+          "last_ts": 1789540453353,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,14 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[10:37 IST] HADERACH: Good data gathered. Now let's run this through Bajaj Council for a second-opinion synthesis before drafting the scoping note.",
-          "[10:40 IST] HADERACH: Scoping note is done and filed, Ram. Ran it through GitHub research, live web search, and Bajaj Council (4/5 responded). Here's the shape of it:",
-          "**The correction that matters most:** Tilly Norwood is a produced/edited video \u2014 ChatGPT-written script, Imagen/Veo3/Seedance for visuals, an 18-person human edit crew, one clip even used van der Velden's own performance-capture. It only reads as instant because it's polished broadcast footage. What you actually want \u2014 genuine live, real-time, turn-...",
-          "[10:41 IST] HADERACH: Scoping note is done and filed, Ram. Ran it through GitHub research, live web search, and Bajaj Council (4/5 responded). Here's the shape of it:",
-          "**The correction that matters most:** Tilly Norwood is a produced/edited video \u2014 ChatGPT-written script, Imagen/Veo3/Seedance for visuals, an 18-person human edit crew, one clip even used van der Velden's own performance-capture. It only reads as instant because it's polished broadcast footage. What you actually want \u2014 genuine live, real-time, turn-...",
-          "[11:17 IST] RAM: [User sent media without caption]",
-          "[11:20 IST] HADERACH: This is a Connections puzzle. One group (U.S. coins) is already revealed. Need to find four groups of four from the remaining 12 words.",
-          "The remaining words: FRANK-N-FURTER, LATIN, CLINK, WADSWORTH, BORAT, LONG JOHN SILVER, ST. VINCENT, STEAM IRON, WIDENER, CARLOS, MARIGOLD, BARRETT",
           "Let me work through the hidden coin connection first (since the theme is \"starting with U.S. coins\"):",
           "U.S. coins: PENNY, NICKEL, DIME, QUARTER, DOLLAR, CENT, HALF...",
           "PENNY + wise = PENNYWISE, NICKEL + odeon = N...",
@@ -1631,7 +1623,15 @@
           "11:32:27 IST \u2014 \"Provider completed tool call with malformed JSON arguments\" on model `amazon-bedrock/global.anthropic.claude-sonnet-5`, right as Jonas was mid-way through \"sending individually to each RM\" (a mes...",
           "[11:47 IST] HADERACH: Found it, Ram. Confirmed via SSH into the M2 box \u2014 this isn't a gateway crash, Jonas is healthy and running (port 18793, PID present, `/health` returns OK). The failure is a live, per-request tool-call error.",
           "The gateway error log shows it happening exactly when you'd expect, twice:",
-          "11:32:27 IST \u2014 \"Provider completed tool call with malformed JSON arguments\" on model `amazon-bedrock/global.anthropic.claude-sonnet-5`, right as Jonas was mid-way through \"sending individually to each RM\" (a mes..."
+          "11:32:27 IST \u2014 \"Provider completed tool call with malformed JSON arguments\" on model `amazon-bedrock/global.anthropic.claude-sonnet-5`, right as Jonas was mid-way through \"sending individually to each RM\" (a mes...",
+          "[11:56 IST] RAM: SSH into the M2 and check why Jonas is reporting this model failure",
+          "[11:59 IST] HADERACH: Confirmed. This is not a Jonas-specific problem \u2014 it's the same known upstream Bedrock/Sonnet-5 regression already diagnosed twice before (4 Sep, on Sandip/Avalora). I have everything needed to answer.",
+          "[11:59 IST] HADERACH: Confirmed the root cause, Ram \u2014 checked directly, not from memory.",
+          "Jonas himself is healthy. SSH into the M2 (100.119.4.19) shows the gateway process alive (port 18793, `/health` returns OK, been running continuously, PID present under `launchctl print`). This wasn't a crash or an outage.",
+          "What actually happened: at 11:32:27 and again at 11:33:53 IST, Jonas hit the error `amazon-bedrock/global.anthropic.claude-sonnet-5 request failed. rawError=Provider completed tool call with malformed JSON...",
+          "[12:00 IST] HADERACH: Confirmed the root cause, Ram \u2014 checked directly, not from memory.",
+          "Jonas himself is healthy. SSH into the M2 (100.119.4.19) shows the gateway process alive (port 18793, `/health` returns OK, been running continuously, PID present under `launchctl print`). This wasn't a crash or an outage.",
+          "What actually happened: at 11:32:27 and again at 11:33:53 IST, Jonas hit the error `amazon-bedrock/global.anthropic.claude-sonnet-5 request failed. rawError=Provider completed tool call with malformed JSON..."
         ],
         "yesterday": [
           "[15:01 IST] HADERACH: Valid docx, structure intact \u2014 64 paragraphs, 3 tables all matching the source PDF's structure (5\u00d73, 4\u00d74, 11\u00d72). Here's the Word version of Project Tej.",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.56,
-      "cpu": 0.3,
+      "rss_gb": 0.55,
+      "cpu": 1.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2423,8 +2423,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.47,
-      "cpu": 1.2,
+      "rss_gb": 0.49,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2618,28 +2618,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1789538406323,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
-          "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789536610172,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1789529651680,
+          "last_ts": 1789540450970,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2648,7 +2630,25 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1789529651679,
+          "last_ts": 1789540450969,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "enabled": true,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1789540212309,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789540212309,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2683,10 +2683,6 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-09-16",
-          "# Self-healing rotation from transcript-2026-09-15.md at 08:15 IST",
-          "[19:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[08:15 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[08:15 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
           "[08:15 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[08:15 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
@@ -2722,7 +2718,11 @@
           "[11:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
           "[11:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
           "[11:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[11:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[11:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[12:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
+          "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script.",
+          "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: Running the transcript logger now."
         ],
         "yesterday": [
           "Sir, she will of course meet you in person soon once you take charge, but let me share a brief about her in the meantime:",
@@ -2849,7 +2849,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.52,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3705,7 +3705,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.38,
-      "cpu": 0.1,
+      "cpu": 0.9,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3884,7 +3884,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3914,7 +3914,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4314,8 +4314,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.46,
-      "cpu": 0.6,
+      "rss_gb": 0.55,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
