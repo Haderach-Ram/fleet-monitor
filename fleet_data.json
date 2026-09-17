@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 18:49:28 IST",
-  "generated_epoch": 1789651168,
+  "generated_ist": "2026-09-17 18:54:35 IST",
+  "generated_epoch": 1789651475,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.80 / 2.77 / 2.59",
+    "load": "2.31 / 2.47 / 2.50",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 0.88,
-      "cpu": 2.0,
+      "rss_gb": 0.81,
+      "cpu": 1.5,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789650905605,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789651255617,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,16 +693,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789650626606,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789650626606,
+          "last_ts": 1789651255616,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +702,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789650626605,
+          "last_ts": 1789651255616,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789650905605,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,11 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[15:52 IST] HADERACH: Tool access itself is fine, Ram \u2014 I just pulled the session transcript directly and checked config, no trouble reading or accessing anything on my end.",
-          "The actual problem is on the delivery side. The message you replied to (the 13:00 consolidation confirmation) went out as a Telegram Bot API 10.1 rich message, and your client couldn't render it, showing that \"unsupported\" placeholder \u2014 same failure mode we hit on 26 June and 7 July, where a client version mismatch chokes on the newer rich-me...",
-          "[16:09 IST] RAM: Send me draft instructions which I will paste to GisKard",
-          "[16:09 IST] HADERACH: Giskard \u2014 please update Haderach's Telegram config:",
-          "channels.telegram.richMessages = false",
           "This turns off Bot API 10.1 rich-message sending at the platform level. Currently it's still set to true, which is why cron-delivered messages (like consolidation confirmations) are going out as rich payloads that some Telegram clients render as \"not supported\" placeholders.",
           "Standard procedure:",
           "1. cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak-$(date +%Y%m%d-%H%M%S)",
@@ -1631,7 +1626,12 @@
           "RSS: No new articles.",
           "Twitter findings (filtered for relevance):",
           "\u2713 **INVESTOR EVENT** \u2014 Speedy Stox / 17 Sep 11:57 UTC: SCL scheduled investor meetings **21 Sep 2026 at BofA Securities Asia Pacific Conference** (one-on-one + group, in-person). CMP \u20b9142.20, MCap \u20b916,517 Cr. *[Material: upcoming investor day]*",
-          "\u2713 **LEADERSHIP** \u2014 ET BFSI / 16 Sep: Dharmvir Singh (CTO, SCL) speaking at ETBFSI NBFC Leaders' Retreat 2026 on tech infrastructure & c..."
+          "\u2713 **LEADERSHIP** \u2014 ET BFSI / 16 Sep: Dharmvir Singh (CTO, SCL) speaking at ETBFSI NBFC Leaders' Retreat 2026 on tech infrastructure & c...",
+          "[18:49 IST] RAM: Does Purl have all the skills capabilities that you have?",
+          "[18:49 IST] HADERACH: No \u2014 Purl has a meaningfully smaller capability set than I do, on both skills and plugins.",
+          "Skills: Purl's workspace has 17 skills installed (academic-deep-research, apple-calendar-macos, apple-notes, bedrock-image-skill, document-summary, excel-xlsx, himalaya, image-edit-skill, infofreedom, moltguard, powerpoint, powerpoint-pptx, summarize, things-mac, twitacc, weather, web-search-exa, word-docx), plus browser-automation and canvas as plugin-skills. I have well over 50 in my own workspace sk...",
+          "[18:49 IST] HADERACH: No \u2014 Purl has a meaningfully smaller capability set than I do, on both skills and plugins.",
+          "Skills: Purl's workspace has 17 skills installed (academic-deep-research, apple-calendar-macos, apple-notes, bedrock-image-skill, document-summary, excel-xlsx, himalaya, image-edit-skill, infofreedom, moltguard, powerpoint, powerpoint-pptx, summarize, things-mac, twitacc, weather, web-search-exa, word-docx), plus browser-automation and canvas as plugin-skills. I have well over 50 in my own workspace sk..."
         ],
         "yesterday": [
           "   - SCL has scheduled one-on-one and group meetings at Jefferies 5th India Forum on September 18",
@@ -1801,8 +1801,8 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1789649406928,
-          "last_status": "ok",
+          "last_ts": 1789651332609,
+          "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
@@ -2471,7 +2471,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.74,
-      "cpu": 1.2,
+      "cpu": 0.9,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2898,7 +2898,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 1.3,
+      "cpu": 1.1,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3766,8 +3766,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1404,
-      "rss_gb": 0.39,
-      "cpu": 0.2,
+      "rss_gb": 0.4,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3940,8 +3940,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1403,
-      "rss_gb": 0.3,
-      "cpu": 0.4,
+      "rss_gb": 0.29,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3971,7 +3971,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.8,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4372,7 +4372,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.51,
-      "cpu": 1.7,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
