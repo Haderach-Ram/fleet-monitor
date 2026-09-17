@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 20:57:35 IST",
-  "generated_epoch": 1789658855,
+  "generated_ist": "2026-09-17 21:02:42 IST",
+  "generated_epoch": 1789659162,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.14 / 2.39 / 2.43",
+    "load": "4.39 / 3.20 / 2.73",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 0.85,
+      "rss_gb": 0.99,
       "cpu": 1.1,
       "crons_total": 101,
       "crons_enabled": 65,
@@ -681,10 +681,28 @@
       ],
       "crons": [
         {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1789659157857,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1789659157857,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789658426067,
+          "last_ts": 1789659121668,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +711,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789658426066,
+          "last_ts": 1789659121667,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
+          "enabled": true,
+          "sched": "0 0,3,6,18,21 * * *",
+          "last_ts": 1789659121667,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +729,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789658426066,
+          "last_ts": 1789659121666,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -726,15 +753,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1789655479561,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Martin \u2014 Daily FX Rates Update",
           "enabled": true,
           "sched": "30 18 * * 1-5",
@@ -748,24 +766,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1789648737991,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1789648737990,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
-          "enabled": true,
-          "sched": "0 0,3,6,18,21 * * *",
-          "last_ts": 1789648673721,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:09 IST] HADERACH: Giskard \u2014 please update Haderach's Telegram config:",
           "channels.telegram.richMessages = false",
           "This turns off Bot API 10.1 rich-message sending at the platform level. Currently it's still set to true, which is why cron-delivered messages (like consolidation confirmations) are going out as rich payloads that some Telegram clients render as \"not supported\" placeholders.",
           "Standard procedure:",
@@ -1631,7 +1630,8 @@
           "--- [TRANSCRIPT GAP: 19:30 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:40 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 20:40 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 21:01 IST \u2014 session empty for 131 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "   - SCL has scheduled one-on-one and group meetings at Jefferies 5th India Forum on September 18",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.6,
-      "cpu": 0.8,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1797,6 +1797,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1789659005984,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
@@ -1846,15 +1855,6 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
           "enabled": true,
           "sched": "0 0,3 * * *",
-          "last_ts": 1789594220274,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
           "last_ts": 1789594220274,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2471,7 +2471,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.76,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2665,19 +2665,19 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1789657206903,
+          "sched": "0 6-21 * * *",
+          "last_ts": 1789659012133,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789655410851,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789659012133,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2730,7 +2730,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:11 IST] PURL: Let me pull the actual PSB Relevance content we built for the Jyotsna deck yesterday \u2014 it's the closest match to \"Huge Potential for Public Sector Banks.\"",
           "[18:11 IST] PURL: Perfect, this is exactly the right raw material. Now let me build Slide 4's content matching that logic and the deck's existing visual style (trapezoid diagram similar to slide 3, or a clean 3-box layout matching slide 5's \"PSB Relevance\" structure).",
           "[18:13 IST] PURL: Now let's build Slide 4's content \u2014 pulling directly from the PSB relevance framing we developed for the Jyotsna deck, matched to this deck's visual style (dashed-border boxes, navy/gold palette, Verdana/Exo 2 fonts).",
           "[18:15 IST] PURL: Now let's render and QA the result.",
@@ -2769,7 +2768,8 @@
           "[19:55 IST] PURL: Running heartbeat checks silently.",
           "[19:56 IST] PURL: 6+ hours since last ProtonMail check, active hours. Let me check inbox.",
           "[20:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[20:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you."
+          "[20:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script for you.",
+          "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "- **Status:** All sessions processed",
@@ -2898,7 +2898,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 0.8,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2922,21 +2922,21 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
+          "enabled": true,
+          "sched": "0 6,14,21 * * *",
+          "last_ts": 1789659016804,
+          "last_status": "ok",
+          "model": "(agent default)",
+          "kind": "agentTurn"
+        },
+        {
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "10 */3 * * *",
           "last_ts": 1789648807259,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
-          "enabled": true,
-          "sched": "0 6,14,21 * * *",
-          "last_ts": 1789633816495,
-          "last_status": "ok",
-          "model": "(agent default)",
           "kind": "agentTurn"
         },
         {
@@ -3767,7 +3767,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.39,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3941,7 +3941,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3971,7 +3971,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4372,7 +4372,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.51,
-      "cpu": 0.8,
+      "cpu": 1.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
