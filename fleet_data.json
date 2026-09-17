@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 13:20:44 IST",
-  "generated_epoch": 1789631444,
+  "generated_ist": "2026-09-17 13:25:51 IST",
+  "generated_epoch": 1789631751,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.65 / 3.56 / 4.47",
+    "load": "3.04 / 3.32 / 4.10",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.24,
-      "cpu": 0.9,
+      "rss_gb": 1.39,
+      "cpu": 1.0,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,42 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789631693578,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789631693577,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789631693577,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789631693577,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -694,33 +730,6 @@
           "enabled": true,
           "sched": "10 13 * * *",
           "last_ts": 1789630841860,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789630841860,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789630841859,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789630841858,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -741,15 +750,6 @@
           "last_ts": 1789630648659,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789630648658,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1592,8 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[09:51 IST] RAM: SSH into the M2 and check why sonnet 5 is failing on Jonas. Any solutions?",
-          "[09:51 IST] HADERACH: Now let's SSH into M2 and check Jonas's live config and logs directly.",
           "[09:53 IST] HADERACH: SSH'd in and confirmed directly, Ram. Same root cause as the Sandip incident on 4 Sep, this is not new and not Jonas-specific.",
           "Jonas is healthy (port 18793, PID alive, `/health` OK) \u2014 this isn't a crash. At 09:24:05 IST this morning he hit `amazon-bedrock/global.anthropic.claude-sonnet-5 request failed. rawError=Provider completed tool call with malformed JSON arguments` while replying in the Agastya Treasury group, and the turn errored out after ~41 seconds instead of falling back.",
           "It's a ...",
@@ -1631,7 +1629,9 @@
           "[12:37 IST] HADERACH: Yes \u2014 under this Master Direction (RBI's NBFC \u2013 Transfer and Distribution of Credit Risk Directions, 2025, Part A), an NBFC can sell its NPA (stressed) loans to other banks and NBFCs, but only within a specific permitted framework.",
           "Paragraph 58 states it directly: \"In general, NBFC shall transfer stressed loans, including through bilateral sales, only to permitted transferees and ARCs.\" The Directions define \"permitted transferees\" (para 12(8)) as Scheduled Commercial Banks, the All India Fi...",
           "[12:38 IST] HADERACH: Yes \u2014 under this Master Direction (RBI's NBFC \u2013 Transfer and Distribution of Credit Risk Directions, 2025, Part A), an NBFC can sell its NPA (stressed) loans to other banks and NBFCs, but only within a specific permitted framework.",
-          "Paragraph 58 states it directly: \"In general, NBFC shall transfer stressed loans, including through bilateral sales, only to permitted transferees and ARCs.\" The Directions define \"permitted transferees\" (para 12(8)) as Scheduled Commercial Banks, the All India Fi..."
+          "Paragraph 58 states it directly: \"In general, NBFC shall transfer stressed loans, including through bilateral sales, only to permitted transferees and ARCs.\" The Directions define \"permitted transferees\" (para 12(8)) as Scheduled Commercial Banks, the All India Fi...",
+          "[13:10 IST] HADERACH: \u2705 **13:00 consolidation confirmed** \u2014 `lastConsolidation` shows `2026-09-17T13:05:00+05:30`, which is from today (5 minutes ago). System is healthy.",
+          "**NO_REPLY** to user \u2014 consolidation is current."
         ],
         "yesterday": [
           "   - SCL has scheduled one-on-one and group meetings at Jefferies 5th India Forum on September 18",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.71,
-      "cpu": 3.3,
+      "rss_gb": 0.59,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.71,
-      "cpu": 1.5,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2874,7 +2874,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3740,8 +3740,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1404,
-      "rss_gb": 0.39,
-      "cpu": 1.0,
+      "rss_gb": 0.4,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3914,8 +3914,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1403,
-      "rss_gb": 0.29,
-      "cpu": 0.5,
+      "rss_gb": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3945,7 +3945,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4346,7 +4346,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.48,
-      "cpu": 1.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
