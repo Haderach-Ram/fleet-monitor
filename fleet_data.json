@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 09:09:41 IST",
-  "generated_epoch": 1789616381,
+  "generated_ist": "2026-09-17 09:14:47 IST",
+  "generated_epoch": 1789616687,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.64 / 3.29 / 2.76",
+    "load": "3.07 / 3.48 / 3.01",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.13,
-      "cpu": 0.5,
+      "rss_gb": 1.11,
+      "cpu": 1.0,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789616435246,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789616435246,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789616435245,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL NSE Filings \u2014 Daily Fetch",
+          "enabled": true,
+          "sched": "10 9 * * *",
+          "last_ts": 1789616435245,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -744,37 +780,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789616136169,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789616136168,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1789616136168,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789616136155,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1029,15 +1038,6 @@
           "last_ts": 1789532596347,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL NSE Filings \u2014 Daily Fetch",
-          "enabled": true,
-          "sched": "10 9 * * *",
-          "last_ts": 1789532596343,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1592,12 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:19 IST] RAM: Check on Purl pls. She sent this message:",
-          "\ud83e\uddf6 **Purl midnight cron: MISMATCH DETECTED**",
-          "Memory log: `/Users/ram_macmini/.openclaw-purl/workspace/memory/2026-09-17.md` was **missing**.",
-          "But `transcript-2026-09-17.md` had **59 lines** of real activity \u2014 daily-log write failed silently.",
-          "Rolling files (7/28/180-day) marked as **MISMATCH**, not a false \"no-activity\" stub.",
-          "Root cause not yet diagnosed. Will investigate on next hourly cron or when Purl wakes up.",
           "[07:20 IST] HADERACH: Checked it out. Purl's fine, nothing's actually lost, it's a timing/boundary bug, not a real failure.",
           "Here's what happened. Late on the 16th (21:03 to 21:53 IST), Purl and Gari had the GitHub-backup-setup discussion (the one about no repo/no token existing for Purl). That conversation should have landed in memory/2026-09-16.md, but the daily-log write for it never fired before midnight. At 00:04 IST the transcript self-healing rotation kicked in for the new day and, correctly per its design,...",
           "[07:21 IST] HADERACH: Checked it out. Purl's fine, nothing's actually lost, it's a timing/boundary bug, not a real failure.",
@@ -1631,7 +1625,13 @@
           "- **Equity:** 3,669 rows",
           "- **F&O:** 35,657 rows",
           "Market data refreshed and ready. No errors.",
-          "--- [TRANSCRIPT GAP: 09:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 09:03 IST \u2014 session empty for 33 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "[09:06 IST] HADERACH: ## SCL Media Monitor \u2014 09:05 IST, 17 Sep 2026",
+          "**RSS articles:** No new SCL articles found.",
+          "**Twitter findings:**",
+          "**Sammaan Capital search \u2014 7 results:**",
+          "- \u2713 **IMPORTANT: Investor meetings** (Speedy Stox, 14h ago) \u2014 SCL scheduled investor meetings Sept 21 at BofA Securities 2026 Asia Pacific Conference (one-on-one + group, in-person). CMP \u20b9142.20.",
+          "- \u2713 **Media coverage** (ET BFSI, 15h ago) \u2014 Dharmvir Singh (SCL CTO) speaking at ETBFSI NBFC Leaders' Retreat 2026 on tech, cybersecurity, automa..."
         ],
         "yesterday": [
           "   - SCL has scheduled one-on-one and group meetings at Jefferies 5th India Forum on September 18",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.57,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.75,
-      "cpu": 0.3,
+      "cpu": 0.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2874,7 +2874,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2901,7 +2901,7 @@
           "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
           "enabled": true,
           "sched": "10 */3 * * *",
-          "last_ts": 1789605607090,
+          "last_ts": 1789616408182,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3741,7 +3741,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.39,
-      "cpu": 0.1,
+      "cpu": 6.9,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3915,7 +3915,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 1.0,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3945,7 +3945,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4345,8 +4345,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.51,
-      "cpu": 1.0,
+      "rss_gb": 0.52,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
