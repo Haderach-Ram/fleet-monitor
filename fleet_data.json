@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 10:21:16 IST",
-  "generated_epoch": 1789620676,
+  "generated_ist": "2026-09-17 10:26:22 IST",
+  "generated_epoch": 1789620982,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.93 / 2.34 / 2.54",
+    "load": "2.32 / 2.49 / 2.58",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.25,
-      "cpu": 133.1,
+      "rss_gb": 1.26,
+      "cpu": 0.6,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1789620049673,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789620890853,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,16 +693,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789620025237,
+          "last_ts": 1789620890852,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789620025237,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789620890852,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +711,16 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789620025236,
+          "last_ts": 1789620890851,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1789620049673,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -730,15 +739,6 @@
           "enabled": true,
           "sched": "0 10 * * *",
           "last_ts": 1789619608499,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789619608498,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,11 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:32 IST] HADERACH: Now the real count (120) after excluding the 53-line carryover is a genuine positive \u2014 because Purl's own heartbeat at 01:56 IST *did* run and write things after midnight, that's real same-day activity, not a false positive. Good \u2014 the script correctly distinguishes carryover from genuinely new post-midnight activity. Now let's update the cron job's prompt to use this script instead of raw `wc -l`.",
-          "[07:32 IST] HADERACH: Good. Now let's write this back into the sqlite cron_jobs table (both `job_json` and `payload_message` columns need updating).",
-          "[07:32 IST] HADERACH: Good, the full message assembled cleanly with STEP 3/4/5 intact. Now write to sqlite (already backed up above):",
-          "[07:32 IST] HADERACH: Now verify the update landed and check whether the live cron system picks up sqlite changes hot, or needs a restart:",
-          "[07:33 IST] HADERACH: Done. Purl's Midnight Rolling Summary cron (job `d0c23ddb`) now has a real fix, not just a diagnosis.",
           "I built a new script, `count_real_transcript_lines.py`, that reads today's transcript and explicitly excludes the rotation-carryover block (everything between the `[ROTATION: ...]` marker and the next bookmark) before counting lines. That carryover block is, by construction of the self-healing date-rotation mechanism, always yesterday's unconsolidated tail, never today's actual activity, so ...",
           "[07:33 IST] HADERACH: Done. Purl's Midnight Rolling Summary cron (job `d0c23ddb`) now has a real fix, not just a diagnosis.",
           "I built a new script, `count_real_transcript_lines.py`, that reads today's transcript and explicitly excludes the rotation-carryover block (everything between the `[ROTATION: ...]` marker and the next bookmark) before counting lines. That carryover block is, by construction of the self-healing date-rotation mechanism, always yesterday's unconsolidated tail, never today's actual activity, so ...",
@@ -1631,7 +1626,12 @@
           "It's a ...",
           "[09:54 IST] HADERACH: SSH'd in and confirmed directly, Ram. Same root cause as the Sandip incident on 4 Sep, this is not new and not Jonas-specific.",
           "Jonas is healthy (port 18793, PID alive, `/health` OK) \u2014 this isn't a crash. At 09:24:05 IST this morning he hit `amazon-bedrock/global.anthropic.claude-sonnet-5 request failed. rawError=Provider completed tool call with malformed JSON arguments` while replying in the Agastya Treasury group, and the turn errored out after ~41 seconds instead of falling back.",
-          "It's a ..."
+          "It's a ...",
+          "[10:19 IST] RAM: Check the RBI regulations around submission of cata to CRILC. Whicha ll entities are required to submit data to CRILC?",
+          "[10:23 IST] HADERACH: Ram, I pulled this from the RBI Master Directions library (RBI Regulations folder, cross-checked against the current, updated-as-on-1-Jul-2026 text) rather than memory, since thresholds and frequencies have actually moved since the original 2016 circular.",
+          "CRILC is the Central Repository of Information on Large Credits, a database RBI set up (originally via a February 2014 Department of Banking Supervision circular) to collect and share borrower-level credit exposure data across lenders, prim...",
+          "[10:23 IST] HADERACH: Ram, I pulled this from the RBI Master Directions library (RBI Regulations folder, cross-checked against the current, updated-as-on-1-Jul-2026 text) rather than memory, since thresholds and frequencies have actually moved since the original 2016 circular.",
+          "CRILC is the Central Repository of Information on Large Credits, a database RBI set up (originally via a February 2014 Department of Banking Supervision circular) to collect and share borrower-level credit exposure data across lenders, prim..."
         ],
         "yesterday": [
           "   - SCL has scheduled one-on-one and group meetings at Jefferies 5th India Forum on September 18",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.68,
-      "cpu": 0.9,
+      "rss_gb": 0.56,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.74,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2874,7 +2874,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 0.9,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3740,7 +3740,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1404,
-      "rss_gb": 0.39,
+      "rss_gb": 0.4,
       "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
@@ -3915,7 +3915,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4346,7 +4346,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.52,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
