@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 07:47:52 IST",
-  "generated_epoch": 1789611472,
+  "generated_ist": "2026-09-17 07:53:00 IST",
+  "generated_epoch": 1789611780,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.12 / 2.64 / 2.22",
+    "load": "2.91 / 2.97 / 2.51",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.16,
-      "cpu": 0.3,
+      "rss_gb": 1.38,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,19 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789611757699,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789611026686,
+          "last_ts": 1789611757698,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,18 +702,18 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789611026686,
+          "last_ts": 1789611757698,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Ecosystem Digest \u2014 07:45 IST daily",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789611026686,
+          "sched": "45 7 * * *",
+          "last_ts": 1789611729425,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1046,15 +1055,6 @@
           "sched": "0 1 * * 3,6",
           "last_ts": 1789531240187,
           "last_status": "error",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Ecosystem Digest \u2014 07:45 IST daily",
-          "enabled": true,
-          "sched": "45 7 * * *",
-          "last_ts": 1789531240182,
-          "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
@@ -1592,10 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 07:01 IST \u2014 session empty for 51 min AND no transcript writes for 11 min. No zombie lock. Possible gateway issue.] ---",
-          "[07:11 IST] RAM: [User sent media without caption]",
-          "[07:14 IST] HADERACH: The 16 words are:",
-          "SPRING, SUBWAY STATION, PRESTIGE, TRIANGLE, TAP, GIVE, LANGUAGE, FOUNTAIN, WELL, BOUNCE, SEWER LINE, HANDLES, SHEEP DETECTIVES, MINE SHAFT, FLEXIBILITY, WOLVERINE",
           "The theme I'm hunting for is things that go underground. SPRING, SUBWAY STATION, SEWER LINE, MINE SHAFT, WELL \u2014 that's five, so one of those belongs elsewhere.",
           "Let me think differently. What if the connection is \"_water_\" features: SPRING, WELL, FOUNTAIN, TAP \u2014 all sources/delivery points of water. That's a clea...",
           "[07:14 IST] HADERACH: \u21aa\ufe0f Model Fallback: amazon-bedrock/global.anthropic.claude-sonnet-4-6 (selected amazon-bedrock/global.anthropic.claude-sonnet-5; format)",
@@ -1631,7 +1627,11 @@
           "[07:33 IST] HADERACH: Done. Purl's Midnight Rolling Summary cron (job `d0c23ddb`) now has a real fix, not just a diagnosis.",
           "I built a new script, `count_real_transcript_lines.py`, that reads today's transcript and explicitly excludes the rotation-carryover block (everything between the `[ROTATION: ...]` marker and the next bookmark) before counting lines. That carryover block is, by construction of the self-healing date-rotation mechanism, always yesterday's unconsolidated tail, never today's actual activity, so ...",
           "[07:33 IST] HADERACH: Done. Purl's Midnight Rolling Summary cron (job `d0c23ddb`) now has a real fix, not just a diagnosis.",
-          "I built a new script, `count_real_transcript_lines.py`, that reads today's transcript and explicitly excludes the rotation-carryover block (everything between the `[ROTATION: ...]` marker and the next bookmark) before counting lines. That carryover block is, by construction of the self-healing date-rotation mechanism, always yesterday's unconsolidated tail, never today's actual activity, so ..."
+          "I built a new script, `count_real_transcript_lines.py`, that reads today's transcript and explicitly excludes the rotation-carryover block (everything between the `[ROTATION: ...]` marker and the next bookmark) before counting lines. That carryover block is, by construction of the self-healing date-rotation mechanism, always yesterday's unconsolidated tail, never today's actual activity, so ...",
+          "[07:52 IST] HADERACH: 236 chars, under 260. Good.",
+          "\ud83e\udd9e Digest live: https://haderach-ram.github.io/openclaw-radar/digest/daily/2026/09/17/daily-digest.html \u00b7 Most active: ZeroClaw (14 new issues) \u00b7 draCuLAW traffic (7d): 0 PV \u00b7 Top page: homepage (/openclaw-radar)",
+          "\ud83d\udc26 Draft tweet (reply \"send it\" to post):",
+          "ZeroClaw just dropped 14 new issues in a single day while everyone's eyes are on OpenClaw's PR count \u2014 the real churn is in the challenger repos rn. https://haderach-ram.github.io/openclaw-radar/digest/daily/2026/0..."
         ],
         "yesterday": [
           "   - SCL has scheduled one-on-one and group meetings at Jefferies 5th India Forum on September 18",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.56,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1801,7 +1801,7 @@
           "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
           "sched": "20,50 6-18 * * *",
-          "last_ts": 1789609806008,
+          "last_ts": 1789611606083,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.74,
-      "cpu": 0.5,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2874,7 +2874,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3896,7 +3896,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3926,7 +3926,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4327,7 +4327,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.51,
-      "cpu": 0.8,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
