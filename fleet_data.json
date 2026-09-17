@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-17 10:26:22 IST",
-  "generated_epoch": 1789620982,
+  "generated_ist": "2026-09-17 10:31:28 IST",
+  "generated_epoch": 1789621288,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.32 / 2.49 / 2.58",
+    "load": "2.33 / 2.48 / 2.55",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1401,
-      "rss_gb": 1.26,
-      "cpu": 0.6,
+      "rss_gb": 1.24,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789620890853,
+          "last_ts": 1789621224254,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,16 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789620890852,
+          "last_ts": 1789621224253,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789621224253,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -703,15 +712,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1789620890852,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789620890851,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2446,8 +2446,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.74,
-      "cpu": 0.6,
+      "rss_gb": 0.79,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2641,18 +2641,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789619412088,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789621207007,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 6-21 * * *",
           "last_ts": 1789619412088,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2706,10 +2706,6 @@
       ],
       "transcripts": {
         "recent": [
-          "HEARTBEAT_OK",
-          "[08:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[07:55 IST] PURL: Running heartbeat checks now.",
-          "[07:55 IST] PURL: **Heartbeat at 07:55 IST (Thu 2026-09-17):**",
           "**1. Session Save** \u2014 Append to today's memory:",
           "[07:56 IST] PURL: **2. ProtonMail Inbox Check** \u2014 Currently 07:55 IST (active hours, between 07:00\u201323:00). Should check, but let me verify the script is available first:",
           "[07:56 IST] PURL: Script exists. Let me attempt the check with a short timeout:",
@@ -2745,7 +2741,11 @@
           "[09:55 IST] PURL: All caught up, Gari \u2014 the ProtonMail check finished (it was just hanging on a `networkidle` wait that Proton's inbox never fully satisfies, since it keeps background connections open). I fixed the script to wait on `domcontentloaded` instead, and it now loads in a few seconds.",
           "**ProtonMail inbox (purl_gari@proton.me):** All 15 messages are ones we've already seen before \u2014 Proton marketing/official emails, the old test email thread, and the `Fwd:` from your Gmail back on 7 Aug. **Nothing new.** \ud83d\udced",
           "Also fixed the script permanently so this doesn't hang again on future heartbeats.",
-          "Still open..."
+          "Still open...",
+          "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
+          "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Script completed successfully. The transcript logger processed the sessions and appended 3 messages to the main transcript with bookmarks updated.",
+          "HEARTBEAT_OK",
+          "[10:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "- **Status:** All sessions processed",
@@ -2874,7 +2874,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.54,
-      "cpu": 0.6,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3740,7 +3740,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1404,
-      "rss_gb": 0.4,
+      "rss_gb": 0.39,
       "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
@@ -4346,7 +4346,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.52,
-      "cpu": 0.4,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
