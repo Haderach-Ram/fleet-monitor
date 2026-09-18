@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-18 10:27:27 IST",
-  "generated_epoch": 1789707447,
+  "generated_ist": "2026-09-18 10:32:35 IST",
+  "generated_epoch": 1789707755,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.49 / 2.14 / 2.30",
+    "load": "2.23 / 2.17 / 2.25",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.17,
-      "cpu": 2.1,
+      "rss_gb": 1.11,
+      "cpu": 1.8,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,19 +681,28 @@
       ],
       "crons": [
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789707179769,
+          "last_ts": 1789707625132,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1789707179768,
+          "last_ts": 1789707625132,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789707625132,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -703,15 +712,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1789707179768,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789707179767,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,16 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:43 IST] RAM: Can you make out if an a write-up is written by AI?",
-          "[07:43 IST] HADERACH: Not with certainty, Ram \u2014 no tool or method reliably proves AI authorship, and even the classifiers Anthropic and OpenAI once shipped for this were retired because false-positive rates were too high to trust. What I can do is point to heuristic signals that make AI authorship more or less likely, without being proof:",
-          "Signals that lean AI-written: heavy use of em dashes and semicolons as connective tissue, a very even-handed \"on one hand, on the other hand\" structure with little authorial voi...",
-          "[07:44 IST] HADERACH: Not with certainty, Ram \u2014 no tool or method reliably proves AI authorship, and even the classifiers Anthropic and OpenAI once shipped for this were retired because false-positive rates were too high to trust. What I can do is point to heuristic signals that make AI authorship more or less likely, without being proof:",
-          "Signals that lean AI-written: heavy use of em dashes and semicolons as connective tissue, a very even-handed \"on one hand, on the other hand\" structure with little authorial voi...",
-          "[07:46 IST] RAM: Yes, check the Rupani article and this too",
-          "[07:47 IST] HADERACH: Found the URL. Let me fetch the Rupani article directly for the AI-detection pass.",
-          "[07:47 IST] HADERACH: Ram, I read the Rupani article in full and looked closely at the Modi opinion piece by P V Sindhu. Here's my read on each, flagged as informed heuristic, not a verdict.",
-          "The Rupani BTA article reads as human-written to me. It has the specific tells I'd expect from a person, not a model: inconsistent apostrophe usage (\"it's corporate structure\" where it should be \"its,\" \"parent's bid\" used correctly elsewhere, inconsistent), colloquial asides that break the formal register (\"Seems like a prett...",
-          "[07:48 IST] HADERACH: Ram, I read the Rupani article in full and looked closely at the Modi opinion piece by P V Sindhu. Here's my read on each, flagged as informed heuristic, not a verdict.",
           "The Rupani BTA article reads as human-written to me. It has the specific tells I'd expect from a person, not a model: inconsistent apostrophe usage (\"it's corporate structure\" where it should be \"its,\" \"parent's bid\" used correctly elsewhere, inconsistent), colloquial asides that break the formal register (\"Seems like a prett...",
           "[08:30 IST] HADERACH: \u2713 NSE market bhavcopy ingestion complete. Yesterday's (2026-09-17) equity and F&O data successfully loaded into market.db \u2014 3,658 equity symbols and 35,879 F&O contracts. Script correctly skipped forward over the weekend to find Thursday's trading day.",
           "--- [TRANSCRIPT GAP: 09:02 IST \u2014 session empty for 32 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
@@ -1631,7 +1621,17 @@
           "S \u2014 Full (all files, full context, ~$0.075-0.135 startup + ~$6.75 full session)",
           "C \u2014 Compact (all memory files, skip transcript tail + rolling-7day, ~$0.054-0.066 startup + ~$5.25 full session)",
           "X \u2014 Express (daily summary only + critical files, ~$0.015-0.021 startup + ~$3.75 full session)",
-          "Let me know which, and I'll pull up the full history of memory-system augmentations over the transcript architecture straight after."
+          "Let me know which, and I'll pull up the full history of memory-system augmentations over the transcript architecture straight after.",
+          "[10:22 IST] RAM: X",
+          "[10:24 IST] HADERACH: Since Compact/Full context isn't loaded (you picked X), I'm answering from what's already in AGENTS.md plus a memory search on the original design conversation \u2014 happy to go deeper in C or S mode if you want more granularity.",
+          "The transcript system itself, as we built it back on 5 April 2026, was the foundation: a daily file (memory/transcript-YYYY-MM-DD.md) that captures every exchange verbatim, immune to compaction, with three bookmark types \u2014 a routine checkpoint every 10-15 minutes, a MEM...",
+          "[10:25 IST] HADERACH: Since Compact/Full context isn't loaded (you picked X), I'm answering from what's already in AGENTS.md plus a memory search on the original design conversation \u2014 happy to go deeper in C or S mode if you want more granularity.",
+          "The transcript system itself, as we built it back on 5 April 2026, was the foundation: a daily file (memory/transcript-YYYY-MM-DD.md) that captures every exchange verbatim, immune to compaction, with three bookmark types \u2014 a routine checkpoint every 10-15 minutes, a MEM...",
+          "[10:26 IST] RAM: Do a proper check and reply. Because you said: Since Compact/Full context isn't loaded (you picked X), I'm answering from what's already in AGENTS.md plus a memory search on the original design conversation \u2014 happy to go deeper in C or S mode if you want more granularity.",
+          "[10:27 IST] HADERACH: You're right to push \u2014 that first answer was a fair outline but it was built loosely off AGENTS.md's summary language plus a shallow memory_search, not a proper sourced check. I've now gone through decisions.md, the actual Memory Architecture Report v3 (1 Apr 2026), dead-ends.md, and the HAD-054 transcripts directly. Here's the corrected, source-checked version, in order.",
+          "The transcript system went live 2 April 2026 as a formal decision (\"Single-Path Transcript Memory System\") \u2014 Source: memo...",
+          "[10:28 IST] HADERACH: You're right to push \u2014 that first answer was a fair outline but it was built loosely off AGENTS.md's summary language plus a shallow memory_search, not a proper sourced check. I've now gone through decisions.md, the actual Memory Architecture Report v3 (1 Apr 2026), dead-ends.md, and the HAD-054 transcripts directly. Here's the corrected, source-checked version, in order.",
+          "The transcript system went live 2 April 2026 as a formal decision (\"Single-Path Transcript Memory System\") \u2014 Source: memo..."
         ],
         "yesterday": [
           "[17:25 IST] HADERACH: Latest published version (npm dist-tags, checked live just now): 2026.9.4 \u2014 that's also the \"latest\" tag. There's also an \"extended-stable\" track at 2026.6.35 for those who want a more conservative line without jumping to the 9.x series.",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.56,
-      "cpu": 0.8,
+      "rss_gb": 0.57,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.74,
-      "cpu": 0.6,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2641,18 +2641,18 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
-          "sched": "0 6-21 * * *",
-          "last_ts": 1789705811672,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1789707605946,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
-          "sched": "*/30 6-23 * * *",
+          "sched": "0 6-21 * * *",
           "last_ts": 1789705811672,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2706,9 +2706,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[07:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[07:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "## [07:55 IST] HEARTBEAT CHECKPOINT",
@@ -2745,7 +2742,10 @@
           "[09:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
           "[09:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. All checks done \u2014 no new messages in active transcripts, group session file not found (expected at quiet hour). Silent maintenance complete.",
           "[09:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
-          "[10:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[10:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K transcript logger script now.",
+          "[10:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
+          "[10:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "[18:11 IST] RAM: For now, reimagine slide 2, 3,4 only. Nothing else is required",
@@ -2873,8 +2873,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.54,
-      "cpu": 0.6,
+      "rss_gb": 0.53,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3742,7 +3742,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.4,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3917,7 +3917,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3947,7 +3947,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4348,7 +4348,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.52,
-      "cpu": 0.8,
+      "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
