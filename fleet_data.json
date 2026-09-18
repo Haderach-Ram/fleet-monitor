@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-18 10:37:42 IST",
-  "generated_epoch": 1789708062,
+  "generated_ist": "2026-09-18 10:42:50 IST",
+  "generated_epoch": 1789708370,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.49 / 2.10 / 2.16",
+    "load": "3.83 / 2.73 / 2.38",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.05,
-      "cpu": 1.5,
+      "rss_gb": 1.2,
+      "cpu": 106.9,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,24 @@
       ],
       "crons": [
         {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1789708368475,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1789708368475,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -694,24 +712,6 @@
           "enabled": true,
           "sched": "*/10 6-23 * * *",
           "last_ts": 1789707625132,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1789707625132,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1789707179768,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,11 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "The Rupani BTA article reads as human-written to me. It has the specific tells I'd expect from a person, not a model: inconsistent apostrophe usage (\"it's corporate structure\" where it should be \"its,\" \"parent's bid\" used correctly elsewhere, inconsistent), colloquial asides that break the formal register (\"Seems like a prett...",
-          "[08:30 IST] HADERACH: \u2713 NSE market bhavcopy ingestion complete. Yesterday's (2026-09-17) equity and F&O data successfully loaded into market.db \u2014 3,658 equity symbols and 35,879 F&O contracts. Script correctly skipped forward over the weekend to find Thursday's trading day.",
-          "--- [TRANSCRIPT GAP: 09:02 IST \u2014 session empty for 32 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
-          "[09:05 IST] HADERACH: ## Monitor Results \u2014 09:05 IST, 18 Sep 2026",
-          "**RSS Monitor:** No new SCL articles found.",
           "**Twitter / X \u2014 SCL Search:**",
           "Recovered 6 tweets, all non-critical:",
           "- **EduInvesting.in** (9h ago): Shareholding analysis post-IHC entry \u2014 routine commentary on Avenir's 28.5% anchor position.",
@@ -1631,7 +1626,12 @@
           "[10:27 IST] HADERACH: You're right to push \u2014 that first answer was a fair outline but it was built loosely off AGENTS.md's summary language plus a shallow memory_search, not a proper sourced check. I've now gone through decisions.md, the actual Memory Architecture Report v3 (1 Apr 2026), dead-ends.md, and the HAD-054 transcripts directly. Here's the corrected, source-checked version, in order.",
           "The transcript system went live 2 April 2026 as a formal decision (\"Single-Path Transcript Memory System\") \u2014 Source: memo...",
           "[10:28 IST] HADERACH: You're right to push \u2014 that first answer was a fair outline but it was built loosely off AGENTS.md's summary language plus a shallow memory_search, not a proper sourced check. I've now gone through decisions.md, the actual Memory Architecture Report v3 (1 Apr 2026), dead-ends.md, and the HAD-054 transcripts directly. Here's the corrected, source-checked version, in order.",
-          "The transcript system went live 2 April 2026 as a formal decision (\"Single-Path Transcript Memory System\") \u2014 Source: memo..."
+          "The transcript system went live 2 April 2026 as a formal decision (\"Single-Path Transcript Memory System\") \u2014 Source: memo...",
+          "[10:29 IST] RAM: Have the additions been useful or clunky and slowing things down?",
+          "[10:31 IST] HADERACH: Genuinely mixed, and I'd rather give you the honest split than a tidy \"it's all been great.\"",
+          "What's actually pulled its weight: the core three-layer stack \u2014 daily transcript, rolling-7day, and the newer self-model.md \u2014 earns its cost. Concrete evidence, not just my say-so: on 6 September the HAD-054 session hit a context overflow mid-reply, and because STATUS.md and the transcript had already captured the work, nothing was lost \u2014 I picked it back up cleanly next session. The wiki/capabilitie...",
+          "[10:31 IST] HADERACH: Genuinely mixed, and I'd rather give you the honest split than a tidy \"it's all been great.\"",
+          "What's actually pulled its weight: the core three-layer stack \u2014 daily transcript, rolling-7day, and the newer self-model.md \u2014 earns its cost. Concrete evidence, not just my say-so: on 6 September the HAD-054 session hit a context overflow mid-reply, and because STATUS.md and the transcript had already captured the work, nothing was lost \u2014 I picked it back up cleanly next session. The wiki/capabilitie..."
         ],
         "yesterday": [
           "[17:25 IST] HADERACH: Latest published version (npm dist-tags, checked live just now): 2026.9.4 \u2014 that's also the \"latest\" tag. There's also an \"extended-stable\" track at 2026.6.35 for those who want a more conservative line without jumping to the 9.x series.",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.58,
-      "cpu": 1.2,
+      "rss_gb": 0.57,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2447,7 +2447,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.74,
-      "cpu": 0.8,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2873,8 +2873,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.54,
-      "cpu": 0.9,
+      "rss_gb": 0.59,
+      "cpu": 0.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3917,7 +3917,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3947,7 +3947,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.7,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4348,7 +4348,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.52,
-      "cpu": 1.5,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
