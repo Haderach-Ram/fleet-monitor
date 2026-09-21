@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-22 00:09:23 IST",
-  "generated_epoch": 1790015963,
+  "generated_ist": "2026-09-22 00:14:30 IST",
+  "generated_epoch": 1790016270,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.50 / 2.69 / 2.43",
+    "load": "2.45 / 2.40 / 2.35",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.46,
-      "cpu": 1.4,
+      "rss_gb": 1.24,
+      "cpu": 0.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,60 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1790016000044,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1790016000043,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1790016000043,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1790016000042,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1790016000042,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1790016000041,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCM Mail Archive B \u2014 evening/overnight (6pm,9pm,12am,3am,6am IST)",
           "enabled": true,
           "sched": "0 0,3,6,18,21 * * *",
@@ -771,15 +825,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1790012289846,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -795,33 +840,6 @@
           "last_ts": 1790012053500,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1790004891679,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1790004891678,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1790001143902,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1041,15 +1059,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1789940082555,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1074,15 +1083,6 @@
           "last_ts": 1789936698110,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1789929326176,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1592,6 +1592,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-22",
+          "# Self-healing rotation from transcript-2026-09-21.md at 00:09 IST"
+        ],
+        "yesterday": [
           "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 34 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:44 IST \u2014 session empty for 54 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 15:04 IST \u2014 session empty for 74 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1632,48 +1636,6 @@
           "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 63 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "[23:08 IST] HADERACH: All steps completed successfully. Nightly Monk consolidation done \u2014 silent per instructions (NO_REPLY), no message sent to Ram.",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
-        ],
-        "yesterday": [
-          "[18:26 IST] HADERACH: Found it, Ram \u2014 and it was in my own transcript, not Herbie's or Legal-SMEDA's. 12 May 2026, 07:44 IST, you sent me a Google Maps pin (maps.app.goo.gl/NdZauKVthSKo22Tn8) asking what I thought about a plot you were planning to buy. Coordinates 13\u00b018'57.5\"N, 74\u00b042'59.7\"E \u2014 Katpadi, Karnataka, near Malpe/Udupi.",
-          "[18:26 IST] HADERACH: That's the full record I have \u2014 and notably, it stops at \"planning to buy,\" with me flagging CRZ risk. Nothing in memory confirms the purchase actually went through. Let me check if there's anything after 12 May tying up that thread.",
-          "[18:27 IST] HADERACH: Confirmed \u2014 that's the only mention in any workspace, mine or the others'. Here's the full picture, Ram:",
-          "On 12 May 2026, 07:44 IST, you sent me a Google Maps pin (maps.app.goo.gl/NdZauKVthSKo22Tn8) and said \"I'm planning to buy this plot of land.\" Coordinates 13\u00b018'57.5\"N, 74\u00b042'59.7\"E \u2014 Katpadi, Karnataka, near Malpe/Udupi. I identified it as sitting on a narrow coastal sandbar/spit between the Arabian Sea and the Udyavara River backwater, roughly 100\u2013150 metres wide at that point, and flag...",
-          "[18:27 IST] HADERACH: Confirmed \u2014 that's the only mention in any workspace, mine or the others'. Here's the full picture, Ram:",
-          "On 12 May 2026, 07:44 IST, you sent me a Google Maps pin (maps.app.goo.gl/NdZauKVthSKo22Tn8) and said \"I'm planning to buy this plot of land.\" Coordinates 13\u00b018'57.5\"N, 74\u00b042'59.7\"E \u2014 Katpadi, Karnataka, near Malpe/Udupi. I identified it as sitting on a narrow coastal sandbar/spit between the Arabian Sea and the Udyavara River backwater, roughly 100\u2013150 metres wide at that point, and flag...",
-          "[18:28 IST] RAM: Yes, I purchased it - update your records. I will send you the property papers later",
-          "[18:28 IST] HADERACH: Next available is PER-019. Creating a proper project entry for the land purchase now.",
-          "[18:29 IST] HADERACH: Now let me add PER-019 to the master project index.",
-          "[18:29 IST] HADERACH: Now let's update MEMORY.md's Open Issues and confirm the write there as the durable record too.",
-          "[18:30 IST] HADERACH: Records updated, Ram. Confirmed \u2014 you own the Katpadi land.",
-          "I've created **PER-019 \u2014 Katpadi Land (Udupi Coast)** as its own project (`projects/PER-019-katpadi-land/`), added it to the master project index, and logged it in MEMORY.md's Open Issues. It now carries: the coordinates (13\u00b018'57.5\"N, 74\u00b042'59.7\"E), the original Google Maps pin, the geography (narrow sandbar/spit between the Arabian Sea and the Udyavara River backwater), and the CRZ risk flag from the initial assessment \u2014 clearly m...",
-          "[18:30 IST] HADERACH: Records updated, Ram. Confirmed \u2014 you own the Katpadi land.",
-          "I've created **PER-019 \u2014 Katpadi Land (Udupi Coast)** as its own project (`projects/PER-019-katpadi-land/`), added it to the master project index, and logged it in MEMORY.md's Open Issues. It now carries: the coordinates (13\u00b018'57.5\"N, 74\u00b042'59.7\"E), the original Google Maps pin, the geography (narrow sandbar/spit between the Arabian Sea and the Udyavara River backwater), and the CRZ risk flag from the initial assessment \u2014 clearly m...",
-          "[18:31 IST] RAM: There is talk of denotifying the property so that it can be freely constructed upon - free of CRZ restrictions i.e.. Can you check if there is any news/rumours on this pls?",
-          "[18:31 IST] HADERACH: No specific news on Katpadi/Malpe denotification yet. Let me broaden \u2014 check for any national or Karnataka-wide CRZ amendment/relaxation trend that could be the \"talk\" Ram heard about.",
-          "[18:34 IST] HADERACH: This is exactly the news thread, Ram \u2014 very timely, only two days old.",
-          "[18:34 IST] HADERACH: Yes, Ram \u2014 there's genuine, very recent, and specific movement on this, not just chatter.",
-          "On Friday, 18 September 2026, the Karnataka Cabinet held its first-ever meeting in Mangaluru and approved a \u20b916,000-crore coastal development package for the three coastal districts (Dakshina Kannada, Udupi, Uttara Kannada). Two pieces of that are directly relevant to your Katpadi plot:",
-          "First, the Cabinet approved a revision of the existing Coastal Zone Management Plan (CZMP) 2019 under the CRZ Notific...",
-          "[18:34 IST] HADERACH: Yes, Ram \u2014 there's genuine, very recent, and specific movement on this, not just chatter.",
-          "On Friday, 18 September 2026, the Karnataka Cabinet held its first-ever meeting in Mangaluru and approved a \u20b916,000-crore coastal development package for the three coastal districts (Dakshina Kannada, Udupi, Uttara Kannada). Two pieces of that are directly relevant to your Katpadi plot:",
-          "First, the Cabinet approved a revision of the existing Coastal Zone Management Plan (CZMP) 2019 under the CRZ Notific...",
-          "[18:41 IST] RAM: Just update the ProjHad. Don\u2019t set up any tracker yet",
-          "[18:44 IST] HADERACH: Done, Ram \u2014 PER-019's STATUS.md now has the CRZ denotification findings logged under a new \"CRZ Denotification Watch\" section: the 18 Sep Cabinet package, the CZMP revision approval, Shivakumar's stated intent to amend CRZ norms, and the caveat that no plot-specific reclassification has actually been published yet. No standing tracker or cron set up, as instructed \u2014 just the record.",
-          "[18:44 IST] HADERACH: Done, Ram \u2014 PER-019's STATUS.md now has the CRZ denotification findings logged under a new \"CRZ Denotification Watch\" section: the 18 Sep Cabinet package, the CZMP revision approval, Shivakumar's stated intent to amend CRZ norms, and the caveat that no plot-specific reclassification has actually been published yet. No standing tracker or cron set up, as instructed \u2014 just the record.",
-          "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:10 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:40 IST \u2014 session empty for 110 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 133 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:20 IST \u2014 session empty for 150 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:40 IST \u2014 session empty for 170 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 200 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 210 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 230 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 252 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:07 IST] HADERACH: Nightly Monk consolidation complete \u2014 idle day, 0 sessions, no new facts. Rolling-7/28/180-day summaries updated, tag index rebuilt (126 days), MEMORY_WRITE bookmark inserted, heartbeat-state.json updated. NO_REPLY.",
-          "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "rolling_7day": [
           "---",
@@ -1772,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.62,
-      "cpu": 4.0,
+      "rss_gb": 0.59,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2422,8 +2384,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.89,
-      "cpu": 0.5,
+      "rss_gb": 0.83,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2811,8 +2773,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.53,
-      "cpu": 0.3,
+      "rss_gb": 0.55,
+      "cpu": 0.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2836,6 +2798,15 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "enabled": true,
+          "sched": "10 */3 * * *",
+          "last_ts": 1790016006727,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ca_smeda_ii-consolidation-23",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -2849,15 +2820,6 @@
           "enabled": true,
           "sched": "30 22 * * *",
           "last_ts": 1790010105672,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
-          "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1790005207112,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -2928,6 +2890,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-22",
+          "# Self-healing rotation from transcript-2026-09-21.md at 00:10 IST"
+        ],
+        "yesterday": [
           "# Transcript \u2014 2026-09-21",
           "# Self-healing rotation from transcript-2026-09-20.md at 00:10 IST",
           "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Context is well within budget (unknown but session small). Let me read today's log.",
@@ -2951,22 +2917,6 @@
           "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day = 12 (>11) \u2014 Restudy program complete per Day 11 closeout (22 Jul 2026). No action taken this fire per rule 6; logged note_21Sep2026_1400 to RESTUDY_PROGRESS.json and stopping.",
           "[21:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 program complete per Day 11 closeout. Per rule 6, this run takes no action.",
           "[21:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete. current_day=12 (>11) \u2014 Day 11 closeout stands from 22 Jul 2026. No action taken per rule 6; logged this 21 Sep 2026 21:00 IST fire in RESTUDY_PROGRESS.json. Silent operation maintained \u2014 no messages sent."
-        ],
-        "yesterday": [
-          "# Transcript \u2014 2026-09-20",
-          "# Self-healing rotation from transcript-2026-09-19.md at 00:10 IST",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Good, no duplicate entities present other than what I already computed matches existing \"18 Sep 2026\" dated facts \u2014 need to update with today's date (19 Sep) since values are same but date should refresh.",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Now Phase 10 \u2014 check wiki for today's session (no domain study occurred, so this should be a no-op).",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: No domain study occurred today, so wiki content is unchanged (no-op) \u2014 consistent with Phase 10 rules. Now committing.",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Committed locally (no remote configured, expected per the `|| true` fallback). Consolidation complete \u2014 no domain study occurred today, so this was a housekeeping-only pass. Staying silent per cron instructions.",
-          "[22:31 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Consolidation complete, silent as instructed \u2014 no message needed.",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: NO_REPLY",
-          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12 > 11). No action taken per rule 6. Logged the no-op note for this 20 Sep 2026 06:00 IST fire.",
-          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: No critical facts to promote (no `[FACT:*:critical:*]` tags in the tail). Appending the bookmark now.",
-          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: NO_REPLY",
-          "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12 > 11). No action taken per rule 6; logged this fire to RESTUDY_PROGRESS.json. Silent operation maintained \u2014 no messages sent to Ram.",
-          "[21:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11), program complete. Per rule 6, I take no action other than logging.",
-          "[21:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete. current_day=12 (>11) \u2014 no action taken per rule 6, as in prior fires. Logged this run's timestamp note to RESTUDY_PROGRESS.json."
         ],
         "rolling_7day": [
           "- Standing facts reconfirmed unchanged: 247 mastered topics, 27 active/141 resolved gaps, 76.8 sustained avg; CA Intermediate 9.96/10 exam-ready-locked.",
@@ -3686,7 +3636,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.41,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3873,7 +3823,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.3,
-      "cpu": 0.3,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3903,7 +3853,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
