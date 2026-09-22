@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-22 12:27:06 IST",
-  "generated_epoch": 1790060226,
+  "generated_ist": "2026-09-22 12:32:12 IST",
+  "generated_epoch": 1790060532,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.04 / 2.78 / 2.63",
+    "load": "2.13 / 2.34 / 2.46",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.4,
-      "cpu": 9.1,
+      "rss_gb": 1.42,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,10 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790059687457,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790060425734,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,16 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790059224448,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790059224447,
+          "last_ts": 1790060425734,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,7 +702,25 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790059224447,
+          "last_ts": 1790060425733,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1790060241376,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1790059687457,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -748,15 +757,6 @@
           "enabled": true,
           "sched": "0 */3 * * *",
           "last_ts": 1790058895049,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1790058833653,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[07:45 IST] HADERACH: Fetched the tweet Ram flagged (@openclaw's reply thread on the \"Meta uses OpenClaw\" story) via TwitAcc.",
           "The tweet itself is OpenClaw's own account responding to speculation, saying: \"we built muse from scratch, but it is definitely heavily inspired as a product by openclaw. After I used openclaw in january I bought hundreds of mac minis for the MSL team and lots of us fell in love with using openclaw.\" Steipete separately posted the same day, crediting Meta's team and calling the \"Meta uses ...",
           "[07:45 IST] HADERACH: Fetched the tweet Ram flagged (@openclaw's reply thread on the \"Meta uses OpenClaw\" story) via TwitAcc.",
           "The tweet itself is OpenClaw's own account responding to speculation, saying: \"we built muse from scratch, but it is definitely heavily inspired as a product by openclaw. After I used openclaw in january I bought hundreds of mac minis for the MSL team and lots of us fell in love with using openclaw.\" Steipete separately posted the same day, crediting Meta's team and calling the \"Meta uses ...",
@@ -1631,7 +1630,8 @@
           "I have already done the substantive research for this task before things broke: I read through HAD-049 in full (PROJECT.md, STATUS.md, LESSONS.md, PLA...",
           "[11:29 IST] HADERACH: All tool calls are returning empty right now (exec, read, write, image, cron, session_status, web_search, message \u2014 everything), consistently, across many retries and short delays. This isn't something I can route around; it looks like a temporary break in the tool execution layer on this end rather than anything wrong with the request itself.",
           "I have already done the substantive research for this task before things broke: I read through HAD-049 in full (PROJECT.md, STATUS.md, LESSONS.md, PLA...",
-          "--- [TRANSCRIPT GAP: 12:03 IST \u2014 session empty for 33 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 12:03 IST \u2014 session empty for 33 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 12:27 IST \u2014 session empty for 57 min AND no transcript writes for 17 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 34 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.55,
-      "cpu": 1.6,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2436,7 +2436,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.81,
-      "cpu": 0.2,
+      "cpu": 5.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2630,6 +2630,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1790060406602,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2652,15 +2661,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1790058611860,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
-          "last_ts": 1790058611859,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2695,9 +2695,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[06:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger now.",
-          "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
           "[06:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed successfully. No new messages to capture. Session file not found warning is expected when the group chat session hasn't been active during this window. All transcript files up to date.",
           "[06:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[07:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you.",
@@ -2734,7 +2731,10 @@
           "[11:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[12:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
           "[12:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now."
+          "[12:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script now.",
+          "[12:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2713 Script completed successfully. No new messages in Klub K group chat to process. Bookmark and session state unchanged.",
+          "[12:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "[21:00 IST] Garima: [Inter-session message] sourceSession=image_generate:7ec0da5b-98bc-43e9-a104-8e4e8b9119e0 sourceChannel=webchat sourceTool=image_generate isUser=false",
@@ -2863,7 +2863,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.5,
-      "cpu": 0.5,
+      "cpu": 1.1,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3733,7 +3733,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.39,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3928,7 +3928,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3957,8 +3957,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1398,
-      "rss_gb": 0.25,
-      "cpu": 0.8,
+      "rss_gb": 0.26,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4359,7 +4359,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.5,
-      "cpu": 1.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
