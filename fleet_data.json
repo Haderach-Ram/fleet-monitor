@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-22 12:16:52 IST",
-  "generated_epoch": 1790059612,
+  "generated_ist": "2026-09-22 12:21:59 IST",
+  "generated_epoch": 1790059919,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.24 / 2.42 / 2.51",
+    "load": "3.29 / 2.68 / 2.57",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.25,
+      "rss_gb": 1.38,
       "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
@@ -681,6 +681,15 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1790059687457,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
@@ -748,15 +757,6 @@
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1790058833653,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790057884387,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.57,
-      "cpu": 0.9,
+      "rss_gb": 0.66,
+      "cpu": 1.5,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1798,19 +1798,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1790058909894,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1790059804691,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1790058005132,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1790058909894,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1918,7 +1918,20 @@
       "transcripts": {
         "recent": [
           "# Transcript - 2026-09-22",
-          "# Self-healing rotation from transcript-2026-09-21.md at 00:00 IST"
+          "# Self-healing rotation from transcript-2026-09-21.md at 00:00 IST",
+          "[12:02 IST] [Agastya Fleet] Giskard: Found the M2 IP: `100.119.4.19` (Tailscale). Let me try SSH.",
+          "[12:02 IST] [Agastya Fleet] Giskard: The M2 Mac Mini (`ramnaths-mac-mini`, 100.119.4.19) shows **offline** on Tailscale \u2014 last seen 2 minutes ago. That's a whole-machine connectivity issue, not just Keshav's agent. Let me confirm and check current state before reporting.",
+          "[12:02 IST] [Agastya Fleet] Giskard: Keshav \u2014 checked. The M2 Mac Mini itself (ramnaths-mac-mini, 100.119.4.19) is offline on Tailscale, last seen ~2 min ago. SSH times out, tailscale ping gets no reply.",
+          "This isn't a config/agent-level issue on my end \u2014 the whole machine is unreachable, so I can't diagnose or restart your agent remotely right now.",
+          "Someone needs physical/local access to the M2 to check:",
+          "- Is it powered on / awake (not asleep)?",
+          "- Network connection (wifi/ethernet)?",
+          "- Is the Tailscale daemon running on it?",
+          "Ping me",
+          "[12:02 IST] [Agastya Fleet] Giskard: Reported to the group: the M2 Mac Mini itself is offline on Tailscale (unreachable via SSH/ping), so this is a machine-level connectivity issue, not something I can fix remotely. Asked for someone with physical access to check power/network/Tailscale daemon on that box, and flagged Ram. I'll follow up once it's back online.",
+          "[12:03 IST] [Agastya Fleet] Giskard: Got it \u2014 that explains the Tailscale offline status. Standing by; I'll check Agastya-Keshav (port 18805) once the M2 is back up after the update.",
+          "[12:03 IST] [Agastya Fleet] Giskard: Acknowledged \u2014 noted that the M2 is mid-macOS-update (explains the Tailscale/SSH unreachability), and told the group I'll check Agastya-Keshav once it's back online.",
+          "[12:03 IST] [Agastya Fleet] Giskard: No action needed \u2014 Keshav simply acknowledged. Standing by for the M2 to come back online to check Agastya-Keshav."
         ],
         "yesterday": [
           "# Transcript - 2026-09-21",
@@ -2423,7 +2436,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.81,
-      "cpu": 1.6,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2850,7 +2863,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.5,
-      "cpu": 1.2,
+      "cpu": 0.9,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3720,7 +3733,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.39,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3915,7 +3928,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3945,7 +3958,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.2,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4346,7 +4359,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.5,
-      "cpu": 0.4,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
