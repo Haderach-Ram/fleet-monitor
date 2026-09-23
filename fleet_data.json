@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-23 21:25:59 IST",
-  "generated_epoch": 1790178959,
+  "generated_ist": "2026-09-23 21:31:07 IST",
+  "generated_epoch": 1790179267,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.96 / 2.49 / 2.56",
+    "load": "1.62 / 2.08 / 2.35",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.0,
-      "cpu": 1.7,
+      "rss_gb": 1.29,
+      "cpu": 0.2,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -684,7 +684,7 @@
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790178627504,
+          "last_ts": 1790179226682,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,7 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790178627504,
+          "last_ts": 1790179226682,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790178627503,
+          "last_ts": 1790179226681,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,13 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 15:04 IST \u2014 session empty for 100 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "[15:04 IST] HADERACH: **SCL Media Monitor \u2014 15:04 IST (23 Sep 2026)**",
-          "**RSS:** No new articles.",
-          "**Twitter findings:**",
-          "*Sammaan Capital search:*",
-          "- **Important:** Wegro App + Pre-IPO Unlisted Shares both reporting SCL's **timely NCD interest payment** (\u20b94.44 lacs + \u20b90.01572 lacs) on 22 Sep, due 23 Sep \u2014 payment confirmed on schedule.",
-          "- **Trading chatter:** Stock at support 130-139; breakout signals at \u20b9163 mentioned; general retail/trading commentary (no regulatory/agency/press concerns).",
           "*Gagan Banga search:*",
           "-...",
           "--- [TRANSCRIPT GAP: 15:44 IST \u2014 session empty for 34 min AND no transcript writes for 19 min. No zombie lock. Possible gateway issue.] ---",
@@ -1631,7 +1624,14 @@
           "[21:19 IST] HADERACH: M4's `bws` works fine (no stale hosts pin here). I'll fetch both secrets locally using the SatyAnk token, then write a static credentials file onto M2 for each agent, and point their wrapper scripts at that file instead of a live BWS fetch.",
           "[21:19 IST] HADERACH: Both secrets fetched successfully from M4. Now I'll write each to a local temp file, transfer securely via SSH (not printing to any log), and patch each wrapper script to source from the static file instead of calling `bws`.",
           "[21:19 IST] HADERACH: Good, both fetched. Now transferring to M2 with restrictive permissions, and patching the wrapper scripts to source these files instead of calling `bws` at boot.",
-          "[21:20 IST] HADERACH: Now let's back up and patch the wrapper scripts to use these static files as a fallback (try BWS first, fall back to static file if BWS fails \u2014 keeps the design mostly intact while adding resilience)."
+          "[21:20 IST] HADERACH: Now let's back up and patch the wrapper scripts to use these static files as a fallback (try BWS first, fall back to static file if BWS fails \u2014 keeps the design mostly intact while adding resilience).",
+          "[21:20 IST] HADERACH: Now let's kick the launchd services and verify both come up healthy.",
+          "[21:21 IST] HADERACH: Both are up \u2014 health checks return HTTP 200. But I want to check something before declaring victory: I see a secondary symptom in Ravindra's log (`SECRETS_PROVIDER_DEGRADED`, memory search API key unresolved) \u2014 that's likely the same root-cause TLS issue hitting BWS calls the gateway itself makes at runtime, not just the boot-time AWS fetch I patched around. Let me check both fully.",
+          "[21:21 IST] HADERACH: Both confirmed `state = running` with stable PIDs (42146, 42189) \u2014 no more crash-loop. Let's give it a bit more time and re-verify they stay up, and check Telegram responsiveness.",
+          "[21:22 IST] HADERACH: Both stable \u2014 same PIDs held for 20+ seconds, health checks green, no further respawns. Fixed.",
+          "Summary: Keshav (port 18808) and Ravindra (port 18801) are both back up and holding steady (PIDs 42146 / 42189, `state = running`, HTTP 200 on health). The fix was a temporary AWS-credentials fallback: I fetched their Bedrock keys once via M4 (where BWS works fine, no bad hosts pin), dropped a locked-down static creds file (chmod 600) into each agent's own workspace on M2, and patched each `start-g...",
+          "[21:22 IST] HADERACH: Both stable \u2014 same PIDs held for 20+ seconds, health checks green, no further respawns. Fixed.",
+          "Summary: Keshav (port 18808) and Ravindra (port 18801) are both back up and holding steady (PIDs 42146 / 42189, `state = running`, HTTP 200 on health). The fix was a temporary AWS-credentials fallback: I fetched their Bedrock keys once via M4 (where BWS works fine, no bad hosts pin), dropped a locked-down static creds file (chmod 600) into each agent's own workspace on M2, and patched each `start-g..."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 201 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.57,
-      "cpu": 1.2,
+      "rss_gb": 0.58,
+      "cpu": 3.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2465,8 +2465,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.61,
-      "cpu": 0.4,
+      "rss_gb": 0.67,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2660,6 +2660,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
+          "enabled": true,
+          "sched": "*/30 6-23 * * *",
+          "last_ts": 1790179206947,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2681,15 +2690,6 @@
           "name": "Purl \u2014 Klub K Transcript Logger (60 min, 06:00-21:00)",
           "enabled": true,
           "sched": "0 6-21 * * *",
-          "last_ts": 1790177411890,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
-          "enabled": true,
-          "sched": "*/30 6-23 * * *",
           "last_ts": 1790177411890,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -2725,9 +2725,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[16:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now.",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
-          "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Running the Klub K group transcript logger...",
           "[17:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Script completed successfully. The transcript logger ran with no new messages to append (normal for this window).",
           "HEARTBEAT_OK",
           "[17:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
@@ -2764,7 +2761,10 @@
           "[21:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger now.",
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: I'll run the Klub K group transcript logger script now.",
           "[21:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
-          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you."
+          "[21:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
+          "[21:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: \u2705 Script completed successfully. All transcript sessions processed \u2014 no new messages detected. No bookmarks needed.",
+          "[21:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger for you."
         ],
         "yesterday": [
           "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Script completed successfully. No new messages to append this cycle, bookmarks updated. Session file for the group chat not currently available, but the cron run proceeded normally.",
@@ -2892,8 +2892,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.51,
-      "cpu": 0.5,
+      "rss_gb": 0.48,
+      "cpu": 0.8,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3760,7 +3760,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.35,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3939,7 +3939,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.2,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3968,8 +3968,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1398,
-      "rss_gb": 0.26,
-      "cpu": 0.4,
+      "rss_gb": 0.25,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4370,7 +4370,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.47,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
