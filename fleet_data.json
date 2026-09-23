@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-23 22:58:14 IST",
-  "generated_epoch": 1790184494,
+  "generated_ist": "2026-09-23 23:03:21 IST",
+  "generated_epoch": 1790184801,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.22 / 2.03 / 2.03",
+    "load": "1.98 / 2.00 / 2.01",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.09,
-      "cpu": 0.7,
+      "rss_gb": 1.14,
+      "cpu": 2.4,
       "crons_total": 102,
       "crons_enabled": 66,
       "skills_count": 63,
@@ -1601,14 +1601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 310 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:40 IST \u2014 session empty for 330 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:50 IST \u2014 session empty for 340 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:04 IST \u2014 session empty for 354 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "[21:14 IST] RAM: SSH into the M2. Agents Keshav and Ravindra are both down. Diagnose and see if you can fix pls",
-          "[21:14 IST] HADERACH: Noted \u2014 I have that launchctl dump in front of me and won't be repeating the token that appeared in it. Let me pull the logs and check Ravindra in parallel.",
-          "[21:15 IST] HADERACH: Found it. Both agents are failing for the identical reason \u2014 not something wrong with the agents themselves, but a stale `/etc/hosts` pin for `api.bitwarden.com` and `identity.bitwarden.com` pointing at an old Fastly IP (`151.101.37.91`) that no longer serves a certificate valid for those names. Current DNS resolves to different IPs. Let me confirm and fix.",
-          "[21:17 IST] HADERACH: Diagnosed \u2014 both are down for the identical reason, and it's a known issue, not a new fault.",
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
           "[21:17 IST] HADERACH: Diagnosed \u2014 both are down for the identical reason, and it's a known issue, not a new fault.",
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
@@ -1640,7 +1632,15 @@
           "[22:48 IST] HADERACH: That's a real one \u2014 SCL's own quarterly financials in Trendlyne data are frozen at Sep 2025, a full year stale, despite the weekly Trendlyne refresh cron showing \"ok\". Let me dig into this specifically.",
           "[22:48 IST] HADERACH: Good \u2014 false alarm on my part, not a real staleness bug. SCL's data actually goes through Jun 2026 (the most recent published quarter); my `MAX()` query was comparing period strings lexicographically (\"Sep\" > \"Mar\" alphabetically), not chronologically. Let me continue checking the actual ingest run and finish the real audit.",
           "[22:49 IST] HADERACH: The process is actually still running live (pid 28808) \u2014 WPI row count already climbed from 150,121 to 150,337. The poll tool's SIGKILL report was likely about the exec wrapper session's own timeout tracking, not the child. Let me wait for it to finish properly.",
-          "[22:50 IST] HADERACH: Still running WPI (page-cap-limited, slow per the script's own comments). Let's give it more time while checking other data quality items."
+          "[22:50 IST] HADERACH: Still running WPI (page-cap-limited, slow per the script's own comments). Let's give it more time while checking other data quality items.",
+          "[22:57 IST] HADERACH: The full script order starts with the slowest ones (CPI group), and my 600s timeout killed it before reaching WPI/IIP. Let me run a targeted script for just WPI/IIP (the two actually-flagged-stale ones) in the background properly, without a short timeout.",
+          "[22:57 IST] HADERACH: Fast this time \u2014 under a minute. Let's verify the freshness now.",
+          "[22:58 IST] HADERACH: WPI is now through April 2026 (govt series naturally lags ~5 months), IIP through July 2026 \u2014 both genuinely caught up to source availability, not artificially stale. Let's also refresh the current CPI (2024-base) table, which is faster than the legacy cpi_group/cpi_item tables.",
+          "[23:00 IST] HADERACH: CPI (2024-base) is the paginated-slower one. Let's let it run and check other data while waiting.",
+          "[23:01 IST] HADERACH: That's consistent \u2014 sebi.db's monthly cron last ran 1 Sep, next scheduled 1 Oct, and `mf_nav_daily` shows max date 10 Sep (from the mid-month manual bug-fix run on 11 Sep). That's normal lag for a monthly-cadence cron, not a bug. Let's check the CPI ingest progress.",
+          "[23:01 IST] HADERACH: It's actually still running (pid 29349) and already picked up August 2026 \u2014 SIGKILL was just the wrapper session, not the actual child process. Let's wait for it to complete.",
+          "[23:02 IST] HADERACH: This is the slow paginated CPI endpoint (200-row page cap, per script comments \u2014 can take a while for a full year). I'll let it keep running in the background and check other things meanwhile.",
+          "[23:02 IST] HADERACH: Let's check the CPI ingest, and clean up the kill-switch cron I set (no longer needed since I ran targeted scripts instead)."
         ],
         "yesterday": [
           "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 201 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
@@ -1781,8 +1781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.58,
-      "cpu": 1.0,
+      "rss_gb": 0.59,
+      "cpu": 3.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2474,8 +2474,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.62,
-      "cpu": 1.0,
+      "rss_gb": 0.61,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2672,7 +2672,7 @@
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1790182806655,
+          "last_ts": 1790184606728,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2734,7 +2734,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: HEARTBEAT_OK",
           "[18:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger script now.",
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the Klub K group transcript logger script.",
           "[18:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. No new messages to log. Sessions processed normally.",
@@ -2773,7 +2772,8 @@
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: I'll execute the nightly memory consolidation routine. Let me process this step by step.",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: Let me fix the syntax error:",
           "[22:00 IST] PURL [Cron: Purl \u2014 Nightly Memory Consolidation (22:00 IST)]: NO_REPLY",
-          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now."
+          "[22:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
+          "[23:00 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: Running the transcript logger now:"
         ],
         "yesterday": [
           "[18:00 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (10 min, 06:00-23:00)]: Script completed successfully. No new messages to append this cycle, bookmarks updated. Session file for the group chat not currently available, but the cron run proceeded normally.",
@@ -2902,7 +2902,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.52,
-      "cpu": 1.4,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2925,6 +2925,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "ca_smeda_ii-consolidation-23",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1790184644385,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Nightly Memory Consolidation",
           "enabled": true,
@@ -2966,15 +2975,6 @@
           "enabled": true,
           "sched": "15 0 * * *",
           "last_ts": 1790102803100,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ca_smeda_ii-consolidation-23",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790098273047,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3769,7 +3769,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.35,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3851,12 +3851,6 @@
           "Changed since yesterday: SCL fully static (13th day); RBI/NBFC holds structurally with the Draft Directions entity id rotating (228\u2192305); AI Agent Ecosystem resets as Open Source For You's ADK piece and Traictory's Google \"AX\" piece enter, displacing the 1-day WSO2 piece, with OpenAI's Agents API holding over as the 12th-day survivor."
         ],
         "rolling_7day": [
-          "- ~48 heartbeat checkpoints (08:15-22:50 IST), fully silent aside from the Daily Brief",
-          "- Nightly consolidation running 23:00 IST (this run)",
-          "## 2026-09-17 \u2014 Daily Brief Only (Silent Day)",
-          "- 08:30-08:31 IST: Daily Brief 2026-09-17 produced (news-brief-2026-09-17.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 374 words, within 300-400 range, no placeholders",
-          "- Changed since yesterday: SCL fully static (8th day); RBI/NBFC turns over as the ET BFSI piece exits after just 1 day and the interest-rate circular resurfaces via RBI's mobile homepage; AI Agent Ecosystem partially turns over (Forkast piece on OpenAI's managed Codex harness API enters, displacing a Hugging Face piece)",
-          "- No [FACT:] tags in transcript this run; no domain file promotions required",
           "- ~52 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief",
           "- Nightly consolidation running 23:00 IST (this run)",
           "## 2026-09-18 \u2014 Daily Brief Only (Silent Day)",
@@ -3890,12 +3884,15 @@
           "- Changed since yesterday: SCL fully static (13th day); RBI/NBFC holds structurally with the Draft Directions entity id rotating (228\u2192305); AI Agent Ecosystem resets as Open Source For You's ADK piece and Traictory's Google \"AX\" piece enter, displacing the 1-day WSO2 piece, with OpenAI's Agents API holding over as the 12th-day survivor",
           "- No [FACT:] tags in transcript this run; no domain file promotions required",
           "- 65 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief",
+          "- Nightly consolidation running 23:00 IST (this run)",
+          "## 2026-09-23 \u2014 Daily Brief Only (Silent Day)",
+          "- 08:30-08:32 IST: Daily Brief 2026-09-23 produced (news-brief-2026-09-23.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 376 words, within 300-400 range, no placeholders, all URLs match provided data",
+          "- Changed since yesterday: SCL stays fully static (14th day) and RBI/NBFC goes fully static too (no id rotation today), while AI Agent Ecosystem resets again as InfoQ's Google \"AX\" piece and a GitLab agentic-flow efficiency blog enter, displacing yesterday's ADK/Traictory pieces",
+          "- No [FACT:] tags in transcript this run; no domain file promotions required",
+          "- ~57 heartbeat checkpoints (06:03-22:50 IST), fully silent aside from the Daily Brief",
           "- Nightly consolidation running 23:00 IST (this run)"
         ],
         "rolling_28day": [
-          "- No domain promotions in Chet's own transcript (findings are on Haderach's project, not Chet's stack); nightly consolidation running 23:00 IST (this run)",
-          "## 2026-09-12 \u2014 Daily Brief Only (Silent Day)",
-          "- Daily Brief produced (news-brief-2026-09-12.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 349 words, within 300-400 range, no placeholders",
           "- SCL fully static; RBI/NBFC partially turns over (Master Directions page enters fresh, displacing Kothari blog after a 2-day run); AI Agent Ecosystem partially turns over (InfoWorld piece on OpenAI's managed Agents API enters fresh)",
           "- No domain promotions; ~90 heartbeat checkpoints, fully silent aside from the Daily Brief; nightly consolidation running 23:00 IST",
           "## 2026-09-13 \u2014 Daily Brief Only (Silent Day)",
@@ -3932,7 +3929,10 @@
           "- Daily Brief 2026-09-21 produced (news-brief-2026-09-21.md); pre-fetched Exa data used directly; verified by read-back, 24 lines, 360 words, no placeholders",
           "- SCL fully static 12th day; RBI/NBFC partial turnover (Master Directions page re-enters); AI Agent Ecosystem resets substantially (Google ADK for Kotlin re-enters, IT News Africa WSO2 piece enters, AI Weekly Anthropic/AGENTS.md piece exits after 1 day)",
           "- Weekly Memory Self-Audit: 1/5 correct, 2/5 partial, 2/5 failed (14th consecutive week same distribution); Q2 staleness 119 days (worst yet, +7); Q4 defect 14th consecutive occurrence; duplicate audit dispatch correctly recognised as already-done",
-          "- No [FACT:] tags; no domain file promotions required; otherwise fully silent heartbeat day (~71 checkpoints); nightly consolidation running 23:00 IST"
+          "- No [FACT:] tags; no domain file promotions required; otherwise fully silent heartbeat day (~71 checkpoints); nightly consolidation running 23:00 IST",
+          "## 2026-09-22 \u2014 Daily Brief Only (Silent Day)",
+          "- Daily Brief produced (news-brief-2026-09-22.md); SCL fully static 13th day, RBI/NBFC holds structurally (Draft Directions entity id rotates 228\u2192305), AI Agent Ecosystem resets (Open Source For You ADK piece + Traictory Google \"AX\" piece enter, displacing 1-day WSO2 piece, OpenAI Agents API holds over as 12th-day survivor)",
+          "- No [FACT:] tags; no domain file promotions required; 65 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief; nightly consolidation running 23:00 IST"
         ]
       }
     },
@@ -3948,7 +3948,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3978,7 +3978,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 1.0,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4379,7 +4379,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.47,
-      "cpu": 2.4,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
