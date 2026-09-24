@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-24 15:06:37 IST",
-  "generated_epoch": 1790242597,
+  "generated_ist": "2026-09-24 15:11:48 IST",
+  "generated_epoch": 1790242908,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.87 / 4.92 / 3.68",
+    "load": "3.65 / 3.71 / 3.47",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.16,
-      "cpu": 0.2,
+      "rss_gb": 1.12,
+      "cpu": 0.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790242827745,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790242827745,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790242827744,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -703,33 +730,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1790242533623,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790242487246,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790242487246,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790242487245,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,12 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "1. **Eduinvesting.in article (14h ago)** \u2014 Covers Q1 FY27 milestone: Avenir Investment RSC Ltd subscription of 33,00,00,111 equity shares + warrant rights. This is the IHC preferential issue tranche \u2014 already known but publicly tracked.",
-          "2. **Gagan Banga quote (Eduinvesting.in, Sep 18)** ...",
-          "[09:40 IST] RAM: Do a check of clawhub and other skill repositories to see if we can use anything",
-          "[09:40 IST] HADERACH: There's an `explore` command for browsing latest updated skills. Let me use that plus targeted searches.",
-          "[09:42 IST] HADERACH: No results for those niche queries. Let me check a few more relevant areas and also check clawhub's \"explore\" for anything notable, plus look at cost-tracking/model-usage overlap, browser automation improvements, and cron/reminder tooling since those are heavily used.",
-          "[09:45 IST] HADERACH: Went through both ClawHub and Skills.sh across the areas most relevant to your setup: PDF/report generation, financial and market data, credit ratings, RBI/NBFC filings, India VIX and MCX commodity data (the known SAK-008 schema gap), Excel/spreadsheet automation, browser stealth/anti-bot, fleet monitoring, Bedrock/Anthropic cost tracking, and a few adjacent categories like calendar sync, WhatsApp automation, and database querying.",
           "Short version: nothing found is worth installing right now. ...",
           "[09:45 IST] HADERACH: Went through both ClawHub and Skills.sh across the areas most relevant to your setup: PDF/report generation, financial and market data, credit ratings, RBI/NBFC filings, India VIX and MCX commodity data (the known SAK-008 schema gap), Excel/spreadsheet automation, browser stealth/anti-bot, fleet monitoring, Bedrock/Anthropic cost tracking, and a few adjacent categories like calendar sync, WhatsApp automation, and database querying.",
           "Short version: nothing found is worth installing right now. ...",
@@ -1631,7 +1625,13 @@
           "Root cause: identical to the Jonas outage on 10 Sep \u2014 a stale `/etc/hosts` Bitwarden pin on the M2 (`151.101.37.91 api.bitwarden.com` / `identity.bitwarden.com`) now points at a Fastly IP serving the wrong TLS certificate, so `bws` fails TLS verification on every call. Sandip's `start-gateway.sh` only had the primary BWS credential path with no fallback, so when the gateway got kicked (likel...",
           "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 34 min AND no transcript writes for 22 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:44 IST \u2014 session empty for 55 min AND no transcript writes for 15 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 15:04 IST \u2014 session empty for 74 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 15:04 IST \u2014 session empty for 74 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
+          "[15:05 IST] HADERACH: **SCL Media Monitor \u2014 24 Sep 2026, 15:04 IST**",
+          "**RSS:** No new SCL articles this cycle.",
+          "**Twitter \u2014 Flagged findings:**",
+          "**Relevant context pieces (not critical, but substantive):**",
+          "- **Eduinvesting.in (23 Sep, 20h ago):** Commentary on Q1 FY27 milestone \u2014 Avenir/IHC subscription details (33.00 crore shares + warrants). Neutral analysis.",
+          "- **Wegro App + IPO Unlisted (22 Sep):** Confirmation of timely NCD interest payments (\u20b94.44 lacs + \u20b90.01572 lacs on 22 Sep for 23 Sep due date). On-time, ..."
         ],
         "yesterday": [
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.65,
-      "cpu": 0.4,
+      "rss_gb": 0.57,
+      "cpu": 0.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2449,7 +2449,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.64,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2875,8 +2875,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.49,
-      "cpu": 0.5,
+      "rss_gb": 0.6,
+      "cpu": 1.2,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2900,6 +2900,15 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "enabled": true,
+          "sched": "10 */3 * * *",
+          "last_ts": 1790242807017,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
           "enabled": true,
           "sched": "0 6,14,21 * * *",
@@ -2913,15 +2922,6 @@
           "enabled": true,
           "sched": "0 13 * * *",
           "last_ts": 1790235043255,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
-          "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1790232008502,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3001,7 +3001,11 @@
           "[22:31 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Committed locally; push failed only because no remote is configured (expected fallback per `|| true`). Consolidation complete \u2014 silent operation, no message to Ram required.",
           "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: No FACT:critical tags to promote. Now append the bookmark to the transcript.",
           "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: NO_REPLY",
-          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 the 11-Day Restudy Program is already complete (closed out on Day 11, 22 Jul 2026). Per rule 6, took no action this run. Logged \"Restudy program complete\" note for this 24 Sep 2026 06:00 IST cron fire in RESTUDY_PROGRESS.json. Stopping silently \u2014 no messages sent to Ram."
+          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 the 11-Day Restudy Program is already complete (closed out on Day 11, 22 Jul 2026). Per rule 6, took no action this run. Logged \"Restudy program complete\" note for this 24 Sep 2026 06:00 IST cron fire in RESTUDY_PROGRESS.json. Stopping silently \u2014 no messages sent to Ram.",
+          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: Now append the bookmark to the transcript.",
+          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: No FACT:critical tags found in the tail \u2014 nothing to promote. Daily log written, bookmark appended.",
+          "NO_REPLY",
+          "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12 > 11). No action taken this fire, per rule 6. Log entry appended to RESTUDY_PROGRESS.json for this 24 Sep 2026 14:00 IST run."
         ],
         "yesterday": [
           "# Transcript \u2014 2026-09-23",
@@ -3738,7 +3742,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 0.4,
+      "cpu": 0.8,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3905,7 +3909,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3935,7 +3939,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.3,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4336,7 +4340,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.48,
-      "cpu": 0.3,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
