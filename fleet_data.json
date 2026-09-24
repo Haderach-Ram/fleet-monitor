@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-24 13:44:38 IST",
-  "generated_epoch": 1790237678,
+  "generated_ist": "2026-09-24 13:49:45 IST",
+  "generated_epoch": 1790237985,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.27 / 2.84 / 2.76",
+    "load": "1.88 / 2.24 / 2.49",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.19,
-      "cpu": 3.9,
+      "rss_gb": 1.14,
+      "cpu": 0.1,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,10 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790236828134,
+          "sched": "every 30m",
+          "last_ts": 1790237717833,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,7 +693,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790236828134,
+          "last_ts": 1790237689015,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790237689014,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +711,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790236828133,
+          "last_ts": 1790237689014,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,16 +720,7 @@
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1790236501221,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790235924672,
+          "last_ts": 1790237689014,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 08:20 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "[08:30 IST] HADERACH: \u2713 NSE market bhavcopy refresh complete for **2026-09-23** (yesterday, Wednesday).",
           "- **Equity:** 3,696 rows",
           "- **F&O:** 36,295 rows",
@@ -1631,7 +1630,8 @@
           "The 13:00 consolidation **ran successfully**. ",
           "- **lastConsolidation**: 2026-09-24T13:04:00+05:30 (4 minutes past 13:00, just now)",
           "- **Current time**: 13:10 IST",
-          "The consolidation completed on schedule. No alert needed."
+          "The consolidation completed on schedule. No alert needed.",
+          "[13:42 IST] RAM: Sandip on the M2 is not responding. SSH into the M2 and fix pls"
         ],
         "yesterday": [
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.6,
-      "cpu": 0.4,
+      "rss_gb": 0.61,
+      "cpu": 1.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2449,7 +2449,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.63,
-      "cpu": 0.8,
+      "cpu": 1.0,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2876,7 +2876,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.52,
-      "cpu": 1.5,
+      "cpu": 1.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3738,7 +3738,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 0.2,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3905,7 +3905,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3935,7 +3935,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
