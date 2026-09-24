@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-24 17:19:53 IST",
-  "generated_epoch": 1790250593,
+  "generated_ist": "2026-09-24 17:25:00 IST",
+  "generated_epoch": 1790250900,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.08 / 2.84 / 2.64",
+    "load": "3.86 / 3.31 / 2.90",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.02,
-      "cpu": 0.2,
+      "rss_gb": 1.2,
+      "cpu": 2.7,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,42 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790250831014,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790250831014,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790250831013,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1790250831013,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
           "sched": "every 30m",
@@ -690,46 +726,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790250028077,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790250028077,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790250028076,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1790249641513,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1790249629963,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[13:46 IST] HADERACH: Script updated correctly. Now restart the gateway.",
           "[13:47 IST] HADERACH: Gateway is back up. Let me verify it's stable (not crash-looping) and check the fresh boot log.",
           "[13:47 IST] HADERACH: Confirmed \u2014 the fallback worked exactly as designed: `bws` still fails with the stale TLS cert (expected, root cause unfixed since it needs local sudo), but the wrapper correctly caught that failure and fell back to the cached `~/.aws/credentials` profile, which is valid. Gateway state is now `running`, exit code 0, HTTP 200 on health, and it's processing Telegram traffic normally.",
           "[13:48 IST] HADERACH: Sandip is fixed and stable. Same `runs = 127503` across three checks 5s apart confirms no crash-loop.",
@@ -1631,7 +1630,8 @@
           "--- [TRANSCRIPT GAP: 16:03 IST \u2014 session empty for 33 min AND no transcript writes for 19 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 16:23 IST \u2014 session empty for 53 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 16:43 IST \u2014 session empty for 73 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:03 IST \u2014 session empty for 93 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 17:03 IST \u2014 session empty for 93 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 17:23 IST \u2014 session empty for 113 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.59,
-      "cpu": 1.1,
+      "rss_gb": 0.57,
+      "cpu": 1.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1798,19 +1798,19 @@
       ],
       "crons": [
         {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
+          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
           "enabled": true,
-          "sched": "5 6-23 * * *",
-          "last_ts": 1790249710216,
+          "sched": "20,50 6-18 * * *",
+          "last_ts": 1790250605058,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Transcript Logger (30 min offset, 06:00-18:00)",
+          "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
-          "sched": "20,50 6-18 * * *",
-          "last_ts": 1790248805003,
+          "sched": "5 6-23 * * *",
+          "last_ts": 1790249710216,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2448,7 +2448,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.65,
+      "rss_gb": 0.64,
       "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
@@ -2876,7 +2876,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.48,
-      "cpu": 1.2,
+      "cpu": 0.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3742,7 +3742,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3909,7 +3909,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.6,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3938,8 +3938,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1398,
-      "rss_gb": 0.25,
-      "cpu": 0.6,
+      "rss_gb": 0.26,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4339,8 +4339,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.48,
-      "cpu": 0.3,
+      "rss_gb": 0.49,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
