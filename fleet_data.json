@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-24 23:55:12 IST",
-  "generated_epoch": 1790274312,
+  "generated_ist": "2026-09-25 00:00:20 IST",
+  "generated_epoch": 1790274620,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.71 / 2.21 / 2.16",
+    "load": "2.37 / 2.24 / 2.18",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.08,
-      "cpu": 0.1,
+      "rss_gb": 1.37,
+      "cpu": 1.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.61,
-      "cpu": 0.8,
+      "rss_gb": 0.65,
+      "cpu": 14.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1798,6 +1798,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1790274618506,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1790274618506,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1820,15 +1838,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1790271310464,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1790263807004,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1865,15 +1874,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1790202617401,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1790199015655,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1917,6 +1917,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript - 2026-09-25",
+          "# Self-healing rotation from transcript-2026-09-24.md at 00:00 IST"
+        ],
+        "yesterday": [
           "# Transcript - 2026-09-24",
           "# Self-healing rotation from transcript-2026-09-23.md at 00:00 IST",
           "[21:51 IST] [Agastya Fleet] Giskard: Checked both. Haderach's fallback worked \u2014 <b>both agents are up</b>:",
@@ -1932,23 +1936,6 @@
           "[23:18 IST] [Agastya Fleet] Giskard: Ravindra \u2014 got your forward, but Telegram didn't pass through the attachment content on my end (unsupported rich_message type, likely an image/screenshot). Can you paste the error text directly, or resend as a plain text message?",
           "That said \u2014 this most likely matches what I already found and reported above: your session with the bot got stuck around 22:42 IST after a failed tool call, and Bedrock now rejects every message in that thread with \"toolConfig field must be defined...\" or \"malformed JS",
           "[23:18 IST] [Agastya Fleet] Giskard: Sent \u2014 asked Ravindra to resend the error as text since the forwarded rich_message didn't come through, and reiterated to Ram that his session is stuck (same issue diagnosed earlier) pending the reset decision."
-        ],
-        "yesterday": [
-          "# Transcript - 2026-09-23",
-          "# Self-healing rotation from transcript-2026-09-22.md at 00:00 IST",
-          "[15:40 IST] [Agastya Fleet] Giskard: Keshav \u2014 confirmed, still broken. Same root cause I flagged yesterday, not yet fixed:",
-          "M2 (100.119.4.19) is online, gateway process is alive but stuck in a restart loop. bws (Bitwarden Secrets Manager) can't fetch your AWS Bedrock creds because /etc/hosts on the M2 has a stale pinned IP for api.bitwarden.com / identity.bitwarden.com that now serves the wrong TLS cert (NotValidForName). Last failure logged: 15:40:04 IST \u2014 actively looping right now.",
-          "Fix needs one sudo command on the M2 (no passw",
-          "[15:40 IST] [Agastya Fleet] Giskard: Flagged to Keshav and Ram: same root cause as yesterday, still unresolved on the M2 \u2014 stale `/etc/hosts` entries breaking bws\u2192Bedrock cred fetch, causing a restart loop. Fix requires sudo I don't have; awaiting Ram's approval/action.",
-          "[15:59 IST] [Agastya Fleet] Giskard: Got the go-ahead, but hit a wall executing it: I don't have passwordless sudo on the M2, and I have no way to supply an interactive sudo password over this SSH session. `/etc/hosts` is root-owned (644), so I can't edit it as `ram_macmini` without sudo.",
-          "Two options:",
-          "1. You run this directly on the M2 (fastest):",
-          "   `sudo sed -i '' '/api.bitwarden.com\\|identity.bitwarden.com/d' /etc/hosts`",
-          "2. Set up passwordless sudo for me on that one file going forward (e.g. a narrow sudoers rule for `ram_macmin",
-          "[15:59 IST] [Agastya Fleet] Giskard: Reported back to Ram: I have the go-ahead, but I don't have passwordless sudo on the M2 and can't supply an interactive password over SSH, so I can't edit the root-owned `/etc/hosts` myself. Asked Ram to either run the one-liner directly or grant a scoped sudo rule for future fixes \u2014 standing by for their choice.",
-          "[20:23 IST] [Agastya Fleet] Giskard: Confirmed \u2014 Agastya-Ravindra (18801) is down. Same root cause as Keshav's bot: /etc/hosts on the M2 has stale pinned IPs for api.bitwarden.com / identity.bitwarden.com that now fail TLS cert validation (NotValidForName), so bws can't fetch Bedrock creds. Gateway process is alive but stuck retrying since ~22 Sep 11:57 IST restart.",
-          "<b>Status:</b> Ram approved the fix (remove those two /etc/hosts lines) earlier today, but I don't have passwordless sudo on the M2 to execute it myself \u2014 still waitin",
-          "[20:23 IST] [Agastya Fleet] Giskard: Confirmed and reported: Agastya-Ravindra is down for the same reason as Keshav's bot \u2014 stale `/etc/hosts` entries on the M2 breaking bws\u2192Bedrock cred fetch. The approved fix is still blocked on sudo access; re-flagged to Ram since it now affects two agents."
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-08-15 \u2014 no new content] ---",
@@ -2449,7 +2436,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.6,
-      "cpu": 0.5,
+      "cpu": 1.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2876,7 +2863,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.52,
-      "cpu": 1.2,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3743,7 +3730,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 0.4,
+      "cpu": 0.5,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3910,7 +3897,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.8,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3940,7 +3927,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4341,7 +4328,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.49,
-      "cpu": 0.4,
+      "cpu": 1.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
