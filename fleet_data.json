@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-24 23:09:08 IST",
-  "generated_epoch": 1790271548,
+  "generated_ist": "2026-09-24 23:14:16 IST",
+  "generated_epoch": 1790271856,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.54 / 2.81 / 2.55",
+    "load": "2.27 / 2.53 / 2.49",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.14,
-      "cpu": 0.5,
+      "rss_gb": 1.07,
+      "cpu": 0.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,42 @@
       ],
       "crons": [
         {
+          "name": "Consolidation watchdog \u2014 23:10 IST",
+          "enabled": true,
+          "sched": "10 23 * * *",
+          "last_ts": 1790271635772,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790271635772,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790271635771,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790271635771,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Memory Consolidation (via Haderach)",
           "enabled": true,
           "sched": "3 23 * * *",
@@ -717,39 +753,12 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790271339308,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Chet \u2014 Transcript & Memory Consolidation",
           "enabled": true,
           "sched": "0 23 * * *",
           "last_ts": 1790271339307,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790271339307,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790271339307,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1029,15 +1038,6 @@
           "last_ts": 1790187312331,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Consolidation watchdog \u2014 23:10 IST",
-          "enabled": true,
-          "sched": "10 23 * * *",
-          "last_ts": 1790185234128,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1592,9 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:38 IST] RAM: What all data is there in SAK-008 and what was the data of data?",
-          "[18:39 IST] HADERACH: Let me live-verify against Martin's API directly rather than rely on the memory snapshot.",
-          "[18:39 IST] HADERACH: Good, SSD is mounted. Let me pull live table/row counts and date ranges from each DB.",
           "[18:40 IST] HADERACH: Now let me pull date ranges (the \"as-of\" / date-of-data) for each meaningful table.",
           "[18:41 IST] HADERACH: All live-verified. Here's the full picture, straight from the SSD databases themselves (not from memory notes) as of just now, 18:39 IST:",
           "**rbi.db** (6.0 MB, 12 tables) \u2014 call money rates 454 rows (Nov 2024\u2013Jul 2026); RBI FX rates (USD/EUR/GBP/JPY vs INR) 18,692 rows (2004\u201324 Sep 2026, i.e. today); MPC policy rates 67 rows (latest Apr 2026 review, rate held at 5.25%); SCB balance sheet 720 rows; sectoral credit 210 rows; forex reserves 511 rows (latest 25 Aug 2026 bulletin); NPA handbook 55 ...",
@@ -1631,7 +1628,10 @@
           "--- [TRANSCRIPT GAP: 22:00 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 113 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 113 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "[23:08 IST] HADERACH: Nightly consolidation complete for Monk (24 Sep 2026, idle day): rolling-7/28/180day summaries updated (pruned oldest, appended today), tag index rebuilt (130 days total), MEMORY_WRITE bookmark inserted, heartbeat-state.json updated. No new facts to promote \u2014 no session activity today.",
+          "[23:09 IST] RAM: https://x.com/steipete/status/2103147927313199260?s=46",
+          "TwitAcc this and discuss pls"
         ],
         "yesterday": [
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.57,
-      "cpu": 0.4,
+      "rss_gb": 0.58,
+      "cpu": 2.1,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2449,7 +2449,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.6,
-      "cpu": 3.3,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2876,7 +2876,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.53,
-      "cpu": 1.6,
+      "cpu": 1.5,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3910,7 +3910,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3940,7 +3940,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.26,
-      "cpu": 0.6,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4341,7 +4341,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.49,
-      "cpu": 0.8,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
