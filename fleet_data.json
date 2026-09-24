@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-24 14:41:01 IST",
-  "generated_epoch": 1790241061,
+  "generated_ist": "2026-09-24 14:46:08 IST",
+  "generated_epoch": 1790241368,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "1.84 / 2.31 / 2.46",
+    "load": "2.00 / 3.13 / 2.87",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.11,
-      "cpu": 2.8,
+      "rss_gb": 1.18,
+      "cpu": 0.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,19 +681,19 @@
       ],
       "crons": [
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790240427299,
+          "sched": "every 30m",
+          "last_ts": 1790241324005,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790240427299,
+          "last_ts": 1790241302011,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +702,16 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790240427299,
+          "last_ts": 1790241302011,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790241302010,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -711,16 +720,7 @@
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1790240090003,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790239519595,
+          "last_ts": 1790241302010,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "**Twitter findings:**",
           "Most results are routine analyst commentary and investor chatter. However, two items merit flagging:",
           "1. **Eduinvesting.in article (14h ago)** \u2014 Covers Q1 FY27 milestone: Avenir Investment RSC Ltd subscription of 33,00,00,111 equity shares + warrant rights. This is the IHC preferential issue tranche \u2014 already known but publicly tracked.",
           "2. **Gagan Banga quote (Eduinvesting.in, Sep 18)** ...",
@@ -1631,7 +1630,8 @@
           "Root cause: identical to the Jonas outage on 10 Sep \u2014 a stale `/etc/hosts` Bitwarden pin on the M2 (`151.101.37.91 api.bitwarden.com` / `identity.bitwarden.com`) now points at a Fastly IP serving the wrong TLS certificate, so `bws` fails TLS verification on every call. Sandip's `start-gateway.sh` only had the primary BWS credential path with no fallback, so when the gateway got kicked (likel...",
           "[13:48 IST] HADERACH: Sandip is fixed and stable. Same `runs = 127503` across three checks 5s apart confirms no crash-loop.",
           "Root cause: identical to the Jonas outage on 10 Sep \u2014 a stale `/etc/hosts` Bitwarden pin on the M2 (`151.101.37.91 api.bitwarden.com` / `identity.bitwarden.com`) now points at a Fastly IP serving the wrong TLS certificate, so `bws` fails TLS verification on every call. Sandip's `start-gateway.sh` only had the primary BWS credential path with no fallback, so when the gateway got kicked (likel...",
-          "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 34 min AND no transcript writes for 22 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 34 min AND no transcript writes for 22 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 14:44 IST \u2014 session empty for 55 min AND no transcript writes for 15 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "Root cause: M2's `/etc/hosts` has a stale pin routing `api.bitwarden.com` and `identity.bitwarden.com` to an old Fastly IP (151.101.37.91). That IP now serves a certificate for a different Fastly customer, so every `bws` (Bitwarden Secrets) call fails TLS verification with `NotValidForName`. Both Keshav's and Ravindra's startup wrappers fetch their AWS Bedrock credentials from BWS at boot; with BWS u...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.58,
-      "cpu": 0.8,
+      "rss_gb": 0.59,
+      "cpu": 1.9,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2449,7 +2449,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.65,
-      "cpu": 0.6,
+      "cpu": 1.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2875,8 +2875,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.67,
-      "cpu": 0.5,
+      "rss_gb": 0.48,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3738,7 +3738,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 0.9,
+      "cpu": 0.2,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3905,7 +3905,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3934,7 +3934,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1398,
-      "rss_gb": 0.25,
+      "rss_gb": 0.26,
       "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4335,8 +4335,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.48,
-      "cpu": 0.4,
+      "rss_gb": 0.49,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
