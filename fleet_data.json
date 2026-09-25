@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-25 23:55:54 IST",
-  "generated_epoch": 1790360754,
+  "generated_ist": "2026-09-26 00:01:01 IST",
+  "generated_epoch": 1790361061,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.38 / 2.09 / 2.09",
+    "load": "2.03 / 2.10 / 2.09",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.07,
-      "cpu": 1.9,
+      "rss_gb": 1.19,
+      "cpu": 1.6,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.57,
-      "cpu": 0.9,
+      "rss_gb": 0.62,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1798,6 +1798,24 @@
       ],
       "crons": [
         {
+          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "0 21,0,3 * * *",
+          "last_ts": 1790361015494,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
+          "enabled": true,
+          "sched": "0 0,3 * * *",
+          "last_ts": 1790361015493,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "giskard-watchdog-23",
           "enabled": true,
           "sched": "40 23 * * *",
@@ -1820,15 +1838,6 @@
           "enabled": true,
           "sched": "5 6-23 * * *",
           "last_ts": 1790357709359,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "0 21,0,3 * * *",
-          "last_ts": 1790350205770,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1865,15 +1874,6 @@
           "enabled": true,
           "sched": "0 4 * * *",
           "last_ts": 1790289016557,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Giskard \u2014 Fleet Transcript Monitor (3h, 00:00-06:00)",
-          "enabled": true,
-          "sched": "0 0,3 * * *",
-          "last_ts": 1790285416092,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1917,25 +1917,12 @@
       ],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-09-25",
-          "# Self-healing rotation from transcript-2026-09-24.md at 00:00 IST"
+          "# Transcript - 2026-09-26",
+          "# Self-healing rotation from transcript-2026-09-25.md at 00:00 IST"
         ],
         "yesterday": [
-          "# Transcript - 2026-09-24",
-          "# Self-healing rotation from transcript-2026-09-23.md at 00:00 IST",
-          "[21:51 IST] [Agastya Fleet] Giskard: Checked both. Haderach's fallback worked \u2014 <b>both agents are up</b>:",
-          "<ul>",
-          "<li><b>Agastya-Ravindra</b> (18801): <code>200</code> healthy, telegram polling active, process running clean.</li>",
-          "<li><b>Agastya-Keshav</b> (actually on 18808, not 18805 per config \u2014 plist note is stale): <code>200</code> healthy, telegram polling active.</li>",
-          "</ul>",
-          "<b>What Haderach did:</b> the wrapper script now falls back to a static AWS credentials file when bws fails, instead of looping forever. Confirmed in Ravi",
-          "[21:51 IST] [Agastya Fleet] Giskard: Both agents confirmed up. Reported to the group: Ravindra and Keshav are healthy (HTTP 200, polling active) thanks to Haderach's fallback-to-static-creds workaround \u2014 but flagged that the underlying `/etc/hosts` bws issue is still unfixed and this is a temporary patch, not a permanent solution.",
-          "[23:18 IST] [Agastya Fleet] Giskard: Ravindra \u2014 different issue than the bws one, this is specific to your chat session with the bot.",
-          "<b>What's happening:</b> around 22:42 IST your session got into a broken state \u2014 a tool call (looks like the ECL/Book9.xlsx analysis task, which tried a <code>sessions_spawn</code> that failed with \"unknown parent session\") left a dangling/unpaired tool-call in the conversation history. Bedrock's Converse API rejects that with <code>toolConfig field must be defined when using toolUse and toolResult",
-          "[23:18 IST] [Agastya Fleet] Giskard: Diagnosed and reported: Ravindra's bot itself is healthy (not the bws issue) \u2014 his specific chat session got corrupted by a failed tool call around 22:42 IST, which Bedrock's Converse API now rejects on every follow-up in that thread. Asked Ram before resetting the session since it would drop that conversation's history.",
-          "[23:18 IST] [Agastya Fleet] Giskard: Ravindra \u2014 got your forward, but Telegram didn't pass through the attachment content on my end (unsupported rich_message type, likely an image/screenshot). Can you paste the error text directly, or resend as a plain text message?",
-          "That said \u2014 this most likely matches what I already found and reported above: your session with the bot got stuck around 22:42 IST after a failed tool call, and Bedrock now rejects every message in that thread with \"toolConfig field must be defined...\" or \"malformed JS",
-          "[23:18 IST] [Agastya Fleet] Giskard: Sent \u2014 asked Ravindra to resend the error as text since the forwarded rich_message didn't come through, and reiterated to Ram that his session is stuck (same issue diagnosed earlier) pending the reset decision."
+          "# Transcript - 2026-09-25",
+          "# Self-healing rotation from transcript-2026-09-24.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-08-17 \u2014 no new content] ---",
@@ -2436,7 +2423,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.63,
-      "cpu": 1.0,
+      "cpu": 1.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2860,7 +2847,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.52,
+      "rss_gb": 0.53,
       "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
@@ -3729,7 +3716,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3897,7 +3884,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.29,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3926,7 +3913,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1398,
-      "rss_gb": 0.26,
+      "rss_gb": 0.25,
       "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
