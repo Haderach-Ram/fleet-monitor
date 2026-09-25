@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-26 00:06:08 IST",
-  "generated_epoch": 1790361368,
+  "generated_ist": "2026-09-26 00:11:16 IST",
+  "generated_epoch": 1790361676,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.59 / 2.92 / 2.54",
+    "load": "3.41 / 3.43 / 2.90",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.16,
-      "cpu": 8.0,
+      "rss_gb": 1.12,
+      "cpu": 0.9,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,60 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1790361485012,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
+          "enabled": true,
+          "sched": "0 0 * * *",
+          "last_ts": 1790361485011,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1790361485011,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1790361485011,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
+          "enabled": true,
+          "sched": "0 */4 * * *",
+          "last_ts": 1790361485010,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1790361485010,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -762,15 +816,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1790357861110,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Group Consolidation \u2014 23:05 IST (v2)",
           "enabled": true,
           "sched": "5 23 * * *",
@@ -795,33 +840,6 @@
           "last_ts": 1790357759978,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1790350509124,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1790350509124,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Memory Pressure Alert (free% + pageout, alert-only)",
-          "enabled": true,
-          "sched": "0 */4 * * *",
-          "last_ts": 1790346771745,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -1023,15 +1041,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1790285644779,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SAK-008 Martin Wiki \u2014 Nightly Stats Refresh",
           "enabled": true,
           "sched": "45 2 * * *",
@@ -1056,15 +1065,6 @@
           "last_ts": 1790282273163,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Midnight Cron \u2014 Transcript Rotation + Rolling Summaries (00:00 IST)",
-          "enabled": true,
-          "sched": "0 0 * * *",
-          "last_ts": 1790274884985,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
@@ -1592,6 +1592,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-26",
+          "# Self-healing rotation from transcript-2026-09-25.md at 00:08 IST"
+        ],
+        "yesterday": [
           "[18:09 IST] HADERACH: Aditya Birla Sun Life Mutual Fund is one of India's largest fixed-income franchises (its flagship Corporate Bond Fund alone runs roughly \u20b923,800 crore, with sizeable Credit Risk, Banking & PSU, and Dynamic Bond funds besides), giving it real heft as an anchor investor in NBFC paper if it chooses to participate in an NCD issue. As a lender it is credit-conscious rather than yield-chasing at the top end: its mandates (Corporate Bond, Banking & PSU) are concentrated in AAA/AA+ names, so a name l...",
           "[18:18 IST] RAM: Shorter. just 3 short sentences. Mention equity and debt AUM (check Martin database, internet etc). and say one of largest fixed income franchises. and how key potential lender for us",
           "[18:18 IST] HADERACH: Aditya Birla Sun Life Mutual Fund is one of India's largest fixed-income franchises, with overall AUM of about \u20b94.74 lakh crore as of March 2026, split roughly \u20b91.97 lakh crore equity and \u20b92.38 lakh crore fixed income/debt. Given that scale and its deep, credit-disciplined debt book, it is a key potential lender for us via NCDs, though it will size and price its ticket strictly against the AAA alternatives it can otherwise buy. It's a large investor worth actively courting, not one that lends...",
@@ -1633,56 +1637,7 @@
           "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 23:50 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
-        "yesterday": [
-          "**rbi.db** (6.0 MB, 12 tables) \u2014 call money rates 454 rows (Nov 2024\u2013Jul 2026); RBI FX rates (USD/EUR/GBP/JPY vs INR) 18,692 rows (2004\u201324 Sep 2026, i.e. today); MPC policy rates 67 rows (latest Apr 2026 review, rate held at 5.25%); SCB balance sheet 720 rows; sectoral credit 210 rows; forex reserves 511 rows (latest 25 Aug 2026 bulletin); NPA handbook 55 ...",
-          "[18:42 IST] RAM: Fix now pls",
-          "[18:43 IST] HADERACH: Let me double check that cpi_2024 jump \u2014 36.9k to 567.8k rows in under two weeks is a large enough jump to verify it's real, not a query mistake.",
-          "[18:44 IST] HADERACH: Good \u2014 confirmed real, and latest month is August 2026, not July as I said in my previous reply. Let me correct that too in the same edit.",
-          "[18:44 IST] HADERACH: Fixed, Ram \u2014 and caught two things while double-checking rather than just applying the fix blind. The MEMORY.md line now reads correctly:",
-          "Row counts updated to the live 24 Sep figures (bonds.db 3,297/486, market.db 22M+ combined through 23 Sep). IIP monthly is now correctly flagged as ~21 months stale (through Dec 2023), not \"1-3 months\" as the old note said. And I caught a second inaccuracy while verifying: cpi_2024 isn't at 36.9k rows through July as I told you a minute ago \u2014 it's actually...",
-          "[18:44 IST] HADERACH: Fixed, Ram \u2014 and caught two things while double-checking rather than just applying the fix blind. The MEMORY.md line now reads correctly:",
-          "Row counts updated to the live 24 Sep figures (bonds.db 3,297/486, market.db 22M+ combined through 23 Sep). IIP monthly is now correctly flagged as ~21 months stale (through Dec 2023), not \"1-3 months\" as the old note said. And I caught a second inaccuracy while verifying: cpi_2024 isn't at 36.9k rows through July as I told you a minute ago \u2014 it's actually...",
-          "[19:02 IST] RAM: Can you out here a table of the data available with Martin and the date of data?",
-          "[19:02 IST] HADERACH: Ram \u2014 since rich formatting is off, here it is laid out as plain text, database by database, with what's in it and the date of the data (most recent point on file, or the full range where that's more useful).",
-          "rbi.db: call money rates run November 2024 through July 2026. RBI FX rates, daily USD, EUR, GBP, JPY against INR, run 2004 through today, 24 September 2026. MPC policy rates, latest review 8 April 2026, rate held at 5.25 percent. Forex reserves, latest data point 31 July 2026 as publish...",
-          "[19:03 IST] HADERACH: Ram \u2014 since rich formatting is off, here it is laid out as plain text, database by database, with what's in it and the date of the data (most recent point on file, or the full range where that's more useful).",
-          "rbi.db: call money rates run November 2024 through July 2026. RBI FX rates, daily USD, EUR, GBP, JPY against INR, run 2004 through today, 24 September 2026. MPC policy rates, latest review 8 April 2026, rate held at 5.25 percent. Forex reserves, latest data point 31 July 2026 as publish...",
-          "[19:03 IST] RAM: Send pdf pls",
-          "[19:03 IST] HADERACH: Building the PDF now via subagent, per house standard. I'll send it once it's done.",
-          "[19:04 IST] HADERACH: Building the PDF now via subagent, per house standard. I'll send it once it's done.",
-          "[19:36 IST] HADERACH: File's built and verified on disk.",
-          "[19:37 IST] HADERACH: SAK-008_Data_Inventory_24Sep2026.pdf",
-          "[19:37 IST] HADERACH: Sent, Ram \u2014 the PDF's in your Telegram now, and also sitting at `~/Desktop/Haderach/Output/SAK-008_Data_Inventory_24Sep2026.pdf`.",
-          "--- [TRANSCRIPT GAP: 20:10 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 20:20 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 21:03 IST \u2014 session empty for 83 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[21:04 IST] HADERACH: ## SCL Media Monitor \u2014 21:03 IST (24 Sep 2026)",
-          "**RSS:** No new articles found.",
-          "**Twitter \u2014 SCL & Gagan Banga mentions:**",
-          "**Important flags:**",
-          "1. **Grievance complaint (Deepak Ahire, 2h ago)** \u2014 alleges professional conduct issues with SCL handling of grievance case (S-005777075/6), requesting RBI intervention. Low credibility (retail complaint tone) but escalated to @RBI tag.",
-          "2. **Analyst research (snipy.in, 3h ago)** \u2014 Ventura Capital projects 148% upside over 2 years, AUM growth \u20b933,89...",
-          "--- [TRANSCRIPT GAP: 21:40 IST \u2014 session empty for 30 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:00 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:20 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:30 IST \u2014 session empty for 80 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 23:03 IST \u2014 session empty for 113 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "[23:08 IST] HADERACH: Nightly consolidation complete for Monk (24 Sep 2026, idle day): rolling-7/28/180day summaries updated (pruned oldest, appended today), tag index rebuilt (130 days total), MEMORY_WRITE bookmark inserted, heartbeat-state.json updated. No new facts to promote \u2014 no session activity today.",
-          "[23:09 IST] RAM: https://x.com/steipete/status/2103147927313199260?s=46",
-          "TwitAcc this and discuss pls",
-          "[23:10 IST] HADERACH: Fetched, Ram. Here's the thread from @steipete (Peter Steinberger, OpenClaw's creator):",
-          "His core claim: OpenClaw deleted around 400,000 lines of its own test code without materially moving code coverage. His read is that modern models \"just love writing tests for every tiny change, even if they aren't useful,\" and a specific skill helped with the pruning. He follows up with the actual technique in a reply: telling an agent to \"clean up\" makes it stop too early, but giving it an ambitious qua...",
-          "[23:10 IST] HADERACH: Fetched, Ram. Here's the thread from @steipete (Peter Steinberger, OpenClaw's creator):",
-          "His core claim: OpenClaw deleted around 400,000 lines of its own test code without materially moving code coverage. His read is that modern models \"just love writing tests for every tiny change, even if they aren't useful,\" and a specific skill helped with the pruning. He follows up with the actual technique in a reply: telling an agent to \"clean up\" makes it stop too early, but giving it an ambitious qua..."
-        ],
         "rolling_7day": [
-          "## 2026-09-19",
-          "- Transcript \u2014 2026-09-19",
-          "- Self-healing rotation from transcript-2026-09-18.md at 00:05 IST",
-          "- [ROTATION: 00:05 IST \u2014 Self-healing date rotation. New file: transcript-2026-09-19.md] ---",
-          "- [00:04 IST] HADERACH: ## Summary",
-          "- [03:03 IST] HADERACH: **SCL Media Monitor \u2014 03:02 IST**",
-          "--- [Midnight run OK \u2014 2026-09-19 \u2014 no new content] ---",
           "## 2026-09-20",
           "- [00:04 IST] HADERACH: ## SCL Media Monitor \u2014 00:04 IST, 20 Sep 2026",
           "- **RSS Monitor:** No new articles.",
@@ -1715,21 +1670,16 @@
           "- [06:05 IST] HADERACH: ## SCL Media Monitor \u2014 06:05 IST (3-hourly check)",
           "- --- [BOOKMARK: 06:10 IST \u2014 Auto-checkpoint. Msgs: 1. Seq: 0. Last memory write: 03:04 IST] ---",
           "- --- [BOOKMARK: 06:20 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:10 IST] ---",
-          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---",
+          "## 2026-09-25",
+          "- Major SCL corporate action: NCLT New Delhi Bench admitted the Second Motion Petition for the SCL-SFL Scheme of Arrangement (order 21 Sep 2026, filed as NSE Reg. 30); next hearing 16 Nov 2026 \u2014 SCL-003 tracking.",
+          "- Delivered three lender-profile briefs for SCL's NCD context: Aditya Birla Sun Life MF (~USD 49.4 Bn AUM), NaBFID (~USD 12 Bn loan book), IndusInd Bank (~USD 58 Bn assets, CRAR 17.15%).",
+          "- SAK-008 Phase 2 (WSS) Friday update ran clean \u2014 0 new rows, no new editions.",
+          "- r/openclaw trawl: GitHub #53408 now stale-marked by bot (watch for auto-close, not a fix); found `tools.toolSearch` config flag, added to M4-upgrade checklist.",
+          "- Routine monitoring clean across RBI Watcher, SCL Media Monitor, Daily Brief, NSE bhavcopy \u2014 no new escalations; Deepak Ahire grievance unchanged.",
+          "--- [Midnight run OK \u2014 2026-09-26 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- [12:46-12:50 IST] Researched \"Jev\" \u2014 new AI trading decision model by TypeSafe (System-One), surfaced on X/dev.to/GitHub mid-Sep 2026, unvetted/fresh.",
-          "- [13:10 IST] Consolidation watchdog OK.",
-          "- [21:43-21:51 IST] Triaged SAK-008/Giskard fleet alert \u2014 npa_crar_extracted refresh cron (f9320aaa) confirmed healthy; 4 new investor-presentation PDFs (incl. AADHARHFC, PIRAMALFIN Q2FY27) downloaded 09:53-09:57 IST; false alarm resolved.",
-          "- [23:08 IST] Nightly Monk consolidation completed silently, per NO_REPLY instructions.",
-          "--- [Midnight run OK \u2014 2026-09-22 \u2014 no new content] ---",
-          "## 2026-09-22",
-          "- [06:04 IST] HADERACH: NO_REPLY",
-          "- [07:44 IST] RAM: https://x.com/openclaw/status/2102148396014514228?s=46",
-          "- [07:45 IST] HADERACH: Fetched the tweet Ram flagged (@openclaw's reply thread on the \"Meta uses OpenClaw\" story) via TwitAcc.",
-          "- [07:45 IST] HADERACH: Fetched the tweet Ram flagged (@openclaw's reply thread on the \"Meta uses OpenClaw\" story) via TwitAcc.",
-          "- [08:30 IST] HADERACH: \u2713 **NSE Bhavcopy Ingestion Complete**",
-          "- [08:45 IST] HADERACH: \u2705 **bonds.db refresh complete**",
           "- [09:04 IST] HADERACH: Daily Brief \u2014 22 September 2026",
           "- [09:37 IST] RAM: So what is your recommendation?",
           "- [09:38 IST] HADERACH: My recommendation, in short: hold the M4 upgrade a while longer, despite those three closures.",
@@ -1757,7 +1707,19 @@
           "- --- [BOOKMARK: 07:10 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 06:50 IST] ---",
           "- --- [BOOKMARK: 07:20 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 07:10 IST] ---",
           "- --- [BOOKMARK: 07:40 IST \u2014 Auto-checkpoint. Msgs: 0. Seq: 0. Last memory write: 07:20 IST] ---",
-          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---",
+          "## 2026-09-25",
+          "- r/openclaw trawl: tracked GitHub issues stable; #53408 (write/exec params dropped) now marked stale by bot (auto stale-warning 24 Sep, no maintainer reply) \u2014 watch for bot-driven auto-close, don't misread as fixed; #63188 still open. Found new OpenClaw docs detail: `tools.toolSearch` config key (Tool Search indirection feature) \u2014 added to M4-upgrade checklist to verify off/unset post-upgrade.",
+          "- RBI Watcher (02:00) ran clean \u2014 Master Directions page stable at 35 directions, no changes; NBFC/HFC circular scan found nothing new.",
+          "- SCL Media Monitor ran multiple cycles (03:03, 06:03, 09:07, 12:05) \u2014 no new escalations. Deepak Ahire grievance (@deepakahire1984, case S-005777075/6) against SCL still open/unchanged, reputation-risk watch continues.",
+          "- Bullish market chatter tracked but unchanged: Finance Flash broker buy call on SCL; Ventura Capital/snipy.in note projecting 148% two-year upside (AUM \u20b933,899 Cr FY26 \u2192 \u20b989,516 Cr FY29E; NII \u20b92,200.1 Cr \u2192 \u20b97,377.2 Cr), against SCL shares down ~18% over three months.",
+          "- Daily Brief (09:05): SCL's three anchor pages unchanged; RBI tracked-page churn \u2014 Master Directions index re-entered, new FAQ (\"What is an NBFC?\") displaced Draft Directions index and a Vinod Kothari commentary PDF.",
+          "- NSE bhavcopy refresh (08:30) clean for 2026-09-24: Equity 3,637 rows, F&O 36,933 rows ingested without error.",
+          "- draCuLAW/openclaw-radar digest (07:48): OpenClaw led with 14 new issues; 7-day traffic 5 PV, top page /openclaw-radar; draft tweet queued awaiting Ram's approval, not yet sent.",
+          "- SAK-008 Phase 2 (WSS) Friday update ran clean \u2014 0 new rows across forex/call-money/money-supply/govt-securities, no new editions discovered.",
+          "- Delivered three lender-profile briefs for SCL's NCD/debt-raise context: Aditya Birla Sun Life MF (~USD 49.4 Bn AUM), NaBFID (AAA GoI-backed infra DFI, ~USD 12 Bn loan book), IndusInd Bank (~USD 58 Bn total assets, CRAR 17.15%).",
+          "- Major SCL corporate action: NCLT New Delhi Bench admitted the Second Motion Petition for the Scheme of Arrangement between Sammaan Capital and Sammaan Finserve (order dated 21 Sep 2026, filed as NSE Reg. 30 disclosure); next hearing 16 Nov 2026 \u2014 SCL-003 (SCL-SFL demerger) tracking.",
+          "--- [Midnight run OK \u2014 2026-09-26 \u2014 no new content] ---"
         ]
       }
     },
@@ -1772,8 +1734,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.56,
-      "cpu": 1.3,
+      "rss_gb": 0.55,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1797,6 +1759,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "Giskard \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "5 0 * * *",
+          "last_ts": 1790361382227,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
         {
           "name": "Giskard \u2014 Transcript Logger (3h quiet, 18:00\u201306:00 IST)",
           "enabled": true,
@@ -1879,15 +1850,6 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Giskard \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "5 0 * * *",
-          "last_ts": 1790274988338,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Downloads SSD \u2014 Weekly Cleanup (Sun 10:00 IST)",
           "enabled": true,
           "sched": "0 10 * * 0",
@@ -1925,7 +1887,6 @@
           "# Self-healing rotation from transcript-2026-09-24.md at 00:00 IST"
         ],
         "rolling_7day": [
-          "--- [Midnight run OK \u2014 2026-08-17 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-18 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-19 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-08-20 \u2014 no new content] ---",
@@ -1964,10 +1925,10 @@
           "--- [Midnight run OK \u2014 2026-09-22 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-24 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-09-26 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "---",
           "- No sessions initiated on this date (Giskard standby; cron-triggered fleet monitoring ran normally).",
           "---",
           "--- [Midnight run OK \u2014 2026-06-12 \u2014 no new content] ---",
@@ -2006,7 +1967,8 @@
           "--- [Midnight run OK \u2014 2026-09-22 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-23 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-09-24 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-09-25 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-09-26 \u2014 no new content] ---"
         ]
       }
     },
@@ -2422,8 +2384,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.63,
-      "cpu": 1.3,
+      "rss_gb": 0.64,
+      "cpu": 1.5,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2617,6 +2579,15 @@
       ],
       "crons": [
         {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1790361556028,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
@@ -2657,15 +2628,6 @@
           "enabled": true,
           "sched": "0 6-21 * * *",
           "last_ts": 1790350210740,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1790275162706,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2729,9 +2691,6 @@
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary \u2014 Purl",
-          "## 2026-09-18 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-09-19 \u2014 No agent activity",
           "- No sessions initiated on this date.",
           "---",
@@ -2752,12 +2711,12 @@
           "---",
           "## 2026-09-25 \u2014 No agent activity",
           "- No sessions initiated on this date.",
+          "---",
+          "## 2026-09-26 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
           "---"
         ],
         "rolling_28day": [
-          "## 2026-09-20 \u2014 No agent activity",
-          "- No sessions initiated on this date.",
-          "---",
           "## 2026-09-20",
           "  # 2026-09-20 Daily Memory",
           "  ## Session 1 (13:41 IST \u2014 Telegram Heartbeat)",
@@ -2794,7 +2753,10 @@
           "- No sessions initiated on this date.",
           "---",
           "## 2026-09-25",
-          "- Consolidation checkpoint: Daily log processed"
+          "- Consolidation checkpoint: Daily log processed",
+          "## 2026-09-26 \u2014 No agent activity",
+          "- No sessions initiated on this date.",
+          "---"
         ]
       }
     },
@@ -2809,8 +2771,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.53,
-      "cpu": 5.4,
+      "rss_gb": 0.66,
+      "cpu": 1.2,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2834,6 +2796,15 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "enabled": true,
+          "sched": "10 */3 * * *",
+          "last_ts": 1790361607802,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ca_smeda_ii-consolidation-23",
           "enabled": true,
           "sched": "0 23 * * *",
@@ -2847,15 +2818,6 @@
           "enabled": true,
           "sched": "30 22 * * *",
           "last_ts": 1790355684517,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
-          "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1790350808266,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -2926,6 +2888,10 @@
       ],
       "transcripts": {
         "recent": [
+          "# Transcript \u2014 2026-09-26",
+          "# Self-healing rotation from transcript-2026-09-25.md at 00:10 IST"
+        ],
+        "yesterday": [
           "# Transcript \u2014 2026-09-25",
           "# Self-healing rotation from transcript-2026-09-24.md at 00:10 IST",
           "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Nightly consolidation complete \u2014 no study session occurred today, so strengths/gaps/exam-strategy/trajectory entries were skipped (nothing to log), standing facts recomputed and updated in study-trajectory.md, and wiki phase skipped (no topics touched today). Committed locally (push skipped \u2014 no remote configured, as expected).",
@@ -2942,23 +2908,6 @@
           "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 program complete per Day 11 closeout. Per rule 6, taking no action; logging completion.",
           "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete. current_day=12 (>11); no work performed per rule 6. Logged this 25 Sep 2026 14:00 IST cron fire to RESTUDY_PROGRESS.json. Silent operation maintained \u2014 no message sent to Ram.",
           "[21:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12, >11). Per rule 6, no action taken this fire. Logged note_25Sep2026_2100 to RESTUDY_PROGRESS.json and stopping."
-        ],
-        "yesterday": [
-          "# Transcript \u2014 2026-09-24",
-          "# Self-healing rotation from transcript-2026-09-23.md at 00:10 IST",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Context is fine (well under 80%). Let's read today's log.",
-          "[22:30 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Today's log shows a pure housekeeping day \u2014 no study session, no new strengths/gaps/exam-strategy observations, no wiki topics touched. Skipping steps 3-6 (nothing to append) and proceeding to Phase 9 standing facts + bookmark + commit.",
-          "[22:31 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Now Phase 10 \u2014 wiki update. Since today was pure housekeeping with no study session or wiki work-ingest, check if there's anything to reconcile.",
-          "[22:31 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: No new content today to reconcile in the wiki (no study session, no wiki work-ingest per today's log). Nothing to change in wiki files \u2014 skipping to git commit.",
-          "[22:31 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Nightly Memory Consolidation]: Committed locally; push failed only because no remote is configured (expected fallback per `|| true`). Consolidation complete \u2014 silent operation, no message to Ram required.",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: No FACT:critical tags to promote. Now append the bookmark to the transcript.",
-          "[23:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-23]: NO_REPLY",
-          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 the 11-Day Restudy Program is already complete (closed out on Day 11, 22 Jul 2026). Per rule 6, took no action this run. Logged \"Restudy program complete\" note for this 24 Sep 2026 06:00 IST cron fire in RESTUDY_PROGRESS.json. Stopping silently \u2014 no messages sent to Ram.",
-          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: Now append the bookmark to the transcript.",
-          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: No FACT:critical tags found in the tail \u2014 nothing to promote. Daily log written, bookmark appended.",
-          "NO_REPLY",
-          "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12 > 11). No action taken this fire, per rule 6. Log entry appended to RESTUDY_PROGRESS.json for this 24 Sep 2026 14:00 IST run.",
-          "[21:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 Restudy program complete per Day 11 closeout (22 Jul 2026). Logged and stopped per rule 6; no action taken this fire."
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-09-18 \u2014 no new content] ---",
@@ -3678,7 +3627,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.36,
-      "cpu": 14.7,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3875,7 +3824,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1398,
-      "rss_gb": 0.26,
+      "rss_gb": 0.25,
       "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
@@ -4276,8 +4225,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.59,
-      "cpu": 1.0,
+      "rss_gb": 0.46,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
