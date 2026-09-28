@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-28 23:00:04 IST",
-  "generated_epoch": 1790616604,
+  "generated_ist": "2026-09-28 23:05:12 IST",
+  "generated_epoch": 1790616912,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.01 / 2.19 / 2.16",
+    "load": "2.37 / 2.34 / 2.24",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.26,
-      "cpu": 4.1,
+      "rss_gb": 1.16,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,10 +681,19 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790616570853,
+          "sched": "0 23 * * *",
+          "last_ts": 1790616782597,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790616782596,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -693,25 +702,34 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790616025954,
+          "last_ts": 1790616782596,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Chet \u2014 Transcript & Memory Consolidation",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790616025953,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "sched": "0 23 * * *",
+          "last_ts": 1790616782595,
+          "last_status": "error",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790616025953,
+          "last_ts": 1790616782595,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1790616570853,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1081,24 +1099,6 @@
           "enabled": true,
           "sched": "5 23 * * *",
           "last_ts": 1790530793694,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790530506758,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript & Memory Consolidation",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790530506756,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1592,16 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "--- [TRANSCRIPT GAP: 16:23 IST \u2014 session empty for 73 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 16:44 IST \u2014 session empty for 94 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:04 IST \u2014 session empty for 114 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:24 IST \u2014 session empty for 134 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 17:44 IST \u2014 session empty for 154 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 18:04 IST \u2014 session empty for 174 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "[18:05 IST] HADERACH: **SCL Media Monitor Alert \u2014 18:05 IST, 28 September 2026**",
-          "RSS: No new articles.",
-          "Twitter findings (important items):",
-          "**Gaurav Patel** (@GauravPatel__01, 23h ago): Cost of funds watch \u2014 SCL management reports movement from 10.5% \u2192 10%, targeting 9.3% by FY27-end. Notes this \"could materially change the economics of a lending business.\"",
           "**EquityBulls** (27 Sep): SCL allotted \u20b9750 Crore Non-Convertible Debentures via private placement.",
           "**Wegro App** (26 Sep, multiple tweets): Timely interes...",
           "--- [TRANSCRIPT GAP: 18:50 IST \u2014 session empty for 40 min AND no transcript writes for 19 min. No zombie lock. Possible gateway issue.] ---",
@@ -1631,7 +1621,17 @@
           "   Multiple NCD int...",
           "--- [TRANSCRIPT GAP: 21:50 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 22:10 IST \u2014 session empty for 60 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 22:40 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "[22:56 IST] RAM: You have access to our parallel account?",
+          "[22:56 IST] HADERACH: Yes \u2014 the `parallel-search` MCP connection is live and reachable (confirmed just now via `parallel-search__web_search`), but it returned a 402: insufficient credit on the Parallel account. So it's wired up correctly, just needs funds on the Parallel platform billing page before it'll actually serve results.",
+          "For reference, we've had it configured since 10 May 2026 as an Exa alternative/comparison (search.parallel.ai/mcp endpoint), and the standing decision from 24 Jul 2026 was to prefer Exa a...",
+          "[22:57 IST] HADERACH: Yes \u2014 the `parallel-search` MCP connection is live and reachable (confirmed just now via `parallel-search__web_search`), but it returned a 402: insufficient credit on the Parallel account. So it's wired up correctly, just needs funds on the Parallel platform billing page before it'll actually serve results.",
+          "For reference, we've had it configured since 10 May 2026 as an Exa alternative/comparison (search.parallel.ai/mcp endpoint), and the standing decision from 24 Jul 2026 was to prefer Exa a...",
+          "[22:58 IST] RAM: Do you have access to the parallel account?",
+          "[22:58 IST] HADERACH: No \u2014 I don't have login access to the Parallel platform account itself (platform.parallel.ai dashboard/billing). What I have is the API key wired into the `parallel-search` MCP config, which lets me make search calls through it, but I can't get into the dashboard to check the billing/plan or top up credit.",
+          "For context: back on 10 May 2026, signup was blocked by a CAPTCHA loop (ironic, for a service built to help agents get past bot-blocking), so you logged in manually yourself and I took ove...",
+          "[22:58 IST] HADERACH: No \u2014 I don't have login access to the Parallel platform account itself (platform.parallel.ai dashboard/billing). What I have is the API key wired into the `parallel-search` MCP config, which lets me make search calls through it, but I can't get into the dashboard to check the billing/plan or top up credit.",
+          "For context: back on 10 May 2026, signup was blocked by a CAPTCHA loop (ironic, for a service built to help agents get past bot-blocking), so you logged in manually yourself and I took ove..."
         ],
         "yesterday": [
           "What the DB actually confirms for Jan-Sep 2026 (AAA cohort): Bajaj Housing Financ...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.53,
-      "cpu": 0.9,
+      "rss_gb": 0.55,
+      "cpu": 8.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1801,7 +1801,7 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
           "sched": "5 6-23 * * *",
-          "last_ts": 1790613308702,
+          "last_ts": 1790616910722,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2422,8 +2422,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.62,
-      "cpu": 2.1,
+      "rss_gb": 0.59,
+      "cpu": 1.2,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2620,7 +2620,7 @@
           "name": "Purl \u2014 Transcript Logger (30 min, 06:00-00:00)",
           "enabled": true,
           "sched": "*/30 6-23 * * *",
-          "last_ts": 1790614806300,
+          "last_ts": 1790616605565,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2847,8 +2847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.45,
-      "cpu": 0.4,
+      "rss_gb": 0.44,
+      "cpu": 1.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2871,6 +2871,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "ca_smeda_ii-consolidation-23",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1790616659414,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Nightly Memory Consolidation",
           "enabled": true,
@@ -2912,15 +2921,6 @@
           "enabled": true,
           "sched": "15 0 * * *",
           "last_ts": 1790534787254,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ca_smeda_ii-consolidation-23",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790530238852,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3720,7 +3720,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.32,
-      "cpu": 0.1,
+      "cpu": 0.7,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3908,7 +3908,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.24,
-      "cpu": 0.3,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4338,8 +4338,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.47,
-      "cpu": 0.9,
+      "rss_gb": 0.55,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
