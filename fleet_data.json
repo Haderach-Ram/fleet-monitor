@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-28 15:07:52 IST",
-  "generated_epoch": 1790588272,
+  "generated_ist": "2026-09-28 15:13:00 IST",
+  "generated_epoch": 1790588580,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "4.43 / 4.97 / 4.98",
+    "load": "3.81 / 4.51 / 4.78",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.07,
-      "cpu": 0.4,
+      "rss_gb": 1.11,
+      "cpu": 0.3,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790588425897,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790588425896,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790588425896,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
           "enabled": true,
           "sched": "0 */3 * * *",
@@ -703,33 +730,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1790587989072,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790587943655,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790587943655,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790587943654,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,12 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\ud83d\udcca **Weekly Trendlyne NPA/CRAR Refresh - Status Update**",
-          "**Current Time:** Monday, September 28th, 2026 - 9:55 AM (Asia/Calcutta)",
-          "**Status:** \u23f3 **IN PROGRESS**",
-          "The `phase2b_v2.py` script is currently running with active CPU usage (99.1%). The script is:",
-          "- Selecting top 4 most recent investor presentations per peer from filing_catalogue",
-          "-...",
           "[10:05 IST] RAM: Monk is on Hermes?",
           "[10:05 IST] HADERACH: Yes \u2014 Monk runs on hermesagent (v0.21.0), not OpenClaw. It's invoked on-demand via CLI (`hermes -z \"...\"`), no persistent gateway daemon, workspace at `~/.hermes/`.",
           "That's actually the exact staleness the self-audit just caught: Monk's own memory still says its model is DeepSeek/OpenRouter, but the live model hierarchy is Bedrock Claude Sonnet 5 (primary) \u2192 Sonnet 4.6 (fallback 1) \u2192 DeepSeek v3.2 on Bedrock (fallback 2) \u2192 DeepSeek v4 Pro on OpenRouter (fallback 3, last resort only). So \"Herm...",
@@ -1631,7 +1625,13 @@
           "--- [TRANSCRIPT GAP: 14:04 IST \u2014 session empty for 40 min AND no transcript writes for 21 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:44 IST \u2014 session empty for 80 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 15:02 IST \u2014 session empty for 98 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 15:02 IST \u2014 session empty for 98 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---",
+          "[15:02 IST] HADERACH: ## SCL Media Monitor \u2014 3h Check (28 Sep 2026, 15:02 IST)",
+          "**Twitter findings (flagged important):**",
+          "1. **Gaurav Patel (@GauravPatel__01)** \u2014 Sep 27, 13:09 UTC",
+          "   \"One number worth watching at Sammaan Capital: cost of funds. Management says it has already moved from 10.5% \u2192 10% and is targeting around 9.3% by FY27-end. Lower funding costs could materially change the economics of a lending business.\"",
+          "   \u279c **Material metric**: Cost of funds trending down (10.5% \u2192 10% \u2192 9.3% target).",
+          "2. **Equit..."
         ],
         "yesterday": [
           "What the DB actually confirms for Jan-Sep 2026 (AAA cohort): Bajaj Housing Financ...",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.51,
-      "cpu": 1.3,
+      "cpu": 1.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2847,8 +2847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.47,
-      "cpu": 1.0,
+      "rss_gb": 0.48,
+      "cpu": 0.6,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2872,6 +2872,15 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "enabled": true,
+          "sched": "10 */3 * * *",
+          "last_ts": 1790588409311,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
           "enabled": true,
           "sched": "0 6,14,21 * * *",
@@ -2885,15 +2894,6 @@
           "enabled": true,
           "sched": "0 13 * * *",
           "last_ts": 1790580640321,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
-          "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1790577607995,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -2974,7 +2974,12 @@
           "[00:16 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Midnight Rolling Summary]: Good \u2014 09-20 was correctly pruned (older than cutoff 09-21), and 09-27 entry is now present. Now append the final mandatory line to both rolling-7day.md and rolling-28day.md.",
           "[00:16 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Midnight Rolling Summary]: All midnight cron tasks completed silently.",
           "NO_REPLY",
-          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12, >11). No action taken this run per rule 6. Logged note_28Sep2026_0600 to RESTUDY_PROGRESS.json."
+          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12, >11). No action taken this run per rule 6. Logged note_28Sep2026_0600 to RESTUDY_PROGRESS.json.",
+          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: No MEMORY_WRITE bookmark today \u2014 reading the full file.",
+          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: No critical fact tags to promote. Appending the bookmark now.",
+          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: NO_REPLY",
+          "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 the 11-day program is already complete (closed out 22 Jul 2026). Per rule 6, taking no action this run other than logging.",
+          "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete. current_day=12 (>11) \u2014 no action taken this run per rule 6. Logged to RESTUDY_PROGRESS.json (note_28Sep2026_1400)."
         ],
         "yesterday": [
           "# Transcript \u2014 2026-09-27",
@@ -3713,7 +3718,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.32,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3901,7 +3906,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.24,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3931,7 +3936,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4332,7 +4337,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.47,
-      "cpu": 1.1,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
