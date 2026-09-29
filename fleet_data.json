@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-29 09:40:46 IST",
-  "generated_epoch": 1790655046,
+  "generated_ist": "2026-09-29 09:45:53 IST",
+  "generated_epoch": 1790655353,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.43 / 2.39 / 2.35",
+    "load": "2.54 / 2.76 / 2.55",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.21,
-      "cpu": 0.1,
+      "rss_gb": 1.38,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -684,7 +684,34 @@
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790654744941,
+          "last_ts": 1790655278223,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790655278222,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790655278222,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
+          "enabled": true,
+          "sched": "0,20,40 9-17 * * *",
+          "last_ts": 1790655278222,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -696,24 +723,6 @@
           "last_ts": 1790654744941,
           "last_status": "ok",
           "model": "(agent default)",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790654744940,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790654744940,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -730,15 +739,6 @@
           "enabled": true,
           "sched": "every 30m",
           "last_ts": 1790654382773,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
-          "enabled": true,
-          "sched": "0,20,40 9-17 * * *",
-          "last_ts": 1790654093601,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "2. **EquityBulls.com (Sep 27)** \u2014 NCD allotment confirmed",
           "   \"Sammaan ...",
           "[02:00 IST] HADERACH: The file is missing, which indicates no updates were found (the script only writes summary when there's content to report).",
           "HEARTBEAT_OK",
@@ -1631,7 +1630,8 @@
           "**Twitter findings (important flagged tweets):**",
           "1. **Gaurav Patel (@GauravPatel__01) \u2014 Sep 27** \u2014 analyst note on SCL cost of funds trajectory: 10.5% \u2192 10% achieved, targeting 9.3% by FY27-end. Material for lending economics.",
           "2. **EquityBulls.com (@equitybulls) \u2014 Sep 27** \u2014 SCL allots \u20b9750 Cr NCDs via private placement. Public announcement.",
-          "3. **Wegro App (@wegro_app) \u2014 Sep 26 (multiple tweets)** \u2014 SCL confirms tim..."
+          "3. **Wegro App (@wegro_app) \u2014 Sep 26 (multiple tweets)** \u2014 SCL confirms tim...",
+          "--- [TRANSCRIPT GAP: 09:44 IST \u2014 session empty for 34 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "The note field on it says `Login: ram.haderach@gmail.com` \u2014 that's the account email, but no password is stored alongside it. So this secret is API-key material (useful for direct API calls, billing checks via API if Parallel exposes one, etc.) rather than a browser-login credential...",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.53,
-      "cpu": 0.4,
+      "cpu": 0.8,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2423,7 +2423,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.6,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2847,8 +2847,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.6,
-      "cpu": 0.5,
+      "rss_gb": 0.47,
+      "cpu": 1.0,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3720,7 +3720,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.33,
-      "cpu": 0.1,
+      "cpu": 0.3,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3906,7 +3906,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.24,
-      "cpu": 0.4,
+      "cpu": 0.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3936,7 +3936,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.7,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4337,7 +4337,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.47,
-      "cpu": 0.7,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
