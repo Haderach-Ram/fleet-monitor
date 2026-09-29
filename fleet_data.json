@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-29 23:02:35 IST",
-  "generated_epoch": 1790703155,
+  "generated_ist": "2026-09-29 23:07:42 IST",
+  "generated_epoch": 1790703462,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.38 / 2.67 / 3.08",
+    "load": "2.17 / 2.54 / 2.90",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.23,
-      "cpu": 2.3,
+      "rss_gb": 1.19,
+      "cpu": 0.1,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,37 +681,55 @@
       ],
       "crons": [
         {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790702976414,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790703364478,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "name": "Haderach Consolidation \u2014 23:00 IST",
           "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790702428120,
+          "sched": "0 23 * * *",
+          "last_ts": 1790703364478,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790702428120,
+          "last_ts": 1790703364478,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript & Memory Consolidation",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1790703364477,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790702428119,
+          "last_ts": 1790703364477,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1790702976414,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1028,24 +1046,6 @@
           "sched": "3 23 * * *",
           "last_ts": 1790616982242,
           "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790616782597,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript & Memory Consolidation",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790616782595,
-          "last_status": "error",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:59 IST] HADERACH: All four are back up, HTTP 200, running with fresh PIDs. Let me confirm which credential path each actually used at this boot (real `bws` vs the static fallback) so we know the fix genuinely took, not just that they happen to be healthy.",
           "[19:00 IST] HADERACH: All confirmed live and healthy \u2014 but the log wording differs slightly between agents, so let me verify precisely which path Keshav and Ravindra actually used (their logs just say \"loaded OK\" without the explicit \"via BWS\" tag that Jonas and Sandip show).",
           "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
@@ -1631,7 +1630,8 @@
           "[22:18 IST] HADERACH: Got it \u2014 this one's a full X Article, not just a tweet, by Eugen (Eugen Alpeza, Co-Founder & CEO of edra_ai, ex-Palantir Forward Deployed Engineer, verified individual, ~2,300 followers). Title: \"The FDE boom is a product gap.\" Posted today, 71 likes, 86 bookmarks, 12.4k views, and the reply Ram's link surfaced (Shaun Crimmins: \"An engineer is an expensive interface between an operator and an agent!\") is a good one-line summary of it.",
           "The argument: Every enterprise trying to deploy AI agents...",
           "[22:18 IST] HADERACH: Got it \u2014 this one's a full X Article, not just a tweet, by Eugen (Eugen Alpeza, Co-Founder & CEO of edra_ai, ex-Palantir Forward Deployed Engineer, verified individual, ~2,300 followers). Title: \"The FDE boom is a product gap.\" Posted today, 71 likes, 86 bookmarks, 12.4k views, and the reply Ram's link surfaced (Shaun Crimmins: \"An engineer is an expensive interface between an operator and an agent!\") is a good one-line summary of it.",
-          "The argument: Every enterprise trying to deploy AI agents..."
+          "The argument: Every enterprise trying to deploy AI agents...",
+          "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 43 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "The note field on it says `Login: ram.haderach@gmail.com` \u2014 that's the account email, but no password is stored alongside it. So this secret is API-key material (useful for direct API calls, billing checks via API if Parallel exposes one, etc.) rather than a browser-login credential...",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 1419,
       "rss_gb": 0.53,
-      "cpu": 1.0,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1801,7 +1801,7 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
           "sched": "5 6-23 * * *",
-          "last_ts": 1790699711440,
+          "last_ts": 1790703310101,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2423,7 +2423,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.62,
-      "cpu": 1.6,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2848,7 +2848,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.44,
-      "cpu": 0.9,
+      "cpu": 0.7,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3724,7 +3724,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.32,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3940,7 +3940,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4340,7 +4340,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.43,
+      "rss_gb": 0.44,
       "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
