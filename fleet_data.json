@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-29 20:07:47 IST",
-  "generated_epoch": 1790692667,
+  "generated_ist": "2026-09-29 20:12:55 IST",
+  "generated_epoch": 1790692975,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.92 / 2.82 / 2.42",
+    "load": "2.65 / 2.51 / 2.36",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 3769,
       "rss_gb": 1.08,
-      "cpu": 0.3,
+      "cpu": 0.4,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790692827613,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790692827612,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790692827612,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
@@ -694,33 +721,6 @@
           "enabled": true,
           "sched": "0 * * * *",
           "last_ts": 1790692280526,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790692225409,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790692225409,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790692225408,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,7 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[18:55 IST] HADERACH: Good \u2014 since this needs your local sudo password, you'll run it directly on M2's Terminal. Here's the walkthrough:",
           "**Step 1 \u2014 Open Terminal on the M2** (Spotlight \u2192 type \"Terminal\" \u2192 Enter).",
           "**Step 2 \u2014 Check what's actually in the hosts file first** (so you can see exactly what's about to change):",
           "```",
@@ -1631,7 +1630,8 @@
           "[18:59 IST] HADERACH: All four are back up, HTTP 200, running with fresh PIDs. Let me confirm which credential path each actually used at this boot (real `bws` vs the static fallback) so we know the fix genuinely took, not just that they happen to be healthy.",
           "[19:00 IST] HADERACH: All confirmed live and healthy \u2014 but the log wording differs slightly between agents, so let me verify precisely which path Keshav and Ravindra actually used (their logs just say \"loaded OK\" without the explicit \"via BWS\" tag that Jonas and Sandip show).",
           "--- [TRANSCRIPT GAP: 19:40 IST \u2014 session empty for 40 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 19:50 IST \u2014 session empty for 50 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---",
+          "--- [TRANSCRIPT GAP: 20:10 IST \u2014 session empty for 70 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "The note field on it says `Login: ram.haderach@gmail.com` \u2014 that's the account email, but no password is stored alongside it. So this secret is API-key material (useful for direct API calls, billing checks via API if Parallel exposes one, etc.) rather than a browser-login credential...",
@@ -1772,8 +1772,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.54,
-      "cpu": 0.7,
+      "rss_gb": 0.55,
+      "cpu": 0.4,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2423,7 +2423,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.62,
-      "cpu": 0.7,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -3722,8 +3722,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1404,
-      "rss_gb": 0.31,
-      "cpu": 0.7,
+      "rss_gb": 0.32,
+      "cpu": 0.5,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3909,7 +3909,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.24,
-      "cpu": 0.7,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3939,7 +3939,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.1,
+      "cpu": 0.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4339,8 +4339,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.43,
-      "cpu": 0.6,
+      "rss_gb": 0.42,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
