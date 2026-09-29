@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-30 03:03:29 IST",
-  "generated_epoch": 1790717609,
+  "generated_ist": "2026-09-30 03:08:37 IST",
+  "generated_epoch": 1790717917,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.90 / 2.84 / 2.48",
+    "load": "1.87 / 2.37 / 2.40",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.3,
-      "cpu": 5.5,
+      "rss_gb": 1.21,
+      "cpu": 0.1,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,51 @@
       ],
       "crons": [
         {
+          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
+          "enabled": true,
+          "sched": "every 30m",
+          "last_ts": 1790717694318,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1790717667010,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
+          "enabled": true,
+          "sched": "2 0,3 * * *",
+          "last_ts": 1790717667010,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Twitter Watcher \u2014 Every 3h",
+          "enabled": true,
+          "sched": "0 */3 * * *",
+          "last_ts": 1790717667010,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "ProjHad Desktop Sync \u2014 Hourly",
+          "enabled": true,
+          "sched": "0 * * * *",
+          "last_ts": 1790717667009,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Group Transcript Logger \u2014 quiet hours (v2)",
           "enabled": true,
           "sched": "0 0,3 * * *",
@@ -705,24 +750,6 @@
           "last_ts": 1790716513421,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ClarkKent \u2014 News Fetcher (every 30 min)",
-          "enabled": true,
-          "sched": "every 30m",
-          "last_ts": 1790715885309,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ProjHad Desktop Sync \u2014 Hourly",
-          "enabled": true,
-          "sched": "0 * * * *",
-          "last_ts": 1790714037436,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
         },
         {
@@ -771,36 +798,9 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Transcript Logger \u2014 3h quiet (00:00\u201306:00 IST)",
-          "enabled": true,
-          "sched": "2 0,3 * * *",
-          "last_ts": 1790707106954,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Memory Pressure Alert (free% + pageout, alert-only)",
           "enabled": true,
           "sched": "0 */4 * * *",
-          "last_ts": 1790707106953,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "SCL Media Monitor \u2014 Every 3h (RSS + Twitter)",
-          "enabled": true,
-          "sched": "0 */3 * * *",
-          "last_ts": 1790707106953,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Twitter Watcher \u2014 Every 3h",
-          "enabled": true,
-          "sched": "0 */3 * * *",
           "last_ts": 1790707106953,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
@@ -1593,7 +1593,34 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-09-30",
-          "# Self-healing rotation from transcript-2026-09-29.md at 00:08 IST"
+          "# Self-healing rotation from transcript-2026-09-29.md at 00:08 IST",
+          "[23:53 IST] RAM: https://x.com/openai/status/2104993966043320759?s=46",
+          "TwitAcc this. What is this?",
+          "[23:53 IST] HADERACH: This one's from OpenAI's official account, part of the same DevDay announcement thread as the Sam/Tibo tweet you sent earlier \u2014 it's the piece announcing \"Ultrafast.\"",
+          "Ultrafast is a new premium inference speed tier, not a new model. It's a way of running an existing model faster: up to 8x faster token generation in Codex (300 tokens/second), up to 6x faster via the API. It's live today for GPT-6 Astra across Codex, ChatGPT Work, and the API. For 6.1 Sol (the model we were just discussing), U...",
+          "[23:53 IST] HADERACH: This one's from OpenAI's official account, part of the same DevDay announcement thread as the Sam/Tibo tweet you sent earlier \u2014 it's the piece announcing \"Ultrafast.\"",
+          "Ultrafast is a new premium inference speed tier, not a new model. It's a way of running an existing model faster: up to 8x faster token generation in Codex (300 tokens/second), up to 6x faster via the API. It's live today for GPT-6 Astra across Codex, ChatGPT Work, and the API. For 6.1 Sol (the model we were just discussing), U...",
+          "[23:54 IST] RAM: Check if available as feature on BedRock",
+          "[23:54 IST] HADERACH: Checked directly \u2014 no, Ultrafast is not on Bedrock, and there's a good technical reason why not.",
+          "Ultrafast is a separate, Cerebras-backed inference tier \u2014 it's not OpenAI's own GPUs running faster, it's OpenAI routing those requests to Cerebras's specialized inference hardware, which is a different infrastructure stack from Bedrock's OpenAI integration entirely. That's confirmed both by the model documentation (Ultrafast is \"access-controlled,\" currently scoped to specific models) and by how...",
+          "[23:55 IST] HADERACH: Checked directly \u2014 no, Ultrafast is not on Bedrock, and there's a good technical reason why not.",
+          "Ultrafast is a separate, Cerebras-backed inference tier \u2014 it's not OpenAI's own GPUs running faster, it's OpenAI routing those requests to Cerebras's specialized inference hardware, which is a different infrastructure stack from Bedrock's OpenAI integration entirely. That's confirmed both by the model documentation (Ultrafast is \"access-controlled,\" currently scoped to specific models) and by how...",
+          "[00:06 IST] HADERACH: Two tweets from today/yesterday are noteworthy \u2014 one from a financial analyst (@InvestWithJoshi, ~5h ago) discussing SCL's AAA upgrade path, and one from @equitybulls (Sep 27) on SCL's \u20b9750 Cr NCD allotment. Both are relevant. Sending summary.",
+          "SCL Media Monitor \u2014 12:05 AM IST, 30 Sep 2026",
+          "No new RSS articles this cycle.",
+          "Twitter \u2014 notable items found:",
+          "1. @InvestWithJoshi (5h ago, ~13:05 UTC): \"Sammaan Capital is looking interesting at these valuations. Management is targeting a move toward...",
+          "[01:34 IST] HADERACH: The message tool is failing due to a network issue on the send call, but per the cron job's delivery config (announce mode), my final plain-text reply should be delivered automatically. I'll close with that.",
+          "MusApp self-directed session complete, Ram. Five tracks, all captured live via BlackHole 2ch \u2014 no auth failures, no silent captures this run.",
+          "Research pulled from r/Jazz and r/LetsTalkMusic top-of-week: the Coltrane centennial wave is still running a week on, but three fresher threads s...",
+          "[02:00 IST] HADERACH: Summary file does not exist (no updates detected by the watcher). The script ran cleanly with exit code 0 \u2014 no errors.",
+          "HEARTBEAT_OK \u2014 RBI Watcher completed successfully. No new Master Directions or NBFC/HFC circulars detected as of 02:00 IST.",
+          "[03:03 IST] HADERACH: **SCL Media Monitor \u2014 03:03 IST, 30 Sep 2026**",
+          "RSS: No new articles.",
+          "Twitter findings (flagging journalist/analyst commentary and management updates):",
+          "**Important mentions:**",
+          "- **Vaibhav Joshi** (@InvestWithJoshi, 8h ago): SCL looking interesting at current valuations. Management targeting domestic AA rating in H2 FY27/FY28. Notes valuation scope: AAA NBFCs trade 2x-5x book; Shriram at 2.2x, SCL has significant upside potential.",
+          "- **Umesh Mhambrey** (@Umesh99912664, 12h ago): Gulf capital ..."
         ],
         "yesterday": [
           "Tweet 2 (follow-up, self-promot...",
@@ -1734,8 +1761,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1419,
-      "rss_gb": 0.57,
-      "cpu": 1.6,
+      "rss_gb": 0.58,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2385,8 +2412,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.62,
-      "cpu": 0.6,
+      "rss_gb": 0.63,
+      "cpu": 0.4,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2580,19 +2607,10 @@
       ],
       "crons": [
         {
-          "name": "Purl \u2014 Midnight Rolling Summary",
-          "enabled": true,
-          "sched": "9 0 * * *",
-          "last_ts": 1790707167710,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1790706878982,
+          "last_ts": 1790717657315,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2601,7 +2619,16 @@
           "name": "Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)",
           "enabled": true,
           "sched": "4 */3 * * *",
-          "last_ts": 1790706878982,
+          "last_ts": 1790717657315,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Purl \u2014 Midnight Rolling Summary",
+          "enabled": true,
+          "sched": "9 0 * * *",
+          "last_ts": 1790707167710,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2646,7 +2673,29 @@
       "transcripts": {
         "recent": [
           "# Transcript \u2014 2026-09-30",
-          "# Self-healing rotation from transcript-2026-09-29.md at 00:04 IST"
+          "# Self-healing rotation from transcript-2026-09-29.md at 00:04 IST",
+          "[00:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: [assistant turn failed before producing content]",
+          "[00:04 IST] PURL [Cron: Purl \u2014 Klub K Transcript Logger (3h quiet, 00:00-06:00)]: Script completed. No new messages to append across all transcript targets. Group transcript session had no new data this cycle.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: [assistant turn failed before producing content]",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Daily log missing, real_line_count = 6 (under 10), group transcript has only a rotation header with no real conversation. Both are quiet \u2014 proceed with --no-activity for both.",
+          "[00:09 IST] PURL [Cron: Purl \u2014 Midnight Rolling Summary]: Both calls verified OK, all files non-zero. Silent exit.",
+          "NO_REPLY",
+          "[01:55 IST] DM_USER: [OpenClaw heartbeat poll]",
+          "[01:55 IST] PURL: Running heartbeat checks...",
+          "[01:55 IST] PURL: Let me update the transcript and run the full checks:",
+          "[01:56 IST] PURL: ProtonMail check is running. Let me poll it:",
+          "[01:56 IST] PURL: ProtonMail inbox shows no new/unread emails since last check (2026-09-29 14:25 UTC). Last genuinely incoming email was your test from June 20th. Git isn't initialized in workspace \u2014 that's a setup task for another time.",
+          "**Checks complete:**",
+          "- \u2705 Session transcript saved",
+          "- \u2705 ProtonMail: no new incoming mail",
+          "- \u2705 Config backup (last done 2026-09-23 \u2014 due today)",
+          "- \u26a0\ufe0f Git not initialized (workspace not backed up to GitHub yet)",
+          "One thing due: **daily config backup**. Want me to run that now?",
+          "HEARTBE",
+          "[03:04 IST] PURL [Cron: Purl \u2014 Transcript Logger (3h quiet, 00:00-06:00)]: I'll run the transcript logger for you now.",
+          "[01:55 IST] PURL: Running heartbeat checks...",
+          "[01:55 IST] PURL: Let me update the transcript and run the full checks:",
+          "[01:56 IST] PURL: ProtonMail check is running. Let me poll it:"
         ],
         "yesterday": [
           "[17:30 IST] PURL [Cron: Purl \u2014 Transcript Logger (30 min, 06:00-00:00)]: I'll run the transcript logger script now.",
@@ -2773,7 +2822,7 @@
       "frozen_reason": null,
       "pid": 1427,
       "rss_gb": 0.44,
-      "cpu": 0.5,
+      "cpu": 0.4,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3819,7 +3868,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.24,
-      "cpu": 0.6,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3849,7 +3898,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.6,
+      "cpu": 0.1,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4249,8 +4298,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.43,
-      "cpu": 3.2,
+      "rss_gb": 0.44,
+      "cpu": 1.2,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
