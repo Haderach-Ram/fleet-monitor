@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-30 15:07:56 IST",
-  "generated_epoch": 1790761076,
+  "generated_ist": "2026-09-30 15:13:03 IST",
+  "generated_epoch": 1790761383,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.46 / 2.67 / 2.35",
+    "load": "3.21 / 4.19 / 3.31",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.13,
+      "rss_gb": 1.11,
       "cpu": 0.1,
       "crons_total": 101,
       "crons_enabled": 65,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790761226565,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790761226564,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790761226563,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "ProjHad Desktop Sync \u2014 Hourly",
           "enabled": true,
           "sched": "0 * * * *",
@@ -708,37 +735,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790760827088,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790760827088,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1790760827087,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790760827086,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,12 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "\ud83d\udda5\ufe0f _Fleet Monitor \u2014 11:05 IST 30 Sep_",
-          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
-          "\u26a0\ufe0f _Giskard_ `rolling-28day.md` stale (35.0h old, 116L) \u2014 midnight cron may have failed",
-          "\u26a0\ufe0f _Giskard_ `rolling-7day.md` stale (35.0h old, 261L) \u2014 midnight cron may have failed",
-          "\ud83d\udd34 _Consolidation cron [haderach: SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)]_ \u2014 1 consecutive error(s): \u26a0\ufe0f \ud83e\uddf0 Process: `delta-harbor` failed",
-          "\ud83d\udd34 _Consolidation cron [giskard: giskard-watchdog...",
           "[12:05 IST] RAM: ?",
           "[12:07 IST] HADERACH: Right, here's the full picture \u2014 I dug through Giskard's own gateway error log rather than trusting the dashboard summary alone, since a stale-file flag on its own doesn't tell you why.",
           "The two Giskard alerts, giskard-watchdog-23 and Giskard Midnight Rolling Summary, are one root cause wearing two names. Both jobs are configured to call model \"anthropic/claude-haiku-4-5\", which on Giskard's Bedrock setup resolves to global.anthropic.claude-haiku-4-5. Overnight that model timed out (FailoverE...",
@@ -1631,7 +1625,13 @@
           "--- [TRANSCRIPT GAP: 14:03 IST \u2014 session empty for 40 min AND no transcript writes for 20 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:24 IST \u2014 session empty for 60 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
           "--- [TRANSCRIPT GAP: 14:44 IST \u2014 session empty for 81 min AND no transcript writes for 14 min. No zombie lock. Possible gateway issue.] ---",
-          "--- [TRANSCRIPT GAP: 15:03 IST \u2014 session empty for 100 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---"
+          "--- [TRANSCRIPT GAP: 15:03 IST \u2014 session empty for 100 min AND no transcript writes for 13 min. No zombie lock. Possible gateway issue.] ---",
+          "[15:04 IST] HADERACH: **RSS monitor:** No new SCL articles found.",
+          "**Twitter findings:**",
+          "**Sammaan Capital search:** 7 results, mostly recent and operational. Key items:",
+          "- **Vaibhav Joshi** (analyst, @InvestWithJoshi) \u2014 20h ago: notes SCL targeting domestic AAA in 2H FY27/FY28; observes AAA NBFCs trade 2x\u2013>5x book, Shriram at 2.2x, flags SCL's scope for upside",
+          "- **Umesh Mhambrey** \u2014 Sep 29: mentions IHC's $1B deal in Sammaan Capital in broader UAE\u2013India capital context",
+          "- **Gaurav Patel** (analyst, @GauravPatel__0..."
         ],
         "yesterday": [
           "Tweet 2 (follow-up, self-promot...",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 21192,
       "rss_gb": 0.53,
-      "cpu": 1.7,
+      "cpu": 0.3,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2449,7 +2449,7 @@
       "frozen_reason": null,
       "pid": 1405,
       "rss_gb": 0.62,
-      "cpu": 1.1,
+      "cpu": 0.6,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2873,8 +2873,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.44,
-      "cpu": 0.6,
+      "rss_gb": 0.53,
+      "cpu": 0.4,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2898,6 +2898,15 @@
       ],
       "crons": [
         {
+          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
+          "enabled": true,
+          "sched": "10 */3 * * *",
+          "last_ts": 1790761208607,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)",
           "enabled": true,
           "sched": "0 6,14,21 * * *",
@@ -2911,15 +2920,6 @@
           "enabled": true,
           "sched": "0 13 * * *",
           "last_ts": 1790753450890,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "CA SMEDA-II \u2014 Transcript Logger (3h, all day)",
-          "enabled": true,
-          "sched": "10 */3 * * *",
-          "last_ts": 1790750407557,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3002,7 +3002,10 @@
           "[00:17 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Midnight Rolling Summary]: Good, 09-22 pruned. Now append the mandatory closing lines to both rolling-7day.md and rolling-28day.md.",
           "[00:17 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Midnight Rolling Summary]: All midnight rolling summary tasks completed silently.",
           "NO_REPLY",
-          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 the 11-Day Restudy Program is complete (closed out on 22 Jul 2026). Per rule 6, took no action this fire; logged a no-op note (note_30Sep2026_0600) to RESTUDY_PROGRESS.json and stopping. Restudy program complete."
+          "[06:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: current_day is 12 (>11) \u2014 the 11-Day Restudy Program is complete (closed out on 22 Jul 2026). Per rule 6, took no action this fire; logged a no-op note (note_30Sep2026_0600) to RESTUDY_PROGRESS.json and stopping. Restudy program complete.",
+          "[13:00 IST] CA-SMEDA-II [Cron: ca_smeda_ii-consolidation-13]: No FACT:*:critical:* tags found in the tail \u2014 housekeeping-only window, nothing to promote. Daily log written, bookmark appended.",
+          "NO_REPLY",
+          "[14:00 IST] CA-SMEDA-II [Cron: CA SMEDA-II \u2014 Restudy Program Daily Driver (11-Day Foundation+Inter+Final-resit)]: Restudy program complete (current_day=12 > 11). No action taken per rule 6; logged this fire (30 Sep 2026 14:00 IST) to RESTUDY_PROGRESS.json."
         ],
         "yesterday": [
           "# Transcript \u2014 2026-09-29",
@@ -3745,7 +3748,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.32,
-      "cpu": 0.4,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3945,7 +3948,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.1,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4346,7 +4349,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.44,
-      "cpu": 0.4,
+      "cpu": 0.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
