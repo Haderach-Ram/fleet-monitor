@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-09-30 16:09:33 IST",
-  "generated_epoch": 1790764773,
+  "generated_ist": "2026-09-30 16:14:40 IST",
+  "generated_epoch": 1790765080,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.75 / 2.61 / 2.58",
+    "load": "4.05 / 3.64 / 3.04",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 3769,
       "rss_gb": 1.21,
-      "cpu": 0.2,
+      "cpu": 0.1,
       "crons_total": 101,
       "crons_enabled": 65,
       "skills_count": 63,
@@ -681,6 +681,33 @@
       ],
       "crons": [
         {
+          "name": "Chet \u2014 Transcript Capture (10 min)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790764827240,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790764827240,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
+          "enabled": true,
+          "sched": "*/10 6-23 * * *",
+          "last_ts": 1790764827239,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Monk \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "2 6-23/10 * * *",
@@ -708,37 +735,10 @@
           "kind": "agentTurn"
         },
         {
-          "name": "Chet \u2014 Transcript Capture (10 min)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790764434847,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
           "name": "SCM Mail Archive A \u2014 daytime (20min, 9am-5:40pm IST)",
           "enabled": true,
           "sched": "0,20,40 9-17 * * *",
           "last_ts": 1790764434847,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790764434847,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Group Transcript Logger \u2014 10min daytime (v2)",
-          "enabled": true,
-          "sched": "*/10 6-23 * * *",
-          "last_ts": 1790764434846,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1592,18 +1592,6 @@
       ],
       "transcripts": {
         "recent": [
-          "Giskard, please fix the fallback model ID in your own config at ~/.openclaw-giskard/openclaw.json. Root cause of both giskard-watchdog-23 and Giskard Midnight Rolling Summary failing with LLM request failed: your primary call to anthropic/claude-haiku-4-5 times out, and the fallback chain drops to amazon-bedrock/nova-pro, which errors with Validation error: the provided model identifier is invalid. Your models block already maps nova-pro to us.amazon.n...",
-          "[12:32 IST] RAM: Check if done",
-          "[12:32 IST] HADERACH: Yes \u2014 done. Giskard applied the fix.",
-          "Live config check on `~/.openclaw-giskard/openclaw.json` confirms the fallbacks array now reads `[\"amazon-bedrock/global.anthropic.claude-sonnet-4-6\", \"amazon-bedrock/amazon.nova-pro-v1:0\"]` \u2014 the corrected fully-qualified nova-pro ID is in place. A timestamped backup exists at `openclaw.json.bak-20260930-122004`, matching the standard procedure. The gateway restarted cleanly at 12:20:39 IST (confirmed via launchctl: state running, pid 21192) with no conf...",
-          "[12:33 IST] HADERACH: Yes \u2014 done. Giskard applied the fix.",
-          "Live config check on `~/.openclaw-giskard/openclaw.json` confirms the fallbacks array now reads `[\"amazon-bedrock/global.anthropic.claude-sonnet-4-6\", \"amazon-bedrock/amazon.nova-pro-v1:0\"]` \u2014 the corrected fully-qualified nova-pro ID is in place. A timestamped backup exists at `openclaw.json.bak-20260930-122004`, matching the standard procedure. The gateway restarted cleanly at 12:20:39 IST (confirmed via launchctl: state running, pid 21192) with no conf...",
-          "[13:05 IST] RAM: Not fixed yet:",
-          "\ud83d\udda5\ufe0f _Fleet Monitor \u2014 13:05 IST 30 Sep_",
-          "\u2501\u2501\u2501 ISSUES \u2501\u2501\u2501",
-          "\u26a0\ufe0f _Giskard_ `rolling-28day.md` stale (37.0h old, 116L) \u2014 midnight cron may have failed",
-          "\u26a0\ufe0f _Giskard_ `rolling-7day.md` stale (37.0h old, 261L) \u2014 midnight cron may have failed",
-          "\ud83d\udd34 _Consolidation cron [giskard: giskard-watchdog-23]_ \u2014 4 consecutive error(s): LLM request failed.",
           "\ud83d\udd34 _Consolidation cron [giskard: Giskard \u2014 Midnight Rolling Summary]_ \u2014 4 consecutive error(s): LLM request failed.",
           "\u2501\u2501\u2501 FROZEN \u2501\u2501\u2501",
           "\u23f8 Kubera [18798] ...",
@@ -1631,7 +1619,19 @@
           "[15:35 IST] HADERACH: Right \u2014 since I can't force-run Giskard's crons directly (my `cron` tool only reaches my own gateway, not Giskard's), here's the message to relay.",
           "Giskard, please force-run both crons now to verify the nova-pro fallback fix rather than waiting for tonight's scheduled runs:",
           "cron(action=\"run\", jobId=\"232f8b93-0307-466f-b060-b19c7f3916ef\", runMode=\"force\") \u2014 giskard-watchdog-23",
-          "cron(action=\"run\", jobId=\"98222872-914f-44f9-8826-fda6bef548b5\", runMode=\"force\") \u2014 Giskard \u2014 Midnight Rolling Summa..."
+          "cron(action=\"run\", jobId=\"98222872-914f-44f9-8826-fda6bef548b5\", runMode=\"force\") \u2014 Giskard \u2014 Midnight Rolling Summa...",
+          "[16:05 IST] RAM: There is a mail on haderach@sammaancapital.com from Sombir Yadav, check that and discuss",
+          "[16:06 IST] HADERACH: Ram, before I dive in \u2014 session mode?",
+          "S \u2014 Full context (all files, full startup)",
+          "C \u2014 Compact (skip transcript tail + rolling-28day)",
+          "X \u2014 Express (daily summary only)",
+          "Default if you don't reply: C. Let me know, and I'll pull up Sombir Yadav's mail right after.",
+          "[16:06 IST] HADERACH: Ram, before I dive in \u2014 session mode?",
+          "S \u2014 Full context (all files, full startup)",
+          "C \u2014 Compact (skip transcript tail + rolling-28day)",
+          "X \u2014 Express (daily summary only)",
+          "Default if you don't reply: C. Let me know, and I'll pull up Sombir Yadav's mail right after.",
+          "[16:06 IST] RAM: X"
         ],
         "yesterday": [
           "Tweet 2 (follow-up, self-promot...",
@@ -1773,7 +1773,7 @@
       "frozen_reason": null,
       "pid": 21192,
       "rss_gb": 0.53,
-      "cpu": 1.0,
+      "cpu": 0.6,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -2840,8 +2840,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.44,
-      "cpu": 0.4,
+      "rss_gb": 0.45,
+      "cpu": 1.0,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -3715,7 +3715,7 @@
       "frozen_reason": null,
       "pid": 1404,
       "rss_gb": 0.32,
-      "cpu": 0.5,
+      "cpu": 0.1,
       "crons_total": 2,
       "crons_enabled": 1,
       "skills_count": 0,
@@ -3885,7 +3885,7 @@
       "frozen_reason": null,
       "pid": 1403,
       "rss_gb": 0.24,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3915,7 +3915,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4316,7 +4316,7 @@
       "frozen_reason": null,
       "pid": 1426,
       "rss_gb": 0.44,
-      "cpu": 0.8,
+      "cpu": 0.4,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
