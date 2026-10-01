@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-10-01 23:00:36 IST",
-  "generated_epoch": 1790875836,
+  "generated_ist": "2026-10-01 23:05:43 IST",
+  "generated_epoch": 1790876143,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.51 / 2.51 / 2.31",
+    "load": "2.44 / 2.25 / 2.23",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 3769,
-      "rss_gb": 1.22,
-      "cpu": 1.1,
+      "rss_gb": 1.31,
+      "cpu": 0.1,
       "crons_total": 102,
       "crons_enabled": 66,
       "skills_count": 63,
@@ -681,19 +681,37 @@
       ],
       "crons": [
         {
+          "name": "Haderach Consolidation \u2014 23:00 IST",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1790876087222,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
+        {
           "name": "Transcript Logger \u2014 10 min (06:00\u201300:00 IST)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790875237664,
+          "last_ts": 1790876087222,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+          "kind": "agentTurn"
+        },
+        {
+          "name": "Chet \u2014 Transcript & Memory Consolidation",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1790876087221,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
         },
         {
           "name": "Chet \u2014 Transcript Capture (10 min)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790875237663,
+          "last_ts": 1790876087221,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -702,7 +720,7 @@
           "name": "Group Transcript Logger \u2014 10min daytime (v2)",
           "enabled": true,
           "sched": "*/10 6-23 * * *",
-          "last_ts": 1790875237663,
+          "last_ts": 1790876087221,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -1090,24 +1108,6 @@
           "enabled": true,
           "sched": "3 23 * * *",
           "last_ts": 1790789935627,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Haderach Consolidation \u2014 23:00 IST",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790789639177,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "Chet \u2014 Transcript & Memory Consolidation",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790789639175,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -1601,7 +1601,6 @@
       ],
       "transcripts": {
         "recent": [
-          "[19:25 IST] RAM: Can you send me screenshot of the post?",
           "[19:25 IST] HADERACH: Done. The comment is live right now on r/Jazz, verified directly from u/haderach_ram's own history page (\"commented 1 min. ago\"). It's the account's first-ever activity, 4+ months after creation.",
           "Along the way I had to debug the publish script against the real Reddit DOM, since it was untested \u2014 found two actual bugs: the login check was giving a false \"not logged in\" reading even though the session was fine (the cookies work, I was just checking the wrong element), and the comment composer ...",
           "[19:25 IST] HADERACH: Done. The comment is live right now on r/Jazz, verified directly from u/haderach_ram's own history page (\"commented 1 min. ago\"). It's the account's first-ever activity, 4+ months after creation.",
@@ -1640,7 +1639,8 @@
           "[22:20 IST] HADERACH: M4 looks healthy overall, Ram. Load average is 2.13 / 2.36 / 2.49 across 15-minute windows \u2014 comfortably low for 14 cores, nothing contending. Free RAM is around 6.5GB with another ~300MB purgeable and ~930MB speculative (reclaimable on demand), out of 64GB total. Swap is at zero used, zero swapouts \u2014 no memory pressure worth mentioning.",
           "Nothing is running hot right now. The top CPU consumers are Haderach's own gateway process (27.5%, expected given this live session), SystemUIServer and Win...",
           "[22:20 IST] HADERACH: M4 looks healthy overall, Ram. Load average is 2.13 / 2.36 / 2.49 across 15-minute windows \u2014 comfortably low for 14 cores, nothing contending. Free RAM is around 6.5GB with another ~300MB purgeable and ~930MB speculative (reclaimable on demand), out of 64GB total. Swap is at zero used, zero swapouts \u2014 no memory pressure worth mentioning.",
-          "Nothing is running hot right now. The top CPU consumers are Haderach's own gateway process (27.5%, expected given this live session), SystemUIServer and Win..."
+          "Nothing is running hot right now. The top CPU consumers are Haderach's own gateway process (27.5%, expected given this live session), SystemUIServer and Win...",
+          "--- [TRANSCRIPT GAP: 23:02 IST \u2014 session empty for 42 min AND no transcript writes for 12 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "yesterday": [
           "[21:30 IST] HADERACH: Yes \u2014 I have access to @HaderachRam via the TwitAcc skill, using a saved browser session (Deckard stealth browser) rather than the API. I can fetch tweets, threads, profiles, and run searches freely and read-only, no restriction there. The one hard boundary is on write actions: I never post, reply, retweet, like, or follow without your explicit per-action \"send it\" confirmation first \u2014 drafting is always shown to you before anything goes out. Session cookies are saved locally and persist acro...",
@@ -1781,8 +1781,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 21192,
-      "rss_gb": 0.61,
-      "cpu": 0.9,
+      "rss_gb": 0.66,
+      "cpu": 6.7,
       "crons_total": 13,
       "crons_enabled": 12,
       "skills_count": 1,
@@ -1810,7 +1810,7 @@
           "name": "Giskard \u2014 Fleet Transcript Monitor (1h, 06:00-00:00)",
           "enabled": true,
           "sched": "5 6-23 * * *",
-          "last_ts": 1790872509579,
+          "last_ts": 1790876110665,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
           "kind": "agentTurn"
@@ -2437,8 +2437,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1405,
-      "rss_gb": 0.71,
-      "cpu": 1.1,
+      "rss_gb": 0.65,
+      "cpu": 0.3,
       "crons_total": 7,
       "crons_enabled": 6,
       "skills_count": 18,
@@ -2862,8 +2862,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1427,
-      "rss_gb": 0.46,
-      "cpu": 0.9,
+      "rss_gb": 0.45,
+      "cpu": 0.3,
       "crons_total": 10,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2886,6 +2886,15 @@
         }
       ],
       "crons": [
+        {
+          "name": "ca_smeda_ii-consolidation-23",
+          "enabled": true,
+          "sched": "0 23 * * *",
+          "last_ts": 1790875844801,
+          "last_status": "ok",
+          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
+          "kind": "agentTurn"
+        },
         {
           "name": "CA SMEDA-II \u2014 Nightly Memory Consolidation",
           "enabled": true,
@@ -2927,15 +2936,6 @@
           "enabled": true,
           "sched": "15 0 * * *",
           "last_ts": 1790793989110,
-          "last_status": "ok",
-          "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
-          "kind": "agentTurn"
-        },
-        {
-          "name": "ca_smeda_ii-consolidation-23",
-          "enabled": true,
-          "sched": "0 23 * * *",
-          "last_ts": 1790789474160,
           "last_status": "ok",
           "model": "amazon-bedrock/global.anthropic.claude-sonnet-5",
           "kind": "agentTurn"
@@ -3803,12 +3803,6 @@
         ],
         "rolling_7day": [
           "- No [FACT:] tags in transcript this run; no domain file promotions required",
-          "- ~90 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief",
-          "- Nightly consolidation running 23:00 IST (this run)",
-          "## 2026-09-25 \u2014 Daily Brief Only (Silent Day)",
-          "- 08:30-08:32 IST: Daily Brief 2026-09-25 produced (news-brief-2026-09-25.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 356 words, within 300-400 range, no placeholders, all URLs match provided data",
-          "- Changed since yesterday: SCL fully static (16th day); RBI/NBFC largely resets (Master Directions page re-enters after a 1-day Vinod Kothari FAQ PDF run, new NBFC FAQ page displaces Draft Directions RE-wise index, mobile Interest Rates page holds over 6th consecutive day); AI Agent Ecosystem partially turns over (Unreal Labs' \"Unreal Agent\" piece enters fresh, displacing GitLab's agentic-flow efficiency blog after a 2-day run, LangChain's 2026 frameworks roundup holds a 2nd day, OpenAI Agents API holds over as 15th-day survivor)",
-          "- No [FACT:] tags in transcript this run; no domain file promotions required",
           "- ~55 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief",
           "- Nightly consolidation running 23:00 IST (this run)",
           "## 2026-09-26 \u2014 Daily Brief Only (Silent Day)",
@@ -3841,13 +3835,15 @@
           "- Changed since yesterday: AI Agent Ecosystem turns over again as MongoDB's \"Atlas Agent Engine\" displaces Rasa's post after 1 day, RBI/NBFC partially resets with a new Master Directions page (id=12942) entering, and SCL stays fully static for a 21st consecutive day",
           "- No [FACT:] tags in transcript this run; no domain file promotions required",
           "- ~55 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief",
+          "- Nightly consolidation running 23:00 IST (this run)",
+          "## 2026-10-01 \u2014 Daily Brief Only (Silent Day)",
+          "- 08:31-08:32 IST: Daily Brief 2026-10-01 produced (news-brief-2026-10-01.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 331 words, within 300-400 range, no placeholders, all URLs match provided data",
+          "- Changed since yesterday: AI Agent Ecosystem turns over again (AWS's Bedrock Managed Agents preview displaces MongoDB's Atlas Agent Engine post), RBI/NBFC partially resets (Vinod Kothari FAQ PDF re-enters, displacing the Master Directions id=12942 page), and Sammaan Capital/NBFC stays fully static for a 22nd consecutive day",
+          "- No [FACT:] tags in transcript this run; no domain file promotions required",
+          "- ~90 heartbeat checkpoints (08:50-22:50 IST), fully silent aside from the Daily Brief",
           "- Nightly consolidation running 23:00 IST (this run)"
         ],
         "rolling_28day": [
-          "- Daily Brief 2026-09-20 produced (news-brief-2026-09-20.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 381 words, within 300-400 range, no placeholders",
-          "- Changed since yesterday: SCL fully static (11th day); RBI/NBFC partially turns over (RBI's mobile \"Interest Rates on Loans\" page re-enters, Vinod Kothari reference rotates to a fresh piece on proposed NBFC rate/pricing regulation); AI Agent Ecosystem partially turns over (AI Weekly's Anthropic/AGENTS.md piece enters)",
-          "- No [FACT:] tags; no domain file promotions required; ~54 heartbeat checkpoints (08:40-22:50 IST), fully silent aside from the Daily Brief; nightly consolidation running 23:00 IST",
-          "## 2026-09-21 \u2014 Daily Brief + Weekly Memory Self-Audit",
           "- Daily Brief 2026-09-21 produced (news-brief-2026-09-21.md); pre-fetched Exa data used directly; verified by read-back, 24 lines, 360 words, no placeholders",
           "- SCL fully static 12th day; RBI/NBFC partial turnover (Master Directions page re-enters); AI Agent Ecosystem resets substantially (Google ADK for Kotlin re-enters, IT News Africa WSO2 piece enters, AI Weekly Anthropic/AGENTS.md piece exits after 1 day)",
           "- Weekly Memory Self-Audit: 1/5 correct, 2/5 partial, 2/5 failed (14th consecutive week same distribution); Q2 staleness 119 days (worst yet, +7); Q4 defect 14th consecutive occurrence; duplicate audit dispatch correctly recognised as already-done",
@@ -3883,7 +3879,11 @@
           "## 2026-09-29 \u2014 Daily Brief Only (Silent Day)",
           "- Daily Brief produced (news-brief-2026-09-29.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 321 words, no placeholders",
           "- AI Agent Ecosystem breaks 18-day static streak (Rasa \"Agent Factory\" enters, displacing LangChain \"Engine v2\"); RBI/NBFC partially resets (id=228 exits, Master Directions id=12957 re-enters); SCL fully static (20th day)",
-          "- No [FACT:] tags; no domain file promotions required; ~54 heartbeat checkpoints (06:03-22:50 IST), fully silent aside from the Daily Brief; nightly consolidation running 23:00 IST (this run), catching up the missed 09-28 nightly pass"
+          "- No [FACT:] tags; no domain file promotions required; ~54 heartbeat checkpoints (06:03-22:50 IST), fully silent aside from the Daily Brief; nightly consolidation running 23:00 IST (this run), catching up the missed 09-28 nightly pass",
+          "## 2026-09-30 \u2014 Daily Brief Only (Silent Day)",
+          "- Daily Brief produced (news-brief-2026-09-30.md); pre-fetched Exa data used directly, no additional web searches needed; verified by read-back, 24 lines, 314 words, no placeholders, all URLs match provided data",
+          "- AI Agent Ecosystem turns over again as MongoDB's \"Atlas Agent Engine\" displaces Rasa's post after 1 day, RBI/NBFC partially resets with a new Master Directions page (id=12942) entering, SCL fully static 21st consecutive day",
+          "- No [FACT:] tags in transcript this run; no domain file promotions required; ~55 heartbeat checkpoints, fully silent aside from the Daily Brief; nightly consolidation running 23:00 IST (this run)"
         ]
       }
     },
@@ -3898,8 +3898,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1403,
-      "rss_gb": 0.25,
-      "cpu": 0.3,
+      "rss_gb": 0.24,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -3929,7 +3929,7 @@
       "frozen_reason": null,
       "pid": 1398,
       "rss_gb": 0.23,
-      "cpu": 0.1,
+      "cpu": 0.6,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
@@ -4329,8 +4329,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1426,
-      "rss_gb": 0.45,
-      "cpu": 0.7,
+      "rss_gb": 0.54,
+      "cpu": 0.9,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 29,
