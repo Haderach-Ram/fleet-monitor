@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-10-20 23:55:42 IST",
-  "generated_epoch": 1792520742,
+  "generated_ist": "2026-10-21 00:00:48 IST",
+  "generated_epoch": 1792521048,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "2.77 / 3.05 / 2.76",
+    "load": "8.89 / 4.53 / 3.40",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -35,7 +35,7 @@
       "frozen_reason": null,
       "pid": 22325,
       "rss_gb": 3.09,
-      "cpu": 142.5,
+      "cpu": 285.4,
       "crons_total": 105,
       "crons_enabled": 69,
       "skills_count": 63,
@@ -766,13 +766,6 @@
           "--- [TRANSCRIPT GAP: 23:40 IST \u2014 session empty for 90 min AND no transcript writes for 10 min. No zombie lock. Possible gateway issue.] ---"
         ],
         "rolling_7day": [
-          "## 2026-10-14",
-          "- - OpenClaw v2026.10.3 patch released (79 PRs, 97 contributors) \u2014 update",
-          "- recovery, Doctor fixes, Mac setup/reconnection, conversation-continuity",
-          "- fixes. No hit on our 4 tracked issues (#53408/#102268/#86519/#63188).",
-          "- - **Actionable:** thread on gateway update times ballooning from ~3 min to",
-          "- 43-51 min starting v2026.9.7, root-caused in comments to the session-store",
-          "--- [Midnight run OK \u2014 2026-10-14 \u2014 no new content] ---",
           "## 2026-10-15",
           "- <!-- project: github.com/ramshenoy/haderach-workspace -->",
           "- vR2 track-changes docx built and sent (14 Oct) incorporating Ram's phone-feedback edits: (1) urgency added to \"we don't think it gets us where we need to be\" paragraph, (2) \"immediate priority\"\u2192\"immediate concern\" and \"somewhat\"\u2192\"significantly\" on the Bandhan context sentence, (3) new paragraph added on bank-investment = long-term/strategic expectation vs SCL being read as financial-not-strategic, + IHC's non-denial of Bandhan reporting despite being listed, + Fairfax/IIFL Finance/IDBI Bank precedent with ETBFSI link. Saved to `projects/SCL-TEMP/` and `~/Desktop/Haderach/Output/Comfort_Letter_Questions_vR2_trackchanges.docx`.",
@@ -805,21 +798,16 @@
           "- r/openclaw Daily Trawl \u2014 nothing actionable",
           "- ## 13:00 IST \u2014 Consolidation (13:00)",
           "- CT2 actuarial study (Marcus) completed all 27 stages; produced CT2_notes.md (~93KB), formula sheet, traps list, question bank, study report in actuarial/notes/. Quality not yet reviewed by Ram.",
-          "- CT2 cost estimate pulled on request: ~24.1M tokens (22.2M cache reads, 1.65M cache writes, 0.22M output) across 150 runs, 18 Oct 20:32 to 19 Oct 09:01, estimated $9-16 (most likely ~$10)."
+          "- CT2 cost estimate pulled on request: ~24.1M tokens (22.2M cache reads, 1.65M cache writes, 0.22M output) across 150 runs, 18 Oct 20:32 to 19 Oct 09:01, estimated $9-16 (most likely ~$10).",
+          "## 2026-10-20",
+          "- SAK-014 actuarial programme (Marcus = CA-SMEDA-II, gateway port 18796, course notes only, no sitting): CT1 done (pilot 99.5/101, deep study 18 Oct), CT2 done 19 Oct 00:42 IST (about $11-12), CT3 done 20 Oct 00:01 IST (27 stages, 2h10m, about $7), CT4 done 20 Oct ~10:05 IST (27 stages, 2h15m, about $9, 31 Q, 35 traps, report 1.9 KB, confidence 3/5). Spot-checks of CT3/CT4 study logs vs PDF NOT yet done. Ram has not yet decided CT5-CT8 or beef-up of CT3 qbank/report. STATUS.md and _categories/SAK.md updated. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Method that works: pdftotext-extracted 25-page stages in work/CTn/, protocol file CTn_STUDY.md, stages JSON, 5-min isolated driver cron on 18796 gateway. Large single stage (CT2 S2) failed 5x; small stages fixed it. Files live in ~/.openclaw-ca-smeda-ii/workspace/actuarial/. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Empty-tick lesson: CT3 driver ticked empty about 8h (00:01-07:50 IST) because nothing disabled it (about 72K tokens per tick). Fix from CT4: protocol has a 'Self-disable' section (driver disables own cron by id when no stage pending / after E2), plus a 6h kill-switch one-shot. Verified working on CT4. Reuse for CT5-CT8. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- CLI gotcha: openclaw cron CLI against gateway 18796 gave token mismatch when token passed via shell variable; passing it from Python subprocess arg list works. Also first `cron add` with --json silently did not create the job; check with `cron list --all`. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Cost lookup: `openclaw gateway usage-cost --url ws://127.0.0.1:18796 --token <t> --days N --json` gives daily totals (date bucketing is unclear, treat as approximate). <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "--- [Midnight run OK \u2014 2026-10-20 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- - Giskard applied Haderach-only changes: added catalog entry `global.anthropic.claude-sonnet-5-5`, registered `max`\u2192opus-4-8 and `mid`\u2192sonnet-5-5 aliases on Haderach's agent entry only, split Haderach's model into its own override (`agents.entries.main.model`) separate from `agents.defaults` (unaffected, still sonnet-5 for other agents).",
-          "- - Haderach confirmed live switch via gateway log (12:24 IST): primary now `amazon-bedrock/global.anthropic.claude-sonnet-5-5`, fallback1 sonnet-5, fallback2 grok-4.5.",
-          "- - Ram declined to keep `claude-fable-5` in config; AWS Bedrock data retention on account 615894661560 reset from \"default\" (30-day/Anthropic-shared) back to \"inherit\" at 12:33 IST \u2014 Fable 5 entry remains but will now fail if invoked under the new retention mode.",
-          "- - AGENTS.md model section rewritten (line ~108) to match live actuals: retires Max/Mid/Mid2 bundle naming and the ChangeModelSetTo convention, documents live primary/fallbacks, `max`/`mid` aliases, and a required Bedrock-catalog check before any future model switch. Backup taken: `AGENTS.md.bak-<timestamp>`.",
-          "- - No new [FACT:]/[MEMORY:] tags present in this tail; no projects.md/MEMORY.md/people.md changes needed (Ram and Giskard already on record).",
-          "## 2026-10-17",
-          "- r/openclaw Daily Trawl \u2014 nothing actionable",
-          "- - 11:10 IST: Ram asked for fresh AWS admin key. Created access key on IAM user Ramnath-Shenoy (console), stored in BWS `AWS_Admin_Ramnath-Shenoy`, verified (sts + AdministratorAccess). Documented in TOOLS.md 'AWS Admin Access'. <!-- project: github.com/ramshenoy/haderach-workspace -->",
-          "- r/openclaw Daily Trawl \u2014 nothing actionable",
-          "- - 11:10 IST: Ram asked for fresh AWS admin key. Created access key on IAM user Ramnath-Shenoy (console), stored in BWS `AWS_Admin_Ramnath-Shenoy`, verified (sts + AdministratorAccess). Documented in TOOLS.md 'AWS Admin Access'. <!-- project: github.com/ramshenoy/haderach-workspace -->",
-          "- - Ram asked whether I have AWS Bedrock admin. I wrongly said no (tested default profile `bedrock-martin`, Bedrock-only, plus expired STS token `AWS_BedRock`). Truth: BWS `AWS_Bedrock_Haderach` (format \"Access Key ID: / Secret Access Key:\" colon style, NOT KEY=VALUE) is the IAM user Ramnath-Shenoy key, AdministratorAccess, created 27 May 2026, also used by Clark Kent launchd plist. Verified working via sts + iam list-attached-user-policies + pricing get-products.",
-          "- - Console route also verified: BWS `IAM_Console` (acct 615894661560, user Ramnath-Shenoy) login works; AdministratorAccess attached.",
           "- - At Ram's request created a second access key for Ramnath-Shenoy (console, CLI use case), stored as BWS `AWS_Admin_Ramnath-Shenoy`. Ramnath-Shenoy now has the max 2 keys. Documented in TOOLS.md (AWS Admin Access + Correction sections).",
           "- - Old key activity (CloudTrail): only ConverseStream from this Mac's IP, i.e. Haderach/Clark Kent. Suggested (not done, awaiting Ram) giving Clark Kent its own Bedrock-only IAM user and retiring the admin key from its plist.",
           "- - Stuck task found: 15 Oct Sonnet 5 vs 5.5 pricing comparison failed with Pricing API AccessDenied under bedrock-martin. Pricing API works with admin key; offered to pull and send comparison (awaiting Ram go-ahead). GPT-5.6 Marketplace gate (HAD-047) is NOT admin-related; needs AWS Support case.",
@@ -847,7 +835,19 @@
           "- trendlyne.db filing_catalogue weekly refresh succeeded: 30 new rows (17 presentations, 1 transcript, 12 results); catalogue now 5,896 filings across 37 peers.",
           "- Weekly Memory Self-Audit (Chet & Monk) FAILED TO RUN \u2014 detached relaunch process (pid 76544) died silently under nohup/disown in sandboxed exec; no self-audit output for either agent.",
           "- NSE XBRL NBFC weekly refresh completed 09:37 IST: 0 annual/quarterly updates needed (all current), 6 quarterly failures (AUBANK x3, UJJIVANSFB x1) on incomplete XBRL fields.",
-          "- trendlyne.db npa_crar_extracted weekly refresh: downloaded 4 PDFs (CANFINHOME, IIFL, LTF, PIRAMALFIN Q3FY27), extracted 140 rows; HDBFS has no presentations in catalogue."
+          "- trendlyne.db npa_crar_extracted weekly refresh: downloaded 4 PDFs (CANFINHOME, IIFL, LTF, PIRAMALFIN Q3FY27), extracted 140 rows; HDBFS has no presentations in catalogue.",
+          "## 2026-10-20",
+          "- SAK-014 actuarial programme (Marcus = CA-SMEDA-II, gateway port 18796, course notes only, no sitting): CT1 done (pilot 99.5/101, deep study 18 Oct), CT2 done 19 Oct 00:42 IST (about $11-12), CT3 done 20 Oct 00:01 IST (27 stages, 2h10m, about $7), CT4 done 20 Oct ~10:05 IST (27 stages, 2h15m, about $9, 31 Q, 35 traps, report 1.9 KB, confidence 3/5). Spot-checks of CT3/CT4 study logs vs PDF NOT yet done. Ram has not yet decided CT5-CT8 or beef-up of CT3 qbank/report. STATUS.md and _categories/SAK.md updated. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Method that works: pdftotext-extracted 25-page stages in work/CTn/, protocol file CTn_STUDY.md, stages JSON, 5-min isolated driver cron on 18796 gateway. Large single stage (CT2 S2) failed 5x; small stages fixed it. Files live in ~/.openclaw-ca-smeda-ii/workspace/actuarial/. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Empty-tick lesson: CT3 driver ticked empty about 8h (00:01-07:50 IST) because nothing disabled it (about 72K tokens per tick). Fix from CT4: protocol has a 'Self-disable' section (driver disables own cron by id when no stage pending / after E2), plus a 6h kill-switch one-shot. Verified working on CT4. Reuse for CT5-CT8. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- CLI gotcha: openclaw cron CLI against gateway 18796 gave token mismatch when token passed via shell variable; passing it from Python subprocess arg list works. Also first `cron add` with --json silently did not create the job; check with `cron list --all`. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Cost lookup: `openclaw gateway usage-cost --url ws://127.0.0.1:18796 --token <t> --days N --json` gives daily totals (date bucketing is unclear, treat as approximate). <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- HAD-058 Reddit: Ram approved (09:24) and I posted the Esperanza Spalding comment via reddit_publish.py, verified live. Karma 5, 6 contributions. A moderator removed the Tatum comment (~15 Oct). Keep daily-comments only, no original posts yet; watch for more removals. ACTIVITY_LOG.md and STATUS.md updated. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- Other alerts seen: SAK-008 BSE EBP endpoint returning 403 for FinYear=2026 (needs Ram/credential check); Chet daily brief flagged FABRICATED (no output file); SCL down 6.36% on 19 Oct, 52-week low; NDTV Profit reports SCL expects Rs 620 Cr write-back in Yes Bank AT1 case; unverified Twitter allegation of share manipulation (@PrabhuS34644543).",
+          "- HAD-058 Reddit: Esperanza Spalding comment posted 09:27 IST (Ram approved). Karma 5, 6 contributions; Tatum comment (~15 Oct) removed by moderator. Plan: daily comments only, no original posts yet. Logged in ACTIVITY_LOG/STATUS. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- SAK-014: CT4 course-notes study finished 10:05 IST (27 stages, ~$9, self-disable worked). CT4 driver d1da7b9f disabled, kill-switch removed. Spot-check of CT3/CT4 quoted phrases still NOT done. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "- CT3 Sep 2017 extra sitting (Ram's request): single long cron run died twice (Bedrock 'toolConfig must be defined' error after first tool). Fix = per-question driver (cron 00e8125c on Marcus gateway 18796, 4-min, self-disables). Sat 10:38-11:30 IST. Answer PDF: ~/Desktop/Haderach/Output/CT3_Sep2017_Marcus_Answer_Sheet.pdf. Graded by Haderach vs IAI indicative solution: 99/100 (only Q1 boxplot presentation). Net-access audit: 97 exec calls in sitting sessions, no web/URL/solution reads (retry run ffe692ee had no transcript events). Logged in GRADINGS.md + STATUS.md. <!-- project: github.com/ramshenoy/haderach-workspace -->",
+          "--- [Midnight run OK \u2014 2026-10-20 \u2014 no new content] ---"
         ]
       }
     },
@@ -862,8 +862,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1078,
-      "rss_gb": 1.47,
-      "cpu": 1.3,
+      "rss_gb": 1.57,
+      "cpu": 2.1,
       "crons_total": 16,
       "crons_enabled": 15,
       "skills_count": 1,
@@ -889,12 +889,12 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-10-20",
-          "# Self-healing rotation from transcript-2026-10-19.md at 00:00 IST"
+          "# Transcript - 2026-10-21",
+          "# Self-healing rotation from transcript-2026-10-20.md at 00:00 IST"
         ],
         "yesterday": [
-          "# Transcript - 2026-10-19",
-          "# Self-healing rotation from transcript-2026-10-18.md at 00:00 IST"
+          "# Transcript - 2026-10-20",
+          "# Self-healing rotation from transcript-2026-10-19.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-09-11 \u2014 no new content] ---",
@@ -1381,8 +1381,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 2579,
-      "rss_gb": 1.07,
-      "cpu": 1.7,
+      "rss_gb": 1.04,
+      "cpu": 1.8,
       "crons_total": 10,
       "crons_enabled": 9,
       "skills_count": 18,
@@ -1684,8 +1684,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 8700,
-      "rss_gb": 2.0,
-      "cpu": 1.3,
+      "rss_gb": 1.96,
+      "cpu": 0.8,
       "crons_total": 26,
       "crons_enabled": 13,
       "skills_count": 24,
@@ -2471,7 +2471,7 @@
       "frozen_reason": null,
       "pid": 1061,
       "rss_gb": 0.81,
-      "cpu": 0.7,
+      "cpu": 0.8,
       "crons_total": 5,
       "crons_enabled": 3,
       "skills_count": 0,
@@ -2581,8 +2581,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1060,
-      "rss_gb": 0.72,
-      "cpu": 0.8,
+      "rss_gb": 0.73,
+      "cpu": 2.2,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 0,
@@ -2611,8 +2611,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1055,
-      "rss_gb": 0.69,
-      "cpu": 0.8,
+      "rss_gb": 0.7,
+      "cpu": 0.7,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
