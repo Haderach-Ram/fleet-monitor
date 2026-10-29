@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-10-29 14:28:23 IST",
-  "generated_epoch": 1793264303,
+  "generated_ist": "2026-10-29 14:33:30 IST",
+  "generated_epoch": 1793264610,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.77 / 4.15 / 3.75",
+    "load": "2.13 / 3.01 / 3.35",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,8 +34,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 71413,
-      "rss_gb": 3.25,
-      "cpu": 6.1,
+      "rss_gb": 3.39,
+      "cpu": 30.8,
       "crons_total": 111,
       "crons_enabled": 68,
       "skills_count": 61,
@@ -662,29 +662,6 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "**Reported (14)**",
-          "- Bajaj Finance, 19 Oct: consolidated PAT \u20b96,367 cr, up 29%.",
-          "- Bajaj Housing Finance: PAT \u20b9757 cr, up 18%.",
-          "- Shriram Finance, 23 Oc...",
-          "[12:46 IST] RAM: Don't you have the data at Trendlyne?",
-          "[12:47 IST] HADERACH: The Martin API is up on port 8802. I'll check its endpoints for the latest quarter.",
-          "[12:47 IST] HADERACH: Ram, yes, we have Trendlyne data, but it isn't useful for this question yet. It stops at the June 2026 quarter, so it can't show who has reported Q2.",
-          "I checked the Martin API on port 8802. It holds 37 peers, including Aditya Birla Capital, Aadhar and Aavas. The latest quarter loaded for the peers I looked at is Jun 2026 (Q1 FY27). The last fetch was on 21 September 2026. The weekly refresh has added only filings, not the quarterly table. So there is no Sep 2026 column for anyone, and the pre...",
-          "[12:53 IST] RAM: We have paid subscription to Trendlyne, right?",
-          "[12:54 IST] HADERACH: Ram, yes. We have a paid Trendlyne subscription.",
-          "- **Plan:** StratQ Annual, about \u20b95,900 a year. It was bought on 1 May 2026 with a \u20b93,000 discount code. It should run to about 1 May 2027, but I haven't checked the expiry date in the account.",
-          "- **Entitlement:** it includes the Data Downloader, Excel Connect and 3,512 parameters.",
-          "- **Login:** the credentials are in BWS under `Trendlyne_LogIn`. A CAPTCHA blocks headless logins, so the working route is the Deckard stealth browser, which keeps t...",
-          "[12:55 IST] RAM: Check if data is available there",
-          "[12:55 IST] HADERACH: Ram, I couldn't confirm whether Trendlyne has the Q2 data. The Trendlyne refresh has been failing, so we can't currently pull it.",
-          "- **Last good pull:** 21 September 2026.",
-          "- **Weekly refresh:** the Deckard ingest script ran on 19 October and again on 26 October. On the 19th, all 36 peers failed with \"no token\". The state file records 0 annual rows, 0 quarterly rows and 36 errors. On the 26th it logged in but hit the same \"No token found\" warning on the first company, and I only read the start...",
-          "[12:55 IST] RAM: Check",
-          "[12:56 IST] HADERACH: Ram, yes, Trendlyne already has Q2 data, at least for Tata Capital. It's on the live site, even though our database is stale.",
-          "I opened the Tata Capital standalone quarterly page in the browser, and the Sep '26 column is populated:",
-          "| Standalone, \u20b9 cr | Sep '26 | Jun '26 | Sep '25 |",
-          "|---|---|---|---|",
-          "| Total revenue | 6,724.1 | 6,337.0 | 5,592.1 |",
           "| Interest | 3,261.8 | 3,017.4 | 2,741.8 |",
           "| Operating profit | 4,916.8 | 4,499.0 | 3,749.1 |",
           "| Profit before tax | 1,516.2 | 1,342.9 | 893.3 |",
@@ -701,7 +678,30 @@
           "**What failed**",
           "- The 26 October run logged in fine, and its debug screenshot shows a normal logged-in page with the Sep '26 column.",
           "- The page no longer contains the `get-fundamental_results-v2/<id>/<token>/` string that the scraper searches for. The regex can never match, so every peer fails. The \"WA...",
-          "[14:10 IST] RAM: Ok"
+          "[14:10 IST] RAM: Ok",
+          "[14:21 IST] RAM: ?",
+          "[14:22 IST] HADERACH: Ram, the scraper worker is still running, and its completion report will arrive here when it finishes. I'll send you the coverage result and the cross-check against the press figures then.",
+          "[14:24 IST] RAM: Can you unfreeze Medical SMEDA pls? Are his transcript and memory systems intact?",
+          "[14:26 IST] HADERACH: The service is marked disabled, which is what the 20 October \"park\" did. I'll re-enable it and start it.",
+          "[14:27 IST] HADERACH: Ram, Medical SMEDA is running again, but I haven't yet confirmed that he answers questions, so that part is open.",
+          "**Why he was frozen**",
+          "- His launchd service was parked and disabled during a handoff on 20 October, at 13:03 UTC. That is the Bedrock and bones migration day.",
+          "- His last activity was a patient-report analysis at 18:48 IST that day. He was down for nine days.",
+          "**What I did**",
+          "I re-enabled the service and started it. The gateway is listening on port 18809. It logged \"ready\" at 14:26...",
+          "[14:28 IST] HADERACH: Ram, the scraper worker has finished. It pulled Trendlyne data for 19 of the 26 peers, and 14 of those already show a Sep '26 quarter. Separately, Medical SMEDA is running again, but I haven't yet confirmed that he answers questions.",
+          "**Q2 FY27 coverage on Trendlyne**",
+          "- **Sep '26 present (14):** Bajaj Finance, Bajaj Housing, Shriram, Jio Financial, Tata Capital, L&T Finance, SBI Cards, HDB, M&M Financial, Poonawalla, Can Fin, Cholamandalam, PNB Housing and Piramal.",
+          "- **Latest is Jun '26 (5):*...",
+          "[14:28 IST] RAM: Check the crons. No need of study crons, he has finished studying",
+          "[14:29 IST] HADERACH: Ram, I've disabled Medical SMEDA's Daily Study Session. It was the 22:00 IST job, and the database now shows it as off.",
+          "His other cron jobs are still on:",
+          "- **Transcript Logger:** every 3 hours.",
+          "- **Midnight Rolling Summary:** 00:19.",
+          "- **Nightly Memory Consolidation:** 23:15.",
+          "- **Memory Dreaming Promotion:** 03:00.",
+          "- **Heartbeat** and **skill-collection-review.**",
+          "The consolidation job exists to log study progress, so it will mostly find nothing new now. It still runs on a model every night. ..."
         ],
         "yesterday": [
           "   - Prime mortgage",
@@ -842,8 +842,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 71119,
-      "rss_gb": 1.38,
-      "cpu": 2.6,
+      "rss_gb": 1.39,
+      "cpu": 3.6,
       "crons_total": 16,
       "crons_enabled": 15,
       "skills_count": 1,
@@ -1371,8 +1371,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 70476,
-      "rss_gb": 1.21,
-      "cpu": 3.0,
+      "rss_gb": 1.22,
+      "cpu": 1.5,
       "crons_total": 10,
       "crons_enabled": 9,
       "skills_count": 18,
@@ -1723,7 +1723,7 @@
       "frozen_reason": null,
       "pid": 70889,
       "rss_gb": 1.3,
-      "cpu": 3.8,
+      "cpu": 2.8,
       "crons_total": 52,
       "crons_enabled": 10,
       "skills_count": 24,
@@ -2395,27 +2395,38 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 54763,
-      "rss_gb": 1.19,
-      "cpu": 9.0,
+      "rss_gb": 1.53,
+      "cpu": 4.4,
       "crons_total": 7,
-      "crons_enabled": 7,
-      "skills_count": 0,
+      "crons_enabled": 6,
+      "skills_count": 1,
       "channels": [
         "telegram"
       ],
       "memory": null,
-      "skills": [],
-      "skills_detail": [],
+      "skills": [
+        "twitacc"
+      ],
+      "skills_detail": [
+        {
+          "name": "twitacc",
+          "dir": "twitacc",
+          "desc": "Twitter/X access via Deckard stealth browser for @HaderachRam account",
+          "full_desc": "Twitter/X access via Deckard stealth browser for @HaderachRam account. Read tweets, threads, profiles, search, and draft posts. Use when Ram says \"TwitAcc\", shares an x.com/twitter.com URL, asks to check a tweet/thread/profile, or wants to post/reply on Twitter. POSTING REQUIRES explicit \"send it\" confirmation from Ram \u2014 never post autonomously.",
+          "usage": "### 1. Session Setup (first time or after session expiry)\n```bash\npython3 ~/.openclaw/workspace/skills/twitacc/scripts/twitacc_login.py\n```\nLaunches Deckard, logs in, saves cookies. Takes ~30s.\n\n**Alternative (preferred for first login):** Ask Ram to log in via Chrome and export cookies:\n```bash\npython3 ~/.openclaw/workspace/skills/twitacc/scripts/export_chrome_cookies.py\n```\n\n### 2. Fetch a tweet/thread\n```bash\npython3 ~/.openclaw/workspace/skills/twitacc/scripts/twitacc.py fetch \"<url>\"\n```\n\n### 3. Read profile",
+          "category": "Communication",
+          "inhouse": true
+        }
+      ],
       "crons": [],
       "transcripts": {
         "recent": [
-          "# Transcript \u2014 2026-10-20",
-          "# Self-healing rotation from transcript-2026-10-06.md at 18:46 IST"
+          "# Transcript \u2014 2026-10-29",
+          "# Self-healing rotation from transcript-2026-10-20.md at 14:29 IST"
         ],
         "yesterday": [
-          "--- [WATCHDOG: 08:31 IST \u2014 MEDICAL-SMEDA session-pointer STALE. sessions.json resolves to d497b4ed-f46e-4a62-9d4a-96cf7a40122f, but freshest session on disk is e47b4382-8778-4466-b6f2-7ded38f66134 (9764 min newer). Transcript capture may be reading the wrong/dead session. See HAD-056.] ---",
-          "[15:14 IST] MEDICAL-SMEDA [Cron: Medical SMEDA \u2014 Transcript Logger (3h, all day)]: I'll run the transcript logger script now.",
-          "[15:14 IST] MEDICAL-SMEDA [Cron: Medical SMEDA \u2014 Transcript Logger (3h, all day)]: NO_REPLY"
+          "# Transcript \u2014 2026-10-20",
+          "# Self-healing rotation from transcript-2026-10-06.md at 18:46 IST"
         ],
         "rolling_7day": [
           "# Rolling 7-Day Summary",
@@ -2448,10 +2459,10 @@
           "**Gap overlap:** ZERO active gaps. Topic today = Rheumatology + Clinical Immunology (W9 continuation)",
           "---",
           "--- [Midnight run OK \u2014 2026-07-07 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-10-20 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-10-20 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-10-29 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "--- [Midnight run OK \u2014 2026-06-14 \u2014 new content written] ---",
           "--- [Midnight run OK \u2014 2026-06-15 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-16 \u2014 no new content] ---",
           "--- [Midnight run OK \u2014 2026-06-17 \u2014 no new content] ---",
@@ -2490,7 +2501,8 @@
           "---",
           "--- [Midnight run OK \u2014 2026-07-06 \u2014 new content written] ---",
           "--- [Midnight run OK \u2014 2026-07-07 \u2014 no new content] ---",
-          "--- [Midnight run OK \u2014 2026-10-20 \u2014 no new content] ---"
+          "--- [Midnight run OK \u2014 2026-10-20 \u2014 no new content] ---",
+          "--- [Midnight run OK \u2014 2026-10-29 \u2014 no new content] ---"
         ]
       }
     },
@@ -2505,8 +2517,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 70802,
-      "rss_gb": 1.15,
-      "cpu": 1.6,
+      "rss_gb": 1.14,
+      "cpu": 1.7,
       "crons_total": 5,
       "crons_enabled": 3,
       "skills_count": 0,
@@ -2621,7 +2633,7 @@
       "frozen_reason": null,
       "pid": 70821,
       "rss_gb": 0.74,
-      "cpu": 1.8,
+      "cpu": 2.3,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 0,
@@ -2650,8 +2662,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 70508,
-      "rss_gb": 0.77,
-      "cpu": 1.7,
+      "rss_gb": 0.78,
+      "cpu": 1.5,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
