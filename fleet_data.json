@@ -1,9 +1,9 @@
 {
-  "generated_ist": "2026-11-08 23:55:45 IST",
-  "generated_epoch": 1794162345,
+  "generated_ist": "2026-11-09 00:00:50 IST",
+  "generated_epoch": 1794162650,
   "host": "M4 \u2014 uday_one",
   "system": {
-    "load": "3.56 / 3.35 / 3.04",
+    "load": "4.89 / 3.54 / 3.17",
     "ram_total_gb": 64.0
   },
   "skill_cat_order": [
@@ -34,7 +34,7 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 73729,
-      "rss_gb": 2.58,
+      "rss_gb": 2.78,
       "cpu": 2.6,
       "crons_total": 94,
       "crons_enabled": 69,
@@ -756,13 +756,6 @@
           "- **STATUS.md:** I put a new \"CURRENT\" block at the top of `projects/HAD-054-towards-agi/STATUS.md`. It says the memory thread was parked by you at 21:30 on 7 Nov. It lists what was built in Amaryl's sandbox and the final test result (11 of 20, zero wrong, below the bar of 14). It records that nothing on your live setup was touched, that the hourly job is switched off, and that shadow mode never started. It ends with the restart steps. The old history be..."
         ],
         "rolling_7day": [
-          "## 2026-11-02",
-          "- r/openclaw Daily Trawl \u2014 nothing actionable",
-          "- - SCL-023 (Benchmark Interest Rate Policy) resumed from paused status; Ram reviewed Reports 1-3 findings and made key decisions.",
-          "- - Confirmed via wiki/entities/RBI.md and RBI's 2026-27 Upper Layer list (press release 2026-2027/823): SCL is NBFC-UL, non-deposit taking NBFC-ICC \u2014 settles SBR layer question, Base Layer exemptions (paras 12(i), 24) do not apply.",
-          "- - Reviewed RBI methodology references: 2015 draft Base Rate transmission guidelines and 2010 Base Rate circular (DBOD.No.Dir.BC.88) as templates for SCL's own benchmark construction.",
-          "- - Ram outlined benchmark methodology: equity/borrowings weighting by proportion, pre-tax RoE as cost of equity, stock cost of borrowings, loading for liquid-asset yield drag, unallocable overheads \u2014 mapped as NBFC analogue of RBI Base Rate logic.",
-          "--- [Midnight run OK \u2014 2026-11-02 \u2014 no new content] ---",
           "## 2026-11-03",
           "- ## r/openclaw Daily Trawl",
           "- r/openclaw Daily Trawl \u2014 nothing actionable",
@@ -795,21 +788,16 @@
           "- - Reddit: first original r/openclaw post published successfully (after a failed first attempt due to missing required flair); u/haderach_ram karma now 21 (1 link, 20 comment); HAD-058 warmup-comment a...",
           "- - Haiku 5.5 rollout: config change approved by Ram and executed via Giskard across 5 M4 gateways (Main, Giskard, Purl, Medical-SMEDA, ClarkKent). 36 enabled cron jobs now on Haiku 5.5 (Main 26, Giskar...",
           "- - Frozen M4 gateways (Kubera, Herbie/personal, disabled Medical-SMEDA/Purl jobs) checked read-only per Ram's instruction not to unfreeze; still on Haiku 4.5, left untouched.",
-          "- - Clarified fallback-to-direct-Anthropic exposure: only real live use found was Medical-SMEDA heartbeat model; rest are inert allow-list entries."
+          "- - Clarified fallback-to-direct-Anthropic exposure: only real live use found was Medical-SMEDA heartbeat model; rest are inert allow-list entries.",
+          "## 2026-11-08",
+          "- r/openclaw Daily Trawl \u2014 nothing actionable",
+          "- - Kubera (PER-003 Angel One trading bot) revived after being dead since 3 Aug: DB upgrade via `doctor --fix`, 3.3GB backup taken first, ~58,000 old session files cleaned up",
+          "- - Kubera now live on port 18798, polling Telegram as @Kubera_Ram_Bot",
+          "- - Moolah group (chat ID -5500851206, plain group) set up as 3-way: Ram, Kubera, Haderach",
+          "- - Fixed Kubera's config: added Moolah to allowed-groups (open, no mention required); fixed group-reply posting bug (was treating replies as private)",
+          "--- [Midnight run OK \u2014 2026-11-09 \u2014 no new content] ---"
         ],
         "rolling_28day": [
-          "- - Diagnosed root cause: mpc_downloader.py's RBI fetch fails on DNS, so nightly job only re-inserts hardcoded seed rows; no real refresh was happening.",
-          "- - Ram suggested using RBI homepage's rate dropdowns directly \u2014 confirmed feasible, pulled live HTML with no login/script needed.",
-          "- - Live RBI rates pulled: Repo 5.50%, SDF 5.25%, MSF/Bank Rate 5.75%, Reverse Repo 3.35%, CRR 3.00%, SLR 18.00% (vs Martin's stale 18.25%).",
-          "- - Built new module rbi_current_rates.py: scrapes RBI homepage \"Current Rates\" block for all 6 rates; inserts new row only on value change, dated at first-seen change; has failure/implausibility guards.",
-          "--- [Midnight run OK \u2014 2026-11-05 \u2014 no new content] ---",
-          "## 2026-11-05",
-          "- ## r/openclaw Daily Trawl",
-          "- r/openclaw Daily Trawl \u2014 nothing actionable",
-          "- ## 13:00 IST \u2014 Consolidation (13:00)",
-          "- Fixed urgent Discord-platform digest/Reddit workflow checks: r/Jazz and r/openclaw comments posted (score 1 each), karma now 19 (18 comment + 1 link), up 1 from last night.",
-          "- Diagnosed and fixed Chet's Exa 401 failures (13 days broken): scheduler's 08:30 Chet job had no Bitwarden login token, so Exa key fetch returned empty -> 401. Gave scheduler's Chet job the Bitwarden token, locked file to Ram's user only, verified real Exa results returned under launchd env.",
-          "- Researched \"Pinpoint Capital\" per Ram's request; found no link to Sammaan/IHC among candidate firms (Pinpoint Capital Advisors US/Canada is a telecom/infra investment bank, ~$3.3B deals, incl. SBA Communications Canadian towers sale to CVC DIF for $446mm); asked Ram where the name came up for further digging.",
           "- Investigated Fleet Monitor alert on \"Consolidation watchdog\" 23:10 IST timeout; confirmed false alarm \u2014 consolidation itself completed fine at 23:00:59 IST on 4 Nov (heartbeat-state.json), likely cause was the 19:26 reboot that evening affecting the watchdog's model-call timing only.",
           "- Absorbed SCL ARC sale-value table data (FY18\u2013FY22+) for an upcoming task: POS at sale, ARC sale value, cash from ARC, initial SR investment, outstanding SRs, net write-offs, % redemption by fiscal year.",
           "- Started drafting Barclays query revert note (dated 27 Oct 2026, 4 queries): read full note \u2014 valuation methodology (gross \u20b918,377cr, provisions \u20b9649cr, net \u20b917,727cr at 30 Jun 2026, all FV), provision breakup (~\u20b95,290cr: ECL \u20b92,763cr + FV provisions \u20b92,527cr), product-specific ECL \u20b9736cr. Awaiting further inputs from Ram to continue the note.",
@@ -837,7 +825,19 @@
           "- - Major SR (Security Receipt) provisioning analysis for the 10% provision note: researched recovery-rating-to-recovery-% mapping across CRISIL/ICRA/CARE/India Ratings/Brickwork; market-wide midpoint a...",
           "- - Redid analysis using Sammaan's own book data (from 5 Nov transcript image): Sep 2026 book weighted recovery ~92% (midpoints)/~86% (floors); 10.05% provision vs 6,220cr book.",
           "- - Final cut requested by Ram: March 2026 position specifically. At Q4 FY26, book was RR1 50.5%/RR2 16.6%/Unrated 32.8% (6,281cr); weaker support since a third of book was unrated \u2014 in-progress at cons...",
-          "- - OpenClaw version 2026.9.36 confirmed running on main gateway (uptime 27m50s after restart from Haiku 5.5 config changes)."
+          "- - OpenClaw version 2026.9.36 confirmed running on main gateway (uptime 27m50s after restart from Haiku 5.5 config changes).",
+          "## 2026-11-08",
+          "- r/openclaw Daily Trawl \u2014 nothing actionable",
+          "- - Kubera (PER-003 Angel One trading bot) revived after being dead since 3 Aug: DB upgrade via `doctor --fix`, 3.3GB backup taken first, ~58,000 old session files cleaned up",
+          "- - Kubera now live on port 18798, polling Telegram as @Kubera_Ram_Bot",
+          "- - Moolah group (chat ID -5500851206, plain group) set up as 3-way: Ram, Kubera, Haderach",
+          "- - Fixed Kubera's config: added Moolah to allowed-groups (open, no mention required); fixed group-reply posting bug (was treating replies as private)",
+          "- - Fixed Haderach's own Moolah access via Giskard: added to Telegram groups list (open policy, requireMention: true, answers only when addressed); backup taken first",
+          "- - Flagged cron error affecting Haderach, Giskard and Purl: \"no such column: consecutive...\" (unresolved, needs follow-up)",
+          "- - Revisited PER-003 architecture review (24 Jul 2026): root cause of Kubera's old order-placement failures (6/69 success rate, duplicate fills, one unapproved execution) \u2014 led to the kubera_core safety rebuild",
+          "- - Verified Angel One live access via kubera_core (read-only): holdings \u20b912.76L across 11 stocks, ~\u20b917,600 unrealised profit, no open positions; largest holdings ICICI Bank, Bajaj Finance, TCS, ITC",
+          "- - Proposals/trade confirmations now route to Moolah group per Ram's instruction",
+          "--- [Midnight run OK \u2014 2026-11-09 \u2014 no new content] ---"
         ]
       }
     },
@@ -852,8 +852,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 1035,
-      "rss_gb": 1.42,
-      "cpu": 3.2,
+      "rss_gb": 1.53,
+      "cpu": 1.0,
       "crons_total": 17,
       "crons_enabled": 15,
       "skills_count": 1,
@@ -879,12 +879,12 @@
       "crons": [],
       "transcripts": {
         "recent": [
-          "# Transcript - 2026-11-08",
-          "# Self-healing rotation from transcript-2026-11-07.md at 00:00 IST"
+          "# Transcript - 2026-11-09",
+          "# Self-healing rotation from transcript-2026-11-08.md at 00:00 IST"
         ],
         "yesterday": [
-          "# Transcript - 2026-11-07",
-          "# Self-healing rotation from transcript-2026-11-06.md at 00:00 IST"
+          "# Transcript - 2026-11-08",
+          "# Self-healing rotation from transcript-2026-11-07.md at 00:00 IST"
         ],
         "rolling_7day": [
           "--- [Midnight run OK \u2014 2026-10-03 \u2014 no new content] ---",
@@ -1147,8 +1147,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 20091,
-      "rss_gb": 1.03,
-      "cpu": 3.3,
+      "rss_gb": 1.05,
+      "cpu": 1.0,
       "crons_total": 13,
       "crons_enabled": 9,
       "skills_count": 18,
@@ -1509,7 +1509,7 @@
       "frozen_reason": null,
       "pid": 87691,
       "rss_gb": 1.26,
-      "cpu": 2.6,
+      "cpu": 1.4,
       "crons_total": 19,
       "crons_enabled": 10,
       "skills_count": 25,
@@ -2184,7 +2184,7 @@
       "frozen_reason": null,
       "pid": 76479,
       "rss_gb": 0.84,
-      "cpu": 4.2,
+      "cpu": 5.3,
       "crons_total": 8,
       "crons_enabled": 6,
       "skills_count": 1,
@@ -2262,7 +2262,7 @@
       "frozen_reason": null,
       "pid": 70617,
       "rss_gb": 0.84,
-      "cpu": 1.6,
+      "cpu": 2.3,
       "crons_total": 4,
       "crons_enabled": 3,
       "skills_count": 0,
@@ -2373,7 +2373,7 @@
       "frozen_reason": null,
       "pid": 1017,
       "rss_gb": 0.81,
-      "cpu": 1.7,
+      "cpu": 1.6,
       "crons_total": 3,
       "crons_enabled": 3,
       "skills_count": 0,
@@ -2402,8 +2402,8 @@
       "paused_date": null,
       "frozen_reason": null,
       "pid": 75597,
-      "rss_gb": 0.78,
-      "cpu": 1.8,
+      "rss_gb": 0.79,
+      "cpu": 1.3,
       "crons_total": 0,
       "crons_enabled": 0,
       "skills_count": 0,
